@@ -27,15 +27,36 @@ Data was copied from the raw_data repository to a local directory for assembly
 and annotation.
 
 ```bash
-    mkdir -p /home/groups/harrisonlab/project_files/fusarium_ex_strawberry
-    cd /home/groups/harrisonlab/project_files/fusarium_ex_strawberry
-  	Species=F.oxysporum_fsp_fragariae
-  	Strain=FeChina
-    mkdir -p raw_dna/paired/fusarium_ex_strawberry/FeChina/F
-    mkdir -p raw_dna/paired/fusarium_ex_strawberry/FeChina/R
-    RawDat=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/150925_M01678_0029_AC669
-    cp $RawDat/FeChina_S1_L001_R1_001.fastq.gz raw_dna/paired/fusarium_ex_strawberry/FeChina/F/.
-    cp $RawDat/FeChina_S1_L001_R2_001.fastq.gz raw_dna/paired/fusarium_ex_strawberry/FeChina/R/.
+    mkdir -p /home/groups/harrisonlab/project_files/phytophthora_fragariae
+    cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+  	Species=P.fragariae
+  	mkdir -p raw_dna/paired/P.fragariae/A4/F
+  	mkdir -p raw_dna/paired/P.fragariae/A4/R
+	mkdir -p raw_dna/paired/P.fragariae/SCRP245_v2/F
+	mkdir -p raw_dna/paired/P.fragariae/SCRP245_v2/R
+	mkdir -p raw_dna/paired/P.fragariae/Bc23/F
+	mkdir -p raw_dna/paired/P.fragariae/Bc23/R
+	mkdir -p raw_dna/paired/P.fragariae/Nov5/F
+	mkdir -p raw_dna/paired/P.fragariae/Nov5/R
+	mkdir -p raw_dna/paired/P.fragariae/Nov77/F
+	mkdir -p raw_dna/paired/P.fragariae/Nov77/R
+	mkdir -p raw_dna/paired/P.fragariae/ONT3/F
+	mkdir -p raw_dna/paired/P.fragariae/ONT3/R
+	RawDat=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/150716_M01678_0023_AB0YF
+	cp $RawDat/PfragariaeA4_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/A4/F/.
+	cp $RawDat/PfragariaeA4_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/A4/R/.
+	RawDat=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/150925_M01678_0029_AC669
+	cp $RawDat/Pfrag-SCRP245_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/SCRP245_v2/F/.
+	cp $RawDat/Pfrag-SCRP245_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/SCRP245_v2/R/.
+	cp $RawDat/Pfrag-Bc23_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc23/F/.
+	cp $RawDat/Pfrag-Bc23_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc23/R/.
+	RawDat=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/150918_M01678_0028_AC60K
+	cp $RawDat/Pfrag-Nov-5_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov5/F/.
+	cp $RawDat/Pfrag-Nov-5_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov5/R/.
+	cp $RawDat/Pfrag-Nov-77_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov77/F/.
+	cp $RawDat/Pfrag-Nov-77_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov77/R/.
+	cp $RawDat/Pfrag-ONT-3_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/ONT3/F/.
+	cp $RawDat/Pfrag-ONT-3_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/ONT3/R/.
 ```
 
 
