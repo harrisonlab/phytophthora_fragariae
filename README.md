@@ -114,22 +114,39 @@ This allowed estimation of sequencing depth and total genome size:
 	done
 ```
 
-** Estimated Genome Size is: 
+** Estimated Genome Size is:
+A4: 93413554
+SCRP245_v2: 127550025
+Bc23: 103251773
+Nov5: 95350039
+Nov77: 92399813
+ONT3: 103869049
 
-** Esimated Coverage is: 
+** Esimated Coverage is:
+A4: 23
+SCRP245_v2: 23
+Bc23: 24
+Nov5: 25
+Nov77: 30
+ONT3: 26
 
 # Assembly
-Assembly was performed using: Velvet / Abyss / Spades
-
-## Velvet Assembly
-A range of hash lengths were used and the best assembly selected for subsequent analysis
-
-```bash
-```
+Assembly was performed using: Spades
 
 ## Spades Assembly
 
 ```bash
+	for Strain in A4 SCRP245_v2 Bc23 Nov5 Nov77 ONT3; do
+		F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
+		R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz)
+		CovCutoff='10'
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
+		Species=$(echo $F_Read | rev | cut -f4 -d '/' | rev)
+		OutDir=assembly/spades/$Species/$Strain
+		echo $Species
+		echo $Strain
+		qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
+	done
 ```
 ## Filter the contigs
 
