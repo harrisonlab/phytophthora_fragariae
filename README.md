@@ -104,12 +104,19 @@ Data quality was visualised once again following trimming:
 kmer counting was performed using kmc.
 This allowed estimation of sequencing depth and total genome size:
 
-```bash
+```bash  
+	for Strain in "A4" "SCRP245_v2" "Bc23" "Nov5" "Nov77" "ONT3"; do
+		echo $Strain;
+		Trim_F=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz);
+		Trim_R=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz);
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
+		qsub $ProgDir/kmc_kmer_counting.sh $Trim_F $Trim_R;
+	done
 ```
 
-** Estimated Genome Size is: 8156187 
+** Estimated Genome Size is: 
 
-** Esimated Coverage is: 35
+** Esimated Coverage is: 
 
 # Assembly
 Assembly was performed using: Velvet / Abyss / Spades
