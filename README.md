@@ -67,6 +67,11 @@ programs: fastqc fastq-mcf kmc
 Data quality was visualised using fastqc:
 
 ```bash
+	for RawData in $(ls raw_dna/paired/P.fragariae/*/*/*.fastq.gz); do
+		echo $RawData;
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
+		qsub $ProgDir/run_fastqc.sh $RawData;
+	done
 ```
 
 Trimming was performed on data to trim adapters from sequences and remove poor quality data.
@@ -74,12 +79,25 @@ This was done with fastq-mcf
 
 
 ```bash
+	for Strain in "A4" "Bc23" "SCRP245_v2" "Nov5" "Nov77" "ONT3"; do
+		echo $Strain
+		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz)
+		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz)
+		IluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+		qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F $Read_R $IluminaAdapters DNA
+	done
 ```
 
 
 Data quality was visualised once again following trimming:
 
 ```bash
+	for RawData in $(ls qc_dna/paired/P.fragariae/*/*/*.fq.gz); do
+		echo $RawData;
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
+		qsub $ProgDir/run_fastqc.sh $RawData;
+	done
 ```
 
 
