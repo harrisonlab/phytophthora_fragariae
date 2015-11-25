@@ -148,6 +148,21 @@ Assembly was performed using: Spades
 		qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
 	done
 ```
+
+##Spades Assembly failed for SCRP245_v2, hammer ran out of memory. Resubmitting as a single job
+
+```bash
+	Strain=SCRP245_v2
+	F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
+	R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
+	CovCutoff='10'
+	ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
+	Species=$(echo $F_Read | rev | cut -f4 -d '/' | rev)
+	OutDir=assembly/spades/$Species/$Strain
+	echo $Species
+	echo $Strain
+	qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
+```
 ## Filter the contigs
 
 ```bash
