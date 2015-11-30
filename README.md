@@ -163,6 +163,22 @@ Assembly was performed using: Spades
 	echo $Strain
 	qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
 ```
+
+##Previous code submitted a forward read as both forward and reverse reads, rejected by Spades. Code corrected and resubmitted.
+
+```bash
+	Strain=SCRP245_v2
+	F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
+	R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz)
+	CovCutoff='10'
+	ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
+	Species=$(echo $F_Read | rev | cut -f4 -d '/' | rev)
+	OutDir=assembly/spades/$Species/$Strain
+	echo $Species
+	echo $Strain
+	qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
+```
+
 ## Filter the contigs
 
 ```bash
