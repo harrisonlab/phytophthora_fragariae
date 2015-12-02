@@ -179,13 +179,31 @@ Assembly was performed using: Spades
 	qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
 ```
 
-## Filter the contigs
-
-```bash
-```
 ##Quast
 
 ```bash
+for Strain in A4 SCRP245_v2 Bc23 Nov5 Nov77 ONT3; do
+	ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+	OutDir=$(ls -d assembly/spades/*/$Strain/filtered_contigs)
+	AssFiltered=$OutDir/contigs_min_500bp.fasta
+	AssRenamed=$OutDir/contigs_min_500bp_renamed.fasta
+	echo $AssFiltered
+	printf '.\t.\t.\t.\n' > editfile.tab
+	$ProgDir/remove_contaminants.py --inp $AssFiltered --out $AssRenamed --coord_file editfile.tab
+	rm editfile.tab
+done
+```
+
+##QUAST used to summarise assembly statistics
+
+```bash
+ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/assembly_qc/quast
+for Assembly in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
+	Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
+	Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+	OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
+	qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+done
 ```
 
 -->
@@ -195,6 +213,12 @@ Repeat masking was performed and used the following programs: Repeatmasker Repea
 The best assembly was used to perform repeatmasking
 
 ```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
+for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
+	echo $BestAss
+	qsub $ProgDir/rep_modeling.sh $BestAss
+	qsub $ProgDir/transposonPSI.sh $BestAss
+done
  ```
 
 ** % bases masked by repeatmasker: 11.73%
