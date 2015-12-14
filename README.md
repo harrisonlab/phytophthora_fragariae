@@ -217,13 +217,32 @@ ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
 for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
 	echo $BestAss
 	qsub $ProgDir/rep_modeling.sh $BestAss
-	qsub $ProgDir/transposonPSI.sh $BestAss
 done
  ```
+ 
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
+for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
+echo $BestAss
+qsub $ProgDir/transposonPSI.sh $BestAss
+done
+ ``` 
 
-** % bases masked by repeatmasker: 11.73%
+** % bases masked by repeatmasker: 
+A4: 33.90%
+Bc23: 21.63%
+Nov5: 31.91%
+Nov77: 31.54%
+ONT3: 29.92%
+SCRP245_v2: 21.14% **
 
-** % bases masked by transposon psi: **
+** % bases masked by transposon psi:
+A4: 
+Bc23: 
+Nov5: 
+Nov77: 
+ONT3: 
+SCRP245_v2: %**
 
 
 # Gene Prediction
