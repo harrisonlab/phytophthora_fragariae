@@ -223,8 +223,8 @@ done
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
 for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
-echo $BestAss
-qsub $ProgDir/transposonPSI.sh $BestAss
+	echo $BestAss
+	qsub $ProgDir/transposonPSI.sh $BestAss
 done
  ``` 
 
@@ -237,11 +237,11 @@ ONT3: 29.92%
 SCRP245_v2: 21.14% **
 
 ** % bases masked by transposon psi:
-A4: 
-Bc23: 
-Nov5: 
-Nov77: 
-ONT3: 
+A4: %
+Bc23: %
+Nov5: %
+Nov77: %
+ONT3: %
 SCRP245_v2: %**
 
 
@@ -254,10 +254,14 @@ Gene models were used to predict genes in the fusarium genome. This used results
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
 ```bash
-```
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
+for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
+	echo $BestAss
+	qsub $ProgDir/sub_cegma.sh $BestAss
+done```
 
-** Number of cegma genes present and complete: 95.16
-** Number of cegma genes present and partial: 97.18
+** Number of cegma genes present and complete: 
+** Number of cegma genes present and partial: 
 
 ##Gene prediction
 
