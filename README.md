@@ -257,7 +257,7 @@ Quality of genome assemblies was assessed by looking for the gene space in the a
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
 for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
 	echo $BestAss
-	qsub $ProgDir/sub_cegma.sh $BestAss
+	qsub $ProgDir/sub_cegma.sh $BestAss dna
 done```
 
 ** Number of cegma genes present and complete: 
