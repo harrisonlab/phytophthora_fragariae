@@ -239,15 +239,25 @@ SCRP245_v2: 21.14% **
 Summary for transposonPSI output:
 
 ```bash
-
-
+Organism=P.fragariae
+for Strain in A4 SCRP245_v2 Bc23 Nov5 Nov77 ONT3; do
+	RepDir=repeat_masked/$Organism/$Strain/filtered_contigs_repmask
+	TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+	echo $Strain
+	printf "The number of bases masked by TransposonPSI:\t"
+	sortBed -i $TransPSIGff > $RepDir/TPSI_sorted.bed
+	bedtools merge -i $RepDir/TPSI_sorted.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+	rm $RepDir/TPSI_sorted.bed
+done
+```
+	
 ** % bases masked by transposon psi:
-A4: %
-Bc23: %
-Nov5: %
-Nov77: %
-ONT3: %
-SCRP245_v2: %**
+A4: 0.83%
+Bc23: 6.76% 
+Nov5: 8.00%
+Nov77: 8.01%
+ONT3: 7.29%
+SCRP245_v2: 6.37%**
 
 
 # Gene Prediction
@@ -312,7 +322,7 @@ Aligments of RNAseq reads were made against assemblies from each strain using to
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
 FileF=qc_rna/genbank/P.cactorum/10300/F/SRR1206032_trim.fq.gz
-FileR=qc_rna/genbank/P.cactorum/R/10300/SRR1206033_trim.fq.gz
+FileR=qc_rna/genbank/P.cactorum/10300/R/SRR1206033_trim.fq.gz
 for Genome in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
 	Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
 	Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
