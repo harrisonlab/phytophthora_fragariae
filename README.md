@@ -302,11 +302,12 @@ qsub /home/armita/git_repos/emr_repos/tools/seq_tools/rna_qc/rna_qc_fastq-mcf.sh
 ```
 
 ##2) Align reads vs. genome
+Aligments of RNAseq reads were made against assemblies from each strain using tophat:
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-FileF=qc_rna/raw_rna/genbank/P.cactorum/F/SRR1206032_trim.fq.gz
-FileR=qc_rna/raw_rna/genbank/P.cactorum/R/SRR1206033_trim.fq.gz
+FileF=qc_rna/genbank/P.cactorum/F/SRR1206032_trim.fq.gz
+FileR=qc_rna/genbank/P.cactorum/R/SRR1206033_trim.fq.gz
 for Genome in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
 	Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
 	Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
