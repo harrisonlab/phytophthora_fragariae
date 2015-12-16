@@ -258,7 +258,8 @@ ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
 for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
 	echo $BestAss
 	qsub $ProgDir/sub_cegma.sh $BestAss dna
-done```
+done
+```
 
 ** Number of cegma genes present and complete: 
 A4: 94.35%
@@ -278,13 +279,42 @@ SCRP245_v2: 96.37% **
 
 ##Gene prediction
 
-Gene prediction was performed for the Phytophthora fragariae genomes.
-CEGMA genes were used as Hints for the location of CDS.
+Copy over RNA seq data for P. cactorum 10300
 
 ```bash
+RawDatDir=/home/groups/harrisonlab/project_files/idris/raw_rna/genbank/P.cactorum/10300
+ProjectDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/
+mkdir -p $ProjectDir/raw_rna/genbank/P.cactorum/10300/F
+mkdir -p $ProjectDir/raw_rna/genbank/P.cactorum/10300/R
+cp $RawDatDir/SRR1206032.fastq $ProjectDir/raw_rna/genbank/P.cactorum/10300/F
+cp $RawDatDir/SRR1206033.fastq $ProjectDir/raw_rna/genbank/P.cactorum/10300/R
 ```
 
-** Number of genes predicted: 12712
+##1) QC
+
+Perform qc of RNAseq timecourse data. These reads are not actually paired reads but this is irrelevant for processing using fast-mcf
+
+```bash
+FileF=raw_rna/genbank/P.cactorum/10300/F/SRR1206032.fastq
+FileR=raw_rna/genbank/P.cactorum/10300/R/SRR1206033.fastq
+IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.fa
+qsub /home/armita/git_repos/emr_repos/tools/seq_tools/rna_qc/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
+```
+
+##2) Align reads vs. genome
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+FileF=qc_rna/raw_rna/genbank/P.cactorum/F/SRR1206032_trim.fq.gz
+FileR=qc_rna/raw_rna/genbank/P.cactorum/R/SRR1206033_trim.fq.gz
+for Genome in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
+	Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
+	Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
+	OutDir=alignment/$Organism/$Strain
+	echo $Organism $Strain
+	qsub $ProgDir/tophat_alignment.sh $Genome $FileF $FileR $OutDir
+done
+```
 
 
 #Functional annotation
