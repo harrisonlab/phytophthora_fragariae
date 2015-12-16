@@ -261,11 +261,24 @@ for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta);
 done```
 
 ** Number of cegma genes present and complete: 
-** Number of cegma genes present and partial: 
+A4: 94.35%
+Bc23: 94.76%
+Nov5: 95.16%
+Nov77: 94.35%
+ONT3: 94.76%
+SCRP245_v2: 93.95% **
+
+** Number of cegma genes present and partial:
+A4: 97.98%
+Bc23: 96.77%
+Nov5: 97.18%
+Nov77: 96.37%
+ONT3: 97.18%
+SCRP245_v2: 96.37% **
 
 ##Gene prediction
 
-Gene prediction was performed for the neonectria genome.
+Gene prediction was performed for the Phytophthora fragariae genomes.
 CEGMA genes were used as Hints for the location of CDS.
 
 ```bash
