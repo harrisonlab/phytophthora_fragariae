@@ -347,6 +347,13 @@ done
 
 ##3) Run Braker1
 
+As this is the first time I have run Braker I need to copy the licence key for genemarkET
+to my user directory
+
+```bash
+cp /home/armita/.gm_key ~/.gm_key
+```
+
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
 for Genome in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa); do
@@ -357,6 +364,7 @@ for Genome in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked
 	GeneModelName="$Organism"_"$Strain"_braker
 	qsub $ProgDir/sub_braker.sh $Genome $OutDir $AcceptedHits $GeneModelName
 done
+```
 
 #Functional annotation
 
