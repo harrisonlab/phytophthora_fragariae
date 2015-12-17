@@ -332,6 +332,31 @@ for Genome in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); 
 done
 ```
 
+Alignment files were merged into a single file so as to be passed to a gene prediction program to indicate the location of aligned RNAseq data against a particular genome.
+
+<!-- 
+```bash
+for StrainDir in $(ls -d alignment/*/*); do
+	Strain=$(echo $StrainDir | rev | cut -d '/' -f1 | rev)
+	ls alignment/*/$Strain/accepted_hits.bam > bamlist.txt
+	mkdir -p $StrainDir/merged
+	bamtools merge -list bamlist.txt -out $StrainDir/merged
+done
+```
+ -->
+
+##3) Run Braker1
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
+for Genome in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa); do
+	Strain=$(echo $Genome| rev | cut -d '/' -f3 | rev)
+	Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
+	OutDir=gene_pred/braker/$Organism/$Strain
+	AcceptedHits=alignment/$Organism/$Strain/accepted_hits.bam
+	GeneModelName="$Organism"_"$Strain"_braker
+	qsub $ProgDir/sub_braker.sh $Genome $OutDir $AcceptedHits $GeneModelName
+done
 
 #Functional annotation
 
