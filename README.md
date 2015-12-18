@@ -1,9 +1,6 @@
 # phytophthora_fragariae
 Commands used in the analysis of P. fragariae genomes
-# fusarium_ex_strawberry
-Commands used in the analysis of Fusarium oxysporum isolates ex. strawberry.
-
-Fusarium oxysporum fsp. fragariae
+A4, Bc23, Nov5, Nov77, ONT3 and SCRP245_v2
 ====================
 
 Commands used during analysis of the Fusarium oxysporum fsp. fragariae genome. Note - all this work was performed in the directory: /home/groups/harrisonlab/project_files/Fusarium oxysporum fsp. fragariae
@@ -365,6 +362,16 @@ for Genome in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked
 	qsub $ProgDir/sub_braker.sh $Genome $OutDir $AcceptedHits $GeneModelName
 done
 ```
+
+##4) Extract gff and amino acid sequences
+
+```bash
+for File in $(ls gene_pred/braker/*/*/*_braker/augustus.gff); do
+	getAnnoFasta.pl $File
+	OutDir=$(dirname $File)
+	echo "##gff-version 3" > $OutDir/augustus_extracted.gff
+	cat $File | grep -v '#' >> $OutDir/augustus_extracted.gff
+done
 
 #Functional annotation
 
