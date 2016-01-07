@@ -372,6 +372,18 @@ for File in $(ls gene_pred/braker/*/*/*_braker/augustus.gff); do
 	echo "##gff-version 3" > $OutDir/augustus_extracted.gff
 	cat $File | grep -v '#' >> $OutDir/augustus_extracted.gff
 done
+```bash
+
+##Use atg.pl to predict all ORFs
+
+This uses the atg.pl script to identify all ORFs in the genome. These can then be used to look for RxLRs and signal peptides.
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder 
+for Genome in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
+	qsub $ProgDir/run_ORF_finder.sh $Genome
+done
+```
 
 #Functional annotation
 
@@ -394,41 +406,41 @@ B) SwissProt
 ```
 
 #Genomic analysis
-The first analysis was based upon BLAST searches for genes known to be involved in toxin production
 
+##RxLR genes
 
-##Genes with homology to PHIbase
-Predicted gene models were searched against the PHIbase database using tBLASTx.
+A) From Braker1 gene models - signal peptide and RxLR motif
+
+Required programs:
+
+SigP
+biopython
+
+Proteins that were predicted to contain signal peptides were identified using the following commands: 
+
 
 ```bash
-```
-
-Top BLAST hits were used to annotate gene models.
-
-The second analysis was based upon BLAST searches for genes known to be SIX genes 
-
-
-##Genes with homology to SIX genes
-Predicted gene models were searched against the SIX genes database using tBLASTx.
-
-```bash
-```
-
-##Mimps
-
-The presence of Mimp promotors in Fusarium genomes were identified. This was done in three steps:
-•Position of Mimps were identified in the genome
-•Genes within 1000bp downstream of the mimp were identified from Augustus predictions
-•ORFs within 1000bp downstream of the mimp were identified from ORF predictions
-
-A) Position of Mimps were identified
-
-Position of Mimps gff predictions for the position of mimps in the genome were identified Fus2 was performed separately to ensure mimps are predicted from the correct assembly
-
-```bash
-```
-B) Augustus genes flanking Mimps
-
-```bash
-```
-<!--
+for Proteome in $(ls gene_pred/braker/*/*/*/augustus.aa); do
+    echo "$Proteome"
+    SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+    SplitDir=gene_pred/braker_split/$Organism/$Strain
+    mkdir -p $SplitDir
+    BaseName="$Organism""_$Strain"_braker_preds
+    $SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
+    for File in $(ls $SplitDir/*_braker_preds_*); do
+      Jobs=$(qstat | grep 'pred_sigP' | wc -l)
+      while [ $Jobs -ge 32 ]; do
+        sleep 10
+        printf "."
+        Jobs=$(qstat | grep 'pred_sigP' | wc -l)
+      done
+      printf "\n"
+      echo $File
+      qsub $ProgDir/pred_sigP.sh $File
+      # qsub $ProgDir/pred_sigP.sh $File signalp-4.1
+    done
+  done
+  ```
