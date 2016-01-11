@@ -443,4 +443,53 @@ for Proteome in $(ls gene_pred/braker/*/*/*/augustus.aa); do
       # qsub $ProgDir/pred_sigP.sh $File signalp-4.1
     done
   done
-  ```
+```
+This produces batch files. They need to be combined into a single file for each strain using the following commands:
+
+```bash
+for SplitDir in $(ls -d gene_pred/braker_split/P.*/*); do
+	Strain=$(echo $SplitDir | rev | cut -d '/' -f1 | rev)
+	Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
+	InStringAA=''
+	InStringNeg=''
+	InStringTab=''
+	InStringTxt=''
+	for GRP in $(ls -l $SplitDir/*_braker_preds_*.fa | rev | cut -d '_' -f1 | rev | sort -n); do  
+		InStringAA="$InStringAA gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.aa";  
+		InStringNeg="$InStringNeg gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp_neg.aa";  
+		InStringTab="$InStringTab gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.tab";
+		InStringTxt="$InStringTxt gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.txt";
+	done
+	cat $InStringAA > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.aa
+	cat $InStringNeg > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_neg_sp.aa
+	tail -n +2 -q $InStringTab > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.tab
+	cat $InStringTxt > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.txt
+done
+```
+The RxLR_EER_regex_finder.py script was used to search for this regular expression R.LR.{,40}[ED][ED][KR] and annotate the EER domain where present. Done separate for each strain.
+
+```bash
+for Secretome in $(ls gene_pred/braker_sigP/*/A4/*braker_sp.aa); do
+	ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors;
+	Strain=$(echo $Secretome | rev | cut -d '/' -f2 | rev);
+	Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
+	OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
+	mkdir -p $OutDir;
+	printf "\nstrain: $Strain\tspecies: $Organism\n";
+	printf "the number of SigP gene is:\t";
+	cat $Secretome | grep '>' | wc -l;
+	printf "the number of SigP-RxLR genes are:\t";
+	$ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_braker_RxLR_regex.fa;
+	cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_regex.txt
+	cat $OutDir/"$Strain"_braker_RxLR_regex.txt | wc -l
+	printf "the number of SigP-RxLR-EER genes are:\t";
+	cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_EER_regex.txt
+	cat $OutDir/"$Strain"_braker_RxLR_EER_regex.txt | wc -l
+	printf "\n"
+	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+	# $ProgDir/extract_from_fasta.py --fasta $OutDir/"$Strain"_pub_RxLR_regex.fa --headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
+	# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
+	# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_regex.txt > $OutDir/"$Strain"_pub_RxLR_regex.gff3
+	# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
+done
+```
