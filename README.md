@@ -1,9 +1,9 @@
 # phytophthora_fragariae
 Commands used in the analysis of P. fragariae genomes
-A4, Bc23, Nov5, Nov77, ONT3 and SCRP245_v2
+A4, Bc23, Nov5, Nov77, ONT3, SCRP245_v2, Bc16, 62471 and Nov27
 ====================
 
-Commands used during analysis of the Fusarium oxysporum fsp. fragariae genome. Note - all this work was performed in the directory: /home/groups/harrisonlab/project_files/Fusarium oxysporum fsp. fragariae
+Commands used during analysis of Phytophthora fragariae genomed. Note - all this work was performed in the directory: /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
 The following is a summary of the work presented in this Readme:
 Data organisation:
@@ -54,6 +54,19 @@ and annotation.
 	cp $RawDat/Pfrag-Nov-77_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov77/R/.
 	cp $RawDat/Pfrag-ONT-3_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/ONT3/F/.
 	cp $RawDat/Pfrag-ONT-3_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/ONT3/R/.
+	RawDatDir=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/160108_M01678_0039_AEMMF
+	mkdir -p raw_dna/paired/P.fragariae/Bc16/F
+	mkdir -p raw_dna/paired/P.fragariae/Bc16/R
+	cp $RawDatDir/Bc16_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/F/.
+	cp $RawDatDir/Bc16_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/R/.
+	mkdir -p raw_dna/paired/P.fragariae/62471/F/.
+	mkdir -p raw_dna/paired/P.fragariae/62471/R/.
+	cp $RawDatDir/62471_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/62471/F/.
+	cp $RawDatDir/62471_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/62471/R/.
+	mkdir -p raw_dna/paired/P.fragariae/Nov27/F/.
+	mkdir -p raw_dna/paired/P.fragariae/Nov27/R/.
+	cp $RawDatDir/Nov27_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov27/F/.
+	cp $RawDatDir/Nov27_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov27/R/.
 ```
 
 
