@@ -76,6 +76,7 @@ programs: fastqc fastq-mcf kmc
 
 Data quality was visualised using fastqc:
 
+
 ```bash
 	for RawData in $(ls raw_dna/paired/P.fragariae/*/*/*.fastq.gz); do
 		echo $RawData;
