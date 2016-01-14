@@ -104,7 +104,7 @@ This was done with fastq-mcf
 Data quality was visualised once again following trimming:
 
 ```bash
-	for RawData in $(ls qc_dna/paired/P.fragariae/Nov27/*/*.fq.gz); do
+	for RawData in $(ls qc_dna/paired/P.fragariae/*/*/*.fq.gz); do
 		echo $RawData;
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
 		qsub $ProgDir/run_fastqc.sh $RawData;
@@ -116,7 +116,7 @@ kmer counting was performed using kmc.
 This allowed estimation of sequencing depth and total genome size:
 
 ```bash  
-	for Strain in "A4" "SCRP245_v2" "Bc23" "Nov5" "Nov77" "ONT3"; do
+	for Strain in "Bc16" "62471" "Nov27"; do
 		echo $Strain;
 		Trim_F=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz);
 		Trim_R=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz);
@@ -780,9 +780,9 @@ Due to the nature of predicting ORFs, some features overlapped with one another.
 		SigP_Merged_AA=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.aa
 		ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 		$ProgDir/extract_gff_for_sigP_hits.pl $SigP_headers $ORF_Gff SigP Name > $SigP_Gff
-		ProgDir=~/git_repos/emr_repos/scripts/phytophthora/pathogen/merge_gff
+		ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
 		$ProgDir/make_gff_database.py --inp $SigP_Gff --db sigP_ORF.db
-		ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
+		ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 		$ProgDir/merge_sigP_ORFs.py --inp sigP_ORF.db --id sigP_ORF --out sigP_ORF_merged.db --gff > $SigP_Merged_Gff
 		cat $SigP_Merged_Gff | grep 'transcript' | rev | cut -f1 -d'=' | rev > $SigP_Merged_txt
 		$ProgDir/extract_from_fasta.py --fasta $SigP_fasta --headers $SigP_Merged_txt > $SigP_Merged_AA
