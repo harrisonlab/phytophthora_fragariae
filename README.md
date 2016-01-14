@@ -90,7 +90,7 @@ This was done with fastq-mcf
 
 
 ```bash
-	for Strain in "A4" "Bc23" "SCRP245_v2" "Nov5" "Nov77" "ONT3"; do
+	for Strain in "Bc16" "62471" "Nov27"; do
 		echo $Strain
 		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz)
 		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz)
@@ -104,7 +104,7 @@ This was done with fastq-mcf
 Data quality was visualised once again following trimming:
 
 ```bash
-	for RawData in $(ls qc_dna/paired/P.fragariae/*/*/*.fq.gz); do
+	for RawData in $(ls qc_dna/paired/P.fragariae/Nov27/*/*.fq.gz); do
 		echo $RawData;
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
 		qsub $ProgDir/run_fastqc.sh $RawData;
@@ -396,6 +396,18 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder 
 for Genome in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
 	qsub $ProgDir/run_ORF_finder.sh $Genome
+done
+```
+
+The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
+
+```bash
+for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
+Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
+Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
+ProgDir=~/git_repos/tools/seq_tools/feature_annotation
+ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
 done
 ```
 
@@ -740,4 +752,39 @@ for SplitDir in $(ls -d gene_pred/ORF_split/P.*/*); do
 	tail -n +2 -q $InStringTab > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.tab
 	cat $InStringTxt > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.txt
 done
+```
+Names of ORFs containing signal peptides were extracted from fasta files. This included information on the position and hmm score of RxLRs.
+```bash
+	for FastaFile in $(ls gene_pred/ORF_sigP/*/*/*_ORF_sp.aa); do
+		Strain=$(echo $FastaFile | rev | cut -d '/' -f2 | rev)
+		Organism=$(echo $FastaFile | rev | cut -d '/' -f3 | rev)
+		echo "$Strain"
+		SigP_headers=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_names.txt
+		cat $FastaFile | grep '>' | sed -r 's/>//g' | sed -r 's/\s+/\t/g'| sed 's/=\t/=/g' | sed 's/--//g' > $SigP_headers
+	done
+```
+
+Due to the nature of predicting ORFs, some features overlapped with one another. A single ORF was selected from each set of overlapped ORFs. This was selected on the basis of its SignalP Hmm score. Biopython was used to identify overlaps and identify the ORF with the best SignalP score.
+
+```bash
+	for SigP_fasta in $(ls gene_pred/ORF_sigP/P.*/*/*_ORF_sp.aa); do
+		Strain=$(echo $SigP_fasta | rev | cut -d '/' -f2 | rev)
+		Organism=$(echo $SigP_fasta | rev | cut -d '/' -f3 | rev)
+		echo "$Strain"
+		ORF_Gff=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+		SigP_fasta=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.aa
+		SigP_headers=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_names.txt
+		SigP_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_unmerged.gff
+		SigP_Merged_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
+		SigP_Merged_txt=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.txt
+		SigP_Merged_AA=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.aa
+		ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+		$ProgDir/extract_gff_for_sigP_hits.pl $SigP_headers $ORF_Gff SigP Name > $SigP_Gff
+		ProgDir=~/git_repos/emr_repos/scripts/phytophthora/pathogen/merge_gff
+		$ProgDir/make_gff_database.py --inp $SigP_Gff --db sigP_ORF.db
+		ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
+		$ProgDir/merge_sigP_ORFs.py --inp sigP_ORF.db --id sigP_ORF --out sigP_ORF_merged.db --gff > $SigP_Merged_Gff
+		cat $SigP_Merged_Gff | grep 'transcript' | rev | cut -f1 -d'=' | rev > $SigP_Merged_txt
+		$ProgDir/extract_from_fasta.py --fasta $SigP_fasta --headers $SigP_Merged_txt > $SigP_Merged_AA
+	done
 ```
