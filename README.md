@@ -132,6 +132,9 @@ Bc23: 103251773
 Nov5: 95350039
 Nov77: 92399813
 ONT3: 103869049
+Bc16: 96652173
+62471: 548976060
+Nov27: 93851233
 
 ** Esimated Coverage is:
 A4: 23
@@ -140,6 +143,9 @@ Bc23: 24
 Nov5: 25
 Nov77: 30
 ONT3: 26
+Bc16: 19
+62471: 5
+Nov27: 31
 
 # Assembly
 Assembly was performed using: Spades
