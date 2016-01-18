@@ -775,24 +775,24 @@ Names of ORFs containing signal peptides were extracted from fasta files. This i
 Due to the nature of predicting ORFs, some features overlapped with one another. A single ORF was selected from each set of overlapped ORFs. This was selected on the basis of its SignalP Hmm score. Biopython was used to identify overlaps and identify the ORF with the best SignalP score.
 
 ```bash
-for SigP_fasta in $(ls gene_pred/ORF_sigP/P.*/*/*_ORF_sp.aa); do
-Strain=$(echo $SigP_fasta | rev | cut -d '/' -f2 | rev)
-Organism=$(echo $SigP_fasta | rev | cut -d '/' -f3 | rev)
-echo "$Strain"
-ORF_Gff=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
-SigP_fasta=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.aa
-SigP_headers=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_names.txt
-SigP_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_unmerged.gff
-SigP_Merged_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
-SigP_Merged_txt=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.txt
-SigP_Merged_AA=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.aa
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-$ProgDir/extract_gff_for_sigP_hits.pl $SigP_headers $ORF_Gff SigP Name > $SigP_Gff
-ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
-$ProgDir/make_gff_database.py --inp $SigP_Gff --db sigP_ORF.db
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-$ProgDir/merge_sigP_ORFs.py --inp sigP_ORF.db --id sigP_ORF --out sigP_ORF_merged.db --gff > $SigP_Merged_Gff
-cat $SigP_Merged_Gff | grep 'transcript' | rev | cut -f1 -d'=' | rev > $SigP_Merged_txt
-$ProgDir/extract_from_fasta.py --fasta $SigP_fasta --headers $SigP_Merged_txt > $SigP_Merged_AA
-done
+	for SigP_fasta in $(ls gene_pred/ORF_sigP/P.*/*/*_ORF_sp.aa); do
+		Strain=$(echo $SigP_fasta | rev | cut -d '/' -f2 | rev)
+		Organism=$(echo $SigP_fasta | rev | cut -d '/' -f3 | rev)
+		echo "$Strain"
+		ORF_Gff=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+		SigP_fasta=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.aa
+		SigP_headers=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_names.txt
+		SigP_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_unmerged.gff
+		SigP_Merged_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
+		SigP_Merged_txt=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.txt
+		SigP_Merged_AA=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.aa
+		ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+		$ProgDir/extract_gff_for_sigP_hits.pl $SigP_headers $ORF_Gff SigP Name > $SigP_Gff
+		ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
+		$ProgDir/make_gff_database.py --inp $SigP_Gff --db sigP_ORF.db
+		ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+		$ProgDir/merge_sigP_ORFs.py --inp sigP_ORF.db --id sigP_ORF --out sigP_ORF_merged.db --gff > $SigP_Merged_Gff
+		cat $SigP_Merged_Gff | grep 'transcript' | rev | cut -f1 -d'=' | rev > $SigP_Merged_txt
+		$ProgDir/extract_from_fasta.py --fasta $SigP_fasta --headers $SigP_Merged_txt > $SigP_Merged_AA
+	done
 ```
