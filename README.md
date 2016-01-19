@@ -155,7 +155,7 @@ Assembly was performed using: Spades
 ## Spades Assembly
 
 ```bash
-	for Strain in Nov27; do
+	for Strain in 62471; do
 		F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
 		R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz)
 		CovCutoff='10'
