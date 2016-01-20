@@ -130,7 +130,7 @@ This was done with fastq-mcf
 
 
 ```bash
-	for Strain in "Bc16" "62471" "Nov27"; do
+	for Strain in "Bc1" "Nov9" "Nov71"; do
 		echo $Strain
 		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz)
 		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz)
