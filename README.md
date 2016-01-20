@@ -69,6 +69,46 @@ and annotation.
 	cp $RawDatDir/Nov27_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov27/R/.
 ```
 
+```bash
+	RawDatDir=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/160108_M01678_0039_AEMMF
+	mkdir -p raw_dna/paired/P.fragariae/Bc16/F
+	mkdir -p raw_dna/paired/P.fragariae/Bc16/R
+	cp $RawDatDir/Bc16_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/F/.
+	cp $RawDatDir/Bc16_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/R/.
+	mkdir -p raw_dna/paired/P.fragariae/62471/F/.
+	mkdir -p raw_dna/paired/P.fragariae/62471/R/.
+	cp $RawDatDir/62471_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/62471/F/.
+	cp $RawDatDir/62471_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/62471/R/.
+	mkdir -p raw_dna/paired/P.fragariae/Nov27/F/.
+	mkdir -p raw_dna/paired/P.fragariae/Nov27/R/.
+	cp $RawDatDir/Nov27_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov27/F/.
+	cp $RawDatDir/Nov27_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov27/R/.
+```
+
+```bash
+	ReadDir=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads
+	mkdir -p raw_dna/paired/P.fragariae/Nov9/F
+	mkdir -p raw_dna/paired/P.fragariae/Nov9/R
+	cp $ReadDir/151113_M01678_0031_000000000-ACUNP/PfragNov9_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/F/.
+	cp $ReadDir/151113_M01678_0031_000000000-ACUNP/PfragNov9_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/R/.
+	cp $ReadDir/151127_M01678_0032_000000000-ACUUN/Pfrag-Nov9_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/F/.
+	cp $ReadDir/151127_M01678_0032_000000000-ACUUN/Pfrag-Nov9_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/R/.
+
+	mkdir -p raw_dna/paired/P.fragariae/Nov71/F
+	mkdir -p raw_dna/paired/P.fragariae/Nov71/R
+	cp $ReadDir/151113_M01678_0031_000000000-ACUNP/PfragNov71_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov71/F/.
+	cp $ReadDir/151113_M01678_0031_000000000-ACUNP/PfragNov71_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov71/R/.
+	cp $ReadDir/151127_M01678_0032_000000000-ACUUN/Pfrag-Nov71_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov71/F/.
+	cp $ReadDir/151127_M01678_0032_000000000-ACUUN/Pfrag-Nov71_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov71/R/.
+
+	mkdir -p raw_dna/paired/P.fragariae/Bc1/F
+	mkdir -p raw_dna/paired/P.fragariae/Bc1/R
+	cp $ReadDir/151113_M01678_0031_000000000-ACUNP/PfragBc1_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/F/.
+	cp $ReadDir/151113_M01678_0031_000000000-ACUNP/PfragBc1_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/R/.
+	cp $ReadDir/151127_M01678_0032_000000000-ACUUN/Pfrag-Bc1_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/F/.
+	cp $ReadDir/151127_M01678_0032_000000000-ACUUN/Pfrag-Bc1_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/R/.
+```
+
 
 #Data qc
 
@@ -155,7 +195,7 @@ Assembly was performed using: Spades
 ## Spades Assembly
 
 ```bash
-	for Strain in 62471; do
+	for Strain in Bc16; do
 		F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
 		R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz)
 		CovCutoff='10'
