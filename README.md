@@ -115,7 +115,7 @@ and annotation.
 programs: fastqc fastq-mcf kmc
 
 Data quality was visualised using fastqc:
-
+Nov9, Nov71 and Bc1
 
 ```bash
 	for RawData in $(ls raw_dna/paired/P.fragariae/*/*/*.fastq.gz); do
