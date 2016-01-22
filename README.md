@@ -183,9 +183,9 @@ ONT3: 103869049
 Bc16: 96652173
 62471: 548976060
 Nov27: 93851233
-Bc1:
-Nov9:
-Nov71:
+Bc1: 742,452,694
+Nov9: 89,977,514
+Nov71: 810,779,109
 
 ** Esimated Coverage is:
 A4: 23
@@ -197,11 +197,12 @@ ONT3: 26
 Bc16: 19
 62471: 5
 Nov27: 31
-Bc1:
-Nov9:
-Nov71:
+Bc1: 5
+Nov9: 41
+Nov71: 5
 
-Target coverage is 20. Need more data for: Bc16 and 62471.
+Target coverage is 20.
+The ones at value 5 are errors from filtering of error kmers.
 
 # Assembly
 Assembly was performed using: Spades
@@ -209,16 +210,18 @@ Assembly was performed using: Spades
 ## Spades Assembly
 
 ```bash
-	for Strain in Bc16; do
-		F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
-		R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz)
+	for Strain in "Bc1" "Nov9"; do
+		F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S1')
+		R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S1')
+		F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S3')
+		R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S3')
 		CovCutoff='10'
-		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades/multiple_libraries
 		Species=$(echo $F_Read | rev | cut -f4 -d '/' | rev)
 		OutDir=assembly/spades/$Species/$Strain
 		echo $Species
 		echo $Strain
-		qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
+		qsub $ProgDir/subSpades_2lib.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $OutDir correct $CovCutoff
 	done
 ```
 
