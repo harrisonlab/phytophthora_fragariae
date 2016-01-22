@@ -130,16 +130,22 @@ This was done with fastq-mcf
 
 
 ```bash
-	for Strain in "Bc1" "Nov9" "Nov71"; do
+	for Strain in "Nov71"; do
 		echo $Strain
-		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz)
-		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz)
+		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep 'Pfrag-Nov71')
+		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep 'Pfrag-Nov71')
 		IluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+		echo $Read_F
+		echo $Read_R
+		qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F $Read_R $IluminaAdapters DNA
+		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep 'PfragNov71')
+		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep 'PfragNov71')
+		echo $Read_F
+		echo $Read_R
 		qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F $Read_R $IluminaAdapters DNA
 	done
 ```
-
 
 Data quality was visualised once again following trimming:
 
@@ -156,12 +162,14 @@ kmer counting was performed using kmc.
 This allowed estimation of sequencing depth and total genome size:
 
 ```bash  
-	for Strain in "Bc16" "62471" "Nov27"; do
+	for Strain in "Nov71"; do
 		echo $Strain;
-		Trim_F=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz);
-		Trim_R=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz);
+		Trim_F1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'Pfrag-Nov71');
+		Trim_R1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'Pfrag-Nov71');
+		Trim_F2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov71');
+		Trim_R2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov71');
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
-		qsub $ProgDir/kmc_kmer_counting.sh $Trim_F $Trim_R;
+		qsub $ProgDir/kmc_kmer_counting.sh $Trim_F1 $Trim_R1 $Trim_F2 $Trim_R2;
 	done
 ```
 
@@ -175,6 +183,9 @@ ONT3: 103869049
 Bc16: 96652173
 62471: 548976060
 Nov27: 93851233
+Bc1:
+Nov9:
+Nov71:
 
 ** Esimated Coverage is:
 A4: 23
@@ -186,6 +197,9 @@ ONT3: 26
 Bc16: 19
 62471: 5
 Nov27: 31
+Bc1:
+Nov9:
+Nov71:
 
 Target coverage is 20. Need more data for: Bc16 and 62471.
 
