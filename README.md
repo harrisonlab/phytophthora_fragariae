@@ -210,11 +210,11 @@ Assembly was performed using: Spades
 ## Spades Assembly
 
 ```bash
-	for Strain in "Nov71"; do
-		F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'Pfrag-Nov')
-		R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'Pfrag-Nov')
-		F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov')
-		R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov')
+	for Strain in "Bc1" "Nov9"; do
+		F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S1')
+		R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S1')
+		F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S3')
+		R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S3')
 		CovCutoff='10'
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades/multiple_libraries
 		Species=$(echo $F_Read1 | rev | cut -f4 -d '/' | rev)
