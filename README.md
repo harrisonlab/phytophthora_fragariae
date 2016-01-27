@@ -215,7 +215,7 @@ Assembly was performed using: Spades
 		R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov71')
 		CovCutoff='10'
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
-		Species=$(echo $F_Read1 | rev | cut -f4 -d '/' | rev)
+		Species=$(echo $F_Read | rev | cut -f4 -d '/' | rev)
 		OutDir=assembly/spades/$Species/$Strain
 		echo $Species
 		echo $Strain
