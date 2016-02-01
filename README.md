@@ -256,7 +256,7 @@ Assembly was performed using: Spades
 ##Quast
 
 ```bash
-for Strain in A4 SCRP245_v2 Bc23 Nov5 Nov77 ONT3; do
+for Strain in Bc16 62471 Nov27; do
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
 	OutDir=$(ls -d assembly/spades/*/$Strain/filtered_contigs)
 	AssFiltered=$OutDir/contigs_min_500bp.fasta
@@ -271,8 +271,8 @@ done
 ##QUAST used to summarise assembly statistics
 
 ```bash
-ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/assembly_qc/quast
-for Assembly in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+	for Assembly in $(ls assembly/spades/*/Nov27/filtered_contigs/*_500bp_renamed.fasta); do
 	Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
 	Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
 	OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
@@ -288,11 +288,12 @@ The best assembly was used to perform repeatmasking
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
-	echo $BestAss
-	qsub $ProgDir/rep_modeling.sh $BestAss
-done
- ```
+for Strain in "Bc16" "62471" "Nov27"; do
+	for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+		echo $BestAss
+		qsub $ProgDir/rep_modeling.sh $BestAss
+	done
+d```
  
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
