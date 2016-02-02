@@ -293,14 +293,17 @@ for Strain in "Bc16" "62471" "Nov27"; do
 		echo $BestAss
 		qsub $ProgDir/rep_modeling.sh $BestAss
 	done
-d```
+done
+```
  
 ```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
-	echo $BestAss
-	qsub $ProgDir/transposonPSI.sh $BestAss
-done
+	ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
+	for Strain in "Bc16" "62471" "Nov27"; do
+		for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+		echo $BestAss
+		qsub $ProgDir/transposonPSI.sh $BestAss
+		done
+	done
  ``` 
 
 ** % bases masked by repeatmasker: 
@@ -458,8 +461,10 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder 
-for Genome in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
-	qsub $ProgDir/run_ORF_finder.sh $Genome
+for Strain in "A4" "Bc23" "Nov5" "Nov77" "ONT3" "SCRP245_v2"; do
+for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+qsub $ProgDir/run_ORF_finder.sh $Genome
+done
 done
 ```
 
