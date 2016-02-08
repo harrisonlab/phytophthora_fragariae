@@ -223,6 +223,27 @@ Assembly was performed using: Spades
 	done
 ```
 
+##for multiple reads
+
+```bash
+	for Strain in Bc1; do
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades/multiple_libraries
+		F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S1');
+		R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S1');
+		F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S3');
+		R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S3');
+		echo $F_Read1
+		echo $R_Read1
+		echo $F_Read2
+		echo $R_Read2
+		Species=$(echo $F_Read1 | rev | cut -f4 -d '/' | rev)
+		echo $Strain
+		echo $Species
+		OutDir=assembly/spades/$Organism/$Strain
+		qsub $ProgDir/subSpades_2lib.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $OutDir correct 10
+	done
+```
+
 ##Spades Assembly failed for SCRP245_v2, hammer ran out of memory. Resubmitting as a single job
 
 ```bash
@@ -312,21 +333,24 @@ Bc23: 21.63%
 Nov5: 31.91%
 Nov77: 31.54%
 ONT3: 29.92%
-SCRP245_v2: 21.14% **
+SCRP245_v2: 21.14%
+Bc16: 21.98%
+62471: 25.97%
+Nov27: 33.12%**
 
 Summary for transposonPSI output:
 
 ```bash
-Organism=P.fragariae
-for Strain in A4 SCRP245_v2 Bc23 Nov5 Nov77 ONT3; do
-	RepDir=repeat_masked/$Organism/$Strain/filtered_contigs_repmask
-	TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
-	echo $Strain
-	printf "The number of bases masked by TransposonPSI:\t"
-	sortBed -i $TransPSIGff > $RepDir/TPSI_sorted.bed
-	bedtools merge -i $RepDir/TPSI_sorted.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
-	rm $RepDir/TPSI_sorted.bed
-done
+	Organism=P.fragariae
+	for Strain in Bc16 62471 Nov27; do
+		RepDir=repeat_masked/$Organism/$Strain/filtered_contigs_repmask
+		TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+		echo $Strain
+		printf "The number of bases masked by TransposonPSI:\t"
+		sortBed -i $TransPSIGff > $RepDir/TPSI_sorted.bed
+		bedtools merge -i $RepDir/TPSI_sorted.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+		rm $RepDir/TPSI_sorted.bed
+	done
 ```
 	
 ** % bases masked by transposon psi:
@@ -335,7 +359,10 @@ Bc23: 6.76%
 Nov5: 8.00%
 Nov77: 8.01%
 ONT3: 7.29%
-SCRP245_v2: 6.37%**
+SCRP245_v2: 6.37%
+Bc16: 6.72%
+62471: 7.57%
+Nov27: 8.16%**
 
 
 # Gene Prediction
@@ -347,11 +374,13 @@ Gene models were used to predict genes in the fusarium genome. This used results
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
-for BestAss in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
-	echo $BestAss
-	qsub $ProgDir/sub_cegma.sh $BestAss dna
-done
+	ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
+	for Strain in Bc16 62471 Nov27; do
+		for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+			echo $BestAss
+			qsub $ProgDir/sub_cegma.sh $BestAss dna
+		done
+	done
 ```
 
 ** Number of cegma genes present and complete: 
@@ -360,7 +389,10 @@ Bc23: 94.76%
 Nov5: 95.16%
 Nov77: 94.35%
 ONT3: 94.76%
-SCRP245_v2: 93.95% **
+SCRP245_v2: 93.95%
+Bc16: 94.76%
+62471: 95.16%
+Nov27: 94.76% **
 
 ** Number of cegma genes present and partial:
 A4: 97.98%
@@ -368,7 +400,10 @@ Bc23: 96.77%
 Nov5: 97.18%
 Nov77: 96.37%
 ONT3: 97.18%
-SCRP245_v2: 96.37% **
+SCRP245_v2: 96.37%
+Bc16: 97.58%
+62471: 97.18%
+Nov27: 97.18% **
 
 ##Gene prediction
 
@@ -388,26 +423,28 @@ cp $RawDatDir/SRR1206033.fastq $ProjectDir/raw_rna/genbank/P.cactorum/10300/R
 Perform qc of RNAseq timecourse data. These reads are not actually paired reads but this is irrelevant for processing using fast-mcf
 
 ```bash
-FileF=raw_rna/genbank/P.cactorum/10300/F/SRR1206032.fastq
-FileR=raw_rna/genbank/P.cactorum/10300/R/SRR1206033.fastq
-IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.fa
-qsub /home/armita/git_repos/emr_repos/tools/seq_tools/rna_qc/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
+	FileF=raw_rna/genbank/P.cactorum/10300/F/SRR1206032.fastq
+	FileR=raw_rna/genbank/P.cactorum/10300/R/SRR1206033.fastq
+	IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.fa
+	qsub /home/armita/git_repos/emr_repos/tools/seq_tools/rna_qc/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
 ```
 
 ##2) Align reads vs. genome
 Aligments of RNAseq reads were made against assemblies from each strain using tophat:
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-FileF=qc_rna/genbank/P.cactorum/10300/F/SRR1206032_trim.fq.gz
-FileR=qc_rna/genbank/P.cactorum/10300/R/SRR1206033_trim.fq.gz
-for Genome in $(ls assembly/spades/*/*/filtered_contigs/*_500bp_renamed.fasta); do
-	Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
-	Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
-	OutDir=alignment/$Organism/$Strain
-	echo $Organism $Strain
-	qsub $ProgDir/tophat_alignment.sh $Genome $FileF $FileR $OutDir
-done
+	ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+	FileF=qc_rna/genbank/P.cactorum/10300/F/SRR1206032_trim.fq.gz
+	FileR=qc_rna/genbank/P.cactorum/10300/R/SRR1206033_trim.fq.gz
+	for Strain in Bc16 62471 Nov27; do
+		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+			Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
+			Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
+			OutDir=alignment/$Organism/$Strain
+			echo $Organism $Strain
+			qsub $ProgDir/tophat_alignment.sh $Genome $FileF $FileR $OutDir
+		done
+	done
 ```
 
 Alignment files were merged into a single file so as to be passed to a gene prediction program to indicate the location of aligned RNAseq data against a particular genome.
@@ -433,15 +470,19 @@ cp /home/armita/.gm_key ~/.gm_key
 ```
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-for Genome in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa); do
-	Strain=$(echo $Genome| rev | cut -d '/' -f3 | rev)
-	Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
-	OutDir=gene_pred/braker/$Organism/$Strain
-	AcceptedHits=alignment/$Organism/$Strain/accepted_hits.bam
-	GeneModelName="$Organism"_"$Strain"_braker
-	qsub $ProgDir/sub_braker.sh $Genome $OutDir $AcceptedHits $GeneModelName
-done
+	ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
+	for Strain in Bc16 62471 Nov27; do
+		for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa); do
+			Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
+			OutDir=gene_pred/braker/$Organism/$Strain
+			AcceptedHits=alignment/$Organism/$Strain/accepted_hits.bam
+			GeneModelName="$Organism"_"$Strain"_braker
+			echo $Strain
+			echo $Organism
+			echo $Genome
+			qsub $ProgDir/sub_braker.sh $Genome $OutDir $AcceptedHits $GeneModelName
+		done
+	done
 ```
 
 ##4) Extract gff and amino acid sequences
@@ -460,24 +501,24 @@ done
 This uses the atg.pl script to identify all ORFs in the genome. These can then be used to look for RxLRs and signal peptides.
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder 
-for Strain in "A4" "Bc23" "Nov5" "Nov77" "ONT3" "SCRP245_v2"; do
-for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
-qsub $ProgDir/run_ORF_finder.sh $Genome
-done
-done
+	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder 
+	for Strain in "A4" "Bc23" "Nov5" "Nov77" "ONT3" "SCRP245_v2"; do
+		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+			qsub $ProgDir/run_ORF_finder.sh $Genome
+		done
+	done
 ```
 
 The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
 ```bash
-for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
-Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
-Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
-ProgDir=~/git_repos/tools/seq_tools/feature_annotation
-ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
-$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
-done
+	for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
+		Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
+		Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
+		ProgDir=~/git_repos/tools/seq_tools/feature_annotation
+		ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+		$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
+	done
 ```
 
 #Functional annotation
@@ -777,50 +818,50 @@ biopython
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
 ```
-for Proteome in $(ls gene_pred/ORF_finder/*/*/*.aa_cat.fa); do
-	echo "$Proteome"
-	SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-	ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-	Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-	Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-	SplitDir=gene_pred/ORF_split/$Organism/$Strain
-	mkdir -p $SplitDir
-	BaseName="$Organism""_$Strain"_ORF_preds
-	$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
-	for File in $(ls $SplitDir/*_ORF_preds_*); do
-		Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
-		while [ $Jobs -gt 1 ]; do
-		sleep 10
-		printf "."
-		Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+	for Proteome in $(ls gene_pred/ORF_finder/*/*/*.aa_cat.fa); do
+			echo "$Proteome"
+			SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+			ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+			Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
+			Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+			SplitDir=gene_pred/ORF_split/$Organism/$Strain
+			mkdir -p $SplitDir
+			BaseName="$Organism""_$Strain"_ORF_preds
+			$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
+			for File in $(ls $SplitDir/*_ORF_preds_*); do
+				Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+				while [ $Jobs -gt 1 ]; do
+				sleep 10
+				printf "."
+				Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+			done
+			printf "\n"
+			echo $File
+			qsub $ProgDir/pred_sigP.sh $File
+			# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
+		done
 	done
-	printf "\n"
-	echo $File
-	qsub $ProgDir/pred_sigP.sh $File
-	# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
-	done
-done
 ```
 The batch files of predicted secreted proteins needed to be combined into a single file for each strain. This was done with the following commands:
 ```
-for SplitDir in $(ls -d gene_pred/ORF_split/P.*/*); do
-	Strain=$(echo $SplitDir | rev | cut -d '/' -f1 | rev)
-	Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
-	InStringAA=''
-	InStringNeg=''
-	InStringTab=''
-	InStringTxt=''
-	for GRP in $(ls -l $SplitDir/*_ORF_preds_*.fa | rev | cut -d '_' -f1 | rev | sort -n); do  
-		InStringAA="$InStringAA gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.aa";  
-		InStringNeg="$InStringNeg gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp_neg.aa";  
-		InStringTab="$InStringTab gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.tab";
-		InStringTxt="$InStringTxt gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.txt";  
+	for SplitDir in $(ls -d gene_pred/ORF_split/P.*/*); do
+		Strain=$(echo $SplitDir | rev | cut -d '/' -f1 | rev)
+		Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
+		InStringAA=''
+		InStringNeg=''
+		InStringTab=''
+		InStringTxt=''
+		for GRP in $(ls -l $SplitDir/*_ORF_preds_*.fa | rev | cut -d '_' -f1 | rev | sort -n); do  
+			InStringAA="$InStringAA gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.aa";  
+			InStringNeg="$InStringNeg gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp_neg.aa";  
+			InStringTab="$InStringTab gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.tab";
+			InStringTxt="$InStringTxt gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.txt";  
+		done
+		cat $InStringAA > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.aa
+		cat $InStringNeg > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_neg_sp.aa
+		tail -n +2 -q $InStringTab > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.tab
+		cat $InStringTxt > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.txt
 	done
-	cat $InStringAA > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.aa
-	cat $InStringNeg > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_neg_sp.aa
-	tail -n +2 -q $InStringTab > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.tab
-	cat $InStringTxt > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.txt
-done
 ```
 Names of ORFs containing signal peptides were extracted from fasta files. This included information on the position and hmm score of RxLRs.
 ```bash
@@ -890,7 +931,7 @@ The RxLR_EER_regex_finder.py script was used to search for this regular expressi
 
 ```
 strain: A4	species: P.fragariae
-the number of SigP gene is:	22271
+the number of SigP gene is:	22261
 the number of SigP-RxLR genes are:	1532
 the number of SigP-RxLR-EER genes are:	244
 
@@ -902,25 +943,25 @@ the number of SigP-RxLR-EER genes are:	222
 
 
 strain: Nov5	species: P.fragariae
-the number of SigP gene is:	22151
+the number of SigP gene is:	22147
 the number of SigP-RxLR genes are:	1533
 the number of SigP-RxLR-EER genes are:	244
 
 
 strain: Nov77	species: P.fragariae
-the number of SigP gene is:	22127
+the number of SigP gene is:	22122
 the number of SigP-RxLR genes are:	1502
 the number of SigP-RxLR-EER genes are:	231
 
 
 strain: ONT3	species: P.fragariae
-the number of SigP gene is:	25350
+the number of SigP gene is:	25346
 the number of SigP-RxLR genes are:	1637
 the number of SigP-RxLR-EER genes are:	258
 
 
 strain: SCRP245_v2	species: P.fragariae
-the number of SigP gene is:	21040
+the number of SigP gene is:	21033
 the number of SigP-RxLR genes are:	1396
 the number of SigP-RxLR-EER genes are:	221
 ```
@@ -952,22 +993,22 @@ the number of SigP-RxLR-EER genes are:	221
 
 ```
 P.fragariae A4
-Initial search space (Z):              22271  [actual number of targets]
+Initial search space (Z):              22261  [actual number of targets]
 Domain search space  (domZ):             112  [number of targets reported over threshold]
 P.fragariae Bc23
 Initial search space (Z):              19663  [actual number of targets]
 Domain search space  (domZ):             103  [number of targets reported over threshold]
 P.fragariae Nov5
-Initial search space (Z):              22151  [actual number of targets]
+Initial search space (Z):              22147  [actual number of targets]
 Domain search space  (domZ):             113  [number of targets reported over threshold]
 P.fragariae Nov77
-Initial search space (Z):              22127  [actual number of targets]
+Initial search space (Z):              22122  [actual number of targets]
 Domain search space  (domZ):              99  [number of targets reported over threshold]
 P.fragariae ONT3
-Initial search space (Z):              25350  [actual number of targets]
+Initial search space (Z):              25346  [actual number of targets]
 Domain search space  (domZ):             119  [number of targets reported over threshold]
 P.fragariae SCRP245_v2
-Initial search space (Z):              21040  [actual number of targets]
+Initial search space (Z):              21033  [actual number of targets]
 Domain search space  (domZ):             102  [number of targets reported over threshold]
 ```
 
@@ -998,22 +1039,22 @@ Domain search space  (domZ):             102  [number of targets reported over t
 
 ```
 P.fragariae A4
-Initial search space (Z):              22271  [actual number of targets]
+Initial search space (Z):              22261  [actual number of targets]
 Domain search space  (domZ):             202  [number of targets reported over threshold]
 P.fragariae Bc23
 Initial search space (Z):              19663  [actual number of targets]
 Domain search space  (domZ):             183  [number of targets reported over threshold]
 P.fragariae Nov5
-Initial search space (Z):              22151  [actual number of targets]
+Initial search space (Z):              22147  [actual number of targets]
 Domain search space  (domZ):             200  [number of targets reported over threshold]
 P.fragariae Nov77
-Initial search space (Z):              22127  [actual number of targets]
+Initial search space (Z):              22122  [actual number of targets]
 Domain search space  (domZ):             193  [number of targets reported over threshold]
 P.fragariae ONT3
-Initial search space (Z):              25350  [actual number of targets]
+Initial search space (Z):              25346  [actual number of targets]
 Domain search space  (domZ):             211  [number of targets reported over threshold]
 P.fragariae SCRP245_v2
-Initial search space (Z):              21040  [actual number of targets]
+Initial search space (Z):              21033  [actual number of targets]
 Domain search space  (domZ):             184  [number of targets reported over threshold]
 ```
 
@@ -1063,33 +1104,27 @@ A hmm model relating to crinkler domains was used to identify putative crinklers
 
 ```
 P.fragariae A4
-Initial search space (Z):             668402  [actual number of targets]
+Initial search space (Z):             667992  [actual number of targets]
 Domain search space  (domZ):             273  [number of targets reported over threshold]
-Number of CRN ORFs after merging:
-144
+Number of CRN ORFs after merging:		 144
 P.fragariae Bc23
-Initial search space (Z):             576803  [actual number of targets]
+Initial search space (Z):             576779  [actual number of targets]
 Domain search space  (domZ):             239  [number of targets reported over threshold]
-Number of CRN ORFs after merging:
-126
+Number of CRN ORFs after merging:		 126
 P.fragariae Nov5
-Initial search space (Z):             659622  [actual number of targets]
+Initial search space (Z):             659155  [actual number of targets]
 Domain search space  (domZ):             269  [number of targets reported over threshold]
-Number of CRN ORFs after merging:
-142
+Number of CRN ORFs after merging:		 142
 P.fragariae Nov77
-Initial search space (Z):             657990  [actual number of targets]
+Initial search space (Z):             657610  [actual number of targets]
 Domain search space  (domZ):             249  [number of targets reported over threshold]
-Number of CRN ORFs after merging:
-136
+Number of CRN ORFs after merging:		 136
 P.fragariae ONT3
-Initial search space (Z):             789971  [actual number of targets]
+Initial search space (Z):             789618  [actual number of targets]
 Domain search space  (domZ):             262  [number of targets reported over threshold]
-Number of CRN ORFs after merging:
-140
+Number of CRN ORFs after merging:		 140
 P.fragariae SCRP245_v2
-Initial search space (Z):             627992  [actual number of targets]
+Initial search space (Z):             627904  [actual number of targets]
 Domain search space  (domZ):             252  [number of targets reported over threshold]
-Number of CRN ORFs after merging:
-130
+Number of CRN ORFs after merging:		 130
 ```
