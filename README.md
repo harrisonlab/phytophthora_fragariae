@@ -488,13 +488,15 @@ cp /home/armita/.gm_key ~/.gm_key
 ##4) Extract gff and amino acid sequences
 
 ```bash
-for File in $(ls gene_pred/braker/*/*/*_braker/augustus.gff); do
-	getAnnoFasta.pl $File
-	OutDir=$(dirname $File)
-	echo "##gff-version 3" > $OutDir/augustus_extracted.gff
-	cat $File | grep -v '#' >> $OutDir/augustus_extracted.gff
-done
-```bash
+	for Strain in Bc16 62471 Nov27; do
+		for File in $(ls gene_pred/braker/*/$Strain/*_braker/augustus.gff); do
+			getAnnoFasta.pl $File
+			OutDir=$(dirname $File)
+			echo "##gff-version 3" > $OutDir/augustus_extracted.gff
+			cat $File | grep -v '#' >> $OutDir/augustus_extracted.gff
+		done
+	done
+```
 
 ##Use atg.pl to predict all ORFs
 
@@ -502,7 +504,7 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder 
-	for Strain in "A4" "Bc23" "Nov5" "Nov77" "ONT3" "SCRP245_v2"; do
+	for Strain in Bc16 62471 Nov27; do
 		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			qsub $ProgDir/run_ORF_finder.sh $Genome
 		done
