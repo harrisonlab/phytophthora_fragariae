@@ -514,12 +514,14 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
 ```bash
-	for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
-		Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
-		Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
-		ProgDir=~/git_repos/tools/seq_tools/feature_annotation
-		ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
-		$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
+	for Strain in Bc16 62471 Nov27; do
+		for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
+			Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
+			Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
+			ProgDir=~/git_repos/tools/seq_tools/feature_annotation
+			ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+			$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
+		done
 	done
 ```
 
@@ -529,11 +531,11 @@ A)Interproscan
 Interproscan was used to give gene models functional annotations.
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Strain in A4 SCRP245_v2 Bc23 Nov5 Nov77 ONT3; do
-	Genes=gene_pred/braker/P.fragariae/$Strain/P.*/augustus.aa
-	$ProgDir/sub_interproscan.sh $Genes
-done
+	ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
+	for Strain in Bc16 62471 Nov27; do
+		Genes=gene_pred/braker/P.fragariae/$Strain/P.*/augustus.aa
+		$ProgDir/sub_interproscan.sh $Genes
+	done
 ```
 
 ```bash
