@@ -560,115 +560,135 @@ Proteins that were predicted to contain signal peptides were identified using th
 
 
 ```bash
-for Proteome in $(ls gene_pred/braker/*/*/*/augustus.aa); do
-    echo "$Proteome"
-    SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-    SplitDir=gene_pred/braker_split/$Organism/$Strain
-    mkdir -p $SplitDir
-    BaseName="$Organism""_$Strain"_braker_preds
-    $SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
-    for File in $(ls $SplitDir/*_braker_preds_*); do
-      Jobs=$(qstat | grep 'pred_sigP' | wc -l)
-      while [ $Jobs -ge 32 ]; do
-        sleep 10
-        printf "."
-        Jobs=$(qstat | grep 'pred_sigP' | wc -l)
-      done
-      printf "\n"
-      echo $File
-      qsub $ProgDir/pred_sigP.sh $File
-      # qsub $ProgDir/pred_sigP.sh $File signalp-4.1
-    done
-  done
+	for Strain in Bc16 62471 Nov27; do
+		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
+		echo "$Proteome"
+		SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+		Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+		SplitDir=gene_pred/braker_split/$Organism/$Strain
+		mkdir -p $SplitDir
+		BaseName="$Organism""_$Strain"_braker_preds
+		$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
+		for File in $(ls $SplitDir/*_braker_preds_*); do
+		Jobs=$(qstat | grep 'pred_sigP' | wc -l)
+			while [ $Jobs -ge 32 ]; do
+				sleep 10
+				printf "."
+				Jobs=$(qstat | grep 'pred_sigP' | wc -l)
+				done
+				printf "\n"
+				echo $File
+				qsub $ProgDir/pred_sigP.sh $File
+				# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
+			done
+		done
+	done
 ```
 This produces batch files. They need to be combined into a single file for each strain using the following commands:
 
 ```bash
-for SplitDir in $(ls -d gene_pred/braker_split/P.*/*); do
-	Strain=$(echo $SplitDir | rev | cut -d '/' -f1 | rev)
-	Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
-	InStringAA=''
-	InStringNeg=''
-	InStringTab=''
-	InStringTxt=''
-	for GRP in $(ls -l $SplitDir/*_braker_preds_*.fa | rev | cut -d '_' -f1 | rev | sort -n); do  
-		InStringAA="$InStringAA gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.aa";  
-		InStringNeg="$InStringNeg gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp_neg.aa";  
-		InStringTab="$InStringTab gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.tab";
-		InStringTxt="$InStringTxt gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.txt";
+	for Strain in Bc16 62471 Nov27; do
+		for SplitDir in $(ls -d gene_pred/braker_split/P.*/$Strain); do
+			Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
+			InStringAA=''
+			InStringNeg=''
+			InStringTab=''
+			InStringTxt=''
+			for GRP in $(ls -l $SplitDir/*_braker_preds_*.fa | rev | cut -d '_' -f1 | rev | sort -n); do  
+			InStringAA="$InStringAA gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.aa";  
+			InStringNeg="$InStringNeg gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp_neg.aa";  
+			InStringTab="$InStringTab gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.tab";
+			InStringTxt="$InStringTxt gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.txt";
+			done
+			cat $InStringAA > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.aa
+			cat $InStringNeg > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_neg_sp.aa
+			tail -n +2 -q $InStringTab > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.tab
+			cat $InStringTxt > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.txt
+		done
 	done
-	cat $InStringAA > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.aa
-	cat $InStringNeg > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_neg_sp.aa
-	tail -n +2 -q $InStringTab > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.tab
-	cat $InStringTxt > gene_pred/braker_sigP/$Organism/$Strain/"$Strain"_braker_sp.txt
-done
 ```
 The RxLR_EER_regex_finder.py script was used to search for this regular expression R.LR.{,40}[ED][ED][KR] and annotate the EER domain where present. Done separate for each strain.
 
 ```bash
-for Secretome in $(ls gene_pred/braker_sigP/*/*/*braker_sp.aa); do
-	ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors;
-	Strain=$(echo $Secretome | rev | cut -d '/' -f2 | rev);
-	Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
-	OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
-	mkdir -p $OutDir;
-	printf "\nstrain: $Strain\tspecies: $Organism\n";
-	printf "the number of SigP gene is:\t";
-	cat $Secretome | grep '>' | wc -l;
-	printf "the number of SigP-RxLR genes are:\t";
-	$ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_braker_RxLR_regex.fa;
-	cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_regex.txt
-	cat $OutDir/"$Strain"_braker_RxLR_regex.txt | wc -l
-	printf "the number of SigP-RxLR-EER genes are:\t";
-	cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_EER_regex.txt
-	cat $OutDir/"$Strain"_braker_RxLR_EER_regex.txt | wc -l
-	printf "\n"
-	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-	# $ProgDir/extract_from_fasta.py --fasta $OutDir/"$Strain"_pub_RxLR_regex.fa --headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
-	# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-	# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_regex.txt > $OutDir/"$Strain"_pub_RxLR_regex.gff3
-	# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
-done
+	for Strain in Bc16 62471 Nov27; do
+		for Secretome in $(ls gene_pred/braker_sigP/*/$Strain/*braker_sp.aa); do
+			ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors;
+			Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
+			OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
+			mkdir -p $OutDir;
+			printf "\nstrain: $Strain\tspecies: $Organism\n";
+			printf "the number of SigP gene is:\t";
+			cat $Secretome | grep '>' | wc -l;
+			printf "the number of SigP-RxLR genes are:\t";
+			$ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_braker_RxLR_regex.fa;
+			cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_regex.txt
+			cat $OutDir/"$Strain"_braker_RxLR_regex.txt | wc -l
+			printf "the number of SigP-RxLR-EER genes are:\t";
+			cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_EER_regex.txt
+			cat $OutDir/"$Strain"_braker_RxLR_EER_regex.txt | wc -l
+			printf "\n"
+			ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+			# $ProgDir/extract_from_fasta.py --fasta $OutDir/"$Strain"_pub_RxLR_regex.fa --headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
+			# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
+			# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_regex.txt > $OutDir/"$Strain"_pub_RxLR_regex.gff3
+			# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
+		done
+	done
 ```
 
 ```
 strain: A4	species: P.fragariae
 the number of SigP gene is:	2432
-the number of SigP-RxLR genes are:	291
-the number of SigP-RxLR-EER genes are:	170
+the number of SigP-RxLR genes are: 291
+the number of SigP-RxLR-EER genes are: 170
 
 
 strain: Bc23	species: P.fragariae
-the number of SigP gene is:	2194
-the number of SigP-RxLR genes are:	284
-the number of SigP-RxLR-EER genes are:	166
+the number of SigP gene is: 2194
+the number of SigP-RxLR genes are: 284
+the number of SigP-RxLR-EER genes are: 166
 
 
 strain: Nov5	species: P.fragariae
 the number of SigP gene is:	2561
-the number of SigP-RxLR genes are:	308
-the number of SigP-RxLR-EER genes are:	180
+the number of SigP-RxLR genes are: 308
+the number of SigP-RxLR-EER genes are: 180
 
 
 strain: Nov77	species: P.fragariae
 the number of SigP gene is:	2489
-the number of SigP-RxLR genes are:	289
-the number of SigP-RxLR-EER genes are:	165
+the number of SigP-RxLR genes are: 289
+the number of SigP-RxLR-EER genes are: 165
 
 
 strain: ONT3	species: P.fragariae
-the number of SigP gene is:	3149
-the number of SigP-RxLR genes are:	297
-the number of SigP-RxLR-EER genes are:	174
+the number of SigP gene is: 3149
+the number of SigP-RxLR genes are: 297
+the number of SigP-RxLR-EER genes are: 174
 
 
 strain: SCRP245_v2	species: P.fragariae
-the number of SigP gene is:	2544
-the number of SigP-RxLR genes are:	286
-the number of SigP-RxLR-EER genes are:	156
+the number of SigP gene is: 2544
+the number of SigP-RxLR genes are: 286
+the number of SigP-RxLR-EER genes are: 156
+
+strain: Bc16    species: P.fragariae
+the number of SigP gene is: 2335
+the number of SigP-RxLR genes are: 279
+the number of SigP-RxLR-EER genes are: 160
+
+
+strain: 62471   species: P.fragariae
+the number of SigP gene is: 2134
+the number of SigP-RxLR genes are: 201
+the number of SigP-RxLR-EER genes are: 108
+
+
+strain: Nov27   species: P.fragariae
+the number of SigP gene is: 2450
+the number of SigP-RxLR genes are: 297
+the number of SigP-RxLR-EER genes are: 172
 ```
 
 ##B) From braker1 gene models - Hmm evidence for WY domains
@@ -676,25 +696,26 @@ the number of SigP-RxLR-EER genes are:	156
 Hmm models for the WY domain contained in many RxLRs were used to search gene models predicted with Braker1. These were run with the following commands:
 
 ```
-ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
-HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
-for Proteome in $(ls gene_pred/braker/*/*/*/augustus.aa); do
-	Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-	Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-	OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
-	mkdir -p $OutDir
-	HmmResults="$Strain"_pub_WY_hmmer.txt
-	hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
-	echo "$Organism $Strain"
-	cat $OutDir/$HmmResults | grep 'Initial search space'
-	cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
-	HmmFasta="$Strain"_pub_WY_hmmer.fa
-	$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
-	Headers="$Strain"_pub_WY_hmmer_headers.txt
-	cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/$Headers
-	# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-	# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_WY_hmmer.gff3
-done
+	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+	HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
+	for Strain in Bc16 62471 Nov27; do
+		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
+			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+			OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
+			mkdir -p $OutDir
+			HmmResults="$Strain"_pub_WY_hmmer.txt
+			hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
+			echo "$Organism $Strain"
+			cat $OutDir/$HmmResults | grep 'Initial search space'
+			cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
+			HmmFasta="$Strain"_pub_WY_hmmer.fa
+			$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
+			Headers="$Strain"_pub_WY_hmmer_headers.txt
+			cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/$Headers
+			# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
+			# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_WY_hmmer.gff3
+		done
+	done
 ```
 
 ```
@@ -716,33 +737,43 @@ Domain search space  (domZ):             190  [number of targets reported over t
 P.fragariae SCRP245_v2
 Initial search space (Z):              36021  [actual number of targets]
 Domain search space  (domZ):             172  [number of targets reported over threshold]
+P.fragariae Bc16
+Initial search space (Z):              29400  [actual number of targets]
+Domain search space  (domZ):             162  [number of targets reported over threshold]
+P.fragariae 62471
+Initial search space (Z):              24212  [actual number of targets]
+Domain search space  (domZ):             150  [number of targets reported over threshold]
+P.fragariae Nov27
+Initial search space (Z):              35993  [actual number of targets]
+Domain search space  (domZ):             170  [number of targets reported over threshold]
 ```
 
 ##C) From Braker1 gene models - Hmm evidence of RxLR effectors
 
 ```
-for Proteome in $(ls gene_pred/braker/*/*/*/augustus.aa); do
-	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
-	HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
-	Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-	Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-	OutDir=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain
-	mkdir -p $OutDir
-	HmmResults="$Strain"_braker1_RxLR_hmmer.txt
-	hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
-	echo "$Organism $Strain"
-	cat $OutDir/$HmmResults | grep 'Initial search space'
-	cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
-	HmmFasta="$Strain"_Braker1_RxLR_hmmer.fa
-	$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
-	Headers="$Strain"_pub_RxLR_hmmer_headers.txt
-	cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' > $OutDir/$Headers
-		# # ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
-		# Col2=cropped.hmm
-		# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-		# # $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $GeneModels $Col2 Name > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
-		# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
-done
+	for Strain in Bc16 62471 Nov27; do
+		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
+			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+			HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
+			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+			OutDir=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain
+			mkdir -p $OutDir
+			HmmResults="$Strain"_braker1_RxLR_hmmer.txt
+			hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
+			echo "$Organism $Strain"
+			cat $OutDir/$HmmResults | grep 'Initial search space'
+			cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
+			HmmFasta="$Strain"_Braker1_RxLR_hmmer.fa
+			$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
+			Headers="$Strain"_pub_RxLR_hmmer_headers.txt
+			cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' > $OutDir/$Headers
+				# # ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
+				# Col2=cropped.hmm
+				# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
+				# # $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $GeneModels $Col2 Name > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
+				# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
+		done
+	done
 ```
 
 ```
@@ -763,6 +794,15 @@ Domain search space  (domZ):             195  [number of targets reported over t
 P.fragariae SCRP245_v2
 Initial search space (Z):              36021  [actual number of targets]
 Domain search space  (domZ):             175  [number of targets reported over threshold]
+P.fragariae Bc16
+Initial search space (Z):              29400  [actual number of targets]
+Domain search space  (domZ):             161  [number of targets reported over threshold]
+P.fragariae 62471
+Initial search space (Z):              24212  [actual number of targets]
+Domain search space  (domZ):             112  [number of targets reported over threshold]
+P.fragariae Nov27
+Initial search space (Z):              35993  [actual number of targets]
+Domain search space  (domZ):             187  [number of targets reported over threshold]
 ```
 
 ##D) From Braker1 gene models - Hmm evidence of CRN effectors
@@ -770,25 +810,26 @@ Domain search space  (domZ):             175  [number of targets reported over t
 A hmm model relating to crinkler domains was used to identify putative crinklers in Augustus gene models. This was done with the following commands:
 
 ```
-ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
-HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
-for Proteome in $(ls gene_pred/braker/*/*/*/augustus.aa); do
-	Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-	Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-	OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
-	mkdir -p $OutDir
-	HmmResults="$Strain"_braker1_CRN_hmmer.txt
-	hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
-	echo "$Organism $Strain"
-	cat $OutDir/$HmmResults | grep 'Initial search space'
-	cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
-	HmmFasta="$Strain"_pub_CRN_hmmer_out.fa
-	$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
-	# Headers="$Strain"_pub_RxLR_hmmer_headers.txt
-	# cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/$Headers
-	# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-	# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_CRN_hmmer.gff3
-done
+	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+	HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
+	for Strain in Bc16 62471 Nov27; do
+		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
+			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+			OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
+			mkdir -p $OutDir
+			HmmResults="$Strain"_braker1_CRN_hmmer.txt
+			hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
+			echo "$Organism $Strain"
+			cat $OutDir/$HmmResults | grep 'Initial search space'
+			cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
+			HmmFasta="$Strain"_pub_CRN_hmmer_out.fa
+			$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
+				# Headers="$Strain"_pub_RxLR_hmmer_headers.txt
+				# cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/$Headers
+				# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
+				# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_CRN_hmmer.gff3
+		done
+	done
 ```
 
 ```
@@ -810,6 +851,15 @@ Domain search space  (domZ):             117  [number of targets reported over t
 P.fragariae SCRP245_v2
 Initial search space (Z):              36021  [actual number of targets]
 Domain search space  (domZ):             109  [number of targets reported over threshold]
+P.fragariae Bc16
+Initial search space (Z):              29400  [actual number of targets]
+Domain search space  (domZ):             112  [number of targets reported over threshold]
+P.fragariae 62471
+Initial search space (Z):              24212  [actual number of targets]
+Domain search space  (domZ):             171  [number of targets reported over threshold]
+P.fragariae Nov27
+Initial search space (Z):              35993  [actual number of targets]
+Domain search space  (domZ):             115  [number of targets reported over threshold]
 ```
 
 ##E) From ORF gene models - Signal peptide & RxLR motif
@@ -822,27 +872,28 @@ biopython
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
 ```
-	for Proteome in $(ls gene_pred/ORF_finder/*/*/*.aa_cat.fa); do
+	for Strain in Bc16 62471 Nov27; do
+		for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
 			echo "$Proteome"
 			SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
 			ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-			Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
 			Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
 			SplitDir=gene_pred/ORF_split/$Organism/$Strain
 			mkdir -p $SplitDir
 			BaseName="$Organism""_$Strain"_ORF_preds
 			$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
 			for File in $(ls $SplitDir/*_ORF_preds_*); do
-				Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
-				while [ $Jobs -gt 1 ]; do
+			Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+			while [ $Jobs -gt 1 ]; do
 				sleep 10
 				printf "."
 				Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+				done
+				printf "\n"
+				echo $File
+				qsub $ProgDir/pred_sigP.sh $File
+					# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
 			done
-			printf "\n"
-			echo $File
-			qsub $ProgDir/pred_sigP.sh $File
-			# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
 		done
 	done
 ```
