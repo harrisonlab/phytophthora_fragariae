@@ -223,15 +223,15 @@ Assembly was performed using: Spades
 	done
 ```
 
-##for multiple reads
+##for multiple reads at high memory
 
 ```bash
-	for Strain in Bc1; do
+	for Strain in Nov71; do
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades/multiple_libraries
-		F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S1');
-		R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S1');
-		F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S3');
-		R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S3');
+		F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov71');
+		R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov71');
+		F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'Pfrag-Nov71');
+		R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'Pfrag-Nov71');
 		echo $F_Read1
 		echo $R_Read1
 		echo $F_Read2
@@ -240,7 +240,7 @@ Assembly was performed using: Spades
 		echo $Strain
 		echo $Species
 		OutDir=assembly/spades/$Organism/$Strain
-		qsub $ProgDir/subSpades_2lib.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $OutDir correct 10
+		qsub $ProgDir/subSpades_2lib_HiMem.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $OutDir correct 10
 	done
 ```
 
