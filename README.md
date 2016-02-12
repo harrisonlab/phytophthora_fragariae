@@ -109,6 +109,24 @@ and annotation.
 	cp $ReadDir/151127_M01678_0032_000000000-ACUUN/Pfrag-Bc1_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/R/.
 ```
 
+```bash
+  RawDatDir=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/160129_M04465_0001-AHMT4
+  mkdir -p raw_dna/paired/P.fragariae/Bc1/F
+  mkdir -p raw_dna/paired/P.fragariae/Bc1/R
+  cp $RawDatDir/Bc1_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/F/Bc1_S1_L001_R1_001_160129.fastq.gz
+  cp $RawDatDir/Bc1_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/R/Bc1_S1_L001_R2_001_160129.fastq.gz
+
+  mkdir -p raw_dna/paired/P.fragariae/Bc16/F
+  mkdir -p raw_dna/paired/P.fragariae/Bc16/R
+  cp $RawDatDir/Bc16_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/F/Bc16_S2_L001_R1_001_160129.fastq.gz
+  cp $RawDatDir/Bc16_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/R/Bc16_S2_L001_R2_001_160129.fastq.gz
+
+  mkdir -p raw_dna/paired/P.fragariae/Nov9/F
+  mkdir -p raw_dna/paired/P.fragariae/Nov9/R
+  cp $RawDatDir/Nov9_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/F/Nov9_S3_L001_R1_001_160129.fastq.gz
+  cp $RawDatDir/Nov9_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/R/Nov9_S3_L001_R2_001_160129.fastq.gz
+```
+
 
 #Data qc
 
@@ -316,7 +334,7 @@ for Strain in "Bc16" "62471" "Nov27"; do
 	done
 done
 ```
- 
+
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
 	for Strain in "Bc16" "62471" "Nov27"; do
@@ -325,9 +343,9 @@ done
 		qsub $ProgDir/transposonPSI.sh $BestAss
 		done
 	done
- ``` 
+ ```
 
-** % bases masked by repeatmasker: 
+** % bases masked by repeatmasker:
 A4: 33.90%
 Bc23: 21.63%
 Nov5: 31.91%
@@ -352,10 +370,10 @@ Summary for transposonPSI output:
 		rm $RepDir/TPSI_sorted.bed
 	done
 ```
-	
+
 ** % bases masked by transposon psi:
 A4: 0.83%
-Bc23: 6.76% 
+Bc23: 6.76%
 Nov5: 8.00%
 Nov77: 8.01%
 ONT3: 7.29%
@@ -383,7 +401,7 @@ Quality of genome assemblies was assessed by looking for the gene space in the a
 	done
 ```
 
-** Number of cegma genes present and complete: 
+** Number of cegma genes present and complete:
 A4: 94.35%
 Bc23: 94.76%
 Nov5: 95.16%
@@ -449,7 +467,7 @@ Aligments of RNAseq reads were made against assemblies from each strain using to
 
 Alignment files were merged into a single file so as to be passed to a gene prediction program to indicate the location of aligned RNAseq data against a particular genome.
 
-<!-- 
+<!--
 ```bash
 for StrainDir in $(ls -d alignment/*/*); do
 	Strain=$(echo $StrainDir | rev | cut -d '/' -f1 | rev)
@@ -503,7 +521,7 @@ cp /home/armita/.gm_key ~/.gm_key
 This uses the atg.pl script to identify all ORFs in the genome. These can then be used to look for RxLRs and signal peptides.
 
 ```bash
-	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder 
+	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 	for Strain in Bc16 62471 Nov27; do
 		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			qsub $ProgDir/run_ORF_finder.sh $Genome
@@ -556,7 +574,7 @@ Required programs:
 SigP
 biopython
 
-Proteins that were predicted to contain signal peptides were identified using the following commands: 
+Proteins that were predicted to contain signal peptides were identified using the following commands:
 
 
 ```bash
