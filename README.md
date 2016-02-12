@@ -133,13 +133,15 @@ and annotation.
 programs: fastqc fastq-mcf kmc
 
 Data quality was visualised using fastqc:
-Nov9, Nov71 and Bc1
+
 
 ```bash
-	for RawData in $(ls raw_dna/paired/P.fragariae/*/*/*.fastq.gz); do
-		echo $RawData;
-		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
-		qsub $ProgDir/run_fastqc.sh $RawData;
+	for Strain in Bc1 Bc16 Nov9; do
+		for RawData in $(ls raw_dna/paired/P.fragariae/$Strain/*/*.fastq.gz | grep '_160129'); do
+			echo $RawData;
+			ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
+			qsub $ProgDir/run_fastqc.sh $RawData;
+		done
 	done
 ```
 
@@ -148,17 +150,12 @@ This was done with fastq-mcf
 
 
 ```bash
-	for Strain in "Nov71"; do
+	for Strain in Bc1 Bc16 Nov9; do
 		echo $Strain
-		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep 'Pfrag-Nov71')
-		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep 'Pfrag-Nov71')
+		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep '_160129')
+		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep '_160129')
 		IluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
-		echo $Read_F
-		echo $Read_R
-		qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F $Read_R $IluminaAdapters DNA
-		Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep 'PfragNov71')
-		Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep 'PfragNov71')
 		echo $Read_F
 		echo $Read_R
 		qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F $Read_R $IluminaAdapters DNA
@@ -168,11 +165,12 @@ This was done with fastq-mcf
 Data quality was visualised once again following trimming:
 
 ```bash
-	for RawData in $(ls qc_dna/paired/P.fragariae/*/*/*.fq.gz); do
-		echo $RawData;
-		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
-		qsub $ProgDir/run_fastqc.sh $RawData;
-	done
+for Strain in Bc1 Bc16 Nov9; do
+for RawData in $(ls qc_dna/paired/P.fragariae/$Strain/*/*.fq.gz | grep '_160129'); do
+echo $RawData;
+ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
+qsub $ProgDir/run_fastqc.sh $RawData;
+done
 ```
 
 
@@ -180,14 +178,16 @@ kmer counting was performed using kmc.
 This allowed estimation of sequencing depth and total genome size:
 
 ```bash  
-	for Strain in "Nov71"; do
+	for Strain in Bc1; do
 		echo $Strain;
-		Trim_F1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'Pfrag-Nov71');
-		Trim_R1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'Pfrag-Nov71');
-		Trim_F2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov71');
-		Trim_R2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov71');
+		Trim_F1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragBc1');
+		Trim_R1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragBc1');
+		Trim_F2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S3');
+		Trim_R2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S3');
+		Trim_F3=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep '_160129');
+		Trim_R3=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep '_160129');
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
-		qsub $ProgDir/kmc_kmer_counting.sh $Trim_F1 $Trim_R1 $Trim_F2 $Trim_R2;
+		qsub $ProgDir/kmc_kmer_counting.sh $Trim_F1 $Trim_R1 $Trim_F2 $Trim_R2 $Trim_F3 $Trim_R3;
 	done
 ```
 
