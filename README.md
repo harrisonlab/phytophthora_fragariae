@@ -165,13 +165,13 @@ This was done with fastq-mcf
 Data quality was visualised once again following trimming:
 
 ```bash
-for Strain in Bc1 Bc16 Nov9; do
-for RawData in $(ls qc_dna/paired/P.fragariae/$Strain/*/*.fq.gz | grep '_160129'); do
-echo $RawData;
-ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
-qsub $ProgDir/run_fastqc.sh $RawData;
-done
-done
+	for Strain in Bc1 Bc16 Nov9; do
+		for RawData in $(ls qc_dna/paired/P.fragariae/$Strain/*/*.fq.gz | grep '_160129'); do
+			echo $RawData;
+			ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
+			qsub $ProgDir/run_fastqc.sh $RawData;
+		done
+	done
 ```
 
 
@@ -179,31 +179,31 @@ kmer counting was performed using kmc.
 This allowed estimation of sequencing depth and total genome size:
 
 ```bash  
-	for Strain in Bc1; do
+	for Strain in Nov9; do
 		echo $Strain;
-		Trim_F1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragBc1');
-		Trim_R1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragBc1');
-		Trim_F2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S3');
-		Trim_R2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S3');
+		Trim_F1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S1');
+		Trim_R1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S1');
+		Trim_F2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov9');
+		Trim_R2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov9');
 		Trim_F3=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep '_160129');
 		Trim_R3=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep '_160129');
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
-		qsub $ProgDir/kmc_kmer_counting.sh $Trim_F1 $Trim_R1 $Trim_F2 $Trim_R2 $Trim_F3 $Trim_R3;
+		qsub $ProgDir/kmc_kmer_counting.sh $Trim_F1 $Trim_R1 $Trim_F2 $Trim_R2 $Trim_F3 $Trim_$R3
 	done
 ```
 
 ** Estimated Genome Size is:
-A4: 93413554
-SCRP245_v2: 127550025
-Bc23: 103251773
-Nov5: 95350039
-Nov77: 92399813
-ONT3: 103869049
-Bc16: 96652173
-62471: 548976060
-Nov27: 93851233
-Bc1: 742,452,694
-Nov9: 89,977,514
+A4: 93,413,554
+SCRP245_v2: 127,550,025
+Bc23: 103,251,773
+Nov5: 95,350,039
+Nov77: 92,399,813
+ONT3: 103,869,049
+Bc16: 90,864,210
+62471: 548,976,060
+Nov27: 93,851,233
+Bc1: 1,196,301,136
+Nov9: 959,591,302
 Nov71: 810,779,109
 
 ** Esimated Coverage is:
@@ -213,11 +213,11 @@ Bc23: 24
 Nov5: 25
 Nov77: 30
 ONT3: 26
-Bc16: 19
+Bc16: 41
 62471: 5
 Nov27: 31
 Bc1: 5
-Nov9: 41
+Nov9: 5
 Nov71: 5
 
 Target coverage is 20.
@@ -245,12 +245,12 @@ Assembly was performed using: Spades
 ##for multiple reads at high memory
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc16; do
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades/multiple_libraries
-		F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov71');
-		R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov71');
-		F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'Pfrag-Nov71');
-		R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'Pfrag-Nov71');
+		F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S1');
+		R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S1');
+		F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S2');
+		R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S2');
 		echo $F_Read1
 		echo $R_Read1
 		echo $F_Read2
