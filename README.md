@@ -171,6 +171,7 @@ echo $RawData;
 ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
 qsub $ProgDir/run_fastqc.sh $RawData;
 done
+done
 ```
 
 
