@@ -214,14 +214,14 @@ Nov5: 25
 Nov77: 30
 ONT3: 26
 Bc16: 41
-62471: 5
+62471: 5 (38)
 Nov27: 31
-Bc1: 5
-Nov9: 5
-Nov71: 5
+Bc1: 5 (70)
+Nov9: 5 (55)
+Nov71: 5 (41)
 
 Target coverage is 20.
-The ones at value 5 are errors from filtering of error kmers.
+The ones at value 5 are errors from filtering of error kmers, estimate from plots follow in ().
 
 # Assembly
 Assembly was performed using: Spades
