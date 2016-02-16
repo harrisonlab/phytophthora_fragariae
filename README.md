@@ -262,7 +262,7 @@ Assembly was performed using: Spades
 		Species=$(echo $F_Read1 | rev | cut -f4 -d '/' | rev)
 		echo $Strain
 		echo $Species
-		OutDir=assembly/spades/$Organism/$Strain
+		OutDir=assembly/spades/$Species/$Strain
 		qsub $ProgDir/subSpades_3lib_HiMem.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $F_Read3 $R_Read3 $OutDir correct 10
 	done
 ```
@@ -300,28 +300,28 @@ Assembly was performed using: Spades
 ##Quast
 
 ```bash
-for Strain in Bc16 62471 Nov27; do
-	ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
-	OutDir=$(ls -d assembly/spades/*/$Strain/filtered_contigs)
-	AssFiltered=$OutDir/contigs_min_500bp.fasta
-	AssRenamed=$OutDir/contigs_min_500bp_renamed.fasta
-	echo $AssFiltered
-	printf '.\t.\t.\t.\n' > editfile.tab
-	$ProgDir/remove_contaminants.py --inp $AssFiltered --out $AssRenamed --coord_file editfile.tab
-	rm editfile.tab
-done
+	for Strain in Nov71; do
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+		OutDir=$(ls -d assembly/spades/*/$Strain/filtered_contigs)
+		AssFiltered=$OutDir/contigs_min_500bp.fasta
+		AssRenamed=$OutDir/contigs_min_500bp_renamed.fasta
+		echo $AssFiltered
+		printf '.\t.\t.\t.\n' > editfile.tab
+		$ProgDir/remove_contaminants.py --inp $AssFiltered --out $AssRenamed --coord_file editfile.tab
+		rm editfile.tab
+	done
 ```
 
 ##QUAST used to summarise assembly statistics
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-	for Assembly in $(ls assembly/spades/*/Nov27/filtered_contigs/*_500bp_renamed.fasta); do
-	Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
-	Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
-	OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
-	qsub $ProgDir/sub_quast.sh $Assembly $OutDir
-done
+	ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+	for Assembly in $(ls assembly/spades/*/Nov71/filtered_contigs/*_500bp_renamed.fasta); do
+		Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
+		Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+		OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
+		qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+	done
 ```
 
 -->
@@ -331,13 +331,13 @@ Repeat masking was performed and used the following programs: Repeatmasker Repea
 The best assembly was used to perform repeatmasking
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-for Strain in "Bc16" "62471" "Nov27"; do
-	for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
-		echo $BestAss
-		qsub $ProgDir/rep_modeling.sh $BestAss
+	ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
+	for Strain in Nov71; do
+		for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+			echo $BestAss
+			qsub $ProgDir/rep_modeling.sh $BestAss
+		done
 	done
-done
 ```
 
 ```bash
