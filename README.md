@@ -110,21 +110,21 @@ and annotation.
 ```
 
 ```bash
-  RawDatDir=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/160129_M04465_0001-AHMT4
-  mkdir -p raw_dna/paired/P.fragariae/Bc1/F
-  mkdir -p raw_dna/paired/P.fragariae/Bc1/R
-  cp $RawDatDir/Bc1_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/F/Bc1_S1_L001_R1_001_160129.fastq.gz
-  cp $RawDatDir/Bc1_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/R/Bc1_S1_L001_R2_001_160129.fastq.gz
+	RawDatDir=/home/groups/harrisonlab/raw_data/raw_seq/raw_reads/160129_M04465_0001-AHMT4
+	mkdir -p raw_dna/paired/P.fragariae/Bc1/F
+	mkdir -p raw_dna/paired/P.fragariae/Bc1/R
+	cp $RawDatDir/Bc1_S1_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/F/Bc1_S1_L001_R1_001_160129.fastq.gz
+	cp $RawDatDir/Bc1_S1_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc1/R/Bc1_S1_L001_R2_001_160129.fastq.gz
 
-  mkdir -p raw_dna/paired/P.fragariae/Bc16/F
-  mkdir -p raw_dna/paired/P.fragariae/Bc16/R
-  cp $RawDatDir/Bc16_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/F/Bc16_S2_L001_R1_001_160129.fastq.gz
-  cp $RawDatDir/Bc16_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/R/Bc16_S2_L001_R2_001_160129.fastq.gz
+	mkdir -p raw_dna/paired/P.fragariae/Bc16/F
+	mkdir -p raw_dna/paired/P.fragariae/Bc16/R
+	cp $RawDatDir/Bc16_S2_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/F/Bc16_S2_L001_R1_001_160129.fastq.gz
+	cp $RawDatDir/Bc16_S2_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Bc16/R/Bc16_S2_L001_R2_001_160129.fastq.gz
 
-  mkdir -p raw_dna/paired/P.fragariae/Nov9/F
-  mkdir -p raw_dna/paired/P.fragariae/Nov9/R
-  cp $RawDatDir/Nov9_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/F/Nov9_S3_L001_R1_001_160129.fastq.gz
-  cp $RawDatDir/Nov9_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/R/Nov9_S3_L001_R2_001_160129.fastq.gz
+	mkdir -p raw_dna/paired/P.fragariae/Nov9/F
+	mkdir -p raw_dna/paired/P.fragariae/Nov9/R
+	cp $RawDatDir/Nov9_S3_L001_R1_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/F/Nov9_S3_L001_R1_001_160129.fastq.gz
+	cp $RawDatDir/Nov9_S3_L001_R2_001.fastq.gz raw_dna/paired/P.fragariae/Nov9/R/Nov9_S3_L001_R2_001_160129.fastq.gz
 ```
 
 
@@ -474,12 +474,12 @@ Alignment files were merged into a single file so as to be passed to a gene pred
 
 <!--
 ```bash
-for StrainDir in $(ls -d alignment/*/*); do
-	Strain=$(echo $StrainDir | rev | cut -d '/' -f1 | rev)
-	ls alignment/*/$Strain/accepted_hits.bam > bamlist.txt
-	mkdir -p $StrainDir/merged
-	bamtools merge -list bamlist.txt -out $StrainDir/merged
-done
+	for StrainDir in $(ls -d alignment/*/*); do
+		Strain=$(echo $StrainDir | rev | cut -d '/' -f1 | rev)
+		ls alignment/*/$Strain/accepted_hits.bam > bamlist.txt
+		mkdir -p $StrainDir/merged
+		bamtools merge -list bamlist.txt -out $StrainDir/merged
+	done
 ```
  -->
 
@@ -489,7 +489,7 @@ As this is the first time I have run Braker I need to copy the licence key for g
 to my user directory
 
 ```bash
-cp /home/armita/.gm_key ~/.gm_key
+	cp /home/armita/.gm_key ~/.gm_key
 ```
 
 ```bash
@@ -559,13 +559,6 @@ Interproscan was used to give gene models functional annotations.
 		Genes=gene_pred/braker/P.fragariae/$Strain/P.*/augustus.aa
 		$ProgDir/sub_interproscan.sh $Genes
 	done
-```
-
-```bash
-```
-B) SwissProt
-
-```bash
 ```
 
 #Genomic analysis
@@ -985,30 +978,30 @@ The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identi
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
 
 ```bash
-for Strain in Bc16 62471 Nov27; do
-for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
-ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
-Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
-OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
-SigP_Merged_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
-mkdir -p $OutDir;
-printf "\nstrain: $Strain\tspecies: $Organism\n";
-printf "the number of SigP gene is:\t";
-cat $Secretome | grep '>' | wc -l;
-printf "the number of SigP-RxLR genes are:\t";
-$ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_ORF_RxLR_EER_regex.fa;
-cat $OutDir/"$Strain"_ORF_RxLR_EER_regex.fa | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' > $OutDir/"$Strain"_ORF_RxLR_regex.txt
-cat $OutDir/"$Strain"_ORF_RxLR_regex.txt | wc -l
-printf "the number of SigP-RxLR-EER genes are:\t";
-cat $OutDir/"$Strain"_ORF_RxLR_EER_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' '> $OutDir/"$Strain"_ORF_RxLR_EER_regex.txt
-cat $OutDir/"$Strain"_ORF_RxLR_EER_regex.txt | wc -l
-printf "\n"
-ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-$ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_regex.txt  $SigP_Merged_Gff RxLR_EER_regex_finder.py Name Augustus > $OutDir/"$Strain"_ORF_RxLR_regex.gff
-ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-$ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_EER_regex.txt $SigP_Merged_Gff RxLR_EER_regex_finder.py Name Augustus > $OutDir/"$Strain"_ORF_RxLR_EER_regex.gff
-done
-done
+	for Strain in Bc16 62471 Nov27; do
+		for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
+			ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
+			Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
+			OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
+			SigP_Merged_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
+			mkdir -p $OutDir;
+			printf "\nstrain: $Strain\tspecies: $Organism\n";
+			printf "the number of SigP gene is:\t";
+			cat $Secretome | grep '>' | wc -l;
+			printf "the number of SigP-RxLR genes are:\t";
+			$ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_ORF_RxLR_EER_regex.fa;
+			cat $OutDir/"$Strain"_ORF_RxLR_EER_regex.fa | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' > $OutDir/"$Strain"_ORF_RxLR_regex.txt
+			cat $OutDir/"$Strain"_ORF_RxLR_regex.txt | wc -l
+			printf "the number of SigP-RxLR-EER genes are:\t";
+			cat $OutDir/"$Strain"_ORF_RxLR_EER_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' '> $OutDir/"$Strain"_ORF_RxLR_EER_regex.txt
+			cat $OutDir/"$Strain"_ORF_RxLR_EER_regex.txt | wc -l
+			printf "\n"
+			ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+			$ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_regex.txt  $SigP_Merged_Gff RxLR_EER_regex_finder.py Name Augustus > $OutDir/"$Strain"_ORF_RxLR_regex.gff
+			ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+			$ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_EER_regex.txt $SigP_Merged_Gff RxLR_EER_regex_finder.py Name Augustus > $OutDir/"$Strain"_ORF_RxLR_EER_regex.gff
+		done
+	done
 ```
 
 ```
