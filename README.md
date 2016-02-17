@@ -1,6 +1,7 @@
 # phytophthora_fragariae
 Commands used in the analysis of P. fragariae genomes
 A4, Bc23, Nov5, Nov77, ONT3, SCRP245_v2, Bc16, 62471 and Nov27
+NOTE: 62471 is P. cactorum
 ====================
 
 Commands used during analysis of Phytophthora fragariae genomed. Note - all this work was performed in the directory: /home/groups/harrisonlab/project_files/phytophthora_fragariae
@@ -342,10 +343,10 @@ The best assembly was used to perform repeatmasking
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-	for Strain in "Bc16" "62471" "Nov27"; do
+	for Strain in Nov71; do
 		for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
-		echo $BestAss
-		qsub $ProgDir/transposonPSI.sh $BestAss
+			echo $BestAss
+			qsub $ProgDir/transposonPSI.sh $BestAss
 		done
 	done
  ```
@@ -359,7 +360,8 @@ ONT3: 29.92%
 SCRP245_v2: 21.14%
 Bc16: 21.98%
 62471: 25.97%
-Nov27: 33.12%**
+Nov27: 33.12%
+Nov71: 33.86%**
 
 Summary for transposonPSI output:
 
