@@ -367,7 +367,7 @@ Summary for transposonPSI output:
 
 ```bash
 	Organism=P.fragariae
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		RepDir=repeat_masked/$Organism/$Strain/filtered_contigs_repmask
 		TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
 		echo $Strain
@@ -378,29 +378,31 @@ Summary for transposonPSI output:
 	done
 ```
 
+Estimate of genome size = 93,000,000 bp
 ** % bases masked by transposon psi:
-A4: 0.83%
-Bc23: 6.76%
-Nov5: 8.00%
-Nov77: 8.01%
-ONT3: 7.29%
-SCRP245_v2: 6.37%
-Bc16: 6.72%
-62471: 7.57%
-Nov27: 8.16%**
+A4: 7.26%
+Bc23: 4.92%
+Nov5: 6.94%
+Nov77: 6.91%
+ONT3: 7.13%
+SCRP245_v2: 5.06%
+Bc16: 4.87%
+62471: 5.04%
+Nov27: 7.18%
+Nov71: 7.18%**
 
 
 # Gene Prediction
 Gene prediction followed two steps:
 Pre-gene prediction - Quality of genome assemblies were assessed using Cegma to see how many core eukaryotic genes can be identified.
-Gene models were used to predict genes in the fusarium genome. This used results from CEGMA as hints for gene models.
+Gene models were used to predict genes in the P. fragariae genomes. This used results from CEGMA as hints for gene models.
 
 ## Pre-gene prediction
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			echo $BestAss
 			qsub $ProgDir/sub_cegma.sh $BestAss dna
@@ -408,7 +410,7 @@ Quality of genome assemblies was assessed by looking for the gene space in the a
 	done
 ```
 
-** Number of cegma genes present and complete:
+**Number of cegma genes present and complete:
 A4: 94.35%
 Bc23: 94.76%
 Nov5: 95.16%
@@ -417,7 +419,8 @@ ONT3: 94.76%
 SCRP245_v2: 93.95%
 Bc16: 94.76%
 62471: 95.16%
-Nov27: 94.76% **
+Nov27: 94.76%
+Nov71: 94.76%**
 
 ** Number of cegma genes present and partial:
 A4: 97.98%
@@ -428,7 +431,8 @@ ONT3: 97.18%
 SCRP245_v2: 96.37%
 Bc16: 97.58%
 62471: 97.18%
-Nov27: 97.18% **
+Nov27: 97.18% 
+Nov71: 97.18%**
 
 ##Gene prediction
 
@@ -461,7 +465,7 @@ Aligments of RNAseq reads were made against assemblies from each strain using to
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
 	FileF=qc_rna/genbank/P.cactorum/10300/F/SRR1206032_trim.fq.gz
 	FileR=qc_rna/genbank/P.cactorum/10300/R/SRR1206033_trim.fq.gz
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
 			Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
@@ -496,7 +500,7 @@ to my user directory
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa); do
 			Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
 			OutDir=gene_pred/braker/$Organism/$Strain
