@@ -517,7 +517,7 @@ to my user directory
 ##4) Extract gff and amino acid sequences
 
 ```bash
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for File in $(ls gene_pred/braker/*/$Strain/*_braker/augustus.gff); do
 			getAnnoFasta.pl $File
 			OutDir=$(dirname $File)
@@ -533,7 +533,7 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			qsub $ProgDir/run_ORF_finder.sh $Genome
 		done
@@ -543,13 +543,13 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
 ```bash
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
-			Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
-			Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
-			ProgDir=~/git_repos/tools/seq_tools/feature_annotation
-			ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
-			$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
+				Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
+				Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
+				ProgDir=~/git_repos/tools/seq_tools/feature_annotation
+				ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+				$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
 		done
 	done
 ```
@@ -561,7 +561,7 @@ Interproscan was used to give gene models functional annotations.
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		Genes=gene_pred/braker/P.fragariae/$Strain/P.*/augustus.aa
 		$ProgDir/sub_interproscan.sh $Genes
 	done
@@ -593,9 +593,7 @@ Proteins that were predicted to contain signal peptides were identified using th
 		BaseName="$Organism""_$Strain"_braker_preds
 		$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
 		for File in $(ls $SplitDir/*_braker_preds_*); do
-		Jobs=$(qstat | grep 'pred_sigP' | wc -l)
-			while [ $Jobs -ge 32 ]; do
-				sleep 10
+		Jobs=$(qstat | grep 'pred_sigP' | wc -l)qstat
 				printf "."
 				Jobs=$(qstat | grep 'pred_sigP' | wc -l)
 				done
