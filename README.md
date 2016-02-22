@@ -582,20 +582,22 @@ Proteins that were predicted to contain signal peptides were identified using th
 
 
 ```bash
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
-		echo "$Proteome"
-		SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-		ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-		Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-		SplitDir=gene_pred/braker_split/$Organism/$Strain
-		mkdir -p $SplitDir
-		BaseName="$Organism""_$Strain"_braker_preds
-		$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
-		for File in $(ls $SplitDir/*_braker_preds_*); do
-		Jobs=$(qstat | grep 'pred_sigP' | wc -l)qstat
-				printf "."
+			echo "$Proteome"
+			SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+			ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+			SplitDir=gene_pred/braker_split/$Organism/$Strain
+			mkdir -p $SplitDir
+			BaseName="$Organism""_$Strain"_braker_preds
+			$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
+			for File in $(ls $SplitDir/*_braker_preds_*); do
 				Jobs=$(qstat | grep 'pred_sigP' | wc -l)
+				while [ $Jobs -ge 32 ]; do
+					sleep 10
+					printf "."
+					Jobs=$(qstat | grep 'pred_sigP' | wc -l)
 				done
 				printf "\n"
 				echo $File
@@ -608,7 +610,7 @@ Proteins that were predicted to contain signal peptides were identified using th
 This produces batch files. They need to be combined into a single file for each strain using the following commands:
 
 ```bash
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for SplitDir in $(ls -d gene_pred/braker_split/P.*/$Strain); do
 			Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
 			InStringAA=''
@@ -631,7 +633,7 @@ This produces batch files. They need to be combined into a single file for each 
 The RxLR_EER_regex_finder.py script was used to search for this regular expression R.LR.{,40}[ED][ED][KR] and annotate the EER domain where present. Done separate for each strain.
 
 ```bash
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Secretome in $(ls gene_pred/braker_sigP/*/$Strain/*braker_sp.aa); do
 			ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors;
 			Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
@@ -649,10 +651,10 @@ The RxLR_EER_regex_finder.py script was used to search for this regular expressi
 			cat $OutDir/"$Strain"_braker_RxLR_EER_regex.txt | wc -l
 			printf "\n"
 			ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-				# $ProgDir/extract_from_fasta.py --fasta $OutDir/"$Strain"_pub_RxLR_regex.fa --headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
-				# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-				# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_regex.txt > $OutDir/"$Strain"_pub_RxLR_regex.gff3
-				# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
+			# $ProgDir/extract_from_fasta.py --fasta $OutDir/"$Strain"_pub_RxLR_regex.fa --headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
+			# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
+			# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_regex.txt > $OutDir/"$Strain"_pub_RxLR_regex.gff3
+			# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
 		done
 	done
 ```
@@ -709,6 +711,11 @@ strain: Nov27   species: P.fragariae
 the number of SigP gene is: 2450
 the number of SigP-RxLR genes are: 297
 the number of SigP-RxLR-EER genes are: 172
+
+strain: Nov71   species: P.fragariae
+the number of SigP gene is: 2525
+the number of SigP-RxLR genes are: 324
+the number of SigP-RxLR-EER genes are: 191
 ```
 
 ##B) From braker1 gene models - Hmm evidence for WY domains
@@ -718,7 +725,7 @@ Hmm models for the WY domain contained in many RxLRs were used to search gene mo
 ```
 	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 	HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
 			OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
@@ -732,8 +739,8 @@ Hmm models for the WY domain contained in many RxLRs were used to search gene mo
 			$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
 			Headers="$Strain"_pub_WY_hmmer_headers.txt
 			cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/$Headers
-			# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-			# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_WY_hmmer.gff3
+				# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
+				# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_WY_hmmer.gff3
 		done
 	done
 ```
@@ -766,12 +773,15 @@ Domain search space  (domZ):             150  [number of targets reported over t
 P.fragariae Nov27
 Initial search space (Z):              35993  [actual number of targets]
 Domain search space  (domZ):             170  [number of targets reported over threshold]
+P.fragariae Nov71
+Initial search space (Z):              34902  [actual number of targets]
+Domain search space  (domZ):             179  [number of targets reported over threshold]
 ```
 
 ##C) From Braker1 gene models - Hmm evidence of RxLR effectors
 
 ```
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
@@ -823,6 +833,9 @@ Domain search space  (domZ):             112  [number of targets reported over t
 P.fragariae Nov27
 Initial search space (Z):              35993  [actual number of targets]
 Domain search space  (domZ):             187  [number of targets reported over threshold]
+P.fragariae Nov71
+Initial search space (Z):              34902  [actual number of targets]
+Domain search space  (domZ):             205  [number of targets reported over threshold]
 ```
 
 ##D) From Braker1 gene models - Hmm evidence of CRN effectors
@@ -832,7 +845,7 @@ A hmm model relating to crinkler domains was used to identify putative crinklers
 ```
 	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 	HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
 			OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
@@ -880,6 +893,9 @@ Domain search space  (domZ):             171  [number of targets reported over t
 P.fragariae Nov27
 Initial search space (Z):              35993  [actual number of targets]
 Domain search space  (domZ):             115  [number of targets reported over threshold]
+P.fragariae Nov71
+Initial search space (Z):              34902  [actual number of targets]
+Domain search space  (domZ):             127  [number of targets reported over threshold]
 ```
 
 ##E) From ORF gene models - Signal peptide & RxLR motif
@@ -892,7 +908,7 @@ biopython
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
 ```
-	for Strain in Bc16 62471 Nov27; do
+	for Strain in Nov71; do
 		for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
 			echo "$Proteome"
 			SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
@@ -903,11 +919,11 @@ Proteins that were predicted to contain signal peptides were identified using th
 			BaseName="$Organism""_$Strain"_ORF_preds
 			$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
 			for File in $(ls $SplitDir/*_ORF_preds_*); do
-			Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
-			while [ $Jobs -gt 1 ]; do
-				sleep 10
-				printf "."
 				Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+				while [ $Jobs -gt 1 ]; do
+					sleep 10
+					printf "."
+					Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
 				done
 				printf "\n"
 				echo $File
