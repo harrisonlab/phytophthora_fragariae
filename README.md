@@ -301,7 +301,7 @@ Assembly was performed using: Spades
 ##Quast
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
 		OutDir=$(ls -d assembly/spades/*/$Strain/filtered_contigs)
 		AssFiltered=$OutDir/contigs_min_500bp.fasta
@@ -317,11 +317,13 @@ Assembly was performed using: Spades
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-	for Assembly in $(ls assembly/spades/*/Nov71/filtered_contigs/*_500bp_renamed.fasta); do
-		Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
-		Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
-		OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
-		qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+	for Strain in Bc1 Bc16 Nov9; do
+		for Assembly in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+			Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
+			Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+			OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
+			qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+		done
 	done
 ```
 
@@ -333,7 +335,7 @@ The best assembly was used to perform repeatmasking
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			echo $BestAss
 			qsub $ProgDir/rep_modeling.sh $BestAss
