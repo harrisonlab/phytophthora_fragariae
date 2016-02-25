@@ -345,7 +345,7 @@ The best assembly was used to perform repeatmasking
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			echo $BestAss
 			qsub $ProgDir/transposonPSI.sh $BestAss
@@ -360,10 +360,12 @@ Nov5: 31.91%
 Nov77: 31.54%
 ONT3: 29.92%
 SCRP245_v2: 21.14%
-Bc16: 21.98%
+Bc16: 34.83%
 62471: 25.97%
 Nov27: 33.12%
-Nov71: 33.86%**
+Nov71: 33.86%
+Bc1: 35.05%
+Nov9:35.25%**
 
 Summary for transposonPSI output:
 
@@ -404,7 +406,7 @@ Quality of genome assemblies was assessed by looking for the gene space in the a
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			echo $BestAss
 			qsub $ProgDir/sub_cegma.sh $BestAss dna
@@ -419,10 +421,12 @@ Nov5: 95.16%
 Nov77: 94.35%
 ONT3: 94.76%
 SCRP245_v2: 93.95%
-Bc16: 94.76%
+Bc16: 95.16%
 62471: 95.16%
 Nov27: 94.76%
-Nov71: 94.76%**
+Nov71: 94.76%
+Bc1: 94.76%
+Nov9: 94.35%**
 
 ** Number of cegma genes present and partial:
 A4: 97.98%
@@ -434,7 +438,9 @@ SCRP245_v2: 96.37%
 Bc16: 97.58%
 62471: 97.18%
 Nov27: 97.18% 
-Nov71: 97.18%**
+Nov71: 97.18%
+Bc1: 97.18%
+Nov9: 97.18%**
 
 ##Gene prediction
 
@@ -467,7 +473,7 @@ Aligments of RNAseq reads were made against assemblies from each strain using to
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
 	FileF=qc_rna/genbank/P.cactorum/10300/F/SRR1206032_trim.fq.gz
 	FileR=qc_rna/genbank/P.cactorum/10300/R/SRR1206033_trim.fq.gz
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
 			Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
@@ -502,7 +508,7 @@ to my user directory
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-	for Strain in Nov71; do
+	for Strain in Bc16; do
 		for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa); do
 			Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
 			OutDir=gene_pred/braker/$Organism/$Strain
