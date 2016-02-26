@@ -525,7 +525,7 @@ to my user directory
 ##4) Extract gff and amino acid sequences
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for File in $(ls gene_pred/braker/*/$Strain/*_braker/augustus.gff); do
 			getAnnoFasta.pl $File
 			OutDir=$(dirname $File)
@@ -541,7 +541,7 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			qsub $ProgDir/run_ORF_finder.sh $Genome
 		done
@@ -551,13 +551,13 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
-				Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
-				Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
-				ProgDir=~/git_repos/tools/seq_tools/feature_annotation
-				ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
-				$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
+			Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
+			Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
+			ProgDir=~/git_repos/tools/seq_tools/feature_annotation
+			ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+			$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
 		done
 	done
 ```
@@ -569,7 +569,7 @@ Interproscan was used to give gene models functional annotations.
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		Genes=gene_pred/braker/P.fragariae/$Strain/P.*/augustus.aa
 		$ProgDir/sub_interproscan.sh $Genes
 	done
@@ -590,7 +590,7 @@ Proteins that were predicted to contain signal peptides were identified using th
 
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			echo "$Proteome"
 			SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
@@ -618,7 +618,7 @@ Proteins that were predicted to contain signal peptides were identified using th
 This produces batch files. They need to be combined into a single file for each strain using the following commands:
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for SplitDir in $(ls -d gene_pred/braker_split/P.*/$Strain); do
 			Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
 			InStringAA=''
@@ -641,7 +641,7 @@ This produces batch files. They need to be combined into a single file for each 
 The RxLR_EER_regex_finder.py script was used to search for this regular expression R.LR.{,40}[ED][ED][KR] and annotate the EER domain where present. Done separate for each strain.
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for Secretome in $(ls gene_pred/braker_sigP/*/$Strain/*braker_sp.aa); do
 			ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors;
 			Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
@@ -703,10 +703,11 @@ the number of SigP gene is: 2544
 the number of SigP-RxLR genes are: 286
 the number of SigP-RxLR-EER genes are: 156
 
+
 strain: Bc16    species: P.fragariae
-the number of SigP gene is: 2335
-the number of SigP-RxLR genes are: 279
-the number of SigP-RxLR-EER genes are: 160
+the number of SigP gene is: 2517
+the number of SigP-RxLR genes are: 304
+the number of SigP-RxLR-EER genes are: 173
 
 
 strain: 62471   species: P.fragariae
@@ -720,10 +721,23 @@ the number of SigP gene is: 2450
 the number of SigP-RxLR genes are: 297
 the number of SigP-RxLR-EER genes are: 172
 
+
 strain: Nov71   species: P.fragariae
 the number of SigP gene is: 2525
 the number of SigP-RxLR genes are: 324
 the number of SigP-RxLR-EER genes are: 191
+
+
+strain: Bc1     species: P.fragariae
+the number of SigP gene is:     2570
+the number of SigP-RxLR genes are:      336
+the number of SigP-RxLR-EER genes are:  193
+
+
+strain: Nov9    species: P.fragariae
+the number of SigP gene is:     2531
+the number of SigP-RxLR genes are:      313
+the number of SigP-RxLR-EER genes are:  182
 ```
 
 ##B) From braker1 gene models - Hmm evidence for WY domains
@@ -733,7 +747,7 @@ Hmm models for the WY domain contained in many RxLRs were used to search gene mo
 ```
 	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 	HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
 			OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
@@ -773,8 +787,8 @@ P.fragariae SCRP245_v2
 Initial search space (Z):              36021  [actual number of targets]
 Domain search space  (domZ):             172  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):              29400  [actual number of targets]
-Domain search space  (domZ):             162  [number of targets reported over threshold]
+Initial search space (Z):              38314  [actual number of targets]
+Domain search space  (domZ):             178  [number of targets reported over threshold]
 P.fragariae 62471
 Initial search space (Z):              24212  [actual number of targets]
 Domain search space  (domZ):             150  [number of targets reported over threshold]
@@ -784,12 +798,18 @@ Domain search space  (domZ):             170  [number of targets reported over t
 P.fragariae Nov71
 Initial search space (Z):              34902  [actual number of targets]
 Domain search space  (domZ):             179  [number of targets reported over threshold]
+P.fragariae Bc1
+Initial search space (Z):              39733  [actual number of targets]
+Domain search space  (domZ):             183  [number of targets reported over threshold]
+P.fragariae Nov9
+Initial search space (Z):              35898  [actual number of targets]
+Domain search space  (domZ):             180  [number of targets reported over threshold]
 ```
 
 ##C) From Braker1 gene models - Hmm evidence of RxLR effectors
 
 ```
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
@@ -805,7 +825,7 @@ Domain search space  (domZ):             179  [number of targets reported over t
 			$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
 			Headers="$Strain"_pub_RxLR_hmmer_headers.txt
 			cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' > $OutDir/$Headers
-				# # ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
+					# # ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
 				# Col2=cropped.hmm
 				# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
 				# # $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $GeneModels $Col2 Name > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
@@ -833,8 +853,8 @@ P.fragariae SCRP245_v2
 Initial search space (Z):              36021  [actual number of targets]
 Domain search space  (domZ):             175  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):              29400  [actual number of targets]
-Domain search space  (domZ):             161  [number of targets reported over threshold]
+Initial search space (Z):              38314  [actual number of targets]
+Domain search space  (domZ):             198  [number of targets reported over threshold]
 P.fragariae 62471
 Initial search space (Z):              24212  [actual number of targets]
 Domain search space  (domZ):             112  [number of targets reported over threshold]
@@ -844,6 +864,12 @@ Domain search space  (domZ):             187  [number of targets reported over t
 P.fragariae Nov71
 Initial search space (Z):              34902  [actual number of targets]
 Domain search space  (domZ):             205  [number of targets reported over threshold]
+P.fragariae Bc1
+Initial search space (Z):              39733  [actual number of targets]
+Domain search space  (domZ):             206  [number of targets reported over threshold]
+P.fragariae Nov9
+Initial search space (Z):              35898  [actual number of targets]
+Domain search space  (domZ):             195  [number of targets reported over threshold]
 ```
 
 ##D) From Braker1 gene models - Hmm evidence of CRN effectors
@@ -853,7 +879,7 @@ A hmm model relating to crinkler domains was used to identify putative crinklers
 ```
 	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 	HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
-	for Strain in Nov71; do
+	for Strain in Bc16 Bc1 Nov9; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
 			OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
@@ -893,8 +919,8 @@ P.fragariae SCRP245_v2
 Initial search space (Z):              36021  [actual number of targets]
 Domain search space  (domZ):             109  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):              29400  [actual number of targets]
-Domain search space  (domZ):             112  [number of targets reported over threshold]
+Initial search space (Z):              38314  [actual number of targets]
+Domain search space  (domZ):             119  [number of targets reported over threshold]
 P.fragariae 62471
 Initial search space (Z):              24212  [actual number of targets]
 Domain search space  (domZ):             171  [number of targets reported over threshold]
@@ -904,6 +930,12 @@ Domain search space  (domZ):             115  [number of targets reported over t
 P.fragariae Nov71
 Initial search space (Z):              34902  [actual number of targets]
 Domain search space  (domZ):             127  [number of targets reported over threshold]
+P.fragariae Bc1
+Initial search space (Z):              39733  [actual number of targets]
+Domain search space  (domZ):             123  [number of targets reported over threshold]
+P.fragariae Nov9
+Initial search space (Z):              35898  [actual number of targets]
+Domain search space  (domZ):             130  [number of targets reported over threshold]
 ```
 
 ##E) From ORF gene models - Signal peptide & RxLR motif
@@ -916,27 +948,27 @@ biopython
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
 ```
-	for Strain in Nov71; do
+	for Strain in Bc16 Bc1 Nov9; do
 		for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
-			echo "$Proteome"
-			SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-			ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-			Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-			SplitDir=gene_pred/ORF_split/$Organism/$Strain
-			mkdir -p $SplitDir
-			BaseName="$Organism""_$Strain"_ORF_preds
-			$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
+		echo "$Proteome"
+		SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+		ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+		Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+		SplitDir=gene_pred/ORF_split/$Organism/$Strain
+		mkdir -p $SplitDir
+		BaseName="$Organism""_$Strain"_ORF_preds
+		$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
 			for File in $(ls $SplitDir/*_ORF_preds_*); do
+			Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+			while [ $Jobs -gt 1 ]; do
+				sleep 10
+				printf "."
 				Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
-				while [ $Jobs -gt 1 ]; do
-					sleep 10
-					printf "."
-					Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
-				done
-				printf "\n"
-				echo $File
-				qsub $ProgDir/pred_sigP.sh $File
-					# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
+			done
+			printf "\n"
+			echo $File
+			qsub $ProgDir/pred_sigP.sh $File
+			# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
 			done
 		done
 	done
