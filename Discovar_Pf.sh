@@ -7,7 +7,7 @@
 export PATH=${PATH}:/home/vicker/programs/discovardenovo-52488-install/bin/
 
 
-Strain=SCRP245_v2
+Strain=Nov77
 OUTDIR=discovar/P.fragariae/$Strain
 FRAC=1
 
