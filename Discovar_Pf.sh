@@ -7,11 +7,11 @@
 export PATH=${PATH}:/home/vicker/programs/discovardenovo-52488-install/bin/
 
 
-Strain=A4
-OUTDIR='/assembly/discovar/P.fragariae/$Strain'
+Strain=SCRP245_v2
+OUTDIR=discovar/P.fragariae/$Strain
 FRAC=1
 
-READS='/home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_dna/paired/P.fragariae/$Strain/*/*.fastq.gz
+READS=/home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_dna/paired/P.fragariae/$Strain/*/*.fastq.gz
 
 mkdir -p ${OUTDIR}
 
