@@ -370,16 +370,16 @@ Nov9:35.25%**
 Summary for transposonPSI output:
 
 ```bash
-	Organism=P.fragariae
-	for Strain in Nov71; do
-		RepDir=repeat_masked/$Organism/$Strain/filtered_contigs_repmask
-		TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
-		echo $Strain
-		printf "The number of bases masked by TransposonPSI:\t"
-		sortBed -i $TransPSIGff > $RepDir/TPSI_sorted.bed
-		bedtools merge -i $RepDir/TPSI_sorted.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
-		rm $RepDir/TPSI_sorted.bed
-	done
+Organism=P.fragariae
+for Strain in A4 Bc1 Bc16 Nov9; do
+RepDir=repeat_masked/$Organism/$Strain/filtered_contigs_repmask
+TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+echo $Strain
+printf "The number of bases masked by TransposonPSI:\t"
+sortBed -i $TransPSIGff > $RepDir/TPSI_sorted.bed
+bedtools merge -i $RepDir/TPSI_sorted.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+rm $RepDir/TPSI_sorted.bed
+done
 ```
 
 Estimate of genome size = 93,000,000 bp
@@ -390,10 +390,12 @@ Nov5: 6.94%
 Nov77: 6.91%
 ONT3: 7.13%
 SCRP245_v2: 5.06%
-Bc16: 4.87%
+Bc16: 7.80%
 62471: 5.04%
 Nov27: 7.18%
-Nov71: 7.18%**
+Nov71: 7.18%
+Bc1: 7.91%
+Nov9: 7.97%**
 
 
 # Gene Prediction
@@ -975,7 +977,7 @@ Proteins that were predicted to contain signal peptides were identified using th
 ```
 The batch files of predicted secreted proteins needed to be combined into a single file for each strain. This was done with the following commands:
 ```
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for SplitDir in $(ls -d gene_pred/ORF_split/P.*/$Strain); do
 			Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
 			InStringAA=''
@@ -997,7 +999,7 @@ The batch files of predicted secreted proteins needed to be combined into a sing
 ```
 Names of ORFs containing signal peptides were extracted from fasta files. This included information on the position and hmm score of RxLRs.
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc16; do
 		for FastaFile in $(ls gene_pred/ORF_sigP/*/$Strain/*_ORF_sp.aa); do
 			Organism=$(echo $FastaFile | rev | cut -d '/' -f3 | rev)
 			echo "$Strain"
@@ -1010,7 +1012,7 @@ Names of ORFs containing signal peptides were extracted from fasta files. This i
 Due to the nature of predicting ORFs, some features overlapped with one another. A single ORF was selected from each set of overlapped ORFs. This was selected on the basis of its SignalP Hmm score. Biopython was used to identify overlaps and identify the ORF with the best SignalP score.
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for SigP_fasta in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp.aa); do
 			Organism=$(echo $SigP_fasta | rev | cut -d '/' -f3 | rev)
 			echo "$Strain"
@@ -1038,7 +1040,7 @@ The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identi
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
 			ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
 			Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
@@ -1102,9 +1104,9 @@ the number of SigP-RxLR-EER genes are:	221
 
 
 strain: Bc16    species: P.fragariae
-the number of SigP gene is:     19586
-the number of SigP-RxLR genes are:      1369
-the number of SigP-RxLR-EER genes are:  217
+the number of SigP gene is:     23160
+the number of SigP-RxLR genes are:      1602
+the number of SigP-RxLR-EER genes are:  243
 
 
 strain: 62471   species: P.fragariae
@@ -1122,12 +1124,22 @@ strain: Nov71   species: P.fragariae
 the number of SigP gene is:     22615
 the number of SigP-RxLR genes are:      1539
 the number of SigP-RxLR-EER genes are:  242
+
+strain: Bc1     species: P.fragariae
+the number of SigP gene is:     23184
+the number of SigP-RxLR genes are:      1585
+the number of SigP-RxLR-EER genes are:  245
+
+strain: Nov9    species: P.fragariae
+the number of SigP gene is:     23374
+the number of SigP-RxLR genes are:      1580
+the number of SigP-RxLR-EER genes are:  242
 ```
 
 ##F) From ORF gene models - Hmm evidence of WY domains Hmm models for the WY domain contained in many RxLRs were used to search ORFs predicted with atg.pl. These were run with the following commands:
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc1 Bc16 Nov9; do
 		for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
@@ -1170,8 +1182,8 @@ P.fragariae SCRP245_v2
 Initial search space (Z):              21033  [actual number of targets]
 Domain search space  (domZ):             102  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):              19586  [actual number of targets]
-Domain search space  (domZ):             101  [number of targets reported over threshold]
+Initial search space (Z):              23160  [actual number of targets]
+Domain search space  (domZ):             114  [number of targets reported over threshold]
 P.fragariae 62471
 Initial search space (Z):              15873  [actual number of targets]
 Domain search space  (domZ):             105  [number of targets reported over threshold]
@@ -1181,12 +1193,18 @@ Domain search space  (domZ):             113  [number of targets reported over t
 P.fragariae Nov71
 Initial search space (Z):              22615  [actual number of targets]
 Domain search space  (domZ):             115  [number of targets reported over threshold]
+P.fragariae Bc1
+Initial search space (Z):              23184  [actual number of targets]
+Domain search space  (domZ):             113  [number of targets reported over threshold]
+P.fragariae Nov9
+Initial search space (Z):              23374  [actual number of targets]
+Domain search space  (domZ):             114  [number of targets reported over threshold]
 ```
 
 ##G) From ORF gene models - Hmm evidence of RxLR effectors
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc16 Bc1 Nov9; do
 		for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
@@ -1229,8 +1247,8 @@ P.fragariae SCRP245_v2
 Initial search space (Z):              21033  [actual number of targets]
 Domain search space  (domZ):             184  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):              19586  [actual number of targets]
-Domain search space  (domZ):             177  [number of targets reported over threshold]
+Initial search space (Z):              23160  [actual number of targets]
+Domain search space  (domZ):             200  [number of targets reported over threshold]
 P.fragariae 62471
 Initial search space (Z):              15873  [actual number of targets]
 Domain search space  (domZ):             140  [number of targets reported over threshold]
@@ -1240,6 +1258,12 @@ Domain search space  (domZ):             202  [number of targets reported over t
 P.fragariae Nov71
 Initial search space (Z):              22615  [actual number of targets]
 Domain search space  (domZ):             201  [number of targets reported over threshold]
+P.fragariae Bc1
+Initial search space (Z):              23184  [actual number of targets]
+Domain search space  (domZ):             201  [number of targets reported over threshold]
+P.fragariae Nov9
+Initial search space (Z):              23374  [actual number of targets]
+Domain search space  (domZ):             199  [number of targets reported over threshold]
 ```
 
 ###H) From ORF gene models - Hmm evidence of CRN effectors
@@ -1247,7 +1271,7 @@ Domain search space  (domZ):             201  [number of targets reported over t
 A hmm model relating to crinkler domains was used to identify putative crinklers in ORF gene models. This was done with the following commands:
 
 ```bash
-	for Strain in Nov71; do
+	for Strain in Bc16 Bc1 Nov9; do
 		for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
@@ -1313,9 +1337,9 @@ Initial search space (Z):             627904  [actual number of targets]
 Domain search space  (domZ):             252  [number of targets reported over threshold]
 Number of CRN ORFs after merging:		 130
 P.fragariae Bc16
-Initial search space (Z):             574751  [actual number of targets]
-Domain search space  (domZ):             244  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 128
+Initial search space (Z):             696773  [actual number of targets]
+Domain search space  (domZ):             273  [number of targets reported over threshold]
+Number of CRN ORFs after merging:		 146
 P.fragariae 62471
 Initial search space (Z):             500487  [actual number of targets]
 Domain search space  (domZ):             298  [number of targets reported over threshold]
@@ -1324,7 +1348,16 @@ P.fragariae Nov27
 Initial search space (Z):             670486  [actual number of targets]
 Domain search space  (domZ):             279  [number of targets reported over threshold]
 Number of CRN ORFs after merging:		 150
+P.fragariae Nov71
 Initial search space (Z):             671887  [actual number of targets]
 Domain search space  (domZ):             282  [number of targets reported over threshold]
 Number of CRN ORFs after merging:		 158
+P.fragariae Bc1
+Initial search space (Z):             704136  [actual number of targets]
+Domain search space  (domZ):             270  [number of targets reported over threshold]
+Number of CRN ORFs after merging:		 143
+P.fragariae Nov9
+Initial search space (Z):             705534  [actual number of targets]
+Domain search space  (domZ):             274  [number of targets reported over threshold]
+Number of CRN ORFs after merging:		 145
 ```
