@@ -326,6 +326,33 @@ Assembly was performed using: Spades
 		done
 	done
 ```
+**N50:
+A4: 14018
+62471: 30981
+BC-16: 18706
+BC-23: 18939
+NOV-27: 15300
+NOV-5: 14404
+NOV-77: 15180
+ONT-3: 17405
+SCRP245_v2: 22809
+NOV-71: 16894
+NOV-9: 20065
+BC-1: 20508**
+
+**L50:
+A4: 1452
+62471: 561
+BC-16: 1154
+BC-23: 987
+NOV-27: 1312
+NOV-5: 1394
+NOV-77: 1324
+ONT-3: 1132
+SCRP245_v2: 796
+NOV-71: 1233
+NOV-9: 1093
+BC-1: 1068**
 
 -->
 # Repeat masking
@@ -353,7 +380,7 @@ The best assembly was used to perform repeatmasking
 	done
  ```
 
-** % bases masked by repeatmasker:
+**% bases masked by repeatmasker:
 A4: 33.90%
 Bc23: 21.63%
 Nov5: 31.91%
@@ -383,7 +410,7 @@ done
 ```
 
 Estimate of genome size = 93,000,000 bp
-** % bases masked by transposon psi:
+**% bases masked by transposon psi:
 A4: 7.26%
 Bc23: 4.92%
 Nov5: 6.94%
@@ -430,7 +457,7 @@ Nov71: 94.76%
 Bc1: 94.76%
 Nov9: 94.35%**
 
-** Number of cegma genes present and partial:
+**Number of cegma genes present and partial:
 A4: 97.98%
 Bc23: 96.77%
 Nov5: 97.18%
