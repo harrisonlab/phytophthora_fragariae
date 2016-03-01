@@ -48,6 +48,16 @@
 	done
 ```
 
+**N50:
+A4: 20401
+SCRP245_v2: 21699
+NOV-77: 21377**
+
+**L50:
+A4:1105
+SCRP245_v2: 996
+NOV-77: 1064**
+
 -->
 # Repeat masking
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
@@ -138,32 +148,14 @@ Quality of genome assemblies was assessed by looking for the gene space in the a
 ```
 
 **Number of cegma genes present and complete:
-A4: 94.35%
-Bc23: 94.76%
-Nov5: 95.16%
-Nov77: 94.35%
-ONT3: 94.76%
-SCRP245_v2: 93.95%
-Bc16: 95.16%
-62471: 95.16%
-Nov27: 94.76%
-Nov71: 94.76%
-Bc1: 94.76%
-Nov9: 94.35%**
+A4: 92.74%
+Nov77: 93.95%%
+SCRP245_v2: 96.37%%%**
 
-** Number of cegma genes present and partial:
-A4: 97.98%
-Bc23: 96.77%
-Nov5: 97.18%
+**Number of cegma genes present and partial:
+A4: 95.56%%
 Nov77: 96.37%
-ONT3: 97.18%
-SCRP245_v2: 96.37%
-Bc16: 97.58%
-62471: 97.18%
-Nov27: 97.18% 
-Nov71: 97.18%
-Bc1: 97.18%
-Nov9: 97.18%**
+SCRP245_v2: 97.98%**
 
 ##Gene prediction
 
@@ -231,12 +223,12 @@ to my user directory
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-	for Strain in Bc16; do
+	for Strain in A4 SCRP245_v2 Nov77; do
 		for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa); do
 			Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
-			OutDir=gene_pred/braker/$Organism/$Strain
+			OutDir=gene_pred/braker_discovar/$Organism/$Strain
 			AcceptedHits=alignment/$Organism/$Strain/accepted_hits.bam
-			GeneModelName="$Organism"_"$Strain"_braker
+			GeneModelName="$Organism"_"$Strain"_braker_2
 			echo $Strain
 			echo $Organism
 			echo $Genome
