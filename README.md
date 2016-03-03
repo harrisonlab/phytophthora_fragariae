@@ -570,7 +570,7 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-	for Strain in Bc1 Bc16 Nov9; do
+	for Strain in Bc23 Nov5 ONT3 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
 		for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
 			qsub $ProgDir/run_ORF_finder.sh $Genome
 		done
@@ -670,7 +670,7 @@ This produces batch files. They need to be combined into a single file for each 
 The RxLR_EER_regex_finder.py script was used to search for this regular expression R.LR.{,40}[ED][ED][KR] and annotate the EER domain where present. Done separate for each strain.
 
 ```bash
-	for Strain in Bc1 Bc16 Nov9; do
+	for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
 		for Secretome in $(ls gene_pred/braker_sigP/*/$Strain/*braker_sp.aa); do
 			ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors;
 			Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
@@ -688,10 +688,10 @@ The RxLR_EER_regex_finder.py script was used to search for this regular expressi
 			cat $OutDir/"$Strain"_braker_RxLR_EER_regex.txt | wc -l
 			printf "\n"
 			ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-			# $ProgDir/extract_from_fasta.py --fasta $OutDir/"$Strain"_pub_RxLR_regex.fa --headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
-			# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-			# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_regex.txt > $OutDir/"$Strain"_pub_RxLR_regex.gff3
-			# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
+				# $ProgDir/extract_from_fasta.py --fasta $OutDir/"$Strain"_pub_RxLR_regex.fa --headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
+				# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
+				# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_regex.txt > $OutDir/"$Strain"_pub_RxLR_regex.gff3
+				# cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
 		done
 	done
 ```
@@ -776,7 +776,7 @@ Hmm models for the WY domain contained in many RxLRs were used to search gene mo
 ```
 	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 	HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
-	for Strain in Bc1 Bc16 Nov9; do
+	for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
 			OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
@@ -838,7 +838,7 @@ Domain search space  (domZ):             180  [number of targets reported over t
 ##C) From Braker1 gene models - Hmm evidence of RxLR effectors
 
 ```
-	for Strain in Bc1 Bc16 Nov9; do
+	for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
@@ -857,7 +857,7 @@ Domain search space  (domZ):             180  [number of targets reported over t
 					# # ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
 				# Col2=cropped.hmm
 				# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-				# # $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $GeneModels $Col2 Name > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
+					# # $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $GeneModels $Col2 Name > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
 				# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
 		done
 	done
@@ -908,7 +908,7 @@ A hmm model relating to crinkler domains was used to identify putative crinklers
 ```
 	ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 	HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
-	for Strain in Bc16 Bc1 Nov9; do
+	for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
 		for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
 			Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
 			OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
