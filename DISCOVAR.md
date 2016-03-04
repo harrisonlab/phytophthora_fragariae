@@ -94,7 +94,7 @@ Summary for transposonPSI output:
 ```bash
 	Organism=P.fragariae
 	for Strain in A4 Bc1 Bc16 Nov9; do
-		RepDir=repeat_masked/$Organism/$Strain/filtered_contigs_repmask
+		RepDir=repeat_masked/$Organism/$Strain/a.final_repmask
 		TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
 		echo $Strain
 		printf "The number of bases masked by TransposonPSI:\t"
@@ -258,7 +258,7 @@ The Gff files from the ORF finder are not in true Gff3 format. These were correc
 
 ```bash
 	for Strain in A4 SCRP245_v2 Nov77; do
-		for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
+		for ORF_Gff in $(ls gene_pred/ORF_finder_discovar/P.*/*/*_ORF.gff | grep -v '_atg_'); do
 			Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
 			Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
 			ProgDir=~/git_repos/tools/seq_tools/feature_annotation
