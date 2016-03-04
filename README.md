@@ -580,8 +580,8 @@ This uses the atg.pl script to identify all ORFs in the genome. These can then b
 The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
 ```bash
-	for Strain in Bc1 Bc16 Nov9; do
-		for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_'); do
+	for Strain in A4 SCRP245_v2 Nov77; do
+		for ORF_Gff in $(ls gene_pred/ORF_finder_spades/P.*/*/*_ORF.gff | grep -v '_atg_'); do
 			Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
 			Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
 			ProgDir=~/git_repos/tools/seq_tools/feature_annotation
@@ -598,7 +598,7 @@ Interproscan was used to give gene models functional annotations.
 
 ```bash
 	ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-	for Strain in Bc1 Bc16 Nov9; do
+	for Strain in A4 SCRP245_v2 Nov77; do
 		Genes=gene_pred/braker/P.fragariae/$Strain/P.*/augustus.aa
 		$ProgDir/sub_interproscan.sh $Genes
 	done
@@ -977,27 +977,27 @@ biopython
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
 ```
-	for Strain in Bc16 Bc1 Nov9; do
-		for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
-		echo "$Proteome"
-		SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-		ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-		Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-		SplitDir=gene_pred/ORF_split/$Organism/$Strain
-		mkdir -p $SplitDir
-		BaseName="$Organism""_$Strain"_ORF_preds
-		$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
+	for Strain in A4 SCRP245_v2 Nov77; do
+		for Proteome in $(ls gene_pred/ORF_finder_spades/*/$Strain/*.aa_cat.fa); do
+			echo "$Proteome"
+			SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+			ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+			Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+			SplitDir=gene_pred/ORF_split_spades/$Organism/$Strain
+			mkdir -p $SplitDir
+			BaseName="$Organism""_$Strain"_ORF_preds
+			$SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
 			for File in $(ls $SplitDir/*_ORF_preds_*); do
-			Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
-			while [ $Jobs -gt 1 ]; do
-				sleep 10
-				printf "."
 				Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
-			done
-			printf "\n"
-			echo $File
-			qsub $ProgDir/pred_sigP.sh $File
-			# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
+				while [ $Jobs -gt 1 ]; do
+					sleep 10
+					printf "."
+					Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+				done
+				printf "\n"
+				echo $File
+				qsub $ProgDir/pred_sigP.sh $File
+				# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
 			done
 		done
 	done
