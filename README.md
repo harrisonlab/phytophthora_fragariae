@@ -997,14 +997,14 @@ Proteins that were predicted to contain signal peptides were identified using th
 				printf "\n"
 				echo $File
 				qsub $ProgDir/pred_sigP.sh $File
-				# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
+					# qsub $ProgDir/pred_sigP.sh $File signalp-4.1
 			done
 		done
 	done
 ```
 The batch files of predicted secreted proteins needed to be combined into a single file for each strain. This was done with the following commands:
 ```
-	for Strain in Bc1 Bc16 Nov9; do
+	for Strain in A4 SCRP245_v2 Nov77; do
 		for SplitDir in $(ls -d gene_pred/ORF_split/P.*/$Strain); do
 			Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
 			InStringAA=''
@@ -1024,9 +1024,10 @@ The batch files of predicted secreted proteins needed to be combined into a sing
 		done
 	done
 ```
+
 Names of ORFs containing signal peptides were extracted from fasta files. This included information on the position and hmm score of RxLRs.
 ```bash
-	for Strain in Bc16; do
+	for Strain in A4 SCRP245_v2 Nov77; do
 		for FastaFile in $(ls gene_pred/ORF_sigP/*/$Strain/*_ORF_sp.aa); do
 			Organism=$(echo $FastaFile | rev | cut -d '/' -f3 | rev)
 			echo "$Strain"
@@ -1039,7 +1040,7 @@ Names of ORFs containing signal peptides were extracted from fasta files. This i
 Due to the nature of predicting ORFs, some features overlapped with one another. A single ORF was selected from each set of overlapped ORFs. This was selected on the basis of its SignalP Hmm score. Biopython was used to identify overlaps and identify the ORF with the best SignalP score.
 
 ```bash
-	for Strain in Bc1 Bc16 Nov9; do
+	for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
 		for SigP_fasta in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp.aa); do
 			Organism=$(echo $SigP_fasta | rev | cut -d '/' -f3 | rev)
 			echo "$Strain"
@@ -1067,7 +1068,7 @@ The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identi
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
 
 ```bash
-	for Strain in Bc1 Bc16 Nov9; do
+	for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
 		for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
 			ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
 			Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
