@@ -262,7 +262,7 @@ The Gff files from the ORF finder are not in true Gff3 format. These were correc
 			Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
 			Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
 			ProgDir=~/git_repos/tools/seq_tools/feature_annotation
-			ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+			ORF_Gff_mod=gene_pred/ORF_finder_discovar/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
 			$ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
 		done
 	done
@@ -453,7 +453,7 @@ Domain search space  (domZ):             177  [number of targets reported over t
 					# # ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
 				# Col2=cropped.hmm
 				# GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
-				# # $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $GeneModels $Col2 Name > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
+					# # $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $GeneModels $Col2 Name > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
 				# cat $GeneModels | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_pub_RxLR_hmmer.gff3
 		done
 	done
@@ -521,7 +521,7 @@ Proteins that were predicted to contain signal peptides were identified using th
 
 ```
 	for Strain in A4 SCRP245_v2 Nov77; do
-		for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
+		for Proteome in $(ls gene_pred/ORF_finder_discovar/*/$Strain/*.aa_cat.fa); do
 			echo "$Proteome"
 			SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
 			ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
@@ -586,7 +586,7 @@ Due to the nature of predicting ORFs, some features overlapped with one another.
 		for SigP_fasta in $(ls gene_pred/ORF_discovar_sigP/P.*/$Strain/*_ORF_sp.aa); do
 			Organism=$(echo $SigP_fasta | rev | cut -d '/' -f3 | rev)
 			echo "$Strain"
-			ORF_Gff=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+			ORF_Gff=gene_pred/ORF_finder_discovar/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
 			SigP_fasta=gene_pred/ORF_discovar_sigP/$Organism/$Strain/"$Strain"_ORF_sp.aa
 			SigP_headers=gene_pred/ORF_discovar_sigP/$Organism/$Strain/"$Strain"_ORF_sp_names.txt
 			SigP_Gff=gene_pred/ORF_discovar_sigP/$Organism/$Strain/"$Strain"_ORF_sp_unmerged.gff
@@ -614,7 +614,7 @@ The RxLR_EER_regex_finder.py script was used to search for this regular expressi
 		for Secretome in $(ls gene_pred/ORF_discovar_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
 			ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
 			Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
-			OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
+			OutDir=analysis/RxLR_effectors_discovar/RxLR_EER_regex_finder/"$Organism"/"$Strain";
 			SigP_Merged_Gff=gene_pred/ORF_discovar_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
 			mkdir -p $OutDir;
 			printf "\nstrain: $Strain\tspecies: $Organism\n";
@@ -659,11 +659,11 @@ the number of SigP-RxLR-EER genes are:  240
 
 ```bash
 	for Strain in A4 SCRP245_v2 Nov77; do
-			for Secretome in $(ls gene_pred/ORF_discovar_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
+		for Secretome in $(ls gene_pred/ORF_discovar_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
 			Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
-			OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
+			OutDir=analysis/RxLR_effectors_discovar/hmmer_WY/$Organism/$Strain
 			mkdir -p $OutDir
 			HmmResults="$Strain"_ORF_WY_hmmer.txt
 			hmmsearch -T 0 $HmmModel $Secretome > $OutDir/$HmmResults
@@ -701,7 +701,7 @@ Domain search space  (domZ):             105  [number of targets reported over t
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
 			Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
-			OutDir=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain
+			OutDir=analysis/RxLR_effectors_discovar/hmmer_RxLR/$Organism/$Strain
 			mkdir -p $OutDir
 			HmmResults="$Strain"_ORF_RxLR_hmmer.txt
 			hmmsearch -T 0 $HmmModel $Secretome > $OutDir/$HmmResults
@@ -737,11 +737,11 @@ A hmm model relating to crinkler domains was used to identify putative crinklers
 
 ```bash
 	for Strain in A4 SCRP245_v2 Nov77; do
-		for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
+		for Proteome in $(ls gene_pred/ORF_finder_discovar/*/$Strain/*.aa_cat.fa); do
 			ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 			HmmModel=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
 			Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-			OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
+			OutDir=analysis/CRN_effectors_discovar/hmmer_CRN/$Organism/$Strain
 			mkdir -p $OutDir
 			HmmResults="$Strain"_ORF_CRN_unmerged_hmmer.txt
 			hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
@@ -753,7 +753,7 @@ A hmm model relating to crinkler domains was used to identify putative crinklers
 			Headers="$Strain"_CRN_hmmer_unmerged_headers.txt
 			cat $OutDir/$HmmFasta | grep '>' | tr -d '>' | sed -r 's/\s+/\t/g'| sed 's/=\t/=/g' | tr -d '-' | sed 's/hmm_score/HMM_score/g' > $OutDir/$Headers
 			cat $OutDir/$Headers | sed 's/:/_a_/g' | sed 's/supercont1./supercont1_b_/g' | sed 's/Supercontig_2./Supercontig_c_/g' > tmp.txt
-			ORF_Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/*_ORF_corrected.gff3)
+			ORF_Gff=$(ls gene_pred/ORF_finder_discovar/$Organism/$Strain/*_ORF_corrected.gff3)
 			cat $ORF_Gff | sed 's/:/_a_/g' | sed 's/supercont1./supercont1_b_/g' | sed 's/Supercontig_2./Supercontig_c_/g' > tmp.gff
 			CRN_unmerged_Gff=$OutDir/"$Strain"_CRN_unmerged_hmmer.gff3
 			ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
