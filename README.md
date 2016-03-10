@@ -1302,8 +1302,8 @@ Domain search space  (domZ):             199  [number of targets reported over t
 A hmm model relating to crinkler domains was used to identify putative crinklers in ORF gene models. This was done with the following commands:
 
 ```bash
-for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
-    for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
+for Strain in A4 Nov77 SCRP245_v2; do
+    for Proteome in $(ls gene_pred/ORF_finder_spades/*/$Strain/*.aa_cat.fa); do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
         HmmModel=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
         Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
@@ -1344,9 +1344,9 @@ done
 
 ```
 P.fragariae A4
-Initial search space (Z):             741687  [actual number of targets]
-Domain search space  (domZ):             281  [number of targets reported over threshold]
-Number of CRN ORFs after merging:        153
+Initial search space (Z):             667992  [actual number of targets]
+Domain search space  (domZ):             273  [number of targets reported over threshold]
+Number of CRN ORFs after merging:        151
 P.fragariae Bc23
 Initial search space (Z):             576779  [actual number of targets]
 Domain search space  (domZ):             239  [number of targets reported over threshold]
@@ -1356,17 +1356,17 @@ Initial search space (Z):             659155  [actual number of targets]
 Domain search space  (domZ):             269  [number of targets reported over threshold]
 Number of CRN ORFs after merging:        142
 P.fragariae Nov77
-Initial search space (Z):             744798  [actual number of targets]
-Domain search space  (domZ):             264  [number of targets reported over threshold]
-Number of CRN ORFs after merging:        131
+Initial search space (Z):             657610  [actual number of targets]
+Domain search space  (domZ):             249  [number of targets reported over threshold]
+Number of CRN ORFs after merging:        136
 P.fragariae ONT3
 Initial search space (Z):             789618  [actual number of targets]
 Domain search space  (domZ):             262  [number of targets reported over threshold]
 Number of CRN ORFs after merging:        140
 P.fragariae SCRP245_v2
-Initial search space (Z):             782799  [actual number of targets]
-Domain search space  (domZ):             289  [number of targets reported over threshold]
-Number of CRN ORFs after merging:        131
+Initial search space (Z):             627904  [actual number of targets]
+Domain search space  (domZ):             252  [number of targets reported over threshold]
+Number of CRN ORFs after merging:        160
 P.fragariae Bc16
 Initial search space (Z):             696773  [actual number of targets]
 Domain search space  (domZ):             273  [number of targets reported over threshold]
