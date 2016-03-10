@@ -227,7 +227,7 @@ The ones at value 5 are errors from filtering of error kmers, estimate from plot
 # Assembly
 Assembly was performed using: Spades
 
-## Spades Assembly
+# Spades Assembly
 
 ```bash
 for Strain in "Nov71"; do
@@ -243,7 +243,7 @@ for Strain in "Nov71"; do
 done
 ```
 
-##for multiple libraries at high memory
+#for multiple libraries at high memory
 
 ```bash
 for Strain in Nov9; do
@@ -268,7 +268,7 @@ for Strain in Nov9; do
 done
 ```
 
-##Spades Assembly failed for SCRP245_v2, hammer ran out of memory. Resubmitting as a single job
+#Spades Assembly failed for SCRP245_v2, hammer ran out of memory. Resubmitting as a single job
 
 ```bash
 Strain=SCRP245_v2
@@ -283,7 +283,7 @@ echo $Strain
 qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
 ```
 
-##Previous code submitted a forward read as both forward and reverse reads, rejected by Spades. Code corrected and resubmitted.
+#Previous code submitted a forward read as both forward and reverse reads, rejected by Spades. Code corrected and resubmitted.
 
 ```bash
 Strain=SCRP245_v2
@@ -298,7 +298,7 @@ echo $Strain
 qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
 ```
 
-##Quast
+#Quast
 
 ```bash
 for Strain in Bc1 Bc16 Nov9; do
@@ -313,7 +313,7 @@ for Strain in Bc1 Bc16 Nov9; do
 done
 ```
 
-##QUAST used to summarise assembly statistics
+#QUAST used to summarise assembly statistics
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
@@ -355,7 +355,7 @@ NOV-9: 1093
 BC-1: 1068**
 
 -->
-# Repeat masking
+#Repeat masking
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
 
 The best assembly was used to perform repeatmasking
@@ -394,7 +394,7 @@ Nov71: 33.86%
 Bc1: 35.05%
 Nov9:35.25%**
 
-Summary for transposonPSI output:
+#Summary for transposonPSI output:
 
 ```bash
 Organism=P.fragariae
@@ -425,12 +425,12 @@ Bc1: 7.91%
 Nov9: 7.97%**
 
 
-# Gene Prediction
+#Gene Prediction
 Gene prediction followed two steps:
 Pre-gene prediction - Quality of genome assemblies were assessed using Cegma to see how many core eukaryotic genes can be identified.
 Gene models were used to predict genes in the P. fragariae genomes. This used results from CEGMA as hints for gene models.
 
-## Pre-gene prediction
+#Pre-gene prediction
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
 ```bash
@@ -471,7 +471,7 @@ Nov71: 97.18%
 Bc1: 97.18%
 Nov9: 97.18%**
 
-##Gene prediction
+#Gene prediction
 
 Copy over RNA seq data for P. cactorum 10300
 
@@ -484,7 +484,7 @@ cp $RawDatDir/SRR1206032.fastq $ProjectDir/raw_rna/genbank/P.cactorum/10300/F
 cp $RawDatDir/SRR1206033.fastq $ProjectDir/raw_rna/genbank/P.cactorum/10300/R
 ```
 
-##1) QC
+#1) QC
 
 Perform qc of RNAseq timecourse data. These reads are not actually paired reads but this is irrelevant for processing using fast-mcf
 
@@ -495,7 +495,7 @@ IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.
 qsub /home/armita/git_repos/emr_repos/tools/seq_tools/rna_qc/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
 ```
 
-##2) Align reads vs. genome
+#2) Align reads vs. genome
 Aligments of RNAseq reads were made against assemblies from each strain using tophat:
 
 ```bash
@@ -526,7 +526,7 @@ Alignment files were merged into a single file so as to be passed to a gene pred
 ```
  -->
 
-##3) Run Braker1
+#3) Run Braker1
 
 As this is the first time I have run Braker I need to copy the licence key for genemarkET
 to my user directory
@@ -551,7 +551,7 @@ for Strain in Bc16; do
 done
 ```
 
-##4) Extract gff and amino acid sequences
+#4) Extract gff and amino acid sequences
 
 ```bash
 for Strain in Bc1 Bc16 Nov9; do
@@ -564,7 +564,7 @@ for Strain in Bc1 Bc16 Nov9; do
 done
 ```
 
-##Use atg.pl to predict all ORFs
+#Use atg.pl to predict all ORFs
 
 This uses the atg.pl script to identify all ORFs in the genome. These can then be used to look for RxLRs and signal peptides.
 
@@ -606,7 +606,7 @@ done
 
 #Genomic analysis
 
-##RxLR genes
+#RxLR genes
 
 A) From Braker1 gene models - signal peptide and RxLR motif
 
@@ -835,7 +835,7 @@ Initial search space (Z):              35898  [actual number of targets]
 Domain search space  (domZ):             180  [number of targets reported over threshold]
 ```
 
-##C) From Braker1 gene models - Hmm evidence of RxLR effectors
+#C) From Braker1 gene models - Hmm evidence of RxLR effectors
 
 ```bash
 for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
