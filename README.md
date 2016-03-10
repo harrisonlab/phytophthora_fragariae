@@ -1005,22 +1005,22 @@ done
 The batch files of predicted secreted proteins needed to be combined into a single file for each strain. This was done with the following commands:
 ```bash
 for Strain in A4 SCRP245_v2 Nov77; do
-    for SplitDir in $(ls -d gene_pred/ORF_split/P.*/$Strain); do
+    for SplitDir in $(ls -d gene_pred/ORF_split_spades/P.*/$Strain); do
         Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
         InStringAA=''
         InStringNeg=''
         InStringTab=''
         InStringTxt=''
         for GRP in $(ls -l $SplitDir/*_ORF_preds_*.fa | rev | cut -d '_' -f1 | rev | sort -n); do  
-            InStringAA="$InStringAA gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.aa";  
-            InStringNeg="$InStringNeg gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp_neg.aa";  
-            InStringTab="$InStringTab gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.tab";
-            InStringTxt="$InStringTxt gene_pred/ORF_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.txt";  
+            InStringAA="$InStringAA gene_pred/ORF_sigP_spades/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.aa";  
+            InStringNeg="$InStringNeg gene_pred/ORF_sigP_spades/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp_neg.aa";  
+            InStringTab="$InStringTab gene_pred/ORF_sigP_spades/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.tab";
+            InStringTxt="$InStringTxt gene_pred/ORF_sigP_spades/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.txt";  
         done
-        cat $InStringAA > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.aa
-        cat $InStringNeg > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_neg_sp.aa
-        tail -n +2 -q $InStringTab > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.tab
-        cat $InStringTxt > gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp.txt
+        cat $InStringAA > gene_pred/ORF_sigP_spades/$Organism/$Strain/"$Strain"_ORF_sp.aa
+        cat $InStringNeg > gene_pred/ORF_sigP_spades/$Organism/$Strain/"$Strain"_ORF_neg_sp.aa
+        tail -n +2 -q $InStringTab > gene_pred/ORF_sigP_spades/$Organism/$Strain/"$Strain"_ORF_sp.tab
+        cat $InStringTxt > gene_pred/ORF_sigP_spades/$Organism/$Strain/"$Strain"_ORF_sp.txt
     done
 done
 ```
