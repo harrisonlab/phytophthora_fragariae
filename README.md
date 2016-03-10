@@ -1068,12 +1068,12 @@ The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identi
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
 
 ```bash
-for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
-    for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
+for Strain in A4 Nov77 SCRP245_v2; do
+    for Secretome in $(ls gene_pred/ORF_spades_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
         ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
         Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
         OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
-        SigP_Merged_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
+        SigP_Merged_Gff=gene_pred/ORF_spades_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
         mkdir -p $OutDir;
         printf "\nstrain: $Strain\tspecies: $Organism\n";
         printf "the number of SigP gene is:\t";
@@ -1087,7 +1087,7 @@ for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9
         cat $OutDir/"$Strain"_ORF_RxLR_EER_regex.txt | wc -l
         printf "\n"
         ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-        $ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_regex.txt  $SigP_Merged_Gff RxLR_EER_regex_finder.py Name Augustus > $OutDir/"$Strain"_ORF_RxLR_regex.gff
+        $ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_regex.txt $SigP_Merged_Gff RxLR_EER_regex_finder.py Name Augustus > $OutDir/"$Strain"_ORF_RxLR_regex.gff
         ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
         $ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_EER_regex.txt $SigP_Merged_Gff RxLR_EER_regex_finder.py Name Augustus > $OutDir/"$Strain"_ORF_RxLR_EER_regex.gff
     done
