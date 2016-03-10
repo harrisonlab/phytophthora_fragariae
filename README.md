@@ -1131,43 +1131,46 @@ the number of SigP-RxLR genes are:	1396
 the number of SigP-RxLR-EER genes are:	221
 
 
-strain: Bc16    species: P.fragariae
-the number of SigP gene is:     23160
-the number of SigP-RxLR genes are:      1602
-the number of SigP-RxLR-EER genes are:  243
+strain: Bc16	species: P.fragariae
+the number of SigP gene is:	23160
+the number of SigP-RxLR genes are:	1602
+the number of SigP-RxLR-EER genes are:	243
 
 
-strain: 62471   species: P.fragariae
-the number of SigP gene is:     15873
-the number of SigP-RxLR genes are:      997
-the number of SigP-RxLR-EER genes are:  177
+strain: 62471	species: P.fragariae
+the number of SigP gene is:	15873
+the number of SigP-RxLR genes are:	997
+the number of SigP-RxLR-EER genes are:	177
 
 
-strain: Nov27   species: P.fragariae
-the number of SigP gene is:     22404
-the number of SigP-RxLR genes are:      1536
-the number of SigP-RxLR-EER genes are:  246
+strain: Nov27	species: P.fragariae
+the number of SigP gene is:	22404
+the number of SigP-RxLR genes are:	1536
+the number of SigP-RxLR-EER genes are:	246
 
-strain: Nov71   species: P.fragariae
-the number of SigP gene is:     22615
-the number of SigP-RxLR genes are:      1539
-the number of SigP-RxLR-EER genes are:  242
 
-strain: Bc1     species: P.fragariae
-the number of SigP gene is:     23184
-the number of SigP-RxLR genes are:      1585
-the number of SigP-RxLR-EER genes are:  245
+strain: Nov71	species: P.fragariae
+the number of SigP gene is:	22615
+the number of SigP-RxLR genes are:	1539
+the number of SigP-RxLR-EER genes are:	242
 
-strain: Nov9    species: P.fragariae
-the number of SigP gene is:     23374
-the number of SigP-RxLR genes are:      1580
-the number of SigP-RxLR-EER genes are:  242
+
+strain: Bc1	species: P.fragariae
+the number of SigP gene is:	23184
+the number of SigP-RxLR genes are:	1585
+the number of SigP-RxLR-EER genes are:	245
+
+
+strain: Nov9	species: P.fragariae
+the number of SigP gene is:	23374
+the number of SigP-RxLR genes are:	1580
+the number of SigP-RxLR-EER genes are:	242
 ```
 
 #F) From ORF gene models - Hmm evidence of WY domains Hmm models for the WY domain contained in many RxLRs were used to search ORFs predicted with atg.pl. These were run with the following commands:
 
 ```bash
-for Strain in Bc1 Bc16 Nov9; do
+for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
     for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
         HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
@@ -1232,7 +1235,7 @@ Domain search space  (domZ):             114  [number of targets reported over t
 #G) From ORF gene models - Hmm evidence of RxLR effectors
 
 ```bash
-for Strain in Bc16 Bc1 Nov9; do
+for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
     for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
         HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
@@ -1299,7 +1302,7 @@ Domain search space  (domZ):             199  [number of targets reported over t
 A hmm model relating to crinkler domains was used to identify putative crinklers in ORF gene models. This was done with the following commands:
 
 ```bash
-for Strain in Bc16 Bc1 Nov9; do
+for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
     for Proteome in $(ls gene_pred/ORF_finder/*/$Strain/*.aa_cat.fa); do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
         HmmModel=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer/Phyt_annot_CRNs_D1.hmm
@@ -1341,51 +1344,51 @@ done
 
 ```
 P.fragariae A4
-Initial search space (Z):             667992  [actual number of targets]
-Domain search space  (domZ):             273  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 144
+Initial search space (Z):             741687  [actual number of targets]
+Domain search space  (domZ):             281  [number of targets reported over threshold]
+Number of CRN ORFs after merging:        153
 P.fragariae Bc23
 Initial search space (Z):             576779  [actual number of targets]
 Domain search space  (domZ):             239  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 126
+Number of CRN ORFs after merging:        126
 P.fragariae Nov5
 Initial search space (Z):             659155  [actual number of targets]
 Domain search space  (domZ):             269  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 142
+Number of CRN ORFs after merging:        142
 P.fragariae Nov77
-Initial search space (Z):             657610  [actual number of targets]
-Domain search space  (domZ):             249  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 136
+Initial search space (Z):             744798  [actual number of targets]
+Domain search space  (domZ):             264  [number of targets reported over threshold]
+Number of CRN ORFs after merging:        131
 P.fragariae ONT3
 Initial search space (Z):             789618  [actual number of targets]
 Domain search space  (domZ):             262  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 140
+Number of CRN ORFs after merging:        140
 P.fragariae SCRP245_v2
-Initial search space (Z):             627904  [actual number of targets]
-Domain search space  (domZ):             252  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 130
+Initial search space (Z):             782799  [actual number of targets]
+Domain search space  (domZ):             289  [number of targets reported over threshold]
+Number of CRN ORFs after merging:        131
 P.fragariae Bc16
 Initial search space (Z):             696773  [actual number of targets]
 Domain search space  (domZ):             273  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 146
+Number of CRN ORFs after merging:        146
 P.fragariae 62471
 Initial search space (Z):             500487  [actual number of targets]
 Domain search space  (domZ):             298  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 178
+Number of CRN ORFs after merging:        178
 P.fragariae Nov27
 Initial search space (Z):             670486  [actual number of targets]
 Domain search space  (domZ):             279  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 150
+Number of CRN ORFs after merging:        150
 P.fragariae Nov71
 Initial search space (Z):             671887  [actual number of targets]
 Domain search space  (domZ):             282  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 158
+Number of CRN ORFs after merging:        158
 P.fragariae Bc1
 Initial search space (Z):             704136  [actual number of targets]
 Domain search space  (domZ):             270  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 143
+Number of CRN ORFs after merging:        143
 P.fragariae Nov9
 Initial search space (Z):             705534  [actual number of targets]
 Domain search space  (domZ):             274  [number of targets reported over threshold]
-Number of CRN ORFs after merging:		 145
+Number of CRN ORFs after merging:        145
 ```
