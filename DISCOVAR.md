@@ -131,11 +131,11 @@ done
 
 **Number of cegma genes present and complete:
 A4: 92.74%
-Nov77: 93.95%%
-SCRP245_v2: 96.37%%%**
+Nov77: 93.95%
+SCRP245_v2: 96.37%**
 
 **Number of cegma genes present and partial:
-A4: 95.56%%
+A4: 95.56%
 Nov77: 96.37%
 SCRP245_v2: 97.98%**
 
