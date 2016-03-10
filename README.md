@@ -1170,8 +1170,8 @@ the number of SigP-RxLR-EER genes are:	242
 #F) From ORF gene models - Hmm evidence of WY domains Hmm models for the WY domain contained in many RxLRs were used to search ORFs predicted with atg.pl. These were run with the following commands:
 
 ```bash
-for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
-    for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
+for Strain in A4 Nov77 SCRP245_v2; do
+    for Secretome in $(ls gene_pred/ORF_spades_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
         HmmModel=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
         Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
