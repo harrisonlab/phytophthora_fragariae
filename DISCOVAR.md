@@ -93,7 +93,7 @@ Summary for transposonPSI output:
 
 ```bash
 Organism=P.fragariae
-for Strain in A4 Bc1 Bc16 Nov9; do
+for Strain in A4 SCRP245_v2 Nov77; do
     RepDir=repeat_masked/$Organism/$Strain/a.final_repmask
     TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
     echo $Strain
@@ -106,18 +106,9 @@ done
 
 Estimate of genome size = 93,000,000 bp
 ** % bases masked by transposon psi:
-A4: 7.26%
-Bc23: 4.92%
-Nov5: 6.94%
-Nov77: 6.91%
-ONT3: 7.13%
-SCRP245_v2: 5.06%
-Bc16: 7.80%
-62471: 5.04%
-Nov27: 7.18%
-Nov71: 7.18%
-Bc1: 7.91%
-Nov9: 7.97%**
+A4: 9.42%
+Nov77: 9.51%
+SCRP245_v2: 9.39%**
 
 
 # Gene Prediction
