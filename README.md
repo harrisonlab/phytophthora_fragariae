@@ -1235,8 +1235,8 @@ Domain search space  (domZ):             114  [number of targets reported over t
 #G) From ORF gene models - Hmm evidence of RxLR effectors
 
 ```bash
-for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
-    for Secretome in $(ls gene_pred/ORF_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
+for Strain in A4 Nov77 SCRP245_v2; do
+    for Secretome in $(ls gene_pred/ORF_spades_sigP/P.*/$Strain/*_ORF_sp_merged.aa); do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
         HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
         Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
