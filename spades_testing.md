@@ -34,34 +34,34 @@ echo "Coverage cutoff set to $Cutoff" 2>&1 | tee -a output3.file
 SpadesDir=/home/armita/prog/SPAdes-3.5.0-Linux/bin/
 
 if [[ "$Correction" == 'correct' ]]; then
-  $SpadesDir/spades.py \
-      -k 21,33,55,77,99,127 \
-      -m 368 \
-      --phred-offset 33 \
-      --careful \
-      --pe1-1 $WorkDir/$F1_Read \
-      --pe1-2 $WorkDir/$R1_Read \
-      --pe2-1 $WorkDir/$F2_Read \
-      --pe2-2 $WorkDir/$R2_Read \
-      -t 16  \
-      -o $WorkDir/. \
-      --cov-cutoff "$Cutoff"
+    $SpadesDir/spades.py \
+    -k 21,33,55,77,99,127 \
+    -m 368 \
+    --phred-offset 33 \
+    --careful \
+    --pe1-1 $WorkDir/$F1_Read \
+    --pe1-2 $WorkDir/$R1_Read \
+    --pe2-1 $WorkDir/$F2_Read \
+    --pe2-2 $WorkDir/$R2_Read \
+    -t 16  \
+    -o $WorkDir/. \
+    --cov-cutoff "$Cutoff"
 elif [[ "$Correction" == 'only-assembler' ]]; then
-  $SpadesDir/spades.py \
-      -k 21,33,55,77,99,127 \
-      -m 180 \
-      --phred-offset 33 \
-      --careful \
-      --only-assembler \
-      --pe1-1 $WorkDir/$F1_Read \
-      --pe1-2 $WorkDir/$R1_Read \
-      --pe2-1 $WorkDir/$F2_Read \
-      --pe2-2 $WorkDir/$R2_Read \
-      -t 16  \
-      -o $WorkDir/. \
-      --cov-cutoff "$Cutoff"
+    $SpadesDir/spades.py \
+    -k 21,33,55,77,99,127 \
+    -m 180 \
+    --phred-offset 33 \
+    --careful \
+    --only-assembler \
+    --pe1-1 $WorkDir/$F1_Read \
+    --pe1-2 $WorkDir/$R1_Read \
+    --pe2-1 $WorkDir/$F2_Read \
+    --pe2-2 $WorkDir/$R2_Read \
+    -t 16  \
+    -o $WorkDir/. \
+    --cov-cutoff "$Cutoff"
 else
-  echo "Please set sixth option - whether you require read correction [correct / only-assembler]"
-  exit
+    echo "Please set sixth option - whether you require read correction [correct / only-assembler]"
+    exit
 fi 2>&1 | tee -a output3.file
 ```

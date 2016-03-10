@@ -70,3 +70,4 @@ blastn -db candidate_region.db -query $Genome -out $OutDir/genome_vs_region_hits
 cp $OutDir/genome_vs_region_hits.tbl /home/adamst/blast_output/.
 cd /tmp/
 rm -r blast_fragaria
+```

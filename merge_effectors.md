@@ -1,4 +1,4 @@
-##Analysis of RxLR effectors - Augustus gene models
+#Analysis of RxLR effectors - Augustus gene models
 
 #Due to the several outputs of RxLR effector prediction from different scripts, the identity of RxLRs were identified from motif and Hmm searches within gene models.
 
@@ -25,7 +25,7 @@ echo ""
 cat $GeneGff | grep -w -f $OutDir/"$Strain"_"$Source"_RxLR_EER_motif_hmm_headers.txt > $OutDir/"$Strain"_Aug_RxLR_EER_motif_hmm.gff
 ```
 
-##Analysis of RxLR effectors - ORF gene models
+#Analysis of RxLR effectors - ORF gene models
 
 #Due to the several outputs of RxLR effector prediction from different scripts, the identity of RxLRs were identified from motif and Hmm searches within ORF-finder predictions
 
@@ -53,7 +53,7 @@ ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
 $ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_EER_motif_hmm_headers.txt $GeneModels RxLR_EER_combined Name Augustus > $OutDir/"$Strain"_ORF_RxLR_EER_motif_hmm.gff
 ```
 
-##Analysis of RxLR effectors - merging predicted genes with ORF-FINDER output
+#Analysis of RxLR effectors - merging predicted genes with ORF-FINDER output
 
 #Intersection between the coodinates of putative RxLRs from gene models and ORFs were identified to determine the total number of RxLRs predicted in these genomes.
 
