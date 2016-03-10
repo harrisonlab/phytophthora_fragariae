@@ -1,4 +1,4 @@
-##It was suggested that I trial discovar to assemble my pathogen genomes on three strong data sets to see if there is any difference in the final results
+#It was suggested that I trial discovar to assemble my pathogen genomes on three strong data sets to see if there is any difference in the final results
 
 #Strains chosen: A4, SCRP245_v2, Nov77
 
@@ -19,7 +19,7 @@ cd assembly
 /home/adamst/git_repos/scripts/phytophthora_fragariae/Discovar_Pf.sh
 ```
 
-##Quast
+#Quast
 
 ```bash
 for Strain in A4 SCRP245_v2 Nov77; do
@@ -34,7 +34,7 @@ for Strain in A4 SCRP245_v2 Nov77; do
 done
 ```
 
-##QUAST used to summarise assembly statistics
+#QUAST used to summarise assembly statistics
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
