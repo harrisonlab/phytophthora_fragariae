@@ -1012,15 +1012,15 @@ for Strain in A4 SCRP245_v2 Nov77; do
         InStringTab=''
         InStringTxt=''
         for GRP in $(ls -l $SplitDir/*_ORF_preds_*.fa | rev | cut -d '_' -f1 | rev | sort -n); do  
-            InStringAA="$InStringAA gene_pred/ORF_sigP_spades/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.aa";  
-            InStringNeg="$InStringNeg gene_pred/ORF_sigP_spades/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp_neg.aa";  
-            InStringTab="$InStringTab gene_pred/ORF_sigP_spades/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.tab";
-            InStringTxt="$InStringTxt gene_pred/ORF_sigP_spades/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.txt";  
+            InStringAA="$InStringAA gene_pred/ORF_spades_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.aa";  
+            InStringNeg="$InStringNeg gene_pred/ORF_spades_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp_neg.aa";  
+            InStringTab="$InStringTab gene_pred/ORF_spades_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.tab";
+            InStringTxt="$InStringTxt gene_pred/ORF_spades_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.txt";
         done
-        cat $InStringAA > gene_pred/ORF_sigP_spades/$Organism/$Strain/"$Strain"_ORF_sp.aa
-        cat $InStringNeg > gene_pred/ORF_sigP_spades/$Organism/$Strain/"$Strain"_ORF_neg_sp.aa
-        tail -n +2 -q $InStringTab > gene_pred/ORF_sigP_spades/$Organism/$Strain/"$Strain"_ORF_sp.tab
-        cat $InStringTxt > gene_pred/ORF_sigP_spades/$Organism/$Strain/"$Strain"_ORF_sp.txt
+        cat $InStringAA > gene_pred/ORF_spades_sigP/$Organism/$Strain/"$Strain"_ORF_sp.aa
+        cat $InStringNeg > gene_pred/ORF_spades_sigP/$Organism/$Strain/"$Strain"_ORF_neg_sp.aa
+        tail -n +2 -q $InStringTab > gene_pred/ORF_spades_sigP/$Organism/$Strain/"$Strain"_ORF_sp.tab
+        cat $InStringTxt > gene_pred/ORF_spades_sigP/$Organism/$Strain/"$Strain"_ORF_sp.txt
     done
 done
 ```
@@ -1028,10 +1028,10 @@ done
 Names of ORFs containing signal peptides were extracted from fasta files. This included information on the position and hmm score of RxLRs.
 ```bash
 for Strain in A4 SCRP245_v2 Nov77; do
-    for FastaFile in $(ls gene_pred/ORF_sigP/*/$Strain/*_ORF_sp.aa); do
+    for FastaFile in $(ls gene_pred/ORF_spades_sigP/*/$Strain/*_ORF_sp.aa); do
         Organism=$(echo $FastaFile | rev | cut -d '/' -f3 | rev)
         echo "$Strain"
-        SigP_headers=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_names.txt
+        SigP_headers=gene_pred/ORF_spades_sigP/$Organism/$Strain/"$Strain"_ORF_sp_names.txt
         cat $FastaFile | grep '>' | sed -r 's/>//g' | sed -r 's/\s+/\t/g'| sed 's/=\t/=/g' | sed 's/--//g' > $SigP_headers
     done
 done
