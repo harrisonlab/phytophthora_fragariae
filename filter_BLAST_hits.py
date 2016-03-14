@@ -10,7 +10,8 @@ for row in results:
     value_b = float(row[13])
     new_col_list.append(value_a / value_b)
 
-new_col = numpy.asarray(new_col_list)
+new_col_int = numpy.array(new_col_list)
+new_col = numpy.reshape(new_col_int, (33685, 1))
 
 new_results = numpy.append(results, new_col, 1)
 
