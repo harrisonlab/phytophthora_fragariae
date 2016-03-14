@@ -3,7 +3,7 @@ import csv
 
 results = numpy.loadtxt(fname="genome_vs_region.csv", dtype=str, delimiter=",", skiprows=1)
 
-new_col = (float(my_data[:,6])/float(my_data[:,2]))[...,None]
+new_col = (float(results[:,6])/float(results[:,2]))[...,None]
 
 new_results = numpy.append(results, new_col, 1)
 
