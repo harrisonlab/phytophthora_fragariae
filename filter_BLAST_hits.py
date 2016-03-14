@@ -1,7 +1,7 @@
 import numpy
 import csv
 
-results = numpy.loadtxt(fname="genome_vs_region.csv", dtype=object, delimiter="\t", skiprows=1)
+results = numpy.loadtxt(fname="genome_vs_region_hits.tbl", dtype=str)
 
 new_col = (float(results[:,6])/float(results[:,2]))[...,None]
 
@@ -16,3 +16,5 @@ with open("filtered_contigs.csv", "wb") as f:
     writer.writerows(filtered_results)
 
 filtered_results.shape
+
+names ="ID,Sequence,Sequence_lgth,No_hits,Hit,E-value,Hit_lgth,Per_length,Per_ID,Hit_strand,Hit_start,Hit_end,Hit_seq"
