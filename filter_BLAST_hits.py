@@ -1,9 +1,14 @@
 import numpy
 import csv
 
-results = numpy.loadtxt(fname="genome_vs_region_hits.tbl", dtype=str)
+results = numpy.loadtxt(fname="genome_vs_region_hits.tbl", dtype=object)
 
-new_col = (float(results[:,3])/float(results[:,13]))[...,None]
+new_col = []
+
+for row in results:
+    value_a = float(row[3])
+    value_b = float(row[13])
+    new_col.append(value_a / value_b)
 
 new_results = numpy.append(results, new_col, 1)
 
