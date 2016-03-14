@@ -12,6 +12,7 @@ for row in results:
 
 new_col_int = numpy.array(new_col_list)
 new_col = numpy.reshape(new_col_int, (33685, 1))
+# this reshaping command MUST be changed depending on the dimensions of the BLAST hits dataset
 
 new_results = numpy.append(results, new_col, 1)
 
