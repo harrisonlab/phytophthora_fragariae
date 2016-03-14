@@ -1,7 +1,7 @@
 import numpy
 import csv
 
-results = numpy.loadtxt(fname="genome_vs_region.csv", delimiter=",", skip_header)
+results = numpy.loadtxt(fname="genome_vs_region.csv", delimiter=",", skiprows=0)
 
 new_col = (float(my_data[:,6])/my_data[:,2])[...,None]
 
