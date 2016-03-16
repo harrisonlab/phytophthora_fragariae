@@ -184,10 +184,3 @@ MergeHits="$IsolateAbrv"_blast.tab
 GoodProtDir=$WorkDir/goodProteins
 $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProtDir
 ```
-
-#Plot venn diagrams - REQUIRES INPUT FOR R CODE
-
-```bash
-ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/venn_diagrams
-$ProgDir/venn_diag_4_way.r --inp $WorkDir/"$IsolateAbrv"_orthogroups.tab --out $WorkDir/"$IsolateAbrv"_orthogroups.pdf
-```
