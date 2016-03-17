@@ -22,7 +22,7 @@ do
     InDir=$(ls -d analysis/RxLR_effectors/RxLR_EER_regex_finder/$Species/$Strain)
     Source="Braker1"
     RxLR_motif=$(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/$Species/$Strain/"$Strain"_braker_RxLR_EER_regex.txt)
-    RxLR_hmm=$(ls analysis/RxLR_effectors/hmmer_RxLR/$Species/$Strain/"$Strain"_Braker1_RxLR_hmmer_headers.txt)
+    RxLR_hmm=$(ls analysis/RxLR_effectors/hmmer_RxLR/$Species/$Strain/"$Strain"_pub_RxLR_hmmer_headers.txt)
     WY_hmm=$(ls analysis/RxLR_effectors/hmmer_WY/$Species/$Strain/"$Strain"_pub_WY_hmmer_headers.txt)
     echo "$Species - $Strain"
     echo "Total number of RxLRs in predicted genes:"
