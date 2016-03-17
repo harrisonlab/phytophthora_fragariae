@@ -33,7 +33,7 @@ do
     mkdir -p $OutDir
     cat $RxLR_motif $RxLR_hmm | cut -f1 -d' ' | sort | uniq | rev | cut -f2 -d '|' | rev > $OutDir/"$Strain"_"$Source"_RxLR_EER_motif_hmm_headers.txt
     echo "The number of combined RxLR containing proteins containing WY domains are:"
-    cat $OutDir/"$Strain"_braker1_RxLR_EER_motif_hmm_headers.txt $WY_hmm | cut -f1 -d' ' | rev | cut -f2 -d '|' | rev | sort | uniq -d | wc -l
+    cat $OutDir/"$Strain"_Braker1_RxLR_EER_motif_hmm_headers.txt $WY_hmm | cut -f1 -d' ' | rev | cut -f2 -d '|' | rev | sort | uniq -d | wc -l
     echo ""
     cat $GeneGff | grep -w -f $OutDir/"$Strain"_"$Source"_RxLR_EER_motif_hmm_headers.txt > $OutDir/"$Strain"_"$Source"_RxLR_EER_motif_hmm.gff
 done
