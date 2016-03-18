@@ -1,6 +1,6 @@
-##Analysis of RxLR effectors - Braker1 gene models
+##Analysis of RxLR effectors
 
-#11 Phytophthora fragariae strains (A4, BC-1, BC-16, BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245_v2) have had effectors predicted via various means. These commands combine the datasets for orthology analysis.
+#11 Phytophthora fragariae strains (A4, BC-1, BC-16, BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245_v2) have had effectors predicted via various means, using Braker1 models. These commands combine the datasets for orthology analysis.
 
 ```bash
 A4Braker1Gff=gene_pred/braker/P.fragariae/A4/P.fragariae_A4_braker/augustus_extracted.gff
@@ -40,6 +40,93 @@ done
 ```
 
 ```
+P.fragariae - A4
+Total number of RxLRs in predicted genes:
+356
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+0
+
+P.fragariae - Bc1
+Total number of RxLRs in predicted genes:
+399
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+85
+
+P.fragariae - Bc16
+Total number of RxLRs in predicted genes:
+371
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+81
+
+P.fragariae - Bc23
+Total number of RxLRs in predicted genes:
+337
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+74
+
+P.fragariae - Nov27
+Total number of RxLRs in predicted genes:
+359
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+78
+
+P.fragariae - Nov5
+Total number of RxLRs in predicted genes:
+373
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+80
+
+P.fragariae - Nov71
+Total number of RxLRs in predicted genes:
+396
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+86
+
+P.fragariae - Nov77
+Total number of RxLRs in predicted genes:
+359
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+2
+
+P.fragariae - Nov9
+Total number of RxLRs in predicted genes:
+377
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+80
+
+P.fragariae - ONT3
+Total number of RxLRs in predicted genes:
+369
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+79
+
+P.fragariae - SCRP245_v2
+Total number of RxLRs in predicted genes:
+331
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing proteins containing WY domains are:
+1
 ```
 
 ##Analysis of RxLR effectors - ORF gene models
