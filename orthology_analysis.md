@@ -470,7 +470,7 @@ do
     MergeDir=analysis/RxLR_effectors/combined_evidence/$Species/$Strain
     TotalRxLRsHeaders=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm_headers.txt
     RxLRsFa=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm_headers.fa
-    ProgDir=home/adamst/git_repos/tools/seq_tools/feature_annotation
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
     $ProgDir/unwrap_fasta.py --inp_fasta $Braker1Fa | grep -A1 -w -f $TotalRxLRsHeaders | grep -v -E '^--$' > $RxLRsFa
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $ORFsFa --headers $TotalRxLRsHeaders >> $RxLRsFa
