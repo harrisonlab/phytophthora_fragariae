@@ -516,7 +516,7 @@ The number of sequences extracted is:
 329
 ```
 
-##Expression of RxLRs
+<!-- ##Expression of RxLRs
 
 #RNAseq data from P.cactorum 10300 was used to approximate expression support with Braker1.
 
@@ -561,7 +561,7 @@ do
         echo ""
     done
 done
-```
+``` -->
 
 ##Analysis of Crinkler effectors - merger of Braker1 genes with ORFs
 
