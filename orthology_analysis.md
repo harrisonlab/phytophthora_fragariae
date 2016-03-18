@@ -302,6 +302,149 @@ done
 ```
 
 ```
+P.fragariae - A4
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+52
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+0
+The number of RxLRs unique to ORF models:
+166
+The number of RxLRs unique to Braker1 models:
+170
+The total number of putative RxLRs are:
+336
+The number of these RxLRs containing WY domains are:
+53
+P.fragariae - Bc1
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+193
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+190
+The number of RxLRs unique to ORF models:
+52
+The number of RxLRs unique to Braker1 models:
+3
+The total number of putative RxLRs are:
+245
+The number of these RxLRs containing WY domains are:
+90
+P.fragariae - Bc16
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+179
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+171
+The number of RxLRs unique to ORF models:
+64
+The number of RxLRs unique to Braker1 models:
+2
+The total number of putative RxLRs are:
+237
+The number of these RxLRs containing WY domains are:
+89
+P.fragariae - Bc23
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+172
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+166
+The number of RxLRs unique to ORF models:
+50
+The number of RxLRs unique to Braker1 models:
+0
+The total number of putative RxLRs are:
+216
+The number of these RxLRs containing WY domains are:
+81
+P.fragariae - Nov27
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+180
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+172
+The number of RxLRs unique to ORF models:
+66
+The number of RxLRs unique to Braker1 models:
+0
+The total number of putative RxLRs are:
+238
+The number of these RxLRs containing WY domains are:
+87
+P.fragariae - Nov5
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+186
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+179
+The number of RxLRs unique to ORF models:
+58
+The number of RxLRs unique to Braker1 models:
+1
+The total number of putative RxLRs are:
+238
+The number of these RxLRs containing WY domains are:
+87
+P.fragariae - Nov71
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+191
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+189
+The number of RxLRs unique to ORF models:
+51
+The number of RxLRs unique to Braker1 models:
+2
+The total number of putative RxLRs are:
+242
+The number of these RxLRs containing WY domains are:
+91
+P.fragariae - Nov77
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+49
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+1
+The number of RxLRs unique to ORF models:
+160
+The number of RxLRs unique to Braker1 models:
+164
+The total number of putative RxLRs are:
+325
+The number of these RxLRs containing WY domains are:
+55
+P.fragariae - Nov9
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+187
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+181
+The number of RxLRs unique to ORF models:
+55
+The number of RxLRs unique to Braker1 models:
+1
+The total number of putative RxLRs are:
+237
+The number of these RxLRs containing WY domains are:
+89
+P.fragariae - ONT3
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+181
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+173
+The number of RxLRs unique to ORF models:
+77
+The number of RxLRs unique to Braker1 models:
+1
+The total number of putative RxLRs are:
+251
+The number of these RxLRs containing WY domains are:
+93
+P.fragariae - SCRP245_v2
+The number of ORF RxLRs overlapping Braker1 RxLRs:
+26
+The number of Braker1 RxLRs overlapping ORF RxLRs:
+1
+The number of RxLRs unique to ORF models:
+173
+The number of RxLRs unique to Braker1 models:
+155
+The total number of putative RxLRs are:
+329
+The number of these RxLRs containing WY domains are:
+61
 ```
 
 #FASTA sequences for RxLRs were extracted for each isolate
