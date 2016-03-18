@@ -567,7 +567,7 @@ done
 
 #Intersection between the putative CRNs from gene models and ORFs were identified to determine the total number of CRNs in these genomes.
 
-#The CRN effectors from both Gene models and ORF finding approaches were combined into a single file.
+#The CRN effectors from both Gene models and ORF finding approaches were combined into a single file after modification of CRN Hmm outputs.
 
 ```bash
 A4Braker1Gff=gene_pred/braker/P.fragariae/A4/P.fragariae_A4_braker/augustus_extracted.gff
@@ -589,9 +589,12 @@ do
     CrnDir=$(ls -d analysis/CRN_effectors/hmmer_CRN/$Species/$Strain)
     Source="pred"
     CRN_hmm_txt=analysis/CRN_effectors/hmmer_CRN/$Species/$Strain/"$Strain"_braker1_CRN_hmmer.txt
+    CRN_hmm_txt_mod=analysis/CRN_effectors/hmmer_CRN/$Species/$Strain/"$Strain"_braker1_CRN_hmmer_mod.txt
     CRN_hmm_gff=analysis/CRN_effectors/hmmer_CRN/$Species/$Strain/"$Strain"_braker1_CRN_hmmer.gff
+    cat $CRN_hmm_txt | sed -E 's/\.t.+$//g' > $CRN_hmm_txt_mod
     echo "$Species - $Strain"
-    cat $GeneGff | grep -w -f $CRN_hmm_txt > $CRN_hmm_gff
+    cat $GeneGff | grep -w -f $CRN_hmm_txt_mod > $CRN_hmm_gff
+    cat $CRN_hmm_gff | cut -f2 -d '"' | sort | uniq | wc -l
 done
 ```
 
