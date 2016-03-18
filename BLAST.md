@@ -66,7 +66,7 @@ Genome=discovar.fasta
 makeblastdb -in $Region -input_type fasta -dbtype nucl -out candidate_region.db
 OutDir=genome_vs_region
 mkdir -p $OutDir
-blastn -db candidate_region.db -query $Genome -out $OutDir/genome_vs_region_hits.tbl -evalue 1e-10 -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore gaps qlen' -num_threads 8 -num_alignments 1
+blastn -db candidate_region.db -query $Genome -out $OutDir/genome_vs_region_hits.tbl -evalue 1e-10 -outfmt '6 qseqid qseq sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore gaps qlen' -num_threads 8 -num_alignments 1
 cp $OutDir/genome_vs_region_hits.tbl /home/adamst/blast_output/.
 cd /tmp/
 rm -r blast_fragaria
