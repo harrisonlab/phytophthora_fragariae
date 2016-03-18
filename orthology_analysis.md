@@ -481,6 +481,39 @@ done
 ```
 
 ```
+A4
+The number of sequences extracted is:
+324
+Bc1
+The number of sequences extracted is:
+321
+Bc16
+The number of sequences extracted is:
+319
+Bc23
+The number of sequences extracted is:
+274
+Nov27
+The number of sequences extracted is:
+321
+Nov5
+The number of sequences extracted is:
+316
+Nov71
+The number of sequences extracted is:
+308
+Nov77
+The number of sequences extracted is:
+322
+Nov9
+The number of sequences extracted is:
+321
+ONT3
+The number of sequences extracted is:
+311
+SCRP245_v2
+The number of sequences extracted is:
+329
 ```
 
 ##Expression of RxLRs
