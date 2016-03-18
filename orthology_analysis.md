@@ -160,6 +160,93 @@ done
 ```
 
 ```
+P.fragariae - A4
+Total number of RxLRs in predicted ORFs:
+419
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+88
+
+P.fragariae - Bc1
+Total number of RxLRs in predicted ORFs:
+420
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+89
+
+P.fragariae - Bc16
+Total number of RxLRs in predicted ORFs:
+418
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+89
+
+P.fragariae - Bc23
+Total number of RxLRs in predicted ORFs:
+397
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+82
+
+P.fragariae - Nov27
+Total number of RxLRs in predicted ORFs:
+421
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+89
+
+P.fragariae - Nov5
+Total number of RxLRs in predicted ORFs:
+419
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+89
+
+P.fragariae - Nov71
+Total number of RxLRs in predicted ORFs:
+417
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+91
+
+P.fragariae - Nov77
+Total number of RxLRs in predicted ORFs:
+406
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+76
+
+P.fragariae - Nov9
+Total number of RxLRs in predicted ORFs:
+417
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+90
+
+P.fragariae - ONT3
+Total number of RxLRs in predicted ORFs:
+433
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+95
+
+P.fragariae - SCRP245_v2
+Total number of RxLRs in predicted ORFs:
+396
+Total number of RxLRs shared between prediction sources:
+0
+The number of combined RxLR containing ORFs containing WY domains are:
+80
 ```
 
 ##Analysis of RxLR effectors - merger of Augustus / published genes with ORFs
