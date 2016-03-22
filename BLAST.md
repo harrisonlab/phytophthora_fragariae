@@ -87,5 +87,5 @@ python /home/adamst/git_repos/scripts/phytophthora_fragariae/filter_BLAST_hits.p
 ##Check awk arguments, number is column number so may not be general
 
 ```bash
-cat filtered_contigs.csv | awk -v FS=',''{print $1,$8,$9}' > filtered_contigs.bed
+cat filtered_contigs.csv | awk -F, '{ print $1,$8,$9 }' > filtered_contigs.bed
 ```
