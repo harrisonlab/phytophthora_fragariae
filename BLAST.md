@@ -71,3 +71,11 @@ cp $OutDir/genome_vs_region_hits.tbl /home/adamst/blast_output/.
 cd /tmp/
 rm -r blast_fragaria
 ```
+
+#Filter BLAST using a python script
+
+##Be sure to edit the python script as it is NOT written for general usage
+
+```bash
+python /home/adamst/git_repos/scripts/phytophthora_fragariae/filter_BLAST_hits.py
+```
