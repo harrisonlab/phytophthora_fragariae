@@ -79,3 +79,13 @@ rm -r blast_fragaria
 ```bash
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/filter_BLAST_hits.py
 ```
+
+#Create annotation file
+
+##Due to gaps in the sequences Geneious rejects contigs, so create an annotation file as a work around
+
+##Check awk arguments, number is column number so may not be general
+
+```bash
+cat filtered_contigs.csv | awk -v FS=',''{print $1,$8,$9}' > filtered_contigs.bed
+```
