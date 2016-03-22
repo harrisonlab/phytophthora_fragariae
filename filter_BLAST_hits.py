@@ -17,7 +17,7 @@ new_col = numpy.reshape(new_col_int, (33685, 1))
 
 new_results = numpy.append(results, new_col, 1)
 
-w12 = numpy.where((new_results[:,15] > 0.5) | (new_results[:,15] == 0.5))[0]
+w12 = numpy.where((new_results[:,15] > 0.25) | (new_results[:,15] == 0.25))[0]
 # The value can be changed by preference. Only bitwise logical operators may be used
 
 filtered_results = new_results[w12, :]
