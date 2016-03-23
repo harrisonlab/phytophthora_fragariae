@@ -1,9 +1,10 @@
-#Beginning orthology analysis of: A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245_v2
+##Beginning orthology analysis of: A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245_v2
 
 #RxLR Regex orthologies
 
-#Set up working directories
+##Set up working directories
 
+```bash
 ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 cd $ProjDir
 IsolateAbrv=phytophthora_fragariae
@@ -12,9 +13,11 @@ mkdir -p $WorkDir
 mkdir -p $WorkDir/formatted
 mkdir -p $WorkDir/goodProteins
 mkdir -p $WorkDir/badProteins
+```
 
-#Format fasta files
+##Format fasta files
 
+```bash
 Taxon_code=A4
 Fasta_file=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_EER_motif_hmm_headers.fa
 Id_field=1
@@ -80,18 +83,22 @@ Fasta_file=analysis/RxLR_effectors/combined_evidence/P.fragariae/SCRP245_v2/SCRP
 Id_field=1
 orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
 
-#Filter proteins into good and poor sets.
+##Filter proteins into good and poor sets.
 
+```bash
 Input_dir=$WorkDir/formatted
 Min_length=10
 Max_percent_stops=20
 Good_proteins_file=$WorkDir/goodProteins/goodProteins.fasta
 Poor_proteins_file=$WorkDir/badProteins/poorProteins.fasta
 orthomclFilterFasta $Input_dir $Min_length $Max_percent_stops $Good_proteins_file $Poor_proteins_file
+```
 
-#Perform an all-vs-all blast of the proteins
+##Perform an all-vs-all blast of the proteins
 
+```bash
 BlastDB=$WorkDir/blastall/$IsolateAbrv.db
 
 makeblastdb -in $Good_proteins_file -dbtype prot -out $BlastDB
@@ -116,19 +123,24 @@ do
     BlastOut=$(echo $File | sed 's/.fa/.tab/g')
     qsub $ProgDir/blast_500.sh $BlastDB $File $BlastOut
 done
+```
 
-#Merge the all-vs-all blast results
+##Merge the all-vs-all blast results
 
+```bash
 MergeHits="$IsolateAbrv"_blast.tab
 printf "" > $MergeHits
 for Num in $(ls $WorkDir/splitfiles/*.tab | rev | cut -f1 -d '_' | rev | sort -n); do
     File=$(ls $WorkDir/splitfiles/*_$Num)
     cat $File
 done > $MergeHits
+```
 
-#Perform ortholog identification
+##Perform ortholog identification
 
+```bash
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
 MergeHits="$IsolateAbrv"_blast.tab
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
 $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
+```
