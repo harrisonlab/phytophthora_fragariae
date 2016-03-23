@@ -102,12 +102,14 @@ SplitDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptid
 $SplitDir/splitfile_500.py --inp_fasta $Good_proteins_file --out_dir $WorkDir/splitfiles --out_base goodProteins
 
 ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/orthology
-for File in $(find $WorkDir/splitfiles); do
-    Jobs=$(qstat | grep 'blast_500' | wc -l)
-    while [ $Jobs -gt 32 ]; do
+for File in $(find $WorkDir/splitfiles)
+do
+    Jobs=$(qstat | grep 'blast_500' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
         sleep 10
         printf "."
-        Jobs=$(qstat | grep 'blast_500' | wc -l)
+        Jobs=$(qstat | grep 'blast_500' | grep 'qw' | wc -l)
     done
     printf "\n"
     echo $File
@@ -128,5 +130,5 @@ done > $MergeHits
 
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
 MergeHits="$IsolateAbrv"_blast.tab
-GoodProtDir=$WorkDir/goodProteins
-$ProgDir/qsub_orthomcl.sh $MergeHits $GoodProtDir 1.5
+GoodProts=$WorkDir/goodProteins/goodProteins.fasta
+$ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
