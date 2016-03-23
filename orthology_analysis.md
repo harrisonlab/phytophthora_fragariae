@@ -732,3 +732,5 @@ do
     done
 done
 ```
+
+#Now feed into orthmcl shell script
