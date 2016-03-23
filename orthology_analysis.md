@@ -674,7 +674,7 @@ do
 done
 ```
 
-##Expression of CRN genes
+<!-- ##Expression of CRN genes
 
 #Expression data from P.cactorum 10300 was used to estimate expression in each strain.
 
@@ -700,7 +700,7 @@ done
 ```
 
 ```
-```
+``` -->
 
 #The ortholog groups that these genes belonged to were investigated:
 
