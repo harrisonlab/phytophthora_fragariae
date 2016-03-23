@@ -6,7 +6,7 @@
 
 ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 cd $ProjDir
-IsolateAbrv=A4_Bc1_Bc16_Bc23_Nov27_Nov5_Nov71_Nov77_Nov9_ONT3_SCRP245_v2
+IsolateAbrv=phytophthora_fragariae
 WorkDir=analysis/orthology/orthomcl/$IsolateAbrv
 mkdir -p $WorkDir
 mkdir -p $WorkDir/formatted
