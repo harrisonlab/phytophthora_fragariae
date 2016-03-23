@@ -128,9 +128,10 @@ done
 ##Merge the all-vs-all blast results
 
 ```bash
-MergeHits="$IsolateAbrv"_blast.tab
+MergeHits=$WorkDir/"$IsolateAbrv"_blast.tab
 printf "" > $MergeHits
-for Num in $(ls $WorkDir/splitfiles/*.tab | rev | cut -f1 -d '_' | rev | sort -n); do
+for Num in $(ls $WorkDir/splitfiles/*.tab | rev | cut -f1 -d '_' | rev | sort -n)
+do
     File=$(ls $WorkDir/splitfiles/*_$Num)
     cat $File
 done > $MergeHits
