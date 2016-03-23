@@ -143,5 +143,5 @@ done > $MergeHits
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
 MergeHits="$IsolateAbrv"_blast.tab
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-$ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
+qsub $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
 ```
