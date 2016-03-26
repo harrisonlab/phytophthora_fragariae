@@ -108,7 +108,7 @@ mkdir -p $Bc16UniqDir
 #Orthogroups only containing Race 2 genes were extracted:
 
 ```bash
-cat $Orthogroups | grep -v 'A4' | grep -v 'Bc1' | grep -v 'Bc23' | grep -v 'Nov27' | grep -v 'Nov5' | grep -v 'Nov71' | grep -v 'Nov77' | grep -v 'Nov9' | grep -v 'ONT3' | grep -v 'SCRP245_v2' > $Uniq_Bc16_groups
+cat $Orthogroups | grep -v 'A4|' | grep -v 'Bc1|' | grep -v 'Bc23|' | grep -v 'Nov27|' | grep -v 'Nov5|' | grep -v 'Nov71|' | grep -v 'Nov77|' | grep -v 'Nov9|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $Uniq_Bc16_groups
 echo "The number of orthogroups unique to Race 2 are:"
 cat $Uniq_Bc16_groups | wc -l
 echo "The following number genes are contained in these orthogroups:"
