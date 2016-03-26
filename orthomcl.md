@@ -153,7 +153,7 @@ cat $Orthogroups | grep -w -f $RxLR_ID_Bc16 > $RxLR_Orthogroup_Bc16
 cat $RxLR_Orthogroup_Bc16 | wc -l
 echo "The following RxLRs were found in Race 2 unique orthogroups:"
 RxLR_Bc16_uniq_groups=$RxLR_Dir/Bc16_uniq_RxLR_Orthogroups_hits.txt
-cat $RxLR_Orthogroup_Bc16 | grep -v 'A4' | grep -v 'Bc1' | grep -v 'Bc23' | grep -v 'Nov27' | grep -v 'Nov5' | grep -v 'Nov71' | grep -v 'Nov77' | grep -v 'Nov9' | grep -v 'ONT3' | grep -v 'SCRP245_v2' > $RxLR_Bc16_uniq_groups
+cat $RxLR_Orthogroup_Bc16 | grep -v 'A4|' | grep -v 'Bc1|' | grep -v 'Bc23|' | grep -v 'Nov27|' | grep -v 'Nov5|' | grep -v 'Nov71|' | grep -v 'Nov77|' | grep -v 'Nov9|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $RxLR_Bc16_uniq_groups
 cat $RxLR_Bc16_uniq_groups | wc -l
 echo "These orthogroups contain the following number of RxLRs:"
 cat $RxLR_Bc16_uniq_groups | grep -w -o -f $RxLR_ID_Bc16 | wc -l
@@ -161,11 +161,25 @@ echo "The following RxLRs were found in P.fragariae unique orthogroups:"
 RxLR_Pf_uniq_groups=$RxLR_Dir/Pf_RxLR_Orthogroups_hits.txt
 cat $RxLR_Orthogroup_Bc16 > $RxLR_Pf_uniq_groups
 cat $RxLR_Pf_uniq_groups | wc -l
-echo "These orthogroups contain the folloing number of RxLRs:"
+echo "These orthogroups contain the following number of RxLRs:"
 cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID_Bc16 | wc -l
 ```
 
 ```
+The number of RxLRs searched for is:
+371
+Of these, the following number were found in orthogroups:
+0
+These were distributed through the following number of Orthogroups:
+0
+The following RxLRs were found in Race 2 unique orthogroups:
+0
+These orthogroups contain the following number of RxLRs:
+0
+The following RxLRs were found in P.fragariae unique orthogroups:
+0
+These orthogroups contain the following number of RxLRs:
+0
 ```
 
 #The Race 2 RxLR genes that were not found in orthogroups were identified:
