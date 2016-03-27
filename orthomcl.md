@@ -190,12 +190,14 @@ cat $RxLR_ID_Bc16 | grep -v -w -f $RxLR_Orthogroup_hits_Bc16 | tr -d 'Bc16|' > $
 echo "The number of BC-16 unique RxLRs are:"
 cat $RxLR_Bc16_uniq | wc -l
 RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Braker1_RxLR_EER_motif_hmm.fa
-Braker_genes=gene_pred/braker/P.fragariae/Bc16/P.fragariae/augustus.aa
+Braker_genes=gene_pred/braker/P.fragariae/Bc16/P.fragariae_Bc16_braker/augustus.aa
 RxLR_Bc16_uniq_fa=$RxLR_Dir/Bc16_unique_RxLRs.fa
 cat $Braker_genes | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_Bc16_uniq | grep -E -v '^--' > $RxLR_Bc16_uniq_fa
 ```
 
 ```
+The number of BC-16 unique RxLRs are:
+371
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
