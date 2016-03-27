@@ -214,7 +214,7 @@ $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt 
 ##Extracting fasta files for P. fragariae orthogroups containing Race 2 putative RxLRs
 
 ```bash
-ProgDir=home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
 OrthogroupTxt=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_RxLR/Pf_RxLR_Orthogroups_hits.txt
 GoodProt=analysis/orthology/orthomcl/phytophthora_fragariae/goodProteins/goodProteins.fasta
 OutDir=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_RxLR/orthogroups_fasta_Pf_RxLR
