@@ -171,7 +171,7 @@ cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID_Bc16 | wc -l
 
 ```
 The number of RxLRs searched for is:
-371
+237
 Of these, the following number were found in orthogroups:
 0
 These were distributed through the following number of Orthogroups:
