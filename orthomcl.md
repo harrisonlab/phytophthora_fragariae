@@ -1,4 +1,4 @@
-##Beginning orthology analysis of: A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245_v2
+#Beginning orthology analysis of: A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245_v2
 
 #RxLR Regex orthologies
 
@@ -89,11 +89,15 @@ GoodProts=$WorkDir/goodProteins/goodProteins.fasta
 qsub $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
 ```
 
-##Analysis of orthogroups unique to UK race 2 (Strains BC-16)
+```
+263 orthogroups were identified
+```
 
-#The genes unique to Race 2 were identified within the orthology analysis
+#Analysis of orthogroups unique to UK race 2 (Strains BC-16)
 
-#First variables were set:
+##The genes unique to Race 2 were identified within the orthology analysis
+
+##First variables were set:
 
 ```bash
 WorkDir=analysis/orthology/orthomcl/phytophthora_fragariae
@@ -107,7 +111,7 @@ mkdir -p $Bc16UniqDir
 
 #Orthogroups only containing Race 2 genes were extracted:
 
-#Bars are to prevent incorrect filtering
+##Bars are to prevent incorrect filtering
 
 ```bash
 cat $Orthogroups | grep -v 'A4|' | grep -v 'Bc1|' | grep -v 'Bc23|' | grep -v 'Nov27|' | grep -v 'Nov5|' | grep -v 'Nov71|' | grep -v 'Nov77|' | grep -v 'Nov9|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $Uniq_Bc16_groups
@@ -124,7 +128,7 @@ The following number genes are contained in these orthogroups:
 7
 ```
 
-##Race 2 unique RxLR families
+#Race 2 unique RxLR families
 
 #Race 2 RxLR genes were parsed to the same format as the gene names used in the analysis:
 
