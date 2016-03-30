@@ -133,7 +133,7 @@ The following number genes are contained in these orthogroups:
 #Race 2 RxLR genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
-RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Braker1_RxLR_EER_motif_hmm_headers.txt
+RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Braker1_Total_EER_motif_hmm.txt
 WorkDir=analysis/orthology/orthomcl/phytophthora_fragariae
 RxLR_Dir=$WorkDir/Bc16_RxLR
 Orthogroups=$WorkDir/phytophthora_fragariae_orthogroups.txt
