@@ -4,7 +4,7 @@ A4, Bc23, Nov5, Nov77, ONT3, SCRP245_v2, Bc16, 62471 and Nov27
 62471 is P. cactorum
 ====================
 
-Commands used during analysis of Phytophthora fragariae genomed. Note - all this work was performed in the directory: /home/groups/harrisonlab/project_files/phytophthora_fragariae
+Commands used during analysis of Phytophthora fragariae genomes. Note - all this work was performed in the directory: /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
 The following is a summary of the work presented in this Readme:
 Data organisation:
