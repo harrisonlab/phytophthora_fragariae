@@ -469,6 +469,7 @@ do
     ORFsFa=$(ls gene_pred/ORF_finder/"$Species"/"$Strain"/"$Strain".aa_cat.fa)
     MergeDir=analysis/RxLR_effectors/combined_evidence/$Species/$Strain
     TotalRxLRsHeaders=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm_headers.txt
+    TotalRxLRsTxt=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm.txt
     RxLRsFa=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm_headers.fa
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
     $ProgDir/unwrap_fasta.py --inp_fasta $Braker1Fa | grep -A1 -w -f $TotalRxLRsTxt | grep -v -E '^--$' > $RxLRsFa
@@ -483,34 +484,34 @@ done
 ```
 A4
 The number of sequences extracted is:
-324
+336
 Bc1
 The number of sequences extracted is:
-321
+245
 Bc16
 The number of sequences extracted is:
-319
+237
 Bc23
 The number of sequences extracted is:
-274
+216
 Nov27
 The number of sequences extracted is:
-321
+238
 Nov5
 The number of sequences extracted is:
-316
+238
 Nov71
 The number of sequences extracted is:
-308
+241
 Nov77
 The number of sequences extracted is:
-322
+325
 Nov9
 The number of sequences extracted is:
-321
+237
 ONT3
 The number of sequences extracted is:
-311
+251
 SCRP245_v2
 The number of sequences extracted is:
 329
