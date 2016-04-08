@@ -140,7 +140,7 @@ RxLR_Dir=$WorkDir/Bc16_RxLR
 Orthogroups=$WorkDir/phytophthora_fragariae_orthogroups.txt
 RxLR_ID_Bc16=$RxLR_Dir/Bc16_aug_RxLR_EER_IDs.txt
 mkdir -p $RxLR_Dir
-cat $RxLR_Names_Bc16 | sed 's/g/Bc16|g/g' > $RxLR_ID_Bc16
+cat $RxLR_Names_Bc16 | sed -r 's/^/Bc16|/g' > $RxLR_ID_Bc16
 ```
 
 #Ortholog groups containing RxLR proteins were identified using the following commands:
@@ -174,17 +174,17 @@ cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID_Bc16 | wc -l
 The number of RxLRs searched for is:
 237
 Of these, the following number were found in orthogroups:
-173
+237
 These were distributed through the following number of Orthogroups:
-127
+178
 The following RxLRs were found in Race 2 unique orthogroups:
 0
 These orthogroups contain the following number of RxLRs:
 0
 The following RxLRs were found in P.fragariae unique orthogroups:
-127
+178
 These orthogroups contain the following number of RxLRs:
-173
+237
 ```
 
 #The Race 2 RxLR genes that were not found in orthogroups were identified:
