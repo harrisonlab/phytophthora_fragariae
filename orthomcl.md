@@ -124,9 +124,9 @@ cat $Uniq_Bc16_groups | grep -o 'Bc16|' | wc -l
 
 ```
 The number of orthogroups unique to Race 2 are:
-3
+0
 The following number genes are contained in these orthogroups:
-7
+0
 ```
 
 #Race 2 unique RxLR families
