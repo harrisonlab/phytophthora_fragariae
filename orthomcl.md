@@ -81,10 +81,11 @@ done > $MergeHits
 ```
 
 ##Perform ortholog identification
+#Have to create alternative qsub script to deal with difference in file architecture
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-MergeHits="$IsolateAbrv"_blast.tab
+MergeHits=$WorkDir/"$IsolateAbrv"_blast.tab
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
 qsub $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
 ```
