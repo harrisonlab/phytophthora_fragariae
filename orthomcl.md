@@ -91,7 +91,7 @@ qsub $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
 ```
 
 ```
-263 orthogroups were identified
+239 orthogroups were identified
 ```
 
 #Analysis of orthogroups unique to UK race 2 (Strains BC-16)
