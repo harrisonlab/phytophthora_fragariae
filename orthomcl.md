@@ -202,7 +202,7 @@ cat $Braker_genes | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -
 
 ```
 The number of BC-16 unique RxLRs are:
-237
+64
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
