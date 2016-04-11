@@ -59,11 +59,12 @@ Alignment files were merged into a single file so as to be passed to a gene pred
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-for Strain in Bc16; do
+for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 62471
+do
     for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa); do
         Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
-        OutDir=gene_pred/braker/$Organism/$Strain
-        AcceptedHits=alignment/$Organism/$Strain/accepted_hits.bam
+        OutDir=gene_pred/braker/sojae_test/$Organism/$Strain
+        AcceptedHits=alignment/sojae_test/$Organism/$Strain/accepted_hits.bam
         GeneModelName="$Organism"_"$Strain"_braker
         echo $Strain
         echo $Organism
