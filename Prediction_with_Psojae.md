@@ -57,13 +57,6 @@ Alignment files were merged into a single file so as to be passed to a gene pred
 
 #3) Run Braker1
 
-As this is the first time I have run Braker I need to copy the licence key for genemarkET
-to my user directory
-
-```bash
-cp /home/armita/.gm_key ~/.gm_key
-```
-
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
 for Strain in Bc16; do
