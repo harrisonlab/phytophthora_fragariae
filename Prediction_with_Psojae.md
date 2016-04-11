@@ -29,15 +29,15 @@ Aligments of RNAseq reads were made against assemblies from each strain using to
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-FileF=qc_rna/genbank/P.cactorum/10300/F/SRR1206032_trim.fq.gz
-FileR=qc_rna/genbank/P.cactorum/10300/R/SRR1206033_trim.fq.gz
-for Strain in Bc1 Bc16 Nov9; do
+RNA=qc_rna/raw_rna/genbank/P.sojae/F/SRR243567_trim.fq.gz
+for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 62471
+do
     for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
         Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
-        OutDir=alignment/$Organism/$Strain
+        OutDir=alignment/sojae_test/$Organism/$Strain
         echo $Organism $Strain
-        qsub $ProgDir/tophat_alignment.sh $Genome $FileF $FileR $OutDir
+        qsub $ProgDir/tophat_alignment_unpaired.sh $Genome $RNA $OutDir
     done
 done
 ```
