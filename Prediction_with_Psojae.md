@@ -30,9 +30,10 @@ Aligments of RNAseq reads were made against assemblies from each strain using to
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
 RNA=qc_rna/raw_rna/genbank/P.sojae/F/SRR243567_trim.fq.gz
-for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 62471
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+    for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
+    do
         Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
         OutDir=alignment/sojae_test/$Organism/$Strain
@@ -59,7 +60,7 @@ Alignment files were merged into a single file so as to be passed to a gene pred
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 62471
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa); do
         Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
