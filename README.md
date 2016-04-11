@@ -354,7 +354,6 @@ NOV-71: 1233
 NOV-9: 1093
 BC-1: 1068**
 
--->
 #Repeat masking
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
 
