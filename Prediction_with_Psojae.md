@@ -10,6 +10,7 @@ All commands run in the directory:
 ```bash
 cd raw_rna/genbank
 mkdir -p P.sojae/P6497
+cd P.sojae/P6497
 fastq-dump SRR243567
 ```
 
