@@ -34,7 +34,7 @@ Aligments of RNAseq reads were made against assemblies from each strain using to
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-RNA=qc_rna/raw_rna/genbank/P.sojae/F/SRR243567_trim.fq.gz
+RNA=qc_rna/genbank/P.sojae/F/SRR243567_trim.fq.gz
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
