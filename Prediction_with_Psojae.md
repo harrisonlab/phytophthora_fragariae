@@ -14,7 +14,7 @@ mkdir -p P.sojae/P6497/R
 cd P.sojae/P6497/F
 fastq-dump SRR243567
 cd ../R
-cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/genbank/P.cactorum/10300/R/SRR1206033.fastq
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/genbank/P.cactorum/10300/R/SRR1206033.fastq .
 ```
 
 #1) QC
