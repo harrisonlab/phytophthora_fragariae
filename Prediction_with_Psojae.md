@@ -21,6 +21,7 @@ cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/genbank
 
 Perform qc of RNAseq zoospore data. These reads are not actually paired reads but this is irrelevant for processing using fast-mcf
 Leaving a cactorum reverse read to allow the script to accept it, but shouldn't affect the output results
+
 ```bash
 FileF=raw_rna/genbank/P.sojae/P6497/SRR243567.fastq
 FileR=raw_rna/genbank/P.cactorum/10300/R/SRR1206033.fastq
