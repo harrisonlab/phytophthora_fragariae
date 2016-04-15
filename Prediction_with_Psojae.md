@@ -25,7 +25,7 @@ Leaving a cactorum reverse read to allow the script to accept it, but shouldn't 
 ```bash
 FileF=raw_rna/genbank/P.sojae/P6497/F/SRR243567.fastq
 IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.fa
-qsub /home/adamst/git_repos/scripts/phytophthora_fragariae $FileF $IlluminaAdapters RNA
+qsub /home/adamst/git_repos/scripts/phytophthora_fragariae/fastqc.sh $FileF $IlluminaAdapters RNA
 ```
 
 #2) Align reads vs. genome
