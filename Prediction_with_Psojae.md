@@ -5,16 +5,62 @@ Commands used to predict genes in Phytophthora fragariae using published RNAseq 
 All commands run in the directory:
 /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
+Multiple RNAseq files tried
+
 #Download RNAseq data from SRA
+
+Zoospores
 
 ```bash
 cd raw_rna/genbank
 mkdir -p P.sojae/P6497/F
-mkdir -p P.sojae/P6497/R
 cd P.sojae/P6497/F
 fastq-dump SRR243567
-cd ../R
-cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/genbank/P.cactorum/10300/R/SRR1206033.fastq .
+```
+
+Infection site after 1.5 hrs
+
+```bash
+cd raw_rna/genbank
+mkdir -p P.sojae/P6497_90min/F
+cd P.sojae/P6497_90min/F
+fastq-dump SRR243570
+```
+
+Infection site after 3hrs
+
+```bash
+cd raw_rna/genbank
+mkdir -p P.sojae/P6497_3hr/F
+cd P.sojae/P6497_3hr/F
+fastq-dump SRR243571
+```
+
+Infection site after 6hrs
+
+```bash
+cd raw_rna/genbank
+mkdir -p P.sojae/P6497_6hr/F
+cd P.sojae/P6497_6hr/F
+fastq-dump SRR243572
+```
+
+Infection site after 12hrs
+
+```bash
+cd raw_rna/genbank
+mkdir -p P.sojae/P6497_12hr/F
+cd P.sojae/P6497_12hr/F
+fastq-dump SRR243573
+```
+
+Infections site after 24hrs
+
+```bash
+cd raw_rna/genbank
+mkdir -p P.sojae/P6497_24hr/F
+cd P.sojae/P6497_24hr/F
+fastq-dump SRR243574
 ```
 
 #1) QC
