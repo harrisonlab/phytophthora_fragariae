@@ -85,17 +85,20 @@ done
 Aligments of RNAseq reads were made against assemblies from each strain using tophat:
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-RNA=qc_rna/genbank/P.sojae/P6497/F/SRR243567_trim.fq.gz
-for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+for Point in 90min 3hr 6hr 12hr 24hr
 do
-    for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+    RNA=qc_rna/genbank/P.sojae/P6497_"$Point"/F/*
+    for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
     do
-        Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
-        Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
-        OutDir=alignment/sojae_test/$Organism/$Strain
-        echo $Organism $Strain
-        qsub $ProgDir/tophat_alignment_unpaired.sh $Genome $RNA $OutDir
+        for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
+        do
+            Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
+            Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
+            OutDir=alignment/sojae_test/$Organism/$Strain
+            echo $Organism $Strain
+            qsub $ProgDir/tophat_alignment_unpaired.sh $Genome $RNA $OutDir
+        done
     done
 done
 ```
