@@ -45,7 +45,9 @@ cd P.sojae/P6497_6hr/F
 fastq-dump SRR243572
 ```
 
+```
 Error downloading file, repeats multiple times
+```
 
 Infection site after 12hrs
 
@@ -126,6 +128,10 @@ do
         qsub $ProgDir/sub_braker.sh $Genome $OutDir $AcceptedHits $GeneModelName
     done
 done
+```
+
+```
+Fails for zoospores data, perhaps poor RNAseq data
 ```
 
 #4) Extract gff and amino acid sequences
