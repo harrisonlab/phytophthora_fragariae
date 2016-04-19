@@ -73,9 +73,12 @@ Perform qc of RNAseq zoospore data. These reads are not actually paired reads bu
 Leaving a cactorum reverse read to allow the script to accept it, but shouldn't affect the output results
 
 ```bash
-FileF=raw_rna/genbank/P.sojae/P6497/F/SRR243567.fastq
-IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.fa
-qsub /home/adamst/git_repos/scripts/phytophthora_fragariae/fastqc.sh $FileF $IlluminaAdapters RNA
+for Point in 90min 3hr 6hr 12hr 24hr
+do
+    FileF=raw_rna/genbank/P.sojae/P6497_"$Point"/F/*
+    IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.fa
+    qsub /home/adamst/git_repos/scripts/phytophthora_fragariae/fastqc.sh $FileF $IlluminaAdapters RNA
+done
 ```
 
 #2) Align reads vs. genome
