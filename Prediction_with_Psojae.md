@@ -45,6 +45,8 @@ cd P.sojae/P6497_6hr/F
 fastq-dump SRR243572
 ```
 
+Error downloading file, repeats multiple times
+
 Infection site after 12hrs
 
 ```bash
