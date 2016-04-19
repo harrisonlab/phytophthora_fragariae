@@ -119,22 +119,19 @@ Alignment files were merged into a single file so as to be passed to a gene pred
 #3) Run Braker1
 
 ```bash
-for Point in 90min 3hr 6hr 12hr 24hr
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-    for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+    for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa)
     do
-        for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa)
-        do
-            Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
-            OutDir=gene_pred/braker/sojae_test/$Point/$Organism/$Strain
-            AcceptedHits=alignment/sojae_test/$Point/$Organism/$Strain/accepted_hits.bam
-            GeneModelName="$Organism"_"$Strain"_braker
-            echo $Strain
-            echo $Organism
-            echo $Genome
-            qsub $ProgDir/sub_braker.sh $Genome $OutDir $AcceptedHits $GeneModelName
-        done
+        Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
+        OutDir=gene_pred/braker/sojae_test/90min/$Organism/$Strain
+        AcceptedHits=alignment/sojae_test/90min/$Organism/$Strain/accepted_hits.bam
+        GeneModelName="$Organism"_"$Strain"_braker
+        echo $Strain
+        echo $Organism
+        echo $Genome
+        qsub $ProgDir/sub_braker.sh $Genome $OutDir $AcceptedHits $GeneModelName
     done
 done
 ```
