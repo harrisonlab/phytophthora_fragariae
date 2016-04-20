@@ -137,7 +137,7 @@ done
 ```
 
 ```
-Fails for zoospores data, perhaps poor RNAseq data
+Fails for all data, perhaps poor RNAseq data
 ```
 
 #4) Extract gff and amino acid sequences
