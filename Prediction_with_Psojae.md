@@ -125,8 +125,8 @@ do
     for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa)
     do
         Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
-        OutDir=gene_pred/braker/sojae_test/90min/$Organism/$Strain
-        AcceptedHits=alignment/sojae_test/90min/$Organism/$Strain/accepted_hits.bam
+        OutDir=gene_pred/braker/sojae_test/3hr/$Organism/$Strain
+        AcceptedHits=alignment/sojae_test/3hr/$Organism/$Strain/accepted_hits.bam
         GeneModelName="$Organism"_"$Strain"_braker
         echo $Strain
         echo $Organism
