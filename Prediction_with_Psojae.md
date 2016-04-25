@@ -1,5 +1,6 @@
 #Phytophthora fragariae
 Commands used to predict genes in Phytophthora fragariae using published RNAseq data from Phytophthora sojae
+Alignment fails so cannot run gene prediction
 ====================
 
 All commands run in the directory:
