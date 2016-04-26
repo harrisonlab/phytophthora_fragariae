@@ -405,7 +405,7 @@ These orthogroups contain the following number of RxLRs:
 483
 ```
 
-#The Race 2 RxLR genes that were not found in orthogroups were identified:
+#The Race 1 RxLR genes that were not found in orthogroups were identified:
 
 ```bash
 RxLR_Bc16_uniq=$RxLR_Dir/Bc16_unique_RxLRs.txt
