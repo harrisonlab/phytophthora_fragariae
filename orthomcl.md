@@ -637,18 +637,22 @@ These orthogroups contain the following number of RxLRs:
 #The Race 3 RxLR genes that were not found in orthogroups were identified:
 
 ```bash
-RxLR_UKR1_uniq=$RxLR_Dir/UKR1_unique_RxLRs.txt
-cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc1|' > $RxLR_UKR1_uniq
-cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Nov5|' >> $RxLR_UKR1_uniq
-echo "The number of UKR1 unique RxLRs are:"
-cat $RxLR_UKR1_uniq | wc -l
-RxLR_Seq_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Braker1_RxLR_EER_motif_hmm.fa
-RxLR_Seq_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Braker1_RxLR_EER_motif_hmm.fa
-Braker_genes_Bc1=gene_pred/braker/P.fragariae/Bc1/P.fragariae_Bc1_braker/augustus.aa
-Braker_genes_Nov5=gene_pred/braker/P.fragariae/Nov5/P.fragariae_Nov5_braker/augustus.aa
-RxLR_UKR1_uniq_fa=$RxLR_Dir/UKR1_unique_RxLRs.fa
-cat $Braker_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UKR1_uniq | grep -E -v '^--' > $RxLR_UKR1_uniq_fa
-cat $Braker_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UKR1_uniq | grep -E -v '^--' >> $RxLR_UKR1_uniq_fa
+RxLR_UKR3_uniq=$RxLR_Dir/UKR3_unique_RxLRs.txt
+cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Nov9|' > $RxLR_UKR3_uniq
+cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Nov27|' >> $RxLR_UKR3_uniq
+cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Nov71|' >> $RxLR_UKR3_uniq
+echo "The number of UKR3 unique RxLRs are:"
+cat $RxLR_UKR3_uniq | wc -l
+RxLR_Seq_Nov9=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov9/Nov9_Braker1_RxLR_EER_motif_hmm.fa
+RxLR_Seq_Nov27=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov27/Nov27_Braker1_RxLR_EER_motif_hmm.fa
+RxLR_Seq_Nov71=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov71/Nov71_Braker1_RxLR_EER_motif_hmm.fa
+Braker_genes_Nov9=gene_pred/braker/P.fragariae/Nov9/P.fragariae_Nov9_braker/augustus.aa
+Braker_genes_Nov27=gene_pred/braker/P.fragariae/Nov27/P.fragariae_Nov27_braker/augustus.aa
+Braker_genes_Nov71=gene_pred/braker/P.fragariae/Nov71/P.fragariae_Nov71_braker/augustus.aa
+RxLR_UKR3_uniq_fa=$RxLR_Dir/UKR3_unique_RxLRs.fa
+cat $Braker_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UKR3_uniq | grep -E -v '^--' > $RxLR_UKR3_uniq_fa
+cat $Braker_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UKR3_uniq | grep -E -v '^--' >> $RxLR_UKR3_uniq_fa
+cat $Braker_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UKR3_uniq | grep -E -v '^--' >> $RxLR_UKR3_uniq_fa
 ```
 
 ```
