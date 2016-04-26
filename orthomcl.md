@@ -619,19 +619,19 @@ cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
 
 ```
 The number of RxLRs searched for is:
-483
+717
 Of these, the following number were found in orthogroups:
-483
+715
 These were distributed through the following number of Orthogroups:
-185
-The following RxLRs were found in Race 1 unique orthogroups:
-1
+183
+The following RxLRs were found in Race 3 unique orthogroups:
+0
 These orthogroups contain the following number of RxLRs:
-2
+0
 The following RxLRs were found in P.fragariae unique orthogroups:
-185
+183
 These orthogroups contain the following number of RxLRs:
-483
+715
 ```
 
 #The Race 1 RxLR genes that were not found in orthogroups were identified:
