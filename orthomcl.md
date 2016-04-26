@@ -427,7 +427,7 @@ The number of UKR1 unique RxLRs are:
 0
 ```
 
-##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
+##Extracting fasta files for orthogroups containing Race 1 putative RxLRs
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
