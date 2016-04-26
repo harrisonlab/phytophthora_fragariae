@@ -431,9 +431,9 @@ The number of UKR1 unique RxLRs are:
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-OrthogroupTxt=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_RxLR/Bc16_RxLR_Orthogroups.txt
+OrthogroupTxt=analysis/orthology/orthomcl/phytophthora_fragariae/UKR1_RxLR/UKR1_RxLR_Orthogroups.txt
 GoodProt=analysis/orthology/orthomcl/phytophthora_fragariae/goodProteins/goodProteins.fasta
-OutDir=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_RxLR/orthogroups_fasta_Bc16_RxLR
+OutDir=analysis/orthology/orthomcl/phytophthora_fragariae/UKR1_RxLR/orthogroups_fasta_UKR1_RxLR
 mkdir -p $OutDir
 $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 ```
