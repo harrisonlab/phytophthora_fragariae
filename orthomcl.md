@@ -423,7 +423,7 @@ cat $Braker_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | 
 ```
 
 ```
-The number of BC-16 unique RxLRs are:
+The number of UKR1 unique RxLRs are:
 0
 ```
 
