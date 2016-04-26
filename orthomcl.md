@@ -337,10 +337,12 @@ cat $Uniq_UKR1_groups | grep -o 'Nov5|' | wc -l
 ```
 
 ```
-The number of orthogroups unique to Race 2 are:
-0
-The following number genes are contained in these orthogroups:
-0
+The number of orthogroups unique to Race 1 are:
+1
+The following number BC-1 genes are contained in these orthogroups:
+1
+The following number NOV-5 genes are contained in these orthogroups:
+1
 ```
 
 #Race 2 unique RxLR families
