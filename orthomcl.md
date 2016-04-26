@@ -550,13 +550,15 @@ mkdir -p $UKR3UniqDir
 ##Bars are to prevent incorrect filtering
 
 ```bash
-cat $Orthogroups | grep -v 'A4|' | grep -v 'Bc16|' | grep -v 'Bc23|' | grep -v 'Nov27|' | grep -v 'Nov71|' | grep -v 'Nov77|' | grep -v 'Nov9|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $Uniq_UKR1_groups
-echo "The number of orthogroups unique to Race 1 are:"
-cat $Uniq_UKR1_groups | wc -l
-echo "The following number BC-1 genes are contained in these orthogroups:"
-cat $Uniq_UKR1_groups | grep -o 'Bc1|' | wc -l
-echo "The following number NOV-5 genes are contained in these orthogroups:"
-cat $Uniq_UKR1_groups | grep -o 'Nov5|' | wc -l
+cat $Orthogroups | grep -v 'A4|' | grep -v 'Bc1|' | grep -v 'Bc16|' | grep -v 'Bc23|' | grep -v 'Nov77|' | grep -v 'Nov5|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $Uniq_UKR3_groups
+echo "The number of orthogroups unique to Race 3 are:"
+cat $Uniq_UKR3_groups | wc -l
+echo "The following number NOV-9 genes are contained in these orthogroups:"
+cat $Uniq_UKR3_groups | grep -o 'Nov9|' | wc -l
+echo "The following number NOV-27 genes are contained in these orthogroups:"
+cat $Uniq_UKR3_groups | grep -o 'Nov27|' | wc -l
+echo "The following number NOV-71 genes are contained in these orthogroups:"
+cat $Uniq_UKR3_groups | grep -o 'Nov71|' | wc -l
 ```
 
 ```
