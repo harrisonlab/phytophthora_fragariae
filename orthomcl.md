@@ -635,7 +635,7 @@ These orthogroups contain the following number of RxLRs:
 ```
 
 #The Race 3 RxLR genes that were not found in orthogroups were identified:
-
+Due to the way tr works with characters, only run Nov71 as this is the only output from grep. May need looking at in future.
 ```bash
 RxLR_UKR3_uniq=$RxLR_Dir/UKR3_unique_RxLRs.txt
 cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Nov9|' > $RxLR_UKR3_uniq
@@ -656,8 +656,8 @@ cat $Braker_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" |
 ```
 
 ```
-The number of UKR1 unique RxLRs are:
-0
+The number of UKR3 unique RxLRs are:
+2
 ```
 
 ##Extracting fasta files for orthogroups containing Race 1 putative RxLRs
