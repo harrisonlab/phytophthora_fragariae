@@ -365,27 +365,27 @@ cat $RxLR_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $RxLR_ID
 
 ```bash
 echo "The number of RxLRs searched for is:"
-cat $RxLR_ID_Bc16 | wc -l
+cat $RxLR_ID | wc -l
 echo "Of these, the following number were found in orthogroups:"
-RxLR_Orthogroup_hits_Bc16=$RxLR_Dir/Bc16_RxLR_Orthogroups_hits.txt
-cat $Orthogroups | grep -o -w -f $RxLR_ID_Bc16 > $RxLR_Orthogroup_hits_Bc16
-cat $RxLR_Orthogroup_hits_Bc16 | wc -l
+RxLR_Orthogroup_hits=$RxLR_Dir/UKR1_RxLR_Orthogroups_hits.txt
+cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
+cat $RxLR_Orthogroup_hits | wc -l
 echo "These were distributed through the following number of Orthogroups:"
-RxLR_Orthogroup_Bc16=$RxLR_Dir/Bc16_RxLR_Orthogroups.txt
-cat $Orthogroups | grep -w -f $RxLR_ID_Bc16 > $RxLR_Orthogroup_Bc16
-cat $RxLR_Orthogroup_Bc16 | wc -l
-echo "The following RxLRs were found in Race 2 unique orthogroups:"
-RxLR_Bc16_uniq_groups=$RxLR_Dir/Bc16_uniq_RxLR_Orthogroups_hits.txt
-cat $RxLR_Orthogroup_Bc16 | grep -v 'A4|' | grep -v 'Bc1|' | grep -v 'Bc23|' | grep -v 'Nov27|' | grep -v 'Nov5|' | grep -v 'Nov71|' | grep -v 'Nov77|' | grep -v 'Nov9|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $RxLR_Bc16_uniq_groups
-cat $RxLR_Bc16_uniq_groups | wc -l
+RxLR_Orthogroup_UKR1=$RxLR_Dir/UKR1_RxLR_Orthogroups.txt
+cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup_UKR1
+cat $RxLR_Orthogroup_UKR1 | wc -l
+echo "The following RxLRs were found in Race 1 unique orthogroups:"
+RxLR_UKR1_uniq_groups=$RxLR_Dir/UKR1_uniq_RxLR_Orthogroups_hits.txt
+cat $RxLR_Orthogroup_UKR1 | grep -v 'A4|' | grep -v 'Bc16|' | grep -v 'Bc23|' | grep -v 'Nov27|' | grep -v 'Nov71|' | grep -v 'Nov77|' | grep -v 'Nov9|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $RxLR_UKR1_uniq_groups
+cat $RxLR_UKR1_uniq_groups | wc -l
 echo "These orthogroups contain the following number of RxLRs:"
-cat $RxLR_Bc16_uniq_groups | grep -w -o -f $RxLR_ID_Bc16 | wc -l
+cat $RxLR_UKR1_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
 echo "The following RxLRs were found in P.fragariae unique orthogroups:"
 RxLR_Pf_uniq_groups=$RxLR_Dir/Pf_RxLR_Orthogroups_hits.txt
-cat $RxLR_Orthogroup_Bc16 > $RxLR_Pf_uniq_groups
+cat $RxLR_Orthogroup_UKR1 > $RxLR_Pf_uniq_groups
 cat $RxLR_Pf_uniq_groups | wc -l
 echo "These orthogroups contain the following number of RxLRs:"
-cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID_Bc16 | wc -l
+cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
 ```
 
 ```
