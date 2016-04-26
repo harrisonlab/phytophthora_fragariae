@@ -345,9 +345,9 @@ The following number NOV-5 genes are contained in these orthogroups:
 1
 ```
 
-#Race 2 unique RxLR families
+#Race 1 unique RxLR families
 
-#Race 2 RxLR genes were parsed to the same format as the gene names used in the analysis:
+#Race 1 RxLR genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
 RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_EER_motif_hmm.txt
