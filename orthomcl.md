@@ -660,7 +660,7 @@ The number of UKR3 unique RxLRs are:
 2
 ```
 
-##Extracting fasta files for orthogroups containing Race 1 putative RxLRs
+##Extracting fasta files for orthogroups containing Race 3 putative RxLRs
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
