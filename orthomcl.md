@@ -671,7 +671,7 @@ mkdir -p $OutDir
 $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 ```
 
-##Extracting fasta files for P. fragariae orthogroups containing Race 1 putative RxLRs
+##Extracting fasta files for P. fragariae orthogroups containing Race 3 putative RxLRs
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
