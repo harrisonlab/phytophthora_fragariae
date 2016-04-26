@@ -305,9 +305,9 @@ WorkDir=analysis/orthology/orthomcl/phytophthora_fragariae
 InterProFile=gene_pred/interproscan/Bc16/P.fragariae_Bc16_braker/10300_interproscan.tsv
 ``` -->
 
-#Analysis of orthogroups unique to UK race 2 (Strains BC-16)
+#Analysis of orthogroups unique to UK race 1 (Strains BC-1 and NOV-5)
 
-##The genes unique to Race 2 were identified within the orthology analysis
+##The genes unique to Race 1 were identified within the orthology analysis
 
 ##First variables were set:
 
