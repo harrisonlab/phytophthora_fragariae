@@ -562,12 +562,14 @@ cat $Uniq_UKR3_groups | grep -o 'Nov71|' | wc -l
 ```
 
 ```
-The number of orthogroups unique to Race 1 are:
-1
-The following number BC-1 genes are contained in these orthogroups:
-1
-The following number NOV-5 genes are contained in these orthogroups:
-1
+The number of orthogroups unique to Race 3 are:
+0
+The following number NOV-9 genes are contained in these orthogroups:
+0
+The following number NOV-27 genes are contained in these orthogroups:
+0
+The following number NOV-71 genes are contained in these orthogroups:
+0
 ```
 
 #Race 1 unique RxLR families
