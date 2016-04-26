@@ -408,14 +408,18 @@ These orthogroups contain the following number of RxLRs:
 #The Race 1 RxLR genes that were not found in orthogroups were identified:
 
 ```bash
-RxLR_Bc16_uniq=$RxLR_Dir/Bc16_unique_RxLRs.txt
-cat $RxLR_ID_Bc16 | grep -v -w -f $RxLR_Orthogroup_hits_Bc16 | tr -d 'Bc16|' > $RxLR_Bc16_uniq
-echo "The number of BC-16 unique RxLRs are:"
-cat $RxLR_Bc16_uniq | wc -l
-RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Braker1_RxLR_EER_motif_hmm.fa
-Braker_genes=gene_pred/braker/P.fragariae/Bc16/P.fragariae_Bc16_braker/augustus.aa
-RxLR_Bc16_uniq_fa=$RxLR_Dir/Bc16_unique_RxLRs.fa
-cat $Braker_genes | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_Bc16_uniq | grep -E -v '^--' > $RxLR_Bc16_uniq_fa
+RxLR_UKR1_uniq=$RxLR_Dir/UKR1_unique_RxLRs.txt
+cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc1|' > $RxLR_UKR1_uniq
+cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Nov5|' >> $RxLR_UKR1_uniq
+echo "The number of UKR1 unique RxLRs are:"
+cat $RxLR_UKR1_uniq | wc -l
+RxLR_Seq_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Braker1_RxLR_EER_motif_hmm.fa
+RxLR_Seq_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Braker1_RxLR_EER_motif_hmm.fa
+Braker_genes_Bc1=gene_pred/braker/P.fragariae/Bc1/P.fragariae_Bc1_braker/augustus.aa
+Braker_genes_Nov5=gene_pred/braker/P.fragariae/Nov5/P.fragariae_Nov5_braker/augustus.aa
+RxLR_UKR1_uniq_fa=$RxLR_Dir/UKR1_unique_RxLRs.fa
+cat $Braker_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UKR1_uniq | grep -E -v '^--' > $RxLR_UKR1_uniq_fa
+cat $Braker_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UKR1_uniq | grep -E -v '^--' >> $RxLR_UKR1_uniq_fa
 ```
 
 ```
