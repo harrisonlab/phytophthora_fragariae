@@ -577,15 +577,17 @@ The following number NOV-71 genes are contained in these orthogroups:
 #Race 3 RxLR genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
-RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_EER_motif_hmm.txt
-RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_EER_motif_hmm.txt
+RxLR_Names_Nov9=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov9/Nov9_Total_RxLR_EER_motif_hmm.txt
+RxLR_Names_Nov27=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov27/Nov27_Total_RxLR_EER_motif_hmm.txt
+RxLR_Names_Nov71=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov71/Nov71_Total_RxLR_EER_motif_hmm.txt
 WorkDir=analysis/orthology/orthomcl/phytophthora_fragariae
-RxLR_Dir=$WorkDir/UKR1_RxLR
+RxLR_Dir=$WorkDir/UKR3_RxLR
 Orthogroups=$WorkDir/phytophthora_fragariae_orthogroups.txt
-RxLR_ID=$RxLR_Dir/UKR1_aug_RxLR_EER_IDs.txt
+RxLR_ID=$RxLR_Dir/UKR3_aug_RxLR_EER_IDs.txt
 mkdir -p $RxLR_Dir
-cat $RxLR_Names_Bc1 | sed -r 's/^/Bc1|/g' > $RxLR_ID
-cat $RxLR_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $RxLR_ID
+cat $RxLR_Names_Nov9 | sed -r 's/^/Nov9|/g' > $RxLR_ID
+cat $RxLR_Names_Nov27 | sed -r 's/^/Nov27|/g' >> $RxLR_ID
+cat $RxLR_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $RxLR_ID
 ```
 
 #Ortholog groups containing RxLR proteins were identified using the following commands:
