@@ -322,16 +322,18 @@ Uniq_UKR1_groups=$UKR1UniqDir/UKR1_uniq_orthogroups.txt
 mkdir -p $UKR1UniqDir
 ```
 
-#Orthogroups only containing Race 2 genes were extracted:
+#Orthogroups only containing Race 1 genes were extracted:
 
 ##Bars are to prevent incorrect filtering
 
 ```bash
-cat $Orthogroups | grep -v 'A4|' | grep -v 'Bc1|' | grep -v 'Bc23|' | grep -v 'Nov27|' | grep -v 'Nov5|' | grep -v 'Nov71|' | grep -v 'Nov77|' | grep -v 'Nov9|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $Uniq_Bc16_groups
-echo "The number of orthogroups unique to Race 2 are:"
-cat $Uniq_Bc16_groups | wc -l
-echo "The following number genes are contained in these orthogroups:"
-cat $Uniq_Bc16_groups | grep -o 'Bc16|' | wc -l
+cat $Orthogroups | grep -v 'A4|' | grep -v 'Bc16|' | grep -v 'Bc23|' | grep -v 'Nov27|' | grep -v 'Nov71|' | grep -v 'Nov77|' | grep -v 'Nov9|' | grep -v 'ONT3|' | grep -v 'SCRP245_v2|' > $Uniq_UKR1_groups
+echo "The number of orthogroups unique to Race 1 are:"
+cat $Uniq_UKR1_groups | wc -l
+echo "The following number BC-1 genes are contained in these orthogroups:"
+cat $Uniq_UKR1_groups | grep -o 'Bc1|' | wc -l
+echo "The following number NOV-5 genes are contained in these orthogroups:"
+cat $Uniq_UKR1_groups | grep -o 'Nov5|' | wc -l
 ```
 
 ```
