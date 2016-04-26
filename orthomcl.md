@@ -545,7 +545,7 @@ Uniq_UKR3_groups=$UKR3UniqDir/UKR3_uniq_orthogroups.txt
 mkdir -p $UKR3UniqDir
 ```
 
-#Orthogroups only containing Race 1 genes were extracted:
+#Orthogroups only containing Race 3 genes were extracted:
 
 ##Bars are to prevent incorrect filtering
 
