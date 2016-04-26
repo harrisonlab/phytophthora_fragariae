@@ -572,9 +572,9 @@ The following number NOV-71 genes are contained in these orthogroups:
 0
 ```
 
-#Race 1 unique RxLR families
+#Race 3 unique RxLR families
 
-#Race 1 RxLR genes were parsed to the same format as the gene names used in the analysis:
+#Race 3 RxLR genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
 RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_EER_motif_hmm.txt
