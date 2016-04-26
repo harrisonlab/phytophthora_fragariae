@@ -535,13 +535,14 @@ InterProFile=gene_pred/interproscan/Bc16/P.fragariae_Bc16_braker/10300_interpros
 
 ```bash
 WorkDir=analysis/orthology/orthomcl/phytophthora_fragariae
-UKR1UniqDir=$WorkDir/UKR1_unique
+UKR3UniqDir=$WorkDir/UKR3_unique
 Orthogroups=$WorkDir/phytophthora_fragariae_orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-Braker_genes_Bc1=gene_pred/braker/P.fragariae/Bc1/P.fragariae_Bc1_braker/augustus.aa
-Braker_genes_Nov5=gene_pred/braker/P.fragariae/Nov5/P.fragariae_Nov5_braker/augustus.aa
-Uniq_UKR1_groups=$UKR1UniqDir/UKR1_uniq_orthogroups.txt
-mkdir -p $UKR1UniqDir
+Braker_genes_Nov9=gene_pred/braker/P.fragariae/Nov9/P.fragariae_Nov9_braker/augustus.aa
+Braker_genes_Nov27=gene_pred/braker/P.fragariae/Nov27/P.fragariae_Nov27_braker/augustus.aa
+Braker_genes_Nov71=gene_pred/braker/P.fragariae/Nov71/P.fragariae_Nov71_braker/augustus.aa
+Uniq_UKR3_groups=$UKR3UniqDir/UKR3_uniq_orthogroups.txt
+mkdir -p $UKR3UniqDir
 ```
 
 #Orthogroups only containing Race 1 genes were extracted:
