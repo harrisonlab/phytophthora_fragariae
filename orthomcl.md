@@ -634,7 +634,7 @@ These orthogroups contain the following number of RxLRs:
 715
 ```
 
-#The Race 1 RxLR genes that were not found in orthogroups were identified:
+#The Race 3 RxLR genes that were not found in orthogroups were identified:
 
 ```bash
 RxLR_UKR1_uniq=$RxLR_Dir/UKR1_unique_RxLRs.txt
