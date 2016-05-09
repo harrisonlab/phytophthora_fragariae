@@ -1391,3 +1391,16 @@ Initial search space (Z):             705534  [actual number of targets]
 Domain search space  (domZ):             274  [number of targets reported over threshold]
 Number of CRN ORFs after merging:        145
 ```
+
+#Downstream analysis has raised potential issues with predicted genes.
+
+These commands were used to visualise aligned reads against the genomes on my local machine
+
+```bash
+InBam=alignment/P.fragariae/A4/accepted_hits.bam
+ViewBam=alignment/P.fragariae/A4/accepted_hits_view.bam
+SortBam=alignment/P.fragariae/A4/accepted_hits_sort.bam
+samtools view -b $InBam > $ViewBam
+samtools sort $ViewBam $SortBam
+samtools index $SortBam.bam
+```
