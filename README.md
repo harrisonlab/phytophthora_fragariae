@@ -1397,10 +1397,13 @@ Number of CRN ORFs after merging:        145
 These commands were used to visualise aligned reads against the genomes on my local machine
 
 ```bash
-InBam=alignment/P.fragariae/A4/accepted_hits.bam
-ViewBam=alignment/P.fragariae/A4/accepted_hits_view.bam
-SortBam=alignment/P.fragariae/A4/accepted_hits_sort.bam
-samtools view -b $InBam > $ViewBam
-samtools sort $ViewBam $SortBam
-samtools index $SortBam.bam
+for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 Nov27 Nov71 Bc1 Nov9
+do
+    InBam=alignment/P.fragariae/$Strain/accepted_hits.bam
+    ViewBam=alignment/P.fragariae/$Strain/accepted_hits_view.bam
+    SortBam=alignment/P.fragariae/$Strain/accepted_hits_sort.bam
+    samtools view -b $InBam > $ViewBam
+    samtools sort $ViewBam $SortBam
+    samtools index $SortBam.bam
+done
 ```
