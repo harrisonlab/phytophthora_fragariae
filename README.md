@@ -593,16 +593,54 @@ done
 #CodingQuarry genes
 Use a different program - CodingQuarry to attempt to generate better gene models.
 
-Supplimenting Braker gene models with CodingQuary genes
+RNAseq alignments were concatenated prior to running Cufflinks
 
-Additional genes were added to Braker gene predictions, using CodingQuary in pathogen mode to predict additional regions.
+```bash
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    for Assembly in $(ls repeat_masked/P.fragariae/Fo47/*/*_contigs_softmasked.fa)
+    do
+        Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+        AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+        OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated_prelim
+        echo "$Organism - $Strain"
+        mkdir -p $OutDir
+        samtools merge -f $AcceptedHits \
+        alignment/$Organism/$Strain/55_72hrs_rep1/accepted_hits.bam \
+        alignment/$Organism/$Strain/55_72hrs_rep2/accepted_hits.bam \
+        alignment/$Organism/$Strain/55_72hrs_rep3/accepted_hits.bam \
+        alignment/$Organism/$Strain/FO47_72hrs_rep1/accepted_hits.bam \
+        alignment/$Organism/$Strain/FO47_72hrs_rep2/accepted_hits.bam \
+        alignment/$Organism/$Strain/FO47_72hrs_rep3/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_0hrs_prelim/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_16hrs_prelim/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_24hrs_prelim_rep1/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_36hrs_prelim/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_48hrs_prelim/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_4hrs_prelim/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_72hrs_prelim/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_72hrs_rep1/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_72hrs_rep2/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_72hrs_rep3/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_8hrs_prelim/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_96hrs_prelim/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_CzapekDox/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_GlucosePeptone/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_PDA/accepted_hits.bam \
+        alignment/$Organism/$Strain/Fus2_PDB/accepted_hits.bam
+        cufflinks -o $OutDir/cufflinks -p 8 --max-intron-length 4000 $AcceptedHits 2>&1 | tee $OutDir/cufflinks/cufflinks.log
+    done
+```
 
 Fistly, aligned RNAseq data was assembled into transcripts using Cufflinks.
 
 Note - cufflinks doesn't always predict direction of a transcript and therefore features can not be restricted by strand when they are intersected.
 
-    for Assembly in $(ls repeat_masked/*/*/*/*_contigs_unmasked.fa | grep -e 'FOP1'); do
-        Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+```bash
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    for Assembly in $(ls repeat_masked/P.fragariae/$Strain/filtered_contigs_repmask/"$Strain"_contigs_unmasked.fa)
+    do
         Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
         echo "$Organism - $Strain"
         OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated
@@ -611,6 +649,7 @@ Note - cufflinks doesn't always predict direction of a transcript and therefore 
         ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/RNAseq
         qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
     done
+```
 Secondly, genes were predicted using CodingQuary:
 
     for Assembly in $(ls repeat_masked/*/*/*/*_contigs_softmasked.fa | grep -e 'FOP1'); do
