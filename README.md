@@ -626,7 +626,7 @@ do
         OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated
         mkdir -p $OutDir
         AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
-        ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/RNAseq
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
         qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
     done
 ```
