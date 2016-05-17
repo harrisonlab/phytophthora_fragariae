@@ -622,7 +622,7 @@ do
         Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
         echo "$Organism - $Strain"
         OutDir=gene_pred/codingquarry/$Organism/$Strain
-        CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
+        CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/transcripts.gtf
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
         qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
     done
