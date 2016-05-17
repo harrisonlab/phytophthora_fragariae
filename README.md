@@ -629,7 +629,6 @@ do
 done
 ```
 
-
 Then, additional transcripts were added to Braker gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker gene models:
 
 ```bash
