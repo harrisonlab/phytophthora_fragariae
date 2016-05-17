@@ -615,7 +615,7 @@ done
 Secondly, genes were predicted using CodingQuarry:
 
 ```bash
-for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT-3 SCRP245_v2
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
 do
     for Assembly in $(ls repeat_masked/P.fragariae/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked.fa)
     do
@@ -633,7 +633,7 @@ done
 Then, additional transcripts were added to Braker gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker gene models:
 
 ```bash
-for Strain in A4 Bc1 Bc16 Bc23 Nov5 Nov9 Nov27 Nov71 Nov77 ONT-3 SCRP245_v2
+for Strain in A4 Bc1 Bc16 Bc23 Nov5 Nov9 Nov27 Nov71 Nov77 ONT3 SCRP245_v2
 do
     for BrakerGff in $(ls gene_pred/braker/P.fragariae/$Strain/P.fragariae_"$Strain"_braker/augustus.gff)
     do
