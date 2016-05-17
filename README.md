@@ -593,25 +593,6 @@ done
 #CodingQuarry genes
 Use a different program - CodingQuarry to attempt to generate better gene models.
 
-RNAseq alignments were concatenated prior to running Cufflinks
-
-```bash
-for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
-do
-    for Assembly in $(ls repeat_masked/P.fragariae/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked.fa)
-    do
-        Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
-        AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
-        OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated_prelim
-        echo "$Organism - $Strain"
-        mkdir -p $OutDir
-        samtools merge -f $AcceptedHits \
-        alignment/$Organism/$Strain/accepted_hits.bam
-        cufflinks -o $OutDir/cufflinks -p 8 --max-intron-length 4000 $AcceptedHits 2>&1 | tee $OutDir/cufflinks/cufflinks.log
-    done
-done
-```
-
 Fistly, aligned RNAseq data was assembled into transcripts using Cufflinks.
 
 Note - cufflinks does not always predict direction of a transcript and therefore features can not be restricted by strand when they are intersected.
@@ -623,9 +604,9 @@ do
     do
         Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
         echo "$Organism - $Strain"
-        OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated
+        OutDir=gene_pred/cufflinks/$Organism/$Strain
         mkdir -p $OutDir
-        AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+        AcceptedHits=alignment/$Organism/$Strain/accepted_hits.bam
         ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
         qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
     done
