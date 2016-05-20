@@ -33,7 +33,8 @@ qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
 #Spades Assembly
 
 ```bash
-for PacBioDat in $(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio.fastq); do
+for PacBioDat in $(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio.fastq)
+do
     Organism=$(echo $PacBioDat | rev | cut -f4 -d '/' | rev)
     Strain=$(echo $PacBioDat | rev | cut -f3 -d '/' | rev)
     IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
