@@ -17,15 +17,15 @@ cat raw_dna/pacbio/P.fragariae/Bc16/*/Analysis_Results/*.subreads.fastq > $OutDi
 
 #Assembly
 
-Canu assembly
+Canu assembly - ran both at genome size of 65m and 95m
 
 ```bash
 Reads=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio.fastq)
-GenomeSz="65m"
+GenomeSz="95m"
 Strain=$(echo $Reads | rev | cut -f3 -d '/' | rev)
 Organism=$(echo $Reads | rev | cut -f4 -d '/' | rev)
 Prefix="$Strain"_canu
-OutDir="assembly/canu/$Organism/$Strain"
+OutDir="assembly/canu/$Organism/$Strain/95m"
 ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
 ```
