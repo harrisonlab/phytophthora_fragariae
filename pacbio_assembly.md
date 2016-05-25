@@ -51,3 +51,12 @@ do
     qsub $ProgDir/subSpades_2lib_pacbio.sh $PacBioDat $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir 50
 done
 ```
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+Assembly=assembly/spades_pacbio/P.fragariae/Bc16/contigs.fasta
+Strain=Bc16
+Organism=P.fragariae
+OutDir=assembly/spades_pacbio/$Organism/$Strain
+qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+```
