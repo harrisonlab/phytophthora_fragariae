@@ -38,10 +38,10 @@ do
     Organism=$(echo $PacBioDat | rev | cut -f4 -d '/' | rev)
     Strain=$(echo $PacBioDat | rev | cut -f3 -d '/' | rev)
     IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
-    TrimF1_Read=$(ls $IlluminaDir/F/Bc16_S1_L001_R1_001_trim.fq.gz);
-    TrimR1_Read=$(ls $IlluminaDir/R/Bc16_S1_L001_R2_001_trim.fq.gz);
-    TrimF2_Read=$(ls $IlluminaDir/F/Bc16_S2_L001_R1_001_160129_trim.fq.gz);
-    TrimR2_Read=$(ls $IlluminaDir/R/Bc16_S2_L001_R2_001_160129_trim.fq.gz);
+    TrimF1_Read=$(ls $IlluminaDir/F/Bc16_S1_L001_R1_001_trim.fq.gz)
+    TrimR1_Read=$(ls $IlluminaDir/R/Bc16_S1_L001_R2_001_trim.fq.gz)
+    TrimF2_Read=$(ls $IlluminaDir/F/Bc16_S2_L001_R1_001_160129_trim.fq.gz)
+    TrimR2_Read=$(ls $IlluminaDir/R/Bc16_S2_L001_R2_001_160129_trim.fq.gz)
     OutDir=assembly/spades_pacbio/$Organism/"$Strain"
     echo $TrimR1_Read
     echo $TrimR1_Read
@@ -60,3 +60,7 @@ Organism=P.fragariae
 OutDir=assembly/spades_pacbio/$Organism/$Strain
 qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 ```
+
+**N50:46270
+L50:414
+Number of contigs:4941**
