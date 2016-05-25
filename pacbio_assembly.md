@@ -52,12 +52,24 @@ do
 done
 ```
 
+#Filter out contigs < 500bp
+
+```bash
+Contigs=assembly/spades_pacbio/P.fragariae/Bc16/contigs.fasta
+AssemblyDir=$(dirname $Contigs)
+mkdir $AssemblyDir/filtered_contigs
+FilterDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/abyss
+$FilterDir/filter_abyss_contigs.py $Contigs 500 > $AssemblyDir/filtered_contigs/contigs_min_500bp.fasta
+```
+
+#QUAST
+
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-Assembly=assembly/spades_pacbio/P.fragariae/Bc16/contigs.fasta
+Assembly=assembly/spades_pacbio/P.fragariae/Bc16/filtered_contigs/contigs_min_500bp.fasta
 Strain=Bc16
 Organism=P.fragariae
-OutDir=assembly/spades_pacbio/$Organism/$Strain
+OutDir=assembly/spades_pacbio/$Organism/$Strain/filtered_contigs
 qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 ```
 
