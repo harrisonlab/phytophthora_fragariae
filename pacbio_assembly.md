@@ -30,6 +30,20 @@ ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
 ```
 
+Assemblies were polished using Pilon
+
+```bash
+Assembly=assembly/canu/P.fragariae/Bc16/Bc16_canu.contigs.fasta
+Organism=P.fragariae
+Strain=Bc16
+IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
+TrimF1_Read=$(ls $IlluminaDir/F/s_6_1_sequence_trim.fq.gz)
+TrimR1_Read=$(ls $IlluminaDir/R/s_6_2_sequence_trim.fq.gz)
+OutDir=assembly/canu/$Organism/$Strain/polished/
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
+qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
+```
+
 #Spades Assembly
 
 ```bash
