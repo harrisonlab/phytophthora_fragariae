@@ -107,18 +107,3 @@ qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 **N50:46270
 L50:414
 Number of contigs:4941**
-
-#Rename contigs
-
-Renames contigs in accordance with NCBI recommendations
-
-```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
-touch tmp.csv
-Assembly=assembly/spades_pacbio/P.fragariae/Bc16/filtered_contigs/contigs_min_500bp.fasta
-Strain=Bc16
-Organism=P.fragariae  
-OutDir=assembly/spades_pacbio/$Organism/$Strain/filtered_contigs
-$ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file tmp.csv
-rm tmp.csv
-```
