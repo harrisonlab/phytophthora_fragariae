@@ -47,13 +47,15 @@ cat $IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz > $ConcatenatedR
 cat $IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz >> $ConcatenatedR
 ```
 
+Run pilon
+
 ```bash
 Assembly=assembly/canu/P.fragariae/Bc16/Bc16_canu.contigs.fasta
 Organism=P.fragariae
 Strain=Bc16
-IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
-TrimF1_Read=$(ls $IlluminaDir/F/s_6_1_sequence_trim.fq.gz)
-TrimR1_Read=$(ls $IlluminaDir/R/s_6_2_sequence_trim.fq.gz)
+IlluminaDir=qc_dna/paired/P.fragariae/Bc16
+TrimF1_Read=$IlluminaDir/concatenated/Bc16_cat_F
+TrimR1_Read=$IlluminaDir/concatenated/Bc16_cat_R
 OutDir=assembly/canu/$Organism/$Strain/polished/
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
 qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
