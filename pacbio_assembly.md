@@ -53,9 +53,10 @@ Run pilon
 Assembly=assembly/canu/P.fragariae/Bc16/95m/Bc16_canu.contigs.fasta
 Organism=P.fragariae
 Strain=Bc16
-IlluminaDir=qc_dna/paired/P.fragariae/Bc16
-TrimF1_Read=$IlluminaDir/concatenated/Bc16_cat_F
-TrimR1_Read=$IlluminaDir/concatenated/Bc16_cat_R
+IlluminaDirF=qc_dna/paired/P.fragariae/Bc16/F
+IlluminaDirR=qc_dna/paired/P.fragariae/Bc16/R
+TrimF1_Read=$IlluminaDirF/concatenated/Bc16_cat_F
+TrimR1_Read=$IlluminaDirR/concatenated/Bc16_cat_R
 OutDir=assembly/canu/$Organism/$Strain/polished/
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
 qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
