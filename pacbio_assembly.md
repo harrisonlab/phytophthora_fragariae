@@ -50,7 +50,7 @@ cat $IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz >> $ConcatenatedR
 Run pilon
 
 ```bash
-Assembly=assembly/canu/P.fragariae/Bc16/Bc16_canu.contigs.fasta
+Assembly=assembly/canu/P.fragariae/Bc16/95m/Bc16_canu.contigs.fasta
 Organism=P.fragariae
 Strain=Bc16
 IlluminaDir=qc_dna/paired/P.fragariae/Bc16
