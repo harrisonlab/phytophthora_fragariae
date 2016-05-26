@@ -50,14 +50,14 @@ cat $IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz >> $ConcatenatedR
 Run pilon
 
 ```bash
-Assembly=assembly/canu/P.fragariae/Bc16/Bc16_canu.contigs.fasta
+Assembly=assembly/canu/P.fragariae/Bc16/95m/Bc16_canu.contigs.fasta
 Organism=P.fragariae
 Strain=Bc16
 IlluminaDirF=qc_dna/paired/P.fragariae/Bc16/F
 IlluminaDirR=qc_dna/paired/P.fragariae/Bc16/R
-TrimF1_Read=$IlluminaDirF/concatenated/Bc16_cat_F
-TrimR1_Read=$IlluminaDirR/concatenated/Bc16_cat_R
-OutDir=assembly/canu/$Organism/$Strain/polished/
+TrimF1_Read=$IlluminaDirF/concatenated/Bc16_cat_F.fa
+TrimR1_Read=$IlluminaDirR/concatenated/Bc16_cat_R.fa
+OutDir=assembly/canu/$Organism/$Strain/95m/polished/
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
 qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
 ```
