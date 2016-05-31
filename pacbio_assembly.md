@@ -112,15 +112,15 @@ done
 This merged assembly was polished using Pilon
 
 ```bash
-for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/*/merged.fasta)
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/95m/Bc16_S2_L001_R2_001_160129/merged.fasta)
 do
     Organism=P.fragariae
     Strain=Bc16
     Reads=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
     IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
-    TrimF1_Read=$(ls $IlluminaDir/F/"$Reads"_trim.fq.gz)
-    TrimR1_Read=$(ls $IlluminaDir/R/"$Reads"_trim.fq.gz)
-    OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished/$Reads
+    TrimF1_Read=$IlluminaDir/F/Bc16_S2_L001_R1_001_160129_trim.fq.gz
+    TrimR1_Read=$IlluminaDir/R/Bc16_S2_L001_R2_001_160129_trim.fq.gz
+    OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished/95m/$Reads
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
     qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
 done
