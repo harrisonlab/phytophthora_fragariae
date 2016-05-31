@@ -143,13 +143,16 @@ done
 rm tmp.csv
 ```
 
-Assembly stats were collected using quast
+#Assembly stats were collected using quast
 
-  ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/assembly_qc/quast
-  # for Assembly in $(ls assembly/merged_canu_spades/*/*/filtered_contigs/Fus2_contigs_renamed.fasta); do
-  for Assembly in $(ls assembly/pacbio_test/F.oxysporum_fsp_cepae/Fus2_pacbio_merged/filtered_contigs/Fus2_pacbio_merged_contigs_renamed.fasta); do
-    Strain=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Assembly | rev | cut -f3 -d '/' | rev)  
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/filtered_contigs/*/Bc16_contigs_renamed.fasta)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    Reads=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
     OutDir=$(dirname $Assembly)
     qsub $ProgDir/sub_quast.sh $Assembly $OutDir
-  done
+done
+```
