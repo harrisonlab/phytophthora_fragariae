@@ -94,6 +94,22 @@ FilterDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/abyss
 $FilterDir/filter_abyss_contigs.py $Contigs 500 > $AssemblyDir/filtered_contigs/contigs_min_500bp.fasta
 ```
 
+#Merging pacbio and hybrid assemblies
+
+```bash
+for PacBioAssembly in $(ls assembly/canu/*/*/polished/*/pilon.fasta)
+do
+Organism=P.fragariae
+Strain=Bc16
+Reads=$(echo $PacBioAssembly | rev | cut -f2 -d '/' | rev)
+HybridAssembly=$(ls assembly/spades_pacbio/$Organism/$Strain/contigs.fasta)
+OutDir=assembly/merged_canu_spades/$Organism/$Strain/$Reads
+ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/quickmerge
+echo $HybridAssembly
+qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $HybridAssembly $OutDir
+done
+```
+
 #QUAST
 
 ```bash
