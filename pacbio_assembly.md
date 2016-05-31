@@ -104,7 +104,7 @@ do
     Reads=$(echo $PacBioAssembly | rev | cut -f2 -d '/' | rev)
     HybridAssembly=$(ls assembly/spades_pacbio/$Organism/$Strain/contigs.fasta)
     OutDir=assembly/merged_canu_spades/$Organism/$Strain/95m/$Reads
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/quickmerge
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/quickmerge
     echo $HybridAssembly
     qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $HybridAssembly $OutDir
 done
@@ -121,25 +121,28 @@ do
     TrimF1_Read=$(ls $IlluminaDir/F/"$Reads"_trim.fq.gz)
     TrimR1_Read=$(ls $IlluminaDir/R/"$Reads"_trim.fq.gz)
     OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished/$Reads
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/pilon
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
     qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
 done
 ```
 
 Contigs were renamed in accordance with ncbi recomendations.
 
-  ProgDir=~/git_repos/emr_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
-  touch tmp.csv
-  # for Assembly in $(ls assembly/merged_canu_spades/*/*/polished/pilon.fasta); do
-  for Assembly in $(ls assembly/pacbio_test/F.oxysporum_fsp_cepae/Fus2_pacbio_merged/polished/pilon.fasta); do
-    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)  
-    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
-    # OutDir=assembly/merged_canu_spades/$Organism/$Strain/filtered_contigs
-    OutDir=assembly/pacbio_test/$Organism/$Strain/filtered_contigs
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+touch tmp.csv
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/polished/*/pilon.fasta)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    Reads=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
+    OutDir=assembly/merged_canu_spades/$Organism/$Strain/$Reads/filtered_contigs
     mkdir -p $OutDir
     $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/"$Strain"_contigs_renamed.fasta --coord_file tmp.csv
-  done
-  rm tmp.csv
+done
+rm tmp.csv
+```
+
 Assembly stats were collected using quast
 
   ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/assembly_qc/quast
