@@ -111,19 +111,21 @@ done
 ```
 This merged assembly was polished using Pilon
 
-  for Assembly in $(ls assembly/merged_canu_spades/F.oxysporum_fsp_cepae/Fus2/merged.fasta); do
-  # for Assembly in $(ls assembly/pacbio_test/F.oxysporum_fsp_cepae/Fus2_pacbio_merged/merged.fasta); do
-    Organism=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
-    Strain=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
+```bash
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/*/merged.fasta)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    Reads=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
     IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
-    # IlluminaDir=$(ls -d qc_dna/paired/$Organism/Fus2)
-    TrimF1_Read=$(ls $IlluminaDir/F/s_6_1_sequence_trim.fq.gz);
-    TrimR1_Read=$(ls $IlluminaDir/R/s_6_2_sequence_trim.fq.gz);
-    OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished
-    # OutDir=assembly/pacbio_test/$Organism/$Strain/polished
+    TrimF1_Read=$(ls $IlluminaDir/F/"$Reads"_trim.fq.gz)
+    TrimR1_Read=$(ls $IlluminaDir/R/"$Reads"_trim.fq.gz)
+    OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished/$Reads
     ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/pilon
     qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
-  done
+done
+```
+
 Contigs were renamed in accordance with ncbi recomendations.
 
   ProgDir=~/git_repos/emr_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
