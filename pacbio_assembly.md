@@ -38,11 +38,13 @@ Organism=P.fragariae
 Strain=Bc16
 IlluminaDirF=qc_dna/paired/P.fragariae/Bc16/F
 IlluminaDirR=qc_dna/paired/P.fragariae/Bc16/R
-TrimF1_Read=$IlluminaDirF/Bc16_S1_L001_R1_001_trim.fq.gz,$IlluminaDirF/Bc16_S2_L001_R1_001_160129_trim.fq.gz
-TrimR1_Read=$IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz,$IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz
+TrimF1_Read=$IlluminaDirF/Bc16_S1_L001_R1_001_trim.fq.gz
+TrimR1_Read=$IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz
+TrimF2_Read=$IlluminaDirF/Bc16_S2_L001_R1_001_160129_trim.fq.gz
+TrimR2_Read=$IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz
 OutDir=assembly/canu/$Organism/$Strain/polished
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
-qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
+qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir
 ```
 
 #Spades Assembly
