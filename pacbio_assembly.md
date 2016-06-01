@@ -30,34 +30,17 @@ ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
 ```
 
-Assemblies were polished using Pilon
-
-<!-- First, concatenate trimmed reads as have data from two runs of the same library
+#Assemblies were polished using Pilon
 
 ```bash
-IlluminaDirF=qc_dna/paired/P.fragariae/Bc16/F
-IlluminaDirR=qc_dna/paired/P.fragariae/Bc16/R
-mkdir -p $IlluminaDirF/concatenated
-mkdir -p $IlluminaDirR/concatenated
-ConcatenatedF=$IlluminaDirF/concatenated/Bc16_cat_F.fq
-ConcatenatedR=$IlluminaDirR/concatenated/Bc16_cat_R.fq
-cat $IlluminaDirF/Bc16_S1_L001_R1_001_trim.fq.gz > $ConcatenatedF
-cat $IlluminaDirF/Bc16_S2_L001_R1_001_160129_trim.fq.gz >> $ConcatenatedF
-cat $IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz > $ConcatenatedR
-cat $IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz >> $ConcatenatedR
-``` -->
-
-Run pilon using each set of reads
-
-```bash
-Assembly=assembly/canu/P.fragariae/Bc16/95m/Bc16_canu.contigs.fasta
+Assembly=assembly/canu/P.fragariae/Bc16/Bc16_canu.contigs.fasta
 Organism=P.fragariae
 Strain=Bc16
 IlluminaDirF=qc_dna/paired/P.fragariae/Bc16/F
 IlluminaDirR=qc_dna/paired/P.fragariae/Bc16/R
-TrimF1_Read=$IlluminaDirF/Bc16_S1_L001_R1_001_trim.fq.gz
-TrimR1_Read=$IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz
-OutDir=assembly/canu/$Organism/$Strain/polished/95m/Bc16_S1_L001_R2_001
+TrimF1_Read=$IlluminaDirF/Bc16_S1_L001_R1_001_trim.fq.gz,$IlluminaDirF/Bc16_S2_L001_R1_001_160129_trim.fq.gz
+TrimR1_Read=$IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz,$IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz
+OutDir=assembly/canu/$Organism/$Strain/polished
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
 qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
 ```
