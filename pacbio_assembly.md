@@ -42,7 +42,7 @@ TrimF1_Read=$IlluminaDirF/Bc16_S1_L001_R1_001_trim.fq.gz,$IlluminaDirF/Bc16_S2_L
 TrimR1_Read=$IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz,$IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz
 OutDir=assembly/canu/$Organism/$Strain/polished
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
-qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
+qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
 ```
 
 #Spades Assembly
