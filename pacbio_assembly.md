@@ -82,13 +82,12 @@ $FilterDir/filter_abyss_contigs.py $Contigs 500 > $AssemblyDir/filtered_contigs/
 #Merging pacbio and hybrid assemblies
 
 ```bash
-for PacBioAssembly in $(ls assembly/canu/*/*/polished/95m/*/pilon.fasta)
+for PacBioAssembly in $(ls assembly/canu/*/*/polished/pilon.fasta)
 do
     Organism=P.fragariae
     Strain=Bc16
-    Reads=$(echo $PacBioAssembly | rev | cut -f2 -d '/' | rev)
     HybridAssembly=$(ls assembly/spades_pacbio/$Organism/$Strain/contigs.fasta)
-    OutDir=assembly/merged_canu_spades/$Organism/$Strain/95m/$Reads
+    OutDir=assembly/merged_canu_spades/$Organism/$Strain
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/quickmerge
     echo $HybridAssembly
     qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $HybridAssembly $OutDir
