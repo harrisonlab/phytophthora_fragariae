@@ -96,17 +96,20 @@ done
 This merged assembly was polished using Pilon
 
 ```bash
-for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/95m/Bc16_S2_L001_R2_001_160129/merged.fasta)
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/95m/merged.fasta)
 do
     Organism=P.fragariae
     Strain=Bc16
     Reads=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
-    IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
-    TrimF1_Read=$IlluminaDir/F/Bc16_S2_L001_R1_001_160129_trim.fq.gz
-    TrimR1_Read=$IlluminaDir/R/Bc16_S2_L001_R2_001_160129_trim.fq.gz
-    OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished/95m/$Reads
+    IlluminaDirF=qc_dna/paired/P.fragariae/Bc16/F
+    IlluminaDirR=qc_dna/paired/P.fragariae/Bc16/R
+    TrimF1_Read=$IlluminaDirF/Bc16_S1_L001_R1_001_trim.fq.gz
+    TrimR1_Read=$IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz
+    TrimF2_Read=$IlluminaDirF/Bc16_S2_L001_R1_001_160129_trim.fq.gz
+    TrimR2_Read=$IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz
+    OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished/95m
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
-    qsub $ProgDir/sub_pilon.sh $Assembly $TrimF1_Read $TrimR1_Read $OutDir
+    qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir
 done
 ```
 
