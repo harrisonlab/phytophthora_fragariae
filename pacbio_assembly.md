@@ -141,3 +141,19 @@ do
     qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 done
 ```
+
+```
+Results from quast:
+
+Genome Size of 65m:
+
+Number of contigs: 447
+N50: 410358
+L50: 70
+
+Genome Size of 95m:
+
+Number of contigs:
+N50:
+L50:
+```
