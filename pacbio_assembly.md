@@ -154,6 +154,6 @@ L50: 70
 Genome Size of 95m:
 
 Number of contigs: 406
-N50: 436883
+N50: 437436
 L50: 59
 ```
