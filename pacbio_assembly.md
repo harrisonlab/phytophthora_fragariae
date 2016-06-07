@@ -118,7 +118,7 @@ Contigs were renamed in accordance with ncbi recomendations.
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
 touch tmp.csv
-for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/95m/polished/pilon.fasta)
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/polished/95m/pilon.fasta)
 do
     Organism=P.fragariae
     Strain=Bc16
