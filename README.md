@@ -229,10 +229,13 @@ Assembly was performed using: Spades
 
 # Spades Assembly
 
+For single runs
+
 ```bash
-for Strain in "Nov71"; do
-    F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov71')
-    R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov71')
+for Strain in A4 Bc23 Nov27 Nov5 Nov77 ONT3 SCRP245_v2
+do
+    F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
+    R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz)
     CovCutoff='10'
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
     Species=$(echo $F_Read | rev | cut -f4 -d '/' | rev)
@@ -243,17 +246,40 @@ for Strain in "Nov71"; do
 done
 ```
 
-#for multiple libraries at high memory
+For two runs
 
 ```bash
-for Strain in Nov9; do
+for Strain in Nov71
+do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades/multiple_libraries
-    F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S1');
-    R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S1');
-    F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov9');
-    R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov9');
-    F_Read3=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep '_160129');
-    R_Read3=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep '_160129');
+    F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'Pfrag-Nov71')
+    R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'Pfrag-Nov71')
+    F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragNov71')
+    R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragNov71')
+    echo $F_Read1
+    echo $R_Read1
+    echo $F_Read2
+    echo $R_Read2
+    Species=$(echo $F_Read1 | rev | cut -f4 -d '/' | rev)
+    echo $Strain
+    echo $Species
+    OutDir=assembly/spades/$Species/$Strain
+    qsub $ProgDir/subSpades_2lib.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $OutDir correct 10
+done
+```
+
+For three runs
+
+```bash
+for Strain in Bc1
+do
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades/multiple_libraries
+    F_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'S3')
+    R_Read1=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'S3')
+    F_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep 'PfragBc1')
+    R_Read2=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep 'PfragBc1')
+    F_Read3=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz | grep '_160129')
+    R_Read3=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz | grep '_160129')
     echo $F_Read1
     echo $R_Read1
     echo $F_Read2
@@ -264,7 +290,7 @@ for Strain in Nov9; do
     echo $Strain
     echo $Species
     OutDir=assembly/spades/$Species/$Strain
-    qsub $ProgDir/subSpades_3lib_HiMem.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $F_Read3 $R_Read3 $OutDir correct 10
+    qsub $ProgDir/subSpades_3lib.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $F_Read3 $R_Read3 $OutDir correct 10
 done
 ```
 
