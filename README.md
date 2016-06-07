@@ -324,16 +324,35 @@ NOV-71: 1233
 NOV-9: 1093
 BC-1: 1068**
 
-Repeatmasking
+#Repeatmasking
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
 
 The best assemblies were used to perform repeatmasking
 
-  ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/repeat_masking
-  for BestAss in $(ls assembly/merged_canu_spades/*/*/*/contigs_min_500bp_renamed.fasta | grep -w -e '414'); do
-    qsub $ProgDir/rep_modeling.sh $BestAss
-    qsub $ProgDir/transposonPSI.sh $BestAss
-  done
+for BC-16 pacbio data:
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
+for BestAss in $(ls assembly/merged_canu_spades/*/*/95m/filtered_contigs/Bc16_contigs_renamed.fasta)
+do
+qsub $ProgDir/rep_modeling.sh $BestAss
+qsub $ProgDir/transposonPSI.sh $BestAss
+done
+```
+
+for other isolates Illumina data:
+
+```bash
+for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
+do
+qsub $ProgDir/rep_modeling.sh $BestAss
+qsub $ProgDir/transposonPSI.sh $BestAss
+done
+done   
+```
+  ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta
 The number of bases masked by transposonPSI and Repeatmasker were summarised using the following commands:
 
   for RepDir in $(ls -d repeat_masked/P.*/*/filtered_contigs_repmask | grep -w -e '414'); do
