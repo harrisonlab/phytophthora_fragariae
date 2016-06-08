@@ -322,6 +322,7 @@ for Strain in Bc1 Bc16 Nov9; do
     done
 done
 ```
+
 **N50:
 A4: 14018
 62471: 30981
@@ -361,8 +362,8 @@ for BC-16 pacbio data:
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
 for BestAss in $(ls assembly/merged_canu_spades/*/*/95m/filtered_contigs/Bc16_contigs_renamed.fasta)
 do
-qsub $ProgDir/rep_modeling.sh $BestAss
-qsub $ProgDir/transposonPSI.sh $BestAss
+    qsub $ProgDir/rep_modeling.sh $BestAss
+    qsub $ProgDir/transposonPSI.sh $BestAss
 done
 ```
 
@@ -371,21 +372,23 @@ for other isolates Illumina data:
 ```bash
 for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
-do
-qsub $ProgDir/rep_modeling.sh $BestAss
-qsub $ProgDir/transposonPSI.sh $BestAss
-done
+    for BestAss in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
+    do
+        qsub $ProgDir/rep_modeling.sh $BestAss
+        qsub $ProgDir/transposonPSI.sh $BestAss
+    done
 done   
 ```
 
 The number of bases masked by transposonPSI and Repeatmasker were summarised using the following commands:
 
-  for RepDir in $(ls -d repeat_masked/P.*/*/filtered_contigs_repmask | grep -w -e '414'); do
+```bash
+for RepDir in $(ls -d repeat_masked/P.*/*/filtered_contigs_repmask)
+do
     Strain=$(echo $RepDir | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $RepDir | rev | cut -f3 -d '/' | rev)  
-    RepMaskGff=$(ls $RepDir/*_contigs_hardmasked.gff)
-    TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+    RepMaskGff=$(ls $RepDir/"$Strain"_contigs_hardmasked.gff)
+    TransPSIGff=$(ls $RepDir/"$Strain"_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
     printf "$Organism\t$Strain\n"
     printf "The number of bases masked by RepeatMasker:\t"
     sortBed -i $RepMaskGff | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
@@ -393,12 +396,16 @@ The number of bases masked by transposonPSI and Repeatmasker were summarised usi
     sortBed -i $TransPSIGff | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
     printf "The total number of masked bases are:\t"
     cat $RepMaskGff $TransPSIGff | sortBed | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
-    echo
-  done
-  P.cactorum    414
-  The number of bases masked by RepeatMasker:   16199492
-  The number of bases masked by TransposonPSI:  4951212
-  The total number of masked bases are: 17347836
+done
+```
+
+```
+P.cactorum    414
+The number of bases masked by RepeatMasker:   16199492
+The number of bases masked by TransposonPSI:  4951212
+The total number of masked bases are: 17347836
+```
+
 Gene Prediction
 Gene prediction followed three steps: Pre-gene prediction - Quality of genome assemblies were assessed using Cegma to see how many core eukaryotic genes can be identified. Gene model training - Gene models were trained using assembled RNAseq data as part of the Braker1 pipeline Gene prediction - Gene models were used to predict genes in genomes as part of the the Braker1 pipeline. This used RNAseq data as hints for gene models.
 
