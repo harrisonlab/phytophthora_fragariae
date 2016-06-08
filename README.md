@@ -232,7 +232,7 @@ Assembly was performed using: Spades
 For single runs
 
 ```bash
-for Strain in A4 Bc23 Nov27 Nov5 Nov77 ONT3 SCRP245_v2
+for Strain in Bc23 Nov27
 do
     F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
     R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz)
@@ -242,7 +242,7 @@ do
     OutDir=assembly/spades/$Species/$Strain
     echo $Species
     echo $Strain
-    qsub $ProgDir/submit_SPAdes.sh $F_Read $R_Read $OutDir correct $CovCutoff
+    qsub $ProgDir/submit_SPAdes_HiMem.sh $F_Read $R_Read $OutDir correct $CovCutoff
 done
 ```
 
