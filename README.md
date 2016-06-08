@@ -378,7 +378,7 @@ qsub $ProgDir/transposonPSI.sh $BestAss
 done
 done   
 ```
-  ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta
+
 The number of bases masked by transposonPSI and Repeatmasker were summarised using the following commands:
 
   for RepDir in $(ls -d repeat_masked/P.*/*/filtered_contigs_repmask | grep -w -e '414'); do
