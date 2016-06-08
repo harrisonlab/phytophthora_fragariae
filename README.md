@@ -436,34 +436,43 @@ done > gene_pred/cegma/cegma_results_dna_summary.txt
 less gene_pred/cegma/cegma_results_dna_summary.txt
 ```
 
-Gene prediction
-Gene prediction was performed for the P. cactorum genome. Two gene prediction approaches were used:
+#Gene prediction
+Gene prediction was performed for the P. fragariae genomes. Two gene prediction approaches were used:
 
-Gene prediction using Braker1 Prediction of all putative ORFs in the genome using the ORF finder (atg.pl) approach.
+Gene prediction using Braker1 and Prediction of all putative ORFs in the genome using the ORF finder (atg.pl) approach.
 
-Gene prediction 1 - Braker1 gene model training and prediction
+#Gene prediction 1 - Braker1 gene model training and prediction
 
 Gene prediction was performed using Braker1.
 
-First, RNAseq data was aligned to Fusarium genomes.
+First, RNAseq data was aligned to P. fragariae genomes.
 
 qc of RNA seq data was performed as part of sequencing the 10300 genome:
+
+```bash
 FileF=qc_rna/raw_rna/genbank/P.cactorum/F/SRR1206032_trim.fq.gz
 FileR=qc_rna/raw_rna/genbank/P.cactorum/R/SRR1206033_trim.fq.gz
-Aligning
+```
 
-  for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa | grep -w -e '414'); do
+#Aligning
+
+```bash
+for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+do
     Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
     Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    for RNA in $(ls qc_rna/raw_rna/genbank/*/*/*_trim.fq.gz); do
-      Timepoint=$(echo $RNA | rev | cut -f1 -d '/' | rev | sed 's/_trim.*//g')
-      echo "$Timepoint"
-      OutDir=alignment/$Organism/$Strain/$Timepoint
-      ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/RNAseq
-      qsub $ProgDir/tophat_alignment_unpaired.sh $Assembly $RNA $OutDir
+    for RNA in $(ls qc_rna/genbank/*/*/*/*_trim.fq.gz)
+    do
+        Timepoint=$(echo $RNA | rev | cut -f1 -d '/' | rev | sed 's/_trim.*//g')
+        echo "$Timepoint"
+        OutDir=alignment/$Organism/$Strain/$Timepoint
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/tophat_alignment_unpaired.sh $Assembly $RNA $OutDir
     done
-  done
+done
+```
+
 Braker prediction
 
     for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa | grep -w -e '414'); do
