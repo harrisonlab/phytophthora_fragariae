@@ -232,7 +232,7 @@ Assembly was performed using: Spades
 For single runs
 
 ```bash
-for Strain in Bc23 Nov27
+for Strain in SCRP245_v2
 do
     F_Read=$(ls qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz)
     R_Read=$(ls qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz)
