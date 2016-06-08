@@ -406,28 +406,36 @@ The number of bases masked by TransposonPSI:  4951212
 The total number of masked bases are: 17347836
 ```
 
-Gene Prediction
+#Gene Prediction
 Gene prediction followed three steps: Pre-gene prediction - Quality of genome assemblies were assessed using Cegma to see how many core eukaryotic genes can be identified. Gene model training - Gene models were trained using assembled RNAseq data as part of the Braker1 pipeline Gene prediction - Gene models were used to predict genes in genomes as part of the the Braker1 pipeline. This used RNAseq data as hints for gene models.
 
-Pre-gene prediction
+#Pre-gene prediction
 
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
-  ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/cegma
-  for Genome in $(ls repeat_masked/P.*/*/filtered_contigs_repmask/*_contigs_unmasked.fa | grep -e '414'); do
-    echo $Genome;
-    qsub $ProgDir/sub_cegma.sh $Genome dna;
-  done
+```bash
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
+for Genome in $(ls repeat_masked/P.*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+do
+    echo $Genome
+    qsub $ProgDir/sub_cegma.sh $Genome dna
+done
+```
+
 Outputs were summarised using the commands:
 
-    for File in $(ls gene_pred/cegma/F*/FUS2/*_dna_cegma.completeness_report); do
-        Strain=$(echo $File | rev | cut -f2 -d '/' | rev);
-        Species=$(echo $File | rev | cut -f3 -d '/' | rev);
-        printf "$Species\t$Strain\n";
-        cat $File | head -n18 | tail -n+4;printf "\n";
-    done > gene_pred/cegma/cegma_results_dna_summary.txt
+```bash
+for File in $(ls gene_pred/cegma/*/*/*_dna_cegma.completeness_report)
+do
+    Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
+    Species=$(echo $File | rev | cut -f3 -d '/' | rev)
+    printf "$Species\t$Strain\n"
+    cat $File | head -n18 | tail -n+4;printf "\n"
+done > gene_pred/cegma/cegma_results_dna_summary.txt
 
-    less gene_pred/cegma/cegma_results_dna_summary.txt
+less gene_pred/cegma/cegma_results_dna_summary.txt
+```
+
 Gene prediction
 Gene prediction was performed for the P. cactorum genome. Two gene prediction approaches were used:
 
