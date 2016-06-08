@@ -352,6 +352,7 @@ NOV-9:
 BC-1:**
 
 #Repeatmasking
+
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
 
 The best assemblies were used to perform repeatmasking
@@ -400,10 +401,7 @@ done
 ```
 
 ```
-P.cactorum    414
-The number of bases masked by RepeatMasker:   16199492
-The number of bases masked by TransposonPSI:  4951212
-The total number of masked bases are: 17347836
+
 ```
 
 #Gene Prediction
@@ -494,35 +492,43 @@ do
 done
 ```
 
-Supplimenting Braker gene models with CodingQuary genes
+#Supplementing Braker gene models with CodingQuarry genes
 
-Additional genes were added to Braker gene predictions, using CodingQuary in pathogen mode to predict additional regions.
+Additional genes were added to Braker gene predictions, using CodingQuarry in pathogen mode to predict additional regions.
 
 Firstly, aligned RNAseq data was assembled into transcripts using Cufflinks.
 
 Note - cufflinks doesn't always predict direction of a transcript and therefore features can not be restricted by strand when they are intersected.
 
-    for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa | grep -w -e '414'); do
-        Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
-        Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
-        echo "$Organism - $Strain"
-        OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated
-        mkdir -p $OutDir
-        AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
-        ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
-    done
-Secondly, genes were predicted using CodingQuary:
+```bash
+for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated
+    mkdir -p $OutDir
+    AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+    qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
+done
+```
 
-    for Assembly in $(ls repeat_masked/*/*/*/*_contigs_softmasked.fa | grep -w -e 'Fus2'); do
-        Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
-        Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
-        echo "$Organism - $Strain"
-        OutDir=gene_pred/codingquary/$Organism/$Strain
-        CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
-        ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/codingquary
-        qsub $ProgDir/run_CQ-PM_unstranded_EMR.sh $Assembly $CufflinksGTF $OutDir
-    done
+Secondly, genes were predicted using CodingQuarry:
+
+```bash
+for Assembly in $(ls repeat_masked/*/*/*/*_contigs_softmasked.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    OutDir=gene_pred/codingquary/$Organism/$Strain
+    CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
+    qsub $ProgDir/run_CQ-PM_unstranded_EMR.sh $Assembly $CufflinksGTF $OutDir
+done
+```
+
 Then, additional transcripts were added to Braker gene models, when CodingQuary genes were predicted in regions of the genome, not containing Braker gene models:
 
     # for BrakerGff in $(ls gene_pred/braker/F.*/*_braker_new/*/augustus.gff3 | grep -w -e 'Fus2'); do
