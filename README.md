@@ -324,32 +324,32 @@ done
 ```
 
 **N50:
-A4: 14018
-62471: 30981
-BC-16: 437436
-BC-23: 18939
-NOV-27: 15300
-NOV-5: 14404
-NOV-77: 15180
-ONT-3: 17405
-SCRP245_v2: 22809
-NOV-71: 16894
-NOV-9: 20065
-BC-1: 20508**
+A4:
+62471:
+BC-16:
+BC-23:
+NOV-27:
+NOV-5:
+NOV-77:
+ONT-3:
+SCRP245_v2:
+NOV-71:
+NOV-9:
+BC-1:**
 
 **L50:
-A4: 1452
-62471: 561
-BC-16: 59
-BC-23: 987
-NOV-27: 1312
-NOV-5: 1394
-NOV-77: 1324
-ONT-3: 1132
-SCRP245_v2: 796
-NOV-71: 1233
-NOV-9: 1093
-BC-1: 1068**
+A4:
+62471:
+BC-16:
+BC-23:
+NOV-27:
+NOV-5:
+NOV-77:
+ONT-3:
+SCRP245_v2:
+NOV-71:
+NOV-9:
+BC-1:**
 
 #Repeatmasking
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
