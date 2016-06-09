@@ -226,6 +226,7 @@ The ones at value 5 are errors from filtering of error kmers, estimate from plot
 
 # Assembly
 Assembly was performed using: Spades
+hybrid canu and spades assembly for Bc16 detailed in pacbio_assembly.md
 
 # Spades Assembly
 
@@ -264,7 +265,7 @@ do
     echo $Strain
     echo $Species
     OutDir=assembly/spades/$Species/$Strain
-    qsub $ProgDir/subSpades_2lib.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $OutDir correct 10
+    qsub $ProgDir/subSpades_2lib_HiMem.sh $F_Read1 $R_Read1 $F_Read2 $R_Read2 $OutDir correct 10
 done
 ```
 
