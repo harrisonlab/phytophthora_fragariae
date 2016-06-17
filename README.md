@@ -315,8 +315,10 @@ done
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-for Strain in Bc1 Bc16 Nov9; do
-    for Assembly in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    for Assembly in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
+    do
         Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
         OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
