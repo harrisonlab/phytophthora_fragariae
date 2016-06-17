@@ -298,7 +298,8 @@ done
 #Quast
 
 ```bash
-for Strain in Bc1 Bc16 Nov9; do
+for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
     OutDir=$(ls -d assembly/spades/*/$Strain/filtered_contigs)
     AssFiltered=$OutDir/contigs_min_500bp.fasta
