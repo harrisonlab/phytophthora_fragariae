@@ -416,7 +416,46 @@ done
 ```
 
 ```
-
+A4
+The number of bases masked by RepeatMasker:	24836372
+The number of bases masked by TransposonPSI:	6237528
+The total number of masked bases are:	26598776
+Bc1
+The number of bases masked by RepeatMasker:	24254593
+The number of bases masked by TransposonPSI:	6219671
+The total number of masked bases are:	26154357
+Bc23
+The number of bases masked by RepeatMasker:	23771588
+The number of bases masked by TransposonPSI:	6101880
+The total number of masked bases are:	25516134
+Nov27
+The number of bases masked by RepeatMasker:	24653573
+The number of bases masked by TransposonPSI:	6209723
+The total number of masked bases are:	26343538
+Nov5
+The number of bases masked by RepeatMasker:	24011096
+The number of bases masked by TransposonPSI:	6242538
+The total number of masked bases are:	25856769
+Nov71
+The number of bases masked by RepeatMasker:	24200190
+The number of bases masked by TransposonPSI:	6080704
+The total number of masked bases are:	25824977
+Nov77
+The number of bases masked by RepeatMasker:	24253868
+The number of bases masked by TransposonPSI:	6250930
+The total number of masked bases are:	26117699
+Nov9
+The number of bases masked by RepeatMasker:	24774161
+The number of bases masked by TransposonPSI:	6290033
+The total number of masked bases are:	26664169
+ONT3
+The number of bases masked by RepeatMasker:	25224812
+The number of bases masked by TransposonPSI:	6238377
+The total number of masked bases are:	26981713
+SCRP245_v2
+The number of bases masked by RepeatMasker:	23381847
+The number of bases masked by TransposonPSI:	6037837
+The total number of masked bases are:	25248164
 ```
 
 #Gene Prediction
