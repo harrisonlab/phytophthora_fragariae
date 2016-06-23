@@ -483,7 +483,7 @@ do
     Species=$(echo $File | rev | cut -f3 -d '/' | rev)
     printf "$Species\t$Strain\n"
     cat $File | head -n18 | tail -n+4;printf "\n"
-done > gene_pred/cegma/cegma_results_dna_summary.txt
+done >> gene_pred/cegma/cegma_results_dna_summary.txt
 
 less gene_pred/cegma/cegma_results_dna_summary.txt
 ```
