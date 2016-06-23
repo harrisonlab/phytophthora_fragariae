@@ -488,6 +488,52 @@ done >> gene_pred/cegma/cegma_results_dna_summary.txt
 less gene_pred/cegma/cegma_results_dna_summary.txt
 ```
 
+```
+A4
+Complete: 95.16%
+Partial: 97.98%
+
+Bc16
+Complete: 94.35%
+Partial: 96.37%
+
+Bc1
+Complete: 95.16%
+Partial: 97.58%
+
+Bc23
+Complete: 95.16%
+Partial: 97.58%
+
+Nov27
+Complete: 94.76%
+Partial: 97.18%
+
+Nov5
+Complete: 94.76%
+Partial: 97.18%
+
+Nov71
+Complete: 95.16%
+Partial: 97.98%
+
+Nov77
+Complete: 94.76%
+Partial: 97.18%
+
+Nov9
+Complete: 94.35%
+Partial: 97.18%
+
+ONT3
+Complete: 95.16%
+Partial: 97.18%
+
+SCRP245_v2
+Complete: 95.16%
+Partial: 97.18%
+```
+
 #Gene prediction
 Gene prediction was performed for the P. fragariae genomes. Two gene prediction approaches were used:
 
