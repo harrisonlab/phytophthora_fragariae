@@ -560,7 +560,7 @@ do
     Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
     Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    for RNA in $(ls qc_rna/genbank/*/*/*/*_trim.fq.gz)
+    for RNA in $(ls qc_rna/genbank/P.cactorum/10300/*/*_trim.fq.gz)
     do
         Timepoint=$(echo $RNA | rev | cut -f1 -d '/' | rev | sed 's/_trim.*//g')
         echo "$Timepoint"
