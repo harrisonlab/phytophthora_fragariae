@@ -625,7 +625,7 @@ do
     OutDir=gene_pred/codingquary/$Organism/$Strain
     CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
-    qsub $ProgDir/run_CQ-PM_unstranded_EMR.sh $Assembly $CufflinksGTF $OutDir
+    qsub $ProgDir/sub_CodingQuary_unstranded.sh $Assembly $CufflinksGTF $OutDir
 done
 ```
 
