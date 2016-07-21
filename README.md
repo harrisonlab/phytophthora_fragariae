@@ -1,4 +1,4 @@
-# phytophthora_fragariae
+# *Phytophthora fragariae*
 Commands used in the analysis of P. fragariae genomes
 A4, Bc23, Nov5, Nov77, ONT3, SCRP245_v2, Bc16, 62471 and Nov27
 62471 is P. cactorum
@@ -205,7 +205,7 @@ Bc16: 90,864,210
 Nov27: 93,851,233
 Bc1: 1,196,301,136
 Nov9: 959,591,302
-Nov71: 810,779,109
+Nov71: 810,779,109 **
 
 ** Esimated Coverage is:
 A4: 23
@@ -219,7 +219,7 @@ Bc16: 41
 Nov27: 31
 Bc1: 5 (70)
 Nov9: 5 (55)
-Nov71: 5 (41)
+Nov71: 5 (41) **
 
 Target coverage is 20.
 The ones at value 5 are errors from filtering of error kmers, estimate from plots follow in ().
@@ -228,7 +228,7 @@ The ones at value 5 are errors from filtering of error kmers, estimate from plot
 Assembly was performed using: Spades
 hybrid canu and spades assembly for Bc16 detailed in pacbio_assembly.md
 
-# Spades Assembly
+## Spades Assembly
 
 For single runs
 
@@ -295,7 +295,7 @@ do
 done
 ```
 
-#Quast
+###Quast
 
 ```bash
 for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
@@ -311,7 +311,7 @@ do
 done
 ```
 
-#QUAST used to summarise assembly statistics
+###QUAST used to summarise assembly statistics
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
@@ -415,8 +415,7 @@ do
 done
 ```
 
-```
-A4
+** A4
 The number of bases masked by RepeatMasker:	24836372
 The number of bases masked by TransposonPSI:	6237528
 The total number of masked bases are:	26598776
@@ -455,13 +454,12 @@ The total number of masked bases are:	26981713
 SCRP245_v2
 The number of bases masked by RepeatMasker:	23381847
 The number of bases masked by TransposonPSI:	6037837
-The total number of masked bases are:	25248164
-```
+The total number of masked bases are:	25248164 **
 
 #Gene Prediction
 Gene prediction followed three steps: Pre-gene prediction - Quality of genome assemblies were assessed using Cegma to see how many core eukaryotic genes can be identified. Gene model training - Gene models were trained using assembled RNAseq data as part of the Braker1 pipeline Gene prediction - Gene models were used to predict genes in genomes as part of the the Braker1 pipeline. This used RNAseq data as hints for gene models.
 
-#Pre-gene prediction
+##Pre-gene prediction
 
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
@@ -488,8 +486,7 @@ done >> gene_pred/cegma/cegma_results_dna_summary.txt
 less gene_pred/cegma/cegma_results_dna_summary.txt
 ```
 
-```
-A4
+** A4
 Complete: 95.16%
 Partial: 97.98%
 
@@ -531,15 +528,14 @@ Partial: 97.18%
 
 SCRP245_v2
 Complete: 95.16%
-Partial: 97.18%
-```
+Partial: 97.18% **
 
 #Gene prediction
 Gene prediction was performed for the P. fragariae genomes. Two gene prediction approaches were used:
 
 Gene prediction using Braker1 and Prediction of all putative ORFs in the genome using the ORF finder (atg.pl) approach.
 
-#Gene prediction 1 - Braker1 gene model training and prediction
+##Gene prediction 1 - Braker1 gene model training and prediction
 
 Gene prediction was performed using Braker1.
 
