@@ -166,7 +166,7 @@ The accuracy of PacBio assembly pipelines is currently unknown. To help identify
 Assembly=assembly/merged_canu_spades/P.fragariae/Bc16/filtered_contigs/Bc16_contigs_renamed.fasta
 Reads=raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio.fastq
 OutDir=analysis/genome_alignment/bwa/P.fragariae/Bc16/vs_Bc16
-ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment/bwa
+ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/bwa
 qsub $ProgDir/sub_bwa_pacbio.sh $Assembly $Reads $OutDir
 
 # AlignedBam=$OutDir/Fus2_contigs_renamed.fasta_aligned_sorted.bam.gz
