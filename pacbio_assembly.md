@@ -1,4 +1,4 @@
-##Data extraction
+#Data extraction
 
 for P. fragariae data:
 
@@ -69,7 +69,7 @@ do
 done
 ```
 
-#Filter out contigs < 500bp
+##Filter out contigs < 500bp
 
 ```bash
 Contigs=assembly/spades_pacbio/P.fragariae/Bc16/contigs.fasta
@@ -79,7 +79,7 @@ FilterDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/abyss
 $FilterDir/filter_abyss_contigs.py $Contigs 500 > $AssemblyDir/filtered_contigs/contigs_min_500bp.fasta
 ```
 
-#Merging pacbio and hybrid assemblies
+##Merging pacbio and hybrid assemblies
 
 ```bash
 for PacBioAssembly in $(ls assembly/canu/*/*/polished/pilon.fasta)
@@ -93,7 +93,7 @@ do
     qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $HybridAssembly $OutDir
 done
 ```
-This merged assembly was polished using Pilon
+###This merged assembly was polished using Pilon
 
 ```bash
 for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/95m/merged.fasta)
@@ -113,7 +113,7 @@ do
 done
 ```
 
-Contigs were renamed in accordance with ncbi recomendations.
+####Contigs were renamed in accordance with ncbi recomendations.
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
@@ -129,7 +129,7 @@ done
 rm tmp.csv
 ```
 
-#Assembly stats were collected using quast
+###Assembly stats were collected using quast
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
@@ -142,8 +142,7 @@ do
 done
 ```
 
-```
-Results from quast:
+** Results from quast:
 
 Genome Size of 65m:
 
@@ -155,8 +154,7 @@ Genome Size of 95m:
 
 Number of contigs: 406
 N50: 437436
-L50: 59
-```
+L50: 59 **
 
 #Checking PacBio coverage against BC-16 contigs
 
