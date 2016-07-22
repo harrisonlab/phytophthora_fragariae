@@ -166,12 +166,13 @@ Reads=raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio.fastq
 OutDir=analysis/genome_alignment/bwa/P.fragariae/Bc16/vs_Bc16
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/bwa
 qsub $ProgDir/sub_bwa_pacbio.sh $Assembly $Reads $OutDir
+```
 
-# AlignedBam=$OutDir/Fus2_contigs_renamed.fasta_aligned_sorted.bam.gz
-# CoverageTxt=$OutDir/Fus2_bp_genome_cov.txt
-# bedtools genomecov -max 5 -bga -d -ibam $AlignedBam -g $Assembly > $CoverageTxt
-#
-# Threshold=5
-# FlaggedRegions=$OutDir/Fus2_flagged_regions.txt
-# $ProgDir/flag_low_coverage.py --genomecov $CoverageTxt --min $Threshold > $FlaggedRegions
+```bash
+AlignedBam=$OutDir/Fus2_contigs_renamed.fasta_aligned_sorted.bam.gz
+CoverageTxt=$OutDir/Fus2_bp_genome_cov.txt
+bedtools genomecov -max 5 -bga -d -ibam $AlignedBam -g $Assembly > $CoverageTxt
+Threshold=5
+FlaggedRegions=$OutDir/Fus2_flagged_regions.txt
+$ProgDir/flag_low_coverage.py --genomecov $CoverageTxt --min $Threshold > $FlaggedRegions
 ```
