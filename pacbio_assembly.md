@@ -169,9 +169,9 @@ qsub $ProgDir/sub_bwa_pacbio.sh $Assembly $Reads $OutDir
 ```
 
 ```bash
-AlignedBam=$OutDir/Bc16_contigs_renamed.fasta_aligned_sorted.bam.gz
+AlignedBam=$OutDir/Bc16_contigs_renamed.fasta_aligned_sorted.bam
 CoverageTxt=$OutDir/Bc16_bp_genome_cov.txt
-bedtools genomecov -max 5 -bga -d -ibam $AlignedBam -g $Assembly > $CoverageTxt
+bedtools genomecov -max 5 -d -ibam $AlignedBam -g $Assembly > $CoverageTxt
 Threshold=5
 FlaggedRegions=$OutDir/Bc16_flagged_regions.txt
 $ProgDir/flag_low_coverage.py --genomecov $CoverageTxt --min $Threshold > $FlaggedRegions
