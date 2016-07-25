@@ -712,6 +712,13 @@ do
 done
 ```
 
+PacBio sequenced data
+
+```bash
+Genome=assembly/merged_canu_spades/*/Bc16/filtered_contigs/*_renamed.fasta
+qsub $ProgDir/run_ORF_finder.sh $Genome
+```
+
 The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
 ```bash
