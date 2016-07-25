@@ -588,7 +588,7 @@ do
 done
 ```
 
-#Supplementing Braker gene models with CodingQuarry genes
+<!-- #Supplementing Braker gene models with CodingQuarry genes
 
 Additional genes were added to Braker gene predictions, using CodingQuarry in pathogen mode to predict additional regions.
 
@@ -668,7 +668,8 @@ Then, additional transcripts were added to Braker1 gene models, when CodingQuarr
         cat $GffBraker $GffQuary > $GffAppended
 
         # cat $BrakerGff $AddDir/additional_gene_parsed.gff3 | bedtools sort > $FinalGff
-    done
+    done -->
+
 The final number of genes per isolate was observed using:
 
 for DirPath in $(ls -d gene_pred/codingquary/F.*/*/final | grep -w -e'Fus2'); do
