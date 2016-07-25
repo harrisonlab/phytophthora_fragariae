@@ -699,10 +699,14 @@ done
 
 This uses the atg.pl script to identify all ORFs in the genome. These can then be used to look for RxLRs and signal peptides.
 
+Illumina sequenced data
+
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-for Strain in Bc23 Nov5 ONT3 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
-    for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta); do
+for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    for Genome in $(ls assembly/spades/*/$Strain/filtered_contigs/*_500bp_renamed.fasta)
+    do
         qsub $ProgDir/run_ORF_finder.sh $Genome
     done
 done
