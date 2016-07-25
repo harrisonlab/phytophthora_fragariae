@@ -668,8 +668,7 @@ Then, additional transcripts were added to Braker1 gene models, when CodingQuarr
         cat $GffBraker $GffQuary > $GffAppended
 
         # cat $BrakerGff $AddDir/additional_gene_parsed.gff3 | bedtools sort > $FinalGff
-    done -->
-
+    done
 The final number of genes per isolate was observed using:
 
 for DirPath in $(ls -d gene_pred/codingquary/F.*/*/final | grep -w -e'Fus2'); do
@@ -678,4 +677,4 @@ cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l;
 cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l;
 cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l;
 echo "";
-done
+done -->
