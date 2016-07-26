@@ -726,12 +726,14 @@ qsub $ProgDir/run_ORF_finder.sh $Genome
 The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
 ```bash
-for Strain in A4 SCRP245_v2 Nov77; do
-    for ORF_Gff in $(ls gene_pred/ORF_finder_spades/P.*/*/*_ORF.gff | grep -v '_atg_'); do
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    for ORF_Gff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v '_atg_')
+    do
         Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
         Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
-        ProgDir=~/git_repos/tools/seq_tools/feature_annotation
-        ORF_Gff_mod=gene_pred/ORF_finder_spades/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+        ORF_Gff_mod=gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF_corrected.gff3
         $ProgDir/gff_corrector.pl $ORF_Gff > $ORF_Gff_mod
     done
 done
