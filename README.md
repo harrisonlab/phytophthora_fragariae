@@ -419,6 +419,10 @@ done
 The number of bases masked by RepeatMasker:	24836372
 The number of bases masked by TransposonPSI:	6237528
 The total number of masked bases are:	26598776
+Bc16
+The number of bases masked by RepeatMasker:	37871080
+The number of bases masked by TransposonPSI:	8820517
+The total number of masked bases are:	39592894
 Bc1
 The number of bases masked by RepeatMasker:	24254593
 The number of bases masked by TransposonPSI:	6219671
