@@ -1091,8 +1091,10 @@ Domain search space  (domZ):             183  [number of targets reported over t
 #C) From Braker1 gene models - Hmm evidence of RxLR effectors
 
 ```bash
-for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
-    for Proteome in $(ls gene_pred/braker/*/$Strain/*/augustus.aa); do
+for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 Nov27 Nov71 Bc1 Nov9
+do
+    for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
+    do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
         HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
         Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
@@ -1118,40 +1120,38 @@ done
 
 ```
 P.fragariae A4
-Initial search space (Z):              37530  [actual number of targets]
-Domain search space  (domZ):             186  [number of targets reported over threshold]
+Initial search space (Z):              38193  [actual number of targets]
+Domain search space  (domZ):             202  [number of targets reported over threshold]
 P.fragariae Bc23
-Initial search space (Z):              29580  [actual number of targets]
-Domain search space  (domZ):             171  [number of targets reported over threshold]
-dP.fragariae Nov5
-Initial search space (Z):              36640  [actual number of targets]
-Domain search space  (domZ):             193  [number of targets reported over threshold]                                                                                                                                                                                                                                 P.fragariae Nov77
-Initial search space (Z):              36932  [actual number of targets]
+Initial search space (Z):              36467  [actual number of targets]
+Domain search space  (domZ):             200  [number of targets reported over threshold]
+P.fragariae Nov5
+Initial search space (Z):              37270  [actual number of targets]
 Domain search space  (domZ):             194  [number of targets reported over threshold]
+P.fragariae Nov77
+Initial search space (Z):              37801  [actual number of targets]
+Domain search space  (domZ):             191  [number of targets reported over threshold]
 P.fragariae ONT3
-Initial search space (Z):              40875  [actual number of targets]
-Domain search space  (domZ):             195  [number of targets reported over threshold]
+Initial search space (Z):              41565  [actual number of targets]
+Domain search space  (domZ):             192  [number of targets reported over threshold]
 P.fragariae SCRP245_v2
-Initial search space (Z):              36021  [actual number of targets]
-Domain search space  (domZ):             175  [number of targets reported over threshold]
-P.fragariae Bc16
-Initial search space (Z):              38314  [actual number of targets]
-Domain search space  (domZ):             198  [number of targets reported over threshold]
-P.fragariae 62471
-Initial search space (Z):              24212  [actual number of targets]
-Domain search space  (domZ):             112  [number of targets reported over threshold]
-P.fragariae Nov27
-Initial search space (Z):              35993  [actual number of targets]
-Domain search space  (domZ):             187  [number of targets reported over threshold]
-P.fragariae Nov71
-Initial search space (Z):              34902  [actual number of targets]
+Initial search space (Z):              41628  [actual number of targets]
 Domain search space  (domZ):             205  [number of targets reported over threshold]
+P.fragariae Bc16
+Initial search space (Z):              39788  [actual number of targets]
+Domain search space  (domZ):             235  [number of targets reported over threshold]
+P.fragariae Nov27
+Initial search space (Z):              35466  [actual number of targets]
+Domain search space  (domZ):             197  [number of targets reported over threshold]
+P.fragariae Nov71
+Initial search space (Z):              37013  [actual number of targets]
+Domain search space  (domZ):             196  [number of targets reported over threshold]
 P.fragariae Bc1
-Initial search space (Z):              39733  [actual number of targets]
-Domain search space  (domZ):             206  [number of targets reported over threshold]
+Initial search space (Z):              36005  [actual number of targets]
+Domain search space  (domZ):             203  [number of targets reported over threshold]
 P.fragariae Nov9
-Initial search space (Z):              35898  [actual number of targets]
-Domain search space  (domZ):             195  [number of targets reported over threshold]
+Initial search space (Z):              37028  [actual number of targets]
+Domain search space  (domZ):             198  [number of targets reported over threshold]
 ```
 
 #D) From Braker1 gene models - Hmm evidence of CRN effectors
