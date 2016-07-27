@@ -883,7 +883,8 @@ do
         for File in $(ls $SplitDir/*_braker_preds_*)
         do
             Jobs=$(qstat | grep 'pred_sigP' | wc -l)
-            while [ $Jobs -ge 32 ]; do
+            while [ $Jobs -ge 32 ]
+            do
                 sleep 10
                 printf "."
                 Jobs=$(qstat | grep 'pred_sigP' | wc -l)
