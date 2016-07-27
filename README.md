@@ -790,6 +790,55 @@ gene_pred/braker/P.fragariae/SCRP245_v2_braker/P.fragariae_SCRP245_v2_braker
 41628
 ```
 
+ORF_finder genes:
+
+```bash
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
+do
+    for DirPath in $(ls -d gene_pred/ORF_finder/P.fragariae/$Strain)
+    do
+        echo $DirPath
+        cat $DirPath/"$Strain".aa_cat.fa | grep '>' | wc -l
+        echo ""
+    done
+done
+```
+
+```
+gene_pred/ORF_finder/P.fragariae/A4
+654541
+
+gene_pred/ORF_finder/P.fragariae/Bc1
+657485
+
+gene_pred/ORF_finder/P.fragariae/Bc16
+821332
+
+gene_pred/ORF_finder/P.fragariae/Bc23
+648214
+
+gene_pred/ORF_finder/P.fragariae/Nov27
+653883
+
+gene_pred/ORF_finder/P.fragariae/Nov5
+654169
+
+gene_pred/ORF_finder/P.fragariae/Nov9
+660342
+
+gene_pred/ORF_finder/P.fragariae/Nov71
+649628
+
+gene_pred/ORF_finder/P.fragariae/Nov77
+653363
+
+gene_pred/ORF_finder/P.fragariae/ONT3
+777535
+
+gene_pred/ORF_finder/P.fragariae/SCRP245_v2
+691456
+```
+
 #Functional annotation
 
 A)Interproscan
