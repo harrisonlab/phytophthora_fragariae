@@ -924,23 +924,26 @@ do
     done
 done
 ```
+
 The RxLR_EER_regex_finder.py script was used to search for this regular expression R.LR.{,40}[ED][ED][KR] and annotate the EER domain where present. Done separate for each strain.
 
 ```bash
-for Strain in A4 Bc23 Nov5 Nov77 ONT3 SCRP245_v2 Bc16 62471 Nov27 Nov71 Bc1 Nov9; do
-    for Secretome in $(ls gene_pred/braker_sigP/*/$Strain/*braker_sp.aa); do
-        ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors;
-        Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
-        OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
-        mkdir -p $OutDir;
-        printf "\nstrain: $Strain\tspecies: $Organism\n";
-        printf "the number of SigP gene is:\t";
-        cat $Secretome | grep '>' | wc -l;
-        printf "the number of SigP-RxLR genes are:\t";
-        $ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_braker_RxLR_regex.fa;
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
+do
+    for Secretome in $(ls gene_pred/braker_sigP/*/$Strain/*braker_sp.aa)
+    do
+        ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
+        Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev)
+        OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain"
+        mkdir -p $OutDir
+        printf "\nstrain: $Strain\tspecies: $Organism\n"
+        printf "the number of SigP gene is:\t"
+        cat $Secretome | grep '>' | wc -l
+        printf "the number of SigP-RxLR genes are:\t"
+        $ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_braker_RxLR_regex.fa
         cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_regex.txt
         cat $OutDir/"$Strain"_braker_RxLR_regex.txt | wc -l
-        printf "the number of SigP-RxLR-EER genes are:\t";
+        printf "the number of SigP-RxLR-EER genes are:\t"
         cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_EER_regex.txt
         cat $OutDir/"$Strain"_braker_RxLR_EER_regex.txt | wc -l
         printf "\n"
@@ -955,75 +958,69 @@ done
 
 ```
 strain: A4	species: P.fragariae
-the number of SigP gene is:	2432
-the number of SigP-RxLR genes are: 291
-the number of SigP-RxLR-EER genes are: 170
+the number of SigP gene is:	2581
+the number of SigP-RxLR genes are:	317
+the number of SigP-RxLR-EER genes are:	186
+
+
+strain: Bc1	species: P.fragariae
+the number of SigP gene is:	2545
+the number of SigP-RxLR genes are:	319
+the number of SigP-RxLR-EER genes are:	184
+
+
+strain: Bc16	species: P.fragariae
+the number of SigP gene is:	2890
+the number of SigP-RxLR genes are:	362
+the number of SigP-RxLR-EER genes are:	211
 
 
 strain: Bc23	species: P.fragariae
-the number of SigP gene is: 2194
-the number of SigP-RxLR genes are: 284
-the number of SigP-RxLR-EER genes are: 166
+the number of SigP gene is:	2528
+the number of SigP-RxLR genes are:	317
+the number of SigP-RxLR-EER genes are:	189
+
+
+strain: Nov27	species: P.fragariae
+the number of SigP gene is:	2548
+the number of SigP-RxLR genes are:	321
+the number of SigP-RxLR-EER genes are:	187
 
 
 strain: Nov5	species: P.fragariae
-the number of SigP gene is:	2561
-the number of SigP-RxLR genes are: 308
-the number of SigP-RxLR-EER genes are: 180
+the number of SigP gene is:	2439
+the number of SigP-RxLR genes are:	300
+the number of SigP-RxLR-EER genes are:	179
+
+
+strain: Nov9	species: P.fragariae
+the number of SigP gene is:	2569
+the number of SigP-RxLR genes are:	315
+the number of SigP-RxLR-EER genes are:	187
+
+
+strain: Nov71	species: P.fragariae
+the number of SigP gene is:	2622
+the number of SigP-RxLR genes are:	319
+the number of SigP-RxLR-EER genes are:	189
 
 
 strain: Nov77	species: P.fragariae
-the number of SigP gene is:	2489
-the number of SigP-RxLR genes are: 289
-the number of SigP-RxLR-EER genes are: 165
+the number of SigP gene is:	2545
+the number of SigP-RxLR genes are:	296
+the number of SigP-RxLR-EER genes are:	168
 
 
 strain: ONT3	species: P.fragariae
-the number of SigP gene is: 3149
-the number of SigP-RxLR genes are: 297
-the number of SigP-RxLR-EER genes are: 174
+the number of SigP gene is:	3202
+the number of SigP-RxLR genes are:	316
+the number of SigP-RxLR-EER genes are:	178
 
 
 strain: SCRP245_v2	species: P.fragariae
-the number of SigP gene is: 2544
-the number of SigP-RxLR genes are: 286
-the number of SigP-RxLR-EER genes are: 156
-
-
-strain: Bc16    species: P.fragariae
-the number of SigP gene is: 2517
-the number of SigP-RxLR genes are: 304
-the number of SigP-RxLR-EER genes are: 173
-
-
-strain: 62471   species: P.fragariae
-the number of SigP gene is: 2134
-the number of SigP-RxLR genes are: 201
-the number of SigP-RxLR-EER genes are: 108
-
-
-strain: Nov27   species: P.fragariae
-the number of SigP gene is: 2450
-the number of SigP-RxLR genes are: 297
-the number of SigP-RxLR-EER genes are: 172
-
-
-strain: Nov71   species: P.fragariae
-the number of SigP gene is: 2525
-the number of SigP-RxLR genes are: 324
-the number of SigP-RxLR-EER genes are: 191
-
-
-strain: Bc1     species: P.fragariae
-the number of SigP gene is:     2570
-the number of SigP-RxLR genes are:      336
-the number of SigP-RxLR-EER genes are:  193
-
-
-strain: Nov9    species: P.fragariae
-the number of SigP gene is:     2531
-the number of SigP-RxLR genes are:      313
-the number of SigP-RxLR-EER genes are:  182
+the number of SigP gene is:	2754
+the number of SigP-RxLR genes are:	323
+the number of SigP-RxLR-EER genes are:	191
 ```
 
 #B) From braker1 gene models - Hmm evidence for WY domains
