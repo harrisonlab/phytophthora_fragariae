@@ -756,6 +756,38 @@ done
 ```
 
 ```
+gene_pred/braker/P.fragariae/A4_braker/P.fragariae_A4_braker
+38193
+
+gene_pred/braker/P.fragariae/Bc1_braker/P.fragariae_Bc1_braker
+36005
+
+gene_pred/braker/P.fragariae/Bc16_braker/P.fragariae_Bc16_braker
+39788
+
+gene_pred/braker/P.fragariae/Bc23_braker/P.fragariae_Bc23_braker
+36467
+
+gene_pred/braker/P.fragariae/Nov27_braker/P.fragariae_Nov27_braker
+35466
+
+gene_pred/braker/P.fragariae/Nov5_braker/P.fragariae_Nov5_braker
+37270
+
+gene_pred/braker/P.fragariae/Nov9_braker/P.fragariae_Nov9_braker
+37028
+
+gene_pred/braker/P.fragariae/Nov71_braker/P.fragariae_Nov71_braker
+37013
+
+gene_pred/braker/P.fragariae/Nov77_braker/P.fragariae_Nov77_braker
+37801
+
+gene_pred/braker/P.fragariae/ONT3_braker/P.fragariae_ONT3_braker
+41565
+
+gene_pred/braker/P.fragariae/SCRP245_v2_braker/P.fragariae_SCRP245_v2_braker
+41628
 ```
 
 #Functional annotation
