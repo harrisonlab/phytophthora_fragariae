@@ -846,8 +846,9 @@ Interproscan was used to give gene models functional annotations.
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Strain in A4 SCRP245_v2 Nov77; do
-    Genes=gene_pred/braker/P.fragariae/$Strain/P.*/augustus.aa
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
+do
+    Genes=gene_pred/braker/P.fragariae/"$Strain"_braker/P.*/augustus.aa
     $ProgDir/sub_interproscan.sh $Genes
 done
 ```
