@@ -761,7 +761,7 @@ do
         mkdir -p $SplitDir
         BaseName="$Organism""_$Strain"_braker
         $SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
-        for File in $(ls $SplitDir/*_final_*)
+        for File in $(ls $SplitDir/*_braker_*)
         do
             Jobs=$(qstat | grep 'pred_sigP' | grep -w 'qw'| wc -l)
             while [ $Jobs -gt 4 ]
