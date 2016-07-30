@@ -707,19 +707,22 @@ Open reading frame predictions were made using the atg.pl script as part of the 
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 for Genome in $(ls repeat_masked/P.*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
 do
-echo "$Genome"
-qsub $ProgDir/run_ORF_finder.sh $Genome
+    echo "$Genome"
+    qsub $ProgDir/run_ORF_finder.sh $Genome
 done
 ```
 
 The Gff files from the the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
-    ProgDir=~/git_repos/emr_repos/tools/seq_tools/feature_annotation
-  for OrfGff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v 'atg' | grep -e 'P.cactorum' -e 'P.idaei' | grep -v -e '10300'); do
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+for OrfGff in $(ls gene_pred/ORF_finder/P.*/*/*_ORF.gff | grep -v 'atg')
+do
     echo "$OrfGff"
     OrfGffMod=$(echo $OrfGff | sed 's/.gff/.gff3/g')
     $ProgDir/gff_corrector.pl $OrfGff > $OrfGffMod
-  done
+done
+```
 Genomic analysis
 
 RxLR genes
