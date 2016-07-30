@@ -699,15 +699,19 @@ do
 done
 ```
 
-Gene prediction 2 - atg.pl prediction of ORFs
+#Gene prediction 2 - atg.pl prediction of ORFs
 
 Open reading frame predictions were made using the atg.pl script as part of the path_pipe.sh pipeline. This pipeline also identifies open reading frames containing Signal peptide sequences and RxLRs. This pipeline was run with the following commands:
 
-    ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
-    for Genome in $(ls repeat_masked/P.*/*/filtered_contigs_repmask/*_contigs_unmasked.fa | grep -e 'cactorum' -e 'idaei'); do
-    echo "$Genome"
-    qsub $ProgDir/run_ORF_finder.sh $Genome
-  done
+```bash
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+for Genome in $(ls repeat_masked/P.*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+do
+echo "$Genome"
+qsub $ProgDir/run_ORF_finder.sh $Genome
+done
+```
+
 The Gff files from the the ORF finder are not in true Gff3 format. These were corrected using the following commands:
 
     ProgDir=~/git_repos/emr_repos/tools/seq_tools/feature_annotation
