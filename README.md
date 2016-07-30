@@ -723,9 +723,10 @@ do
     $ProgDir/gff_corrector.pl $OrfGff > $OrfGffMod
 done
 ```
-Genomic analysis
 
-RxLR genes
+#Genomic analysis
+
+##RxLR genes
 
 Putative RxLR genes were identified within Augustus gene models using a number of approaches:
 
@@ -733,42 +734,51 @@ A) From Augustus gene models - Signal peptide & RxLR motif
 B) From Augustus gene models - Hmm evidence of WY domains
 C) From Augustus gene models - Hmm evidence of RxLR effectors
 D) From Augustus gene models - Hmm evidence of CRN effectors
-<!-- * E) From ORF fragments - Signal peptide & RxLR motif
+E) From ORF fragments - Signal peptide & RxLR motif
 F) From ORF fragments - Hmm evidence of WY domains
-G) From ORF fragments - Hmm evidence of RxLR effectors -->
+G) From ORF fragments - Hmm evidence of RxLR effectors
 
-A) From Augustus gene models - Signal peptide & RxLR motif
+##A) From Augustus gene models - Signal peptide & RxLR motif
 
 Required programs:
 
 SigP
 biopython
-A.1) Signal peptide prediction using SignalP 2.0
+
+####A.1) Signal peptide prediction using SignalP 2.0
 
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
-  for Proteome in $(ls gene_pred/codingquary/*/*/*/final_genes_combined.pep.fasta | grep -v -w -e '414' | grep 'P.idaei'); do
-    SplitfileDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation/signal_peptides
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation/signal_peptides
-    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-    SplitDir=gene_pred/final_split/$Organism/$Strain
-    mkdir -p $SplitDir
-    BaseName="$Organism""_$Strain"_final
-    $SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
-    for File in $(ls $SplitDir/*_final_*); do
-      Jobs=$(qstat | grep 'pred_sigP' | grep -w 'qw'| wc -l)
-      while [ $Jobs -gt 4 ]; do
-        sleep 1
-        printf "."
-        Jobs=$(qstat | grep 'pred_sigP' | grep -w 'qw'| wc -l)
-      done
-      printf "\n"
-      echo $File
-      qsub $ProgDir/pred_sigP.sh $File
-      qsub $ProgDir/pred_sigP.sh $File signalp-4.1
+```bash
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
+    do
+        SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+        Organism=P.fragariae
+        SplitDir=gene_pred/braker_split/$Organism/$Strain
+        mkdir -p $SplitDir
+        BaseName="$Organism""_$Strain"_braker
+        $SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
+        for File in $(ls $SplitDir/*_final_*)
+        do
+            Jobs=$(qstat | grep 'pred_sigP' | grep -w 'qw'| wc -l)
+            while [ $Jobs -gt 4 ]
+            do
+                sleep 1
+                printf "."
+                Jobs=$(qstat | grep 'pred_sigP' | grep -w 'qw'| wc -l)
+            done
+            printf "\n"
+            echo $File
+            qsub $ProgDir/pred_sigP.sh $File
+            qsub $ProgDir/pred_sigP.sh $File signalp-4.1
+        done
     done
-  done
+done
+```
+
 The batch files of predicted secreted proteins needed to be combined into a single file for each strain. This was done with the following commands:
 
   for SplitDir in $(ls -d gene_pred/final_split/P.*/* | grep -v '414'); do
