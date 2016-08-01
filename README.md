@@ -814,16 +814,22 @@ B.2) Prediction using Phobius
 
 Secreted proteins were also predicted using Phobius
 
-  for Proteome in $(ls gene_pred/codingquary/*/*/*/final_genes_combined.pep.fasta | grep -v -w -e '414' | grep 'P.idaei'); do
-    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-    echo "$Organism - $Strain"
-    OutDir=analysis/phobius/$Organism/$Strain
-    mkdir -p $OutDir
-    phobius.pl $Proteome > $OutDir/"$Strain"_phobius.txt
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation/signal_peptides
-    $ProgDir/phobius_parser.py --inp_fasta $Proteome --phobius_txt $OutDir/"$Strain"_phobius.txt --out_fasta $OutDir/"$Strain"_phobius.fa
-  done
+```bash
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
+do
+Organism=P.fragariae
+echo "$Organism - $Strain"
+OutDir=analysis/phobius/$Organism/$Strain
+mkdir -p $OutDir
+phobius.pl $Proteome > $OutDir/"$Strain"_phobius.txt
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+$ProgDir/phobius_parser.py --inp_fasta $Proteome --phobius_txt $OutDir/"$Strain"_phobius.txt --out_fasta $OutDir/"$Strain"_phobius.fa
+done
+done
+```
+
 Secreted proteins from different sources were combined into a single file:
 
   for Proteome in $(ls gene_pred/codingquary/*/*/*/final_genes_combined.pep.fasta); do
