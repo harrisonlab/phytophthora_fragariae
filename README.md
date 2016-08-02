@@ -915,43 +915,39 @@ The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identi
 
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
 
-for Secretome in $(ls gene_pred/combined_sigP/*/*/*_all_secreted.fa | grep -w -e '414' -e 'P.cactorum' -e 'P.idaei' | grep -v '10300'); do
-Strain=$(echo $Secretome | rev | cut -d '/' -f2 | rev);
-Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
-Proteome=$(ls gene_pred/codingquary/$Organism/$Strain/*/final_genes_combined.pep.fasta)
-Gff=$(ls gene_pred/*/$Organism/$Strain/final/final_genes_appended.gff3)
-OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain";
-mkdir -p $OutDir;
-printf "\nstrain: $Strain\tspecies: $Organism\n";
-printf "the total number of SigP gene is:\t";
-cat $Secretome | grep '>' | wc -l;
-printf "the number of unique SigP gene is:\t";
-cat $Secretome | grep '>' | cut -f1 | tr -d ' '| sort | uniq | wc -l;
-
-printf "the number of SigP-RxLR genes are:\t";
-ProgDir=~/git_repos/emr_repos/tools/pathogen/RxLR_effectors
-$ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_all_secreted_RxLR_regex.fa;
-cat $OutDir/"$Strain"_all_secreted_RxLR_regex.fa | grep '>' | cut -f1 | tr -d '>' | tr -d ' ' | sort -g | uniq > $OutDir/"$Strain"_RxLR_regex.txt
-cat $OutDir/"$Strain"_RxLR_regex.txt | wc -l
-
-ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
-$ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_RxLR_regex.txt > $OutDir/"$Strain"_RxLR_EER_regex.fa
-
-
-printf "the number of SigP-RxLR-EER genes are:\t";
-cat $OutDir/"$Strain"_all_secreted_RxLR_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | tr -d ' ' | sort -g | uniq > $OutDir/"$Strain"_RxLR_EER_regex.txt
-cat $OutDir/"$Strain"_RxLR_EER_regex.txt | wc -l
-$ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_RxLR_EER_regex.txt > $OutDir/"$Strain"_RxLR_EER_regex.fa
-
-printf "\n"
-
-ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
-sed -i -r 's/\.t.*//' $OutDir/"$Strain"_RxLR_regex.txt
-sed -i -r 's/\.t.*//' $OutDir/"$Strain"_RxLR_EER_regex.txt
-
-cat $Gff | grep -w -f $OutDir/"$Strain"_RxLR_regex.txt> $OutDir/"$Strain"_RxLR_regex.gff3
-cat $Gff | grep -w -f $OutDir/"$Strain"_RxLR_EER_regex.txt > $OutDir/"$Strain"_RxLR_EER_regex.gff3
+```bash
+for Secretome in $(ls gene_pred/combined_sigP/*/*/*_all_secreted.fa)
+do
+    Strain=$(echo $Secretome | rev | cut -d '/' -f2 | rev)
+    Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev)
+    Proteome=$(ls gene_pred/braker/$Organism/$Strain/*/augustus.aa)
+    Gff=$(ls gene_pred/braker/$Organism/$Strain/*/augustus_extracted.gff)
+    OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain"
+    mkdir -p $OutDir
+    printf "\nstrain: $Strain\tspecies: $Organism\n"
+    printf "the total number of SigP gene is:\t"
+    cat $Secretome | grep '>' | wc -l
+    printf "the number of unique SigP gene is:\t"
+    cat $Secretome | grep '>' | cut -f1 | tr -d ' '| sort | uniq | wc -l
+    printf "the number of SigP-RxLR genes are:\t"
+    ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
+    $ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_all_secreted_RxLR_regex.fa
+    cat $OutDir/"$Strain"_all_secreted_RxLR_regex.fa | grep '>' | cut -f1 | tr -d '>' | tr -d ' ' | sort -g | uniq > $OutDir/"$Strain"_RxLR_regex.txt
+    cat $OutDir/"$Strain"_RxLR_regex.txt | wc -l
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_RxLR_regex.txt > $OutDir/"$Strain"_RxLR_EER_regex.fa
+    printf "the number of SigP-RxLR-EER genes are:\t"
+    cat $OutDir/"$Strain"_all_secreted_RxLR_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | tr -d ' ' | sort -g | uniq > $OutDir/"$Strain"_RxLR_EER_regex.txt
+    cat $OutDir/"$Strain"_RxLR_EER_regex.txt | wc -l
+    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_RxLR_EER_regex.txt > $OutDir/"$Strain"_RxLR_EER_regex.fa
+    printf "\n"
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+    sed -i -r 's/\.t.*//' $OutDir/"$Strain"_RxLR_regex.txt
+    sed -i -r 's/\.t.*//' $OutDir/"$Strain"_RxLR_EER_regex.txt
+    cat $Gff | grep -w -f $OutDir/"$Strain"_RxLR_regex.txt> $OutDir/"$Strain"_RxLR_regex.gff3
+    cat $Gff | grep -w -f $OutDir/"$Strain"_RxLR_EER_regex.txt > $OutDir/"$Strain"_RxLR_EER_regex.gff3
 done
+```
 
 strain: 404 species: P.cactorum
 the total number of SigP gene is:   9463
