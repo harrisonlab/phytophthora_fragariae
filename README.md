@@ -852,41 +852,61 @@ do
     done
 done
 ```
-  P.cactorum - 404
-  The following number of sequences were predicted as secreted:
-  9463
-  This represented the following number of unique genes:
-  3177
-  P.cactorum - 414
-  The following number of sequences were predicted as secreted:
-  6891
-  This represented the following number of unique genes:
-  4069
-  P.cactorum - 415
-  The following number of sequences were predicted as secreted:
-  10500
-  This represented the following number of unique genes:
-  3557
-  P.cactorum - 416
-  The following number of sequences were predicted as secreted:
-  10342
-  This represented the following number of unique genes:
-  3543
-  P.cactorum - 62471
-  The following number of sequences were predicted as secreted:
-  9456
-  This represented the following number of unique genes:
-  3150
-  P.idaei - 371
-  The following number of sequences were predicted as secreted:
-  8813
-  This represented the following number of unique genes:
-  3002
-  P.idaei - SCRP370
-  The following number of sequences were predicted as secreted:
-  8792
-  This represented the following number of unique genes:
-  3006
+
+```
+P.fragariae - A4
+The following number of sequences were predicted as secreted:
+10668
+This represented the following number of unique genes:
+3850
+P.fragariae - Bc16
+The following number of sequences were predicted as secreted:
+11984
+This represented the following number of unique genes:
+4207
+P.fragariae - Bc1
+The following number of sequences were predicted as secreted:
+10432
+This represented the following number of unique genes:
+3700
+P.fragariae - Bc23
+The following number of sequences were predicted as secreted:
+10399
+This represented the following number of unique genes:
+3706
+P.fragariae - Nov27
+The following number of sequences were predicted as secreted:
+10414
+This represented the following number of unique genes:
+3714
+P.fragariae - Nov5
+The following number of sequences were predicted as secreted:
+10151
+This represented the following number of unique genes:
+3689
+P.fragariae - Nov71
+The following number of sequences were predicted as secreted:
+10767
+This represented the following number of unique genes:
+3850
+P.fragariae - Nov77
+The following number of sequences were predicted as secreted:
+10436
+This represented the following number of unique genes:
+3754
+P.fragariae - Nov9
+The following number of sequences were predicted as secreted:
+10523
+This represented the following number of unique genes:
+3772
+ls: cannot access gene_pred/braker/*/ONT_braker/*/augustus.aa: No such file or directory
+P.fragariae - SCRP245_v2
+The following number of sequences were predicted as secreted:
+11414
+This represented the following number of unique genes:
+4158
+```
+
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
 
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
