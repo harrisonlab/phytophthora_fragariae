@@ -833,7 +833,7 @@ done
 Secreted proteins from different sources were combined into a single file:
 
 ```bash
-for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT SCRP245_v2
+for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
     do
@@ -899,7 +899,11 @@ The following number of sequences were predicted as secreted:
 10523
 This represented the following number of unique genes:
 3772
-ls: cannot access gene_pred/braker/*/ONT_braker/*/augustus.aa: No such file or directory
+P.fragariae - ONT3
+The following number of sequences were predicted as secreted:
+13273
+This represented the following number of unique genes:
+4736
 P.fragariae - SCRP245_v2
 The following number of sequences were predicted as secreted:
 11414
