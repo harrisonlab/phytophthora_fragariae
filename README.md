@@ -810,7 +810,7 @@ do
 done
 ```
 
-B.2) Prediction using Phobius
+####B.2) Prediction using Phobius
 
 Secreted proteins were also predicted using Phobius
 
@@ -949,74 +949,36 @@ do
 done
 ```
 
-strain: 404 species: P.cactorum
-the total number of SigP gene is:   9463
-the number of unique SigP gene is:  3177
-the number of SigP-RxLR genes are:  272
-the number of SigP-RxLR-EER genes are:  118
+```
 
+```
 
-strain: 414 species: P.cactorum
-the total number of SigP gene is:   6891
-the number of unique SigP gene is:  4069
-the number of SigP-RxLR genes are:  325
-the number of SigP-RxLR-EER genes are:  147
+####G) From Secreted gene models - Hmm evidence of RxLR effectors
 
-
-strain: 415 species: P.cactorum
-the total number of SigP gene is:   10500
-the number of unique SigP gene is:  3557
-the number of SigP-RxLR genes are:  281
-the number of SigP-RxLR-EER genes are:  125
-
-
-strain: 416 species: P.cactorum
-the total number of SigP gene is:   10342
-the number of unique SigP gene is:  3543
-the number of SigP-RxLR genes are:  278
-the number of SigP-RxLR-EER genes are:  122
-
-
-strain: 62471   species: P.cactorum
-the total number of SigP gene is:   9456
-the number of unique SigP gene is:  3150
-the number of SigP-RxLR genes are:  287
-the number of SigP-RxLR-EER genes are:  134
-
-
-strain: 371 species: P.idaei
-the total number of SigP gene is:   8813
-the number of unique SigP gene is:  3002
-the number of SigP-RxLR genes are:  247
-the number of SigP-RxLR-EER genes are:  112
-
-
-strain: SCRP370 species: P.idaei
-the total number of SigP gene is:   8792
-the number of unique SigP gene is:  3006
-the number of SigP-RxLR genes are:  238
-the number of SigP-RxLR-EER genes are:  111
-G) From Secreted gene models - Hmm evidence of RxLR effectors
-
-  for Proteome in $(ls gene_pred/codingquary/*/*/*/final_genes_combined.pep.fasta | grep -w -e '414' -e 'idaei'); do
-    ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
-    HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
-    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-    OutDir=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain
-    mkdir -p $OutDir
-    HmmResults="$Strain"_RxLR_hmmer.txt
-    hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
-    echo "$Organism $Strain"
-    cat $OutDir/$HmmResults | grep 'Initial search space'
-    cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
-    HmmFasta="$Strain"_RxLR_hmmer.fa
-    $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
-    Headers="$Strain"_RxLR_hmmer_headers.txt
-    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
-    Gff=$(ls gene_pred/*/$Organism/$Strain/final/final_genes_appended.gff3)
-    cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_Aug_RxLR_regex.gff3
-  done
+```bash
+for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
+    do
+        ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+        HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
+        Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+        OutDir=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain
+        mkdir -p $OutDir
+        HmmResults="$Strain"_RxLR_hmmer.txt
+        hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
+        echo "$Organism $Strain"
+        cat $OutDir/$HmmResults | grep 'Initial search space'
+        cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
+        HmmFasta="$Strain"_RxLR_hmmer.fa
+        $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
+        Headers="$Strain"_RxLR_hmmer_headers.txt
+        cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
+        Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
+        cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_Aug_RxLR_regex.gff3
+    done
+done
+```
   P.cactorum 404
   Initial search space (Z):              27775  [actual number of targets]
   Domain search space  (domZ):             127  [number of targets reported over threshold]
