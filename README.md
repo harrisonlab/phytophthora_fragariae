@@ -832,21 +832,26 @@ done
 
 Secreted proteins from different sources were combined into a single file:
 
-  for Proteome in $(ls gene_pred/codingquary/*/*/*/final_genes_combined.pep.fasta); do
-    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-    echo "$Organism - $Strain"
-    OutDir=gene_pred/combined_sigP/$Organism/$Strain
-    mkdir -p $OutDir
-    echo "The following number of sequences were predicted as secreted:"
-    cat gene_pred/final_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius/$Organism/$Strain/"$Strain"_phobius.fa > $OutDir/"$Strain"_all_secreted.fa
-    cat $OutDir/"$Strain"_all_secreted.fa | grep '>' | wc -l
-    echo "This represented the following number of unique genes:"
-    cat gene_pred/final_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius/$Organism/$Strain/"$Strain"_phobius.fa | grep '>' | cut -f1 | tr -d ' >' | sort -g | uniq > $OutDir/"$Strain"_secreted.txt
-    ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
-    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_secreted.txt > $OutDir/"$Strain"_secreted.fa
-    cat $OutDir/"$Strain"_secreted.fa | grep '>' | wc -l
-  done
+```bash
+for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT SCRP245_v2
+do
+    for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
+    do
+        Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+        echo "$Organism - $Strain"
+        OutDir=gene_pred/combined_sigP/$Organism/$Strain
+        mkdir -p $OutDir
+        echo "The following number of sequences were predicted as secreted:"
+        cat gene_pred/braker_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius/$Organism/$Strain/"$Strain"_phobius.fa > $OutDir/"$Strain"_all_secreted.fa
+        cat $OutDir/"$Strain"_all_secreted.fa | grep '>' | wc -l
+        echo "This represented the following number of unique genes:"
+        cat gene_pred/braker_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius/$Organism/$Strain/"$Strain"_phobius.fa | grep '>' | cut -f1 | tr -d ' >' | sort -g | uniq > $OutDir/"$Strain"_secreted.txt
+        ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+        $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_secreted.txt > $OutDir/"$Strain"_secreted.fa
+        cat $OutDir/"$Strain"_secreted.fa | grep '>' | wc -l
+    done
+done
+```
   P.cactorum - 404
   The following number of sequences were predicted as secreted:
   9463
