@@ -773,6 +773,20 @@ do
 done
 ```
 
+The final number of genes per isolate was observed using:
+
+```bash
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
+do
+    for DirPath in $(ls -d gene_pred/braker/*/"$Strain"_braker/P.fragariae_*_braker)
+    do
+        echo $DirPath
+        cat $DirPath/augustus.aa | grep '>' | wc -l
+        echo ""
+    done
+done
+```
+
 #Genomic analysis
 
 ##RxLR genes
