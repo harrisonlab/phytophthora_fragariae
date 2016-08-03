@@ -1190,9 +1190,9 @@ Initial search space (Z):              41628  [actual number of targets]
 Domain search space  (domZ):             205  [number of targets reported over threshold]
 ```
 
-F) Combining RxLRs from Regex and hmm searches
+####F) Combining RxLRs from Regex and hmm searches
 
-The total RxLRs are
+The total RxLRs are found by combining different sources:
 
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_EER_regex.txt | grep -v -e 'Aug' -e '10300' | grep -e 'P.idaei' -e 'P.cactorum' | grep -v '414'); do
 Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
