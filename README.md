@@ -943,7 +943,7 @@ do
     Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
     OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain"
     mkdir -p $OutDir
-    printf "\nstrain: $Strain\tspecies: $Organism\n" > report.txt
+    printf "\nstrain: $Strain\tspecies: $Organism\n" >> report.txt
     printf "the total number of SigP gene is:\t" >> report.txt
     cat $Secretome | grep '>' | wc -l >> report.txt
     printf "the number of unique SigP gene is:\t" >> report.txt
