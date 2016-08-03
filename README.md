@@ -1194,11 +1194,13 @@ Domain search space  (domZ):             205  [number of targets reported over t
 
 The total RxLRs are found by combining different sources:
 
-for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_EER_regex.txt | grep -v -e 'Aug' -e '10300' | grep -e 'P.idaei' -e 'P.cactorum' | grep -v '414'); do
+```bash
+for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_EER_regex.txt)
+do
 Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
 Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
-Gff=$(ls gene_pred/*/$Organism/$Strain/final/final_genes_appended.gff3)
-Proteome=$(ls gene_pred/codingquary/$Organism/$Strain/*/final_genes_combined.pep.fasta)
+Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
+Proteome=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus.aa)
 HmmRxLR=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer_headers.txt
 echo "$Organism - $Strain"
 echo "Number of RxLRs identified by Regex:"
@@ -1214,11 +1216,13 @@ echo ""
 OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
 mkdir -p $OutDir
 cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_RxLR_headers.txt
-Gff=$(ls gene_pred/*/$Organism/$Strain/final/final_genes_appended.gff3)
+Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
 cat $Gff | grep -w -f $OutDir/"$Strain"_total_RxLR_headers.txt > $OutDir/"$Strain"_total_RxLR.gff
 echo "Number of genes in the extracted gff file:"
 cat $OutDir/"$Strain"_total_RxLR.gff | grep -w 'gene' | wc -l
 done
+```
+
   P.cactorum - 404
   Number of RxLRs identified by Regex:
   118
