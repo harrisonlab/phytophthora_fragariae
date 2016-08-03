@@ -778,13 +778,48 @@ The final number of genes per isolate was observed using:
 ```bash
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
 do
-    for DirPath in $(ls -d gene_pred/braker/*/"$Strain"_braker/P.fragariae_*_braker)
+    for DirPath in $(ls -d gene_pred/ORF_finder/*/$Strain)
     do
         echo $DirPath
-        cat $DirPath/augustus.aa | grep '>' | wc -l
+        cat $DirPath/*aa_cat.fa | grep '>' | wc -l
         echo ""
     done
 done
+```
+
+```
+ORF_finder - A4
+654541
+
+ORF_finder - Bc1
+657485
+
+ORF_finder - Bc16
+821804
+
+ORF_finder - Bc23
+648214
+
+ORF_finder - Nov27
+653883
+
+ORF_finder - Nov5
+654169
+
+ORF_finder - Nov9
+660342
+
+ORF_finder - Nov71
+649628
+
+ORF_finder - Nov77
+653363
+
+ORF_finder - ONT3
+777535
+
+ORF_finder - SCRP245_v2
+691456
 ```
 
 #Genomic analysis
