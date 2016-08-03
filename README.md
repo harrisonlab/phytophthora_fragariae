@@ -1345,20 +1345,20 @@ CrinklerProts_LFLAK=$OutDir/"$Strain"_pub_CRN_LFLAK_hmm.txt
 hmmsearch -T0 $LFLAK_hmm $Proteome > $CrinklerProts_LFLAK
 cat $CrinklerProts_LFLAK | grep 'Initial search space' >> report.txt
 cat $CrinklerProts_LFLAK | grep 'number of targets reported over threshold' >> report.txt
-ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
+ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 $ProgDir/hmmer2fasta.pl $CrinklerProts_LFLAK $Proteome > $OutDir/"$Strain"_pub_CRN_LFLAK_hmm.fa
 # Run hmm searches DWL domains
 CrinklerProts_DWL=$OutDir/"$Strain"_pub_CRN_DWL_hmm.txt
 hmmsearch -T0 $DWL_hmm $Proteome > $CrinklerProts_DWL
 cat $CrinklerProts_DWL | grep 'Initial search space' >> report.txt
 cat $CrinklerProts_DWL | grep 'number of targets reported over threshold' >> report.txt
-ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
+ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
 $ProgDir/hmmer2fasta.pl $CrinklerProts_DWL $Proteome > $OutDir/"$Strain"_pub_CRN_DWL_hmm.fa
 # Identify the genes detected in both models
 cat $OutDir/"$Strain"_pub_CRN_LFLAK_hmm.fa $OutDir/"$Strain"_pub_CRN_DWL_hmm.fa | grep '>' | cut -f1 | tr -d '>' | sort | uniq -d > $OutDir/"$Strain"_pub_CRN_LFLAK_DWL.txt
 echo "Total number of CRNs from both models" >> report.txt
 cat $OutDir/"$Strain"_pub_CRN_LFLAK_DWL.txt | wc -l >> report.txt
-echo "$Strain done" >> report.txt
+echo "$Strain done"
 done
 ```
 
