@@ -699,6 +699,25 @@ do
 done
 ```
 
+The final number of genes per isolate was observed using:
+
+```bash
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT-3 SCRP245_v2
+do
+    for DirPath in $(ls -d gene_pred/codingquary/P.fragariae/$Strain/final)
+    do
+        echo $DirPath
+        cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l
+        cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l
+        cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l
+        echo ""
+    done
+done
+```
+
+```
+```
+
 #Gene prediction 2 - atg.pl prediction of ORFs
 
 Open reading frame predictions were made using the atg.pl script as part of the path_pipe.sh pipeline. This pipeline also identifies open reading frames containing Signal peptide sequences and RxLRs. This pipeline was run with the following commands:
