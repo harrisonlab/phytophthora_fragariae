@@ -1362,48 +1362,86 @@ echo "$Strain done"
 done
 ```
 
-  P.cactorum - 404
-  Initial search space (Z):              27775  [actual number of targets]
-  Domain search space  (domZ):             156  [number of targets reported over threshold]
-  Initial search space (Z):              27775  [actual number of targets]
-  Domain search space  (domZ):             129  [number of targets reported over threshold]
-  113
-  P.cactorum - 414
-  Initial search space (Z):              32832  [actual number of targets]
-  Domain search space  (domZ):             218  [number of targets reported over threshold]
-  Initial search space (Z):              32832  [actual number of targets]
-  Domain search space  (domZ):             189  [number of targets reported over threshold]
-  170
-  P.cactorum - 415
-  Initial search space (Z):              31944  [actual number of targets]
-  Domain search space  (domZ):             201  [number of targets reported over threshold]
-  Initial search space (Z):              31944  [actual number of targets]
-  Domain search space  (domZ):             169  [number of targets reported over threshold]
-  147
-  P.cactorum - 416
-  Initial search space (Z):              32780  [actual number of targets]
-  Domain search space  (domZ):             206  [number of targets reported over threshold]
-  Initial search space (Z):              32780  [actual number of targets]
-  Domain search space  (domZ):             182  [number of targets reported over threshold]
-  155
-  P.cactorum - 62471
-  Initial search space (Z):              27191  [actual number of targets]
-  Domain search space  (domZ):             154  [number of targets reported over threshold]
-  Initial search space (Z):              27191  [actual number of targets]
-  Domain search space  (domZ):             132  [number of targets reported over threshold]
-  112
-  P.idaei - 371
-  Initial search space (Z):              27253  [actual number of targets]
-  Domain search space  (domZ):             127  [number of targets reported over threshold]
-  Initial search space (Z):              27253  [actual number of targets]
-  Domain search space  (domZ):              98  [number of targets reported over threshold]
-  87
-  P.idaei - SCRP370
-  Initial search space (Z):              26983  [actual number of targets]
-  Domain search space  (domZ):             129  [number of targets reported over threshold]
-  Initial search space (Z):              26983  [actual number of targets]
-  Domain search space  (domZ):             103  [number of targets reported over threshold]
-  92
+```
+P.fragariae - A4_braker
+Initial search space (Z):              38193  [actual number of targets]
+Domain search space  (domZ):             128  [number of targets reported over threshold]
+Initial search space (Z):              38193  [actual number of targets]
+Domain search space  (domZ):             112  [number of targets reported over threshold]
+Total number of CRNs from both models
+103
+P.fragariae - Bc16_braker
+Initial search space (Z):              39788  [actual number of targets]
+Domain search space  (domZ):             145  [number of targets reported over threshold]
+Initial search space (Z):              39788  [actual number of targets]
+Domain search space  (domZ):             128  [number of targets reported over threshold]
+Total number of CRNs from both models
+118
+P.fragariae - Bc1_braker
+Initial search space (Z):              36005  [actual number of targets]
+Domain search space  (domZ):             129  [number of targets reported over threshold]
+Initial search space (Z):              36005  [actual number of targets]
+Domain search space  (domZ):             112  [number of targets reported over threshold]
+Total number of CRNs from both models
+104
+P.fragariae - Bc23_braker
+Initial search space (Z):              36467  [actual number of targets]
+Domain search space  (domZ):             128  [number of targets reported over threshold]
+Initial search space (Z):              36467  [actual number of targets]
+Domain search space  (domZ):             115  [number of targets reported over threshold]
+Total number of CRNs from both models
+104
+P.fragariae - Nov27_braker
+Initial search space (Z):              35466  [actual number of targets]
+Domain search space  (domZ):             131  [number of targets reported over threshold]
+Initial search space (Z):              35466  [actual number of targets]
+Domain search space  (domZ):             114  [number of targets reported over threshold]
+Total number of CRNs from both models
+106
+P.fragariae - Nov5_braker
+Initial search space (Z):              37270  [actual number of targets]
+Domain search space  (domZ):             125  [number of targets reported over threshold]
+Initial search space (Z):              37270  [actual number of targets]
+Domain search space  (domZ):             110  [number of targets reported over threshold]
+Total number of CRNs from both models
+101
+P.fragariae - Nov71_braker
+Initial search space (Z):              37013  [actual number of targets]
+Domain search space  (domZ):             134  [number of targets reported over threshold]
+Initial search space (Z):              37013  [actual number of targets]
+Domain search space  (domZ):             112  [number of targets reported over threshold]
+Total number of CRNs from both models
+104
+P.fragariae - Nov77_braker
+Initial search space (Z):              37801  [actual number of targets]
+Domain search space  (domZ):             126  [number of targets reported over threshold]
+Initial search space (Z):              37801  [actual number of targets]
+Domain search space  (domZ):             115  [number of targets reported over threshold]
+Total number of CRNs from both models
+103
+P.fragariae - Nov9_braker
+Initial search space (Z):              37028  [actual number of targets]
+Domain search space  (domZ):             135  [number of targets reported over threshold]
+Initial search space (Z):              37028  [actual number of targets]
+Domain search space  (domZ):             114  [number of targets reported over threshold]
+Total number of CRNs from both models
+105
+P.fragariae - ONT3_braker
+Initial search space (Z):              41565  [actual number of targets]
+Domain search space  (domZ):             131  [number of targets reported over threshold]
+Initial search space (Z):              41565  [actual number of targets]
+Domain search space  (domZ):             113  [number of targets reported over threshold]
+Total number of CRNs from both models
+103
+P.fragariae - SCRP245_v2_braker
+Initial search space (Z):              41628  [actual number of targets]
+Domain search space  (domZ):             130  [number of targets reported over threshold]
+Initial search space (Z):              41628  [actual number of targets]
+Domain search space  (domZ):             116  [number of targets reported over threshold]
+Total number of CRNs from both models
+106
+```
+
 Extract gff annotations for Crinklers:
 
   for CRNlist in $(ls analysis/CRN_effectors/hmmer_CRN/*/*/*_pub_CRN_LFLAK_DWL.txt | grep -e 'P.idaei' -e 'P.cactorum' | grep -v -e '10300'); do
