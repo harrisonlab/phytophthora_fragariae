@@ -1444,16 +1444,20 @@ Total number of CRNs from both models
 
 Extract gff annotations for Crinklers:
 
-  for CRNlist in $(ls analysis/CRN_effectors/hmmer_CRN/*/*/*_pub_CRN_LFLAK_DWL.txt | grep -e 'P.idaei' -e 'P.cactorum' | grep -v -e '10300'); do
+```bash
+for CRNlist in $(ls analysis/CRN_effectors/hmmer_CRN/*/*/*_pub_CRN_LFLAK_DWL.txt)
+do
     Strain=$(echo $CRNlist | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $CRNlist | rev | cut -f3 -d '/' | rev)
     OutName=$(echo $CRNlist | sed 's/.txt/.gff/g')
     echo "$Organism - $Strain"
-    Gff=$(ls gene_pred/*/$Organism/$Strain/final/final_genes_appended.gff3)
+    Gff=$(ls gene_pred/braker/$Organism/$Strain/*/augustus_extracted.gff)
     cat $CRNlist | sed -r 's/\.t.$//g' > tmp.txt
     cat $Gff | grep -w -f tmp.txt > $OutName
     rm tmp.txt
-  done
+done
+```
+
 E) From ORF gene models - Signal peptide & RxLR motif
 
 Required programs:
