@@ -1471,7 +1471,7 @@ biopython
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
 ```bash
-for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa | grep -e 'Nov9' -e 'ONT3' -e 'SCRP245_v2')
+for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa)
 do
     SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
@@ -1488,7 +1488,7 @@ do
         do
             sleep 1
             printf "."
-            Jobs=$(qstat | grep 'pred_sigP' | grep 'qw' | wc -l)
+            Jobs=$(qstat | grep 'pred_sigP' | wc -l)
         done        
         printf "\n"
         echo $File
