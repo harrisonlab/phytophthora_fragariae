@@ -579,14 +579,12 @@ do
     Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
     Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    for RNA_Dir in $(ls qc_rna/genbank/P.cactorum/10300)
-    do
-        RNA_F=$RNA_Dir/F/*
-        RNA_R=$RNA_Dir/R/*
-        OutDir=alignment/stampy/$Organism/$Strain
-        ProgDir=/home/adamst/git_repos/scripts/stampy
-        qsub $ProgDir/sub_stampy.sh $Assembly $RNA_F $RNA_R
-    done
+    RNA_Dir=qc_rna/genbank/P.cactorum/10300
+    RNA_F=$RNA_Dir/F/*
+    RNA_R=$RNA_Dir/R/*
+    OutDir=alignment/stampy/$Organism/$Strain
+    ProgDir=/home/adamst/git_repos/scripts/stampy
+    qsub $ProgDir/sub_stampy.sh $Assembly $RNA_F $RNA_R
 done
 ```
 
