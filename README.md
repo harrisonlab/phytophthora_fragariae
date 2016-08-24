@@ -571,6 +571,25 @@ do
 done
 ```
 
+Maria created a script using stampy, which apparently maps better
+
+```bash
+for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    for RNA_Dir in $(ls qc_rna/genbank/P.cactorum/10300)
+    do
+        RNA_F=$RNA_Dir/F/*
+        RNA_R=$RNA_Dir/R/*
+        OutDir=alignment/stampy/$Organism/$Strain
+        ProgDir=/home/adamst/git_repos/scripts/stampy
+        qsub $ProgDir/sub_stampy.sh $Assembly $RNA_F $RNA_R
+    done
+done
+```
+
 #Braker prediction
 
 ```bash
