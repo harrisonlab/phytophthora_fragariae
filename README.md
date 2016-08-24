@@ -1214,29 +1214,29 @@ The total RxLRs are found by combining different sources:
 ```bash
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_EER_regex.txt)
 do
-Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
-Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
-Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
-Proteome=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus.aa)
-HmmRxLR=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer_headers.txt
-echo "$Organism - $Strain" >> report.txt
-echo "Number of RxLRs identified by Regex:" >> report.txt
-cat $RegexRxLR | sort | uniq | wc -l >> report.txt
-echo "Number of RxLRs identified by Hmm:" >> report.txt
-cat $HmmRxLR | sort | uniq | wc -l >> report.txt
-echo "Number of RxLRs in combined dataset:" >> report.txt
-cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l >> report.txt
-# echo "Number of RxLRs in both datasets:"
-# cat $RegexRxLR $HmmRxLR | sort | uniq -d | wc -l
-echo ""
-# echo "Extracting RxLRs from datasets"
-OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
-mkdir -p $OutDir
-cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_RxLR_headers.txt
-Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
-cat $Gff | grep -w -f $OutDir/"$Strain"_total_RxLR_headers.txt > $OutDir/"$Strain"_total_RxLR.gff
-echo "Number of genes in the extracted gff file:" >> report.txt
-cat $OutDir/"$Strain"_total_RxLR.gff | grep -w 'gene' | wc -l >> report.txt
+    Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
+    Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
+    Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
+    Proteome=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus.aa)
+    HmmRxLR=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer_headers.txt
+    echo "$Organism - $Strain" >> report.txt
+    echo "Number of RxLRs identified by Regex:" >> report.txt
+    cat $RegexRxLR | sort | uniq | wc -l >> report.txt
+    echo "Number of RxLRs identified by Hmm:" >> report.txt
+    cat $HmmRxLR | sort | uniq | wc -l >> report.txt
+    echo "Number of RxLRs in combined dataset:" >> report.txt
+    cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l >> report.txt
+    # echo "Number of RxLRs in both datasets:"
+    # cat $RegexRxLR $HmmRxLR | sort | uniq -d | wc -l
+    echo ""
+    # echo "Extracting RxLRs from datasets"
+    OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
+    mkdir -p $OutDir
+    cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_RxLR_headers.txt
+    Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
+    cat $Gff | grep -w -f $OutDir/"$Strain"_total_RxLR_headers.txt > $OutDir/"$Strain"_total_RxLR.gff
+    echo "Number of genes in the extracted gff file:" >> report.txt
+    cat $OutDir/"$Strain"_total_RxLR.gff | grep -w 'gene' | wc -l >> report.txt
 done
 ```
 
@@ -1352,30 +1352,30 @@ LFLAK_hmm=$(ls $HmmDir/Pinf_Pram_Psoj_Pcap_LFLAK.hmm)
 DWL_hmm=$(ls $HmmDir/Pinf_Pram_Psoj_Pcap_DWL.hmm)
 for Proteome in $(ls gene_pred/braker/*/*/*/augustus.aa)
 do
-Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
-OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
-mkdir -p $OutDir
-echo "$Organism - $Strain" >> report.txt
-# Run hmm searches LFLAK domains
-CrinklerProts_LFLAK=$OutDir/"$Strain"_pub_CRN_LFLAK_hmm.txt
-hmmsearch -T0 $LFLAK_hmm $Proteome > $CrinklerProts_LFLAK
-cat $CrinklerProts_LFLAK | grep 'Initial search space' >> report.txt
-cat $CrinklerProts_LFLAK | grep 'number of targets reported over threshold' >> report.txt
-ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
-$ProgDir/hmmer2fasta.pl $CrinklerProts_LFLAK $Proteome > $OutDir/"$Strain"_pub_CRN_LFLAK_hmm.fa
-# Run hmm searches DWL domains
-CrinklerProts_DWL=$OutDir/"$Strain"_pub_CRN_DWL_hmm.txt
-hmmsearch -T0 $DWL_hmm $Proteome > $CrinklerProts_DWL
-cat $CrinklerProts_DWL | grep 'Initial search space' >> report.txt
-cat $CrinklerProts_DWL | grep 'number of targets reported over threshold' >> report.txt
-ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
-$ProgDir/hmmer2fasta.pl $CrinklerProts_DWL $Proteome > $OutDir/"$Strain"_pub_CRN_DWL_hmm.fa
-# Identify the genes detected in both models
-cat $OutDir/"$Strain"_pub_CRN_LFLAK_hmm.fa $OutDir/"$Strain"_pub_CRN_DWL_hmm.fa | grep '>' | cut -f1 | tr -d '>' | sort | uniq -d > $OutDir/"$Strain"_pub_CRN_LFLAK_DWL.txt
-echo "Total number of CRNs from both models" >> report.txt
-cat $OutDir/"$Strain"_pub_CRN_LFLAK_DWL.txt | wc -l >> report.txt
-echo "$Strain done"
+    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+    OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
+    mkdir -p $OutDir
+    echo "$Organism - $Strain" >> report.txt
+    # Run hmm searches LFLAK domains
+    CrinklerProts_LFLAK=$OutDir/"$Strain"_pub_CRN_LFLAK_hmm.txt
+    hmmsearch -T0 $LFLAK_hmm $Proteome > $CrinklerProts_LFLAK
+    cat $CrinklerProts_LFLAK | grep 'Initial search space' >> report.txt
+    cat $CrinklerProts_LFLAK | grep 'number of targets reported over threshold' >> report.txt
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+    $ProgDir/hmmer2fasta.pl $CrinklerProts_LFLAK $Proteome > $OutDir/"$Strain"_pub_CRN_LFLAK_hmm.fa
+    # Run hmm searches DWL domains
+    CrinklerProts_DWL=$OutDir/"$Strain"_pub_CRN_DWL_hmm.txt
+    hmmsearch -T0 $DWL_hmm $Proteome > $CrinklerProts_DWL
+    cat $CrinklerProts_DWL | grep 'Initial search space' >> report.txt
+    cat $CrinklerProts_DWL | grep 'number of targets reported over threshold' >> report.txt
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+    $ProgDir/hmmer2fasta.pl $CrinklerProts_DWL $Proteome > $OutDir/"$Strain"_pub_CRN_DWL_hmm.fa
+    # Identify the genes detected in both models
+    cat $OutDir/"$Strain"_pub_CRN_LFLAK_hmm.fa $OutDir/"$Strain"_pub_CRN_DWL_hmm.fa | grep '>' | cut -f1 | tr -d '>' | sort | uniq -d > $OutDir/"$Strain"_pub_CRN_LFLAK_DWL.txt
+    echo "Total number of CRNs from both models" >> report.txt
+    cat $OutDir/"$Strain"_pub_CRN_LFLAK_DWL.txt | wc -l >> report.txt
+    echo "$Strain done"
 done
 ```
 
