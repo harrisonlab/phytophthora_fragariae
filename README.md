@@ -1560,6 +1560,8 @@ do
 done
 ```
 
+---progress here---
+
 Secreted proteins from different sources were combined into a single file:
 
   for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa | grep -e 'P.cactorum' -e 'P.idaei' | grep -v -e '10300' -e '414_v2' | grep -w -e '404' -e '414' -e '415' -e '416'); do
