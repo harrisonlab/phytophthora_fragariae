@@ -1,7 +1,6 @@
 # *Phytophthora fragariae*
 Commands used in the analysis of P. fragariae genomes
-A4, Bc23, Nov5, Nov77, ONT3, SCRP245_v2, Bc16, 62471 and Nov27
-62471 is P. cactorum
+A4, BC-1, BC-16, BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245_v2
 ====================
 
 Commands used during analysis of Phytophthora fragariae genomes. Note - all this work was performed in the directory: /home/groups/harrisonlab/project_files/phytophthora_fragariae
@@ -1548,7 +1547,9 @@ E.2) Prediction using Phobius
 
 Secreted proteins were also predicted using Phobius
 
-    for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa | grep -e 'P.cactorum' -e 'P.idaei' | grep -v '10300' | grep -w -e '404' -e '414' -e '415' -e '416'); do
+```bash
+for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa)
+do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
@@ -1556,7 +1557,9 @@ Secreted proteins were also predicted using Phobius
     mkdir -p $OutDir
     phobius.pl $Proteome > $OutDir/"$Strain"_phobius_ORF.txt
     cat $OutDir/"$Strain"_phobius_ORF.txt | grep -B1 'SIGNAL' | grep 'ID' | sed s'/ID.*g/g/g' > $OutDir/"$Strain"_phobius_headers_ORF.txt
-  done
+done
+```
+
 Secreted proteins from different sources were combined into a single file:
 
   for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa | grep -e 'P.cactorum' -e 'P.idaei' | grep -v -e '10300' -e '414_v2' | grep -w -e '404' -e '414' -e '415' -e '416'); do
