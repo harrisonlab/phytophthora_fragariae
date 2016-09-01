@@ -548,25 +548,20 @@ RNASeq data was acquired from the phytophthora sequencing consortium, hosted at:
 
 It looks like P. rubi and P. fragariae data has been mixed up, align both to see if this is the case
 
-qc of 'fragariae' RNA seq data was performed using fastqc:
+First perform qc of all RNA using fastqc_mcf
 
 ```bash
-for RNA in $(ls raw_rna/consortium/P.frag/*/*.fq.gz)
+for Species in P.rubi P.frag
 do
-    echo $RNA
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
-    qsub $ProgDir/run_fastqc.sh $RNA
-done
-```
-
-qc of 'rubi' RNA seq data was performed using fastqc:
-
-```bash
-for RNA in $(ls raw_rna/consortium/P.rubi/*/*.fq.gz)
-do
-    echo $RNA
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
-    qsub $ProgDir/run_fastqc.sh $RNA
+    RNADir=raw_rna/consortium/$Species
+    FileF1=$RNADir/F/4*1.fq.gz
+    FileR1=$RNADir/R/4*2.fq.gz
+    FileF2=$RNADir/F/P*1.fq.gz
+    FileR2=$RNADir/R/P*2.fq.gz
+    IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.fa
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $FileF1 $FileR1 $IlluminaAdapters RNA
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $FileF2 $FileR2 $IlluminaAdapters RNA
 done
 ```
 
