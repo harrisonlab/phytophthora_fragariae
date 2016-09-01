@@ -544,11 +544,30 @@ Gene prediction was performed using Braker1.
 
 First, RNAseq data was aligned to P. fragariae genomes.
 
-qc of RNA seq data was performed as part of sequencing the 10300 genome:
+RNASeq data was acquired from the phytophthora sequencing consortium, hosted at: http://files.cgrb.oregonstate.edu/Tyler_Lab/Phytophthora_sequence
+
+It looks like P. rubi and P. fragariae data has been mixed up, align both to see if this is the case
+
+qc of 'fragariae' RNA seq data was performed using fastqc:
 
 ```bash
-FileF=qc_rna/raw_rna/genbank/P.cactorum/F/SRR1206032_trim.fq.gz
-FileR=qc_rna/raw_rna/genbank/P.cactorum/R/SRR1206033_trim.fq.gz
+for RNA in $(ls raw_rna/consortium/P.frag/*/*.fq.gz)
+do
+    echo $RNA
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
+    qsub $ProgDir/run_fastqc.sh $RNA
+done
+```
+
+qc of 'rubi' RNA seq data was performed using fastqc:
+
+```bash
+for RNA in $(ls raw_rna/consortium/P.rubi/*/*.fq.gz)
+do
+    echo $RNA
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
+    qsub $ProgDir/run_fastqc.sh $RNA
+done
 ```
 
 #Aligning
