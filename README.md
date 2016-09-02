@@ -625,6 +625,28 @@ do
 done
 ```
 
+```
+P.frag 4954V8:
+
+Overall read mapping rate = 83.7%
+Concordant pair alignment rate = 74.3%
+
+P.frag Pf4954PB:
+
+Overall read mapping rate = 96.4%
+Concordant pair alignment rate = 91.6%
+
+P.rubi 4671V8:
+
+Overall read mapping rate = 85.9%
+Concordant read mapping rate = 77.7%
+
+P.rubi Pr4671PB:
+
+Overall read mapping rate = 85.1%
+Concordant read mapping rate = 76.4%
+```
+
 ```bash
 for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
 do
