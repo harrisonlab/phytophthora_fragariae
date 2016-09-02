@@ -691,21 +691,32 @@ Estimated mean = 188.54
 Estimated Std Dev = 26.86
 ```
 
-```bash
-for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
-do
-    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
-    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
-    echo "$Organism - $Strain"
-    for RNA in $(ls qc_rna/genbank/P.cactorum/10300/*/*_trim.fq.gz)
-    do
-        Timepoint=$(echo $RNA | rev | cut -f1 -d '/' | rev | sed 's/_trim.*//g')
-        echo "$Timepoint"
-        OutDir=alignment/$Organism/$Strain/$Timepoint
-        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/tophat_alignment_unpaired.sh $Assembly $RNA $OutDir
-    done
-done
+These estimated mean values allowed us to calculate the mean insert size. Read length was estimated from fast_qc output. The equation used was: insert gap = mean length - (2 * read length)
+
+```
+P.frag 4954V8:
+
+Estimated mean = 196.65
+Estimated read length = 87
+Estimated insert gap = 22.65
+
+P.frag Pf4954PB:
+
+Estimated mean = 198.88
+Estimated read length = 87
+Estimated insert gap = 24.88
+
+P.rubi 4671V8:
+
+Estimated mean = 198.30
+Estimated read length = 87
+Estimated insert gap = 24.3
+
+P.rubi Pr4671PB:
+
+Estimated mean = 188.54
+Estimated read length = 87
+Estimated insert gap = 14.54
 ```
 
 Maria created a script using stampy, which apparently maps better
