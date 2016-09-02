@@ -565,6 +565,24 @@ do
 done
 ```
 
+Data quality was visualised using fastqc:
+
+```bash
+for Species in P.rubi P.frag
+do
+    RNADir=qc_rna/consortium/$Species
+    FileF1=$RNADir/F/4*1_trim.fq.gz
+    FileR1=$RNADir/R/4*2_trim.fq.gz
+    FileF2=$RNADir/F/P*1_trim.fq.gz
+    FileR2=$RNADir/R/P*2_trim.fq.gz
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
+    qsub $ProgDir/run_fastqc.sh $FileF1
+    qsub $ProgDir/run_fastqc.sh $FileR1
+    qsub $ProgDir/run_fastqc.sh $FileF2
+    qsub $ProgDir/run_fastqc.sh $FileR2
+done
+```
+
 #Aligning
 
 ```bash
