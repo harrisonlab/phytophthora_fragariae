@@ -570,7 +570,7 @@ Data quality was visualised using fastqc:
 ```bash
 for Species in P.rubi P.frag
 do
-    RNADir=qc_rna/consortium/$Species
+    RNADir=qc_rna/raw_rna/consortium/$Species
     FileF1=$RNADir/F/4*1_trim.fq.gz
     FileR1=$RNADir/R/4*2_trim.fq.gz
     FileF2=$RNADir/F/P*1_trim.fq.gz
