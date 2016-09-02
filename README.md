@@ -658,13 +658,13 @@ do
     for AcceptedHits in $(ls -d alignment/P.fragariae/Bc16/P.*/*/accepted_hits.bam)
     do
         Species=$(echo $AcceptedHits| rev | cut -d '/' -f3 | rev)
-        Num=$(echo $Assembly | rev | cut -d '/' -f2 | rev)
+        Num=$(echo $AcceptedHits | rev | cut -d '/' -f2 | rev)
         echo $AcceptedHits
         OutDir=gene_pred/cufflinks/$Organism/$Strain/$Species/$Num
         mkdir -p $OutDir
         ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        touch $OutDir/cufflinks/cufflinks.log
-        cufflinks -o $OutDir/cufflinks -p 8 --max-intron-length 4000 $AcceptedHits 2>&1 | tee $OutDir/cufflinks/cufflinks.log
+        touch $OutDir/cufflinks.log
+        cufflinks -o $OutDir/cufflinks -p 8 --max-intron-length 4000 $AcceptedHits 2>&1 | tee $OutDir/cufflinks.log
     done
 done
 ```
