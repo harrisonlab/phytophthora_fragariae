@@ -864,16 +864,28 @@ done
 
 #Braker prediction
 
+Alignment outputs were concatenated and braker prediction was run
+
 ```bash
-for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+for Assembly in $(ls repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
 do
+    Jobs=$(qstat | grep 'tophat' | grep -w 'r' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 10
+        printf "."
+        Jobs=$(qstat | grep 'tophat' | grep -w 'r' | wc -l)
+    done
+    printf "\n"
     Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
     Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
     mkdir -p alignment/$Organism/$Strain/concatenated
     samtools merge -f alignment/$Organism/$Strain/concatenated/concatenated.bam \
-    alignment/$Organism/$Strain/SRR1206032/accepted_hits.bam \
-    alignment/$Organism/$Strain/SRR1206033/accepted_hits.bam
+    alignment/$Organism/$Strain/P.frag/1/accepted_hits.bam \
+    alignment/$Organism/$Strain/P.frag/2/accepted_hits.bam \
+    alignment/$Organism/$Strain/P.rubi/1/accepted_hits.bam \
+    alignment/$Organism/$Strain/P.frag/2/accepted_hits.bam
     OutDir=gene_pred/braker/$Organism/"$Strain"_braker
     AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
     GeneModelName="$Organism"_"$Strain"_braker
