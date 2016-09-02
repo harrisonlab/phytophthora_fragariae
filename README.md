@@ -719,6 +719,132 @@ Estimated read length = 87
 Estimated insert gap = 14.54
 ```
 
+The RNASeq data was aligned to each genome Assembly, commands for each pair of reads are run as separate commands from within separate screen sessions
+
+First pair
+
+```bash
+for Assembly in $(ls repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    for RNADir in $(ls -d qc_rna/raw_rna/consortium/P.frag)
+    do
+        Species=$(echo $RNADir | rev | cut -f1 -d '/' | rev)
+        echo "$Species"
+        FileF=$(ls $RNADir/F/4*_trim.fq.gz)
+        FileR=$(ls $RNADir/R/4*_trim.fq.gz)
+        OutDir=alignment/$Organism/$Strain/$Species/1
+        InsertGap='24.88'
+        InsertStdDev='28.22'
+        Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 10
+            printf "."
+            Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
+        done
+        printf "\n"
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF $FileR $OutDir $InsertGap $InsertStdDev
+    done
+done
+```
+
+Second pair
+
+```bash
+for Assembly in $(ls repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    for RNADir in $(ls -d qc_rna/raw_rna/consortium/P.frag)
+    do
+        Species=$(echo $RNADir | rev | cut -f1 -d '/' | rev)
+        echo "$Species"
+        FileF=$(ls $RNADir/F/P*_trim.fq.gz)
+        FileR=$(ls $RNADir/R/P*_trim.fq.gz)
+        OutDir=alignment/$Organism/$Strain/$Species/2
+        InsertGap='22.65'
+        InsertStdDev='29.12'
+        Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 10
+            printf "."
+            Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
+        done
+        printf "\n"
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF $FileR $OutDir $InsertGap $InsertStdDev
+    done
+done
+```
+
+Third pair
+
+```bash
+for Assembly in $(ls repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    for RNADir in $(ls -d qc_rna/raw_rna/consortium/P.rubi)
+    do
+        Species=$(echo $RNADir | rev | cut -f1 -d '/' | rev)
+        echo "$Species"
+        FileF=$(ls $RNADir/F/4*_trim.fq.gz)
+        FileR=$(ls $RNADir/R/4*_trim.fq.gz)
+        OutDir=alignment/$Organism/$Strain/$Species/1
+        InsertGap='24.3'
+        InsertStdDev='27.77'
+        Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 10
+            printf "."
+            Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
+        done
+        printf "\n"
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF $FileR $OutDir $InsertGap $InsertStdDev
+    done
+done
+```
+
+Fourth pair
+
+```bash
+for Assembly in $(ls repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    for RNADir in $(ls -d qc_rna/raw_rna/consortium/P.rubi)
+    do
+        Species=$(echo $RNADir | rev | cut -f1 -d '/' | rev)
+        echo "$Species"
+        FileF=$(ls $RNADir/F/P*_trim.fq.gz)
+        FileR=$(ls $RNADir/R/P*_trim.fq.gz)
+        OutDir=alignment/$Organism/$Strain/$Species/2
+        InsertGap='14.54'
+        InsertStdDev='26.86'
+        Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 10
+            printf "."
+            Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
+        done
+        printf "\n"
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF $FileR $OutDir $InsertGap $InsertStdDev
+    done
+done
+```
+
 Maria created a script using stampy, which apparently maps better
 
 ```bash
