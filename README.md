@@ -608,15 +608,19 @@ do
     Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
     Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    for RNADir in $(ls -d qc_rna/paired/N.ditissima/R0905)
+    for RNADir in $(ls -d qc_rna/raw_rna/consortium/*)
     do
-        Timepoint=$(echo $RNADir | rev | cut -f1 -d '/' | rev)
-        echo "$Timepoint"
-        FileF=$(ls $RNADir/F/*_trim.fq.gz)
-        FileR=$(ls $RNADir/R/*_trim.fq.gz)
-        OutDir=alignment/$Organism/$Strain/$Timepoint
-        ProgDir=/home/gomeza/git_repos/emr_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF $FileR $OutDir
+        Species=$(echo $RNADir | rev | cut -f1 -d '/' | rev)
+        echo "$Species"
+        FileF1=$(ls $RNADir/F/4*_trim.fq.gz)
+        FileR1=$(ls $RNADir/R/4*_trim.fq.gz)
+        FileF2=$(ls $RNADir/F/P*_trim.fq.gz)
+        FileR2=$(ls $RNADir/R/P*_trim.fq.gz)
+        OutDir1=alignment/$Organism/$Strain/$Species/1
+        OutDir2=alignment/$Organism/$Strain/$Species/2
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF1 $FileR1 $OutDir1
+        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF2 $FileR2 $OutDir2
     done
 done
 ```
