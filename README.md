@@ -670,7 +670,25 @@ done
 ```
 
 ```
+P.frag 4954V8:
 
+Estimated mean = 196.65
+Estimated Std Dev = 28.22
+
+P.frag Pf4954PB:
+
+Estimated mean = 198.88
+Estimated Std Dev = 29.12
+
+P.rubi 4671V8:
+
+Estimated mean = 198.30
+Estimated Std Dev = 27.77
+
+P.rubi Pr4671PB:
+
+Estimated mean = 188.54
+Estimated Std Dev = 26.86
 ```
 
 ```bash
