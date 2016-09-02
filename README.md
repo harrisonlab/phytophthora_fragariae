@@ -662,7 +662,8 @@ do
         OutDir=gene_pred/cufflinks/$Organism/$Strain/$Species/$Num
         mkdir -p $OutDir
         ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
+        touch $OutDir/cufflinks/cufflinks.log
+        cufflinks -o $OutDir/cufflinks -p 8 --max-intron-length 4000 $AcceptedHits 2>&1 | tee $OutDir/cufflinks/cufflinks.log
     done
 done
 ```
