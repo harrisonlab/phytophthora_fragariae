@@ -647,6 +647,26 @@ Overall read mapping rate = 85.1%
 Concordant read mapping rate = 76.4%
 ```
 
+Cufflinks was run to produce the fragment length and stdev statistics
+
+```bash
+for Assembly in $(ls repeat_masked/*/Bc16/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    for AcceptedHits in $(ls -d alignment/P.fragariae/Bc16/P.*/*/accepted_hits.bam)
+    do
+        Species=$(echo $AcceptedHits| rev | cut -d '/' -f3 | rev)
+        Num=$(echo $Assembly | rev | cut -d '/' -f2 | rev)
+        OutDir=gene_pred/cufflinks/$Organism/$Strain/$Species/$Num
+        mkdir -p $OutDir
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
+    done
+done
+```
+
 ```bash
 for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
 do
