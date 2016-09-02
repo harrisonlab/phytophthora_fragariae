@@ -459,6 +459,21 @@ The number of bases masked by RepeatMasker:	23381847
 The number of bases masked by TransposonPSI:	6037837
 The total number of masked bases are:	25248164 **
 
+#Merging RepeatMasker and TransposonPSI outputs
+
+```bash
+for File in $(ls -d repeat_masked/P.*/*/filtered_contigs_repmask/*_contigs_softmasked.fa)
+do
+    OutDir=$(dirname $File)
+    TPSI=$(ls $OutDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+    OutFile=$(echo $File | sed 's/_contigs_softmasked.fa/_contigs_softmasked_repeatmasker_TPSI_appended.fa/g')
+    bedtools maskfasta -soft -fi $File -bed $TPSI -fo $OutFile
+    echo "$OutFile"
+    echo "Number of masked bases:"
+    cat $OutFile | grep -v '>' | tr -d '\n' | awk '{print $0, gsub("[a-z]", ".")}' | cut -f2 -d ' '
+done
+```
+
 #Gene Prediction
 Gene prediction followed three steps: Pre-gene prediction - Quality of genome assemblies were assessed using Cegma to see how many core eukaryotic genes can be identified. Gene model training - Gene models were trained using assembled RNAseq data as part of the Braker1 pipeline Gene prediction - Gene models were used to predict genes in genomes as part of the the Braker1 pipeline. This used RNAseq data as hints for gene models.
 
@@ -584,6 +599,27 @@ done
 ```
 
 #Aligning
+
+Insert sizes of the RNA seq library were unknown until a draft alignment could be made. To do this tophat and cufflinks were run, aligning the reads against a single genome. The fragment length and stdev were printed to stdout while cufflinks was running.
+
+```bash
+for Assembly in $(ls repeat_masked/*/Bc16/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    for RNADir in $(ls -d qc_rna/paired/N.ditissima/R0905)
+    do
+        Timepoint=$(echo $RNADir | rev | cut -f1 -d '/' | rev)
+        echo "$Timepoint"
+        FileF=$(ls $RNADir/F/*_trim.fq.gz)
+        FileR=$(ls $RNADir/R/*_trim.fq.gz)
+        OutDir=alignment/$Organism/$Strain/$Timepoint
+        ProgDir=/home/gomeza/git_repos/emr_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF $FileR $OutDir
+    done
+done
+```
 
 ```bash
 for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
