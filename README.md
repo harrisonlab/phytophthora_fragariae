@@ -736,8 +736,8 @@ do
         FileF=$(ls $RNADir/F/4*_trim.fq.gz)
         FileR=$(ls $RNADir/R/4*_trim.fq.gz)
         OutDir=alignment/$Organism/$Strain/$Species/1
-        InsertGap='24.88'
-        InsertStdDev='28.22'
+        InsertGap='25'
+        InsertStdDev='28'
         Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
         while [ $Jobs -gt 1 ]
         do
@@ -767,8 +767,8 @@ do
         FileF=$(ls $RNADir/F/P*_trim.fq.gz)
         FileR=$(ls $RNADir/R/P*_trim.fq.gz)
         OutDir=alignment/$Organism/$Strain/$Species/2
-        InsertGap='22.65'
-        InsertStdDev='29.12'
+        InsertGap='23'
+        InsertStdDev='29'
         Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
         while [ $Jobs -gt 1 ]
         do
@@ -798,8 +798,8 @@ do
         FileF=$(ls $RNADir/F/4*_trim.fq.gz)
         FileR=$(ls $RNADir/R/4*_trim.fq.gz)
         OutDir=alignment/$Organism/$Strain/$Species/1
-        InsertGap='24.3'
-        InsertStdDev='27.77'
+        InsertGap='24'
+        InsertStdDev='28'
         Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
         while [ $Jobs -gt 1 ]
         do
@@ -829,8 +829,8 @@ do
         FileF=$(ls $RNADir/F/P*_trim.fq.gz)
         FileR=$(ls $RNADir/R/P*_trim.fq.gz)
         OutDir=alignment/$Organism/$Strain/$Species/2
-        InsertGap='14.54'
-        InsertStdDev='26.86'
+        InsertGap='15'
+        InsertStdDev='27'
         Jobs=$(qstat | grep 'tophat' | grep 'qw' | wc -l)
         while [ $Jobs -gt 1 ]
         do
