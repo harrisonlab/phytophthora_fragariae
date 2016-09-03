@@ -895,7 +895,7 @@ do
 done
 ```
 
-<!-- #Supplementing Braker gene models with CodingQuarry genes
+#Supplementing Braker gene models with CodingQuarry genes
 
 Additional genes were added to Braker gene predictions, using CodingQuarry in pathogen mode to predict additional regions.
 
@@ -916,6 +916,8 @@ do
     qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
 done
 ```
+
+---progress here---
 
 Secondly, genes were predicted using CodingQuarry:
 
@@ -984,7 +986,7 @@ cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l;
 cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l;
 cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l;
 echo "";
-done -->
+done
 
 
 #4) Extract gff and amino acid sequences
