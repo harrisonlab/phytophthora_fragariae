@@ -961,13 +961,16 @@ done
 
 The final number of genes per isolate was observed using:
 
-for DirPath in $(ls -d gene_pred/codingquary/F.*/*/final | grep -w -e'Fus2'); do
-echo $DirPath;
-cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l;
-cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l;
-cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l;
-echo "";
+```bash
+for DirPath in $(ls -d gene_pred/codingquarry/P.*/*/final)
+do
+    echo $DirPath
+    cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l
+    cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l
+    cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l
+    echo ""
 done
+```
 
 
 #4) Extract gff and amino acid sequences
