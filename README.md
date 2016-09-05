@@ -917,7 +917,7 @@ do
 done
 ```
 
-Secondly, genes were predicted using CodingQuarry:
+Secondly, genes were predicted using CodingQuary:
 
 ```bash
 for Assembly in $(ls repeat_masked/*/*/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
@@ -925,12 +925,14 @@ do
     Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
     Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    OutDir=gene_pred/codingquarry/$Organism/$Strain
+    OutDir=gene_pred/codingquary/$Organism/$Strain
     CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 done
 ```
+
+---progress here---
 
 Then, additional transcripts were added to Braker1 gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker1 gene models:
 
@@ -956,8 +958,6 @@ do
     cat $BrakerGff $AddGenesGff | bedtools sort > $FinalGff
 done
 ```
-
----progress here---
 
 The final number of genes per isolate was observed using:
 
