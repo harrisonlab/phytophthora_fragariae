@@ -1249,11 +1249,11 @@ Secreted proteins were also predicted using Phobius
 ```bash
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    for Proteome in $(ls gene_pred/braker/*/"Strain"_braker/*/augustus.aa)
+    for Proteome in $(ls gene_pred/codingquary/*/$Strain/final/final_genes_combined.pep.fasta)
     do
         Organism=P.fragariae
         echo "$Organism - $Strain"
-        OutDir=analysis/phobius/$Organism/$Strain
+        OutDir=analysis/phobius_CQ/$Organism/$Strain
         mkdir -p $OutDir
         phobius.pl $Proteome > $OutDir/"$Strain"_phobius.txt
         ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
