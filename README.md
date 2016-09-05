@@ -946,6 +946,8 @@ do
     AddGenesList=$OutDir/additional_genes.txt
     AddGenesGff=$OutDir/additional_genes.gff
     FinalGff=$OutDir/combined_genes.gff
+    BrakerAA=gene_pred/braker/P.*/*_braker/*/augustus.aa
+    FinalAA=$OutDir/combined_genes.aa
     mkdir -p $OutDir
 
     bedtools intersect -v -s -a $CodingQuaryGff -b $BrakerGff | grep 'gene'| cut -f2 -d'=' | cut -f1 -d';' > $AddGenesList
@@ -954,6 +956,7 @@ do
     $ProgDir/gene_list_to_gff.pl $AddGenesList $CodingQuaryGff CodingQuarry_v2.0 ID CodingQuary > $AddGenesGff
     $ProgDir/gene_list_to_gff.pl $AddGenesList $PGNGff PGNCodingQuarry_v2.0 ID CodingQuary >> $AddGenesGff
     cat $BrakerGff $AddGenesGff | bedtools sort > $FinalGff
+    cat $BrakerAA $AddGenesList | bedtools sort > $FinalAA
 done
 ```
 
