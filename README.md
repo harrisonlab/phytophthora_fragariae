@@ -937,151 +937,51 @@ Then, additional transcripts were added to Braker1 gene models, when CodingQuarr
 ```bash
 for BrakerGff in $(ls gene_pred/braker/P.*/*_braker/*/augustus.gff3)
 do
-    Strain=$(echo $BrakerGff| rev | cut -d '/' -f3 | rev | sed 's/_braker//g' | sed 's/_braker//g')
+    Strain=$(echo $BrakerGff| rev | cut -d '/' -f3 | rev | sed 's/_braker//g')
     Organism=$(echo $BrakerGff | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
+    Assembly=$(ls repeat_masked/$Organism/$Strain/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
     CodingQuaryGff=gene_pred/codingquary/$Organism/$Strain/out/PredictedPass.gff3
     PGNGff=gene_pred/codingquary/$Organism/$Strain/out/PGN_predictedPass.gff3
-    OutDir=gene_pred/codingquary/$Organism/$Strain/additional
-    AddGenesList=$OutDir/additional_genes.txt
-    AddGenesGff=$OutDir/additional_genes.gff
-    FinalGff=$OutDir/combined_genes.gff
-    BrakerAA=gene_pred/braker/P.*/*_braker/*/augustus.aa
-    FinalAA=$OutDir/combined_genes.aa
-    mkdir -p $OutDir
+    AddDir=gene_pred/codingquary/$Organism/$Strain/additional
+    FinalDir=gene_pred/codingquary/$Organism/$Strain/final
+    AddGenesList=$AddDir/additional_genes.txt
+    AddGenesGff=$AddDir/additional_genes.gff
+    FinalGff=$AddDir/combined_genes.gff
+    mkdir -p $AddDir
+    mkdir -p $FinalDir
 
-    bedtools intersect -v -s -a $CodingQuaryGff -b $BrakerGff | grep 'gene'| cut -f2 -d'=' | cut -f1 -d';' > $AddGenesList
-    bedtools intersect -v -s -a $PGNGff -b $BrakerGff | grep 'gene'| cut -f2 -d'=' | cut -f1 -d';' >> $AddGenesList
+    bedtools intersect -v -a $CodingQuaryGff -b $BrakerGff | grep 'gene'| cut -f2 -d'=' | cut -f1 -d';' > $AddGenesList
+    bedtools intersect -v -a $PGNGff -b $BrakerGff | grep 'gene'| cut -f2 -d'=' | cut -f1 -d';' >> $AddGenesList
     ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
     $ProgDir/gene_list_to_gff.pl $AddGenesList $CodingQuaryGff CodingQuarry_v2.0 ID CodingQuary > $AddGenesGff
     $ProgDir/gene_list_to_gff.pl $AddGenesList $PGNGff PGNCodingQuarry_v2.0 ID CodingQuary >> $AddGenesGff
-    cat $BrakerGff $AddGenesGff | bedtools sort > $FinalGff
-    cat $BrakerAA $AddGenesList > $FinalAA
+    ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/codingquary
+
+    $ProgDir/add_CodingQuary_features.pl $AddGenesGff $Assembly > $FinalDir/final_genes_CodingQuary.gff3
+    $ProgDir/gff2fasta.pl $Assembly $FinalDir/final_genes_CodingQuary.gff3 $FinalDir/final_genes_CodingQuary
+    cp $BrakerGff $FinalDir/final_genes_Braker.gff3
+    $ProgDir/gff2fasta.pl $Assembly $FinalDir/final_genes_Braker.gff3 $FinalDir/final_genes_Braker
+    cat $FinalDir/final_genes_Braker.pep.fasta $FinalDir/final_genes_CodingQuary.pep.fasta | sed -r 's/\*/X/g' > $FinalDir/final_genes_combined.pep.fasta
+    cat $FinalDir/final_genes_Braker.cdna.fasta $FinalDir/final_genes_CodingQuary.cdna.fasta > $FinalDir/final_genes_combined.cdna.fasta
+    cat $FinalDir/final_genes_Braker.gene.fasta $FinalDir/final_genes_CodingQuary.gene.fasta > $FinalDir/final_genes_combined.gene.fasta
+    cat $FinalDir/final_genes_Braker.upstream3000.fasta $FinalDir/final_genes_CodingQuary.upstream3000.fasta > $FinalDir/final_genes_combined.upstream3000.fasta
+
+    GffBraker=$FinalDir/final_genes_CodingQuary.gff3
+    GffQuary=$FinalDir/final_genes_Braker.gff3
+    GffAppended=$FinalDir/final_genes_appended.gff3
+    cat $GffBraker $GffQuary > $GffAppended
 done
 ```
-
 The final number of genes per isolate was observed using:
-Total number calculated by summing braker genes and additional codingquarry gene numbers
 
-```bash
-for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
-do
-    for DirPath in $(ls -d gene_pred/braker/*/"$Strain"_braker/P.fragariae_*_braker)
-    do
-        echo "$Strain:"
-        echo "Braker predicted genes:"
-        cat $DirPath/augustus.aa | grep '>' | wc -l
-    done
-    for DirPath in $(ls -d gene_pred/codingquary/*/$Strain/additional)
-    do
-        echo "codingquarry additional genes:"
-        cat $DirPath/additional_genes.txt | wc -l
-        echo "Total number of genes:"
-        cat $DirPath/combined_genes.gff | grep 'gene' | wc -l
-    done
+for DirPath in $(ls -d gene_pred/codingquary/F.*/*/final | grep -w -e'Fus2'); do
+echo $DirPath;
+cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l;
+cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l;
+cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l;
+echo "";
 done
-```
-
-```
-A4:
-
-Braker predicted genes:
-29703
-codingquarry additional genes:
-3022
-Total number of genes:
-32486
-
-Bc1:
-
-Braker predicted genes:
-29791
-codingquarry additional genes:
-3803
-Total number of genes:
-33340
-
-Bc16:
-
-Braker predicted genes:
-33989
-codingquarry additional genes:
-4398
-Total number of genes:
-37982
-
-Bc23:
-
-Braker predicted genes:
-29947
-codingquarry additional genes:
-2701
-Total number of genes:
-32403
-
-Nov27:
-
-Braker predicted genes:
-30184
-codingquarry additional genes:
-3890
-Total number of genes:
-33816
-
-Nov5:
-
-Braker predicted genes:
-30110
-codingquarry additional genes:
-2931
-Total number of genes:
-32803
-
-Nov9:
-
-Braker predicted genes:
-30284
-codingquarry additional genes:
-3759
-Total number of genes:
-33784
-
-Nov71:
-
-Braker predicted genes:
-29099
-codingquarry additional genes:
-3104
-Total number of genes:
-31945
-
-Nov77:
-
-Braker predicted genes:
-29796
-codingquarry additional genes:
-3064
-Total number of genes:
-32617
-
-ONT3:
-
-Braker predicted genes:
-34274
-codingquarry additional genes:
-3682
-Total number of genes:
-37726
-
-SCRP245_v2:
-
-Braker predicted genes:
-34349
-codingquarry additional genes:
-2768
-Total number of genes:
-36867
-```
 
 #Gene prediction 2 - atg.pl prediction of ORFs
 
