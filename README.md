@@ -1182,16 +1182,16 @@ Proteins that were predicted to contain signal peptides were identified using th
 ```bash
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
+    for Proteome in $(ls gene_pred/codingquary/*/$Strain/final/final_genes_combined.pep.fasta)
     do
         SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
         ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
         Organism=P.fragariae
-        SplitDir=gene_pred/braker_split/$Organism/$Strain
+        SplitDir=gene_pred/final_split/$Organism/$Strain
         mkdir -p $SplitDir
-        BaseName="$Organism""_$Strain"_braker
+        BaseName="$Organism""_$Strain"
         $SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
-        for File in $(ls $SplitDir/*_braker_*)
+        for File in $(ls $SplitDir/*_"$Strain"_*)
         do
             Jobs=$(qstat | grep 'pred_sigP' | wc -l)
             while [ $Jobs -gt 20 ]
