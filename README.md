@@ -967,6 +967,7 @@ done
 ```
 
 The final number of genes per isolate was observed using:
+Total number calculated by summing braker genes and additional codingquarry gene numbers
 
 ```bash
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
@@ -976,50 +977,137 @@ do
         echo "$Strain:"
         echo "Braker predicted genes:"
         cat $DirPath/augustus.aa | grep '>' | wc -l
-        echo ""
     done
     for DirPath in $(ls -d gene_pred/codingquary/*/$Strain/additional)
     do
         echo "codingquarry additional genes:"
         cat $DirPath/additional_genes.txt | wc -l
         echo "Total number of genes:"
-        cat $DirPath/combined_genes.gff
+    done
 done
 ```
 
 ```
-Braker - A4
-38193
+A4:
 
-Braker - Bc1
-36005
+Braker predicted genes:
+29703
 
-Braker - Bc16
-39788
+codingquarry additional genes:
+3022
 
-Braker - Bc23
-36467
+Total number of genes:
+32725
 
-Braker - Nov27
-35466
+Bc1:
 
-Braker - Nov5
-37270
+Braker predicted genes:
+29791
 
-Braker - Nov9
-37028
+codingquarry additional genes:
+3803
 
-Braker - Nov71
-37013
+Total number of genes:
+33594
 
-Braker - Nov77
-37801
+Bc16:
 
-Braker - ONT3
-41565
+Braker predicted genes:
+33989
 
-Braker - SCRP245_v2
-41628
+codingquarry additional genes:
+4398
+
+Total number of genes:
+38387
+
+Bc23:
+
+Braker predicted genes:
+29947
+
+codingquarry additional genes:
+2701
+
+Total number of genes:
+32648
+
+Nov27:
+
+Braker predicted genes:
+30184
+
+codingquarry additional genes:
+3890
+
+Total number of genes:
+34074
+
+Nov5:
+
+Braker predicted genes:
+30110
+
+codingquarry additional genes:
+2931
+
+Total number of genes:
+33041
+
+Nov9:
+
+Braker predicted genes:
+30284
+
+codingquarry additional genes:
+3759
+
+Total number of genes:
+34043
+
+Nov71:
+
+Braker predicted genes:
+29099
+
+codingquarry additional genes:
+3104
+
+Total number of genes:
+32203
+
+Nov77:
+
+Braker predicted genes:
+29796
+
+codingquarry additional genes:
+3064
+
+Total number of genes:
+32860
+
+ONT3:
+
+Braker predicted genes:
+34274
+
+codingquarry additional genes:
+3682
+
+Total number of genes:
+37956
+
+SCRP245_v2:
+
+Braker predicted genes:
+34349
+
+codingquarry additional genes:
+2768
+
+Total number of genes:
+37117
 ```
 
 #Gene prediction 2 - atg.pl prediction of ORFs
