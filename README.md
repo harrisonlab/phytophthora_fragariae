@@ -932,19 +932,17 @@ do
 done
 ```
 
----progress here---
-
 Then, additional transcripts were added to Braker1 gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker1 gene models:
 
 ```bash
 for BrakerGff in $(ls gene_pred/braker/P.*/*_braker/*/augustus.gff3)
 do
     Strain=$(echo $BrakerGff| rev | cut -d '/' -f3 | rev | sed 's/_braker//g' | sed 's/_braker//g')
-    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    Organism=$(echo $BrakerGff | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    CodingQuaryGff=gene_pred/codingquarry/$Organism/$Strain/out/PredictedPass.gff3
-    PGNGff=gene_pred/codingquarry/$Organism/$Strain/out/PGN_predictedPass.gff3
-    OutDir=gene_pred/codingquarry/$Organism/$Strain/additional
+    CodingQuaryGff=gene_pred/codingquary/$Organism/$Strain/out/PredictedPass.gff3
+    PGNGff=gene_pred/codingquary/$Organism/$Strain/out/PGN_predictedPass.gff3
+    OutDir=gene_pred/codingquary/$Organism/$Strain/additional
     AddGenesList=$OutDir/additional_genes.txt
     AddGenesGff=$OutDir/additional_genes.gff
     FinalGff=$OutDir/combined_genes.gff
@@ -958,6 +956,8 @@ do
     cat $BrakerGff $AddGenesGff | bedtools sort > $FinalGff
 done
 ```
+
+---progress here---
 
 The final number of genes per isolate was observed using:
 
@@ -1921,7 +1921,6 @@ Due to the nature of predicting ORFs, some features overlapped with one another.
     # $ProgDir/extract_from_fasta.py --fasta $SigP_fasta --headers $SigP_Merged_txt > $SigP_Merged_AA
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $SigP_Merged_txt > $SigP_Merged_AA
   done
-<--- Progress up to here
 
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
 
