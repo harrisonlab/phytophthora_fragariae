@@ -1209,6 +1209,8 @@ do
 done
 ```
 
+--progress here--
+
 The batch files of predicted secreted proteins needed to be combined into a single file for each strain. This was done with the following commands:
 
 ```bash
@@ -1869,16 +1871,20 @@ do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    OutDir=analysis/phobius/$Organism/$Strain
+    OutDir=analysis/phobius_ORF/$Organism/$Strain
     mkdir -p $OutDir
     phobius.pl $Proteome > $OutDir/"$Strain"_phobius_ORF.txt
     cat $OutDir/"$Strain"_phobius_ORF.txt | grep -B1 'SIGNAL' | grep 'ID' | sed s'/ID.*g/g/g' > $OutDir/"$Strain"_phobius_headers_ORF.txt
 done
 ```
 
+--progress here--
+
 Secreted proteins from different sources were combined into a single file:
 
-  for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa | grep -e 'P.cactorum' -e 'P.idaei' | grep -v -e '10300' -e '414_v2' | grep -w -e '404' -e '414' -e '415' -e '416'); do
+```bash
+for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa)
+do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
@@ -1895,7 +1901,9 @@ Secreted proteins from different sources were combined into a single file:
     ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
     # $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_secreted.txt > $OutDir/"$Strain"_secreted.fa
     cat $OutDir/"$Strain"_secreted.fa | grep '>' | wc -l
-  done
+done
+```
+
   P.cactorum - 404
   The following number of sequences were predicted as secreted:
   55547
