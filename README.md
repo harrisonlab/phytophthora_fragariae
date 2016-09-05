@@ -957,34 +957,12 @@ do
 done
 ```
 
----progress here---
-
-The final number of genes per isolate was observed using:
+Gene names were extracted for cobined genes:
 
 ```bash
-for DirPath in $(ls -d gene_pred/codingquarry/P.*/*/final)
+for Gff in $(ls -d gene_pred/codingquary/*/*/additional/combined_genes.gff)
 do
-    echo $DirPath
-    cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l
-    cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l
-    cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l
-    echo ""
-done
-```
-
-
-#4) Extract gff and amino acid sequences
-
-```bash
-for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
-do
-    for File in $(ls gene_pred/braker/*/"$Strain"_braker/*_braker/augustus.gff)
-    do
-        getAnnoFasta.pl $File
-        OutDir=$(dirname $File)
-        echo "##gff-version 3" > $OutDir/augustus_extracted.gff
-        cat $File | grep -v '#' >> $OutDir/augustus_extracted.gff
-    done
+    getAnnoFasta.pl $Gff
 done
 ```
 
@@ -995,10 +973,17 @@ for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
 do
     for DirPath in $(ls -d gene_pred/braker/*/"$Strain"_braker/P.fragariae_*_braker)
     do
-        echo $DirPath
+        echo "$Strain:"
+        echo "Braker predicted genes:"
         cat $DirPath/augustus.aa | grep '>' | wc -l
         echo ""
     done
+    for DirPath in $(ls -d gene_pred/codingquary/*/$Strain/additional)
+    do
+        echo "codingquarry additional genes:"
+        cat $DirPath/additional_genes.txt | wc -l
+        echo "Total number of genes:"
+        cat $DirPath/combined_genes.gff
 done
 ```
 
