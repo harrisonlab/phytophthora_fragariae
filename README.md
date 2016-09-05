@@ -956,16 +956,7 @@ do
     $ProgDir/gene_list_to_gff.pl $AddGenesList $CodingQuaryGff CodingQuarry_v2.0 ID CodingQuary > $AddGenesGff
     $ProgDir/gene_list_to_gff.pl $AddGenesList $PGNGff PGNCodingQuarry_v2.0 ID CodingQuary >> $AddGenesGff
     cat $BrakerGff $AddGenesGff | bedtools sort > $FinalGff
-    cat $BrakerAA $AddGenesList | bedtools sort > $FinalAA
-done
-```
-
-Gene names were extracted for cobined genes:
-
-```bash
-for Gff in $(ls -d gene_pred/codingquary/*/*/additional/combined_genes.gff)
-do
-    getAnnoFasta.pl $Gff
+    cat $BrakerAA $AddGenesList > $FinalAA
 done
 ```
 
@@ -986,6 +977,7 @@ do
         echo "codingquarry additional genes:"
         cat $DirPath/additional_genes.txt | wc -l
         echo "Total number of genes:"
+        cat $DirPath/combined_genes.gff | grep 'gene' | wc -l
     done
 done
 ```
@@ -995,122 +987,100 @@ A4:
 
 Braker predicted genes:
 29703
-
 codingquarry additional genes:
 3022
-
 Total number of genes:
-32725
+32486
 
 Bc1:
 
 Braker predicted genes:
 29791
-
 codingquarry additional genes:
 3803
-
 Total number of genes:
-33594
+33340
 
 Bc16:
 
 Braker predicted genes:
 33989
-
 codingquarry additional genes:
 4398
-
 Total number of genes:
-38387
+37982
 
 Bc23:
 
 Braker predicted genes:
 29947
-
 codingquarry additional genes:
 2701
-
 Total number of genes:
-32648
+32403
 
 Nov27:
 
 Braker predicted genes:
 30184
-
 codingquarry additional genes:
 3890
-
 Total number of genes:
-34074
+33816
 
 Nov5:
 
 Braker predicted genes:
 30110
-
 codingquarry additional genes:
 2931
-
 Total number of genes:
-33041
+32803
 
 Nov9:
 
 Braker predicted genes:
 30284
-
 codingquarry additional genes:
 3759
-
 Total number of genes:
-34043
+33784
 
 Nov71:
 
 Braker predicted genes:
 29099
-
 codingquarry additional genes:
 3104
-
 Total number of genes:
-32203
+31945
 
 Nov77:
 
 Braker predicted genes:
 29796
-
 codingquarry additional genes:
 3064
-
 Total number of genes:
-32860
+32617
 
 ONT3:
 
 Braker predicted genes:
 34274
-
 codingquarry additional genes:
 3682
-
 Total number of genes:
-37956
+37726
 
 SCRP245_v2:
 
 Braker predicted genes:
 34349
-
 codingquarry additional genes:
 2768
-
 Total number of genes:
-37117
+36867
 ```
 
 #Gene prediction 2 - atg.pl prediction of ORFs
