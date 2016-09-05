@@ -980,11 +980,104 @@ The final number of genes per isolate was observed using:
 for DirPath in $(ls -d gene_pred/codingquary/P.*/*/final)
 do
     echo $DirPath
+    echo Braker:
     cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l
+    echo CodingQuarry:
     cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l
+    echo Total:
     cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l
     echo ""
 done
+```
+
+```
+A4
+Braker:
+29703
+CodingQuarry:
+2560
+Total:
+32263
+
+Bc16
+Braker:
+33989
+CodingQuarry:
+3875
+Total:
+37864
+
+Bc1
+Braker:
+29791
+CodingQuarry:
+3231
+Total:
+33022
+
+Bc23
+Braker:
+29947
+CodingQuarry:
+2291
+Total:
+32238
+
+Nov27
+Braker:
+30184
+CodingQuarry:
+3302
+Total:
+33486
+
+Nov5
+Braker:
+30110
+CodingQuarry:
+2491
+Total:
+32601
+
+Nov71
+Braker:
+29099
+CodingQuarry:
+2670
+Total:
+31769
+
+Nov77
+Braker:
+29796
+CodingQuarry:
+2573
+Total:
+32369
+
+Nov9
+Braker:
+30284
+CodingQuarry:
+3216
+Total:
+33500
+
+ONT3
+Braker:
+34274
+CodingQuarry:
+3238
+Total:
+37512
+
+SCRP245_v2
+Braker:
+34349
+CodingQuarry:
+2327
+Total:
+36676
 ```
 
 #Gene prediction 2 - atg.pl prediction of ORFs
