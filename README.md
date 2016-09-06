@@ -1265,17 +1265,17 @@ Secreted proteins from different sources were combined into a single file:
 ```bash
 for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
+    for Proteome in $(ls gene_pred/codingquary/*/$Strain/final/final_genes_combined.pep.fasta)
     do
         Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
         echo "$Organism - $Strain"
         OutDir=gene_pred/combined_sigP/$Organism/$Strain
         mkdir -p $OutDir
         echo "The following number of sequences were predicted as secreted:"
-        cat gene_pred/braker_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius/$Organism/$Strain/"$Strain"_phobius.fa > $OutDir/"$Strain"_all_secreted.fa
+        cat gene_pred/final_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius_CQ/$Organism/$Strain/"$Strain"_phobius.fa > $OutDir/"$Strain"_all_secreted.fa
         cat $OutDir/"$Strain"_all_secreted.fa | grep '>' | wc -l
         echo "This represented the following number of unique genes:"
-        cat gene_pred/braker_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius/$Organism/$Strain/"$Strain"_phobius.fa | grep '>' | cut -f1 | tr -d ' >' | sort -g | uniq > $OutDir/"$Strain"_secreted.txt
+        cat gene_pred/final_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius_CQ/$Organism/$Strain/"$Strain"_phobius.fa | grep '>' | cut -f1 | tr -d ' >' | sort -g | uniq > $OutDir/"$Strain"_secreted.txt
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
         $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_secreted.txt > $OutDir/"$Strain"_secreted.fa
         cat $OutDir/"$Strain"_secreted.fa | grep '>' | wc -l
@@ -1286,59 +1286,59 @@ done
 ```
 P.fragariae - A4
 The following number of sequences were predicted as secreted:
-10668
+10228
 This represented the following number of unique genes:
-3850
+3565
 P.fragariae - Bc16
 The following number of sequences were predicted as secreted:
-11984
+12456
 This represented the following number of unique genes:
-4207
+4270
 P.fragariae - Bc1
 The following number of sequences were predicted as secreted:
-10432
+10609
 This represented the following number of unique genes:
-3700
+3697
 P.fragariae - Bc23
 The following number of sequences were predicted as secreted:
-10399
+10568
 This represented the following number of unique genes:
-3706
+3644
 P.fragariae - Nov27
 The following number of sequences were predicted as secreted:
-10414
+10593
 This represented the following number of unique genes:
-3714
+3698
 P.fragariae - Nov5
 The following number of sequences were predicted as secreted:
-10151
+10398
 This represented the following number of unique genes:
-3689
+3580
 P.fragariae - Nov71
 The following number of sequences were predicted as secreted:
-10767
+10373
 This represented the following number of unique genes:
-3850
+3600
 P.fragariae - Nov77
 The following number of sequences were predicted as secreted:
-10436
+10388
 This represented the following number of unique genes:
-3754
+3581
 P.fragariae - Nov9
 The following number of sequences were predicted as secreted:
-10523
+10793
 This represented the following number of unique genes:
-3772
+3739
 P.fragariae - ONT3
 The following number of sequences were predicted as secreted:
-13273
+12929
 This represented the following number of unique genes:
-4736
+4524
 P.fragariae - SCRP245_v2
 The following number of sequences were predicted as secreted:
-11414
+11448
 This represented the following number of unique genes:
-4158
+4035
 ```
 
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
