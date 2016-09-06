@@ -1531,8 +1531,8 @@ for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_E
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
     Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
-    Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
-    Proteome=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus.aa)
+    Gff=$(ls gene_pred/codingquary/$Organism/$Strain/final/final_genes_appended.gff3)
+    Proteome=$(ls gene_pred/codingquary/$Organism/$Strain/final/final_genes_combined.pep.fasta)
     HmmRxLR=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer_headers.txt
     echo "$Organism - $Strain" >> report.txt
     echo "Number of RxLRs identified by Regex:" >> report.txt
@@ -1548,10 +1548,11 @@ do
     OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
     mkdir -p $OutDir
     cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_RxLR_headers.txt
-    Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
+    Gff=$(ls gene_pred/codingquary/$Organism/$Strain/final/final_genes_appended.gff3)
     cat $Gff | grep -w -f $OutDir/"$Strain"_total_RxLR_headers.txt > $OutDir/"$Strain"_total_RxLR.gff
     echo "Number of genes in the extracted gff file:" >> report.txt
     cat $OutDir/"$Strain"_total_RxLR.gff | grep -w 'gene' | wc -l >> report.txt
+    echo "$Strain complete"
 done
 ```
 
