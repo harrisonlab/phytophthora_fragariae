@@ -1694,7 +1694,7 @@ do
     echo "$Strain done"
 done
 ```
---progress here--
+
 ```
 P.fragariae - A4
 Initial search space (Z):              32263  [actual number of targets]
