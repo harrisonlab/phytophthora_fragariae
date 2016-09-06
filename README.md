@@ -1269,7 +1269,7 @@ do
     do
         Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
         echo "$Organism - $Strain"
-        OutDir=gene_pred/combined_sigP/$Organism/$Strain
+        OutDir=gene_pred/combined_sigP_CQ/$Organism/$Strain
         mkdir -p $OutDir
         echo "The following number of sequences were predicted as secreted:"
         cat gene_pred/final_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius_CQ/$Organism/$Strain/"$Strain"_phobius.fa > $OutDir/"$Strain"_all_secreted.fa
@@ -1346,12 +1346,12 @@ The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identi
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
 
 ```bash
-for Secretome in $(ls gene_pred/combined_sigP/*/*/*_all_secreted.fa)
+for Secretome in $(ls gene_pred/combined_sigP_CQ/*/*/*_all_secreted.fa)
 do
     Strain=$(echo $Secretome | rev | cut -d '/' -f2 | rev)
     Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev)
-    Proteome=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus.aa)
-    Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
+    Proteome=$(ls gene_pred/codingquary/$Organism/$Strain/final/final_genes_combined.pep.fasta)
+    Gff=$(ls gene_pred/codingquary/$Organism/$Strain/final/final_genes_appended.gff3)
     OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain"
     mkdir -p $OutDir
     printf "\nstrain: $Strain\tspecies: $Organism\n" >> report.txt
