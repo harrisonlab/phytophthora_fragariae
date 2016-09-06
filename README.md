@@ -1973,13 +1973,13 @@ do
     echo "$Strain done"
 done
 ```
---progress here--
+
 Due to the nature of predicting ORFs, some features overlapped with one another. A single ORF was selected from each set of overlapped ORFs. This was was selected on the basis of its SignalP Hmm score. Biopython was used to identify overlaps and identify the ORF with the best signalP score.
 
 ```bash
 for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    for ORF_Gff in $(ls gene_pred/ORF_finder/*/$Strain/"$Strain"_ORF.gff)
+    for ORF_Gff in $(ls gene_pred/ORF_finder/*/$Strain/"$Strain"_ORF.gff3)
     do
         Organism=$(echo $ORF_Gff | rev |  cut -d '/' -f3 | rev)
         OutDir=$(ls -d gene_pred/combined_sigP_ORF/$Organism/$Strain)
@@ -1996,7 +1996,7 @@ do
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
         $ProgDir/extract_gff_for_sigP_hits.pl $SigP_headers $ORF_Gff SigP Name > $SigP_Gff
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
-        $ProgDir/make_gff_database.py --inp $SigP_Gff -alias-db sigP_ORF.db
+        $ProgDir/make_gff_database.py --inp $SigP_Gff --db sigP_ORF.db
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
         $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF.db --id sigP_ORF --out sigP_ORF_merged.db --gff > $SigP_Merged_Gff
         cat $SigP_Merged_Gff | grep 'transcript' | rev | cut -f1 -d'=' | rev > $SigP_Merged_txt
@@ -2005,7 +2005,7 @@ do
     done
 done
 ```
-
+--progress here--
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
 
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
