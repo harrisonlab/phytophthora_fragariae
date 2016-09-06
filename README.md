@@ -1973,7 +1973,7 @@ do
     echo "$Strain done"
 done
 ```
-
+--progress here--
 Due to the nature of predicting ORFs, some features overlapped with one another. A single ORF was selected from each set of overlapped ORFs. This was was selected on the basis of its SignalP Hmm score. Biopython was used to identify overlaps and identify the ORF with the best signalP score.
 
 ```bash
