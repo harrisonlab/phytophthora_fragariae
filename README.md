@@ -1879,8 +1879,6 @@ do
 done
 ```
 
---progress here--
-
 Secreted proteins from different sources were combined into a single file:
 
 ```bash
@@ -1899,8 +1897,8 @@ do
     echo "This represented the following number of unique genes:"
     # cat gene_pred/final_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius/$Organism/$Strain/"$Strain"_phobius.fa | grep '>' | cut -f1 | tr -d ' >' | sort -g | uniq > $OutDir/"$Strain"_secreted.txt
     cat gene_pred/ORF_sig*/$Organism/$Strain/*_aug_sp.aa | grep '>' | cut -f1 | tr -d ' >' | sort -g | uniq > $OutDir/"$Strain"_secreted.txt
-    ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
-    # $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_secreted.txt > $OutDir/"$Strain"_secreted.fa
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_secreted.txt > $OutDir/"$Strain"_secreted.fa
     cat $OutDir/"$Strain"_secreted.fa | grep '>' | wc -l
 done
 ```
