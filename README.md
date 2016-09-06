@@ -1900,7 +1900,7 @@ do
     cat $OutDir/"$Strain"_secreted.fa | grep '>' | wc -l
 done
 ```
---progress here--
+
 ```
 P.fragariae - A4
 The following number of sequences were predicted as secreted:
@@ -1970,6 +1970,7 @@ do
     Organism=$(echo $FastaFile | rev | cut -f3 -d '/' | rev)
     SigP_headers=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_names.txt
     cat $FastaFile | grep '>' | sed -r 's/>//g' | sed -r 's/\s+/\t/g'| sed 's/=\t/=/g' | sed 's/--//g' > $SigP_headers
+    echo "$Strain done"
 done
 ```
 
