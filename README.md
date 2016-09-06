@@ -1463,7 +1463,7 @@ the number of SigP-RxLR-EER genes are:  191
 ```bash
 for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    for Proteome in $(ls gene_pred/braker/*/"$Strain"_braker/*/augustus.aa)
+    for Proteome in $(ls gene_pred/codingquary/*/$Strain/final/final_genes_combined.pep.fasta)
     do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
         HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
@@ -1479,7 +1479,7 @@ do
         $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
         Headers="$Strain"_RxLR_hmmer_headers.txt
         cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
-        Gff=$(ls gene_pred/braker/$Organism/"$Strain"_braker/*/augustus_extracted.gff)
+        Gff=$(ls gene_pred/codingquary/$Organism/$Strain/final/final_genes_appended.gff3)
         cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_Aug_RxLR_regex.gff3
         echo "$Strain complete"
     done
