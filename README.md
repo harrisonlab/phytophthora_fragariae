@@ -1903,41 +1903,64 @@ do
 done
 ```
 
-  P.cactorum - 404
-  The following number of sequences were predicted as secreted:
-  55547
-  This represented the following number of unique genes:
-  26231
-  P.cactorum - 414
-  The following number of sequences were predicted as secreted:
-  70912
-  This represented the following number of unique genes:
-  33601
-  P.cactorum - 415
-  The following number of sequences were predicted as secreted:
-  60266
-  This represented the following number of unique genes:
-  28714
-  P.cactorum - 416
-  The following number of sequences were predicted as secreted:
-  61712
-  This represented the following number of unique genes:
-  29425
-  P.cactorum - 62471
-  The following number of sequences were predicted as secreted:
-  55686
-  This represented the following number of unique genes:
-  26324
-  P.idaei - 371
-  The following number of sequences were predicted as secreted:
-  54493
-  This represented the following number of unique genes:
-  25750
-  P.idaei - SCRP370
-  The following number of sequences were predicted as secreted:
-  54601
-  This represented the following number of unique genes:
-  25802
+```
+P.fragariae - A4
+The following number of sequences were predicted as secreted:
+74345
+This represented the following number of unique genes:
+35756
+P.fragariae - Bc16
+The following number of sequences were predicted as secreted:
+92845
+This represented the following number of unique genes:
+44733
+P.fragariae - Bc1
+The following number of sequences were predicted as secreted:
+75022
+This represented the following number of unique genes:
+36030
+P.fragariae - Bc23
+The following number of sequences were predicted as secreted:
+73943
+This represented the following number of unique genes:
+35520
+P.fragariae - Nov27
+The following number of sequences were predicted as secreted:
+74330
+This represented the following number of unique genes:
+35763
+P.fragariae - Nov5
+The following number of sequences were predicted as secreted:
+74233
+This represented the following number of unique genes:
+35726
+P.fragariae - Nov71
+The following number of sequences were predicted as secreted:
+74434
+This represented the following number of unique genes:
+35714
+P.fragariae - Nov77
+The following number of sequences were predicted as secreted:
+74426
+This represented the following number of unique genes:
+35842
+P.fragariae - Nov9
+The following number of sequences were predicted as secreted:
+75097
+This represented the following number of unique genes:
+36114
+P.fragariae - ONT3
+The following number of sequences were predicted as secreted:
+86098
+This represented the following number of unique genes:
+41450
+P.fragariae - SCRP245_v2
+The following number of sequences were predicted as secreted:
+78047
+This represented the following number of unique genes:
+37585
+```
+
 E.3) Prediction of RxLRs
 
 Names of ORFs containing signal peptides were extracted from fasta files. This included information on the position and hmm score of RxLRs.
