@@ -2130,26 +2130,31 @@ E5) From ORF gene models - Hmm evidence of WY domains
 
 Hmm models for the WY domain contained in many RxLRs were used to search ORFs predicted with atg.pl. These were run with the following commands:
 
-for Secretome in $(ls gene_pred/ORF_sigP/P.cactorum/10300/10300_ORF_sp_merged.aa); do
-ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
-HmmModel=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
-Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
-Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
-OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
-mkdir -p $OutDir
-HmmResults="$Strain"_ORF_WY_hmmer.txt
-hmmsearch -T 0 $HmmModel $Secretome > $OutDir/$HmmResults
-echo "$Organism $Strain"
-cat $OutDir/$HmmResults | grep 'Initial search space'
-cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
-HmmFasta="$Strain"_ORF_WY_hmmer.fa
-$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Secretome > $OutDir/$HmmFasta
-Headers="$Strain"_ORF_WY_hmmer_headers.txt
-cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' > $OutDir/$Headers
-SigP_Merged_Gff=gene_pred/ORF_sigP/$Organism/$Strain/"$Strain"_ORF_sp_merged.gff
-ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
-$ProgDir/gene_list_to_gff.pl $OutDir/$Headers $SigP_Merged_Gff $HmmModel Name Augustus > $OutDir/"$Strain"_ORF_WY_hmmer.gff
+```bash
+for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
+do
+    ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
+    HmmModel=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
+    Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
+    mkdir -p $OutDir
+    HmmResults="$Strain"_ORF_WY_hmmer.txt
+    hmmsearch -T 0 $HmmModel $Secretome > $OutDir/$HmmResults
+    echo "$Organism $Strain" >> report.txt
+    cat $OutDir/$HmmResults | grep 'Initial search space' >> report.txt
+    cat $OutDir/$HmmResults | grep 'number of targets reported over threshold' >> report.txt
+    HmmFasta="$Strain"_ORF_WY_hmmer.fa
+    $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Secretome > $OutDir/$HmmFasta
+    Headers="$Strain"_ORF_WY_hmmer_headers.txt
+    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' > $OutDir/$Headers
+    SigP_Merged_Gff=gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_merged.gff
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+    $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $SigP_Merged_Gff $HmmModel Name Augustus > $OutDir/"$Strain"_ORF_WY_hmmer.gff
+    echo "$Strain done"
 done
+```
+
 P.cactorum 10300
 Initial search space (Z): 14767 [actual number of targets]
 Domain search space (domZ): 113 [number of targets reported over threshold]
