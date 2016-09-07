@@ -112,5 +112,5 @@ done
 ```
 
 ```bash
-circos -conf /home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos/Fus2/APS_plot/Fus2_APS_circos.conf -outputdir ./$OutDir
+circos -conf /home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos/Fus2/reassembly_plot/Fus2_reassembly_circos.conf -outputdir ./$OutDir
 ```
