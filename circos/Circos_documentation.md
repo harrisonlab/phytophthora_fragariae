@@ -96,7 +96,7 @@ Make 100kb windows for plots
 $ProgDir/fasta2gff_windows.py --genome $Bc16_genome > $OutDir/Bc16_100kb_windows.gff
 ```
 
-Convert FoC MiSeq reads aligning in 100kb windows into coverage stats and convert bed files to circos format
+Convert P.frag MiSeq reads aligning in 100kb windows into coverage stats and convert bed files to circos format
 
 ```bash
 for ReadsBam in $(ls analysis/genome_alignment/bowtie/*/*/vs_Bc16_unmasked_max1200/95m_contigs_unmasked.fa_aligned_sorted.bam)
