@@ -2296,7 +2296,6 @@ do
     cat $HmmRxLR | sort | uniq | wc -l >> report.txt
     echo "Number of RxLRs in combined dataset:" >> report.txt
     cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l >> report.txt
-    echo "" >> report.txt
     OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
     mkdir -p $OutDir
     cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_ORF_RxLR_headers.txt
@@ -2304,8 +2303,121 @@ do
     $ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_total_ORF_RxLR_headers.txt $Gff ORF_RxLR Name Augustus > $OutDir/"$Strain"_total_ORF_RxLR.gff
     echo "Number of genes in the extracted gff file:" >> report.txt
     cat $OutDir/"$Strain"_total_ORF_RxLR.gff | grep -w 'gene' | wc -l >> report.txt
+    echo "" >> report.txt
     echo "$Strain done"
 done
+```
+
+```
+P.fragariae - A4
+Number of RxLRs identified by Regex:
+260
+Number of RxLRs identified by Hmm:
+198
+Number of RxLRs in combined dataset:
+288
+Number of genes in the extracted gff file:
+288
+
+P.fragariae - Bc16
+Number of RxLRs identified by Regex:
+297
+Number of RxLRs identified by Hmm:
+224
+Number of RxLRs in combined dataset:
+326
+Number of genes in the extracted gff file:
+326
+
+P.fragariae - Bc1
+Number of RxLRs identified by Regex:
+261
+Number of RxLRs identified by Hmm:
+198
+Number of RxLRs in combined dataset:
+288
+Number of genes in the extracted gff file:
+288
+
+P.fragariae - Bc23
+Number of RxLRs identified by Regex:
+264
+Number of RxLRs identified by Hmm:
+202
+Number of RxLRs in combined dataset:
+292
+Number of genes in the extracted gff file:
+292
+
+P.fragariae - Nov27
+Number of RxLRs identified by Regex:
+261
+Number of RxLRs identified by Hmm:
+198
+Number of RxLRs in combined dataset:
+288
+Number of genes in the extracted gff file:
+288
+
+P.fragariae - Nov5
+Number of RxLRs identified by Regex:
+260
+Number of RxLRs identified by Hmm:
+198
+Number of RxLRs in combined dataset:
+287
+Number of genes in the extracted gff file:
+287
+
+P.fragariae - Nov71
+Number of RxLRs identified by Regex:
+260
+Number of RxLRs identified by Hmm:
+198
+Number of RxLRs in combined dataset:
+287
+Number of genes in the extracted gff file:
+287
+
+P.fragariae - Nov77
+Number of RxLRs identified by Regex:
+250
+Number of RxLRs identified by Hmm:
+194
+Number of RxLRs in combined dataset:
+274
+Number of genes in the extracted gff file:
+274
+
+P.fragariae - Nov9
+Number of RxLRs identified by Regex:
+259
+Number of RxLRs identified by Hmm:
+199
+Number of RxLRs in combined dataset:
+287
+Number of genes in the extracted gff file:
+287
+
+P.fragariae - ONT3
+Number of RxLRs identified by Regex:
+266
+Number of RxLRs identified by Hmm:
+204
+Number of RxLRs in combined dataset:
+295
+Number of genes in the extracted gff file:
+295
+
+P.fragariae - SCRP245_v2
+Number of RxLRs identified by Regex:
+264
+Number of RxLRs identified by Hmm:
+202
+Number of RxLRs in combined dataset:
+291
+Number of genes in the extracted gff file:
+291
 ```
 
 4.2.c Analysis of RxLR effectors - merger of Augustus / published genes with ORFs
