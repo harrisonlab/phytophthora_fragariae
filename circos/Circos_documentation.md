@@ -96,17 +96,20 @@ Make 100kb windows for plots
 $ProgDir/fasta2gff_windows.py --genome $Bc16_genome > $OutDir/Bc16_100kb_windows.gff
 ```
 
-# Convert FoC MiSeq reads aligning in 100kb windows into coverage stats
-for ReadsBam in $(ls analysis/genome_alignment/bowtie/N.*/*/*/R0905_contigs_unmasked.fa_aligned_sorted.bam); do
-Organism=$(echo $ReadsBam | rev | cut -f4 -d '/' | rev)
-Strain=$(echo $ReadsBam | rev | cut -f3 -d '/' | rev)
-AlignDir=$(dirname $ReadsBam)
-echo "$Organism - $Strain"
-#bedtools coverage -abam $ReadsBam -b $OutDir/R0905_pacbio_canu_100kb_windows.gff > $AlignDir/"$Strain"_coverage_vs_R0905.bed
+Convert FoC MiSeq reads aligning in 100kb windows into coverage stats and convert bed files to circos format
 
-# Convert coverage bed files into circos format
-$ProgDir/coverage_bed2circos.py --bed $AlignDir/"$Strain"_coverage_vs_R0905.bed > $OutDir/"$Strain"_coverage_vs_R0905_scatterplot.txt
+```bash
+for ReadsBam in $(ls analysis/genome_alignment/bowtie/*/*/vs_Bc16_unmasked_max1200/95m_contigs_unmasked.fa_aligned_sorted.bam)
+do
+    Organism=$(echo $ReadsBam | rev | cut -f4 -d '/' | rev)
+    Strain=$(echo $ReadsBam | rev | cut -f3 -d '/' | rev)
+    AlignDir=$(dirname $ReadsBam)
+    echo "$Organism - $Strain"
+    bedtools coverage -abam $ReadsBam -b $OutDir/Bc16_100kb_windows.gff > $AlignDir/"$Strain"_coverage_vs_Bc16.bed
+    $ProgDir/coverage_bed2circos.py --bed $AlignDir/"$Strain"_coverage_vs_Bc16.bed > $OutDir/"$Strain"_coverage_vs_Bc16_scatterplot.txt
+    echo "$Strain done"
 done
+```
 
 # Plot location of FoL gene Blast hits as a scatterplot
 for GffFile in $(ls analysis/blast_homology/*/Fus2_pacbio_test_merged/*_chr_*_gene_single_copy.aa_hits.gff); do
