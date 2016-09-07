@@ -2801,7 +2801,9 @@ Number of CRN ORFs after merging:
 
 Extract crinklers from published gene models
 
-  for MergeDir in $(ls -d analysis/CRN_effectors/hmmer_CRN/*/* | grep -w -e 'P.cactorum' -e 'P.idaei' | grep -v -e 'atg' -e '10300' -e '414_v2' | grep -w -e '404' -e '414' -e '415' -e '416'); do
+```bash
+for MergeDir in $(ls -d analysis/CRN_effectors/hmmer_CRN/*/*)
+do
     Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
     Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
     AugGff=$(ls $MergeDir/"$Strain"_pub_CRN_LFLAK_DWL.gff)
@@ -2819,30 +2821,32 @@ Extract crinklers from published gene models
     bedtools intersect -wa -u -a $AugGff -b $ORFGff > $AugInORFs
     bedtools intersect -v -wa -a $ORFGff -b $AugGff > $ORFsUniq
     bedtools intersect -v -wa -a $AugGff -b $ORFGff > $AugUniq
-    echo "$Species - $Strain"
+    echo "$Species - $Strain" >> report.txt
 
-    echo "The number of ORF CRNs overlapping Augustus CRNs:"
-    cat $ORFsInAug | grep -w -e 'transcript' -e 'mRNA' | wc -l
-    echo "The number of Augustus CRNs overlapping ORF CRNs:"
-    cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA' | wc -l
+    echo "The number of ORF CRNs overlapping Augustus CRNs:" >> report.txt
+    cat $ORFsInAug | grep -w -e 'transcript' -e 'mRNA' | wc -l >> report.txt
+    echo "The number of Augustus CRNs overlapping ORF CRNs:" >> report.txt
+    cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA' | wc -l >> report.txt
     cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' > $TotalCRNsTxt
-    echo "The number of CRNs unique to ORF models:"
-    cat $ORFsUniq | grep -w 'transcript'| grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f4 -d ';' | cut -f2 -d '=' | wc -l
+    echo "The number of CRNs unique to ORF models:" >> report.txt
+    cat $ORFsUniq | grep -w 'transcript'| grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f4 -d ';' | cut -f2 -d '=' | wc -l >> report.txt
     cat $ORFsUniq | grep -w 'transcript'| grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f4 -d ';' | cut -f2 -d '=' >> $TotalCRNsTxt
-    echo "The number of CRNs unique to Augustus models:"
-    cat $AugUniq | grep -w -e 'transcript' -e 'mRNA' | wc -l
+    echo "The number of CRNs unique to Augustus models:" >> report.txt
+    cat $AugUniq | grep -w -e 'transcript' -e 'mRNA' | wc -l >> report.txt
     cat $AugUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' >> $TotalCRNsTxt
 
     cat $AugInORFs $AugUniq $ORFsUniq | grep -w -f $TotalCRNsTxt > $TotalCRNsGff
 
     CRNsFa=$MergeDir/"$Strain"_final_CRN.fa
-    ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $AugFa --headers $TotalCRNsTxt > $CRNsFa
     $ProgDir/extract_from_fasta.py --fasta $ORFsFa --headers $TotalCRNsTxt >> $CRNsFa
-    echo "The number of sequences extracted is"
-    cat $CRNsFa | grep '>' | wc -l
+    echo "The number of sequences extracted is" >> report.txt
+    cat $CRNsFa | grep '>' | wc -l >> report.txt
+    echo "$Strain done"
+done
+```
 
-  done
 P.cactorum - 404
 The number of ORF CRNs overlapping Augustus CRNs:
 93
