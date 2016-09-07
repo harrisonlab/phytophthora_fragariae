@@ -1,3 +1,5 @@
+In order to examine the genomic structure of Phytophthora fragariae
+
 Alignment of raw MiSeq reads vs the BC-16 genome
 
 Sequence data for isolates with a data from only the MiSeq was aligned against the BC-16 PacBio sequenced genome
@@ -71,4 +73,14 @@ do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie_3lib.sh $Reference $F1_Read $R1_Read $F2_Read $R2_Read $F3_Read $R3_Read $OutDir $Strain
 done
+```
+
+100 Kb windows of the genome created as gff features over which coverage can be plotted
+
+```bash
+ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+Genome=assembly/merged_canu_spades/P.fragariae/Bc16/95m/filtered_contigs/Bc16_contigs_renamed.fasta
+OutDir=circos
+mkdir -p $OutDir
+$ProgDir/fasta2gff_windows.py --genome $Genome > $OutDir/100kb_windows.gff
 ```
