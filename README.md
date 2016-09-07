@@ -2048,29 +2048,84 @@ do
 done
 ```
 
-strain: 414 species: P.cactorum
-the number of SigP gene is: 70912
-the number of SigP-RxLR genes are:  1876
-the number of SigP-RxLR-EER genes are:  220
-Merged RxLR-EER regex proteins:197
+```
+strain: A4      species: P.fragariae
+the number of SigP gene is:     74345
+the number of SigP-RxLR genes are:      2367
+the number of SigP-RxLR-EER genes are:  288
+Merged RxLR-EER regex proteins: 260
 
-strain: 404 species: P.cactorum
-the number of SigP gene is: 55547
-the number of SigP-RxLR genes are:  1519
-the number of SigP-RxLR-EER genes are:  194
-Merged RxLR-EER regex proteins: 170
 
-strain: 415 species: P.cactorum
-the number of SigP gene is: 60266
-the number of SigP-RxLR genes are:  1591
-the number of SigP-RxLR-EER genes are:  192
-Merged RxLR-EER regex proteins: 168
+strain: Bc16    species: P.fragariae
+the number of SigP gene is:     92845
+the number of SigP-RxLR genes are:      2773
+the number of SigP-RxLR-EER genes are:  327
+Merged RxLR-EER regex proteins: 297
 
-strain: 416 species: P.cactorum
-the number of SigP gene is: 61712
-the number of SigP-RxLR genes are:  1621
-the number of SigP-RxLR-EER genes are:  192
-Merged RxLR-EER regex proteins: 168
+
+strain: Bc1     species: P.fragariae
+the number of SigP gene is:     75022
+the number of SigP-RxLR genes are:      2390
+the number of SigP-RxLR-EER genes are:  289
+Merged RxLR-EER regex proteins: 261
+
+
+strain: Bc23    species: P.fragariae
+the number of SigP gene is:     73943
+the number of SigP-RxLR genes are:      2392
+the number of SigP-RxLR-EER genes are:  294
+Merged RxLR-EER regex proteins: 264
+
+
+strain: Nov27   species: P.fragariae
+the number of SigP gene is:     74330
+the number of SigP-RxLR genes are:      2362
+the number of SigP-RxLR-EER genes are:  289
+Merged RxLR-EER regex proteins: 261
+
+
+strain: Nov5    species: P.fragariae
+the number of SigP gene is:     74233
+the number of SigP-RxLR genes are:      2362
+the number of SigP-RxLR-EER genes are:  288
+Merged RxLR-EER regex proteins: 260
+
+
+strain: Nov71   species: P.fragariae
+the number of SigP gene is:     74434
+the number of SigP-RxLR genes are:      2361
+the number of SigP-RxLR-EER genes are:  288
+Merged RxLR-EER regex proteins: 260
+
+
+strain: Nov77   species: P.fragariae
+the number of SigP gene is:     74426
+the number of SigP-RxLR genes are:      2338
+the number of SigP-RxLR-EER genes are:  279
+Merged RxLR-EER regex proteins: 250
+
+
+strain: Nov9    species: P.fragariae
+the number of SigP gene is:     75097
+the number of SigP-RxLR genes are:      2394
+the number of SigP-RxLR-EER genes are:  287
+Merged RxLR-EER regex proteins: 259
+
+
+strain: ONT3    species: P.fragariae
+the number of SigP gene is:     86098
+the number of SigP-RxLR genes are:      2564
+the number of SigP-RxLR-EER genes are:  296
+Merged RxLR-EER regex proteins: 266
+
+
+strain: SCRP245_v2      species: P.fragariae
+the number of SigP gene is:     78047
+the number of SigP-RxLR genes are:      2349
+the number of SigP-RxLR-EER genes are:  292
+Merged RxLR-EER regex proteins: 264
+```
+
 E5) From ORF gene models - Hmm evidence of WY domains
 
 Hmm models for the WY domain contained in many RxLRs were used to search ORFs predicted with atg.pl. These were run with the following commands:
