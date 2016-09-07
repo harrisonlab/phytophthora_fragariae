@@ -110,6 +110,17 @@ do
 done
 ```
 
+Plot location of BC-16 RxLRs and CRNs as a scatterplot
+
+```bash
+GffRxLR=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_total_RxLR.gff
+ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+$ProgDir/gff2circos_scatterplot.py --gff $GffRxLR --feature gene --value 1 > $OutDir/Bc16_RxLR_plot.txt
+GffCRN=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.gff
+ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+$ProgDir/gff2circos_scatterplot.py --gff $GffCRN --feature gene --value 1 > $OutDir/Bc16_CRN_plot.txt
+```
+
 ```bash
 circos -conf /home/adamst/git_repos/scripts/phytophthora_fragariae/circos/Pf_reassembly_circos.conf -outputdir ./$OutDir
 ```
