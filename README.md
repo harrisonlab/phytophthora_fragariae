@@ -2281,32 +2281,33 @@ E7) Combining RxLRs from Regex and hmm searches
 
 The total RxLRs are
 
-  for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_ORF_RxLR_EER_regex_merged.txt | grep -v -e 'Aug' -e '10300' | grep -e 'P.idaei' -e 'P.cactorum' | grep -e '414' -e '404' -e '415' -e '416'); do
+```bash
+for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_ORF_RxLR_EER_regex_merged.txt)
+do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
     Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
     Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF.gff3)
     Proteome=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa)
     HmmRxLR=$(ls analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/"$Strain"_ORF_RxLR_hmm_merged.txt)
-    echo "$Organism - $Strain"
-    echo "Number of RxLRs identified by Regex:"
-    cat $RegexRxLR | sort | uniq | wc -l
-    echo "Number of RxLRs identified by Hmm:"
-    cat $HmmRxLR | sort | uniq | wc -l
-    echo "Number of RxLRs in combined dataset:"
-    cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l
-    # echo "Number of RxLRs in both datasets:"
-    # cat $RegexRxLR $HmmRxLR | sort | uniq -d | wc -l
-    echo ""
-    # echo "Extracting RxLRs from datasets"
+    echo "$Organism - $Strain" >> report.txt
+    echo "Number of RxLRs identified by Regex:" >> report.txt
+    cat $RegexRxLR | sort | uniq | wc -l >> report.txt
+    echo "Number of RxLRs identified by Hmm:" >> report.txt
+    cat $HmmRxLR | sort | uniq | wc -l >> report.txt
+    echo "Number of RxLRs in combined dataset:" >> report.txt
+    cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l >> report.txt
+    echo "" >> report.txt
     OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
     mkdir -p $OutDir
     cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_ORF_RxLR_headers.txt
-    # cat $Gff | grep -w -f $OutDir/"$Strain"_total_ORF_RxLR_headers.txt > $OutDir/"$Strain"_total_ORF_RxLR.gff
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
     $ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_total_ORF_RxLR_headers.txt $Gff ORF_RxLR Name Augustus > $OutDir/"$Strain"_total_ORF_RxLR.gff
-    echo "Number of genes in the extracted gff file:"
-    cat $OutDir/"$Strain"_total_ORF_RxLR.gff | grep -w 'gene' | wc -l
-  done
+    echo "Number of genes in the extracted gff file:" >> report.txt
+    cat $OutDir/"$Strain"_total_ORF_RxLR.gff | grep -w 'gene' | wc -l >> report.txt
+    echo "$Strain done"
+done
+```
+
 4.2.c Analysis of RxLR effectors - merger of Augustus / published genes with ORFs
 
 Intersection between the coodinates of putative RxLRs from gene models and ORFs were identified to determine the total number of RxLRs predicted in these genomes.
