@@ -2627,60 +2627,65 @@ H) From ORF gene models - Hmm evidence of CRN effectors
 
 A hmm model relating to crinkler domains was used to identify putative crinklers in ORF gene models. This was done with the following commands:
 
-for Proteome in $(ls gene_pred/ORF_finder/*/*/*.aa_cat.fa | grep -w -e 'P.cactorum' -e 'P.idaei' | grep -v -e 'atg' -e '10300' -e '414_v2' | grep -v -w -e '404' -e '414' -e '415' -e '416'); do
-# Setting variables
-Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
-mkdir -p $OutDir
-# Hmmer variables
-ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
-HmmDir=/home/groups/harrisonlab/project_files/idris/analysis/CRN_effectors/hmmer_models
-# Searches for LFLAK domain
-LFLAK_hmm=$HmmDir/Pinf_Pram_Psoj_Pcap_LFLAK.hmm
-HmmResultsLFLAK="$Strain"_ORF_CRN_LFLAK_unmerged_hmmer.txt
-hmmsearch -T 0 $LFLAK_hmm $Proteome > $OutDir/$HmmResultsLFLAK
-echo "Searching for LFLAK domains in: $Organism $Strain"
-cat $OutDir/$HmmResultsLFLAK | grep 'Initial search space'
-cat $OutDir/$HmmResultsLFLAK | grep 'number of targets reported over threshold'
-HmmFastaLFLAK="$Strain"_ORF_CRN_LFLAK_unmerged_hmmer.fa
-$ProgDir/hmmer2fasta.pl $OutDir/$HmmResultsLFLAK $Proteome > $OutDir/$HmmFastaLFLAK
-# Searches for DWL domain
-DWL_hmm=$HmmDir/Pinf_Pram_Psoj_Pcap_DWL.hmm
-HmmResultsDWL="$Strain"_ORF_CRN_DWL_unmerged_hmmer.txt
-hmmsearch -T 0 $DWL_hmm $Proteome > $OutDir/$HmmResultsDWL
-echo "Searching for DWL domains in: $Organism $Strain"
-cat $OutDir/$HmmResultsDWL | grep 'Initial search space'
-cat $OutDir/$HmmResultsDWL | grep 'number of targets reported over threshold'
-HmmFastaDWL="$Strain"_ORF_CRN_DWL_unmerged_hmmer.fa
-$ProgDir/hmmer2fasta.pl $OutDir/$HmmResultsDWL $Proteome > $OutDir/$HmmFastaDWL
-# Identify ORFs found by both models
-CommonHeaders=$OutDir/"$Strain"_ORF_CRN_DWL_LFLAK_unmerged_headers.txt
-cat $OutDir/$HmmFastaLFLAK $OutDir/$HmmFastaDWL | grep '>' | cut -f1 | tr -d '>' | sort | uniq -d > $CommonHeaders
-echo "The number of CRNs common to both models are:"
-cat $CommonHeaders | wc -l
-# The sequences will be merged based upon the strength of their DWL domain score
-# For this reason headers as they appear in the DWL fasta file were extracted
-Headers=$OutDir/"$Strain"_CRN_hmmer_unmerged_headers.txt
-cat $OutDir/$HmmFastaDWL | grep '>' | grep -w -f $CommonHeaders | tr -d '>' | sed -r 's/\s+/\t/g'| sed 's/=\t/=/g' | tr -d '-' | sed 's/hmm_score/HMM_score/g' > $Headers
-# As we are dealing with JGI and Broad sequences, some features need formatting:
-ORF_Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/*_ORF.gff3)
-# Gff features were extracted for each header
-CRN_unmerged_Gff=$OutDir/"$Strain"_CRN_unmerged_hmmer.gff3
-ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
-$ProgDir/extract_gff_for_sigP_hits.pl $Headers $ORF_Gff CRN_HMM Name > $CRN_unmerged_Gff
-# Gff features were merged based upon the DWL hmm score
-DbDir=analysis/databases/$Organism/$Strain
-mkdir -p $DbDir
-ProgDir=~/git_repos/emr_repos/scripts/phytophthora/pathogen/merge_gff
-$ProgDir/make_gff_database.py --inp $CRN_unmerged_Gff --db $DbDir/CRN_ORF.db
-CRN_Merged_Gff=$OutDir/"$Strain"_CRN_merged_hmmer.gff3
-ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
-$ProgDir/merge_sigP_ORFs.py --inp $DbDir/CRN_ORF.db --id LFLAK_DWL_CRN --out $DbDir/CRN_ORF_merged.db --gff > $CRN_Merged_Gff
-# Final results are reported:
-echo "Number of CRN ORFs after merging:"
-cat $CRN_Merged_Gff | grep 'gene' | wc -l
+```bash
+for Proteome in $(ls gene_pred/ORF_finder/*/*/*.aa_cat.fa)
+do
+    # Setting variables
+    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
+    mkdir -p $OutDir
+    # Hmmer variables
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+    HmmDir=/home/groups/harrisonlab/project_files/idris/analysis/CRN_effectors/hmmer_models
+    # Searches for LFLAK domain
+    LFLAK_hmm=$HmmDir/Pinf_Pram_Psoj_Pcap_LFLAK.hmm
+    HmmResultsLFLAK="$Strain"_ORF_CRN_LFLAK_unmerged_hmmer.txt
+    hmmsearch -T 0 $LFLAK_hmm $Proteome > $OutDir/$HmmResultsLFLAK
+    echo "Searching for LFLAK domains in: $Organism $Strain" >> report.txt
+    cat $OutDir/$HmmResultsLFLAK | grep 'Initial search space' >> report.txt
+    cat $OutDir/$HmmResultsLFLAK | grep 'number of targets reported over threshold' >> report.txt
+    HmmFastaLFLAK="$Strain"_ORF_CRN_LFLAK_unmerged_hmmer.fa
+    $ProgDir/hmmer2fasta.pl $OutDir/$HmmResultsLFLAK $Proteome > $OutDir/$HmmFastaLFLAK
+    # Searches for DWL domain
+    DWL_hmm=$HmmDir/Pinf_Pram_Psoj_Pcap_DWL.hmm
+    HmmResultsDWL="$Strain"_ORF_CRN_DWL_unmerged_hmmer.txt
+    hmmsearch -T 0 $DWL_hmm $Proteome > $OutDir/$HmmResultsDWL
+    echo "Searching for DWL domains in: $Organism $Strain" >> report.txt
+    cat $OutDir/$HmmResultsDWL | grep 'Initial search space' >> report.txt
+    cat $OutDir/$HmmResultsDWL | grep 'number of targets reported over threshold' >> report.txt
+    HmmFastaDWL="$Strain"_ORF_CRN_DWL_unmerged_hmmer.fa
+    $ProgDir/hmmer2fasta.pl $OutDir/$HmmResultsDWL $Proteome > $OutDir/$HmmFastaDWL
+    # Identify ORFs found by both models
+    CommonHeaders=$OutDir/"$Strain"_ORF_CRN_DWL_LFLAK_unmerged_headers.txt
+    cat $OutDir/$HmmFastaLFLAK $OutDir/$HmmFastaDWL | grep '>' | cut -f1 | tr -d '>' | sort | uniq -d > $CommonHeaders
+    echo "The number of CRNs common to both models are:" >> report.txt
+    cat $CommonHeaders | wc -l >> report.txt
+    # The sequences will be merged based upon the strength of their DWL domain score
+    # For this reason headers as they appear in the DWL fasta file were extracted
+    Headers=$OutDir/"$Strain"_CRN_hmmer_unmerged_headers.txt
+    cat $OutDir/$HmmFastaDWL | grep '>' | grep -w -f $CommonHeaders | tr -d '>' | sed -r 's/\s+/\t/g'| sed 's/=\t/=/g' | tr -d '-' | sed 's/hmm_score/HMM_score/g' > $Headers
+    # As we are dealing with JGI and Broad sequences, some features need formatting:
+    ORF_Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/*_ORF.gff3)
+    # Gff features were extracted for each header
+    CRN_unmerged_Gff=$OutDir/"$Strain"_CRN_unmerged_hmmer.gff3
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/extract_gff_for_sigP_hits.pl $Headers $ORF_Gff CRN_HMM Name > $CRN_unmerged_Gff
+    # Gff features were merged based upon the DWL hmm score
+    DbDir=analysis/databases/$Organism/$Strain
+    mkdir -p $DbDir
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
+    $ProgDir/make_gff_database.py --inp $CRN_unmerged_Gff --db $DbDir/CRN_ORF.db
+    CRN_Merged_Gff=$OutDir/"$Strain"_CRN_merged_hmmer.gff3
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/merge_sigP_ORFs.py --inp $DbDir/CRN_ORF.db --id LFLAK_DWL_CRN --out $DbDir/CRN_ORF_merged.db --gff > $CRN_Merged_Gff
+    # Final results are reported:
+    echo "Number of CRN ORFs after merging:" >> report.txt
+    cat $CRN_Merged_Gff | grep 'gene' | wc -l >> report.txt
+    echo "$Strain done"
 done
+```
+
 Searching for LFLAK domains in: P.cactorum 404
 Initial search space (Z):             487049  [actual number of targets]
 Domain search space  (domZ):             238  [number of targets reported over threshold]
