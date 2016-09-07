@@ -2477,50 +2477,152 @@ do
 done
 ```
 
-  P.cactorum - 404
-  The number of ORF RxLRs overlapping Augustus RxLRs:
-  129
-  The number of Augustus RxLRs overlapping ORF RxLRs:
-  129
-  The number of RxLRs unique to ORF models:
-  58
-  The number of RxLRs unique to Augustus models:
-  20
-  The total number of putative RxLRs are:
-  207
-  P.cactorum - 414
-  The number of ORF RxLRs overlapping Augustus RxLRs:
-  153
-  The number of Augustus RxLRs overlapping ORF RxLRs:
-  153
-  The number of RxLRs unique to ORF models:
-  62
-  The number of RxLRs unique to Augustus models:
-  20
-  The total number of putative RxLRs are:
-  235
-  P.cactorum - 415
-  The number of ORF RxLRs overlapping Augustus RxLRs:
-  134
-  The number of Augustus RxLRs overlapping ORF RxLRs:
-  134
-  The number of RxLRs unique to ORF models:
-  52
-  The number of RxLRs unique to Augustus models:
-  25
-  The total number of putative RxLRs are:
-  211
-  P.cactorum - 416
-  The number of ORF RxLRs overlapping Augustus RxLRs:
-  130
-  The number of Augustus RxLRs overlapping ORF RxLRs:
-  130
-  The number of RxLRs unique to ORF models:
-  55
-  The number of RxLRs unique to Augustus models:
-  25
-  The total number of putative RxLRs are:
-  210
+```
+P.fragariae - A4
+The number of ORF RxLRs overlapping Augustus RxLRs:
+194
+The number of Augustus RxLRs overlapping ORF RxLRs:
+194
+The number of RxLRs unique to ORF models:
+94
+The number of RxLRs unique to Augustus models:
+28
+The total number of putative RxLRs are:
+316
+The number of sequences extracted is
+316
+P.fragariae - Bc1
+The number of ORF RxLRs overlapping Augustus RxLRs:
+209
+The number of Augustus RxLRs overlapping ORF RxLRs:
+209
+The number of RxLRs unique to ORF models:
+79
+The number of RxLRs unique to Augustus models:
+30
+The total number of putative RxLRs are:
+318
+The number of sequences extracted is
+318
+P.fragariae - Bc16
+The number of ORF RxLRs overlapping Augustus RxLRs:
+231
+The number of Augustus RxLRs overlapping ORF RxLRs:
+231
+The number of RxLRs unique to ORF models:
+95
+The number of RxLRs unique to Augustus models:
+32
+The total number of putative RxLRs are:
+358
+The number of sequences extracted is
+358
+P.fragariae - Bc23
+The number of ORF RxLRs overlapping Augustus RxLRs:
+207
+The number of Augustus RxLRs overlapping ORF RxLRs:
+207
+The number of RxLRs unique to ORF models:
+85
+The number of RxLRs unique to Augustus models:
+30
+The total number of putative RxLRs are:
+322
+The number of sequences extracted is
+322
+P.fragariae - Nov27
+The number of ORF RxLRs overlapping Augustus RxLRs:
+204
+The number of Augustus RxLRs overlapping ORF RxLRs:
+204
+The number of RxLRs unique to ORF models:
+84
+The number of RxLRs unique to Augustus models:
+25
+The total number of putative RxLRs are:
+313
+The number of sequences extracted is
+313
+P.fragariae - Nov5
+The number of ORF RxLRs overlapping Augustus RxLRs:
+199
+The number of Augustus RxLRs overlapping ORF RxLRs:
+199
+The number of RxLRs unique to ORF models:
+88
+The number of RxLRs unique to Augustus models:
+24
+The total number of putative RxLRs are:
+311
+The number of sequences extracted is
+311
+P.fragariae - Nov71
+The number of ORF RxLRs overlapping Augustus RxLRs:
+207
+The number of Augustus RxLRs overlapping ORF RxLRs:
+207
+The number of RxLRs unique to ORF models:
+80
+The number of RxLRs unique to Augustus models:
+25
+The total number of putative RxLRs are:
+312
+The number of sequences extracted is
+312
+P.fragariae - Nov77
+The number of ORF RxLRs overlapping Augustus RxLRs:
+180
+The number of Augustus RxLRs overlapping ORF RxLRs:
+180
+The number of RxLRs unique to ORF models:
+94
+The number of RxLRs unique to Augustus models:
+29
+The total number of putative RxLRs are:
+303
+The number of sequences extracted is
+303
+P.fragariae - Nov9
+The number of ORF RxLRs overlapping Augustus RxLRs:
+204
+The number of Augustus RxLRs overlapping ORF RxLRs:
+204
+The number of RxLRs unique to ORF models:
+83
+The number of RxLRs unique to Augustus models:
+26
+The total number of putative RxLRs are:
+313
+The number of sequences extracted is
+313
+P.fragariae - ONT3
+The number of ORF RxLRs overlapping Augustus RxLRs:
+192
+The number of Augustus RxLRs overlapping ORF RxLRs:
+192
+The number of RxLRs unique to ORF models:
+103
+The number of RxLRs unique to Augustus models:
+26
+The total number of putative RxLRs are:
+321
+The number of sequences extracted is
+321
+P.fragariae - SCRP245_v2
+The number of ORF RxLRs overlapping Augustus RxLRs:
+201
+The number of Augustus RxLRs overlapping ORF RxLRs:
+201
+The number of RxLRs unique to ORF models:
+90
+The number of RxLRs unique to Augustus models:
+29
+The total number of putative RxLRs are:
+321
+The number of sequences extracted is
+321
+```
+
 H) From ORF gene models - Hmm evidence of CRN effectors
 
 A hmm model relating to crinkler domains was used to identify putative crinklers in ORF gene models. This was done with the following commands:
