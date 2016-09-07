@@ -90,8 +90,11 @@ Convert the Bc16 genome into circos format
 $ProgDir/fasta2circos.py --genome $Bc16_genome --contig_prefix "" > $OutDir/Bc16_genome.txt
 ```
 
-# Make 100kb windows for plots
-$ProgDir/fasta2gff_windows.py --genome $Fus2_genome > $OutDir/Fus2_100kb_windows.gff
+Make 100kb windows for plots
+
+```bash
+$ProgDir/fasta2gff_windows.py --genome $Bc16_genome > $OutDir/Bc16_100kb_windows.gff
+```
 
 # Convert FoC MiSeq reads aligning in 100kb windows into coverage stats
 for ReadsBam in $(ls analysis/genome_alignment/bowtie/N.*/*/*/R0905_contigs_unmasked.fa_aligned_sorted.bam); do
