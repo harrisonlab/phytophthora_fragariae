@@ -118,7 +118,7 @@ ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_c
 $ProgDir/gff2circos_scatterplot.py --gff $GffRxLR --feature gene --value 1 > $OutDir/Bc16_RxLR_plot.txt
 GffCRN=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.gff
 ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
-$ProgDir/gff2circos_scatterplot.py --gff $GffCRN --feature gene --value 1 > $OutDir/Bc16_CRN_plot.txt
+$ProgDir/gff2circos_scatterplot.py --gff $GffCRN --feature CDS --value 1 > $OutDir/Bc16_CRN_plot.txt
 ```
 
 ```bash
