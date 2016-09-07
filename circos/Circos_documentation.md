@@ -84,3 +84,14 @@ OutDir=circos
 mkdir -p $OutDir
 $ProgDir/fasta2gff_windows.py --genome $Genome > $OutDir/100kb_windows.gff
 ```
+
+Extract read coverage within every 100 kb window
+
+```bash
+for AlignDir in $(ls -d analysis/genome_alignment/bowtie/*/*/vs_Bc16_unmasked_max1200)
+do
+    AlignedReads=$AlignDir/95m_contigs_unmasked.fa_aligned_sorted.bam
+    Gff=circos/100kb_windows.gff
+    bedtools coverage -abam $AlignedReads -b $Gff > coverage_over_100kb_windows.bed
+done
+```
