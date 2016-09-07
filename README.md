@@ -2892,8 +2892,4 @@ The number of CRNs unique to Augustus models:
 The number of sequences extracted is
 155
 
-4. 2 Ananlysis of RxLR effectors
-
-Due to RxLR effectors being predicted from a number of sources the number of unique RxLRs were identified from motif and Hmm searches within gene models.
-
-Details on the commands run to identify this can be found within this repository in 10300_analysis/effector_charactisation.md -->
+Further downstrea analysis done in orthology_analysis.md
