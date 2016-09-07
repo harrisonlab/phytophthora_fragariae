@@ -78,16 +78,17 @@ done
 Sets up variables for Circos
 
 ```bash
-ProgDir=home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos/
 Bc16_genome=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa
 OutDir=analysis/circos/P.fragariae/Bc16
 mkdir -p $OutDir
 ```
 
+Convert the Fus2 genome into circos format
 
-
-# Convert the Fus2 genome into circos format
-$ProgDir/fasta2circos.py --genome $Fus2_genome --contig_prefix "" > $OutDir/Fus2_genome.txt
+```bash
+$ProgDir/fasta2circos.py --genome $Bc16_genome --contig_prefix "" > $OutDir/Bc16_genome.txt
+```
 
 # Make 100kb windows for plots
 $ProgDir/fasta2gff_windows.py --genome $Fus2_genome > $OutDir/Fus2_100kb_windows.gff
