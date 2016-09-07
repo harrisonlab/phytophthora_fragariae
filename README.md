@@ -2230,25 +2230,53 @@ do
 done
 ```
 
-  P.cactorum 404
-  Initial search space (Z):              55547  [actual number of targets]
-  Domain search space  (domZ):             417  [number of targets reported over threshold]
-  Merged RxLR-EER Hmm proteins: 129
-  P.cactorum 414
-  Initial search space (Z):              70912  [actual number of targets]
-  Domain search space  (domZ):             495  [number of targets reported over threshold]
-  Merged RxLR-EER Hmm proteins: 154
-  P.cactorum 415
-  Initial search space (Z):              60266  [actual number of targets]
-  Domain search space  (domZ):             421  [number of targets reported over threshold]
-  Merged RxLR-EER Hmm proteins: 129
-  P.cactorum 416
-  Initial search space (Z):              61712  [actual number of targets]
-  Domain search space  (domZ):             412  [number of targets reported over threshold]
-  Merged RxLR-EER Hmm proteins: 128
-P.cactorum 10300
-Initial search space (Z): 14767 [actual number of targets]
-Domain search space (domZ): 144 [number of targets reported over threshold]
+```
+P.fragariae A4
+Initial search space (Z):              74345  [actual number of targets]
+Domain search space  (domZ):             654  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   198
+P.fragariae Bc16
+Initial search space (Z):              92845  [actual number of targets]
+Domain search space  (domZ):             732  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   224
+P.fragariae Bc1
+Initial search space (Z):              75022  [actual number of targets]
+Domain search space  (domZ):             654  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   198
+P.fragariae Bc23
+Initial search space (Z):              73943  [actual number of targets]
+Domain search space  (domZ):             671  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   202
+P.fragariae Nov27
+Initial search space (Z):              74330  [actual number of targets]
+Domain search space  (domZ):             654  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   198
+P.fragariae Nov5
+Initial search space (Z):              74233  [actual number of targets]
+Domain search space  (domZ):             654  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   198
+P.fragariae Nov71
+Initial search space (Z):              74434  [actual number of targets]
+Domain search space  (domZ):             654  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   198
+P.fragariae Nov77
+Initial search space (Z):              74426  [actual number of targets]
+Domain search space  (domZ):             643  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   194
+P.fragariae Nov9
+Initial search space (Z):              75097  [actual number of targets]
+Domain search space  (domZ):             657  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   199
+P.fragariae ONT3
+Initial search space (Z):              86098  [actual number of targets]
+Domain search space  (domZ):             677  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   204
+P.fragariae SCRP245_v2
+Initial search space (Z):              78047  [actual number of targets]
+Domain search space  (domZ):             666  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   202
+```
+
 E7) Combining RxLRs from Regex and hmm searches
 
 The total RxLRs are
