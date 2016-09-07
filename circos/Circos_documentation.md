@@ -102,6 +102,8 @@ Convert the output .bed file into circos plot format
 ```bash
 for AlignDir in $(ls -d analysis/genome_alignment/bowtie/*/*/vs_Bc16_unmasked_max1200)
 do
-ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
-BedFile=$AlignDir/coverage_over_100kb_windows.bed
+    ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+    BedFile=$AlignDir/coverage_over_100kb_windows.bed
+    $ProgDir/coverage_bed2circos.py --bed $BedFile > $AlignDir/coverage_plot.txt
+done
 ```
