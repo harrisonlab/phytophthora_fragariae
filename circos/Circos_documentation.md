@@ -84,7 +84,7 @@ OutDir=analysis/circos/P.fragariae/Bc16
 mkdir -p $OutDir
 ```
 
-Convert the Fus2 genome into circos format
+Convert the Bc16 genome into circos format
 
 ```bash
 $ProgDir/fasta2circos.py --genome $Bc16_genome --contig_prefix "" > $OutDir/Bc16_genome.txt
