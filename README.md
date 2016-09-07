@@ -2155,9 +2155,42 @@ do
 done
 ```
 
-P.cactorum 10300
-Initial search space (Z): 14767 [actual number of targets]
-Domain search space (domZ): 113 [number of targets reported over threshold]
+```
+P.fragariae A4
+Initial search space (Z):              74345  [actual number of targets]
+Domain search space  (domZ):             389  [number of targets reported over threshold]
+P.fragariae Bc16
+Initial search space (Z):              92845  [actual number of targets]
+Domain search space  (domZ):             428  [number of targets reported over threshold]
+P.fragariae Bc1
+Initial search space (Z):              75022  [actual number of targets]
+Domain search space  (domZ):             386  [number of targets reported over threshold]
+P.fragariae Bc23
+Initial search space (Z):              73943  [actual number of targets]
+Domain search space  (domZ):             395  [number of targets reported over threshold]
+P.fragariae Nov27
+Initial search space (Z):              74330  [actual number of targets]
+Domain search space  (domZ):             389  [number of targets reported over threshold]
+P.fragariae Nov5
+Initial search space (Z):              74233  [actual number of targets]
+Domain search space  (domZ):             386  [number of targets reported over threshold]
+P.fragariae Nov71
+Initial search space (Z):              74434  [actual number of targets]
+Domain search space  (domZ):             389  [number of targets reported over threshold]
+P.fragariae Nov77
+Initial search space (Z):              74426  [actual number of targets]
+Domain search space  (domZ):             362  [number of targets reported over threshold]
+P.fragariae Nov9
+Initial search space (Z):              75097  [actual number of targets]
+Domain search space  (domZ):             389  [number of targets reported over threshold]
+P.fragariae ONT3
+Initial search space (Z):              86098  [actual number of targets]
+Domain search space  (domZ):             395  [number of targets reported over threshold]
+P.fragariae SCRP245_v2
+Initial search space (Z):              78047  [actual number of targets]
+Domain search space  (domZ):             377  [number of targets reported over threshold]
+```
+
 E6) From ORF gene models - Hmm evidence of RxLR effectors
 
 for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa | grep -w -e '414' | grep -v -w -e '404' -e '415' -e '416'); do
