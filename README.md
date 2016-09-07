@@ -2193,38 +2193,43 @@ Domain search space  (domZ):             377  [number of targets reported over t
 
 E6) From ORF gene models - Hmm evidence of RxLR effectors
 
-for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa | grep -w -e '414' | grep -v -w -e '404' -e '415' -e '416'); do
-ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
-HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
-Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
-Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
-OutDir=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain
-mkdir -p $OutDir
-HmmResults="$Strain"_ORF_RxLR_hmmer_unmerged.txt
-hmmsearch -T 0 $HmmModel $Secretome > $OutDir/$HmmResults
-echo "$Organism $Strain"
-cat $OutDir/$HmmResults | grep 'Initial search space'
-cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
-HmmFasta="$Strain"_ORF_RxLR_hmmer.fa
-$ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Secretome > $OutDir/$HmmFasta
-Headers="$Strain"_ORF_RxLR_hmmer_headers_unmerged.txt
-cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' > $OutDir/$Headers
-SigP_Gff=gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_unmerged.gff
-ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation
-$ProgDir/gene_list_to_gff.pl $OutDir/$Headers $SigP_Gff $HmmModel Name Augustus > $OutDir/"$Strain"_ORF_RxLR_hmmer_unmerged.gff3
-RxLR_Merged_Gff=$OutDir/"$Strain"_ORF_RxLR_hmm_merged.gff
-RxLR_Merged_txt=$OutDir/"$Strain"_ORF_RxLR_hmm_merged.txt
-RxLR_Merged_AA=$OutDir/"$Strain"_ORF_RxLR_hmm_merged.aa
-ProgDir=~/git_repos/emr_repos/scripts/phytophthora/pathogen/merge_gff
-$ProgDir/make_gff_database.py --inp $OutDir/"$Strain"_ORF_RxLR_hmmer_unmerged.gff3 --db sigP_ORF_RxLR_hmm.db
-ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/ORF_finder
-$ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR_hmm.db --id sigP_ORF_RxLR_hmm --out sigP_ORF_RxLR_hmm_merged.db --gff > $RxLR_Merged_Gff
-cat $RxLR_Merged_Gff | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
-ORF_fasta=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa)
-$ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
-printf "Merged RxLR-EER Hmm proteins:\t"
-cat $RxLR_Merged_AA | grep '>' | wc -l
+```bash
+for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
+do
+    ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
+    HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
+    Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    OutDir=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain
+    mkdir -p $OutDir
+    HmmResults="$Strain"_ORF_RxLR_hmmer_unmerged.txt
+    hmmsearch -T 0 $HmmModel $Secretome > $OutDir/$HmmResults
+    echo "$Organism $Strain" >> report.txt
+    cat $OutDir/$HmmResults | grep 'Initial search space' >> report.txt
+    cat $OutDir/$HmmResults | grep 'number of targets reported over threshold' >> report.txt
+    HmmFasta="$Strain"_ORF_RxLR_hmmer.fa
+    $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Secretome > $OutDir/$HmmFasta
+    Headers="$Strain"_ORF_RxLR_hmmer_headers_unmerged.txt
+    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' > $OutDir/$Headers
+    SigP_Gff=gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_unmerged.gff
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+    $ProgDir/gene_list_to_gff.pl $OutDir/$Headers $SigP_Gff $HmmModel Name Augustus > $OutDir/"$Strain"_ORF_RxLR_hmmer_unmerged.gff3
+    RxLR_Merged_Gff=$OutDir/"$Strain"_ORF_RxLR_hmm_merged.gff
+    RxLR_Merged_txt=$OutDir/"$Strain"_ORF_RxLR_hmm_merged.txt
+    RxLR_Merged_AA=$OutDir/"$Strain"_ORF_RxLR_hmm_merged.aa
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
+    $ProgDir/make_gff_database.py --inp $OutDir/"$Strain"_ORF_RxLR_hmmer_unmerged.gff3 --db sigP_ORF_RxLR_hmm.db
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR_hmm.db --id sigP_ORF_RxLR_hmm --out sigP_ORF_RxLR_hmm_merged.db --gff > $RxLR_Merged_Gff
+    cat $RxLR_Merged_Gff | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
+    ORF_fasta=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa)
+    $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
+    printf "Merged RxLR-EER Hmm proteins:\t" >> report.txt
+    cat $RxLR_Merged_AA | grep '>' | wc -l >> report.txt
+    echo "$Strain done"
 done
+```
+
   P.cactorum 404
   Initial search space (Z):              55547  [actual number of targets]
   Domain search space  (domZ):             417  [number of targets reported over threshold]
