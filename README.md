@@ -2971,4 +2971,4 @@ The number of sequences extracted is
 110
 ```
 
-Further downstrea analysis done in orthology_analysis.md
+Further downstream analysis done in orthology_analysis.md
