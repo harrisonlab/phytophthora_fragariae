@@ -1873,7 +1873,8 @@ do
     OutDir=analysis/phobius_ORF/$Organism/$Strain
     mkdir -p $OutDir
     phobius.pl $Proteome > $OutDir/"$Strain"_phobius_ORF.txt
-    cat $OutDir/"$Strain"_phobius_ORF.txt | grep -B1 'SIGNAL' | grep 'ID' | sed s'/ID.*g/g/g' > $OutDir/"$Strain"_phobius_headers_ORF.txt
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+    $ProgDir/phobius_parser.py --inp_fasta $Proteome --phobius_txt $OutDir/"$Strain"_phobius.txt --out_fasta $OutDir/"$Strain"_phobius.fa
 done
 ```
 
@@ -1888,8 +1889,7 @@ do
     OutDir=gene_pred/combined_sigP_ORF/$Organism/$Strain
     mkdir -p $OutDir
     echo "The following number of sequences were predicted as secreted:"
-    # cat gene_pred/ORF_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius/$Organism/$Strain/"$Strain"_phobius.fa > $OutDir/"$Strain"_all_secreted.fa
-    cat gene_pred/ORF_sig*/$Organism/$Strain/*_aug_sp.aa > $OutDir/"$Strain"_all_secreted.fa
+    cat gene_pred/ORF_sig*/$Organism/$Strain/*_aug_sp.aa analysis/phobius_ORF/$Organism/$Strain/"$Strain"_phobius.fa > $OutDir/"$Strain"_all_secreted.fa
     cat $OutDir/"$Strain"_all_secreted.fa | grep '>' | tr -d '>' | tr -d ' ' | sed "s/HMM_score\t/HMM_score=\t/g" > $OutDir/"$Strain"_all_secreted_headers.txt
     cat $OutDir/"$Strain"_all_secreted_headers.txt | wc -l
     echo "This represented the following number of unique genes:"
