@@ -1872,7 +1872,7 @@ do
     echo "$Organism - $Strain"
     OutDir=analysis/phobius_ORF/$Organism/$Strain
     mkdir -p $OutDir
-    phobius.pl $Proteome > $OutDir/"$Strain"_phobius_ORF.txt
+    phobius.pl $Proteome > $OutDir/"$Strain"_phobius.txt
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
     $ProgDir/phobius_parser.py --inp_fasta $Proteome --phobius_txt $OutDir/"$Strain"_phobius.txt --out_fasta $OutDir/"$Strain"_phobius.fa
 done
