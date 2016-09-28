@@ -124,14 +124,17 @@ orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 ```
 
-4.2 Filter proteins into good and poor sets.
+##4.2 Filter proteins into good and poor sets.
 
-  Input_dir=$WorkDir/formatted
-  Min_length=10
-  Max_percent_stops=20
-  Good_proteins_file=$WorkDir/goodProteins/goodProteins.fasta
-  Poor_proteins_file=$WorkDir/badProteins/poorProteins.fasta
-  orthomclFilterFasta $Input_dir $Min_length $Max_percent_stops $Good_proteins_file $Poor_proteins_file
+```bash
+Input_dir=$WorkDir/formatted
+Min_length=10
+Max_percent_stops=20
+Good_proteins_file=$WorkDir/goodProteins/goodProteins.fasta
+Poor_proteins_file=$WorkDir/badProteins/poorProteins.fasta
+orthomclFilterFasta $Input_dir $Min_length $Max_percent_stops $Good_proteins_file $Poor_proteins_file
+```
+
 4.3.a Perform an all-vs-all blast of the proteins
 
   BlastDB=$WorkDir/blastall/$IsolateAbrv.db
