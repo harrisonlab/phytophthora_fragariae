@@ -164,6 +164,8 @@ do
 done
 ```
 
+--progress here--
+
 4.3.b Merge the all-vs-all blast results
 
   MergeHits="$IsolateAbrv"_blast.tab
