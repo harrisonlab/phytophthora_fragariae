@@ -135,30 +135,35 @@ Poor_proteins_file=$WorkDir/badProteins/poorProteins.fasta
 orthomclFilterFasta $Input_dir $Min_length $Max_percent_stops $Good_proteins_file $Poor_proteins_file
 ```
 
-4.3.a Perform an all-vs-all blast of the proteins
+##4.3.a Perform an all-vs-all blast of the proteins
 
-  BlastDB=$WorkDir/blastall/$IsolateAbrv.db
+```bash
+BlastDB=$WorkDir/blastall/$IsolateAbrv.db
 
-  makeblastdb -in $Good_proteins_file -dbtype prot -out $BlastDB
-  BlastOut=$WorkDir/all-vs-all_results.tsv
-  mkdir -p $WorkDir/splitfiles
+makeblastdb -in $Good_proteins_file -dbtype prot -out $BlastDB
+BlastOut=$WorkDir/all-vs-all_results.tsv
+mkdir -p $WorkDir/splitfiles
 
-  SplitDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation/signal_peptides
-  $SplitDir/splitfile_500.py --inp_fasta $Good_proteins_file --out_dir $WorkDir/splitfiles --out_base goodProteins
+SplitDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+$SplitDir/splitfile_500.py --inp_fasta $Good_proteins_file --out_dir $WorkDir/splitfiles --out_base goodProteins
 
-  ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/orthology  
-  for File in $(find $WorkDir/splitfiles); do
+ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/orthology  
+for File in $(find $WorkDir/splitfiles)
+do
     Jobs=$(qstat | grep 'blast_500' | grep 'qw' | wc -l)
-    while [ $Jobs -gt 1 ]; do
-      sleep 3
-      printf "."
-      Jobs=$(qstat | grep 'blast_500' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 3
+        printf "."
+        Jobs=$(qstat | grep 'blast_500' | grep 'qw' | wc -l)
     done
     printf "\n"
     echo $File
     BlastOut=$(echo $File | sed 's/.fa/.tab/g')
     qsub $ProgDir/blast_500.sh $BlastDB $File $BlastOut
-  done
+done
+```
+
 4.3.b Merge the all-vs-all blast results
 
   MergeHits="$IsolateAbrv"_blast.tab
