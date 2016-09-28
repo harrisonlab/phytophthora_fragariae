@@ -14,73 +14,116 @@ mkdir -p $WorkDir/badProteins
 ##4.1 Format fasta files
 
 
-for FoC 125
+###for A4
 
-  Taxon_code=125
-  Fasta_file=$(ls gene_pred/final_genes/F.oxysporum_fsp_cepae/125/*/final_genes_combined.pep.fasta)
-  Id_field=1
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
-for FoC A23
+```bash
+Taxon_code=A4
+Fasta_file=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
 
-  Taxon_code=A23
-  Fasta_file=$(ls  gene_pred/final_genes/F.oxysporum_fsp_cepae/A23/*/final_genes_combined.pep.fasta)
-  Id_field=1
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
-for FoC Fus2
+###for BC-1
 
-  Taxon_code=Fus2
-  Fasta_file=$(ls gene_pred/final_genes/F.oxysporum_fsp_cepae/Fus2_canu_new/*/final_genes_combined.pep.fasta)
-  Id_field=1
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
-4.1.c Non-pathogenic isolates:
+```bash
+Taxon_code=Bc1
+Fasta_file=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
 
-for FoC A13
+###for BC-16
 
-  Taxon_code=A13
-  Fasta_file=$(ls gene_pred/final_genes/F.oxysporum_fsp_cepae/A13/*/final_genes_combined.pep.fasta)
-  Id_field=1
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
-for FoC A28
+```bash
+Taxon_code=Bc16
+Fasta_file=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
 
-  Taxon_code=A28
-  Fasta_file=$(ls gene_pred/final_genes/F.oxysporum_fsp_cepae/A28/*/final_genes_combined.pep.fasta)
-  Id_field=1
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
-for FoC CB3
+###for BC-23
 
-  Taxon_code=CB3
-  Fasta_file=$(ls gene_pred/final_genes/F.oxysporum_fsp_cepae/CB3/*/final_genes_combined.pep.fasta)
-  Id_field=1
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
-for FoC PG
+```bash
+Taxon_code=Bc23
+Fasta_file=gene_pred/codingquary/P.fragariae/Bc23/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
 
-  Taxon_code=PG
-  Fasta_file=$(ls gene_pred/final_genes/F.oxysporum_fsp_cepae/PG/*/final_genes_combined.pep.fasta)
-  Id_field=1
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
-for Fo Fo47
+###for NOV-27
 
-  Taxon_code=fo47
-  Fasta_file=$(ls assembly/external_group/F.oxysporum/fo47/broad/fusarium_oxysporum_fo47_1_proteins.fasta)
-  Id_field=1
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
-4.1.d Non-FoC isolates:
+```bash
+Taxon_code=Nov27
+Fasta_file=gene_pred/codingquary/P.fragariae/Nov27/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
 
-for FoL 4287
+###for NOV-5
 
-  Taxon_code=4287
-  Fasta_file=$(ls assembly/external_group/F.oxysporum_fsp_lycopersici/4287/Fusox1/Fusox1_GeneCatalog_proteins_20110522.aa.fasta)
-  Id_field=4
-  orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
-  mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```bash
+Taxon_code=Nov5
+Fasta_file=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+###for NOV-71
+
+```bash
+Taxon_code=Nov71
+Fasta_file=gene_pred/codingquary/P.fragariae/Nov71/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+###for NOV-77
+
+```bash
+Taxon_code=Nov77
+Fasta_file=gene_pred/codingquary/P.fragariae/Nov77/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+###for NOV-9
+
+```bash
+Taxon_code=Nov9
+Fasta_file=gene_pred/codingquary/P.fragariae/Nov9/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+###for ONT-3
+
+```bash
+Taxon_code=ONT3
+Fasta_file=gene_pred/codingquary/P.fragariae/ONT3/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+###for SCRP245_v2
+
+```bash
+Taxon_code=SCRP245_v2
+Fasta_file=gene_pred/codingquary/P.fragariae/SCRP245_v2/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
 4.2 Filter proteins into good and poor sets.
 
   Input_dir=$WorkDir/formatted
