@@ -1,16 +1,18 @@
-Methodology 4
+#Methodology 4 from Andy's files - run on A4, BC-1, BC-16, BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245_v2
 
-  ProjDir=/home/groups/harrisonlab/project_files/fusarium
-  cd $ProjDir
-  IsolateAbrv=FoC_vs_Fo_vs_FoL_publication
-  WorkDir=analysis/orthology/orthomcl/$IsolateAbrv
-  mkdir -p $WorkDir
-  mkdir -p $WorkDir/formatted
-  mkdir -p $WorkDir/goodProteins
-  mkdir -p $WorkDir/badProteins  
-4.1 Format fasta files
+```bash
+ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
+cd $ProjDir
+IsolateAbrv=All_Strains
+WorkDir=analysis/orthology/orthomcl/$IsolateAbrv
+mkdir -p $WorkDir
+mkdir -p $WorkDir/formatted
+mkdir -p $WorkDir/goodProteins
+mkdir -p $WorkDir/badProteins
+```
 
-4.1.a Pathogenic isolates:
+##4.1 Format fasta files
+
 
 for FoC 125
 
