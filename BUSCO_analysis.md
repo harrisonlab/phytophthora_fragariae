@@ -5,12 +5,22 @@ First stage of constructing a phylogenetic tree for StarBeast, this involves sel
 Setting variables
 
 ```bash
-input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/phylogeny
 scripts=/home/adamst/git_repos/scripts/popgen
 ```
 
 ##Process reference genomes
 
+###Copy gene prediction FASTAs to new directory
+
+```bash
+for CDS in $(ls gene_pred/codingquary/*/*/final/final_genes_combined.cdna.fasta)
+do
+    Strain=$(echo $BrakerGff | rev | cut -d '/' -f3 | rev)
+    mkdir -p phylogeny
+    cp $CDS phylogeny/"$Strain"_final_genes_combined.cdna.fasta
+done
+```
 
 ### Rename sequences in all FASTA files by prefixing with the species name:
 
