@@ -176,12 +176,15 @@ do
 done > $MergeHits
 ```
 
-4.4 Perform ortholog identification
+##4.4 Perform ortholog identification
 
-  ProgDir=~/git_repos/emr_repos/tools/pathogen/orthology/orthoMCL
-  MergeHits="$IsolateAbrv"_blast.tab
-  GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-  qsub $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
+```bash
+ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+MergeHits="$IsolateAbrv"_blast.tab
+GoodProts=$WorkDir/goodProteins/goodProteins.fasta
+qsub $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
+```
+
 4.5.a Manual identification of numbers of orthologous and unique genes
 
   for num in 1; do
