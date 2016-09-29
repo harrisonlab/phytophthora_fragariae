@@ -1,3 +1,7 @@
+#BUSCO analysis
+
+First stage of constructing a phylogenetic tree for StarBeast, this involves selecting a set of core genes from gene predictions.
+
 #!/bin/bash
 input=/home/sobczm/popgen/phylogenetics/clock/CDS_genomes
 scripts=/home/sobczm/bin/popgen/phylogenetics
