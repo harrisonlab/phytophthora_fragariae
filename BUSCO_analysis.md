@@ -25,17 +25,17 @@ done
 ### Rename sequences in all FASTA files by prefixing with the species name:
 
 ```bash
-sed -i -e 's/>/>P.fragariae_A4_/' Botrytis_cinerea.ASM83294v1.cds.all.fa
-sed -i -e 's/>/>P.fragariae_Bc1/' Fusarium_graminearum.RR.cds.all.fa
-sed -i -e 's/>/>P.fragariae_Bc16_/' Fusarium_oxysporum.FO2.cds.all.fa
-sed -i -e 's/>/>P.fragariae_Bc23_/' Magnaporthe_oryzae.MG8.cds.all.fa
-sed -i -e 's/>/>P.fragariae_Nov27_/' Neonectria_ditissima.R0905_v2.0.cds.all.fa
-sed -i -e 's/>/>P.fragariae_Nov5_/' Neurospora_crassa.NC12.cds.all.fa
-sed -i -e 's/>/>P.fragariae_Nov71_/' Podospora_anserina_s_mat_.ASM22654v1.cds.all.fa
-sed -i -e 's/>/>P.fragariae_Nov77_/' Sordaria_macrospora.ASM18280v2.cds.all.fa
-sed -i -e 's/>/>P.fragariae_Nov9_/' Trichoderma_reesei.GCA_000167675.2.cds.all.fa
-sed -i -e 's/>/>P.fragariae_ONT3_/' Verticillium_alfalfae_vams_102.ASM15082v1.cds.all.fa
-sed -i -e 's/>/>P.fragariae_SCRP25_v2_/' Verticillium_dahliae.ASM15067v2.cds.all.fa
+sed -i -e 's/>/>P.fragariae_A4_/' phylogeny/A4_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_Bc1/' phylogeny/Bc1_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_Bc16_/' phylogeny/Bc16_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_Bc23_/' phylogeny/Bc23_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_Nov27_/' phylogeny/Nov27_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_Nov5_/' phylogeny/Nov5_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_Nov71_/' phylogeny/Nov71_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_Nov77_/' phylogeny/Nov77_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_Nov9_/' phylogeny/Nov9_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_ONT3_/' phylogeny/ONT3_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_SCRP25_v2_/' phylogeny/SCRP245_v2_final_genes_combined.cdna.fasta
 ```
 
 ### Run BUSCO
