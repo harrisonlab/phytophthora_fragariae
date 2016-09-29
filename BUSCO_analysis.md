@@ -6,7 +6,7 @@ Setting variables
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/phylogeny
-scripts=/home/adamst/git_repos/scripts/popgen
+scripts=/home/adamst/git_repos/scripts/popgen/phylogenetics
 ```
 
 ##Process reference genomes
@@ -39,10 +39,13 @@ sed -i -e 's/>/>P.fragariae_SCRP25_v2_/' phylogeny/SCRP245_v2_final_genes_combin
 ```
 
 ### Run BUSCO
-for a in *.fa
+
+```bash
+for CDS in phylogeny/*.fasta
 do
-qsub $scripts/sub_BUSCO_fungi.sh $input/$a
+    qsub $scripts/sub_BUSCO_fungi.sh $input/$CDS
 done
+```
 
 ## Find the intersect of single-copy, complete genes
 ### Create a list of all fungal BUSCO IDs
