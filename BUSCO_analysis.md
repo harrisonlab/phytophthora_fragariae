@@ -16,7 +16,7 @@ scripts=/home/adamst/git_repos/scripts/popgen
 ```bash
 for CDS in $(ls gene_pred/codingquary/*/*/final/final_genes_combined.cdna.fasta)
 do
-    Strain=$(echo $BrakerGff | rev | cut -d '/' -f3 | rev)
+    Strain=$(echo $CDS | rev | cut -d '/' -f3 | rev)
     mkdir -p phylogeny
     cp $CDS phylogeny/"$Strain"_final_genes_combined.cdna.fasta
 done
