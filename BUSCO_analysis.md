@@ -44,7 +44,7 @@ sed -i -e 's/>/>P.fragariae_SCRP25_v2_/' phylogeny/SCRP245_v2_final_genes_combin
 for CDS in $input/*.fasta
 do
     echo $CDS
-    qsub $scripts/sub_BUSCO.sh $CDS
+    qsub $scripts/sub_BUSCO.sh $CDS Eukaryotic
 done
 ```
 
