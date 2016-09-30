@@ -59,7 +59,7 @@ popd
 
 ### Iteratively find the intersect of IDs of all 'complete' BUSCO genes present in the runs in the current directory
 
-#!/bin/bash
+```bash
 cat all_buscos_fungi >temp_ref
 for d in $PWD/run*
 do
@@ -72,6 +72,7 @@ do
         echo "There is no full_table result in $d."
     fi
 done
+```
 
 ## Create FASTA files with separate alignment input for each of the shared BUSCO genes
 cat final_list_ssc >align_input_list.txt
