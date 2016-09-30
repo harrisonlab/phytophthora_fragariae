@@ -5,7 +5,8 @@ path=/home/groups/harrisonlab/project_files/phytophthora_fragariae/phylogeny
 scripts=/home/adamst/git_repos/scripts/popgen/phylogenetics
 ```
 
-##MAFFT (make alignments)
+#Make MAFFT alignments
+
 cd $path
 mkdir busco_alignments
 mv *.fasta $path/busco_alignments
