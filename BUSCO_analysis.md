@@ -52,15 +52,15 @@ done
 ### Create a list of all fungal BUSCO IDs
 
 ```bash
-pushd /home/sobczm/bin/BUSCO_v1.22/fungi/hmms
-ls -1 | sed -e 's/\..*$//' >$input/all_buscos_fungi
+pushd /home/sobczm/bin/BUSCO_v1.22/eukaryota/hmms
+ls -1 | sed -e 's/\..*$//' >$input/all_buscos_eukaryota
 popd
 ```
 
 ### Iteratively find the intersect of IDs of all 'complete' BUSCO genes present in the runs in the current directory
 
 ```bash
-cat all_buscos_fungi >temp_ref
+cat all_buscos_eukaryota >temp_ref
 for d in $PWD/run*
 do
     if test -n "$(find $d -maxdepth 1 -name 'full_table*' -print -quit)"
