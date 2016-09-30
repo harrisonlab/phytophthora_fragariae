@@ -51,10 +51,11 @@ done
 ## Find the intersect of single-copy, complete genes
 ### Create a list of all fungal BUSCO IDs
 
+```bash
 pushd /home/sobczm/bin/BUSCO_v1.22/fungi/hmms
-ls -1 | sed -e 's/\..*$//' >../all_buscos_fungi
-cp ../all_buscos_fungi $input
+ls -1 | sed -e 's/\..*$//' >$input/all_buscos_fungi
 popd
+```
 
 ### Iteratively find the intersect of IDs of all 'complete' BUSCO genes present in the runs in the current directory
 
