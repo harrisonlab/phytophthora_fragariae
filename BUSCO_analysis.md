@@ -75,5 +75,8 @@ done
 ```
 
 ## Create FASTA files with separate alignment input for each of the shared BUSCO genes
+
+```bash
 cat final_list_ssc >align_input_list.txt
 perl $scripts/get_alignments.pl
+```
