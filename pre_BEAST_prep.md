@@ -7,12 +7,14 @@ scripts=/home/adamst/git_repos/scripts/popgen/phylogenetics
 
 #Make MAFFT alignments
 
+```bash
 cd $path
 mkdir busco_alignments
 mv *.fasta $path/busco_alignments
 cd $path/busco_alignments
 
 qsub $scripts/sub_mafft_alignment.sh $f
+```
 
 #As this species quite diverged and nucleotide diversity high (0.1<Pi<0.4),
 #looking for genes with the lowest number of segregating sites.
