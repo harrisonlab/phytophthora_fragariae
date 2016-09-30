@@ -43,7 +43,8 @@ sed -i -e 's/>/>P.fragariae_SCRP25_v2_/' phylogeny/SCRP245_v2_final_genes_combin
 ```bash
 for CDS in $input/*.fasta
 do
-    qsub $scripts/sub_BUSCO_fungi.sh $input/$CDS
+    echo $CDS
+    qsub $scripts/sub_BUSCO_fungi.sh $CDS
 done
 ```
 
