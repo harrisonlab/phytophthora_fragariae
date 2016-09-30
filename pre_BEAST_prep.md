@@ -1,7 +1,9 @@
 #Preparing alignments and finding best-fit nucleotide sequence evolution models
 
-path=/home/sobczm/popgen/phylogenetics/clock/CDS_genomes
-scripts=/home/sobczm/bin/popgen/phylogenetics
+```bash
+path=/home/groups/harrisonlab/project_files/phytophthora_fragariae/phylogeny
+scripts=/home/adamst/git_repos/scripts/popgen/phylogenetics
+```
 
 ##MAFFT (make alignments)
 cd $path
