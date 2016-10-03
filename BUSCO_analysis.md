@@ -48,7 +48,7 @@ do
 done
 ```
 
-## Find the intersect of single-copy, complete genes
+## Find the intersect of single-copy, complete genes across all the genomes being analysed.
 ### Create a list of all fungal BUSCO IDs
 
 ```bash
@@ -74,7 +74,8 @@ do
 done
 ```
 
-## Create FASTA files with separate alignment input for each of the shared BUSCO genes
+## Create FASTA files with separate alignment input for each of the shared BUSCO genes.
+# This command should generate a separate FASTA file for each BUSCO complete single copy gene conserved across all your genomes analysed. You use those files as input to be aligned by MAFFT in the next step.
 
 ```bash
 cat final_list_ssc >align_input_list.txt
