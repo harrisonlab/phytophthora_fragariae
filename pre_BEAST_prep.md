@@ -13,7 +13,7 @@ mkdir busco_alignments
 mv BUSCO*.fasta $path/busco_alignments
 cd $path/busco_alignments
 
-qsub $scripts/sub_mafft_alignment.sh $f
+qsub $scripts/sub_mafft_alignment.sh 
 ```
 
 #As this species quite diverged and nucleotide diversity high (0.1<Pi<0.4),
