@@ -10,7 +10,7 @@ scripts=/home/adamst/git_repos/scripts/popgen/phylogenetics
 ```bash
 cd $path
 mkdir busco_alignments
-mv *.fasta $path/busco_alignments
+mv BUSCO*.fasta $path/busco_alignments
 cd $path/busco_alignments
 
 qsub $scripts/sub_mafft_alignment.sh $f
