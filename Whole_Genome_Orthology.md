@@ -182,7 +182,7 @@ done > $MergeHits
 ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
 MergeHits="$IsolateAbrv"_blast.tab
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-qsub $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
+qsub $ProgDir/qsub_orthomcl2.sh $MergeHits $GoodProts 5
 ```
 
 4.5.a Manual identification of numbers of orthologous and unique genes
