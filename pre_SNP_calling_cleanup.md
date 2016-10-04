@@ -5,29 +5,93 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/gen
 scripts=/home/adamst/git_repos/scripts/popgen
 ```
 
-### Rename input mapping files in each folder by prefixing with the strain ID
-cd $input/125/
-for filename in *; do mv "$filename" "125_$filename"; done;
-cd $input/55/
-for filename in *; do mv "$filename" "55_$filename"; done;
-cd $input/A1-2/
-for filename in *; do mv "$filename" "A1-2_$filename"; done;
-cd $input/A13/
-for filename in *; do mv "$filename" "A13_$filename"; done;
-cd $input/A23/
-for filename in *; do mv "$filename" "A23_$filename"; done;
-cd $input/A28/
-for filename in *; do mv "$filename" "A28_$filename"; done;
-cd $input/CB3/
-for filename in *; do mv "$filename" "CB3_$filename"; done;
-cd $input/D2/
-for filename in *; do mv "$filename" "D2_$filename"; done;
-cd $input/Fus2/
-for filename in *; do mv "$filename" "Fus2_$filename"; done;
-cd $input/HB6/
-for filename in *; do mv "$filename" "HB6_$filename"; done;
-cd $input/PG/
-for filename in *; do mv "$filename" "PG_$filename"; done;
+## Rename input mapping files in each folder by prefixing with the strain ID
+
+```bash
+cd $input/*/A4/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "A4_$filename"
+done
+
+cd $input/*/Bc1/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "Bc1_$filename"
+done
+
+cd $input/*/Bc16/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "Bc16_$filename"
+done
+
+cd $input/*/Bc23/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "Bc23_$filename"
+done
+
+cd $input/*/Nov27/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "Nov27_$filename"
+done
+
+cd $input/*/Nov5/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "Nov5_$filename"
+done
+
+cd $input/*/Nov71/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "Nov71_$filename"
+done
+
+cd $input/*/Nov77/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "Nov77_$filename"
+done
+
+cd $input/*/Nov9/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "Nov9_$filename"
+done
+
+cd $input/*/ONT3/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "ONT3_$filename"
+done
+
+cd $input/*/SCRP245_v2/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "SCRP245_v2_$filename"
+done
+
+cd $input/*/SCRP249/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "SCRP249_$filename"
+done
+
+cd $input/*/SCRP324/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "SCRP324_$filename"
+done
+
+cd $input/*/SCRP333/vs_Bc16_unmasked_max1200
+for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+do
+    mv "$filename" "SCRP333_$filename"
+done
+```
 
 ### Remove multimapping reads, discordant reads. PCR and optical duplicates, and
 ### add read group and sample name to each mapped read (preferably, the shortest ID possible)
