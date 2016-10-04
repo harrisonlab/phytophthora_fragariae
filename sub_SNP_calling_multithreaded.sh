@@ -26,7 +26,7 @@ gatk=/home/sobczm/bin/GenomeAnalysisTK-3.6
 java -jar $gatk/GenomeAnalysisTK.jar \
      -R $input/$reference \
      -T HaplotypeCaller \
-     -ploidy 1 \
+     -ploidy 2 \
      -nct 6 \
      --allow_potentially_misencoded_quality_scores \
      -I $input/125/125_Fus2_canu_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
