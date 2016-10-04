@@ -2,92 +2,92 @@
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/genome_alignment/bowtie
-scripts=/home/adamst/git_repos/scripts/popgen
+scripts=/home/adamst/git_repos/scripts/popgen/snp
 ```
 
 ## Rename input mapping files in each folder by prefixing with the strain ID
 
 ```bash
 cd $input/*/A4/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "A4_$filename"
 done
 
 cd $input/*/Bc1/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Bc1_$filename"
 done
 
 cd $input/*/Bc16/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Bc16_$filename"
 done
 
 cd $input/*/Bc23/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Bc23_$filename"
 done
 
 cd $input/*/Nov27/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Nov27_$filename"
 done
 
 cd $input/*/Nov5/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Nov5_$filename"
 done
 
 cd $input/*/Nov71/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Nov71_$filename"
 done
 
 cd $input/*/Nov77/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Nov77_$filename"
 done
 
 cd $input/*/Nov9/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Nov9_$filename"
 done
 
 cd $input/*/ONT3/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "ONT3_$filename"
 done
 
 cd $input/*/SCRP245_v2/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "SCRP245_v2_$filename"
 done
 
 cd $input/*/SCRP249/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "SCRP249_$filename"
 done
 
 cd $input/*/SCRP324/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "SCRP324_$filename"
 done
 
 cd $input/*/SCRP333/vs_Bc16_unmasked_max1200
-for filename in 95m_contigs_unmasked.fa_aligned_sorted.bam
+for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "SCRP333_$filename"
 done
