@@ -13,16 +13,18 @@ mkdir busco_alignments
 mv BUSCO*.fasta $path/busco_alignments
 cd $path/busco_alignments
 
-qsub $scripts/sub_mafft_alignment.sh 
+qsub $scripts/sub_mafft_alignment.sh
 ```
 
 ## For closely related organisms (same species): identify genes with high nucleotide diversity and average number of pairwise differences, medium number of segregating sites
 ## (avoid alignments with low homology and lots of phylogenetically uninformative singletons).
 
+```bash
 python $scripts/calculate_nucleotide_diversity.py "*aligned.fasta"
 
 mkdir -p $path/beast_runs/results
 mv sequence_stats.txt excel_stats.txt $path/beast_runs/results
+```
 
 ## Copy FASTA files of the candidate genes for the phylogeny into
 mkdir -p $path/beast_runs/candidates
