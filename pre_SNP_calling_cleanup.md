@@ -98,15 +98,18 @@ Convention used:
 qsub $scripts/sub_pre_snp_calling.sh <INPUT SAM FILE> <SAMPLE_ID>
 
 ```bash
-qsub $scripts/sub_pre_snp_calling.sh $input/125/125_Fus2_canu_contigs_unmasked.fa_aligned.sam FOC125
-qsub $scripts/sub_pre_snp_calling.sh $input/55/55_Fus2_canu_contigs_unmasked.fa_aligned.sam FOC55
-qsub $scripts/sub_pre_snp_calling.sh $input/A1-2/A1-2_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCA1-2
-qsub $scripts/sub_pre_snp_calling.sh $input/A13/A13_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCA13
-qsub $scripts/sub_pre_snp_calling.sh $input/A23/A23_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCA23
-qsub $scripts/sub_pre_snp_calling.sh $input/A28/A28_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCA28
-qsub $scripts/sub_pre_snp_calling.sh $input/CB3/CB3_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCCB3
-qsub $scripts/sub_pre_snp_calling.sh $input/D2/D2_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCD2
-qsub $scripts/sub_pre_snp_calling.sh $input/Fus2/Fus2_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCFus2
-qsub $scripts/sub_pre_snp_calling.sh $input/HB6/HB6_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCHB6
-qsub $scripts/sub_pre_snp_calling.sh $input/PG/PG_Fus2_canu_contigs_unmasked.fa_aligned.sam FOCPG
+qsub $scripts/sub_pre_snp_calling.sh $input/*/A4/A4_95m_contigs_unmasked.fa_aligned.sam A4
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc1/Bc1_95m_contigs_unmasked.fa_aligned.sam Bc1
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc16/Bc16_95m_contigs_unmasked.fa_aligned.sam Bc16
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc23/Bc23_95m_contigs_unmasked.fa_aligned.sam Bc23
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov27/Nov27_95m_contigs_unmasked.fa_aligned.sam Nov27
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov5/Nov5_95m_contigs_unmasked.fa_aligned.sam Nov5
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov71/Nov71_95m_contigs_unmasked.fa_aligned.sam Nov71
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov77/Nov77_95m_contigs_unmasked.fa_aligned.sam Nov77
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov9/Nov9_95m_contigs_unmasked.fa_aligned.sam Nov9
+qsub $scripts/sub_pre_snp_calling.sh $input/*/ONT3/ONT3_95m_contigs_unmasked.fa_aligned.sam ONT3
+qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP245_v2/SCRP245_v2_95m_contigs_unmasked.fa_aligned.sam SCRP245_v2
+qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP249/SCRP249_95m_contigs_unmasked.fa_aligned.sam SCRP249
+qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP324/SCRP324_95m_contigs_unmasked.fa_aligned.sam SCRP324
+qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP333/SCRP333_95m_contigs_unmasked.fa_aligned.sam SCRP333
 ```
