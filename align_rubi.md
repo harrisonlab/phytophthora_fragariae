@@ -1,8 +1,9 @@
 #Aligns P. rubi reads to the BC-16 PacBio sequenced genome for downstream phylogenetic analysis
 
 ```bash
+cp -r /home/groups/harrisonlab/project_files/phytophthora_rubi/qc_dna rubi_reads
 Reference=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa
-for StrainPath in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_rubi/qc_dna/paired/P.rubi/*)
+for StrainPath in $(ls -d rubi_reads/paired/P.rubi/*)
 do
     Organism=$(echo $StrainPath | rev | cut -f2 -d '/' | rev)
     Strain=$(echo $StrainPath | rev | cut -f1 -d '/' | rev)
@@ -15,4 +16,10 @@ do
     ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie.sh $Reference $F_Read $R_Read $OutDir $Strain
 done
+```
+
+##After jobs are completed remove rubi reads
+
+```bash
+rm -r rubi_reads
 ```
