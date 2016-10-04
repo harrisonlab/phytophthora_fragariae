@@ -1,7 +1,9 @@
 #Sets up correct formatting for SNP calling analysis
 
-input=/home/sobczm/popgen/input/mappings
-scripts=/home/sobczm/bin/popgen/snp
+```bash
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/genome_alignment/bowtie
+scripts=/home/adamst/git_repos/scripts/popgen
+```
 
 ### Rename input mapping files in each folder by prefixing with the strain ID
 cd $input/125/
