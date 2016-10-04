@@ -20,7 +20,7 @@ do
     mv "$filename" "Bc1_$filename"
 done
 
-cd $input/*/Bc16/vs_Bc16_unmasked_max1200
+cd $input/*/Bc16/vs_Bc16_unmasked_max1200_pacbio
 for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Bc16_$filename"
