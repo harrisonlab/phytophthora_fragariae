@@ -10,8 +10,10 @@ output="${filename%.*}.dict"
 ```
 
 ##Prepare genome reference indexes required by GATK
+```bash
 java -jar /home/sobczm/bin/picard-tools-2.5.0/picard.jar CreateSequenceDictionary R=$input/$reference O=$input/$output
 samtools faidx $input/$reference
+```
 
 #Move to the directory where the output of SNP calling should be placed
 mkdir -p /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling
