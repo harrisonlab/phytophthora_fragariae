@@ -16,8 +16,10 @@ samtools faidx $input/$reference
 ```
 
 #Move to the directory where the output of SNP calling should be placed
+```bash
 mkdir -p /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling
+```
 
 #Start SNP calling with GATK
 #The submission script required need to be custom-prepared for each analysis, depending on what samples are being analysed.
