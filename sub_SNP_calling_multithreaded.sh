@@ -14,8 +14,8 @@
 # read group added) are to be used in SNP calling, use the -I argument with full path to each file following after that.
 # Each new BAM file has to be specified after a separate -I
 
-input=/home/sobczm/popgen/input/mappings
-reference=Fus2_canu_contigs_unmasked.fa
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/genome_alignment/bowtie
+reference=95m_contigs_unmasked.fa
 
 filename=$(basename "$reference")
 output="${filename%.*}_temp.vcf"
