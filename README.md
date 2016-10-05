@@ -206,16 +206,44 @@ Bc1: 1,196,301,136
 Nov9: 959,591,302
 Nov71: 810,779,109 **
 
+##Calculate coverage using the count_nucl.pl script
+
+###For one library
+
+```bash
+for DataDir in $(ls -d qc_dna/paired/P.fragariae/* | grep -v 'Nov71' | grep -v 'Bc1' | grep -v 'Nov9' | grep -v 'Bc16' | grep -v '62471')
+do
+    F_Read=$(ls $DataDir/F/*.gz)
+    R_Read=$(ls $DataDir/R/*.gz)
+    Strain=$(echo $DataDir | rev | cut -f1 -d '/' | rev)
+    Organism=$(echo $DataDir | rev | cut -f2 -d '/' | rev)
+    WorkDir=tmp_dir/$Strain
+    mkdir -p $WorkDir
+    cp -r $F_Read $WorkDir
+    cp -r $R_Read $WorkDir
+    cd $WorkDir
+    Read1=*R1*
+    Read2=*R2*
+    gunzip $Read1
+    gunzip $Read2
+    Sub1=*R1*.fq
+    Sub2=*R2*.fq
+    echo "$Organism - $Strain"
+    count_nucl.pl -i $Sub1 -i $Sub2 -g 96
+    cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+done
+```
+
 ** Esimated Coverage is:
-A4: 23
-SCRP245_v2: 23
-Bc23: 24
-Nov5: 25
-Nov77: 30
-ONT3: 26
+A4: 35.91
+SCRP245_v2: 51.47
+Bc23: 49.33
+Nov5: 40.21
+Nov77: 46.29
+ONT3: 45.18
 Bc16: 41
 62471: 5 (38)
-Nov27: 31
+Nov27: 52.27
 Bc1: 5 (70)
 Nov9: 5 (55)
 Nov71: 5 (41) **
