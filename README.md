@@ -280,11 +280,10 @@ Nov5: 40.21
 Nov77: 46.29
 ONT3: 45.18
 Bc16: 41
-62471: 5 (38)
 Nov27: 52.27
 Bc1: 5 (70)
 Nov9: 5 (55)
-Nov71: 5 (41) **
+Nov71: 79.92 **
 
 Target coverage is 20.
 The ones at value 5 are errors from filtering of error kmers, estimate from plots follow in ().
