@@ -37,6 +37,6 @@ do
     echo $F_Read
     OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_unmasked_max1200_pacbio
     ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
-    qsub $ProgDir/bowtie/sub_bowtie_single.sh $Reference $F_Read $OutDir $Strain
+    qsub $ProgDir/bowtie/sub_bowtie_unpaired.sh $Reference $F_Read $OutDir $Strain
 done
 ```
