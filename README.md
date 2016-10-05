@@ -264,8 +264,10 @@ do
     Sub2=PfragN*R2*.fq
     Sub3=Pfrag-*R1*.fq
     Sub4=Pfrag-*R2*.fq
+    cat $Sub1 $Sub3 > Forward.fq
+    cat $Sub2 $Sub4 > Reverse.fq
     echo "$Organism - $Strain"
-    count_nucl.pl -i $Sub1 -i $Sub2 -i $Sub3 -i $Sub4 -g 96
+    count_nucl.pl -i Forward.fq -i Reverse.fq -g 96
     cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 done
 ```
