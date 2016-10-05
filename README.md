@@ -272,7 +272,7 @@ do
 done
 ```
 
-###For three libraries
+###For three libraries - NOV-9
 
 ```bash
 for DataDir in $(ls -d qc_dna/paired/P.fragariae/* | grep -e 'Nov9')
@@ -312,6 +312,54 @@ do
     Sub4=Pfrag-*R2*.fq
     Sub5=PfragN*R1*.fq
     Sub6=PfragN*R2*.fq
+    cat $Sub1 $Sub3 $Sub5 > Forward.fq
+    cat $Sub2 $Sub4 $Sub6 > Reverse.fq
+    echo "$Organism - $Strain"
+    count_nucl.pl -i Forward.fq -i Reverse.fq -g 96
+    cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+done
+```
+
+###For three libraries - BC-1
+
+```bash
+for DataDir in $(ls -d qc_dna/paired/P.fragariae/* | grep -e 'Bc1')
+do
+    F_Read1=$(ls $DataDir/F/Bc1*.gz)
+    R_Read1=$(ls $DataDir/R/Bc1*.gz)
+    F_Read2=$(ls $DataDir/F/Pfrag*S1*.gz)
+    R_Read2=$(ls $DataDir/R/Pfrag*S1*.gz)
+    F_Read3=$(ls $DataDir/F/*S3*.gz)
+    R_Read3=$(ls $DataDir/R/*S3*.gz)
+    Strain=$(echo $DataDir | rev | cut -f1 -d '/' | rev)
+    Organism=$(echo $DataDir | rev | cut -f2 -d '/' | rev)
+    WorkDir=tmp_dir/$Strain
+    mkdir -p $WorkDir
+    cp -r $F_Read1 $WorkDir
+    cp -r $R_Read1 $WorkDir
+    cp -r $F_Read2 $WorkDir
+    cp -r $R_Read2 $WorkDir
+    cp -r $F_Read3 $WorkDir
+    cp -r $R_Read3 $WorkDir
+    cd $WorkDir
+    Read1=Bc1*R1*
+    Read2=Bc1*R2*
+    Read3=Pfrag*S1*R1*
+    Read4=Pfrag*S1*R2*
+    Read5=*S3*R1*
+    Read6=*S3*R2*
+    gunzip $Read1
+    gunzip $Read2
+    gunzip $Read3
+    gunzip $Read4
+    gunzip $Read5
+    gunzip $Read6
+    Sub1=Bc1*R1*.fq
+    Sub2=Bc1*R2*.fq
+    Sub3=Pfrag*S1*R1*.fq
+    Sub4=Pfrag*S1*R2*.fq
+    Sub5=*S3*R1*.fq
+    Sub6=*S3*R2*.fq
     cat $Sub1 $Sub3 $Sub5 > Forward.fq
     cat $Sub2 $Sub4 $Sub6 > Reverse.fq
     echo "$Organism - $Strain"
