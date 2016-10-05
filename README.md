@@ -2971,4 +2971,17 @@ The number of sequences extracted is
 110
 ```
 
+#Functional annotation
+
+##A)Interproscan
+Interproscan was used to give gene models functional annotations.
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
+for Genes in $(ls gene_pred/codingquary/P.fragariae/*/final/final_genes_combined.gene.fasta)
+do
+    $ProgDir/sub_interproscan.sh $Genes
+done
+```
+
 Further downstream analysis done in orthology_analysis.md
