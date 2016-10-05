@@ -234,6 +234,42 @@ do
 done
 ```
 
+###For two libraries
+
+```bash
+for DataDir in $(ls -d qc_dna/paired/P.fragariae/* | grep -e 'Nov71')
+do
+    F_Read1=$(ls $DataDir/F/Pfrag-Nov71*.gz)
+    R_Read1=$(ls $DataDir/R/Pfrag-Nov71*.gz)
+    F_Read2=$(ls $DataDir/F/PfragNov71*.gz)
+    R_Read2=$(ls $DataDir/R/PfragNov71*.gz)
+    Strain=$(echo $DataDir | rev | cut -f1 -d '/' | rev)
+    Organism=$(echo $DataDir | rev | cut -f2 -d '/' | rev)
+    WorkDir=tmp_dir/$Strain
+    mkdir -p $WorkDir
+    cp -r $F_Read1 $WorkDir
+    cp -r $R_Read1 $WorkDir
+    cp -r $F_Read2 $WorkDir
+    cp -r $R_Read2 $WorkDir
+    cd $WorkDir
+    Read1=PfragN*R1*
+    Read2=PfragN*R2*
+    Read3=Pfrag-*R1*
+    Read4=Pfrag-*R2*
+    gunzip $Read1
+    gunzip $Read2
+    gunzip $Read3
+    gunzip $Read4
+    Sub1=PfragN*R1*.fq
+    Sub2=PfragN*R2*.fq
+    Sub3=Pfrag-*R1*.fq
+    Sub4=Pfrag-*R2*.fq
+    echo "$Organism - $Strain"
+    count_nucl.pl -i $Sub1 -i $Sub2 -i $Sub3 -i $Sub4 -g 96
+    cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+done
+```
+
 ** Esimated Coverage is:
 A4: 35.91
 SCRP245_v2: 51.47
