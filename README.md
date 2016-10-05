@@ -368,6 +368,12 @@ do
 done
 ```
 
+###For PacBio data
+
+```bash
+count_nucl.pl -i raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio.fastq -g 96
+```
+
 ** Esimated Coverage is:
 A4: 35.91
 SCRP245_v2: 51.47
@@ -378,7 +384,7 @@ ONT3: 45.18
 Bc16: 41
 Nov27: 52.27
 Bc1: 5 (70)
-Nov9: 5 (55)
+Nov9: 103.23
 Nov71: 79.92 **
 
 Target coverage is 20.
