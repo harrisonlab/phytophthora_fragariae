@@ -3,7 +3,7 @@
 ```bash
 ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 cd $ProjDir
-IsolateAbrv=All_Strains
+IsolateAbrv=All_Strains_plus_rubi
 WorkDir=analysis/orthology/orthomcl/$IsolateAbrv
 mkdir -p $WorkDir
 mkdir -p $WorkDir/formatted
@@ -119,6 +119,36 @@ mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 ```bash
 Taxon_code=SCRP245_v2
 Fasta_file=gene_pred/codingquary/P.fragariae/SCRP245_v2/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+###for SCRP249
+
+```bash
+Taxon_code=SCRP249
+Fasta_file=../phytophthora_rubi/gene_pred/codingquary/discovar/P.rubi/SCRP249/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+###for SCRP324
+
+```bash
+Taxon_code=SCRP324
+Fasta_file=../phytophthora_rubi/gene_pred/codingquary/discovar/P.rubi/SCRP324/final/final_genes_combined.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+###for SCRP333
+
+```bash
+Taxon_code=SCRP333
+Fasta_file=../phytophthora_rubi/gene_pred/codingquary/discovar/P.rubi/SCRP333/final/final_genes_combined.pep.fasta
 Id_field=1
 orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
