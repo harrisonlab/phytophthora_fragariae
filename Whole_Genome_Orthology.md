@@ -223,7 +223,7 @@ do
     echo "The total number of orthogroups is:"
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | wc -l
     echo "The total number of genes in orthogroups is:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -o | wc -l
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -o '|' | wc -l
     echo "The number of orthogroups common to all strains is:"
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep 'A4|' | grep 'Bc1|' | grep 'Bc16|' | grep 'Bc23|' | grep 'Nov5|' | grep 'Nov27|' | grep 'Nov71|' | grep 'Nov77|' | grep 'Nov9|' | grep 'ONT3|' | grep 'SCRP245_v2|' | wc -l
     echo "This represents the following number of genes:"
@@ -259,15 +259,9 @@ do
 done
 ```
 
-The number of ortholog groups found in pathogen but absent in non-pathogens is:
-255
-The number of ortholog groups unique to pathogens are:
-255
-The number of ortholog groups unique to non-pathogens are:
-61
-The number of ortholog groups common to all F. oxysporum isolates are:
-10391
-The number of ortholog groups shared between FoC and FoL was identified:
+```
+
+```
 
 4.5.b Plot venn diagrams:
 
