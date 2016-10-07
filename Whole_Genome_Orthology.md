@@ -260,7 +260,42 @@ done
 ```
 
 ```
-
+The total number of orthogroups is:
+19952
+The total number of genes in orthogroups is:
+356680
+The number of orthogroups common to all strains is:
+13436
+This represents the following number of genes:
+318253
+The number of orthogroups common to UK1 strains is:
+4
+This represents the following number of genes:
+8
+The number of orthogroups common to UK2 strains is:
+35
+This represents the following number of genes:
+76
+The number of orthogroups common to UK3 strains is:
+5
+This represents the following number of genes:
+15
+The number of orthogroups common to CA4 strains is:
+494
+This represents the following number of genes:
+1380
+The number of orthogroups common to CA5 strains is:
+12
+This represents the following number of genes:
+25
+The number of orthogroups common to US4 strains is:
+3
+This represents the following number of genes:
+3
+The number of orthogroups common to Unknown race strains is:
+169
+This represents the following number of genes:
+467
 ```
 
 4.5.b Plot venn diagrams:
