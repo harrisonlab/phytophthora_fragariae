@@ -215,24 +215,50 @@ GoodProts=$WorkDir/goodProteins/goodProteins.fasta
 qsub $ProgDir/qsub_orthomcl.sh $MergeHits $GoodProts 5
 ```
 
-4.5.a Manual identification of numbers of orthologous and unique genes
+##4.5.a Manual identification of numbers of orthologous and unique genes
 
-  for num in 1; do
-    echo "The number of ortholog groups found in pathogen but absent in non-pathogens is:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A28|' -e 'PG|' -e 'A13|' -e 'fo47|' -e 'CB3|' | grep 'Fus2|' | grep '125|' | grep 'A23|' |  wc -l
-    echo "The number of ortholog groups unique to pathogens are:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A28|' -e 'PG|' -e 'A13|' -e 'fo47|' -e 'CB3|' | grep 'Fus2|' | grep '125|' | grep 'A23|' | wc -l
+```bash
+for num in 1
+do
+    echo "The total number of orthogroups is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | wc -l
+    echo "The total number of genes in orthogroups is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -o | wc -l
+    echo "The number of orthogroups common to all strains is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep 'A4|' | grep 'Bc1|' | grep 'Bc16|' | grep 'Bc23|' | grep 'Nov5|' | grep 'Nov27|' | grep 'Nov71|' | grep 'Nov77|' | grep 'Nov9|' | grep 'ONT3|' | grep 'SCRP245_v2|' | wc -l
     echo "This represents the following number of genes:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A28|' -e 'PG|' -e 'A13|' -e 'fo47|' -e 'CB3|' | grep 'Fus2|' | grep '125|' | grep 'A23|' | grep -o '|' | wc -l
-    echo "This represents the following number of genes from Fus2:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A28|' -e 'PG|' -e 'A13|' -e 'fo47|' -e 'CB3|' | grep 'Fus2|' | grep '125|' | grep 'A23|' | grep -o 'Fus2|' | wc -l
-    echo "The number of genes in the largest orthogroup is:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A28|' -e 'PG|' -e 'A13|' -e 'fo47|' -e 'CB3|' | grep 'Fus2|' | grep '125|' | grep 'A23|' | head -n1 | grep -o '|' | wc -l
-    echo "The number of ortholog groups unique to non-pathogens are:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'Fus2|' -e '125|' -e 'A23|' | grep 'A13|' | grep 'A28|' | grep 'PG|' | grep 'fo47|' | grep 'CB3|' | wc -l
-    echo "The number of ortholog groups common to all F. oxysporum isolates are:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep 'Fus2|' | grep '125|' | grep 'A23|' | grep 'A28|' | grep 'PG|' | grep 'A13|' | grep 'fo47|' | grep 'CB3|' | grep '4287|' |wc -l
-  done
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep 'A4|' | grep 'Bc1|' | grep 'Bc16|' | grep 'Bc23|' | grep 'Nov5|' | grep 'Nov27|' | grep 'Nov71|' | grep 'Nov77|' | grep 'Nov9|' | grep 'ONT3|' | grep 'SCRP245_v2|' | grep -o '|' | wc -l
+    echo "The number of orthogroups common to UK1 strains is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'Bc23|' -e 'Nov27|' -e 'Nov71|' -e 'Nov77|' -e 'Nov9|' -e 'ONT3|' -e 'SCRP245_v2|' | grep -e 'Bc1|' | grep -e 'Nov5|' | wc -l
+    echo "This represents the following number of genes:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'Bc23|' -e 'Nov27|' -e 'Nov71|' -e 'Nov77|' -e 'Nov9|' -e 'ONT3|' -e 'SCRP245_v2|' | grep -e 'Bc1|' | grep -e 'Nov5|' | grep -o '|' | wc -l
+    echo "The number of orthogroups common to UK2 strains is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc1|' -e 'Bc23|' -e 'Nov27|' -e 'Nov71|' -e 'Nov77|' -e 'Nov9|' -e 'ONT3|' -e 'SCRP245_v2|' -e 'Nov5|' | grep -e 'Bc16|' | wc -l
+    echo "This represents the following number of genes:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc1|' -e 'Bc23|' -e 'Nov27|' -e 'Nov71|' -e 'Nov77|' -e 'Nov9|' -e 'ONT3|' -e 'SCRP245_v2|' -e 'Nov5|' | grep -e 'Bc16|' | grep -o '|' | wc -l
+    echo "The number of orthogroups common to UK3 strains is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'ONT3|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' | wc -l
+    echo "This represents the following number of genes:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'ONT3|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' | grep -o '|' | wc -l
+    echo "The number of orthogroups common to CA4 strains is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' | grep -e 'ONT3|' | wc -l
+    echo "This represents the following number of genes:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' | grep -e 'ONT3|' | grep -o '|' | wc -l
+    echo "The number of orthogroups common to CA5 strains is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'ONT3|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' | grep -e 'Bc23|' | grep -e 'Nov77|' | wc -l
+    echo "This represents the following number of genes:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'ONT3|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' | grep -e 'Bc23|' | grep -e 'Nov77|' | grep -o '|' | wc -l
+    echo "The number of orthogroups common to US4 strains is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' | grep -e 'A4|' | wc -l
+    echo "This represents the following number of genes:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' | grep -e 'A4|' | grep -o '|' | wc -l
+    echo "The number of orthogroups common to Unknown race strains is:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'A4|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' | grep -e 'SCRP245_v2|' | wc -l
+    echo "This represents the following number of genes:"
+    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'A4|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' | grep -e 'SCRP245_v2|' | grep -o '|' | wc -l
+done
+```
+
 The number of ortholog groups found in pathogen but absent in non-pathogens is:
 255
 The number of ortholog groups unique to pathogens are:
@@ -243,12 +269,6 @@ The number of ortholog groups common to all F. oxysporum isolates are:
 10391
 The number of ortholog groups shared between FoC and FoL was identified:
 
-  echo "The number of ortholog groups common to FoC and FoL are:"
-  cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep 'Fus2|' | grep '125|' | grep 'A23|' | grep '4287|' | wc -l
-  cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A28|' -e 'PG|' -e 'A13|' -e 'fo47|' -e 'CB3' | grep 'Fus2|' | grep '125|' | grep 'A23|' | grep '4287|' |  wc -l
-  The number of ortholog groups common to FoC and FoL are:
-  10916
-  43
 4.5.b Plot venn diagrams:
 
   ProgDir=~/git_repos/emr_repos/scripts/fusarium/pathogen/orthology
