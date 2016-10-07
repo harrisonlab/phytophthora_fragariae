@@ -57,7 +57,7 @@ sed -i -e 's/>/>P.rubi_SCRP333_/' phylogeny/SCRP333_final_genes_combined.cdna.fa
 ### Run BUSCO
 
 ```bash
-for CDS in $input/*.fasta
+for CDS in $(ls $input/*.fasta | grep 'SCRP' | grep -v 'aligned')
 do
     echo $CDS
     qsub $scripts/sub_BUSCO.sh $CDS Eukaryotic
