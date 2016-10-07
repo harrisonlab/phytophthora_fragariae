@@ -13,8 +13,21 @@ scripts=/home/adamst/git_repos/scripts/popgen/phylogenetics
 
 ###Copy gene prediction FASTAs to new directory
 
+for fragariae
+
 ```bash
 for CDS in $(ls gene_pred/codingquary/*/*/final/final_genes_combined.cdna.fasta)
+do
+    Strain=$(echo $CDS | rev | cut -d '/' -f3 | rev)
+    mkdir -p phylogeny
+    cp $CDS phylogeny/"$Strain"_final_genes_combined.cdna.fasta
+done
+```
+
+for rubi
+
+```bash
+for CDS in $(ls ../phytophthora_rubi/gene_pred/codingquary/discovar/*/*/final/final_genes_combined.cdna.fasta)
 do
     Strain=$(echo $CDS | rev | cut -d '/' -f3 | rev)
     mkdir -p phylogeny
