@@ -48,7 +48,10 @@ sed -i -e 's/>/>P.fragariae_Nov71_/' phylogeny/Nov71_final_genes_combined.cdna.f
 sed -i -e 's/>/>P.fragariae_Nov77_/' phylogeny/Nov77_final_genes_combined.cdna.fasta
 sed -i -e 's/>/>P.fragariae_Nov9_/' phylogeny/Nov9_final_genes_combined.cdna.fasta
 sed -i -e 's/>/>P.fragariae_ONT3_/' phylogeny/ONT3_final_genes_combined.cdna.fasta
-sed -i -e 's/>/>P.fragariae_SCRP25_v2_/' phylogeny/SCRP245_v2_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.fragariae_SCRP245_v2_/' phylogeny/SCRP245_v2_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.rubi_SCRP249_/' phylogeny/SCRP249_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.rubi_SCRP324_/' phylogeny/SCRP324_final_genes_combined.cdna.fasta
+sed -i -e 's/>/>P.rubi_SCRP333_/' phylogeny/SCRP333_final_genes_combined.cdna.fasta
 ```
 
 ### Run BUSCO
