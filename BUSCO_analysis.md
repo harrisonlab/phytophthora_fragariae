@@ -77,7 +77,7 @@ popd
 
 ```bash
 cat all_buscos_eukaryota >temp_ref
-for d in $PWD/run*
+for d in $(ls -d $PWD/run* | grep -v -e 'SCRP249' | grep -v -e 'SCRP324' | grep -v -e 'SCRP333')
 do
     if test -n "$(find $d -maxdepth 1 -name 'full_table*' -print -quit)"
     then
