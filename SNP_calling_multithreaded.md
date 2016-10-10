@@ -3,7 +3,7 @@ To change in each analysis:
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/genome_alignment/bowtie
-reference=95m_contigs_unmasked.fa
+reference=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa
 
 filename=$(basename "$reference")
 output="${filename%.*}.dict"
@@ -12,8 +12,8 @@ output="${filename%.*}.dict"
 ##Prepare genome reference indexes required by GATK
 
 ```bash
-java -jar /home/sobczm/bin/picard-tools-2.5.0/picard.jar CreateSequenceDictionary R=$input/$reference O=$input/$output
-samtools faidx $input/$reference
+java -jar /home/sobczm/bin/picard-tools-2.5.0/picard.jar CreateSequenceDictionary R=$reference O=$input/$output
+samtools faidx $reference
 ```
 
 ##Move to the directory where the output of SNP calling should be placed
