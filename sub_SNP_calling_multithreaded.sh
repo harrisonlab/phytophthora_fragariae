@@ -24,7 +24,7 @@ output2="${filename%.*}.vcf"
 gatk=/home/sobczm/bin/GenomeAnalysisTK-3.6
 
 java -jar $gatk/GenomeAnalysisTK.jar \
-     -R $input/$reference \
+     -R $reference \
      -T HaplotypeCaller \
      -ploidy 2 \
      -nct 6 \
