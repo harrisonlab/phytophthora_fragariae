@@ -51,7 +51,7 @@ java -jar $gatk/GenomeAnalysisTK.jar \
 
 java -jar $gatk/GenomeAnalysisTK.jar \
    -T VariantsToAllelicPrimitives \
-   -R $input/$reference \
+   -R $reference \
    -V $output \
    -o $output2 \
 
