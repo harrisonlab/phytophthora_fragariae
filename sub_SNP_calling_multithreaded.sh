@@ -15,7 +15,7 @@
 # Each new BAM file has to be specified after a separate -I
 
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/genome_alignment/bowtie
-reference=95m_contigs_unmasked.fa
+reference=../repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa
 
 filename=$(basename "$reference")
 output="${filename%.*}_temp.vcf"
