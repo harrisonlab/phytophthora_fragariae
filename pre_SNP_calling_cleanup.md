@@ -20,7 +20,7 @@ do
     mv "$filename" "Bc1_$filename"
 done
 
-cd $input/*/Bc16/vs_Bc16_unmasked_max1200_pacbio
+cd $input/*/Bc16/vs_Bc16_unmasked_max1200_SNP
 for filename in 95m_contigs_unmasked.fa_aligned.sam
 do
     mv "$filename" "Bc16_$filename"
@@ -100,7 +100,7 @@ qsub $scripts/sub_pre_snp_calling.sh <INPUT SAM FILE> <SAMPLE_ID>
 ```bash
 qsub $scripts/sub_pre_snp_calling.sh $input/*/A4/vs_Bc16_unmasked_max1200/A4_95m_contigs_unmasked.fa_aligned.sam A4
 qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc1/vs_Bc16_unmasked_max1200/Bc1_95m_contigs_unmasked.fa_aligned.sam Bc1
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc16/vs_Bc16_unmasked_max1200/Bc16_95m_contigs_unmasked.fa_aligned.sam Bc16
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc16/vs_Bc16_unmasked_max1200_SNP/Bc16_95m_contigs_unmasked.fa_aligned.sam Bc16
 qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc23/vs_Bc16_unmasked_max1200/Bc23_95m_contigs_unmasked.fa_aligned.sam Bc23
 qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov27/vs_Bc16_unmasked_max1200/Nov27_95m_contigs_unmasked.fa_aligned.sam Nov27
 qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov5/vs_Bc16_unmasked_max1200/Nov5_95m_contigs_unmasked.fa_aligned.sam Nov5
