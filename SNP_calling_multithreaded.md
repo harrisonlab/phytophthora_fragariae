@@ -16,6 +16,18 @@ java -jar /home/sobczm/bin/picard-tools-2.5.0/picard.jar CreateSequenceDictionar
 samtools faidx $reference
 ```
 
+###Copy index file to same folder as BAM alignments
+
+```bash
+for Strain in A4 Bc1 Bc23 Nov5 Nov27 Nov71 Nov77 Nov9 ONT3 SCRP245_v2 SCRP249 SCRP324 SCRP333
+do
+    Index=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa.fai
+    Directory=analysis/genome_alignment/bowtie/*/$Strain/vs_Bc16_unmasked_max1200/
+    cp $Index $Directory
+done
+cp $Index analysis/genome_alignment/bowtie/P.fragariae/Bc16/vs_Bc16_unmasked_max1200_SNP/
+```
+
 ##Move to the directory where the output of SNP calling should be placed
 
 ```bash
