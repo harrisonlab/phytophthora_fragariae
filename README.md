@@ -2044,6 +2044,8 @@ do
 done
 ```
 
+Because of the way ORF_finder predicts proteins, phobius predictions cannot be used downstream as there is no way to remove overlapping features.
+
 Secreted proteins from different sources were combined into a single file:
 
 ```bash
