@@ -2451,6 +2451,8 @@ Domain search space  (domZ):             666  [number of targets reported over t
 Merged RxLR-EER Hmm proteins:   202
 ```
 
+--progress--
+
 E7) Combining RxLRs from Regex and hmm searches
 
 The total RxLRs are
