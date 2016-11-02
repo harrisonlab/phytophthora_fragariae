@@ -5,5 +5,5 @@
 ```bash
 vcf=SNP_calling/95m_contigs_unmasked.vcf
 script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
-$script $vcf
+qsub $script $vcf
 ```
