@@ -1,1 +1,1 @@
-
+#Runs commands from Maria to analyse output from SNP calling
