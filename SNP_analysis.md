@@ -12,9 +12,9 @@ qsub $script $vcf
 
 ```bash
 perl /home/sobczm/bin/vcftools/bin/vcf-stats \
-Fus2_canu_contigs_unmasked.vcf >Fus2_canu_contigs_unmasked.stat
+SNP_calling/95m_contigs_unmasked.vcf >95m_contigs_unmasked.stat
 perl /home/sobczm/bin/vcftools/bin/vcf-stats \
-Fus2_canu_contigs_unmasked_filtered.vcf >Fus2_canu_contigs_unmasked_filtered.stat
+95m_contigs_unmasked_filtered.vcf >95m_contigs_unmasked_filtered.stat
 ```
 
 #Calculate the index for percentage of shared SNP alleles between the individs.
