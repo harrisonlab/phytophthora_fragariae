@@ -1,6 +1,27 @@
 #Runs commands from Maria to analyse output from SNP calling
 
-##Filter inital vcf output, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
+#Create a cut-down vcf that only includes *P.fragariae* strains
+
+```bash
+vcftools=/home/sobczm/bin/vcftools/bin
+vcflib=/home/sobczm/bin/vcflib/bin
+```
+
+#All, without A13
+#First argument: unfiltered input VCF file with all SNPs
+#Subsequent arguments: Sample names of individuals to be removed
+$vcflib/vcfremovesamples Fus2_canu_contigs_unmasked.vcf FOCA13 >Fus2_canu_contigs_unmasked_noA13.vcf
+#Filter the SNPs
+$scripts/snp/vcf_parser_haploid.py --i Fus2_canu_contigs_unmasked_noA13.vcf
+#Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
+$vcftools/vcftools --vcf Fus2_canu_contigs_unmasked_noA13_filtered.vcf --mac 1 --recode --out Fus2_canu_contigs_unmasked_noA13_filtered
+
+#Only pathogens, without A13
+$vcflib/vcfremovesamples Fus2_canu_contigs_unmasked.vcf FOCA13 FOCA1-2 FOCD2 FOCA28 FOCCB3 FOCHB6 FOCPG >Fus2_canu_contigs_unmasked_patho.vcf
+$scripts/snp/vcf_parser_haploid.py --i Fus2_canu_contigs_unmasked_patho.vcf
+$vcftools/vcftools --vcf Fus2_canu_contigs_unmasked_patho_filtered.vcf --mac 1 --recode --out Fus2_canu_contigs_unmasked_patho_filtered
+
+#Filter inital vcf output, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
 
 ```bash
 vcf=SNP_calling/95m_contigs_unmasked.vcf
