@@ -110,10 +110,11 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 cd $input
 for a in SNP_calling/*recode.vcf
 do
-filename=$(basename "$a")
-java -Xmx4g -jar $snpeff/snpEff.jar -v -ud 0 Fus2v1.0 $a > ${filename%.vcf}_annotated.vcf
-mv snpEff_genes.txt snpEff_genes_${filename%.vcf}.txt
-mv snpEff_summary.html  snpEff_summary__${filename%.vcf}.html
+    echo $a
+    filename=$(basename "$a")
+    java -Xmx4g -jar $snpeff/snpEff.jar -v -ud 0 Bc16v1.0 $a > ${filename%.vcf}_annotated.vcf
+    mv snpEff_genes.txt snpEff_genes_${filename%.vcf}.txt
+    mv snpEff_summary.html  snpEff_summary__${filename%.vcf}.html
 done
 ```
 
