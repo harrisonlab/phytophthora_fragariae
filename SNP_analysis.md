@@ -123,6 +123,7 @@ done
 ```bash
 for log in $(ls SNP_calling/*distance.log)
 do
+    scripts=/home/adamst/git_repos/scripts/popgen/snp
     Rscript --vanilla $scripts/distance_matrix.R $log
 done
 ```
