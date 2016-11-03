@@ -129,7 +129,16 @@ done
 ```
 
 #Carry out PCA and plot the results
-Rscript --vanilla $scripts/pca.R Fus2_canu_contigs_unmasked_filtered.vcf
+
+```bash
+for vcf in $(ls *filtered.vcf)
+do
+    echo $vcf
+    scripts=/home/adamst/git_repos/scripts/popgen/snp
+    Rscript --vanilla $scripts/pca.R $vcf
+done
+```
+
 #Calculate an NJ tree based on all the SNPs. Outputs a basic diplay of the tree, plus a Newick file to be used
 #for displaying the tree in FigTree and beautifying it.
 $scripts/nj_tree.sh Fus2_canu_contigs_unmasked_filtered.vcf
