@@ -55,8 +55,48 @@ done
 #Calculate the index for percentage of shared SNP alleles between the individuals.
 
 ```bash
-$scripts/similarity_percentage.py Fus2_canu_contigs_unmasked_filtered.vcf
+for vcf in $(ls SNP_calling/*_filtered.vcf)
+do
+    scripts=/home/adamst/git_repos/scripts/popgen/snp
+    $scripts/similarity_percentage.py $vcf
+done
 ```
+
+#Create custom SnpEff genome database
+
+```bash
+snpeff=/home/sobczm/bin/snpEff
+nano $snpeff/snpEff.config
+```
+
+#Add the following lines to the section with databases:
+```
+#---
+# EMR Databases
+#----
+# Fus2 genome
+Fus2v1.0.genome : Fus2
+```
+#Collect input files
+mkdir $snpeff/data/Fus2v1.0
+cp Fus2_canu_contigs_unmasked.fa $snpeff/data/Fus2v1.0
+cp Fus2_final_genes_appended.gff3 $snpeff/data/Fus2v1.0
+#Rename input files
+cd $snpeff/data/Fus2v1.0
+mv Fus2_final_genes_appended.gff3 genes.gff
+mv Fus2_canu_contigs_unmasked.fa sequences.fa
+#Build database using GFF3 annotation
+java -jar $snpeff/snpEff.jar build -gff3 -v Fus2v1.0
+
+#Annotate VCF files
+cd $input
+for a in *recode.vcf
+do
+filename=$(basename "$a")
+java -Xmx4g -jar $snpeff/snpEff.jar -v -ud 0 Fus2v1.0 $a > ${filename%.vcf}_annotated.vcf
+mv snpEff_genes.txt snpEff_genes_${filename%.vcf}.txt
+mv snpEff_summary.html  snpEff_summary__${filename%.vcf}.html
+done
 
 #Visualise the output as heatmap and clustering dendrogram
 Rscript --vanilla $scripts/distance_matrix.R Fus2_canu_contigs_unmasked_filtered_distance.log
