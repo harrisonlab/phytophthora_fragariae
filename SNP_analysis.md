@@ -18,7 +18,7 @@ $vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP249 SCRP324 SCRP333 >Pfrag
 #Filter vcf outputs, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
 
 ```bash
-for vcf in $( ls SNP_calling/*_contigs_unmasked.vcf)
+for vcf in $(ls SNP_calling/*_contigs_unmasked.vcf)
 do
 	echo $vcf
 	script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
@@ -30,9 +30,14 @@ done
 
 ```bash
 perl /home/sobczm/bin/vcftools/bin/vcf-stats \
-SNP_calling/95m_contigs_unmasked.vcf >95m_contigs_unmasked.stat
+SNP_calling/95m_contigs_unmasked.vcf >SNP_calling/95m_contigs_unmasked.stat
 perl /home/sobczm/bin/vcftools/bin/vcf-stats \
-95m_contigs_unmasked_filtered.vcf >95m_contigs_unmasked_filtered.stat
+SNP_calling/95m_contigs_unmasked_filtered.vcf >SNP_calling/95m_contigs_unmasked_filtered.stat
+
+perl /home/sobczm/bin/vcftools/bin/vcf-stats \
+SNP_calling/Pfrag_only_95m_contigs_unmasked.vcf >SNP_calling/Pfrag_only_95m_contigs_unmasked.stat
+perl /home/sobczm/bin/vcftools/bin/vcf-stats \
+SNP_calling/Pfrag_only_95m_contigs_unmasked_filtered.vcf >SNP_calling/Pfrag_only_95m_contigs_unmasked_filtered.stat
 ```
 
 #Calculate the index for percentage of shared SNP alleles between the individs.
