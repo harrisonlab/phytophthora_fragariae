@@ -40,6 +40,16 @@ perl /home/sobczm/bin/vcftools/bin/vcf-stats \
 SNP_calling/Pfrag_only_95m_contigs_unmasked_filtered.vcf >SNP_calling/Pfrag_only_95m_contigs_unmasked_filtered.stat
 ```
 
+#Calculate the index for percentage of shared SNP alleles between the individuals.
+
+```bash
+for vcf in $(ls SNP_calling/*_filtered.vcf)
+do
+    scripts=/home/adamst/git_repos/scripts/popgen/snp
+    $scripts/similarity_percentage.py $vcf
+done
+```
+
 #Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
 
 ```bash
@@ -48,17 +58,7 @@ do
     echo $vcf
     out=$(basename $vcf .vcf)
     echo $out
-    $vcftools/vcftools --vcf $vcf --mac 1 --recode --out $out
-done
-```
-
-#Calculate the index for percentage of shared SNP alleles between the individuals.
-
-```bash
-for vcf in $(ls SNP_calling/*_filtered.vcf)
-do
-    scripts=/home/adamst/git_repos/scripts/popgen/snp
-    $scripts/similarity_percentage.py $vcf
+    $vcftools/vcftools --vcf $vcf --mac 1 --recode --out SNP_calling/$out
 done
 ```
 
@@ -98,17 +98,24 @@ mv 95m_contigs_unmasked.fa sequences.fa
 ```
 
 #Build database using GFF3 annotation
-java -jar $snpeff/snpEff.jar build -gff3 -v Fus2v1.0
+
+```bash
+java -jar $snpeff/snpEff.jar build -gff3 -v Bc16v1.0
+```
 
 #Annotate VCF files
+
+```bash
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 cd $input
-for a in *recode.vcf
+for a in SNP_calling/*recode.vcf
 do
 filename=$(basename "$a")
 java -Xmx4g -jar $snpeff/snpEff.jar -v -ud 0 Fus2v1.0 $a > ${filename%.vcf}_annotated.vcf
 mv snpEff_genes.txt snpEff_genes_${filename%.vcf}.txt
 mv snpEff_summary.html  snpEff_summary__${filename%.vcf}.html
 done
+```
 
 #Visualise the output as heatmap and clustering dendrogram
 Rscript --vanilla $scripts/distance_matrix.R Fus2_canu_contigs_unmasked_filtered_distance.log
