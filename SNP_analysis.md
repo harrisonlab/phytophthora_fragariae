@@ -20,9 +20,9 @@ $vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP249 SCRP324 SCRP333 >Pfrag
 ```bash
 for vcf in $(ls SNP_calling/*_contigs_unmasked.vcf)
 do
-	echo $vcf
-	script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
-	qsub $script $vcf
+    echo $vcf
+    script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
+    qsub $script $vcf
 done
 ```
 
@@ -40,8 +40,24 @@ perl /home/sobczm/bin/vcftools/bin/vcf-stats \
 SNP_calling/Pfrag_only_95m_contigs_unmasked_filtered.vcf >SNP_calling/Pfrag_only_95m_contigs_unmasked_filtered.stat
 ```
 
-#Calculate the index for percentage of shared SNP alleles between the individs.
+#Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
+
+```bash
+for vcf in $(ls SNP_calling/*_filtered.vcf)
+do
+    echo $vcf
+    out=$(basename $vcf .vcf)
+    echo $out
+    $vcftools/vcftools --vcf $vcf --mac 1 --recode --out $out
+done
+```
+
+#Calculate the index for percentage of shared SNP alleles between the individuals.
+
+```bash
 $scripts/similarity_percentage.py Fus2_canu_contigs_unmasked_filtered.vcf
+```
+
 #Visualise the output as heatmap and clustering dendrogram
 Rscript --vanilla $scripts/distance_matrix.R Fus2_canu_contigs_unmasked_filtered_distance.log
 #Carry out PCA and plot the results
