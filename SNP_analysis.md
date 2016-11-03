@@ -90,9 +90,13 @@ cp gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_appended.gff3 $snpef
 ```
 
 #Rename input files
-cd $snpeff/data/Fus2v1.0
-mv Fus2_final_genes_appended.gff3 genes.gff
-mv Fus2_canu_contigs_unmasked.fa sequences.fa
+
+```bash
+cd $snpeff/data/Bc16v1.0
+mv final_genes_appended.gff3 genes.gff
+mv 95m_contigs_unmasked.fa sequences.fa
+```
+
 #Build database using GFF3 annotation
 java -jar $snpeff/snpEff.jar build -gff3 -v Fus2v1.0
 
