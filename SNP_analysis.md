@@ -69,18 +69,26 @@ snpeff=/home/sobczm/bin/snpEff
 nano $snpeff/snpEff.config
 ```
 
-#Add the following lines to the section with databases:
+##Add the following lines to the section with databases:
+
 ```
 #---
 # EMR Databases
 #----
 # Fus2 genome
 Fus2v1.0.genome : Fus2
+# Bc16 genome
+Bc16v1.0.genome: BC-16
 ```
+
 #Collect input files
-mkdir $snpeff/data/Fus2v1.0
-cp Fus2_canu_contigs_unmasked.fa $snpeff/data/Fus2v1.0
-cp Fus2_final_genes_appended.gff3 $snpeff/data/Fus2v1.0
+
+```bash
+mkdir $snpeff/data/Bc16v1.0
+cp repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa $snpeff/data/Bc16v1.0
+cp gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_appended.gff3 $snpeff/data/Bc16v1.0
+```
+
 #Rename input files
 cd $snpeff/data/Fus2v1.0
 mv Fus2_final_genes_appended.gff3 genes.gff
