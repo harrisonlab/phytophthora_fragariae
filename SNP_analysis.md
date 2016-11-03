@@ -119,7 +119,14 @@ done
 ```
 
 #Visualise the output as heatmap and clustering dendrogram
-Rscript --vanilla $scripts/distance_matrix.R Fus2_canu_contigs_unmasked_filtered_distance.log
+
+```bash
+for log in $(ls SNP_calling/*distance.log)
+do
+    Rscript --vanilla $scripts/distance_matrix.R $log
+done
+```
+
 #Carry out PCA and plot the results
 Rscript --vanilla $scripts/pca.R Fus2_canu_contigs_unmasked_filtered.vcf
 #Calculate an NJ tree based on all the SNPs. Outputs a basic diplay of the tree, plus a Newick file to be used
