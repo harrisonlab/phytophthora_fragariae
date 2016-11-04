@@ -135,10 +135,19 @@ for vcf in $(ls *filtered.vcf)
 do
     echo $vcf
     scripts=/home/adamst/git_repos/scripts/popgen/snp
-    Rscript --vanilla $scripts/pca.R $vcf
+    out=$(basename $vcf contigs_unmasked_filtered.vcf)
+    echo $out
+    Rscript --vanilla $scripts/pca.R $vcf $out
 done
 ```
 
-#Calculate an NJ tree based on all the SNPs. Outputs a basic diplay of the tree, plus a Newick file to be used
-#for displaying the tree in FigTree and beautifying it.
-$scripts/nj_tree.sh Fus2_canu_contigs_unmasked_filtered.vcf
+#Calculate an NJ tree based on all the SNPs. Outputs a basic diplay of the tree, plus a Newick file to be used for displaying the tree in FigTree and beautifying it.
+
+```bash
+for vcf in $(ls *filtered.vcf)
+do
+    echo $vcf
+    scripts=/home/adamst/git_repos/scripts/popgen/snp
+    $scripts/nj_tree.sh $vcf
+done
+```
