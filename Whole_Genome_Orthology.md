@@ -264,7 +264,7 @@ do
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc23|' -e 'Nov77|' -e 'A4|' -e 'SCRP249|' -e 'SCRP324|' -e 'SCRP333|' -e 'SCRP245_v2|' | grep -e 'Nov5|' | grep -e 'Nov27' | grep -e 'Nov71' | grep -e 'Bc16' | grep -e 'Nov9' | grep -e 'Bc1' | wc -l
     echo "This represents the following number of genes:"
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc23|' -e 'Nov77|' -e 'A4|' -e 'SCRP249|' -e 'SCRP324|' -e 'SCRP333|' -e 'SCRP245_v2|' | grep -e 'Nov5|' | grep -e 'Nov27' | grep -e 'Nov71' | grep -e 'Bc16' | grep -e 'Nov9' | grep -e 'Bc1' | grep -o '|' | wc -l
-        echo "The number of orthogroups containing all six highly conserved target strains is:"
+    echo "The number of orthogroups containing all six highly conserved target strains is:"
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -e 'Nov5|' | grep -e 'Nov27' | grep -e 'Nov71' | grep -e 'Bc16' | grep -e 'Nov9' | grep -e 'Bc1' | wc -l
     echo "This represents the following number of genes:"
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -e 'Nov5|' | grep -e 'Nov27' | grep -e 'Nov71' | grep -e 'Bc16' | grep -e 'Nov9' | grep -e 'Bc1' | grep -o '|' | wc -l
@@ -312,6 +312,10 @@ The number of orthogroups with only six highly conserved target strains is:
 5
 This represents the following number of genes:
 39
+The number of orthogroups containing all six highly conserved target strains is:
+14275
+This represents the following number of genes:
+428573
 ```
 
 4.5.b Plot venn diagrams:
