@@ -2646,7 +2646,7 @@ do
     $ProgDir/extract_from_fasta.py --fasta $AugFa --headers $TotalRxLRsTxt > $RxLRsFa
     $ProgDir/extract_from_fasta.py --fasta $ORFsFa --headers $TotalRxLRsTxt >> $RxLRsFa
     echo "The number of sequences extracted is" >> report.txt
-    cat $RxLRsFa | grep '>' | wc -l >> report.txt >> report.txt
+    cat $RxLRsFa | grep '>' | wc -l >> report.txt
     echo "$Strain done"
 done
 ```
