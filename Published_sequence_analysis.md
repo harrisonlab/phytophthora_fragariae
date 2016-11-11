@@ -29,21 +29,21 @@ qsub $ProgDir/sub_MUMmer.sh $Reference $Query $Prefix $OutDir
 
 The number of bases of the reference covered with aligned reads were identified. The script below converts any base involved in an alignment to a 'Q' and then counts the number of Qs in each fasta sequence.
 
-Reference=$(ls repeat_masked/*/*/*/*_contigs_hardmasked_repeatmasker_TPSI_appended.fa | grep -w 'Fus2_canu_new')
-# for Coordinates in $(ls analysis/genome_alignment/mummer/F*/*/*/*_vs_Fus2_coords.tsv | grep -e 'ncbi' -e 'Fus2_canu_new' -e '4287_chromosomal' -e 'fo47' | grep -e '4287_chromosomal' -e 'fo47'); do
-for Coordinates in $(ls analysis/genome_alignment/mummer/F*/*/*/*_vs_Fus2_coords.tsv | grep -e 'ncbi' -e 'Fus2_canu_new' -e '4287_chromosomal' -e 'fo47'); do
+```bash
+Reference=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Coordinates=analysis/genome_alignment/mummer/P.fragariae/309.62/309.62_vs_Bc16/*_vs_Bc16_coords.tsv
 Strain=$(echo $Coordinates | rev | cut -f3 -d '/' | rev)
 Organism=$(echo $Coordinates | rev | cut -f4 -d '/' | rev)
 echo "$Organism - $Strain"
 OutFile=$(echo $Coordinates | sed 's/_coords.tsv/_results.tsv/g')
 Out10kb=$(echo $Coordinates | sed 's/_coords.tsv/_results_10kb.tsv/g')
-ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment/promer
+ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/promer
 $ProgDir/mummer_ls_regions.py --coord $Coordinates --fasta $Reference --out_contig $OutFile --out_10kb $Out10kb
 done
-paste analysis/genome_alignment/mummer/F*/*/*/*_vs_Fus2_results.tsv > analysis/genome_alignment/mummer/vs_Fus2_canu_new.tsv
-Sequences tend to show 50-70% of bp being covered by an aligned sequence in core contigs whereas 1-35% seem to represent regions which are LS. The weakness of this methodology is shown by mitochondrial sequence being absent as that seems to have not assembled in the majority of assemblies and with the long contigs of the reference genome seeming to have poorer alignment stats than MiSeq assemblies.
+paste analysis/genome_alignment/mummer/P*/*/*/*_vs_Bc16_results.tsv > analysis/genome_alignment/mummer/vs_Bc16_new.tsv
+```
 
-#against SCRP333 genome
+##against SCRP333 genome
 
 ```bash
 Reference=../phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP333/filtered_contigs_repmask/SCRP333_contigs_softmasked_repeatmasker_TPSI_appended.fa
@@ -51,7 +51,7 @@ Query=assembly/downloaded/P.fragariae/309.62/GCA_000686205.3_ASM68620v3_genomic.
 Strain=$(echo $Query | rev | cut -f2 -d '/' | rev)
 Organism=$(echo $Query | rev | cut -f3 -d '/' | rev)
 echo "$Organism - $Strain"
-Prefix="$Strain"_vs_Bc16
+Prefix="$Strain"_vs_SCRP333
 OutDir=analysis/genome_alignment/mummer/$Organism/$Strain/$Prefix
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/promer
 qsub $ProgDir/sub_MUMmer.sh $Reference $Query $Prefix $OutDir
