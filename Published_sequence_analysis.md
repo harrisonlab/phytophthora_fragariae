@@ -43,19 +43,22 @@ done
 paste analysis/genome_alignment/mummer/F*/*/*/*_vs_Fus2_results.tsv > analysis/genome_alignment/mummer/vs_Fus2_canu_new.tsv
 Sequences tend to show 50-70% of bp being covered by an aligned sequence in core contigs whereas 1-35% seem to represent regions which are LS. The weakness of this methodology is shown by mitochondrial sequence being absent as that seems to have not assembled in the majority of assemblies and with the long contigs of the reference genome seeming to have poorer alignment stats than MiSeq assemblies.
 
-5.2 against FoL genome
+#against SCRP333 genome
 
-Reference=$(ls repeat_masked/*/*/*/*_contigs_hardmasked_repeatmasker_TPSI_appended.fa | grep -w '4287_chromosomal')
-for Query in $(ls repeat_masked/*/*/*/*_contigs_hardmasked_repeatmasker_TPSI_appended.fa | grep -w -e 'Fus2_canu_new' -e 'ncbi_submission' -e '4287_chromosomal' -e 'fo47'); do
-Strain=$(echo $Query | rev | cut -f3 -d '/' | rev)
-Organism=$(echo $Query | rev | cut -f4 -d '/' | rev)
+```bash
+Reference=../phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP333/filtered_contigs_repmask/SCRP333_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Query=assembly/downloaded/P.fragariae/309.62/GCA_000686205.3_ASM68620v3_genomic.fna
+Strain=$(echo $Query | rev | cut -f2 -d '/' | rev)
+Organism=$(echo $Query | rev | cut -f3 -d '/' | rev)
 echo "$Organism - $Strain"
-Prefix="$Strain"_vs_FoL
+Prefix="$Strain"_vs_Bc16
 OutDir=analysis/genome_alignment/mummer/$Organism/$Strain/$Prefix
-ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment/promer
+ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/promer
 qsub $ProgDir/sub_MUMmer.sh $Reference $Query $Prefix $OutDir
-done
+```
+
 The number of bases of the reference covered with aligned reads were identified. The script below converts any base involved in an alignment to a 'Q' and then counts the number of Qs in each fasta sequence.
+
 
 Reference=$(ls repeat_masked/*/*/*/*_contigs_hardmasked_repeatmasker_TPSI_appended.fa | grep -w '4287_chromosomal')
 for Coordinates in $(ls analysis/genome_alignment/mummer/F*/*/*/*_vs_FoL_coords.tsv | grep -e 'ncbi' -e 'Fus2_canu_new' -e '4287_chromosomal' -e 'fo47'); do
