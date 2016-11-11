@@ -9,22 +9,24 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/686/205/GCA_000686205.3_ASM6
 gunzip GCA_000686205.3_ASM68620v3_genomic.fna.gz
 ```
 
-Promer alignment of Assemblies
+#Promer alignment of Assemblies
 
-5.1 against Fus2 genome
+##against _Phytophthora fragariae_ BC-16 genome
 
-MUMmer was run to align assemblies against the reference genome. Previous publication of legum-infecting Fusarium used this approach to identify contigs that were present / absent in different f. spp. - A cuttoff of 30% of the bp in a contig containing an alignment was used in that case.
+MUMmer was run to align assemblies against the reference genome.
 
-Reference=$(ls repeat_masked/*/*/*/*_contigs_hardmasked_repeatmasker_TPSI_appended.fa | grep -w 'Fus2_canu_new')
-for Query in $(ls repeat_masked/*/*/*/*_contigs_hardmasked_repeatmasker_TPSI_appended.fa | grep -w -e 'Fus2_canu_new' -e 'ncbi_submission' -e '4287_chromosomal' -e 'fo47'); do
-Strain=$(echo $Query | rev | cut -f3 -d '/' | rev)
-Organism=$(echo $Query | rev | cut -f4 -d '/' | rev)
+```bash
+Reference=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Query=assembly/downloaded/P.fragariae/309.62/GCA_000686205.3_ASM68620v3_genomic.fna
+Strain=$(echo $Query | rev | cut -f2 -d '/' | rev)
+Organism=$(echo $Query | rev | cut -f3 -d '/' | rev)
 echo "$Organism - $Strain"
-Prefix="$Strain"_vs_Fus2
+Prefix="$Strain"_vs_Bc16
 OutDir=analysis/genome_alignment/mummer/$Organism/$Strain/$Prefix
-ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment/promer
+ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/promer
 qsub $ProgDir/sub_MUMmer.sh $Reference $Query $Prefix $OutDir
-done
+```
+
 The number of bases of the reference covered with aligned reads were identified. The script below converts any base involved in an alignment to a 'Q' and then counts the number of Qs in each fasta sequence.
 
 Reference=$(ls repeat_masked/*/*/*/*_contigs_hardmasked_repeatmasker_TPSI_appended.fa | grep -w 'Fus2_canu_new')
