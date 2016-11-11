@@ -1,0 +1,1 @@
+An assembly has been published by a Chinese group and is available on Genbank, but the assembly looks of low quality and he paper is poorly written so confirming that it definitely is _Phytophthora fragariae_. BLAST analysis has shown β-tubulin to have the _P. fragariae_ type SNP, and ITS was not found by BLAST.
