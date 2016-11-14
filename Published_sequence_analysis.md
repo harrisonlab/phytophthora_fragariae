@@ -11,17 +11,17 @@ gunzip GCA_000686205.3_ASM68620v3_genomic.fna.gz
 
 #Promer alignment of Assemblies
 
-##against _Phytophthora fragariae_ BC-16 genome
+##against _Phytophthora fragariae_ BC-1 genome
 
 MUMmer was run to align assemblies against the reference genome.
 
 ```bash
-Reference=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Reference=repeat_masked/P.fragariae/Bc1/filtered_contigs_repmask/Bc1_contigs_softmasked_repeatmasker_TPSI_appended.fa
 Query=assembly/downloaded/P.fragariae/309.62/GCA_000686205.3_ASM68620v3_genomic.fna
 Strain=$(echo $Query | rev | cut -f2 -d '/' | rev)
 Organism=$(echo $Query | rev | cut -f3 -d '/' | rev)
 echo "$Organism - $Strain"
-Prefix="$Strain"_vs_Bc16
+Prefix="$Strain"_vs_Bc1
 OutDir=analysis/genome_alignment/mummer/$Organism/$Strain/$Prefix
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/promer
 qsub $ProgDir/sub_MUMmer.sh $Reference $Query $Prefix $OutDir
