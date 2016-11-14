@@ -39,7 +39,6 @@ OutFile=$(echo $Coordinates | sed 's/_coords.tsv/_results.tsv/g')
 Out10kb=$(echo $Coordinates | sed 's/_coords.tsv/_results_10kb.tsv/g')
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/promer
 $ProgDir/mummer_ls_regions.py --coord $Coordinates --fasta $Reference --out_contig $OutFile --out_10kb $Out10kb
-done
 paste analysis/genome_alignment/mummer/P*/*/*/*_vs_Bc16_results.tsv > analysis/genome_alignment/mummer/vs_Bc16_new.tsv
 ```
 
@@ -59,14 +58,15 @@ qsub $ProgDir/sub_MUMmer.sh $Reference $Query $Prefix $OutDir
 
 The number of bases of the reference covered with aligned reads were identified. The script below converts any base involved in an alignment to a 'Q' and then counts the number of Qs in each fasta sequence.
 
-
-Reference=$(ls repeat_masked/*/*/*/*_contigs_hardmasked_repeatmasker_TPSI_appended.fa | grep -w '4287_chromosomal')
-for Coordinates in $(ls analysis/genome_alignment/mummer/F*/*/*/*_vs_FoL_coords.tsv | grep -e 'ncbi' -e 'Fus2_canu_new' -e '4287_chromosomal' -e 'fo47'); do
-  Strain=$(echo $Coordinates | rev | cut -f3 -d '/' | rev)
-  Organism=$(echo $Coordinates | rev | cut -f4 -d '/' | rev)
-  echo "$Organism - $Strain"
-  OutFile=$(echo $Coordinates | sed 's/_coords.tsv/_results.tsv/g')
-  Out10kb=$(echo $Coordinates | sed 's/_coords.tsv/_results_10kb.tsv/g')
-  ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment/promer
-  $ProgDir/mummer_ls_regions.py --coord $Coordinates --fasta $Reference --out_contig $OutFile --out_10kb $Out10kbdone
-paste analysis/genome_alignment/mummer/F*/*/*/*_vs_FoL_results.tsv > analysis/genome_alignment/mummer/vs_FoL_canu_new.tsv
+```bash
+Reference=../phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP333/filtered_contigs_repmask/SCRP333_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Coordinates=analysis/genome_alignment/mummer/P.fragariae/309.62/309.62_vs_SCRP333/*_vs_SCRP333_coords.tsv
+Strain=$(echo $Coordinates | rev | cut -f3 -d '/' | rev)
+Organism=$(echo $Coordinates | rev | cut -f4 -d '/' | rev)
+echo "$Organism - $Strain"
+OutFile=$(echo $Coordinates | sed 's/_coords.tsv/_results.tsv/g')
+Out10kb=$(echo $Coordinates | sed 's/_coords.tsv/_results_10kb.tsv/g')
+ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/promer
+$ProgDir/mummer_ls_regions.py --coord $Coordinates --fasta $Reference --out_contig $OutFile --out_10kb $Out10kb
+paste analysis/genome_alignment/mummer/P*/*/*/*_vs_SCRP333_results.tsv > analysis/genome_alignment/mummer/vs_SCRP333_new.tsv
+```
