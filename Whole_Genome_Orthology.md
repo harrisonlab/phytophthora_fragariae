@@ -346,6 +346,29 @@ do
 done
 ```
 
+```
+The total number of shared orthogroups is:
+14052
+The total number of genes in shared orthogroups is:
+425856
+The total number of orthogroups is:
+583
+The total number of genes in orthogroups is:
+1808
+The total number of UK1 orthogroups is:
+16
+The total number of genes in UK1 orthogroups is:
+74
+The total number of UK2 orthogroups is:
+29
+The total number of genes in UK2 orthogroups is:
+127
+The total number of UK3 orthogroups is:
+39
+The total number of genes in UK3 orthogroups is:
+220
+```
+
 4.5.b Plot venn diagrams:
 
   ProgDir=~/git_repos/emr_repos/scripts/fusarium/pathogen/orthology
