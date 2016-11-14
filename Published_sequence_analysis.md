@@ -30,8 +30,8 @@ qsub $ProgDir/sub_MUMmer.sh $Reference $Query $Prefix $OutDir
 The number of bases of the reference covered with aligned reads were identified. The script below converts any base involved in an alignment to a 'Q' and then counts the number of Qs in each fasta sequence.
 
 ```bash
-Reference=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_softmasked_repeatmasker_TPSI_appended.fa
-Coordinates=analysis/genome_alignment/mummer/P.fragariae/309.62/309.62_vs_Bc16/*_vs_Bc16_coords.tsv
+Reference=repeat_masked/P.fragariae/Bc1/filtered_contigs_repmask/Bc1_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Coordinates=analysis/genome_alignment/mummer/P.fragariae/309.62/309.62_vs_Bc1/*_vs_Bc1_coords.tsv
 Strain=$(echo $Coordinates | rev | cut -f3 -d '/' | rev)
 Organism=$(echo $Coordinates | rev | cut -f4 -d '/' | rev)
 echo "$Organism - $Strain"
@@ -39,7 +39,7 @@ OutFile=$(echo $Coordinates | sed 's/_coords.tsv/_results.tsv/g')
 Out10kb=$(echo $Coordinates | sed 's/_coords.tsv/_results_10kb.tsv/g')
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/promer
 $ProgDir/mummer_ls_regions.py --coord $Coordinates --fasta $Reference --out_contig $OutFile --out_10kb $Out10kb
-paste analysis/genome_alignment/mummer/P*/*/*/*_vs_Bc16_results.tsv > analysis/genome_alignment/mummer/vs_Bc16_new.tsv
+paste analysis/genome_alignment/mummer/P*/*/*/*_vs_Bc1_results.tsv > analysis/genome_alignment/mummer/vs_Bc1_new.tsv
 ```
 
 ##against SCRP333 genome
