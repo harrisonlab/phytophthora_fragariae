@@ -30,6 +30,9 @@ orthotabs <- read.table(f)
 df1 <- t(orthotabs)
 summary(df1)
 
+A4=subset(df1, df1[,"A4"] == 1 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
+BC16=subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"A4"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
+Others=subset(df1, df1[,"Bc16"] == 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0)
 
 area1=sum(df1[, 1])
 area2=sum(df1[, 2])
