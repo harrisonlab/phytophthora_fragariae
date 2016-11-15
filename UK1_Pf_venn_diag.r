@@ -7,9 +7,10 @@
  # building of the matrix using:
  # ~/git_repos/emr_repos/tools/pathogen/orthology/orthoMCL/orthoMCLgroups2tab.py
 
-# This script requires the optparse R package. This can be downloaded by opening
+# This script requires the optparse and colorspace R packages. This can be downloaded by opening
 # R and running the following command:
 # install.packages("optparse",repos="http://cran.uk.r-project.org")
+# install.packages("colorspace",repos="http://cran.uk.r-project.org")
 # When given the option, install this package to a local library.
 
 #get config options
