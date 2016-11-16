@@ -67,6 +67,23 @@ summary(n12)
 summary(n13)
 summmary(n23)
 summary(n123)
+
+area1=(nrow(nonpath) + (n12 - n123) + (n13 - n123) + n123)
+area2=(nrow(path) + (n12 - n123) + (n23 - n123) + n123)
+area3=(nrow(tomato) + (n13 - n123) + (n23 - n123) + n123)
+#nrow(nonpath)
+nrow(nonpath)
+nrow(path)
+nrow(tomato)
+n12
+n13
+n23
+n123
+area1
+#area1 - n12 - n13 + n123
+area2
+area3
+
 pdf(o)
 draw.triple.venn(area1, area2, area3,
     n12, n23, n13,
