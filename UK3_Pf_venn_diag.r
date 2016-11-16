@@ -56,30 +56,54 @@ label2 <- paste("NOV-71", sep="" )
 label3 <- paste("NOV-9", sep="" )
 label4 <- paste("A4, NOV-5, BC-1 & BC-16", sep="" )
 
-n123=nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 1))
-n12=n123 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 1))
-n13=n123 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 0))
-n23=n123 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 1))
+n1234=nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
+n123=n1234 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
+n124=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
+n134=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
+n234=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
+n12=n1234 + n123 + n124 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0))
+n13=n1234 + n123 + n134 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
+n14=n1234 + n124 + n134 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
+n23=n1234 + n123 + n234 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
+n24=n1234 + n124 + n234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
+n34=n1234 + n134 + n234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
+summary(n1234)
+summary(n123)
+summary(n124)
+summary(n134)
+summary(n234)
 summary(n12)
 summary(n13)
+summary(n14)
 summary(n23)
-summary(n123)
+summary(n24)
+summary(n34)
 
-area1=(nrow(NOV5) + (n12 - n123) + (n13 - n123) + n123)
-area2=(nrow(BC1) + (n12 - n123) + (n23 - n123) + n123)
-area3=(nrow(Others) + (n13 - n123) + (n23 - n123) + n123)
+area1=(nrow(NOV27) + (n12 - n123 - n124 - n1234) + (n13 - n123 - n134 - n1234) + (n14 - n124 - n134 - n1234) + (n123 - n1234) + (n124 - n1234) + (n134 - n1234) + n1234)
+area2=(nrow(NOV71) + (n12 - n123 - n124 - n1234) + (n23 - n123 - n234 - n1234) + (n24 - n124 - n234 - n1234) + (n123 - n1234) + (n124 - n1234) + (n234 - n1234) + n1234)
+area3=(nrow(NOV9) + (n13 - n123 - n134 - n1234) + (n23 - n123 - n234 - n1234) + (n34 - n134 - n234 - n1234) + (n123 - n1234) + (n134 - n1234) + (n234 - n1234) + n1234)
+area4=(nrow(Others) + (n14 - n124 - n134 - n1234) + (n24 - n124 - n234 - n1234) + (n34 - n134 - n234 - n1234) + (n124 - n1234) + (n134 - n1234) + (n234 - n1234) + n1234)
 #nrow(nonpath)
-nrow(NOV5)
-nrow(BC1)
+nrow(NOV27)
+nrow(NOV71)
+nrow(NOV9)
 nrow(Others)
 n12
 n13
+n14
 n23
+n24
+n34
 n123
+n124
+n134
+n234
+n1234
 area1
 #area1 - n12 - n13 + n123
 area2
 area3
+area4
 
 pdf(o)
 draw.triple.venn(area1, area2, area3,
