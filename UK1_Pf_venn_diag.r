@@ -63,10 +63,10 @@ n123=nrow(subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0
 # n13
 # n23
 # n123
-summary(n12)
-summary(n13)
-summmary(n23)
-summary(n123)
+# summary(n12)
+# summary(n13)
+# summmary(n23)
+# summary(n123)
 
 area1=(nrow(A4) + (n12 - n123) + (n13 - n123) + n123)
 area2=(nrow(BC16) + (n12 - n123) + (n23 - n123) + n123)
