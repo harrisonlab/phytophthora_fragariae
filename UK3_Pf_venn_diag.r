@@ -30,9 +30,10 @@ df1 <- t(orthotabs)
 summary(df1)
 
 
-NOV5=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
-BC1=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 1)
-Others=subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 0)
+NOV27=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
+NOV71=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
+NOV9=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0)
+Others=subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0)
 # orthologs=subset(df1, df1[,"A28"] == 1 & df1[,"CB3"] == 1 & df1[,"PG"] == 1 & df1[,"fo47"] == 1 & df1[,"A1_2"] == 1 & df1[,"Fus2"] == 1 & df1[,"125"] == 1 & df1[,"A23"] == 1 & df1[,"4287"] == 1)
 
 # area1=(nrow(nonpath) + nrow(orthologs))
@@ -50,9 +51,10 @@ Others=subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] != 0 & df
 # label3 <- paste('FoL', ' (', area3, ')', sep="" )
 
 # Set up labels
-label1 <- paste("NOV-5", sep="" )
-label2 <- paste("BC-1", sep="" )
-label3 <- paste("A4, NOV-27, NOV-71, NOV-9 & BC-16", sep="" )
+label1 <- paste("NOV-27", sep="" )
+label2 <- paste("NOV-71", sep="" )
+label3 <- paste("NOV-9", sep="" )
+label4 <- paste("A4, NOV-5, BC-1 & BC-16", sep="" )
 
 n123=nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 1))
 n12=n123 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 1))
