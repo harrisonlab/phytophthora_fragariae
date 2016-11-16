@@ -64,6 +64,8 @@ n123=nrow(subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0
 # n23
 # n123
 summary(n12)
+summary(n13)
+summmary(n23)
 summary(n123)
 pdf(o)
 draw.triple.venn(area1, area2, area3,
