@@ -35,34 +35,34 @@ BC16=subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df
 Others=subset(df1, df1[,"Bc16"] == 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0)
 Orthologs=subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] == 1 & df1[,"Nov27"] == 1 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"A4"] == 1 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 1)
 
-area1=(nrow(A4) + nrow(Orthologs))
-area2=(nrow(BC16) + nrow(Orthologs))
-area3=(nrow(Others) + nrow(Orthologs))
+# area1=(nrow(A4) + nrow(Orthologs))
+# area2=(nrow(BC16) + nrow(Orthologs))
+# area3=(nrow(Others) + nrow(Orthologs))
 
 # print(area1, area2, area3, area4)
 
-colname1 <- paste(colnames(df1)[1])
-colname2 <- paste(colnames(df1)[2])
-colname3 <- paste(colnames(df1)[3])
-
-label1 <- paste(colname1, ' (', area1, ')', sep="" )
-label2 <- paste(colname2, ' (', area2, ')', sep="" )
-label3 <- paste(colname3, ' (', area3, ')', sep="" )
+# colname1 <- paste(colnames(df1)[1])
+# colname2 <- paste(colnames(df1)[2])
+# colname3 <- paste(colnames(df1)[3])
+#
+# label1 <- paste(colname1, ' (', area1, ')', sep="" )
+# label2 <- paste(colname2, ' (', area2, ')', sep="" )
+# label3 <- paste(colname3, ' (', area3, ')', sep="" )
 
 n12=nrow(subset(df1, df1[,"A4"] == 1 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 1 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0))
 n13=nrow(subset(df1, df1[,"Bc16"] == 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 1 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
 n23=nrow(subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
 n123=nrow(subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 1 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
-label1
-area1
-label2
-area2
-label3
-area3
-n12
-n13
-n23
-n123
+# label1
+# area1
+# label2
+# area2
+# label3
+# area3
+# n12
+# n13
+# n23
+# n123
 summary(n12)
 summary(n123)
 pdf(o)
