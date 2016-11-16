@@ -118,23 +118,23 @@ draw.triple.venn(area1, area2, area3,
     )
 
 dev.off()
-singles = df1[grepl("single*", rownames(df1)), ]
-uniq_1=sum(singles[, 1])
-uniq_2=sum(singles[, 2])
-uniq_3=sum(singles[, 3])
-orthogroups = df1[grepl("orthogroup*", rownames(df1)), ]
-inpara_1 = sum(orthogroups[,1] == 1 & orthogroups[,2] == 0 & orthogroups[,3] == 0)
-inpara_2 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 1 & orthogroups[,3] == 0)
-inpara_3 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 1)
-label1
-uniq_1
-inpara_1
-label2
-uniq_2
-inpara_2
-label3
-uniq_3
-inpara_3
+# singles = df1[grepl("single*", rownames(df1)), ]
+# uniq_1=sum(singles[, 1])
+# uniq_2=sum(singles[, 2])
+# uniq_3=sum(singles[, 3])
+# orthogroups = df1[grepl("orthogroup*", rownames(df1)), ]
+# inpara_1 = sum(orthogroups[,1] == 1 & orthogroups[,2] == 0 & orthogroups[,3] == 0)
+# inpara_2 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 1 & orthogroups[,3] == 0)
+# inpara_3 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 1)
+# label1
+# uniq_1
+# inpara_1
+# label2
+# uniq_2
+# inpara_2
+# label3
+# uniq_3
+# inpara_3
 
 warnings()
 q()
