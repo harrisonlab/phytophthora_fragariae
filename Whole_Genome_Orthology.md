@@ -369,10 +369,13 @@ The total number of genes in UK3 orthogroups is:
 220
 ```
 
-4.5.b Plot venn diagrams:
+##4.5.b Plot venn diagrams:
 
-  ProgDir=~/git_repos/emr_repos/scripts/fusarium/pathogen/orthology
-  $ProgDir/FoC_path_vs_non_path_venn_diag.r --inp $WorkDir/"$IsolateAbrv"_orthogroups.tab --out $WorkDir/"$IsolateAbrv"_orthogroups.pdf
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/UK1_Pf_venn_diag.r --inp $WorkDir/"$IsolateAbrv"_orthogroups.tab --out $WorkDir/"$IsolateAbrv"_orthogroups.pdf
+```
+
 Output was a pdf file of the venn diagram.
 
 The following additional information was also provided. The format of the following lines is as follows:
