@@ -49,6 +49,11 @@ Orthologs=subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] == 1 & df1[,"Nov27"] == 1
 # label2 <- paste(colname2, ' (', area2, ')', sep="" )
 # label3 <- paste(colname3, ' (', area3, ')', sep="" )
 
+# No labels
+label1 <- paste("", sep="" )
+label2 <- paste("", sep="" )
+label3 <- paste("", sep="" )
+
 n12=nrow(subset(df1, df1[,"A4"] == 1 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 1 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0))
 n13=nrow(subset(df1, df1[,"Bc16"] == 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 1 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
 n23=nrow(subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
