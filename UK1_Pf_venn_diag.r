@@ -63,12 +63,12 @@ summary(n13)
 summary(n23)
 summary(n123)
 
-area1=(nrow(A4) + (n12 - n123) + (n13 - n123) + n123)
-area2=(nrow(BC16) + (n12 - n123) + (n23 - n123) + n123)
+area1=(nrow(NOV5) + (n12 - n123) + (n13 - n123) + n123)
+area2=(nrow(BC1) + (n12 - n123) + (n23 - n123) + n123)
 area3=(nrow(Others) + (n13 - n123) + (n23 - n123) + n123)
 #nrow(nonpath)
-nrow(A4)
-nrow(BC16)
+nrow(NOV5)
+nrow(BC1)
 nrow(Others)
 n12
 n13
