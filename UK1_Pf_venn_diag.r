@@ -30,9 +30,9 @@ df1 <- t(orthotabs)
 summary(df1)
 
 
-A4=subset(df1, df1[,"A4"] == 1 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
-BC16=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 1 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
-Others=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0)
+NOV5=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
+BC1=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 1)
+Others=subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 0)
 # orthologs=subset(df1, df1[,"A28"] == 1 & df1[,"CB3"] == 1 & df1[,"PG"] == 1 & df1[,"fo47"] == 1 & df1[,"A1_2"] == 1 & df1[,"Fus2"] == 1 & df1[,"125"] == 1 & df1[,"A23"] == 1 & df1[,"4287"] == 1)
 
 # area1=(nrow(nonpath) + nrow(orthologs))
