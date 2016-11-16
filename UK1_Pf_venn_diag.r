@@ -50,14 +50,14 @@ Others=subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] != 0 & df
 # label3 <- paste('FoL', ' (', area3, ')', sep="" )
 
 # Set up labels
-label1 <- paste("A4", sep="" )
-label2 <- paste("BC-16", sep="" )
-label3 <- paste("NOV-5, NOV-27, NOV-71, NOV-9 & BC-1", sep="" )
+label1 <- paste("NOV-5", sep="" )
+label2 <- paste("BC-1", sep="" )
+label3 <- paste("A4, NOV-27, NOV-71, NOV-9 & BC-16", sep="" )
 
-n123=nrow(subset(df1, df1[,"A4"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] == 1 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
-n12=n123 + nrow(subset(df1, df1[,"A4"] == 1 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 1 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0))
-n13=n123 + nrow(subset(df1, df1[,"A4"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
-n23=n123 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] == 1 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
+n123=nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 1))
+n12=n123 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 1))
+n13=n123 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 0))
+n23=n123 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 1))
 summary(n12)
 summary(n13)
 summary(n23)
