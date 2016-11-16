@@ -49,7 +49,7 @@ Others=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df
 # label2 <- paste('NonPath', ' (', area1, ')', sep="" )
 # label3 <- paste('FoL', ' (', area3, ')', sep="" )
 
-# No labels
+# Set up labels
 label1 <- paste("", sep="" )
 label2 <- paste("", sep="" )
 label3 <- paste("", sep="" )
