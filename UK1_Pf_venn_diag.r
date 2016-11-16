@@ -49,10 +49,10 @@ label1 <- paste(colname1, ' (', area1, ')', sep="" )
 label2 <- paste(colname2, ' (', area2, ')', sep="" )
 label3 <- paste(colname3, ' (', area3, ')', sep="" )
 
-n12=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1))
-n13=nrow(subset(df1, df1[,1] == 1 & df1[,3] == 1))
-n23=nrow(subset(df1, df1[,2] == 1 & df1[,3] == 1))
-n123=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1 & df1[,3] == 1))
+n12=nrow(subset(df1, df1[,"A4"] == 1 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 1 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0))
+n13=nrow(subset(df1, df1[,"Bc16"] == 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 1 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
+n23=nrow(subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
+n123=nrow(subset(df1, df1[,"Bc16"] == 1 & df1[,"Nov5"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"A4"] == 1 & df1[,"Nov9"] != 0 & df1[,"Bc1"] != 0))
 label1
 area1
 label2
