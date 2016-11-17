@@ -14,6 +14,7 @@
 
 #get config options
 library(optparse)
+library(colorspace)
 library(VennDiagram, lib.loc="/home/armita/R-packages/")
 opt_list = list(
     make_option("--inp", type="character", help="tab seperated file containing matrix of presence of orthogroups"),
@@ -75,7 +76,7 @@ draw.quad.venn(area1, area2, area3, area4,
     category = c(label1, label2, label3, label4),
 #    rep("", 4),
     lwd = rep(2, 4), lty = rep("solid", 4),
-    col = rep("black", 4), fill = NULL, alpha = rep(0.5, 4),
+    col = rep("black", 4), fill = c(rainbow_hcl(4)), alpha = rep(0.5, 4),
     label.col = rep("black", 15), cex = rep(1, 15), fontface = rep("plain", 15),
     fontfamily = rep("serif", 15), cat.pos = c(-15, 15, 0, 0),
     cat.dist = c(0.22, 0.22, 0.11, 0.11), cat.col = rep("black", 4),
