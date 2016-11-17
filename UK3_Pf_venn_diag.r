@@ -79,28 +79,28 @@ draw.quad.venn(area1, area2, area3, area4,
     rotation.degree = 0, rotation.centre = c(0.5, 0.5)
     )
 dev.off()
-singles = df1[grepl("single*", rownames(df1)), ]
-uniq_1=sum(singles[, 1])
-uniq_2=sum(singles[, 2])
-uniq_3=sum(singles[, 3])
-uniq_4=sum(singles[, 4])
-orthogroups = df1[grepl("orthogroup*", rownames(df1)), ]
-inpara_1 = sum(orthogroups[,1] == 1 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 0)
-inpara_2 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 1 & orthogroups[,3] == 0 & orthogroups[,4] == 0)
-inpara_3 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 1 & orthogroups[,4] == 0)
-inpara_4 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 1)
-label1
-uniq_1
-inpara_1
-label2
-uniq_2
-inpara_2
-label3
-uniq_3
-inpara_3
-label4
-uniq_4
-inpara_4
+# singles = df1[grepl("single*", rownames(df1)), ]
+# uniq_1=sum(singles[, 1])
+# uniq_2=sum(singles[, 2])
+# uniq_3=sum(singles[, 3])
+# uniq_4=sum(singles[, 4])
+# orthogroups = df1[grepl("orthogroup*", rownames(df1)), ]
+# inpara_1 = sum(orthogroups[,1] == 1 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 0)
+# inpara_2 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 1 & orthogroups[,3] == 0 & orthogroups[,4] == 0)
+# inpara_3 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 1 & orthogroups[,4] == 0)
+# inpara_4 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 1)
+# label1
+# uniq_1
+# inpara_1
+# label2
+# uniq_2
+# inpara_2
+# label3
+# uniq_3
+# inpara_3
+# label4
+# uniq_4
+# inpara_4
 
 warnings()
 q()
