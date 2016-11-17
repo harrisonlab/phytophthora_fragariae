@@ -14,11 +14,12 @@
 
 #get config options
 library(optparse)
-library(colorspace)
 library(VennDiagram, lib.loc="/home/armita/R-packages/")
 opt_list = list(
     make_option("--inp", type="character", help="tab seperated file containing matrix of presence of orthogroups"),
     make_option("--out", type="character", help="output venn diagram in pdf format")
+#    make_option("--maxrf", type="double", default=0.2, help="max rf to consider as linked"),
+#    make_option("--minlod", type="double", default=20.0, help="min LOD to consider as linked")
 )
 opt = parse_args(OptionParser(option_list=opt_list))
 f = opt$inp
@@ -30,168 +31,117 @@ df1 <- t(orthotabs)
 summary(df1)
 
 
-NOV27=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
-NOV71=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
-NOV9=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0)
-Others=subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0)
-# orthologs=subset(df1, df1[,"A28"] == 1 & df1[,"CB3"] == 1 & df1[,"PG"] == 1 & df1[,"fo47"] == 1 & df1[,"A1_2"] == 1 & df1[,"Fus2"] == 1 & df1[,"125"] == 1 & df1[,"A23"] == 1 & df1[,"4287"] == 1)
+area1=sum(df1[, 1])
+area2=sum(df1[, 2])
+area3=sum(df1[, 3])
+area4=sum(df1[, 4])
+area5=sum(df1[, 5])
 
-# area1=(nrow(nonpath) + nrow(orthologs))
-# area2=(nrow(path) + nrow(orthologs))
-# area3=(nrow(tomato) + nrow(orthologs))
-# area3
-# area2
-# area1
+#print(area1, area2, area3, area4, area5)
 
+colname1 <- paste(colnames(df1)[1])
+colname2 <- paste(colnames(df1)[2])
+colname3 <- paste(colnames(df1)[3])
+colname4 <- paste(colnames(df1)[4])
+colname5 <- paste(colnames(df1)[5])
 
+label1 <- paste(colname1, ' (', area1, ')', sep="" )
+label2 <- paste(colname2, ' (', area2, ')', sep="" )
+label3 <- paste(colname3, ' (', area3, ')', sep="" )
+label4 <- paste(colname4, ' (', area4, ')', sep="" )
+label5 <- paste(colname5, ' (', area5, ')', sep="" )
 
-# Print labels
-# label1 <- paste('Path', ' (', area2, ')', sep="" )
-# label2 <- paste('NonPath', ' (', area1, ')', sep="" )
-# label3 <- paste('FoL', ' (', area3, ')', sep="" )
+n12=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1))
+n13=nrow(subset(df1, df1[,1] == 1 & df1[,3] == 1))
+n14=nrow(subset(df1, df1[,1] == 1 & df1[,4] == 1))
+n15=nrow(subset(df1, df1[,1] == 1 & df1[,5] == 1))
+n23=nrow(subset(df1, df1[,2] == 1 & df1[,3] == 1))
+n24=nrow(subset(df1, df1[,2] == 1 & df1[,4] == 1))
+n25=nrow(subset(df1, df1[,2] == 1 & df1[,5] == 1))
+n34=nrow(subset(df1, df1[,3] == 1 & df1[,4] == 1))
+n35=nrow(subset(df1, df1[,3] == 1 & df1[,5] == 1))
+n45=nrow(subset(df1, df1[,4] == 1 & df1[,5] == 1))
+n123=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1 & df1[,3] == 1))
+n124=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1 & df1[,4] == 1))
+n125=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1 & df1[,5] == 1))
+n134=nrow(subset(df1, df1[,1] == 1 & df1[,3] == 1 & df1[,4] == 1))
+n135=nrow(subset(df1, df1[,1] == 1 & df1[,3] == 1 & df1[,5] == 1))
+n145=nrow(subset(df1, df1[,1] == 1 & df1[,4] == 1 & df1[,5] == 1))
+n234=nrow(subset(df1, df1[,2] == 1 & df1[,3] == 1 & df1[,4] == 1))
+n235=nrow(subset(df1, df1[,2] == 1 & df1[,3] == 1 & df1[,5] == 1))
+n245=nrow(subset(df1, df1[,2] == 1 & df1[,4] == 1 & df1[,5] == 1))
+n345=nrow(subset(df1, df1[,3] == 1 & df1[,4] == 1 & df1[,5] == 1))
+n1234=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1 & df1[,3] == 1 & df1[,4] == 1))
+n1235=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1 & df1[,3] == 1 & df1[,5] == 1))
+n1245=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1 & df1[,4] == 1 & df1[,5] == 1))
+n1345=nrow(subset(df1, df1[,1] == 1 & df1[,3] == 1 & df1[,4] == 1 & df1[,5] == 1))
+n2345=nrow(subset(df1, df1[,2] == 1 & df1[,3] == 1 & df1[,4] == 1 & df1[,5] == 1))
+n12345=nrow(subset(df1, df1[,1] == 1 & df1[,2] == 1 & df1[,3] == 1 & df1[,4] == 1 & df1[,5] == 1))
 
-# Set up labels
-label1 <- paste("NOV-27", sep="" )
-label2 <- paste("NOV-71", sep="" )
-label3 <- paste("NOV-9", sep="" )
-label4 <- paste("A4, NOV-5, BC-1 & BC-16", sep="" )
-
-n1234=nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
-n123=n1234 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
-n124=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
-n134=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
-n234=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
-n12=n1234 + n123 + n124 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0))
-n13=n1234 + n123 + n134 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
-n14=n1234 + n124 + n134 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
-n23=n1234 + n123 + n234 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
-n24=n1234 + n124 + n234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
-n34=n1234 + n134 + n234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
-summary(n1234)
-summary(n123)
-summary(n124)
-summary(n134)
-summary(n234)
 summary(n12)
-summary(n13)
-summary(n14)
-summary(n23)
-summary(n24)
-summary(n34)
-
-area1=(nrow(NOV27) + (n12 - n123 - n124 - n1234) + (n13 - n123 - n134 - n1234) + (n14 - n124 - n134 - n1234) + (n123 - n1234) + (n124 - n1234) + (n134 - n1234) + n1234)
-area2=(nrow(NOV71) + (n12 - n123 - n124 - n1234) + (n23 - n123 - n234 - n1234) + (n24 - n124 - n234 - n1234) + (n123 - n1234) + (n124 - n1234) + (n234 - n1234) + n1234)
-area3=(nrow(NOV9) + (n13 - n123 - n134 - n1234) + (n23 - n123 - n234 - n1234) + (n34 - n134 - n234 - n1234) + (n123 - n1234) + (n134 - n1234) + (n234 - n1234) + n1234)
-area4=(nrow(Others) + (n14 - n124 - n134 - n1234) + (n24 - n124 - n234 - n1234) + (n34 - n134 - n234 - n1234) + (n124 - n1234) + (n134 - n1234) + (n234 - n1234) + n1234)
-#nrow(nonpath)
-nrow(NOV27)
-nrow(NOV71)
-nrow(NOV9)
-nrow(Others)
-n12
-n13
-n14
-n23
-n24
-n34
-n123
-n124
-n134
-n234
-n1234
-area1
-#area1 - n12 - n13 + n123
-area2
-area3
-area4
+summary(n123)
+summary(n1234)
+summary(n12345)
 
 pdf(o)
-draw.quad.venn(area1, area2, area3, area4,
-    n12, n13, n14, n23, n24, n34,
-    n123, n124, n134, n234,
-    n1234,
-    category = c(label1, label2, label3, label4),
-#    rep("", 4),
-    lwd = rep(2, 4),
-    lty = rep("solid", 4),
-    col = rep("black", 4),
-    fill = c(rainbow_hcl(4)),
-    alpha = rep(0.5, 4),
-    label.col = rep("black", 15),
-    cex = rep(1, 15),
-    fontface = rep("plain", 15),
-    fontfamily = rep("serif", 15),
-    cat.pos = c(-15, 15, 0, 0),
-    cat.dist = c(0.22, 0.22, 0.11, 0.11),
-    cat.col = rep("black", 4),
-    cat.cex = rep(1, 4),
-    cat.fontface = rep("plain", 4),
-    cat.fontfamily = rep("serif", 4),
-    cat.just = rep(list(c(0.5, 0.5)), 4),
-    rotation.degree = 0,
-    rotation.centre = c(0.5, 0.5)
-    )
-
+draw.quintuple.venn(
+  area1, area2, area3, area4, area5,
+  n12, n13, n14, n15, n23, n24, n25, n34, n35, n45,
+  n123, n124, n125, n134, n135, n145, n234, n235, n245, n345,
+  n1234, n1235, n1245, n1345, n2345,
+  n12345,
+  category = c(label1, label2, label3, label4, label5),
+  lwd = rep(2, 5),
+	lty = rep("solid", 5),
+  col = rep("black", 5),
+  fill = NULL,
+  alpha = rep(0.5, 5),
+  label.col = rep("black", 31),
+  cex = rep(1, 31),
+  fontface = rep("plain", 31),
+  fontfamily = rep("serif", 31),
+  cat.pos = c(0, 287.5, 215, 145, 70),
+  cat.dist = rep(0.2, 5),
+  cat.col = rep("black", 5),
+  cat.cex = rep(1, 5),
+  cat.fontface = rep("plain", 5),
+  cat.fontfamily = rep("serif", 5),
+  cat.just = rep(list(c(0.5, 0.5)), 5),
+  rotation.degree = 0,
+  rotation.centre = c(0.5, 0.5),
+  ind = TRUE,
+  margin = 0.15
+)
 
 dev.off()
-# singles = df1[grepl("single*", rownames(df1)), ]
-# print("A28")
-# total_1 = nrow(subset (df1, df1[,"A28"] == 1))
-# missing_1 = (total_1 - area2)
-# uniq_1=sum(singles[, "A28"])
-# paste('The total number of orthogroups and singleton genes in this isolate: ', total_1)
-# paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_1)
-# paste('The total number of singleton genes not in the venn diagram: ', uniq_1)
-# print("CB3")
-# total_2 = nrow(subset (df1, df1[,"CB3"] == 1))
-# missing_2 = (total_2 - area2)
-# uniq_2=sum(singles[, "CB3"])
-# paste('The total number of orthogroups and singleton genes in this isolate: ', total_2)
-# paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_2)
-# paste('The total number of singleton genes not in the venn diagram: ', uniq_2)
-# print("PG")
-# total_3 = nrow(subset (df1, df1[,"PG"] == 1))
-# missing_3 = (total_3 - area2)
-# uniq_3=sum(singles[, "PG"])
-# paste('The total number of orthogroups and singleton genes in this isolate: ', total_3)
-# paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_3)
-# paste('The total number of singleton genes not in the venn diagram: ', uniq_3)
-# print("Fus2")
-# total_4 = nrow(subset (df1, df1[,"Fus2"] == 1))
-# missing_4 = (total_4 - area1)
-# uniq_4=sum(singles[, "Fus2"])
-# paste('The total number of orthogroups and singleton genes in this isolate: ', total_4)
-# paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_4)
-# paste('The total number of singleton genes not in the venn diagram: ', uniq_4)
-# print("125")
-# total_5 = nrow(subset (df1, df1[,"125"] == 1))
-# missing_5 = (total_5 - area1)
-# uniq_5=sum(singles[, "125"])
-# paste('The total number of orthogroups and singleton genes in this isolate: ', total_5)
-# paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_5)
-# paste('The total number of singleton genes not in the venn diagram: ', uniq_5)
-# print("A23")
-# total_6 = nrow(subset (df1, df1[,"A23"] == 1))
-# missing_6 = (total_6 - area1)
-# uniq_6=sum(singles[, "A23"])
-# paste('The total number of orthogroups and singleton genes in this isolate: ', total_6)
-# paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_6)
-# paste('The total number of singleton genes not in the venn diagram: ', uniq_6)
-# print("4287")
-# total_7 = nrow(subset (df1, df1[,"4287"] == 1))
-# missing_7 = (total_6 - area3)
-# uniq_7=sum(singles[, "4287"])
-# paste('The total number of orthogroups and singleton genes in this isolate: ', total_6)
-# paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_6)
-# paste('The total number of singleton genes not in the venn diagram: ', uniq_6)
 
-#inpara_2 = sum(orthogroups[,"A28"] == 0 & orthogroups[,"CB3"] == 1)
-#label1
-#uniq_1
-#inpara_1
-#label2
-#uniq_2
-#inpara_2
+singles = df1[grepl("single*", rownames(df1)), ]
+uniq_1=sum(singles[, 1])
+uniq_2=sum(singles[, 2])
+uniq_3=sum(singles[, 3])
+uniq_4=sum(singles[, 4])
+uniq_5=sum(singles[, 5])
+orthogroups = df1[grepl("orthogroup*", rownames(df1)), ]
+inpara_1 = sum(orthogroups[,1] == 1 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 0 & orthogroups[,5] == 0)
+inpara_2 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 1 & orthogroups[,3] == 0 & orthogroups[,4] == 0 & orthogroups[,5] == 0)
+inpara_3 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 1 & orthogroups[,4] == 0 & orthogroups[,5] == 0)
+inpara_4 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 1 & orthogroups[,5] == 0)
+inpara_5 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 0 & orthogroups[,5] == 1)
+label1
+uniq_1
+inpara_1
+label2
+uniq_2
+inpara_2
+label3
+uniq_3
+inpara_3
+label4
+uniq_4
+inpara_4
+label5
+uniq_5
+inpara_5
 
 warnings()
 q()
