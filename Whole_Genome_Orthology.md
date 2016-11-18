@@ -538,28 +538,31 @@ cat $RxLR_Names_A4 | sed -r 's/^/A4|/g' >> $RxLR_ID
 #Ortholog groups containing RxLR proteins were identified using the following commands:
 
 ```bash
-echo "The number of RxLRs searched for is:"
-cat $RxLR_ID | wc -l
-echo "Of these, the following number were found in orthogroups:"
-RxLR_Orthogroup_hits=$RxLR_Dir/UK2_RxLR_Orthogroups_hits.txt
-cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
-cat $RxLR_Orthogroup_hits | wc -l
-echo "These were distributed through the following number of Orthogroups:"
-RxLR_Orthogroup=$RxLR_Dir/UK2_RxLR_Orthogroups.txt
-cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
-cat $RxLR_Orthogroup | wc -l
-echo "The following RxLRs were found in Race 2 unique orthogroups:"
-RxLR_UK2_uniq_groups=$RxLR_Dir/UK2_uniq_RxLR_Orthogroups_hits.txt
-cat $RxLR_Orthogroup | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $RxLR_UK2_uniq_groups
-cat $RxLR_UK2_uniq_groups | wc -l
-echo "These orthogroups contain the following number of RxLRs:"
-cat $RxLR_UK2_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
-echo "The following RxLRs were found in P.fragariae unique orthogroups:"
-RxLR_Pf_uniq_groups=$RxLR_Dir/Pf_RxLR_Orthogroups_hits.txt
-cat $RxLR_Orthogroup > $RxLR_Pf_uniq_groups
-cat $RxLR_Pf_uniq_groups | wc -l
-echo "These orthogroups contain the following number of RxLRs:"
-cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
+for num in 1
+do
+    echo "The number of RxLRs searched for is:"
+    cat $RxLR_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    RxLR_Orthogroup_hits=$RxLR_Dir/UK2_RxLR_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
+    cat $RxLR_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    RxLR_Orthogroup=$RxLR_Dir/UK2_RxLR_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
+    cat $RxLR_Orthogroup | wc -l
+    echo "The following RxLRs were found in Race 2 unique orthogroups:"
+    RxLR_UK2_uniq_groups=$RxLR_Dir/UK2_uniq_RxLR_Orthogroups_hits.txt
+    cat $RxLR_Orthogroup | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $RxLR_UK2_uniq_groups
+    cat $RxLR_UK2_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of RxLRs:"
+    cat $RxLR_UK2_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
+    echo "The following RxLRs were found in P.fragariae unique orthogroups:"
+    RxLR_Pf_uniq_groups=$RxLR_Dir/Pf_RxLR_Orthogroups_hits.txt
+    cat $RxLR_Orthogroup > $RxLR_Pf_uniq_groups
+    cat $RxLR_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of RxLRs:"
+    cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
+done
 ```
 
 ```
