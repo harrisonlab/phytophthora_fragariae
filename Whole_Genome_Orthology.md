@@ -505,7 +505,7 @@ mkdir -p $UK2UniqDir
 ##Bars are to prevent incorrect filtering
 
 ```bash
-cat $Orthogroups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' | > $Uniq_UK2_groups
+cat $Orthogroups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $Uniq_UK2_groups
 echo "The number of orthogroups unique to Race UK2 are:"
 cat $Uniq_UK2_groups | wc -l
 echo "The following number genes are contained in these orthogroups:"
