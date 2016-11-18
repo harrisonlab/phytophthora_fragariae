@@ -567,19 +567,19 @@ done
 
 ```
 The number of RxLRs searched for is:
-237
+674
 Of these, the following number were found in orthogroups:
-237
+485
 These were distributed through the following number of Orthogroups:
-178
+185
 The following RxLRs were found in Race 2 unique orthogroups:
 0
 These orthogroups contain the following number of RxLRs:
 0
 The following RxLRs were found in P.fragariae unique orthogroups:
-178
+185
 These orthogroups contain the following number of RxLRs:
-237
+485
 ```
 
 #The Race 2 RxLR genes that were not found in orthogroups were identified:
