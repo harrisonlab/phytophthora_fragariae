@@ -384,29 +384,105 @@ The following additional information was also provided. The format of the follow
 
 Isolate name (total number of orthogroups) number of unique singleton genes number of unique groups of inparalogs
 
-  [1]  <- non-pathogen orthogroups (5 non-pathogens)
-  [1]  <- pathogen orthogroups (3 pathogens)
-  [1] "Fus2"
-  [1] "The total number of orthogroups and singleton genes in this isolate:  13846"
-  [1] "The total number of orthogroups and singleton genes not in the venn diagram:  2412"
-  [1] "The total number of singleton genes not in the venn diagram:  293"
-  [1] "125"
-  [1] "The total number of orthogroups and singleton genes in this isolate:  13975"
-  [1] "The total number of orthogroups and singleton genes not in the venn diagram:  2541"
-  [1] "The total number of singleton genes not in the venn diagram:  342"
-  [1] "A23"
-  [1] "The total number of orthogroups and singleton genes in this isolate:  13616"
-  [1] "The total number of orthogroups and singleton genes not in the venn diagram:  2182"
-  [1] "The total number of singleton genes not in the venn diagram:  256"
-  [1] "A13"
-  [1] "The total number of orthogroups and singleton genes in this isolate:  13333"
-  [1] "The total number of orthogroups and singleton genes not in the venn diagram:  1705"
-  [1] "The total number of singleton genes not in the venn diagram:  647"
-  [1] "fo47"
-  [1] "The total number of orthogroups and singleton genes in this isolate:  14272"
-  [1] "The total number of orthogroups and singleton genes not in the venn diagram:  2644"
-  [1] "The total number of singleton genes not in the venn diagram:  1363"
-  NULL
+###UK race 1 focused analysis
+
+```
+[1] "A4"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16638"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  2427"
+[1] "The total number of singleton genes not in the venn diagram:  1013"
+[1] "NOV-5"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16762"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  1539"
+[1] "The total number of singleton genes not in the venn diagram:  1024"
+[1] "NOV-27"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17613"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  3402"
+[1] "The total number of singleton genes not in the venn diagram:  1373"
+[1] "NOV-71"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16645"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  2434"
+[1] "The total number of singleton genes not in the venn diagram:  962"
+[1] "BC-16"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17356"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  3145"
+[1] "The total number of singleton genes not in the venn diagram:  1530"
+[1] "NOV-9"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17602"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  3391"
+[1] "The total number of singleton genes not in the venn diagram:  1369"
+[1] "BC-1"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17518"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  2049"
+[1] "The total number of singleton genes not in the venn diagram:  1330"
+```
+
+###UK race 2 focused analysis
+
+```
+[1] "A4"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16638"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  1186"
+[1] "The total number of singleton genes not in the venn diagram:  1013"
+[1] "NOV-5"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16762"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  2246"
+[1] "The total number of singleton genes not in the venn diagram:  1024"
+[1] "NOV-27"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17613"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  3097"
+[1] "The total number of singleton genes not in the venn diagram:  1373"
+[1] "NOV-71"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16645"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  2129"
+[1] "The total number of singleton genes not in the venn diagram:  962"
+[1] "BC-16"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17356"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  1478"
+[1] "The total number of singleton genes not in the venn diagram:  1530"
+[1] "NOV-9"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17602"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  3086"
+[1] "The total number of singleton genes not in the venn diagram:  1369"
+[1] "BC-1"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17518"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  3086"
+[1] "The total number of singleton genes not in the venn diagram:  1330"
+```
+
+###UK race 3 focused analysis
+
+```
+[1] "A4"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16638"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  2244"
+[1] "The total number of singleton genes not in the venn diagram:  1013"
+[1] "NOV-5"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16762"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  2368"
+[1] "The total number of singleton genes not in the venn diagram:  1024"
+[1] "NOV-27"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17613"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  1754"
+[1] "The total number of singleton genes not in the venn diagram:  1373"
+[1] "NOV-71"
+[1] "The total number of orthogroups and singleton genes in this isolate:  16645"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  1331"
+[1] "The total number of singleton genes not in the venn diagram:  962"
+[1] "BC-16"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17356"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  2962"
+[1] "The total number of singleton genes not in the venn diagram:  1530"
+[1] "NOV-9"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17602"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  1757"
+[1] "The total number of singleton genes not in the venn diagram:  1369"
+[1] "BC-1"
+[1] "The total number of orthogroups and singleton genes in this isolate:  17518"
+[1] "The total number of orthogroups and singleton genes not in the venn diagram:  3208"
+[1] "The total number of singleton genes not in the venn diagram:  1330"
+```
+
 4.6.a Extracting fasta files orthogroups
 
   ProgDir=~/git_repos/emr_repos/tools/pathogen/orthology/orthoMCL
