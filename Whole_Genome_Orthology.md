@@ -483,20 +483,21 @@ Isolate name (total number of orthogroups) number of unique singleton genes numb
 [1] "The total number of singleton genes not in the venn diagram:  1330"
 ```
 
-#Analysis of orthogroups unique to UK race 2 (Strains BC-16)
+#Analysis of orthogroups unique to UK race 2 (Strains BC-16 & A4)
 
 ##The genes unique to Race 2 were identified within the orthology analysis
 
 ##First variables were set:
 
 ```bash
-WorkDir=analysis/orthology/orthomcl/phytophthora_fragariae
-Bc16UniqDir=$WorkDir/Bc16_unique
-Orthogroups=$WorkDir/phytophthora_fragariae_orthogroups.txt
+WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+UK2UniqDir=$WorkDir/UK2_unique
+Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-Braker_genes=gene_pred/braker/P.fragariae/Bc16/P.fragariae_Bc16_braker/augustus.aa
-Uniq_Bc16_groups=$Bc16UniqDir/Bc16_uniq_orthogroups.txt
-mkdir -p $Bc16UniqDir
+Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
+Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
+Uniq_UK2_groups=$UK2UniqDir/UK2_uniq_orthogroups.txt
+mkdir -p $UK2UniqDir
 ```
 
 #Orthogroups only containing Race 2 genes were extracted:
