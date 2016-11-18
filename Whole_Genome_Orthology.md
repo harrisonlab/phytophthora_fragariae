@@ -483,7 +483,6 @@ Isolate name (total number of orthogroups) number of unique singleton genes numb
 [1] "The total number of singleton genes not in the venn diagram:  1330"
 ```
 
-
 #Analysis of orthogroups unique to UK race 2 (Strains BC-16)
 
 ##The genes unique to Race 2 were identified within the orthology analysis
