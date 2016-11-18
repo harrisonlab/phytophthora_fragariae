@@ -531,8 +531,8 @@ RxLR_Dir=$WorkDir/UKR1_RxLR
 Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
 RxLR_ID=$RxLR_Dir/UKR1_aug_RxLR_EER_IDs.txt
 mkdir -p $RxLR_Dir
-cat $RxLR_Names_Bc16 | sed -r 's/^/Bc1|/g' > $RxLR_ID
-cat $RxLR_Names_A4 | sed -r 's/^/Nov5|/g' >> $RxLR_ID
+cat $RxLR_Names_Bc16 | sed -r 's/^/Bc16|/g' > $RxLR_ID
+cat $RxLR_Names_A4 | sed -r 's/^/A4|/g' >> $RxLR_ID
 ```
 
 #Ortholog groups containing RxLR proteins were identified using the following commands:
