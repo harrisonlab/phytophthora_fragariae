@@ -610,12 +610,15 @@ The number of UK2 unique RxLRs are:
 ##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-OrthogroupTxt=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_RxLR/Bc16_RxLR_Orthogroups.txt
-GoodProt=analysis/orthology/orthomcl/phytophthora_fragariae/goodProteins/goodProteins.fasta
-OutDir=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_RxLR/orthogroups_fasta_Bc16_RxLR
-mkdir -p $OutDir
-$ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/Bc16_RxLR/Bc16_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/phytophthora_fragariae/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_RxLR/orthogroups_fasta_Bc16_RxLR
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
 ```
 
 ##Extracting fasta files for P. fragariae orthogroups containing Race 2 putative RxLRs
