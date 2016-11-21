@@ -787,22 +787,22 @@ The following number genes are contained in these orthogroups:
 74
 ```
 
-#Race 2 unique RxLR families
+#Race 1 unique RxLR families
 
-#Race 2 RxLR genes were parsed to the same format as the gene names used in the analysis:
+#Race 1 RxLR genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
 for num in 1
 do
-    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_EER_motif_hmm.txt
-    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_EER_motif_hmm.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
-    RxLR_Dir=$WorkDir/UKR2_RxLR
+    RxLR_Dir=$WorkDir/UK1_RxLR
     Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
-    RxLR_ID=$RxLR_Dir/UKR2_aug_RxLR_EER_IDs.txt
+    RxLR_ID=$RxLR_Dir/UK1_aug_RxLR_EER_IDs.txt
     mkdir -p $RxLR_Dir
-    cat $RxLR_Names_Bc16 | sed -r 's/^/Bc16|/g' > $RxLR_ID
-    cat $RxLR_Names_A4 | sed -r 's/^/A4|/g' >> $RxLR_ID
+    cat $RxLR_Names_Bc1 | sed -r 's/^/Bc1|/g' > $RxLR_ID
+    cat $RxLR_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $RxLR_ID
 done
 ```
 
