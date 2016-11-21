@@ -1050,7 +1050,7 @@ done
 ```
 
 ```
-The number of orthogroups unique to Race 1 are:
+The number of orthogroups unique to Race 3 are:
 39
 The following number genes are contained in these orthogroups:
 220
