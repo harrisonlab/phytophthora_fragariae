@@ -853,22 +853,22 @@ These orthogroups contain the following number of RxLRs:
 462
 ```
 
-#The Race 2 RxLR genes that were not found in orthogroups were identified:
+#The Race 1 RxLR genes that were not found in orthogroups were identified:
 
 ```bash
 for num in 1
 do
-    RxLR_UK2_uniq=$RxLR_Dir/UK2_unique_RxLRs.txt
-    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc16|' | tr -d 'A4|' > $RxLR_UK2_uniq
-    echo "The number of UK2 unique RxLRs are:"
-    cat $RxLR_UK2_uniq | wc -l
-    RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR_EER.fa
-    RxLR_Seq_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_final_RxLR_EER.fa
-    Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
-    Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
-    RxLR_UK2_uniq_fa=$RxLR_Dir/UK2_unique_RxLRs.fa
-    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' > $RxLR_UK2_uniq_fa
-    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' >> $RxLR_UK2_uniq_fa
+    RxLR_UK1_uniq=$RxLR_Dir/UK1_unique_RxLRs.txt
+    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc1|' | tr -d 'Nov5|' > $RxLR_UK1_uniq
+    echo "The number of UK1 unique RxLRs are:"
+    cat $RxLR_UK1_uniq | wc -l
+    RxLR_Seq_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_final_RxLR_EER.fa
+    RxLR_Seq_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_final_RxLR_EER.fa
+    Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
+    Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
+    RxLR_UK1_uniq_fa=$RxLR_Dir/UK1_unique_RxLRs.fa
+    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK1_uniq | grep -E -v '^--' > $RxLR_UK1_uniq_fa
+    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK1_uniq | grep -E -v '^--' >> $RxLR_UK1_uniq_fa
 done
 ```
 
