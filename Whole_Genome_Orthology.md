@@ -1034,18 +1034,18 @@ Uniq_UK3_groups=$UK3UniqDir/UK3_uniq_orthogroups.txt
 mkdir -p $UK3UniqDir
 ```
 
-#Orthogroups only containing Race 1 genes were extracted:
+#Orthogroups only containing Race 3 genes were extracted:
 
 ##Bars are to prevent incorrect filtering
 
 ```bash
 for num in 1
 do
-    cat $Orthogroups | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' > $Uniq_UK1_groups
-    echo "The number of orthogroups unique to Race UK1 are:"
-    cat $Uniq_UK1_groups | wc -l
+    cat $Orthogroups | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc11|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' > $Uniq_UK3_groups
+    echo "The number of orthogroups unique to Race UK3 are:"
+    cat $Uniq_UK3_groups | wc -l
     echo "The following number genes are contained in these orthogroups:"
-    cat $Uniq_UK1_groups | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' | grep -o '|' | wc -l
+    cat $Uniq_UK3_groups | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc11|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' | grep -o '|' | wc -l
 done
 ```
 
