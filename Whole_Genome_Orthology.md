@@ -958,33 +958,33 @@ Of these, the following number were found in orthogroups:
 210
 These were distributed through the following number of Orthogroups:
 68
-The following CRNs were found in Race 2 unique orthogroups:
+The following CRNs were found in Race 1 unique orthogroups:
 0
 The following CRNs were found in P.fragariae unique orthogroups:
 68
 ```
 
-#The Race 2 CRN genes not found in orthogroups were identified:
+#The Race 1 CRN genes not found in orthogroups were identified:
 
 ```bash
 for num in 1
 do
-    CRN_UK2_uniq=$CRN_Dir/UK2_unique_CRNs.txt
-    cat $CRN_ID_UK2 | grep -v -w -f $CRN_Orthogroup_hits_UK2 | tr -d 'Bc16|' | tr -d 'A4|' > $CRN_UK2_uniq
-    echo "The number of Race 2 unique CRNs are:"
-    cat $CRN_UK2_uniq | wc -l
-    CRN_Seq_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.fa
-    CRN_Seq_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.fa
-    Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
-    Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
-    CRN_UK2_uniq_fa=$CRN_Dir/UK2_unique_CRNs.fa
-    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK2_uniq | grep -E -v '^--' > $CRN_UK2_uniq_fa
-    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK2_uniq | grep -E -v '^--' >> $CRN_UK2_uniq_fa
+    CRN_UK1_uniq=$CRN_Dir/UK1_unique_CRNs.txt
+    cat $CRN_ID_UK1 | grep -v -w -f $CRN_Orthogroup_hits_UK1 | tr -d 'Bc1|' | tr -d 'Nov5|' > $CRN_UK1_uniq
+    echo "The number of Race 1 unique CRNs are:"
+    cat $CRN_UK1_uniq | wc -l
+    CRN_Seq_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN.fa
+    CRN_Seq_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN.fa
+    Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
+    Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
+    CRN_UK1_uniq_fa=$CRN_Dir/UK1_unique_CRNs.fa
+    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK1_uniq | grep -E -v '^--' > $CRN_UK1_uniq_fa
+    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK1_uniq | grep -E -v '^--' >> $CRN_UK1_uniq_fa
 done
 ```
 
 ```
-The number of Race 2 unique CRNs are:
+The number of Race 1 unique CRNs are:
 12
 ```
 
