@@ -756,13 +756,13 @@ done
 
 ```bash
 WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
-UK2UniqDir=$WorkDir/UK2_unique
+UK1UniqDir=$WorkDir/UK1_unique
 Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
-Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
-Uniq_UK2_groups=$UK2UniqDir/UK2_uniq_orthogroups.txt
-mkdir -p $UK2UniqDir
+Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
+Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
+Uniq_UK1_groups=$UK1UniqDir/UK1_uniq_orthogroups.txt
+mkdir -p $UK1UniqDir
 ```
 
 #Orthogroups only containing Race 2 genes were extracted:
