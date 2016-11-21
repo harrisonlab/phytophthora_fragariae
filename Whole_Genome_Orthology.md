@@ -639,7 +639,7 @@ do
 done
 ```
 
-<!-- ##Race 2 unique Crinkler families
+##Race 2 unique Crinkler families
 
 #Race 2 crinkler genes were parsed to the same format as the gene names used in the analysis:
 
@@ -704,9 +704,9 @@ GoodProt=analysis/orthology/orthomcl/phytophthora_fragariae/goodProteins/goodPro
 OutDir=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_CRN/orthogroups_fasta_Bc16_CRN
 mkdir -p $OutDir
 $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
-``` -->
+```
 
-<!-- ##Determining function of orthogroups (6.3 is the start here, all not relevant)
+##Determining function of orthogroups (6.3 is the start here, all not relevant)
 
 #Lists of genes from Race 2 unique genes, P. fragariae orthogroups and the largest shared gene families were identified
 
@@ -715,4 +715,4 @@ $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt 
 ```bash
 WorkDir=analysis/orthology/orthomcl/phytophthora_fragariae
 InterProFile=gene_pred/interproscan/Bc16/P.fragariae_Bc16_braker/10300_interproscan.tsv
-``` -->
+```
