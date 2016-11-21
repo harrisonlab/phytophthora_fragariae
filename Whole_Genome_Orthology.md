@@ -639,8 +639,6 @@ do
 done
 ```
 
---progress here--
-
 <!-- ##Race 2 unique Crinkler families
 
 #Race 2 crinkler genes were parsed to the same format as the gene names used in the analysis:
