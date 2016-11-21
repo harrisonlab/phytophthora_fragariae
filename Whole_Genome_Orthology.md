@@ -931,22 +931,22 @@ done
 for num in 1
 do
     echo "The number of CRNs searched for is:"
-    cat $CRN_ID_UK2 | wc -l
+    cat $CRN_ID_UK1 | wc -l
     echo "Of these, the following number were found in orthogroups:"
-    CRN_Orthogroup_hits_UK2=$CRN_Dir/UK2_CRN_Orthogroups_hits.txt
-    cat $Orthogroups | grep -o -w -f $CRN_ID_UK2 > $CRN_Orthogroup_hits_UK2
-    cat $CRN_Orthogroup_hits_UK2 | wc -l
+    CRN_Orthogroup_hits_UK1=$CRN_Dir/UK1_CRN_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $CRN_ID_UK1 > $CRN_Orthogroup_hits_UK1
+    cat $CRN_Orthogroup_hits_UK1 | wc -l
     echo "These were distributed through the following number of Orthogroups:"
-    CRN_Orthogroup_UK2=$CRN_Dir/UK2_CRN_Orthogroups.txt
-    cat $Orthogroups | grep -w -f $CRN_ID_UK2 > $CRN_Orthogroup_UK2
-    cat $CRN_Orthogroup_UK2 | wc -l
-    echo "The following CRNs were found in Race 2 unique orthogroups:"
-    CRN_UK2_uniq_groups=$CRN_Dir/UK2_uniq_CRN_Orthogroups_hits.txt
-    cat $CRN_Orthogroup_UK2 | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $CRN_UK2_uniq_groups
-    cat $CRN_UK2_uniq_groups | wc -l
+    CRN_Orthogroup_UK1=$CRN_Dir/UK1_CRN_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $CRN_ID_UK1 > $CRN_Orthogroup_UK1
+    cat $CRN_Orthogroup_UK1 | wc -l
+    echo "The following CRNs were found in Race 1 unique orthogroups:"
+    CRN_UK1_uniq_groups=$CRN_Dir/UK1_uniq_CRN_Orthogroups_hits.txt
+    cat $CRN_Orthogroup_UK1 | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' > $CRN_UK1_uniq_groups
+    cat $CRN_UK1_uniq_groups | wc -l
     echo "The following CRNs were found in P.fragariae unique orthogroups:"
     CRN_Pf_uniq_groups=$CRN_Dir/Pf_CRN_Orthogroups_hits.txt
-    cat $CRN_Orthogroup_UK2 > $CRN_Pf_uniq_groups
+    cat $CRN_Orthogroup_UK1 > $CRN_Pf_uniq_groups
     cat $CRN_Pf_uniq_groups | wc -l
 done
 ```
