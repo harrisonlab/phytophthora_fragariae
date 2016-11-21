@@ -747,3 +747,268 @@ do
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
 ```
+
+#Analysis of orthogroups unique to UK race 2 (Strains BC-16 & A4)
+
+##The genes unique to Race 2 were identified within the orthology analysis
+
+##First variables were set:
+
+```bash
+WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+UK2UniqDir=$WorkDir/UK2_unique
+Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+GoodProts=$WorkDir/goodProteins/goodProteins.fasta
+Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
+Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
+Uniq_UK2_groups=$UK2UniqDir/UK2_uniq_orthogroups.txt
+mkdir -p $UK2UniqDir
+```
+
+#Orthogroups only containing Race 2 genes were extracted:
+
+##Bars are to prevent incorrect filtering
+
+```bash
+cat $Orthogroups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $Uniq_UK2_groups
+echo "The number of orthogroups unique to Race UK2 are:"
+cat $Uniq_UK2_groups | wc -l
+echo "The following number genes are contained in these orthogroups:"
+cat $Uniq_UK2_groups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' | grep -o '|' | wc -l
+```
+
+```
+The number of orthogroups unique to Race 2 are:
+29
+The following number genes are contained in these orthogroups:
+127
+```
+
+#Race 2 unique RxLR families
+
+#Race 2 RxLR genes were parsed to the same format as the gene names used in the analysis:
+
+```bash
+for num in 1
+do
+    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_EER_motif_hmm.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+    RxLR_Dir=$WorkDir/UKR2_RxLR
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+    RxLR_ID=$RxLR_Dir/UKR2_aug_RxLR_EER_IDs.txt
+    mkdir -p $RxLR_Dir
+    cat $RxLR_Names_Bc16 | sed -r 's/^/Bc16|/g' > $RxLR_ID
+    cat $RxLR_Names_A4 | sed -r 's/^/A4|/g' >> $RxLR_ID
+done
+```
+
+#Ortholog groups containing RxLR proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of RxLRs searched for is:"
+    cat $RxLR_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    RxLR_Orthogroup_hits=$RxLR_Dir/UK2_RxLR_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
+    cat $RxLR_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    RxLR_Orthogroup=$RxLR_Dir/UK2_RxLR_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
+    cat $RxLR_Orthogroup | wc -l
+    echo "The following RxLRs were found in Race 2 unique orthogroups:"
+    RxLR_UK2_uniq_groups=$RxLR_Dir/UK2_uniq_RxLR_Orthogroups_hits.txt
+    cat $RxLR_Orthogroup | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $RxLR_UK2_uniq_groups
+    cat $RxLR_UK2_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of RxLRs:"
+    cat $RxLR_UK2_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
+    echo "The following RxLRs were found in P.fragariae unique orthogroups:"
+    RxLR_Pf_uniq_groups=$RxLR_Dir/Pf_RxLR_Orthogroups_hits.txt
+    cat $RxLR_Orthogroup > $RxLR_Pf_uniq_groups
+    cat $RxLR_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of RxLRs:"
+    cat $RxLR_Pf_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
+done
+```
+
+```
+The number of RxLRs searched for is:
+674
+Of these, the following number were found in orthogroups:
+485
+These were distributed through the following number of Orthogroups:
+185
+The following RxLRs were found in Race 2 unique orthogroups:
+0
+These orthogroups contain the following number of RxLRs:
+0
+The following RxLRs were found in P.fragariae unique orthogroups:
+185
+These orthogroups contain the following number of RxLRs:
+485
+```
+
+#The Race 2 RxLR genes that were not found in orthogroups were identified:
+
+```bash
+for num in 1
+do
+    RxLR_UK2_uniq=$RxLR_Dir/UK2_unique_RxLRs.txt
+    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc16|' | tr -d 'A4|' > $RxLR_UK2_uniq
+    echo "The number of UK2 unique RxLRs are:"
+    cat $RxLR_UK2_uniq | wc -l
+    RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR_EER.fa
+    RxLR_Seq_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_final_RxLR_EER.fa
+    Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
+    Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
+    RxLR_UK2_uniq_fa=$RxLR_Dir/UK2_unique_RxLRs.fa
+    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' > $RxLR_UK2_uniq_fa
+    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' >> $RxLR_UK2_uniq_fa
+done
+```
+
+```
+The number of UK2 unique RxLRs are:
+189
+```
+
+##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_RxLR/UK2_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_RxLR/orthogroups_fasta_UK2_RxLR
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+
+##Extracting fasta files for P. fragariae orthogroups containing Race 2 putative RxLRs
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_RxLR/Pf_RxLR_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_RxLR/orthogroups_fasta_Pf_RxLR
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+##Race 2 unique Crinkler families
+
+#Race 2 crinkler genes were parsed to the same format as the gene names used in the analysis:
+
+```bash
+for num in 1
+do
+    CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+    CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+    CRN_Dir=$WorkDir/UK2_CRN
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+    CRN_ID_UK2=$CRN_Dir/UK2_CRN_hmmer_IDs.txt
+    mkdir -p $CRN_Dir
+    cat $CRN_Names_Bc16 | sed 's/g/Bc16|g/g' > $CRN_ID_UK2
+    cat $CRN_Names_A4 | sed 's/g/A4|g/g' >> $CRN_ID_UK2
+done
+```
+
+#Ortholog groups containing CRN proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of CRNs searched for is:"
+    cat $CRN_ID_UK2 | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    CRN_Orthogroup_hits_UK2=$CRN_Dir/UK2_CRN_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $CRN_ID_UK2 > $CRN_Orthogroup_hits_UK2
+    cat $CRN_Orthogroup_hits_UK2 | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    CRN_Orthogroup_UK2=$CRN_Dir/UK2_CRN_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $CRN_ID_UK2 > $CRN_Orthogroup_UK2
+    cat $CRN_Orthogroup_UK2 | wc -l
+    echo "The following CRNs were found in Race 2 unique orthogroups:"
+    CRN_UK2_uniq_groups=$CRN_Dir/UK2_uniq_CRN_Orthogroups_hits.txt
+    cat $CRN_Orthogroup_UK2 | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $CRN_UK2_uniq_groups
+    cat $CRN_UK2_uniq_groups | wc -l
+    echo "The following CRNs were found in P.fragariae unique orthogroups:"
+    CRN_Pf_uniq_groups=$CRN_Dir/Pf_CRN_Orthogroups_hits.txt
+    cat $CRN_Orthogroup_UK2 > $CRN_Pf_uniq_groups
+    cat $CRN_Pf_uniq_groups | wc -l
+done
+```
+
+```
+The number of CRNs searched for is:
+236
+Of these, the following number were found in orthogroups:
+225
+These were distributed through the following number of Orthogroups:
+69
+The following CRNs were found in Race 2 unique orthogroups:
+0
+The following CRNs were found in P.fragariae unique orthogroups:
+69
+```
+
+#The Race 2 CRN genes not found in orthogroups were identified:
+
+```bash
+for num in 1
+do
+    CRN_UK2_uniq=$CRN_Dir/UK2_unique_CRNs.txt
+    cat $CRN_ID_UK2 | grep -v -w -f $CRN_Orthogroup_hits_UK2 | tr -d 'Bc16|' | tr -d 'A4|' > $CRN_UK2_uniq
+    echo "The number of Race 2 unique CRNs are:"
+    cat $CRN_UK2_uniq | wc -l
+    CRN_Seq_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.fa
+    CRN_Seq_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.fa
+    Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
+    Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
+    CRN_UK2_uniq_fa=$CRN_Dir/UK2_unique_CRNs.fa
+    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK2_uniq | grep -E -v '^--' > $CRN_UK2_uniq_fa
+    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK2_uniq | grep -E -v '^--' >> $CRN_UK2_uniq_fa
+done
+```
+
+```
+The number of Race 2 unique CRNs are:
+12
+```
+
+##Extracting fasta files for orthogroups containing Race 2 putative CRNs
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK2_CRN/UK2_CRN_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK2_CRN/orthogroups_fasta_UK2_CRN
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+##Extracting fasta files for P. fragariae orthogroups containing Race 2 putative CRNs
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK2_CRN/Pf_CRN_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK2_CRN/orthogroups_fasta_Pf_CRN
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
