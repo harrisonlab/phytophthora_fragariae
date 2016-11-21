@@ -601,9 +601,7 @@ do
     Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
     RxLR_UK2_uniq_fa=$RxLR_Dir/UK2_unique_RxLRs.fa
     cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' > $RxLR_UK2_uniq_fa
-    echo "Bc16 done"
     cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' >> $RxLR_UK2_uniq_fa
-    echo "All done"
 done
 ```
 
