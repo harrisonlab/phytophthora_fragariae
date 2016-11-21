@@ -770,11 +770,14 @@ mkdir -p $UK1UniqDir
 ##Bars are to prevent incorrect filtering
 
 ```bash
-cat $Orthogroups | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' > $Uniq_UK1_groups
-echo "The number of orthogroups unique to Race UK1 are:"
-cat $Uniq_UK1_groups | wc -l
-echo "The following number genes are contained in these orthogroups:"
-cat $Uniq_UK1_groups | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' | grep -o '|' | wc -l
+for num in 1
+do
+    cat $Orthogroups | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' > $Uniq_UK1_groups
+    echo "The number of orthogroups unique to Race UK1 are:"
+    cat $Uniq_UK1_groups | wc -l
+    echo "The following number genes are contained in these orthogroups:"
+    cat $Uniq_UK1_groups | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' | grep -o '|' | wc -l
+done
 ```
 
 ```
