@@ -874,18 +874,18 @@ done
 
 ```
 The number of UK2 unique RxLRs are:
-189
+167
 ```
 
-##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
+##Extracting fasta files for orthogroups containing Race 1 putative RxLRs
 
 ```bash
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_RxLR/UK2_RxLR_Orthogroups.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK1_RxLR/UK1_RxLR_Orthogroups.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_RxLR/orthogroups_fasta_UK2_RxLR
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK1_RxLR/orthogroups_fasta_UK1_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
