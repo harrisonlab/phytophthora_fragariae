@@ -1016,21 +1016,22 @@ do
 done
 ```
 
-#Analysis of orthogroups unique to UK race 1 (Strains BC-1 & NOV-5)
+#Analysis of orthogroups unique to UK race 3 (Strains NOV-27, NOV-71 & NOV-9)
 
-##The genes unique to Race 1 were identified within the orthology analysis
+##The genes unique to Race 3 were identified within the orthology analysis
 
 ##First variables were set:
 
 ```bash
 WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
-UK1UniqDir=$WorkDir/UK1_unique
+UK1UniqDir=$WorkDir/UK3_unique
 Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
-Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
-Uniq_UK1_groups=$UK1UniqDir/UK1_uniq_orthogroups.txt
-mkdir -p $UK1UniqDir
+Final_genes_Nov27=gene_pred/codingquary/P.fragariae/Nov27/final/final_genes_combined.pep.fasta
+Final_genes_Nov71=gene_pred/codingquary/P.fragariae/Nov71/final/final_genes_combined.pep.fasta
+Final_genes_Nov9=gene_pred/codingquary/P.fragariae/Nov9/final/final_genes_combined.pep.fasta
+Uniq_UK3_groups=$UK3UniqDir/UK3_uniq_orthogroups.txt
+mkdir -p $UK3UniqDir
 ```
 
 #Orthogroups only containing Race 1 genes were extracted:
