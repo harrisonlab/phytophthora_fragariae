@@ -1056,22 +1056,24 @@ The following number genes are contained in these orthogroups:
 220
 ```
 
-#Race 1 unique RxLR families
+#Race 3 unique RxLR families
 
-#Race 1 RxLR genes were parsed to the same format as the gene names used in the analysis:
+#Race 3 RxLR genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
 for num in 1
 do
-    RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_EER_motif_hmm.txt
-    RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Nov27=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov27/Nov27_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Nov71=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov71/Nov71_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Nov9=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov9/Nov9_Total_RxLR_EER_motif_hmm.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
-    RxLR_Dir=$WorkDir/UK1_RxLR
+    RxLR_Dir=$WorkDir/UK3_RxLR
     Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
-    RxLR_ID=$RxLR_Dir/UK1_aug_RxLR_EER_IDs.txt
+    RxLR_ID=$RxLR_Dir/UK3_aug_RxLR_EER_IDs.txt
     mkdir -p $RxLR_Dir
-    cat $RxLR_Names_Bc1 | sed -r 's/^/Bc1|/g' > $RxLR_ID
-    cat $RxLR_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $RxLR_ID
+    cat $RxLR_Names_Nov27 | sed -r 's/^/Nov27|/g' > $RxLR_ID
+    cat $RxLR_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $RxLR_ID
+    cat $RxLR_Names_Nov9 | sed -r 's/^/Nov9|/g' >> $RxLR_ID
 done
 ```
 
