@@ -906,22 +906,22 @@ do
 done
 ```
 
-##Race 2 unique Crinkler families
+##Race 1 unique Crinkler families
 
-#Race 2 crinkler genes were parsed to the same format as the gene names used in the analysis:
+#Race 1 crinkler genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
 for num in 1
 do
-    CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
-    CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.txt
+    CRN_Names_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN.txt
+    CRN_Names_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
-    CRN_Dir=$WorkDir/UK2_CRN
+    CRN_Dir=$WorkDir/UK1_CRN
     Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
-    CRN_ID_UK2=$CRN_Dir/UK2_CRN_hmmer_IDs.txt
+    CRN_ID_UK1=$CRN_Dir/UK1_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
-    cat $CRN_Names_Bc16 | sed 's/g/Bc16|g/g' > $CRN_ID_UK2
-    cat $CRN_Names_A4 | sed 's/g/A4|g/g' >> $CRN_ID_UK2
+    cat $CRN_Names_Bc1 | sed 's/g/Bc1|g/g' > $CRN_ID_UK1
+    cat $CRN_Names_Nov5 | sed 's/g/Nov5|g/g' >> $CRN_ID_UK1
 done
 ```
 
