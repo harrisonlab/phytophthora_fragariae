@@ -1041,19 +1041,19 @@ mkdir -p $UK3UniqDir
 ```bash
 for num in 1
 do
-    cat $Orthogroups | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc11|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' > $Uniq_UK3_groups
+    cat $Orthogroups | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc1|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' > $Uniq_UK3_groups
     echo "The number of orthogroups unique to Race UK3 are:"
     cat $Uniq_UK3_groups | wc -l
     echo "The following number genes are contained in these orthogroups:"
-    cat $Uniq_UK3_groups | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc11|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' | grep -o '|' | wc -l
+    cat $Uniq_UK3_groups | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc1|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' | grep -o '|' | wc -l
 done
 ```
 
 ```
 The number of orthogroups unique to Race 1 are:
-16
+52
 The following number genes are contained in these orthogroups:
-74
+324
 ```
 
 #Race 1 unique RxLR families
