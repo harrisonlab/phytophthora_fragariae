@@ -723,21 +723,13 @@ The number of Race 2 unique CRNs are:
 ##Extracting fasta files for orthogroups containing Race 2 putative CRNs
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-OrthogroupTxt=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_CRN/Bc16_CRN_Orthogroups.txt
-GoodProt=analysis/orthology/orthomcl/phytophthora_fragariae/goodProteins/goodProteins.fasta
-OutDir=analysis/orthology/orthomcl/phytophthora_fragariae/Bc16_CRN/orthogroups_fasta_Bc16_CRN
-mkdir -p $OutDir
-$ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
-```
-
-##Determining function of orthogroups (6.3 is the start here, all not relevant)
-
-#Lists of genes from Race 2 unique genes, P. fragariae orthogroups and the largest shared gene families were identified
-
-#Unclear on interproscan here, it doesn't match my output
-
-```bash
-WorkDir=analysis/orthology/orthomcl/phytophthora_fragariae
-InterProFile=gene_pred/interproscan/Bc16/P.fragariae_Bc16_braker/10300_interproscan.tsv
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK2_CRN/UK2_CRN_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK2_CRN/orthogroups_fasta_UK2_CRN
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
 ```
