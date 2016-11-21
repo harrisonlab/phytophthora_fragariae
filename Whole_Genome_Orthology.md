@@ -1024,7 +1024,7 @@ done
 
 ```bash
 WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
-UK1UniqDir=$WorkDir/UK3_unique
+UK3UniqDir=$WorkDir/UK3_unique
 Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
 Final_genes_Nov27=gene_pred/codingquary/P.fragariae/Nov27/final/final_genes_combined.pep.fasta
