@@ -699,18 +699,25 @@ The following CRNs were found in P.fragariae unique orthogroups:
 #The Race 2 CRN genes not found in orthogroups were identified:
 
 ```bash
-CRN_UK2_uniq=$CRN_Dir/UK2_unique_CRNs.txt
-cat $CRN_ID_UK2 | grep -v -w -f $CRN_Orthogroup_hits_UK2 | tr -d 'Bc16|' > $CRN_UK2_uniq
-cat $CRN_ID_UK2 | grep -v -w -f $CRN_Orthogroup_hits_UK2 | tr -d 'A4|' >> $CRN_UK2_uniq
-echo "The number of Race 2 unique CRNs are:"
-cat $CRN_Bc16_uniq | wc -l
-CRN_Seq_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_pub_CRN_hmmer_out.fa
-Braker_genes=gene_pred/braker/P.fragariae/Bc16/P.fragariae_Bc16_braker/augustus.aa
-CRN_Bc16_uniq_fa=$CRN_Dir/Bc16_unique_CRNs.fa
-cat $Braker_genes | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_Bc16_uniq | grep -E -v '^--' > $CRN_Bc16_uniq_fa
+for num in 1
+do
+    CRN_UK2_uniq=$CRN_Dir/UK2_unique_CRNs.txt
+    cat $CRN_ID_UK2 | grep -v -w -f $CRN_Orthogroup_hits_UK2 | tr -d 'Bc16|' | tr -d 'A4|' > $CRN_UK2_uniq
+    echo "The number of Race 2 unique CRNs are:"
+    cat $CRN_UK2_uniq | wc -l
+    CRN_Seq_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.fa
+    CRN_Seq_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.fa
+    Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
+    Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
+    CRN_UK2_uniq_fa=$CRN_Dir/UK2_unique_CRNs.fa
+    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK2_uniq | grep -E -v '^--' > $CRN_UK2_uniq_fa
+    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK2_uniq | grep -E -v '^--' >> $CRN_UK2_uniq_fa
+done
 ```
 
 ```
+The number of Race 2 unique CRNs are:
+12
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative CRNs
