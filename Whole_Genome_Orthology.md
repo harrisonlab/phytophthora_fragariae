@@ -988,15 +988,15 @@ The number of Race 1 unique CRNs are:
 12
 ```
 
-##Extracting fasta files for orthogroups containing Race 2 putative CRNs
+##Extracting fasta files for orthogroups containing Race 1 putative CRNs
 
 ```bash
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK2_CRN/UK2_CRN_Orthogroups.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK1_CRN/UK1_CRN_Orthogroups.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK2_CRN/orthogroups_fasta_UK2_CRN
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK1_CRN/orthogroups_fasta_UK1_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
