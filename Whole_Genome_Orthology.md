@@ -1051,9 +1051,9 @@ done
 
 ```
 The number of orthogroups unique to Race 1 are:
-52
+39
 The following number genes are contained in these orthogroups:
-324
+220
 ```
 
 #Race 1 unique RxLR families
