@@ -650,7 +650,7 @@ do
     CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
     CRN_Dir=$WorkDir/UK2_CRN
-    Orthogroups=$WorkDir/phytophthora_fragariae_orthogroups.txt
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
     CRN_ID_UK2=$CRN_Dir/UK2_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
     cat $CRN_Names_Bc16 | sed 's/g/Bc16|g/g' > $CRN_ID_UK2
@@ -664,22 +664,22 @@ done
 for num in 1
 do
     echo "The number of CRNs searched for is:"
-    cat $CRN_ID_Bc16 | wc -l
+    cat $CRN_ID_UK2 | wc -l
     echo "Of these, the following number were found in orthogroups:"
-    CRN_Orthogroup_hits_Bc16=$CRN_Dir/Bc16_CRN_Orthogroups_hits.txt
-    cat $Orthogroups | grep -o -w -f $CRN_ID_Bc16 > $CRN_Orthogroup_hits_Bc16
-    cat $CRN_Orthogroup_hits_Bc16 | wc -l
+    CRN_Orthogroup_hits_UK2=$CRN_Dir/UK2_CRN_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $CRN_ID_UK2 > $CRN_Orthogroup_hits_UK2
+    cat $CRN_Orthogroup_hits_UK2 | wc -l
     echo "These were distributed through the following number of Orthogroups:"
-    CRN_Orthogroup_Bc16=$CRN_Dir/Bc16_CRN_Orthogroups.txt
-    cat $Orthogroups | grep -w -f $CRN_ID_Bc16 > $CRN_Orthogroup_Bc16
-    cat $CRN_Orthogroup_Bc16 | wc -l
+    CRN_Orthogroup_UK2=$CRN_Dir/UK2_CRN_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $CRN_ID_UK2 > $CRN_Orthogroup_UK2
+    cat $CRN_Orthogroup_UK2 | wc -l
     echo "The following CRNs were found in Race 2 unique orthogroups:"
-    CRN_Bc16_uniq_groups=$CRN_Dir/Bc16_uniq_CRN_Orthogroups_hits.txt
-    cat $CRN_Orthogroup_Bc16 | grep -v 'A4' | grep -v 'Bc1' | grep -v 'Bc23' | grep -v 'Nov27' | grep -v 'Nov5' | grep -v 'Nov71' | grep -v 'Nov77' | grep -v 'Nov9' | grep -v 'ONT3' | grep -v 'SCRP245_v2' > $CRN_Bc16_uniq_groups
-    cat $CRN_Bc16_uniq_groups | wc -l
+    CRN_UK2_uniq_groups=$CRN_Dir/UK2_uniq_CRN_Orthogroups_hits.txt
+    cat $CRN_Orthogroup_Bc16 | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $CRN_UK2_uniq_groups
+    cat $CRN_UK2_uniq_groups | wc -l
     echo "The following CRNs were found in P.fragariae unique orthogroups:"
     CRN_Pf_uniq_groups=$CRN_Dir/Pf_CRN_Orthogroups_hits.txt
-    cat $CRN_Orthogroup_Bc16 > $CRN_Pf_uniq_groups
+    cat $CRN_Orthogroup_UK2 > $CRN_Pf_uniq_groups
     cat $CRN_Pf_uniq_groups | wc -l
 done
 ```
