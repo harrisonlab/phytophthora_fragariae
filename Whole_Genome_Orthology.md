@@ -748,9 +748,9 @@ do
 done
 ```
 
-#Analysis of orthogroups unique to UK race 2 (Strains BC-16 & A4)
+#Analysis of orthogroups unique to UK race 1 (Strains BC-1 & NOV-5)
 
-##The genes unique to Race 2 were identified within the orthology analysis
+##The genes unique to Race 1 were identified within the orthology analysis
 
 ##First variables were set:
 
