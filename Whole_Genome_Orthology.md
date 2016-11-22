@@ -1147,7 +1147,7 @@ done
 ```
 
 ```
-The number of UK2 unique RxLRs are:
+The number of UK3 unique RxLRs are:
 248
 ```
 
