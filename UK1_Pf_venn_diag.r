@@ -50,9 +50,9 @@ Others=subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] != 0 & df
 # label3 <- paste('FoL', ' (', area3, ')', sep="" )
 
 # Set up labels
-label1 <- paste("NOV-5", sep="" )
-label2 <- paste("BC-1", sep="" )
-label3 <- paste("A4, NOV-27, NOV-71, NOV-9 & BC-16", sep="" )
+label1 <- paste("NOV-5 (UK1)", sep="" )
+label2 <- paste("BC-1 (UK1)", sep="" )
+label3 <- paste("A4 (UK2), NOV-27 (UK3), NOV-71 (UK3), NOV-9 (UK3) & BC-16 (UK2)", sep="" )
 
 n123=nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] != 0 & df1[,"Nov71"] != 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] != 0 & df1[,"Bc1"] == 1))
 n12=n123 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 1 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 1))
@@ -93,15 +93,15 @@ draw.triple.venn(area1, area2, area3,
     fill = c(rainbow_hcl(3)),
     alpha = rep(0.5, 3),
     label.col = rep("black", 7),
-    cex = rep(1, 7),
+    cex = rep(1.15, 7),
     fontface = rep("plain", 7),
-    fontfamily = rep("serif", 7),
+    fontfamily = rep("sans", 7),
     cat.pos = c(-40, 40, 180),
     cat.dist = c(0.05, 0.05, 0.025),
     cat.col = rep("black", 3),
-    cat.cex = rep(1, 3),
+    cat.cex = rep(1.15, 3),
     cat.fontface = rep("plain", 3),
-    cat.fontfamily = rep("serif", 3),
+    cat.fontfamily = rep("sans", 3),
     cat.just = list(c(0.5, 1), c(0.5, 1), c(0.5, 0)),
     cat.default.pos = "outer",
     cat.prompts = FALSE,
