@@ -1263,8 +1263,8 @@ done
 ```
 
 ```
-The number of Race 1 unique CRNs are:
-12
+The number of Race 3 unique CRNs are:
+20
 ```
 
 ##Extracting fasta files for orthogroups containing Race 1 putative CRNs
