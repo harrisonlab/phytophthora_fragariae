@@ -38,10 +38,11 @@ summary(df1)
 # colname3 <- paste(colnames(df1)[3])
 # colname4 <- paste(colnames(df1)[4])
 
-label1 <- paste("NOV-27", sep="" )
-label2 <- paste("NOV-71", sep="" )
-label3 <- paste("NOV-9", sep="" )
-label4 <- paste("A4, NOV-5, BC-16 & BC-1", sep="" )
+label1 <- paste("NOV-27 (UK3)", sep="" )
+label2 <- paste("NOV-71 (UK3)", sep="" )
+label3 <- paste("NOV-9 (UK3)", sep="" )
+label4 <- paste("A4 (UK2), NOV-5 (UK1)
+BC-16 (UK2) & BC-1 (UK1)", sep="" )
 
 NOV27=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
 NOV71=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
@@ -77,11 +78,11 @@ draw.quad.venn(area1, area2, area3, area4,
 #    rep("", 4),
     lwd = rep(2, 4), lty = rep("solid", 4),
     col = rep("black", 4), fill = c(rainbow_hcl(4)), alpha = rep(0.5, 4),
-    label.col = rep("black", 15), cex = rep(1, 15), fontface = rep("plain", 15),
-    fontfamily = rep("serif", 15), cat.pos = c(-15, 15, 0, 0),
+    label.col = rep("black", 15), cex = rep(1.2, 15), fontface = rep("plain", 15),
+    fontfamily = rep("sans", 15), cat.pos = c(-15, 15, 0, 0),
     cat.dist = c(0.22, 0.22, 0.11, 0.11), cat.col = rep("black", 4),
     cat.cex = rep(1, 4), cat.fontface = rep("plain", 4),
-    cat.fontfamily = rep("serif", 4), cat.just = rep(list(c(0.5, 0.5)), 4),
+    cat.fontfamily = rep("sans", 4), cat.just = rep(list(c(0.5, 0.5)), 4),
     rotation.degree = 0, rotation.centre = c(0.5, 0.5)
     )
 dev.off()
