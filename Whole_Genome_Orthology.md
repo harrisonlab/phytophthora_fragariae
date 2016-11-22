@@ -1085,7 +1085,7 @@ do
     echo "The number of RxLRs searched for is:"
     cat $RxLR_ID | wc -l
     echo "Of these, the following number were found in orthogroups:"
-    RxLR_Orthogroup_hits=$RxLR_Dir/UK1_RxLR_Orthogroups_hits.txt
+    RxLR_Orthogroup_hits=$RxLR_Dir/UK3_RxLR_Orthogroups_hits.txt
     cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
     cat $RxLR_Orthogroup_hits | wc -l
     echo "These were distributed through the following number of Orthogroups:"
