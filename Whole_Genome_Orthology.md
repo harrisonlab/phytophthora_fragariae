@@ -1240,22 +1240,25 @@ The following CRNs were found in P.fragariae unique orthogroups:
 72
 ```
 
-#The Race 1 CRN genes not found in orthogroups were identified:
+#The Race 3 CRN genes not found in orthogroups were identified:
 
 ```bash
 for num in 1
 do
-    CRN_UK1_uniq=$CRN_Dir/UK1_unique_CRNs.txt
-    cat $CRN_ID_UK1 | grep -v -w -f $CRN_Orthogroup_hits_UK1 | tr -d 'Bc1|' | tr -d 'Nov5|' > $CRN_UK1_uniq
-    echo "The number of Race 1 unique CRNs are:"
-    cat $CRN_UK1_uniq | wc -l
-    CRN_Seq_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN.fa
-    CRN_Seq_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN.fa
-    Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
-    Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
-    CRN_UK1_uniq_fa=$CRN_Dir/UK1_unique_CRNs.fa
-    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK1_uniq | grep -E -v '^--' > $CRN_UK1_uniq_fa
-    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK1_uniq | grep -E -v '^--' >> $CRN_UK1_uniq_fa
+    CRN_UK3_uniq=$CRN_Dir/UK3_unique_CRNs.txt
+    cat $CRN_ID_UK3 | grep -v -w -f $CRN_Orthogroup_hits_UK3 | tr -d 'Nov27|' | tr -d 'Nov71|' | tr -d 'Nov9|' > $CRN_UK3_uniq
+    echo "The number of Race 3 unique CRNs are:"
+    cat $CRN_UK3_uniq | wc -l
+    CRN_Seq_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN.fa
+    CRN_Seq_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN.fa
+    CRN_Seq_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN.fa
+    Final_genes_Nov27=gene_pred/codingquary/P.fragariae/Nov27/final/final_genes_combined.pep.fasta
+    Final_genes_Nov71=gene_pred/codingquary/P.fragariae/Nov71/final/final_genes_combined.pep.fasta
+    Final_genes_Nov9=gene_pred/codingquary/P.fragariae/Nov9/final/final_genes_combined.pep.fasta
+    CRN_UK3_uniq_fa=$CRN_Dir/UK3_unique_CRNs.fa
+    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK3_uniq | grep -E -v '^--' > $CRN_UK3_uniq_fa
+    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK3_uniq | grep -E -v '^--' >> $CRN_UK3_uniq_fa
+    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK3_uniq | grep -E -v '^--' >> $CRN_UK3_uniq_fa
 done
 ```
 
