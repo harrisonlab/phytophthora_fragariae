@@ -1089,15 +1089,15 @@ do
     cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
     cat $RxLR_Orthogroup_hits | wc -l
     echo "These were distributed through the following number of Orthogroups:"
-    RxLR_Orthogroup=$RxLR_Dir/UK1_RxLR_Orthogroups.txt
+    RxLR_Orthogroup=$RxLR_Dir/UK3_RxLR_Orthogroups.txt
     cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
     cat $RxLR_Orthogroup | wc -l
-    echo "The following RxLRs were found in Race 1 unique orthogroups:"
-    RxLR_UK1_uniq_groups=$RxLR_Dir/UK1_uniq_RxLR_Orthogroups_hits.txt
-    cat $RxLR_Orthogroup | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' > $RxLR_UK1_uniq_groups
-    cat $RxLR_UK1_uniq_groups | wc -l
+    echo "The following RxLRs were found in Race 3 unique orthogroups:"
+    RxLR_UK3_uniq_groups=$RxLR_Dir/UK3_uniq_RxLR_Orthogroups_hits.txt
+    cat $RxLR_Orthogroup | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc1|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' > $RxLR_UK3_uniq_groups
+    cat $RxLR_UK3_uniq_groups | wc -l
     echo "These orthogroups contain the following number of RxLRs:"
-    cat $RxLR_UK1_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
+    cat $RxLR_UK3_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
     echo "The following RxLRs were found in P.fragariae unique orthogroups:"
     RxLR_Pf_uniq_groups=$RxLR_Dir/Pf_RxLR_Orthogroups_hits.txt
     cat $RxLR_Orthogroup > $RxLR_Pf_uniq_groups
