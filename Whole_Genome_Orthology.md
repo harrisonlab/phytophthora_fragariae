@@ -1077,7 +1077,6 @@ do
 done
 ```
 
-
 #Ortholog groups containing RxLR proteins were identified using the following commands:
 
 ```bash
