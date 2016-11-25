@@ -1294,3 +1294,18 @@ do
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
 ```
+
+#Extract fasta files for all unique orthogroups, including non-effector groups
+
+```bash
+for OrthogroupTxt in $(ls -d analysis/orthology/orthomcl/All_Strains_plus_rubi/UK*_unique/*)
+do
+    Race=$(echo $OrthogroupTxt | rev | cut -f2 -d '/' | rev)
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/group_fastas/$Race
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    echo $Race
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
