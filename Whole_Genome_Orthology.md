@@ -1298,7 +1298,7 @@ done
 #Extract fasta files for all unique orthogroups, including non-effector groups
 
 ```bash
-for OrthogroupTxt in $(ls -d analysis/orthology/orthomcl/All_Strains_plus_rubi/UK*_unique/*)
+for OrthogroupTxt in $(ls analysis/orthology/orthomcl/All_Strains_plus_rubi/UK*_unique/*)
 do
     Race=$(echo $OrthogroupTxt | rev | cut -f2 -d '/' | rev)
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
@@ -1307,5 +1307,25 @@ do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     echo $Race
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+#Run fasta files through interproscan to identify function of genes in unique orthogroups
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
+for Genes in $(ls analysis/orthology/orthomcl/All_Strains_plus_rubi/group_fastas/*/*.fa)
+do
+    Race=Race=$(echo $OrthogroupTxt | rev | cut -f2 -d '/' | rev)
+    Jobs=$(qstat | grep 'adamst' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 10
+        printf "."
+        Jobs=$(qstat | grep 'adamst' | grep 'qw' | wc -l)
+    done
+    printf "\n"
+    $ProgDir/sub_interproscan.sh $Genes
+    echo "$Race done"
 done
 ```
