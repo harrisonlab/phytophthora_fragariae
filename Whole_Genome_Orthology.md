@@ -1316,7 +1316,6 @@ done
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
 for Genes in $(ls analysis/orthology/orthomcl/All_Strains_plus_rubi/group_fastas/*/*.fa)
 do
-    Race=Race=$(echo $OrthogroupTxt | rev | cut -f2 -d '/' | rev)
     Jobs=$(qstat | grep 'adamst' | grep 'qw' | wc -l)
     while [ $Jobs -gt 1 ]
     do
@@ -1326,6 +1325,5 @@ do
     done
     printf "\n"
     $ProgDir/sub_interproscan.sh $Genes
-    echo "$Race done"
 done
 ```
