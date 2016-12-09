@@ -1,4 +1,4 @@
-#Create a cut-down vcf that only includes *P. fragariae* strains
+#Create a cut-down vcf that only includes BC-1 and NOV-9
 
 ```bash
 vcftools=/home/sobczm/bin/vcftools/bin
