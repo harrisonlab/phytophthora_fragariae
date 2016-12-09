@@ -115,7 +115,7 @@ done
 #Visualise the output as heatmap and clustering dendrogram
 
 ```bash
-for log in $(ls SNP_calling/*distance.log)
+for log in $(ls *distance.log | grep -e "BC1")
 do
     scripts=/home/adamst/git_repos/scripts/popgen/snp
     Rscript --vanilla $scripts/distance_matrix.R $log
