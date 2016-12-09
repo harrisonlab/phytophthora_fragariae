@@ -33,6 +33,8 @@ perl /home/sobczm/bin/vcftools/bin/vcf-stats \
 SNP_calling/BC1_NOV9_only_95m_contigs_unmasked_filtered.vcf >SNP_calling/BC1_NOV9_only_95m_contigs_unmasked_filtered.stat
 ```
 
+--progress here--
+
 #Calculate the index for percentage of shared SNP alleles between the individuals.
 
 ```bash
