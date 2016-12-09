@@ -46,7 +46,7 @@ done
 #Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
 
 ```bash
-for vcf in $(ls SNP_calling/*_filtered.vcf)
+for vcf in $(ls SNP_calling/*_filtered.vcf | grep -e "BC1")
 do
     echo $vcf
     out=$(basename $vcf .vcf)
