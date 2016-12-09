@@ -72,7 +72,7 @@ nano $snpeff/snpEff.config
 Fus2v1.0.genome : Fus2
 # Bc16 genome
 Bc16v1.0.genome: BC-16
-``` -->
+```
 
 #Collect input files
 
@@ -94,7 +94,7 @@ mv 95m_contigs_unmasked.fa sequences.fa
 
 ```bash
 java -jar $snpeff/snpEff.jar build -gff3 -v Bc16v1.0
-```
+``` -->
 
 #Annotate VCF files
 
