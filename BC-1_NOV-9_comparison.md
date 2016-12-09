@@ -5,7 +5,7 @@ vcftools=/home/sobczm/bin/vcftools/bin
 vcflib=/home/sobczm/bin/vcflib/bin
 ```
 
-##Just *P. fragariae* strains
+##Just BC-1 and NOV-9
 First argument: unfiltered input VCF file with all SNPs
 Subsequent arguments: Sample names of individuals to be removed
 
