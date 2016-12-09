@@ -1,4 +1,4 @@
-#Create a cut-down vcf that only includes BC-1 and NOV-9
+#Create a cut-down vcf that only includes BC-1 and NOV-9, commands run from phytophthora_fragariae/SNP_calling
 
 ```bash
 vcftools=/home/sobczm/bin/vcftools/bin
