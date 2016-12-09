@@ -99,9 +99,10 @@ java -jar $snpeff/snpEff.jar build -gff3 -v Bc16v1.0
 #Annotate VCF files
 
 ```bash
-input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
+snpeff=/home/sobczm/bin/snpEff
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling
 cd $input
-for a in SNP_calling/*recode.vcf
+for a in *recode.vcf
 do
     echo $a
     filename=$(basename "$a")
