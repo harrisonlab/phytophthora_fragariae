@@ -16,7 +16,7 @@ $vcflib/vcfremovesamples 95m_contigs_unmasked.vcf Nov71 Nov5 Nov27 A4 Bc16 SCRP2
 #Filter vcf outputs, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
 
 ```bash
-for vcf in $(ls SNP_calling/*_contigs_unmasked.vcf)
+for vcf in $(ls SNP_calling/*_contigs_unmasked.vcf | grep -e "BC1")
 do
     echo $vcf
     script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
