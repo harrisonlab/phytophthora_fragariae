@@ -36,7 +36,7 @@ BC1_NOV9_only_95m_contigs_unmasked_filtered.vcf >BC1_NOV9_only_95m_contigs_unmas
 #Calculate the index for percentage of shared SNP alleles between the individuals.
 
 ```bash
-for vcf in $(ls SNP_calling/*_filtered.vcf | grep -e "BC1")
+for vcf in $(ls *_filtered.vcf | grep -e "BC1")
 do
     scripts=/home/adamst/git_repos/scripts/popgen/snp
     $scripts/similarity_percentage.py $vcf
