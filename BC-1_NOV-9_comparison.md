@@ -55,7 +55,7 @@ do
 done
 ```
 
-#Create custom SnpEff genome database
+<!-- #Create custom SnpEff genome database
 
 ```bash
 snpeff=/home/sobczm/bin/snpEff
@@ -72,7 +72,7 @@ nano $snpeff/snpEff.config
 Fus2v1.0.genome : Fus2
 # Bc16 genome
 Bc16v1.0.genome: BC-16
-```
+``` -->
 
 #Collect input files
 
