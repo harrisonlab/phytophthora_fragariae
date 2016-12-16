@@ -1,6 +1,6 @@
 import openpyxl
 
-wb = openpyxl.load_workbook('orthomcl_results_rearranged.xlsx')
+wb = load_workbook('orthomcl_results_rearranged.xlsx')
 sheet = wb.get_sheet_by_name('All_strains')
 
 for row in range(1, sheet.max_row +1):
