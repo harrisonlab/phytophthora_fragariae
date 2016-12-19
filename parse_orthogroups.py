@@ -26,3 +26,12 @@ with open(conf.orthogroups) as f:
 # Step 2
 # Build a dictionary of orthogroups
 #-----------------------------------------------------
+
+ortho_dict = defaultdict(list)
+for line in ortho_lines:
+    line = line.rstrip()
+    split_line = line.split()
+    orthogroup = split_line[0].replace(orthogroup, '')
+    orthogroup = orthogroup.replace(':', '')
+    for gene in split_line[1:]:
+        ortho_dict[orthogroup].append(gene)
