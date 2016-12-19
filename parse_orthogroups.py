@@ -37,3 +37,9 @@ for line in ortho_lines:
     orthogroup = orthogroup.replace(':', '')
     for gene in split_line[1:]:
         ortho_dict[orthogroup].append(gene)
+
+#-----------------------------------------------------
+# Step 3
+# Create counts for each entry and write to a table
+#-----------------------------------------------------
+# For each strain in each orthogroup, add the constituent genes to a set. Count the number of genes in this set and print to a table.
