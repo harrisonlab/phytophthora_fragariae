@@ -49,6 +49,7 @@ for line in ortho_lines:
 keys = []
 sorted_keys = []
 keys = ortho_dict.keys()
+a = np.array([Orthogroup, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245_v2])
 
 keys.sort(key=int)
 ortho_list = []
@@ -66,3 +67,5 @@ for group_name in keys:
     Nov77 = ortho_dict[group_name].count(Nov77|)
     ONT3 = ortho_dict[group_name].count(ONT3|)
     SCRP245 = ortho_dict[group_name].count(SCRP245_v2|)
+    to_add = [group_name, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245]
+    a = numpy.append(a, to_add, axis=0)
