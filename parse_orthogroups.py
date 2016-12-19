@@ -8,6 +8,8 @@ from sets import Set
 import sys,argparse
 from collections import defaultdict
 import re
+import numpy
+import csv
 
 #-----------------------------------------------------
 # Step 1
