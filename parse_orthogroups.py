@@ -8,3 +8,8 @@ from sets import Set
 import sys,argparse
 from collections import defaultdict
 import re
+
+#-----------------------------------------------------
+# Step 1
+# Import variables & load input files
+#-----------------------------------------------------
