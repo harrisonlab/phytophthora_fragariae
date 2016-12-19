@@ -12,6 +12,7 @@ import re
 #-----------------------------------------------------
 # Step 1
 # Import variables & load input files
+# Copied from orthoMCLgroups2fasta.py
 #-----------------------------------------------------
 
 ap = argparse.ArgumentParser()
@@ -25,6 +26,7 @@ with open(conf.orthogroups) as f:
 #-----------------------------------------------------
 # Step 2
 # Build a dictionary of orthogroups
+# Copied from orthoMCLgroups2fasta.py
 #-----------------------------------------------------
 
 ortho_dict = defaultdict(list)
