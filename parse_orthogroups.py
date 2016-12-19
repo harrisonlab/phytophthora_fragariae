@@ -69,6 +69,8 @@ for group_name in keys:
     to_add = [group_name, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245]
     a = numpy.append(a, to_add, axis=0)
 
+a = numpy.reshape(a, (12, 19953))
+
 outfile = str(conf.out_dir)
 with open(outfile, "w") as o:
-    o.write()
+    o.write(a)
