@@ -49,8 +49,7 @@ for line in ortho_lines:
 keys = []
 sorted_keys = []
 keys = ortho_dict.keys()
-Orthogroup = "Orthogroup"
-a = numpy.array([Orthogroup, "A4", "Bc1", "Bc16", "Bc23", "Nov27", "Nov5", "Nov71", "Nov77", "Nov9", "ONT3", "SCRP245_v2"], dtype='|S10')
+a = numpy.array(["Orthology", "A4", "Bc1", "Bc16", "Bc23", "Nov27", "Nov5", "Nov71", "Nov77", "Nov9", "ONT3", "SCRP245_v2"], dtype='a10')
 
 keys.sort(key=int)
 ortho_list = []
