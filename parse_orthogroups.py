@@ -21,3 +21,8 @@ conf = ap.parse_args()
 
 with open(conf.orthogroups) as f:
     ortho_lines = f.readlines()
+
+#-----------------------------------------------------
+# Step 2
+# Build a dictionary of orthogroups
+#-----------------------------------------------------
