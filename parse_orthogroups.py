@@ -69,3 +69,8 @@ for group_name in keys:
     SCRP245 = ortho_dict[group_name].count(SCRP245_v2|)
     to_add = [group_name, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245]
     a = numpy.append(a, to_add, axis=0)
+
+outfile = str(conf.out_dir)
+with open(outfile, "wb") as o:
+    writer = csv.writer(o)
+    writer.writerows(a)
