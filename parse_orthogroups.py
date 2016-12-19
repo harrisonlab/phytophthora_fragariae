@@ -9,7 +9,6 @@ import sys,argparse
 from collections import defaultdict
 import re
 import numpy
-import csv
 
 #-----------------------------------------------------
 # Step 1
@@ -71,6 +70,5 @@ for group_name in keys:
     a = numpy.append(a, to_add, axis=0)
 
 outfile = str(conf.out_dir)
-with open(outfile, "wb") as o:
-    writer = csv.writer(o)
-    writer.writerows(a)
+with open(outfile, "w") as o:
+    o.write()
