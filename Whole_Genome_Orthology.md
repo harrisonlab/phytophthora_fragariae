@@ -1327,3 +1327,13 @@ do
     $ProgDir/sub_interproscan.sh $Genes
 done
 ```
+
+#Produce a count table of the number of genes for each strain in each groups
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+Taxon_code=All_strains
+OrthoMCL_output=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_orthogroups.txt
+OutName=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_count_table.csv
+$ProgDir/parse_orthogroups.py --orthogroups $OrthoMCL_output --out_dir $OutName
+```
