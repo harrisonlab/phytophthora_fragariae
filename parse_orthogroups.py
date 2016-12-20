@@ -73,6 +73,6 @@ for group_name in keys:
 a = numpy.reshape(a, (19953, 12))
 
 outfile = str(conf.out_dir)
-with open(outfile, "wb") as o:
-    writer = csv.writer(o)
+with open(outfile, "w") as o:
+    writer = csv.writer(o, delimiter='\t')
     writer.writerows(a)
