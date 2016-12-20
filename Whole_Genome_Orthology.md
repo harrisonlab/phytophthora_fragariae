@@ -1334,6 +1334,6 @@ done
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 Taxon_code=All_Strains
 OrthoMCL_output=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_orthogroups.txt
-OutName=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_count_table.csv
+OutName=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_count_table.tsv
 $ProgDir/parse_orthogroups.py --orthogroups $OrthoMCL_output --out_dir $OutName
 ```
