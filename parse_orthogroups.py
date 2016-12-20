@@ -67,7 +67,8 @@ for group_name in keys:
     Nov77 = str(ortho_dict[group_name]).count("Nov77|")
     ONT3 = str(ortho_dict[group_name]).count("ONT3|")
     SCRP245 = str(ortho_dict[group_name]).count("SCRP245_v2|")
-    to_add = [group_name, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245]
+    group_names = "Orthogroup " + group_name
+    to_add = [group_names, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245]
     a = numpy.append(a, to_add, axis=0)
 
 a = numpy.reshape(a, (19953, 12))
