@@ -19,7 +19,7 @@ import csv
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--orthogroups',required=True,type=str,help='text file output of OrthoMCL orthogroups')
-ap.add_argument('--out_dir',required=True,type=str,help='the directory where the count table is output to')
+ap.add_argument('--out_dir',required=True,type=str,help='the tsv file where the count table is output to')
 conf = ap.parse_args()
 
 with open(conf.orthogroups) as f:
@@ -71,14 +71,15 @@ for group_name in keys:
     to_add = [group_names, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245]
     a = numpy.append(a, to_add, axis=0)
 
-# Counts number of lines in file in order to correctly reshape the numpy array
-
-i = -1
-def file_len(ortho_lines):
-    with open(ortho_lines) as f:
-        for i, l in enumerate(f):
-            pass
-    return i + 1
+# # Counts number of lines in file in order to correctly reshape the numpy array
+#
+# i = -1
+# def file_len(ortho_lines):
+#     with open(ortho_lines) as f:
+#         for i, l in enumerate(f):
+#             pass
+#     return i + 1
+#
 
 a = numpy.reshape(a, (19953, 12))
 
