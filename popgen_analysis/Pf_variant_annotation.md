@@ -8,12 +8,17 @@ snpeff=/home/sobczm/bin/snpEff
 scripts=/home/sobczm/bin/popgen
 ```
 
-#All individuals
-cp /home/sobczm/popgen/snp/snp_calling/multithreaded/Fus2_canu_contigs_unmasked.vcf $input
-cp /home/sobczm/popgen/snp/snp_calling/multithreaded/Fus2_canu_contigs_unmasked_filtered.vcf $input
-cp /home/sobczm/popgen/input/Fus2_canu_new/final/Fus2_canu_contigs_unmasked.fa $input
-cp /home/sobczm/popgen/input/Fus2_canu_new/final/Fus2_final_genes_appended.gff3 $input
+##All individuals
+
+```bash
+mkdir -p $input
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling/95m_contigs_unmasked.vcf $input
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling/95m_contigs_unmasked_filtered.vcf $input
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa $input
+cp gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_appended.gff3 $input
 cd $input
+```
+
 #Create additional subsets of VCF files with reduced number of individuals
 vcftools=/home/sobczm/bin/vcftools/bin
 vcflib=/home/sobczm/bin/vcflib/bin
