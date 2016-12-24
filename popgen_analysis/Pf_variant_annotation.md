@@ -34,8 +34,12 @@ Subsequent arguments: Sample names of individuals to be removed
 $vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 >95m_contigs_unmasked_UK123.vcf
 ```
 
-#Filter the SNPs
-$scripts/snp/vcf_parser_haploid.py --i Fus2_canu_contigs_unmasked_noA13.vcf
+##Filter the SNPs
+Potential issue with this being a haploid parser, will message Maria for advice about a solution
+```bash
+$scripts/snp/vcf_parser_haploid.py --i 95m_contigs_unmasked_UK123.vcf
+```
+
 #Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
 $vcftools/vcftools --vcf Fus2_canu_contigs_unmasked_noA13_filtered.vcf --mac 1 --recode --out Fus2_canu_contigs_unmasked_noA13_filtered
 ```
