@@ -26,14 +26,19 @@ vcftools=/home/sobczm/bin/vcftools/bin
 vcflib=/home/sobczm/bin/vcflib/bin
 ```
 
-#All, without A13
-#First argument: unfiltered input VCF file with all SNPs
-#Subsequent arguments: Sample names of individuals to be removed
-$vcflib/vcfremovesamples Fus2_canu_contigs_unmasked.vcf FOCA13 >Fus2_canu_contigs_unmasked_noA13.vcf
+##Cutting down vcf to just closely related strains of UK1, 2 and 3
+First argument: unfiltered input VCF file with all SNPs
+Subsequent arguments: Sample names of individuals to be removed
+
+```bash
+$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 >95m_contigs_unmasked_UK123.vcf
+```
+
 #Filter the SNPs
 $scripts/snp/vcf_parser_haploid.py --i Fus2_canu_contigs_unmasked_noA13.vcf
 #Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
 $vcftools/vcftools --vcf Fus2_canu_contigs_unmasked_noA13_filtered.vcf --mac 1 --recode --out Fus2_canu_contigs_unmasked_noA13_filtered
+```
 
 #Only pathogens, without A13
 $vcflib/vcfremovesamples Fus2_canu_contigs_unmasked.vcf FOCA13 FOCA1-2 FOCD2 FOCA28 FOCCB3 FOCHB6 FOCPG >Fus2_canu_contigs_unmasked_patho.vcf
