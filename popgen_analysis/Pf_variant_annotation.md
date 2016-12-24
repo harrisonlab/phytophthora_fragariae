@@ -19,9 +19,12 @@ cp gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_appended.gff3 $input
 cd $input
 ```
 
-#Create additional subsets of VCF files with reduced number of individuals
+##Create additional subsets of VCF files with reduced number of individuals
+
+```bash
 vcftools=/home/sobczm/bin/vcftools/bin
 vcflib=/home/sobczm/bin/vcflib/bin
+```
 
 #All, without A13
 #First argument: unfiltered input VCF file with all SNPs
