@@ -1,9 +1,12 @@
 #Begins the analysis of the summary stats section from Maria's github
 
-#Copy input for the analysis into a new directory
-input=/home/sobczm/popgen/summary_stats
+##Copy input for the analysis into a new directory
+
+```bash
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
 snpeff=/home/sobczm/bin/snpEff
 scripts=/home/sobczm/bin/popgen
+```
 
 #All individuals
 cp /home/sobczm/popgen/snp/snp_calling/multithreaded/Fus2_canu_contigs_unmasked.vcf $input
