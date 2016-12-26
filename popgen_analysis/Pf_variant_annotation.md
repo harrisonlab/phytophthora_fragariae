@@ -37,7 +37,13 @@ $vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 >95
 ##Filter the SNPs
 
 ```bash
-$scripts/snp/vcf_parser_haploid.py --i 95m_contigs_unmasked_UK123.vcf
+cd SNP_calling/
+for vcf in $(ls *_contigs_unmasked_UK123.vcf)
+do
+    echo $vcf
+    script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
+    qsub $script $vcf
+done
 ```
 
 #Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
