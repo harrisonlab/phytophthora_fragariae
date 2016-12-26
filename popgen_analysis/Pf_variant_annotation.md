@@ -37,7 +37,7 @@ $vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 >95
 ##Filter the SNPs
 
 ```bash
-cd SNP_calling/
+cd summary_stats/
 for vcf in $(ls *_contigs_unmasked_UK123.vcf)
 do
     echo $vcf
