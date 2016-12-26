@@ -5,7 +5,7 @@
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
 snpeff=/home/sobczm/bin/snpEff
-scripts=/home/sobczm/bin/popgen
+scripts=/home/adamst/git_repos/scripts/popgen
 ```
 
 ##All individuals
@@ -35,7 +35,7 @@ $vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 >95
 ```
 
 ##Filter the SNPs
-Potential issue with this being a haploid parser, will message Maria for advice about a solution
+
 ```bash
 $scripts/snp/vcf_parser_haploid.py --i 95m_contigs_unmasked_UK123.vcf
 ```
