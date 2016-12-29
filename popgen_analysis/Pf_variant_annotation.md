@@ -52,23 +52,10 @@ done
 $vcftools/vcftools --vcf 95m_contigs_unmasked_UK123_filtered.vcf --mac 1 --recode --out 95m_contigs_unmasked_UK123_filtered
 ```
 
-#Only pathogens, without A13
-$vcflib/vcfremovesamples Fus2_canu_contigs_unmasked.vcf FOCA13 FOCA1-2 FOCD2 FOCA28 FOCCB3 FOCHB6 FOCPG >Fus2_canu_contigs_unmasked_patho.vcf
-$scripts/snp/vcf_parser_haploid.py --i Fus2_canu_contigs_unmasked_patho.vcf
-$vcftools/vcftools --vcf Fus2_canu_contigs_unmasked_patho_filtered.vcf --mac 1 --recode --out Fus2_canu_contigs_unmasked_patho_filtered
-
-#Only pathogens, without A13 and 55
-$vcflib/vcfremovesamples Fus2_canu_contigs_unmasked.vcf FOCA13 FOCA1-2 FOCD2 FOCA28 FOCCB3 FOCHB6 FOCPG FOC55 >Fus2_canu_contigs_unmasked_patho_no55.vcf
-$scripts/snp/vcf_parser_haploid.py --i Fus2_canu_contigs_unmasked_patho_no55.vcf
-$vcftools/vcftools --vcf Fus2_canu_contigs_unmasked_patho_no55_filtered.vcf --mac 1 --recode --out Fus2_canu_contigs_unmasked_patho_no55_filtered
-
-#Only non-pathogens, without A13
-$vcflib/vcfremovesamples Fus2_canu_contigs_unmasked.vcf FOCA13 FOC55 FOCFus2 FOCA23 FOC125 >Fus2_canu_contigs_unmasked_non-patho.vcf
-$scripts/snp/vcf_parser_haploid.py --i Fus2_canu_contigs_unmasked_non-patho.vcf
-$vcftools/vcftools --vcf Fus2_canu_contigs_unmasked_non-patho_filtered.vcf --mac 1 --recode --out Fus2_canu_contigs_unmasked_non-patho_filtered
-
 ##Create custom SnpEff genome database
-$scripts/summary_stats/build_genome_database.sh Fus2_canu_contigs_unmasked.fa Fus2_final_genes_appended.gff3 Fus2
+```bash
+$scripts/summary_stats/build_genome_database.sh 95m_contigs_unmasked.fa final_genes_appended.gff3 Bc16
+```
 
 #Annotate VCF files
 cd $input
