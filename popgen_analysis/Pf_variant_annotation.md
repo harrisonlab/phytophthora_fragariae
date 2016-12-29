@@ -46,8 +46,10 @@ do
 done
 ```
 
-#Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
-$vcftools/vcftools --vcf Fus2_canu_contigs_unmasked_noA13_filtered.vcf --mac 1 --recode --out Fus2_canu_contigs_unmasked_noA13_filtered
+##Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
+
+```bash
+$vcftools/vcftools --vcf 95m_contigs_unmasked_UK123_filtered.vcf --mac 1 --recode --out 95m_contigs_unmasked_UK123_filtered
 ```
 
 #Only pathogens, without A13
