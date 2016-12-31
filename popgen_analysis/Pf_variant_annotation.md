@@ -53,16 +53,20 @@ $vcftools/vcftools --vcf 95m_contigs_unmasked_UK123_filtered.vcf --mac 1 --recod
 ```
 
 ##Create custom SnpEff genome database
+
 ```bash
 $scripts/summary_stats/build_genome_database.sh 95m_contigs_unmasked.fa final_genes_appended.gff3 Bc16
 ```
 
-#Annotate VCF files
+##Annotate VCF files
+
+```bash
 cd $input
 for a in *recode.vcf
 do
-$scripts/summary_stats/annotate_snps_genome.sh $a Fus2v1.0
+    $scripts/summary_stats/annotate_snps_genome.sh $a Bc16
 done
+```
 
 ###Create FASTA alignment files containing only select subsets of SNPs. Required
 ### for analyses in the fus_popgenome_analysis.sh script.
