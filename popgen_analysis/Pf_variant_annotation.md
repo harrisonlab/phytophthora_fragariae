@@ -68,13 +68,19 @@ do
 done
 ```
 
-###Create FASTA alignment files containing only select subsets of SNPs. Required
-### for analyses in the fus_popgenome_analysis.sh script.
-### From now onwards, analysing the dataset without A13.
-cd $input/noA13
-ref_genome=/home/sobczm/popgen/summary_stats/Fus2_canu_contigs_unmasked.fa
-##all
-python $scripts/summary_stats/vcf_to_fasta.py Fus2_canu_contigs_unmasked_noA13_filtered.recode_annotated.vcf $ref_genome 1
+###Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in the Pf_popgenome_analysis.sh script. From now onwards, analysing only UK123.
+
+```bash
+cd $input
+ref_genome=$input/95m_contigs_unmasked.fa
+```
+
+####all
+
+```bash
+python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_annotated.vcf $ref_genome 1
+```
+
 #Moving each subset of FASTA files into a separate dir.
 mkdir all
 mv *.fasta ./all
