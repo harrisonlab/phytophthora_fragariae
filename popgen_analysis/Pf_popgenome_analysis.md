@@ -1,6 +1,11 @@
 #Second stage of summary_stats analysis
-input=/home/sobczm/popgen/summary_stats/noA13
-scripts=/home/sobczm/bin/popgen/summary_stats
+
+##Set inital variables
+
+```bash
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
+scripts=/home/adamst/git_repos/scripts/popgen
+```
 
 # In order to calculate different statistics in Popgenome, the input has to be arranged
 # in a particular way.
