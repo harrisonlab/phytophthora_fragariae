@@ -14,9 +14,12 @@ Folder No. 1: named "gff", contains GFF files for all the contigs output from th
 Folder No. 2: named "contigs", contains subfolders, each subfolder named with exact contig name and containing one individual contig FASTA file, also named with exact contig name, as output from vcf_to_fasta.py
 ```
 
-#An example on how to create this directory structure
+##An example on how to create this directory structure
 
+```bash
 cd $input/all
+```
+
 #This folder contaings only contig FASTA files
 #So create a new "contigs" directory to hold those files:
 mkdir contigs
