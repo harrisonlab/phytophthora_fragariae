@@ -7,12 +7,12 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stat
 scripts=/home/adamst/git_repos/scripts/popgen
 ```
 
-# In order to calculate different statistics in Popgenome, the input has to be arranged
-# in a particular way.
-# The input directory should contain two folders.
-# Folder No. 1: named "gff", contains GFF files for all the contigs output from the split_gff_contig.sh script
-# Folder No. 2: named "contigs", contains subfolders, each subfolder named with exact contig name
-# and containing one individual contig FASTA file, also named with exact contig name, as output from vcf_to_fasta.py
+```
+In order to calculate different statistics in Popgenome, the input has to be arrangedin a particular way.
+The input directory should contain two folders.
+Folder No. 1: named "gff", contains GFF files for all the contigs output from the split_gff_contig.sh script
+Folder No. 2: named "contigs", contains subfolders, each subfolder named with exact contig name and containing one individual contig FASTA file, also named with exact contig name, as output from vcf_to_fasta.py
+```
 
 #An example on how to create this directory structure
 
