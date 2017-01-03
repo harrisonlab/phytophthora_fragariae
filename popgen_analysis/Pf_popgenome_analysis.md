@@ -1,4 +1,4 @@
-#!/bin/bash
+#Second stage of summary_stats analysis
 input=/home/sobczm/popgen/summary_stats/noA13
 scripts=/home/sobczm/bin/popgen/summary_stats
 
