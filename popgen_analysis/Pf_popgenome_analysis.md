@@ -34,14 +34,17 @@ mv *.fasta ./contigs
 cp -r /home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 ```
 
-#The last step: in the folder "contigs" create subfolders, each to hold one contig FASTA file
+###The last step: in the folder "contigs" create subfolders, each to hold one contig FASTA file
+
+```bash
 cd contigs
 for f in *.fasta
 do
-folder=${f%.fasta}
-mkdir $folder
-mv $f $folder
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
 done
+```
 
 #Navigate to the input folder holding the two folders: "contigs" and "gff"
 #to proceed with Popgenome run.
