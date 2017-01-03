@@ -97,9 +97,12 @@ mv *.fasta ./coding
 ```
 
 ##silent(four-fold degenerate)
-python $scripts/summary_stats/vcf_to_fasta.py Fus2_canu_contigs_unmasked_noA13_filtered.recode_annotated_syn_silent.vcf $ref_genome 1
+
+```bash
+python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_syn_4fd.vcf $ref_genome 1
 mkdir silent
 mv *.fasta ./silent
+```
 
 ###Split the GFF file into one contig --> one GFF file. Required
 ### for analyses in the fus_popgenome_analysis.sh script.
