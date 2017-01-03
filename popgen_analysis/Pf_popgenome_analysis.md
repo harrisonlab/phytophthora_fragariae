@@ -20,16 +20,19 @@ Folder No. 2: named "contigs", contains subfolders, each subfolder named with ex
 cd $input/all
 ```
 
-This folder contains only contig FASTA files
-So create a new "contigs" directory to hold those files:
+###This folder contains only contig FASTA files
+###So create a new "contigs" directory to hold those files:
 
 ```bash
 mkdir contigs
 mv *.fasta ./contigs
 ```
 
-#copy the "gff" folder containing gff files
-cp -r /home/sobczm/popgen/summary_stats/gff ./
+###copy the "gff" folder containing gff files
+
+```bash
+cp -r /home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
+```
 
 #The last step: in the folder "contigs" create subfolders, each to hold one contig FASTA file
 cd contigs
