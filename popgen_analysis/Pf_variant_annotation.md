@@ -81,7 +81,7 @@ ref_genome=$input/95m_contigs_unmasked.fa
 python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_annotated.vcf $ref_genome 1
 ```
 
-##Moving each subset of FASTA files into a separate dir.
+###Moving each subset of FASTA files into a separate dir.
 
 ```bash
 mkdir all
@@ -89,9 +89,13 @@ mv *.fasta ./all
 ```
 
 ##coding
-python $scripts/summary_stats/vcf_to_fasta.py Fus2_canu_contigs_unmasked_noA13_filtered.recode_annotated_coding.vcf $ref_genome 1
+
+```bash
+python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_coding.vcf $ref_genome 1
 mkdir coding
 mv *.fasta ./coding
+```
+
 ##silent(four-fold degenerate)
 python $scripts/summary_stats/vcf_to_fasta.py Fus2_canu_contigs_unmasked_noA13_filtered.recode_annotated_syn_silent.vcf $ref_genome 1
 mkdir silent
