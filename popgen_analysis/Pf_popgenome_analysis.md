@@ -20,10 +20,13 @@ Folder No. 2: named "contigs", contains subfolders, each subfolder named with ex
 cd $input/all
 ```
 
-#This folder contaings only contig FASTA files
-#So create a new "contigs" directory to hold those files:
+This folder contains only contig FASTA files
+So create a new "contigs" directory to hold those files:
+
+```bash
 mkdir contigs
 mv *.fasta ./contigs
+```
 
 #copy the "gff" folder containing gff files
 cp -r /home/sobczm/popgen/summary_stats/gff ./
