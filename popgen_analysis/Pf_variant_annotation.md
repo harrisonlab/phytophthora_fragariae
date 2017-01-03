@@ -104,10 +104,11 @@ mkdir silent
 mv *.fasta ./silent
 ```
 
-###Split the GFF file into one contig --> one GFF file. Required
-### for analyses in the fus_popgenome_analysis.sh script.
+###Split the GFF file into one contig --> one GFF file. Required for analyses in Pf_popgenome_analysis.md
 
+```bash
 cd $input
-mkdir gff
-sh $scripts/summary_stats/split_gff_contigs.sh Fus2_final_genes_appended.gff3
+mkdir -p gff
+$scripts/summary_stats/split_gff_contig.sh final_genes_appended.gff3
 mv *.gff ./gff
+```
