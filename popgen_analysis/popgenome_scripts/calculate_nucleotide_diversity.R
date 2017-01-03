@@ -6,13 +6,14 @@ library(ggplot2)
 #of genetic variation cannot be calculated, and need to carry out only analyses
 #A, B  but not C, D.
 #When all coding sites input, use E to calculate Pi(nonsyn)/Pi(syn) sites.
-nonpatho <- c("FOCA1-2", "FOCA28", "FOCCB3", "FOCD2", "FOCHB6", "FOCPG")
-patho <- c("FOCA23", "FOC55", "FOC125", "FOCFus2")
+UK1 <- c("Bc1", "Nov5")
+UK2 <- c("Bc16", "A4")
+UK3 <- c("Nov27", "Nov9", "Nov71")
 #Need to set argument diploid=TRUE if using diploid genomes in the below command:
-populations <- list(nonpatho, patho)
+populations <- list(UK1, UK2, UK3, diploid = TRUE)
 #Number of populations assigned above.
 population_no <- length(populations)
-population_names <- c("nonpatho", "patho")
+population_names <- c("UK1", "UK2", "UK3") #Given in the same order, as above.
 #Interval and jump size used in the sliding window analysis
 interval <-  1000
 jump_size <-  interval / 10

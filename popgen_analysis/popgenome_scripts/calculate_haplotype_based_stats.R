@@ -5,14 +5,15 @@ library(ggplot2)
 #Assign individuals to appropriate populations (or just 1!)
 #This script calculates: haplotype-based statistics
 #More than one population needs to be defined, of course!
-nonpatho <- c("FOCA1-2", "FOCA28", "FOCCB3", "FOCD2", "FOCHB6", "FOCPG")
-patho <- c("FOCA23", "FOC55", "FOC125", "FOCFus2")
+UK1 <- c("Bc1", "Nov5")
+UK2 <- c("Bc16", "A4")
+UK3 <- c("Nov27", "Nov9", "Nov71")
 #Need to set argument diploid=TRUE if using diploid genomes in the below command:
-populations <- list(nonpatho, patho)
+populations <- list(UK1, UK2, UK3, diploid = TRUE)
 #Number of populations assigned above.
 population_no <- length(populations)
 pairs <- choose(population_no,2)
-population_names <- c("nonpatho", "patho") #Given in the same order, as above.
+population_names <- c("UK1", "UK2", "UK3") #Given in the same order, as above.
 #Interval and jump size used in the sliding window analysis
 interval <-  1000
 jump_size <-  interval / 10
