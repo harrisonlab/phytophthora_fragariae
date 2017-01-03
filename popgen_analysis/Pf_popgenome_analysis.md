@@ -4,7 +4,7 @@
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
-scripts=/home/adamst/git_repos/scripts/popgen
+scripts=/home/adamst/git_repos/scripts/popgen_analysis
 ```
 
 ```
@@ -59,10 +59,13 @@ The example below calculates nucleotide diversity within (Pi) and between (Dxy) 
 Other scripts (sub_calculate_neutrality_stats.sh) are used in analogous manner.
 ```
 
-qsub $scripts/sub_calculate_nucleotide_diversity.sh
-qsub $scripts/sub_calculate_neutrality_stats.sh
-qsub $scripts/sub_calculate_fst.sh
-qsub $scripts/sub_calculate_haplotype_based_stats.sh
+```bash
+scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/popgenome_scripts
+qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+qsub $scripts2/sub_calculate_neutrality_stats.sh
+qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
+```
 
 #This calculation was done over all sites. Now going to proceed for site subsets:
 #synonymous, non-synonymous and four-fold degenerate (silent), in the respective folders
