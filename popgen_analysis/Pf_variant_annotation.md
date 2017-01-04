@@ -78,7 +78,7 @@ ref_genome=$input/95m_contigs_unmasked.fa
 ###all
 
 ```bash
-python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_annotated.vcf $ref_genome 1
+python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_annotated.vcf $ref_genome 2
 ```
 
 ###Moving each subset of FASTA files into a separate dir.
