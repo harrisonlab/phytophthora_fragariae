@@ -9,7 +9,7 @@ UK1 <- c("Bc1", "Nov5")
 UK2 <- c("Bc16", "A4")
 UK3 <- c("Nov27", "Nov9", "Nov71")
 #Need to set argument diploid=TRUE if using diploid genomes in the below command:
-populations <- list(UK1, UK2, UK3, diploid = TRUE)
+populations <- list(UK1, UK2, UK3)
 #Number of populations assigned above.
 population_no <- length(populations)
 pairs <- choose(population_no,2)
