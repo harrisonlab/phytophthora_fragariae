@@ -57,6 +57,7 @@ The R script used below is custom-made for each run (see first few lines of it).
 It requires custom definition of populations, and individual assignment to them.
 The example below calculates nucleotide diversity within (Pi) and between (Dxy) populations.
 Other scripts (sub_calculate_neutrality_stats.sh) are used in analogous manner.
+Not using haplotype based stats as Pf is diploid.
 ```
 
 ```bash
