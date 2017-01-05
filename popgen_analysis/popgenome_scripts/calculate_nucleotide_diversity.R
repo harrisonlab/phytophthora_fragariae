@@ -6,9 +6,9 @@ library(ggplot2)
 #of genetic variation cannot be calculated, and need to carry out only analyses
 #A, B  but not C, D.
 #When all coding sites input, use E to calculate Pi(nonsyn)/Pi(syn) sites.
-UK1 <- c("Bc1", "Nov5")
-UK2 <- c("Bc16", "A4")
-UK3 <- c("Nov27", "Nov9", "Nov71")
+UK1 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2")
+UK2 <- c("Bc16_1", "Bc16_2", "A4_1", "A4_2")
+UK3 <- c("Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
 #Need to set argument diploid=TRUE if using diploid genomes in the below command:
 populations <- list(UK1, UK2, UK3)
 #Number of populations assigned above.
