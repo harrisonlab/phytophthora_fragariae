@@ -13,7 +13,8 @@ populations <- list(UK1, UK2, UK3)
 #Number of populations assigned above.
 population_no <- length(populations)
 pairs <- choose(population_no,2)
-population_names <- c("UK1", "UK2", "UK3") #Given in the same order, as above.
+population_names <- c("UK1", "UK2", "UK3")
+#Given in the same order, as above.
 #Interval and jump size used in the sliding window analysis
 interval <-  1000
 jump_size <-  interval / 10
