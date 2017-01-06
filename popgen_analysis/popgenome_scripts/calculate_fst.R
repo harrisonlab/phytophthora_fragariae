@@ -143,3 +143,14 @@ x <- as.data.frame(read.delim(file_table2))
 file_hist <- paste("genome_Hudson_KST_per_gene_all", ".pdf", sep="")
 fst_plot <- ggplot(x, aes(x=x[,2])) + geom_histogram(colour="black", fill="springgreen") + xlab(expression(paste("Hudson KST per gene"))) + ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[,2], n = 10))
 ggsave(file_hist, fst_plot)
+
+
+for (i in seq(pairs))
+{
+  #Pairwise FST
+  labelling <- gsub("/", "_vs_", row.names(FST_pairwise)[i])
+  file_table2 = paste("genome_pairwise_FST_per_gene_", labelling, ".txt", sep="")
+  x <- as.data.frame(read.delim(file_table2))
+  file_hist <- paste("genome_pairwise_FST_per_gene_", labelling, ".pdf", sep="")
+  fst_plot <- ggplot(x, aes(x=x[,2])) + geom_histogram(colour="black", fill="cadetblue") + xlab(expression(paste("Pairwise FST per gene"))) + ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[,2], n = 10))
+  ggsave(file_hist, fst_plot)
