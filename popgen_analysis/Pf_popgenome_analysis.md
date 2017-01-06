@@ -34,21 +34,7 @@ mv *.fasta ./contigs
 cp -r /home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 ```
 
-###Test if all contigs have a matching gff and remove any which do not
-
-```bash
-for a in $PWD/contigs/*/*.fasta
-do
-    filename=$(basename "$a")
-    expected_gff="$PWD/gff/${filename%.fa*}.gff"
-    if [ ! -f "$expected_gff" ]
-    then
-       rm -rf $(dirname $a)
-    fi
-done
-```
-
-###The last step: in the folder "contigs" create subfolders, each to hold one contig FASTA file
+###Next step: in the folder "contigs" create subfolders, each to hold one contig FASTA file
 
 ```bash
 cd contigs
@@ -64,6 +50,20 @@ done
 
 ```bash
 cd $input/all
+```
+
+###Lastly, test if all contigs have a matching gff and remove any which do not
+
+```bash
+for a in $PWD/contigs/*/*.fasta
+do
+    filename=$(basename "$a")
+    expected_gff="$PWD/gff/${filename%.fa*}.gff"
+    if [ ! -f "$expected_gff" ]
+    then
+       rm -rf $(dirname $a)
+    fi
+done
 ```
 
 ```
