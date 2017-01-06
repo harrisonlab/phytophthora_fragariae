@@ -8,7 +8,7 @@ scripts=/home/adamst/git_repos/scripts/popgen_analysis
 ```
 
 ```
-In order to calculate different statistics in Popgenome, the input has to be arrangedin a particular way.
+In order to calculate different statistics in Popgenome, the input has to be arranged in a particular way.
 The input directory should contain two folders.
 Folder No. 1: named "gff", contains GFF files for all the contigs output from the split_gff_contig.sh script
 Folder No. 2: named "contigs", contains subfolders, each subfolder named with exact contig name and containing one individual contig FASTA file, also named with exact contig name, as output from vcf_to_fasta.py
@@ -32,6 +32,20 @@ mv *.fasta ./contigs
 
 ```bash
 cp -r /home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
+```
+
+###Test if all contigs have a matching gff and remove any which do not
+
+```bash
+for a in $PWD/contigs/*/*.fasta
+do
+    filename=$(basename "$a")
+    expected_gff="$PWD/gff/${filename%.fa*}.gff"
+    if [ ! -f "$expected_gff" ]
+    then
+       rm -rf $(dirname $a)
+    fi
+done
 ```
 
 ###The last step: in the folder "contigs" create subfolders, each to hold one contig FASTA file
