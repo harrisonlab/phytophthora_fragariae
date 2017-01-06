@@ -143,4 +143,3 @@ x <- as.data.frame(read.delim(file_table2))
 file_hist <- paste("genome_Hudson_KST_per_gene_all", ".pdf", sep="")
 fst_plot <- ggplot(x, aes(x=x[,2])) + geom_histogram(colour="black", fill="springgreen") + xlab(expression(paste("Hudson KST per gene"))) + ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[,2], n = 10))
 ggsave(file_hist, fst_plot)
-}
