@@ -154,3 +154,4 @@ for (i in seq(pairs))
   file_hist <- paste("genome_pairwise_FST_per_gene_", labelling, ".pdf", sep="")
   fst_plot <- ggplot(x, aes(x=x[,2])) + geom_histogram(colour="black", fill="cadetblue") + xlab(expression(paste("Pairwise FST per gene"))) + ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[,2], n = 10))
   ggsave(file_hist, fst_plot)
+}
