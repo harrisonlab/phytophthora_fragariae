@@ -1,4 +1,3 @@
-#!/bin/bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
 vcftools=/home/sobczm/bin/vcftools/bin
