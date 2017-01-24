@@ -2,8 +2,16 @@
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
-scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+scripts=/home/adamst/git_repos/scripts/popgen
 vcftools=/home/sobczm/bin/vcftools/bin
+```
+
+#Carry out phasing of diploid genomes
+
+```bash
+cd summary_stats
+inputvcf=95m_contigs_unmasked_UK123_filtered.recode.vcf
+$scripts/snp/sub_beagle.sh $inputvcf
 ```
 
 #Calculate D, D' and r^2 for SNPs separated by between 1 and 100 kbp
