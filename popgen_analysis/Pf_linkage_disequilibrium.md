@@ -1,6 +1,10 @@
+#Commands to run analysis of linkage disequilibrium, also phases diploid genomes
+
+```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
 vcftools=/home/sobczm/bin/vcftools/bin
+```
 
 #Calculate D, D' and r^2 for SNPs separated by between 1 and 100 kbp
 #in non-pathogens (program calculates the stats using only the individuals
