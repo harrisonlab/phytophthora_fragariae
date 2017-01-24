@@ -11,7 +11,7 @@ vcftools=/home/sobczm/bin/vcftools/bin
 ```bash
 cd summary_stats
 inputvcf=95m_contigs_unmasked_UK123_filtered.recode.vcf
-$scripts/snp/sub_beagle.sh $inputvcf
+qsub $scripts/snp/sub_beagle.sh $inputvcf
 ```
 
 #Calculate D, D' and r^2 for SNPs separated by between 1 and 100 kbp
