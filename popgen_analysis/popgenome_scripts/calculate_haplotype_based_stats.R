@@ -12,11 +12,11 @@ CA4 <- c("ONT3_1", "ONT3_2")
 CA5 <- c("Bc23_1", "Bc23_2")
 UN <- c("SCRP245_v2_1", "SCRP245_v2_2")
 #Need to set argument diploid=TRUE if using diploid genomes in the below command:
-populations <- list(UK1, UK2, UK3)
+populations <- list(UK1, UK2, UK3, CA4, CA4, UN)
 #Number of populations assigned above.
 population_no <- length(populations)
 pairs <- choose(population_no,2)
-population_names <- c("UK1", "UK2", "UK3") #Given in the same order, as above.
+population_names <- c("UK1", "UK2", "UK3", "CA4", "CA5", "UN") #Given in the same order, as above.
 #Interval and jump size used in the sliding window analysis
 interval <-  1000
 jump_size <-  interval / 10
