@@ -71,7 +71,7 @@ The R script used below is custom-made for each run (see first few lines of it).
 It requires custom definition of populations, and individual assignment to them.
 The example below calculates nucleotide diversity within (Pi) and between (Dxy) populations.
 Other scripts (sub_calculate_neutrality_stats.sh) are used in analogous manner.
-Not using haplotype based stats as Pf is diploid.
+Vcf of all Pf strains, bar NOV-77 has been phased, run for haplotype-based stats.
 ```
 
 ```bash
@@ -79,7 +79,7 @@ scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/p
 qsub $scripts2/sub_calculate_nucleotide_diversity.sh
 qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
-# qsub $scripts2/sub_calculate_haplotype_based_stats.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 ```
 
 #This calculation was done over all sites. Now going to proceed for site subsets:
