@@ -241,9 +241,9 @@ Vcf of all Pf strains, bar NOV-77 has been phased, run for haplotype-based stats
 
 ```bash
 scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/popgenome_scripts
-qsub $scripts2/sub_calculate_nucleotide_diversity.sh
-qsub $scripts2/sub_calculate_neutrality_stats.sh
-qsub $scripts2/sub_calculate_fst.sh
+# qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+# qsub $scripts2/sub_calculate_neutrality_stats.sh
+# qsub $scripts2/sub_calculate_fst.sh
 qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 ```
 
