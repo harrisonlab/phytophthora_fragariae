@@ -51,6 +51,7 @@ done
 
 ```bash
 $vcftools/vcftools --vcf 95m_contigs_unmasked_UK123_filtered.vcf --mac 1 --recode --out 95m_contigs_unmasked_UK123_filtered
+$vcftools/vcftools --vcf 95m_contigs_unmasked_Pf_filtered.vcf --mac 1 --recode --out 95m_contigs_unmasked_Pf_filtered
 ```
 
 ##Create custom SnpEff genome database
