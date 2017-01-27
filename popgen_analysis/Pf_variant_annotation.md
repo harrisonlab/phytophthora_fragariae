@@ -150,12 +150,3 @@ python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_Pf_filtered.r
 mkdir silent_Pf
 mv *.fasta ./silent_Pf
 ```
-
-###Split the GFF file into one contig --> one GFF file. Required for analyses in Pf_popgenome_analysis.md
-
-```bash
-cd $input
-mkdir -p gff
-$scripts/summary_stats/split_gff_contig.sh final_genes_appended.gff3
-mv *.gff ./gff
-```
