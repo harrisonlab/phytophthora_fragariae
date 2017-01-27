@@ -6,7 +6,8 @@ scripts=/home/adamst/git_repos/scripts/popgen
 vcftools=/home/sobczm/bin/vcftools/bin
 ```
 
-#Carry out phasing of diploid genomes
+#Analysis restricted to UK races 1, 2 and 3
+##Carry out phasing of diploid genomes
 
 ```bash
 cd summary_stats
@@ -14,7 +15,7 @@ inputvcf=95m_contigs_unmasked_UK123_filtered.recode.vcf
 qsub $scripts/snp/sub_beagle.sh $inputvcf
 ```
 
-#Calculate D, D' and r^2 for SNPs separated by between 1 and 100 kbp in UK123 (program calculates the stats using only the individuals listed after "--indv" switch)
+##Calculate D, D' and r^2 for SNPs separated by between 1 and 100 kbp in UK123 (program calculates the stats using only the individuals listed after "--indv" switch)
 
 ```bash
 gunzip 95m_contigs_unmasked_UK123_filtered.recode_haplo.vcf.gz
