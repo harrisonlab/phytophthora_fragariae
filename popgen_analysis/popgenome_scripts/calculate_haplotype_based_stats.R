@@ -8,6 +8,9 @@ library(ggplot2)
 UK1 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2")
 UK2 <- c("Bc16_1", "Bc16_2", "A4_1", "A4_2")
 UK3 <- c("Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
+CA4 <- c("ONT3_1", "ONT3_2")
+CA5 <- c("Bc23_1", "Bc23_2")
+UN <- c("SCRP245_v2_1", "SCRP245_v2_2")
 #Need to set argument diploid=TRUE if using diploid genomes in the below command:
 populations <- list(UK1, UK2, UK3)
 #Number of populations assigned above.
