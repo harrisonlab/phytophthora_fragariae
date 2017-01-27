@@ -131,8 +131,8 @@ python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_Pf_filtered.r
 ###Moving each subset of FASTA files into a separate dir.
 
 ```bash
-mkdir all
-mv *.fasta ./all
+mkdir all_Pf
+mv *.fasta ./all_Pf
 ```
 
 ##coding
