@@ -180,7 +180,7 @@ Folder No. 2: named "contigs", contains subfolders, each subfolder named with ex
 ##An example on how to create this directory structure
 
 ```bash
-cd $input/all
+cd $input/all_Pf
 ```
 
 ###This folder contains only contig FASTA files
