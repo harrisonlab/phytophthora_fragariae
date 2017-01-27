@@ -247,7 +247,7 @@ scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/p
 qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 ```
 
-#This calculation was done over all sites. Now going to proceed for site subsets:
+<!-- #This calculation was done over all sites. Now going to proceed for site subsets:
 #synonymous, non-synonymous and four-fold degenerate (silent), in the respective folders
 
 #four_fold_degenerate (analogous to above, for all sites)
@@ -322,4 +322,4 @@ cd $input/nonsyn
 qsub $scripts/sub_calculate_nucleotide_diversity.sh
 qsub $scripts/sub_calculate_neutrality_stats.sh
 qsub $scripts/sub_calculate_fst.sh
-qsub $scripts/sub_calculate_haplotype_based_stats.sh
+qsub $scripts/sub_calculate_haplotype_based_stats.sh -->
