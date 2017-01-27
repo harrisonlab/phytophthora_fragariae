@@ -49,82 +49,82 @@ for (dir in contig_folders[contig_folders != ""])
   ###Calculate EXACTLY the same diversity statistiscs, as in calculate_nucleotide_diversity.R and calculate_fst.R
   ###BUT using HAPLOTYPE not NUCLEOTIDE sequences as input.
 
-  Pi <- GENOME.class.split@hap.diversity.within
-  Pi_d <- as.data.frame(Pi)
-
-  #Loop over each population: print figure and table with raw data to file
-  for (i in seq_along(population_names))
-  {
-    file_hist <- paste(dir, "_", population_names[i], "_Pi_hap_per_gene.pdf", sep="")
-    pi_plot <- ggplot(Pi_d, aes(x=Pi_d[,i])) + geom_histogram(colour="black", fill="blue") + ggtitle(dir) + xlab(expression(paste(pi, " (hap) per gene"))) + ylab("Number of genes") + scale_x_continuous(breaks = pretty(Pi_d[,i], n = 10))
-    ggsave(file_hist, pi_plot)
-    file_table = paste(dir, "_", population_names[i], "_Pi_hap_per_gene.txt", sep="")
-    file_table2 = paste("genome_", population_names[i], "_Pi_hap_per_gene_all.txt", sep="")
-    current_gff <- paste(gff, "/", dir, ".gff", sep="")
-    gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr=dir, feature=FALSE, extract.gene.names=TRUE)
-    Pi_table <- cbind(gene_ids, Pi[,i])
-    write.table(Pi_table, file=file_table, sep="\t",quote=FALSE, col.names=FALSE)
-    write.table(Pi_table, file=file_table2, sep="\t",quote=FALSE, col.names=FALSE, append=TRUE)
-
-  }
-
-  Pi_persite = GENOME.class.slide@hap.diversity.within
-  Pi_persite_d <- as.data.frame(Pi_persite)
-  #x axis
-  ids <- length(GENOME.class.slide@region.names)
-  xaxis <- seq(from = 1, to = ids, by = 1)
-
-  #Plot individual populations
-  for (i in seq_along(population_names))
-  {
-    file_slide <- paste(dir, "_", population_names[i], "_Pi_hap_sliding_window.pdf", sep="")
-    slide_plot <- ggplot(Pi_persite_d, aes(x=xaxis, y=Pi_persite_d[,i])) + geom_smooth(colour="black", fill="red") + ggtitle(dir) + xlab("Contig coordinate (kbp)") + ylab(expression(paste(pi, " (hap) per ", interval))) + scale_x_continuous(breaks = pretty(xaxis, n = 10))
-    ggsave(file_slide, slide_plot)
-    #write table with raw data
-    slide_table <- paste(dir, "_", population_names[i], "_Pi_hap_per_sliding_window.txt", sep="")
-    write.table(Pi_persite[,i], file=slide_table, sep="\t",quote=FALSE, col.names=FALSE)
-  }
-
-  #Plot both populations for comparison
-  title <- paste(dir, "Comparison of", population_names[1], "ver.", population_names[2], sep=" ")
-  comp_slide_file <- paste(dir, "_Pi_hap_sliding_window_comparison.pdf", sep="")
-  slide_comparison <- ggplot(Pi_persite_d, aes(x=xaxis)) + geom_smooth(aes(y=Pi_persite_d[,1]), colour="red") + geom_smooth(aes(y=Pi_persite_d[,2]), colour="blue") + ggtitle(title) + xlab("Contig coordinate (kbp)") + ylab(expression(paste("Average ", pi, " per site"))) + scale_x_continuous(breaks = pretty(xaxis, n = 10))
-  ggsave(comp_slide_file, slide_comparison)
-
-
-  dxy <- GENOME.class.split@hap.diversity.between
-  dxy_d <- as.data.frame(as.vector(dxy))
-  current_gff <- paste(gff, "/", dir, ".gff", sep="")
-  gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr=dir, feature=FALSE, extract.gene.names=TRUE)
-  dxy_table <- cbind(GENOME.class.split@region.names, gene_ids, as.vector(dxy))
-
-  #print a histogram of Dxy distribution
-  #write table with raw data
-  file_hist = paste(dir, "_", "dxy_hap_per_gene.pdf", sep="")
-  dxy_plot <- ggplot(dxy_d, aes(x=dxy_d[,1])) + geom_histogram(colour="black", fill="green") + ggtitle(dir) + xlab("Dxy (hap) per gene") + ylab("Number of genes") + scale_x_continuous(breaks = pretty(dxy_d[,1], n = 10))
-  ggsave(file_hist, dxy_plot)
-  file_table = paste(dir, "_","dxy_hap_per_gene.txt", sep="")
-  file_table2 = "genome_dxy_hap_per_gene_all.txt"
-  write.table(dxy_table, file=file_table, sep="\t",quote=FALSE, row.names=FALSE, col.names=FALSE)
-  write.table(dxy_table, file=file_table2, sep="\t",quote=FALSE, row.names=FALSE, col.names=FALSE, append=TRUE)
-
-  dxy <- GENOME.class.slide@hap.diversity.between
-  dxy_d <- as.data.frame(as.vector(dxy))
-  dxy_table <- cbind(GENOME.class.slide@region.names, as.vector(dxy))
-
-  #Plot Dxy across the intervals
-  #write table with raw data
-  file_slide = paste(dir, "_", "dxy_hap_per_sliding_window.pdf", sep="")
-  dxy_plot <- slide_plot <- ggplot(dxy_d, aes(x=xaxis, y=dxy_d[,1])) + geom_smooth(colour="black", fill="green") + ggtitle(dir) + xlab("Contig coordinate (kbp)") + ylab(paste("Dxy (hap) per ", interval, " bp")) + scale_x_continuous(breaks = pretty(xaxis, n = 10))
-  ggsave(file_slide, dxy_plot)
-  file_table = paste(dir, "_","dxy_hap_per_sliding_window.txt", sep="")
-  write.table(dxy_table, file=file_table, sep="\t",quote=FALSE, row.names=FALSE, col.names=FALSE)
-
-  #### Gene-based analysis
-  FST_all <- GENOME.class.split@hap.F_ST.vs.all
-  FST_all_d <- as.data.frame(FST_all)
-  FST_pairwise <- GENOME.class.split@hap.F_ST.pairwise
-  FST_pairwise_d <- as.data.frame(as.vector(FST_pairwise))
+  # Pi <- GENOME.class.split@hap.diversity.within
+  # Pi_d <- as.data.frame(Pi)
+  #
+  # #Loop over each population: print figure and table with raw data to file
+  # for (i in seq_along(population_names))
+  # {
+  #   file_hist <- paste(dir, "_", population_names[i], "_Pi_hap_per_gene.pdf", sep="")
+  #   pi_plot <- ggplot(Pi_d, aes(x=Pi_d[,i])) + geom_histogram(colour="black", fill="blue") + ggtitle(dir) + xlab(expression(paste(pi, " (hap) per gene"))) + ylab("Number of genes") + scale_x_continuous(breaks = pretty(Pi_d[,i], n = 10))
+  #   ggsave(file_hist, pi_plot)
+  #   file_table = paste(dir, "_", population_names[i], "_Pi_hap_per_gene.txt", sep="")
+  #   file_table2 = paste("genome_", population_names[i], "_Pi_hap_per_gene_all.txt", sep="")
+  #   current_gff <- paste(gff, "/", dir, ".gff", sep="")
+  #   gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr=dir, feature=FALSE, extract.gene.names=TRUE)
+  #   Pi_table <- cbind(gene_ids, Pi[,i])
+  #   write.table(Pi_table, file=file_table, sep="\t",quote=FALSE, col.names=FALSE)
+  #   write.table(Pi_table, file=file_table2, sep="\t",quote=FALSE, col.names=FALSE, append=TRUE)
+  #
+  # }
+  #
+  # Pi_persite = GENOME.class.slide@hap.diversity.within
+  # Pi_persite_d <- as.data.frame(Pi_persite)
+  # #x axis
+  # ids <- length(GENOME.class.slide@region.names)
+  # xaxis <- seq(from = 1, to = ids, by = 1)
+  #
+  # #Plot individual populations
+  # for (i in seq_along(population_names))
+  # {
+  #   file_slide <- paste(dir, "_", population_names[i], "_Pi_hap_sliding_window.pdf", sep="")
+  #   slide_plot <- ggplot(Pi_persite_d, aes(x=xaxis, y=Pi_persite_d[,i])) + geom_smooth(colour="black", fill="red") + ggtitle(dir) + xlab("Contig coordinate (kbp)") + ylab(expression(paste(pi, " (hap) per ", interval))) + scale_x_continuous(breaks = pretty(xaxis, n = 10))
+  #   ggsave(file_slide, slide_plot)
+  #   #write table with raw data
+  #   slide_table <- paste(dir, "_", population_names[i], "_Pi_hap_per_sliding_window.txt", sep="")
+  #   write.table(Pi_persite[,i], file=slide_table, sep="\t",quote=FALSE, col.names=FALSE)
+  # }
+  #
+  # #Plot both populations for comparison
+  # title <- paste(dir, "Comparison of", population_names[1], "ver.", population_names[2], sep=" ")
+  # comp_slide_file <- paste(dir, "_Pi_hap_sliding_window_comparison.pdf", sep="")
+  # slide_comparison <- ggplot(Pi_persite_d, aes(x=xaxis)) + geom_smooth(aes(y=Pi_persite_d[,1]), colour="red") + geom_smooth(aes(y=Pi_persite_d[,2]), colour="blue") + ggtitle(title) + xlab("Contig coordinate (kbp)") + ylab(expression(paste("Average ", pi, " per site"))) + scale_x_continuous(breaks = pretty(xaxis, n = 10))
+  # ggsave(comp_slide_file, slide_comparison)
+  #
+  #
+  # dxy <- GENOME.class.split@hap.diversity.between
+  # dxy_d <- as.data.frame(as.vector(dxy))
+  # current_gff <- paste(gff, "/", dir, ".gff", sep="")
+  # gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr=dir, feature=FALSE, extract.gene.names=TRUE)
+  # dxy_table <- cbind(GENOME.class.split@region.names, gene_ids, as.vector(dxy))
+  #
+  # #print a histogram of Dxy distribution
+  # #write table with raw data
+  # file_hist = paste(dir, "_", "dxy_hap_per_gene.pdf", sep="")
+  # dxy_plot <- ggplot(dxy_d, aes(x=dxy_d[,1])) + geom_histogram(colour="black", fill="green") + ggtitle(dir) + xlab("Dxy (hap) per gene") + ylab("Number of genes") + scale_x_continuous(breaks = pretty(dxy_d[,1], n = 10))
+  # ggsave(file_hist, dxy_plot)
+  # file_table = paste(dir, "_","dxy_hap_per_gene.txt", sep="")
+  # file_table2 = "genome_dxy_hap_per_gene_all.txt"
+  # write.table(dxy_table, file=file_table, sep="\t",quote=FALSE, row.names=FALSE, col.names=FALSE)
+  # write.table(dxy_table, file=file_table2, sep="\t",quote=FALSE, row.names=FALSE, col.names=FALSE, append=TRUE)
+  #
+  # dxy <- GENOME.class.slide@hap.diversity.between
+  # dxy_d <- as.data.frame(as.vector(dxy))
+  # dxy_table <- cbind(GENOME.class.slide@region.names, as.vector(dxy))
+  #
+  # #Plot Dxy across the intervals
+  # #write table with raw data
+  # file_slide = paste(dir, "_", "dxy_hap_per_sliding_window.pdf", sep="")
+  # dxy_plot <- slide_plot <- ggplot(dxy_d, aes(x=xaxis, y=dxy_d[,1])) + geom_smooth(colour="black", fill="green") + ggtitle(dir) + xlab("Contig coordinate (kbp)") + ylab(paste("Dxy (hap) per ", interval, " bp")) + scale_x_continuous(breaks = pretty(xaxis, n = 10))
+  # ggsave(file_slide, dxy_plot)
+  # file_table = paste(dir, "_","dxy_hap_per_sliding_window.txt", sep="")
+  # write.table(dxy_table, file=file_table, sep="\t",quote=FALSE, row.names=FALSE, col.names=FALSE)
+  #
+  # #### Gene-based analysis
+  # FST_all <- GENOME.class.split@hap.F_ST.vs.all
+  # FST_all_d <- as.data.frame(FST_all)
+  # FST_pairwise <- GENOME.class.split@hap.F_ST.pairwise
+  # FST_pairwise_d <- as.data.frame(as.vector(FST_pairwise))
 
   # for (i in seq_along(population_names))
   # {
