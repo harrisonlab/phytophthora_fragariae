@@ -66,6 +66,7 @@ do
        rm -rf $(dirname $a)
     fi
 done
+cd ../
 ```
 
 ```
@@ -227,6 +228,7 @@ do
        rm -rf $(dirname $a)
     fi
 done
+cd ../
 ```
 
 ```
