@@ -161,7 +161,7 @@ qsub $scripts/sub_calculate_neutrality_stats.sh
 qsub $scripts/sub_calculate_fst.sh
 qsub $scripts/sub_calculate_haplotype_based_stats.sh -->
 
-#UK123 analysis
+#Pf analysis
 
 ##Set inital variables
 
