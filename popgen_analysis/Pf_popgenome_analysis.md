@@ -212,7 +212,7 @@ done
 ##Navigate to the input folder holding the two folders: "contigs" and "gff" to proceed with Popgenome run.
 
 ```bash
-cd $input/all
+cd $input/all_Pf
 ```
 
 ###Lastly, test if all contigs have a matching gff and remove any which do not
