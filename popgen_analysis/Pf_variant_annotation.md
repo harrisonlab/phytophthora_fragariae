@@ -115,7 +115,7 @@ $scripts/summary_stats/split_gff_contig.sh final_genes_appended.gff3
 mv *.gff ./gff
 ```
 
-##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in the Pf_popgenome_analysis.sh script. From now onwards, analysing only UK123.
+##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in the Pf_popgenome_analysis.sh script. From now onwards, analysing only Pf.
 
 ```bash
 cd $input
