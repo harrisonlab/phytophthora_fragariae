@@ -126,19 +126,19 @@ for (dir in contig_folders[contig_folders != ""])
   FST_pairwise <- GENOME.class.split@hap.F_ST.pairwise
   FST_pairwise_d <- as.data.frame(as.vector(FST_pairwise))
 
-  for (i in seq_along(population_names))
-  {
-    file_hist <- paste(dir, "_", population_names[i], "_total_FST_hap_per_gene.pdf", sep="")
-    fst_plot <- ggplot(FST_all_d, aes(x=FST_all_d[,i])) + geom_histogram(colour="black", fill="darkseagreen") + ggtitle(dir) + xlab(expression(paste("Total FST (hap) per gene"))) + ylab("Number of genes") + scale_x_continuous(breaks = pretty(FST_all_d[,i], n = 10))
-    ggsave(file_hist, fst_plot)
-    file_table = paste(dir, "_", population_names[i], "_total_FST_hap_per_gene.txt", sep="")
-    file_table2 = paste("genome_", population_names[i], "_total_FST_hap_per_gene_all.txt", sep="")
-    current_gff <- paste(gff, "/", dir, ".gff", sep="")
-    gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr=dir, feature=FALSE, extract.gene.names=TRUE)
-    fst_table <- cbind(gene_ids, FST_all[,i])
-    write.table(fst_table, file=file_table, sep="\t",quote=FALSE, col.names=FALSE)
-    write.table(fst_table, file=file_table2, sep="\t",quote=FALSE, col.names=FALSE, append=TRUE)
-  }
+  # for (i in seq_along(population_names))
+  # {
+  #   file_hist <- paste(dir, "_", population_names[i], "_total_FST_hap_per_gene.pdf", sep="")
+  #   fst_plot <- ggplot(FST_all_d, aes(x=FST_all_d[,i])) + geom_histogram(colour="black", fill="darkseagreen") + ggtitle(dir) + xlab(expression(paste("Total FST (hap) per gene"))) + ylab("Number of genes") + scale_x_continuous(breaks = pretty(FST_all_d[,i], n = 10))
+  #   ggsave(file_hist, fst_plot)
+  #   file_table = paste(dir, "_", population_names[i], "_total_FST_hap_per_gene.txt", sep="")
+  #   file_table2 = paste("genome_", population_names[i], "_total_FST_hap_per_gene_all.txt", sep="")
+  #   current_gff <- paste(gff, "/", dir, ".gff", sep="")
+  #   gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr=dir, feature=FALSE, extract.gene.names=TRUE)
+  #   fst_table <- cbind(gene_ids, FST_all[,i])
+  #   write.table(fst_table, file=file_table, sep="\t",quote=FALSE, col.names=FALSE)
+  #   write.table(fst_table, file=file_table2, sep="\t",quote=FALSE, col.names=FALSE, append=TRUE)
+  # }
 
   for (i in seq(pairs))
   {
