@@ -114,3 +114,48 @@ mkdir -p gff
 $scripts/summary_stats/split_gff_contig.sh final_genes_appended.gff3
 mv *.gff ./gff
 ```
+
+##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in the Pf_popgenome_analysis.sh script. From now onwards, analysing only UK123.
+
+```bash
+cd $input
+ref_genome=$input/95m_contigs_unmasked.fa
+```
+
+###all
+
+```bash
+python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_annotated.vcf $ref_genome 2
+```
+
+###Moving each subset of FASTA files into a separate dir.
+
+```bash
+mkdir all
+mv *.fasta ./all
+```
+
+##coding
+
+```bash
+python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_coding.vcf $ref_genome 2
+mkdir coding
+mv *.fasta ./coding
+```
+
+##silent(four-fold degenerate)
+
+```bash
+python $scripts/summary_stats/vcf_to_fasta.py 95m_contigs_unmasked_UK123_filtered.recode_syn_4fd.vcf $ref_genome 2
+mkdir silent
+mv *.fasta ./silent
+```
+
+###Split the GFF file into one contig --> one GFF file. Required for analyses in Pf_popgenome_analysis.md
+
+```bash
+cd $input
+mkdir -p gff
+$scripts/summary_stats/split_gff_contig.sh final_genes_appended.gff3
+mv *.gff ./gff
+```
