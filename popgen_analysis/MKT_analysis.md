@@ -74,7 +74,9 @@ python $scripts/annotate_gen_aa.py $input/progressiveMauve/mel-guided-alignment.
 $input/95m_contigs_unmasked_filtered.vcf 2 Y
 ```
 
-#Carry out the analysis above without printing fake genotypes.
+#####Carry out analysis above without printing fake genotypes.
+
+```bash
 python $scripts/annotate_gen_aa.py $input/genomes/progressive/mel-guided-alignment.txt \
 $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 N
 ```
