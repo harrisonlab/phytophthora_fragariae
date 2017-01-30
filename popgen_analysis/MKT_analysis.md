@@ -62,9 +62,11 @@ perl /home/sobczm/bin/popoolation_1.2.2/mauve-parser.pl --ref $input/genomes/95m
 --input $input/progressiveMauve/aligned_genomes.xmfa --output $input/progressiveMauve/mel-guided-alignment.txt
 ```
 
-#Option 'Y' specifies to print fake genotype into the VCF file encoding the identified ancestral alleles.
-#Use this option when proceeding to use Popgenome in order to calculate outgroup-based
-#statistics: Fay & Wu's H and McDonald-Kreitman test
+```
+Option 'Y' specifies to print fake genotype into the VCF file encoding the identified ancestral alleles.
+Use this option when proceeding to use Popgenome in order to calculate outgroup-based statistics: Fay & Wu's H and McDonald-Kreitman test
+```
+
 python $scripts/annotate_gen_aa.py $input/genomes/progressive/mel-guided-alignment.txt \
 $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 Y
 #Carry out the analysis above without printing fake genotypes.
