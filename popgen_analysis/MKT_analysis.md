@@ -3,7 +3,7 @@
 #Set inital variables
 
 ```bash
-scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+scripts=/home/adamst/git_repos/scripts/popgen/summary_stats
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
 ```
 
