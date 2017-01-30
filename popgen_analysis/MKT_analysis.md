@@ -46,7 +46,12 @@ python $scripts/annotate_vcf_aa.py $input/SNP_calling/95m_contigs_unmasked_filte
 
 #####Run progressiveMauve
 ```bash
+cp $Pf ./
+cp $Pra ./
+cp $Prb ./
+cp $Prc ./
 qsub $scripts/run_progressive_mauve.sh $input/summary_stats/progressiveMauve "95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
+rm 95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa
 ```
 
 perl /home/sobczm/bin/popoolation_1.2.2/mauve-parser.pl --ref $input/genomes/95m_contigs_hardmasked.fa \
