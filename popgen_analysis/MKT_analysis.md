@@ -67,8 +67,13 @@ Option 'Y' specifies to print fake genotype into the VCF file encoding the ident
 Use this option when proceeding to use Popgenome in order to calculate outgroup-based statistics: Fay & Wu's H and McDonald-Kreitman test
 ```
 
-python $scripts/annotate_gen_aa.py $input/genomes/progressive/mel-guided-alignment.txt \
-$input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 Y
+#####Carry out analysis with fake genotype
+
+```bash
+python $scripts/annotate_gen_aa.py $input/progressiveMauve/mel-guided-alignment.txt \
+$input/95m_contigs_unmasked_filtered.vcf 2 Y
+```
+
 #Carry out the analysis above without printing fake genotypes.
 python $scripts/annotate_gen_aa.py $input/genomes/progressive/mel-guided-alignment.txt \
 $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 N
