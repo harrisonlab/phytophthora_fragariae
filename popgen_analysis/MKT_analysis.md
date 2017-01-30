@@ -4,7 +4,7 @@
 
 ```bash
 scripts=/home/adamst/git_repos/scripts/popgen/summary_stats
-input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 ```
 
 #A)
@@ -35,8 +35,11 @@ Prb=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spade
 Prc=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP333/filtered_contigs_repmask/SCRP333_contigs_hardmasked.fa
 ```
 
-##1
+###1
+
+```bash
 python $scripts/annotate_vcf_aa.py $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
+```
 
 ##2
 #progressiveMauve
