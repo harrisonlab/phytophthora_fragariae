@@ -41,8 +41,10 @@ Prc=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spade
 python $scripts/annotate_vcf_aa.py $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
 ```
 
-##2
-#progressiveMauve
+###2
+####progressiveMauve
+
+```bash
 qsub $scripts/run_progressive_mauve.sh $input/genomes/progressive "95m_contigs_hardmasked.fa Phytophthora_sojae.P_sojae_V3_0.dna_rm.toplevel.fa Phytophthora_ramorum.ASM14973v1.dna_rm.toplevel.fa"
 perl /home/sobczm/bin/popoolation_1.2.2/mauve-parser.pl --ref $input/genomes/95m_contigs_hardmasked.fa \
 --input $input/genomes/progressive/aligned_genomes.xmfa --output $input/genomes/progressive/mel-guided-alignment.txt
@@ -54,6 +56,7 @@ $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 Y
 #Carry out the analysis above without printing fake genotypes.
 python $scripts/annotate_gen_aa.py $input/genomes/progressive/mel-guided-alignment.txt \
 $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 N
+```
 
 #3
 #Compare the results of ancestral allele annotation obtained using VCF and genome alignment
