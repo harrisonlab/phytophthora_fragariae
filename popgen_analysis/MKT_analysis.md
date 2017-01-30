@@ -3,8 +3,8 @@
 #Set inital variables
 
 ```bash
-scripts=/home/sobczm/bin/popgen/summary_stats
-input=/home/sobczm/popgen/other/phytophthora
+scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
 ```
 
 ##### A)
