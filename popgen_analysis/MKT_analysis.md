@@ -22,15 +22,18 @@ Choice of the analysis to follow: 1, 2, 3 depends on the available resources and
 Annotation with ancestral alleles can be used just to polarise the mutation status of SNPs of interest or can be used in the formal tests for selection (e.g. McDonald-Kreitman Test and Fay & Wu's H described below)
 ```
 
-#Obtain masked P. fragariae, P. sojae, P. ramorum sequences
-#P. fragariae
-ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
-cd $input/genomes
-cp $ProjDir/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_hardmasked.fa ./
-#P. sojae
-wget ftp://ftp.ensemblgenomes.org/pub/protists/release-34/fasta/phytophthora_sojae/dna/Phytophthora_sojae.P_sojae_V3_0.dna_rm.toplevel.fa.gz
-#P. ramorum
-wget ftp://ftp.ensemblgenomes.org/pub/protists/release-34/fasta/phytophthora_ramorum/dna/Phytophthora_ramorum.ASM14973v1.dna_rm.toplevel.fa.gz
+##Set variables for locations of _P. fragariae_ and _P. rubi_ genomes
+
+```bash
+#_P. fragariae_
+Pf = /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_hardmasked.fa
+#_P. rubi_ SCRP249
+249 = /home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP249/filtered_contigs_repmask/SCRP249_contigs_hardmasked.fa
+#_P. rubi_ SCRP324
+324 = /home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP324/filtered_contigs_repmask/SCRP324_contigs_hardmasked.fa
+#_P. rubi_ SCRP333
+333 = /home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP333/filtered_contigs_repmask/SCRP333_contigs_hardmasked.fa
+```
 
 ##1
 python $scripts/annotate_vcf_aa.py $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
