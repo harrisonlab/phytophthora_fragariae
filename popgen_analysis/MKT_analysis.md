@@ -51,12 +51,17 @@ cp $Pf ./
 cp $Pra ./
 cp $Prb ./
 cp $Prc ./
-qsub $scripts/run_progressive_mauve.sh $input/summary_stats/progressiveMauve "95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
+qsub $scripts/run_progressive_mauve.sh $input/progressiveMauve "95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
 rm 95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa
 ```
 
+#####Parse Mauve output
+
+```bash
 perl /home/sobczm/bin/popoolation_1.2.2/mauve-parser.pl --ref $input/genomes/95m_contigs_hardmasked.fa \
---input $input/genomes/progressive/aligned_genomes.xmfa --output $input/genomes/progressive/mel-guided-alignment.txt
+--input $input/progressiveMauve/aligned_genomes.xmfa --output $input/progressiveMauve/mel-guided-alignment.txt
+```
+
 #Option 'Y' specifies to print fake genotype into the VCF file encoding the identified ancestral alleles.
 #Use this option when proceeding to use Popgenome in order to calculate outgroup-based
 #statistics: Fay & Wu's H and McDonald-Kreitman test
