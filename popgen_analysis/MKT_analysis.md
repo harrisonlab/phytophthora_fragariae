@@ -1,4 +1,5 @@
-#!/bin/bash
+#Runs analysis of *P. fragariae* and *P. rubi* genomes in preparation for McDonald-Kreitman test. Fay & Wu's H is not necessary right now.
+
 scripts=/home/sobczm/bin/popgen/summary_stats
 input=/home/sobczm/popgen/other/phytophthora
 
