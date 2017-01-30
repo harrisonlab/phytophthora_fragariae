@@ -44,8 +44,11 @@ python $scripts/annotate_vcf_aa.py $input/SNP_calling/95m_contigs_unmasked_filte
 ###2
 ####progressiveMauve
 
+#####Run progressiveMauve
 ```bash
-qsub $scripts/run_progressive_mauve.sh $input/genomes/progressive "95m_contigs_hardmasked.fa Phytophthora_sojae.P_sojae_V3_0.dna_rm.toplevel.fa Phytophthora_ramorum.ASM14973v1.dna_rm.toplevel.fa"
+qsub $scripts/run_progressive_mauve.sh $input/summary_stats/progressiveMauve "95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
+```
+
 perl /home/sobczm/bin/popoolation_1.2.2/mauve-parser.pl --ref $input/genomes/95m_contigs_hardmasked.fa \
 --input $input/genomes/progressive/aligned_genomes.xmfa --output $input/genomes/progressive/mel-guided-alignment.txt
 #Option 'Y' specifies to print fake genotype into the VCF file encoding the identified ancestral alleles.
