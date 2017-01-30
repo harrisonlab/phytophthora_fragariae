@@ -1,7 +1,11 @@
 #Runs analysis of *P. fragariae* and *P. rubi* genomes in preparation for McDonald-Kreitman test. Fay & Wu's H is not necessary right now.
 
+#Set inital variables
+
+```bash
 scripts=/home/sobczm/bin/popgen/summary_stats
 input=/home/sobczm/popgen/other/phytophthora
+```
 
 ##### A)
 ################ Establish ancestral allele using genotype(s) from select outgroup species
