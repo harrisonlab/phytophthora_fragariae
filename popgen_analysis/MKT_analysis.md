@@ -45,6 +45,7 @@ python $scripts/annotate_vcf_aa.py $input/SNP_calling/95m_contigs_unmasked_filte
 ####progressiveMauve
 
 #####Run progressiveMauve
+
 ```bash
 cp $Pf ./
 cp $Pra ./
