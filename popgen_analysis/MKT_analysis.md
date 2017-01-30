@@ -78,15 +78,17 @@ $input/95m_contigs_unmasked_filtered.vcf 2 Y
 
 ```bash
 python $scripts/annotate_gen_aa.py $input/genomes/progressive/mel-guided-alignment.txt \
-$input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 N
+$input/95m_contigs_unmasked_filtered.vcf 2 N
 ```
 
 ###3
 
-#Compare the results of ancestral allele annotation obtained using VCF and genome alignment
-#and print both AA field and fake genotype with the ancestral allele:
-python $scripts/compare_outgroup_results.py $input/SNP_calling/95m_contigs_unmasked_filtered_aa.vcf \
-$input/SNP_calling/95m_contigs_unmasked_filtered_gen_aa.vcf 2 N
+####Compare the results of ancestral allele annotation obtained using VCF and genome alignment and print both AA field and fake genotype with the ancestral allele:
+
+```bash
+python $scripts/compare_outgroup_results.py $input/95m_contigs_unmasked_filtered_aa.vcf \
+$input/95m_contigs_unmasked_filtered_gen_aa.vcf 2 N
+```
 
 ##### B)
 ##McDonald-Kreitman test (a couple of genotypes from the outgroup species required) calculated by PopGenome
