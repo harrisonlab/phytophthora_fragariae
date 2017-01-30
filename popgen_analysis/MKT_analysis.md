@@ -81,7 +81,8 @@ python $scripts/annotate_gen_aa.py $input/genomes/progressive/mel-guided-alignme
 $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 N
 ```
 
-#3
+###3
+
 #Compare the results of ancestral allele annotation obtained using VCF and genome alignment
 #and print both AA field and fake genotype with the ancestral allele:
 python $scripts/compare_outgroup_results.py $input/SNP_calling/95m_contigs_unmasked_filtered_aa.vcf \
