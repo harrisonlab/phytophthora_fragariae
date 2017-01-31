@@ -70,8 +70,8 @@ Use this option when proceeding to use Popgenome in order to calculate outgroup-
 #####Carry out analysis with fake genotype
 
 ```bash
-python $scripts/annotate_gen_aa.py $input/progressiveMauve/mel-guided-alignment.txt \
-$input/95m_contigs_unmasked_filtered.vcf 2 Y
+python $scripts/annotate_gen_aa.py $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
+$input/summary_stats/95m_contigs_unmasked_filtered.vcf 2 Y
 ```
 
 #####Carry out analysis above without printing fake genotypes.
