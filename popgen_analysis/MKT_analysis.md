@@ -95,12 +95,13 @@ $input/summary_stats/95m_contigs_unmasked_filtered_gen_aa.vcf 2 N
 ##McDonald-Kreitman test (a couple of genotypes from the outgroup species required) calculated by PopGenome.
 ##As an example, generate FASTA input using VCF created in A) 1
 
-
+```bash
 mkdir -p $input/mkt
 cd $input/mkt
 ref_genome=/home/sobczm/popgen/other/phytophthora/genomes/95m_contigs_hardmasked.fa
 vcf_file=$input/SNP_calling/95m_contigs_unmasked_filtered_vcf_aa.vcf
 python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
+```
 
 #Prepare Popgenome input
 function Popgenome {
