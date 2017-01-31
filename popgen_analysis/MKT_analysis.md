@@ -103,7 +103,7 @@ vcf_file=$input/SNP_calling/95m_contigs_unmasked_filtered_vcf_aa.vcf
 python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
 ```
 
-#Prepare Popgenome input
+###Prepare Popgenome input
 
 ```bash
 function Popgenome {
@@ -137,7 +137,10 @@ Popgenome
 ```
 
 #Requires custom adjustment of the R script called below to include the samples being analysed.
+
+```bash
 qsub $scripts/sub_calculate_mkt.sh
+```
 
 ################ Outgroup-based tests for selection
 ##Fay & Wu's H (at least one outgroup genotype needed) calculated by PopGenome
