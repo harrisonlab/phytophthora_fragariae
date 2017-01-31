@@ -77,8 +77,8 @@ $input/summary_stats/95m_contigs_unmasked_filtered.vcf 2 Y
 #####Carry out analysis above without printing fake genotypes.
 
 ```bash
-python $scripts/annotate_gen_aa.py $input/genomes/progressive/mel-guided-alignment.txt \
-$input/95m_contigs_unmasked_filtered.vcf 2 N
+python $scripts/annotate_gen_aa.py $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
+$input/summary_stats/95m_contigs_unmasked_filtered.vcf 2 N
 ```
 
 ###3
