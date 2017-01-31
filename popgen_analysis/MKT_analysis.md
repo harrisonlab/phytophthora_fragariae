@@ -142,6 +142,8 @@ Popgenome
 qsub $scripts/sub_calculate_mkt.sh
 ```
 
+--progress here--
+
 ################ Outgroup-based tests for selection
 ##Fay & Wu's H (at least one outgroup genotype needed) calculated by PopGenome
 ##As an example, generate FASTA input using VCF created in A) 2
