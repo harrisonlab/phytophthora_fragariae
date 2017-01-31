@@ -90,7 +90,7 @@ python $scripts/compare_outgroup_results.py $input/summary_stats/95m_contigs_unm
 $input/summary_stats/95m_contigs_unmasked_filtered_gen_aa.vcf 2 N
 ```
 
-##### B)
+#B)
 ##McDonald-Kreitman test (a couple of genotypes from the outgroup species required) calculated by PopGenome
 ##As an example, generate FASTA input using VCF created in A) 1
 mkdir -p $input/mkt
