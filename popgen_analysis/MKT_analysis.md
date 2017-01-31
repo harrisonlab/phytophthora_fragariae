@@ -104,32 +104,37 @@ python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
 ```
 
 #Prepare Popgenome input
+
+```bash
 function Popgenome {
 mkdir contigs && mv *.fasta ./contigs
 cd contigs
 for f in *.fasta
 do
-folder=${f%.fasta}
-mkdir $folder
-mv $f $folder
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
 done
+
 #Gff files
 cd ..
 gff=/home/groups/harrisonlab/project_files/phytophthora_fragariae/gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_appended.gff3
 $scripts/split_gff_contig.sh $gff
 mkdir gff && mv *.gff ./gff
+
 #Check for orphan contigs with no matching gff file, which need to be removed prior to the run.
 for a in $PWD/contigs/*/*.fasta
 do
-filename=$(basename "$a")
-expected_gff="$PWD/gff/${filename%.fa*}.gff"
-if [ ! -f "$expected_gff" ];
-then
-   rm -rf $(dirname $a)
-fi
+    filename=$(basename "$a")
+    expected_gff="$PWD/gff/${filename%.fa*}.gff"
+    if [ ! -f "$expected_gff" ]
+    then
+       rm -rf $(dirname $a)
+    fi
 done
 }
 Popgenome
+```
 
 #Requires custom adjustment of the R script called below to include the samples being analysed.
 qsub $scripts/sub_calculate_mkt.sh
