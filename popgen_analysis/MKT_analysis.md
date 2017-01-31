@@ -58,8 +58,8 @@ rm 95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardm
 #####Parse Mauve output
 
 ```bash
-perl /home/sobczm/bin/popoolation_1.2.2/mauve-parser.pl --ref $input/genomes/95m_contigs_hardmasked.fa \
---input $input/progressiveMauve/aligned_genomes.xmfa --output $input/progressiveMauve/mel-guided-alignment.txt
+perl /home/sobczm/bin/popoolation_1.2.2/mauve-parser.pl --ref $Pf \
+--input $input/summary_stats/progressiveMauve/aligned_genomes.xmfa --output $input/summary_stats/progressiveMauve/mel-guided-alignment.txt
 ```
 
 ```
