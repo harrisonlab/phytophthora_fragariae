@@ -15,6 +15,19 @@ mkdir -p $OutDir
 cat raw_dna/pacbio/P.fragariae/Bc16/*/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio.fastq
 ```
 
+for second set of *P. fragariae* data:
+
+```bash
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+RawDatDir=/home/groups/harrisonlab/raw_data/raw_seq/pacbio/
+cp -r $RawDatDir/Richard_Harrison_NEMR.RH.ENQ-933.C.02_extra_coverage.tar.gz raw_dna/pacbio/P.fragariae/Bc16/.
+cd raw_dna/pacbio/P.fragariae/Bc16/
+gunzip Richard_Harrison_NEMR.RH.ENQ-933.C.02_extra_coverage.tar.gz
+OutDir=raw_dna/pacbio/P.fragariae/Bc16/extracted
+mkdir -p $OutDir
+cat raw_dna/pacbio/P.fragariae/Bc16/*/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio.fastq
+```
+
 #Canu Assembly
 
 Canu assembly - ran both at genome size of 65m and 95m
