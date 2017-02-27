@@ -1,21 +1,6 @@
 #Data extraction
 
-for P. fragariae data:
-
-```bash
-cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
-RawDatDir=/home/harrir/projects/pacbio_test/p_frag
-mkdir -p raw_dna/pacbio/P.fragariae/Bc16
-cp -r $RawDatDir/C07_1 raw_dna/pacbio/P.fragariae/Bc16/.
-cp -r $RawDatDir/D07_1 raw_dna/pacbio/P.fragariae/Bc16/.
-cp -r $RawDatDir/E07_1 raw_dna/pacbio/P.fragariae/Bc16/.
-cp -r $RawDatDir/F07_1 raw_dna/pacbio/P.fragariae/Bc16/.
-OutDir=raw_dna/pacbio/P.fragariae/Bc16/extracted
-mkdir -p $OutDir
-cat raw_dna/pacbio/P.fragariae/Bc16/*/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio.fastq
-```
-
-for second set of *P. fragariae* data:
+for both sets of *P. fragariae* data:
 
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
