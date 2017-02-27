@@ -20,12 +20,13 @@ cat */Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio.fastq
 Canu assembly - ran both at genome size of 65m and 95m
 
 ```bash
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 Reads=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio.fastq)
 GenomeSz="95m"
 Strain=$(echo $Reads | rev | cut -f3 -d '/' | rev)
 Organism=$(echo $Reads | rev | cut -f4 -d '/' | rev)
 Prefix="$Strain"_canu
-OutDir="assembly/canu/$Organism/$Strain/95m"
+OutDir="assembly/canu/$Organism/$Strain"
 ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
 ```
