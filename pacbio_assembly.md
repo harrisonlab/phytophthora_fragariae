@@ -31,6 +31,8 @@ ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
 ```
 
+--progress here--
+
 #Assemblies were polished using Pilon
 
 ```bash
