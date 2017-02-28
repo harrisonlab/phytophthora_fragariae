@@ -53,6 +53,8 @@ ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu_2lib.sh $Reads1 $Reads2 $GenomeSz $Prefix $OutDir
 ```
 
+--progress here--
+
 #Assemblies were polished using Pilon
 
 ```bash
