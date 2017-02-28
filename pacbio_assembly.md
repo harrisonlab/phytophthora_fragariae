@@ -42,14 +42,15 @@ Canu assembly - ran at genome size of 95m
 
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
-Reads=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio.fastq)
+Reads1=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq)
+Reads2=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq)
 GenomeSz="95m"
 Strain=$(echo $Reads | rev | cut -f3 -d '/' | rev)
 Organism=$(echo $Reads | rev | cut -f4 -d '/' | rev)
 Prefix="$Strain"_canu
 OutDir="assembly/canu/$Organism/$Strain"
 ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
-qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
+qsub $ProgDir/submit_canu_2lib.sh $Reads1 $Reads2 $GenomeSz $Prefix $OutDir
 ```
 
 #Assemblies were polished using Pilon
