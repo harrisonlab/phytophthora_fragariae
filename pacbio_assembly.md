@@ -75,10 +75,11 @@ qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Re
 #Spades Assembly
 
 ```bash
-for PacBioDat in $(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio.fastq)
+for PacBioDat1 in $(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq)
 do
-    Organism=$(echo $PacBioDat | rev | cut -f4 -d '/' | rev)
-    Strain=$(echo $PacBioDat | rev | cut -f3 -d '/' | rev)
+    PacBioDat2=raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq
+    Organism=$(echo $PacBioDat1 | rev | cut -f4 -d '/' | rev)
+    Strain=$(echo $PacBioDat1 | rev | cut -f3 -d '/' | rev)
     IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
     TrimF1_Read=$(ls $IlluminaDir/F/Bc16_S1_L001_R1_001_trim.fq.gz)
     TrimR1_Read=$(ls $IlluminaDir/R/Bc16_S1_L001_R2_001_trim.fq.gz)
@@ -89,8 +90,8 @@ do
     echo $TrimR1_Read
     echo $TrimF2_Read
     echo $TrimR2_Read
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/spades/multiple_libraries
-    qsub $ProgDir/subSpades_2lib_pacbio.sh $PacBioDat $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir 50
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades/multiple_libraries
+    qsub $ProgDir/subSPAdes_2lib_pacbio_2lib.sh $PacBioDat1 $PacBioDat2 $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir 50
 done
 ```
 
