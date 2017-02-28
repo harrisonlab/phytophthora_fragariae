@@ -1,6 +1,24 @@
 #Data extraction
 
-for both sets of *P. fragariae* data:
+for first set of P. fragariae data:
+
+```bash
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+RawDatDir=/home/harrir/projects/pacbio_test/p_frag
+mkdir -p raw_dna/pacbio/P.fragariae/Bc16
+cp -r $RawDatDir/C07_1 raw_dna/pacbio/P.fragariae/Bc16/.
+cp -r $RawDatDir/D07_1 raw_dna/pacbio/P.fragariae/Bc16/.
+cp -r $RawDatDir/E07_1 raw_dna/pacbio/P.fragariae/Bc16/.
+cp -r $RawDatDir/F07_1 raw_dna/pacbio/P.fragariae/Bc16/.
+OutDir=raw_dna/pacbio/P.fragariae/Bc16/extracted
+mkdir -p $OutDir
+for code in C07_1 D07_1 E07_1 F07_1
+do
+    cat raw_dna/pacbio/P.fragariae/Bc16/$code/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio_1.fastq
+done
+```
+
+for second set of *P. fragariae* data:
 
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
@@ -12,12 +30,15 @@ cp -r Richard_Harrison_NEMR.RH.ENQ-933.C.02_extra_coverage/*_1 .
 rm -r Richard_Harrison_NEMR.RH.ENQ-933.C.02_extra_coverage
 OutDir=extracted
 mkdir -p $OutDir
-cat */Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio.fastq
+for code in A04_1 E02_1 F02_1 G02_1 G03_1 H03_1
+do
+cat $code/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio_2.fastq
+done
 ```
 
 #Canu Assembly
 
-Canu assembly - ran both at genome size of 65m and 95m
+Canu assembly - ran at genome size of 95m
 
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
@@ -30,8 +51,6 @@ OutDir="assembly/canu/$Organism/$Strain"
 ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
 ```
-
---progress here--
 
 #Assemblies were polished using Pilon
 
@@ -71,8 +90,6 @@ do
     qsub $ProgDir/subSpades_2lib_pacbio.sh $PacBioDat $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir 50
 done
 ```
-
---spades also submitted--
 
 ##Filter out contigs < 500bp
 
