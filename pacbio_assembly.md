@@ -72,6 +72,8 @@ do
 done
 ```
 
+--spades also submitted--
+
 ##Filter out contigs < 500bp
 
 ```bash
