@@ -160,7 +160,7 @@ rm tmp.csv
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/polished/95m/pilon.fasta)
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/polished/pilon.fasta)
 do
     Organism=P.fragariae
     Strain=Bc16
