@@ -149,7 +149,7 @@ for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/polished/pilon
 do
     Organism=P.fragariae
     Strain=Bc16
-    OutDir=assembly/merged_canu_spades/$Organism/$Strain/95m/filtered_contigs
+    OutDir=assembly/merged_canu_spades/$Organism/$Strain/filtered_contigs
     mkdir -p $OutDir
     $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/"$Strain"_contigs_renamed.fasta --coord_file tmp.csv
 done
