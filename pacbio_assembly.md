@@ -119,10 +119,11 @@ do
     qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $HybridAssembly $OutDir
 done
 ```
+
 ###This merged assembly was polished using Pilon
 
 ```bash
-for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/95m/merged.fasta)
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/merged.fasta)
 do
     Organism=P.fragariae
     Strain=Bc16
@@ -133,7 +134,7 @@ do
     TrimR1_Read=$IlluminaDirR/Bc16_S1_L001_R2_001_trim.fq.gz
     TrimF2_Read=$IlluminaDirF/Bc16_S2_L001_R1_001_160129_trim.fq.gz
     TrimR2_Read=$IlluminaDirR/Bc16_S2_L001_R2_001_160129_trim.fq.gz
-    OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished/95m
+    OutDir=assembly/merged_canu_spades/$Organism/$Strain/polished
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
     qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir
 done
