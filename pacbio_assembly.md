@@ -93,8 +93,6 @@ do
 done
 ```
 
---progress here--
-
 ##Filter out contigs < 500bp
 
 ```bash
