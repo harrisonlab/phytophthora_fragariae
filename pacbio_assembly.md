@@ -103,6 +103,27 @@ FilterDir=/home/armita/git_repos/emr_repos/tools/seq_tools/assemblers/abyss
 $FilterDir/filter_abyss_contigs.py $Contigs 500 > $AssemblyDir/filtered_contigs/contigs_min_500bp.fasta
 ```
 
+##Assembly stats were collected using quast on both assemblies
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+for Assembly in $(ls assembly/canu/P.fragariae/Bc16/polished/pilon.fasta)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    OutDir=$(dirname $Assembly)
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+done
+
+for Assembly in $(ls assembly/spades_pacbio/P.fragariae/Bc16/contigs.fasta)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    OutDir=$(dirname $Assembly)
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+done
+```
+
 ##Merging pacbio and hybrid assemblies
 
 ```bash
