@@ -148,7 +148,7 @@ do
     OutDir=assembly/merged_canu_spades/$Organism/$Strain
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/quickmerge
     echo $HybridAssembly
-    qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $HybridAssembly $OutDir
+    qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $HybridAssembly $OutDir 96921
 done
 ```
 
