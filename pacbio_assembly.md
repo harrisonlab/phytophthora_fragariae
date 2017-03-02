@@ -124,6 +124,19 @@ do
 done
 ```
 
+**
+Data from quast
+Canu:
+Number of contigs: 1237
+N50: 96921
+L50: 269
+
+spades_pacbio:
+Number of contigs: 12421
+N50: 41118
+L50: 476
+**
+
 ##Merging pacbio and hybrid assemblies
 
 ```bash
