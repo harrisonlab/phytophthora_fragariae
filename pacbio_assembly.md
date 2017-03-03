@@ -18,7 +18,7 @@ do
 done
 ```
 
-for second set of *P. fragariae* data:
+for second set of *P. fragariae* data, flow cells G03, H03 & A04:
 
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
@@ -30,7 +30,7 @@ cp -r Richard_Harrison_NEMR.RH.ENQ-933.C.02_extra_coverage/*_1 .
 rm -r Richard_Harrison_NEMR.RH.ENQ-933.C.02_extra_coverage
 OutDir=extracted
 mkdir -p $OutDir
-for code in A04_1 E02_1 F02_1 G02_1 G03_1 H03_1
+for code in A04_1 G03_1 H03_1
 do
 cat $code/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio_2.fastq
 done
