@@ -32,7 +32,7 @@ OutDir=extracted
 mkdir -p $OutDir
 for code in A04_1 G03_1 H03_1
 do
-cat $code/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio_2.fastq
+    cat $code/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio_2.fastq
 done
 ```
 
