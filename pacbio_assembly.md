@@ -14,7 +14,8 @@ OutDir=raw_dna/pacbio/P.fragariae/Bc16/extracted
 mkdir -p $OutDir
 for code in C07_1 D07_1 E07_1 F07_1
 do
-    cat raw_dna/pacbio/P.fragariae/Bc16/$code/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio_1.fastq
+    echo "" > $OutDir/concatenated_pacbio_1.fastq
+    cat raw_dna/pacbio/P.fragariae/Bc16/$code/Analysis_Results/*.subreads.fastq >> $OutDir/concatenated_pacbio_1.fastq
 done
 ```
 
@@ -32,7 +33,8 @@ OutDir=extracted
 mkdir -p $OutDir
 for code in A04_1 G03_1 H03_1
 do
-    cat $code/Analysis_Results/*.subreads.fastq > $OutDir/concatenated_pacbio_2.fastq
+    echo "" > $OutDir/concatenated_pacbio_2.fastq
+    cat $code/Analysis_Results/*.subreads.fastq >> $OutDir/concatenated_pacbio_2.fastq
 done
 ```
 
