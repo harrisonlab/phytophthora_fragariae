@@ -46,8 +46,8 @@ Canu assembly - ran at genome size of 95m
 
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
-Reads1=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq)
-Reads2=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq)
+Reads1=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq.gz)
+Reads2=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq.gz)
 GenomeSz="95m"
 Strain=$(echo $Reads1 | rev | cut -f3 -d '/' | rev)
 Organism=$(echo $Reads1 | rev | cut -f4 -d '/' | rev)
@@ -77,9 +77,9 @@ qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Re
 #Spades Assembly
 
 ```bash
-for PacBioDat1 in $(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq)
+for PacBioDat1 in $(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq.gz)
 do
-    PacBioDat2=raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq
+    PacBioDat2=raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq.gz
     Organism=$(echo $PacBioDat1 | rev | cut -f4 -d '/' | rev)
     Strain=$(echo $PacBioDat1 | rev | cut -f3 -d '/' | rev)
     IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
