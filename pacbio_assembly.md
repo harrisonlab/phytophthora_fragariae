@@ -203,9 +203,9 @@ done
 
 ** Results from quast:
 
-Number of contigs: 406
-N50: 437436
-L50: 59 **
+Number of contigs: 3956
+N50: 133227
+L50: 180 **
 
 #Checking PacBio coverage against BC-16 contigs
 
