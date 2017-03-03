@@ -45,8 +45,8 @@ cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 Reads1=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq)
 Reads2=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq)
 GenomeSz="95m"
-Strain=$(echo $Reads | rev | cut -f3 -d '/' | rev)
-Organism=$(echo $Reads | rev | cut -f4 -d '/' | rev)
+Strain=$(echo $Reads1 | rev | cut -f3 -d '/' | rev)
+Organism=$(echo $Reads1 | rev | cut -f4 -d '/' | rev)
 Prefix="$Strain"_canu
 OutDir="assembly/canu/$Organism/$Strain"
 ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
