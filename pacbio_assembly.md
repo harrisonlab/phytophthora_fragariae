@@ -16,8 +16,8 @@ for code in C07_1 D07_1 E07_1 F07_1
 do
     echo "" > $OutDir/concatenated_pacbio_1.fastq
     cat raw_dna/pacbio/P.fragariae/Bc16/$code/Analysis_Results/*.subreads.fastq >> $OutDir/concatenated_pacbio_1.fastq
-    gzip $OutDir/concatenated_pacbio_1.fastq
 done
+gzip $OutDir/concatenated_pacbio_1.fastq
 ```
 
 for second set of *P. fragariae* data, flow cells G03, H03 & A04:
@@ -36,8 +36,8 @@ for code in A04_1 G03_1 H03_1
 do
     echo "" > $OutDir/concatenated_pacbio_2.fastq
     cat $code/Analysis_Results/*.subreads.fastq >> $OutDir/concatenated_pacbio_2.fastq
-    gzip $OutDir/concatenated_pacbio_2.fastq
 done
+gzip $OutDir/concatenated_pacbio_2.fastq
 ```
 
 #Canu Assembly
