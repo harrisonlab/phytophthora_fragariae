@@ -57,6 +57,30 @@ ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu_2lib.sh $Reads1 $Reads2 $GenomeSz $Prefix $OutDir
 ```
 
+#Due to a high contig number when including the new data, run canu assemblies of each set of pacbio reads separately.
+
+```bash
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+Reads=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq.gz)
+GenomeSz="95m"
+Strain=$(echo $Reads | rev | cut -f3 -d '/' | rev)
+Organism=$(echo $Reads | rev | cut -f4 -d '/' | rev)
+Prefix="$Strain"_canu
+OutDir="assembly/canu/$Organism/$Strain/First_test"
+ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
+qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
+
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+Reads=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq.gz)
+GenomeSz="95m"
+Strain=$(echo $Reads | rev | cut -f3 -d '/' | rev)
+Organism=$(echo $Reads | rev | cut -f4 -d '/' | rev)
+Prefix="$Strain"_canu
+OutDir="assembly/canu/$Organism/$Strain/First_test"
+ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
+qsub $ProgDir/submit_canu.sh $Reads $GenomeSz $Prefix $OutDir
+```
+
 #Assemblies were polished using Pilon
 
 ```bash
