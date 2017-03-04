@@ -132,7 +132,7 @@ done
 Data from quast
 Canu:
 Number of contigs: 1237
-N50: 96921
+N50: 96625
 L50: 269
 
 spades_pacbio:
