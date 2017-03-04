@@ -12,9 +12,9 @@ cp -r $RawDatDir/E07_1 raw_dna/pacbio/P.fragariae/Bc16/.
 cp -r $RawDatDir/F07_1 raw_dna/pacbio/P.fragariae/Bc16/.
 OutDir=raw_dna/pacbio/P.fragariae/Bc16/extracted
 mkdir -p $OutDir
+echo "" > $OutDir/concatenated_pacbio_1.fastq
 for code in C07_1 D07_1 E07_1 F07_1
 do
-    echo "" > $OutDir/concatenated_pacbio_1.fastq
     cat raw_dna/pacbio/P.fragariae/Bc16/$code/Analysis_Results/*.subreads.fastq >> $OutDir/concatenated_pacbio_1.fastq
 done
 gzip $OutDir/concatenated_pacbio_1.fastq
@@ -32,9 +32,9 @@ cp -r Richard_Harrison_NEMR.RH.ENQ-933.C.02_extra_coverage/*_1 .
 rm -r Richard_Harrison_NEMR.RH.ENQ-933.C.02_extra_coverage
 OutDir=extracted
 mkdir -p $OutDir
+echo "" > $OutDir/concatenated_pacbio_2.fastq
 for code in A04_1 G03_1 H03_1
 do
-    echo "" > $OutDir/concatenated_pacbio_2.fastq
     cat $code/Analysis_Results/*.subreads.fastq >> $OutDir/concatenated_pacbio_2.fastq
 done
 gzip $OutDir/concatenated_pacbio_2.fastq
