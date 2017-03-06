@@ -371,8 +371,8 @@ done
 ###For PacBio data
 
 ```bash
-gunzip raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq.gz
-gunzip raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq.gz
+gunzip -fc raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq.gz
+gunzip -fc raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq.gz
 count_nucl.pl -i raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq -i raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq -g 96
 gzip raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq
 gzip raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq
