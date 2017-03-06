@@ -373,9 +373,8 @@ done
 ```bash
 gunzip -fc raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq.gz
 gunzip -fc raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq.gz
-count_nucl.pl -i raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq -i raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq -g 96
-gzip raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq
-gzip raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq
+cat raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq | paste - - - - | cut -f3 | tr -d '\n' | wc -c
+cat raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq | paste - - - - | cut -f3 | tr -d '\n' | wc -c
 ```
 
 ** Esimated Coverage is:
@@ -385,7 +384,7 @@ Bc23: 49.33
 Nov5: 40.21
 Nov77: 46.29
 ONT3: 45.18
-Bc16: 35.85
+Bc16: 61.29
 Nov27: 52.27
 Bc1: 116.25
 Nov9: 103.23
