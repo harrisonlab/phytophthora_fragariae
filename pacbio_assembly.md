@@ -131,14 +131,14 @@ done
 **
 Data from quast
 Canu:
-Number of contigs: 1237
-N50: 96625
-L50: 269
+Number of contigs: 372
+N50: 623,191
+L50: 47
 
 spades_pacbio:
-Number of contigs: 12421
-N50: 41118
-L50: 476
+Number of contigs: 4,791
+N50: 47,885
+L50: 405
 **
 
 ##Merging pacbio and hybrid assemblies
