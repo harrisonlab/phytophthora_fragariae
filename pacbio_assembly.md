@@ -253,9 +253,10 @@ rm tmp.csv
 The accuracy of PacBio assembly pipelines is currently unknown. To help identify regions that may have been missassembled the pacbio reads were aligned back to the assembled genome. Coverage was determined using bedtools genomecov and regions with low coverage flagged using a python script flag_low_coverage.py. These low coverage regions were visually inspected using IGV.
 
 ```bash
-Assembly=assembly/merged_canu_spades/P.fragariae/Bc16/filtered_contigs/Bc16_contigs_renamed.fasta
+Assembly=assembly/canu/P.fragariae/Bc16/filtered_contigs/Bc16_contigs_renamed.fasta
 Reads=raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq
 OutDir=analysis/genome_alignment/bwa/P.fragariae/Bc16/vs_Bc16
+mkdir -p $OutDir
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/bwa
 qsub $ProgDir/sub_bwa_pacbio.sh $Assembly $Reads $OutDir
 ```
