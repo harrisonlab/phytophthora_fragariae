@@ -152,11 +152,32 @@ do
     OutDir=assembly/merged_canu_spades/$Organism/$Strain
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/quickmerge
     echo $HybridAssembly
-    qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $HybridAssembly $OutDir 623191
+    qsub $ProgDir/sub_quickmerge.sh $HybridAssembly $PacBioAssembly $OutDir 623191
+done
+```
+###Assembly stats were collected using quast
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/polished/pilon.fasta)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    OutDir=$(dirname $Assembly)
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 done
 ```
 
-###This merged assembly was polished using Pilon
+**
+Results from QUAST
+Number of contigs: 372
+N50: 623,191
+L50: 47
+**
+
+As this is the same as the pacbio only assembly, and lowering the anchor contig length only reduces the contig number by 5, continue with the pacbio only assembly
+
+<!-- ###This merged assembly was polished using Pilon
 
 ```bash
 for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/merged.fasta)
@@ -176,6 +197,41 @@ do
 done
 ```
 
+###Assembly stats were collected using quast
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/polished/pilon.fasta)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    OutDir=$(dirname $Assembly)
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+done
+```
+
+** Results from quast:
+SPAdes first, canu N50
+Number of contigs: 2,968
+N50: 696,443
+L50: 37
+
+SPAdes first, SPAdes N50
+Number of contigs: 1,227
+N50: 584,650
+L50: 51
+
+canu first, SPAdes N50
+Number of contigs: 367
+N50: 627,632
+L50: 46
+
+canu first, canu N50
+Number of contigs: 372
+N50: 623,191
+L50: 47
+** -->
+
 ####Contigs were renamed in accordance with ncbi recomendations.
 
 ```bash
@@ -191,25 +247,6 @@ do
 done
 rm tmp.csv
 ```
-
-###Assembly stats were collected using quast
-
-```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-for Assembly in $(ls assembly/merged_canu_spades/P.fragariae/Bc16/polished/pilon.fasta)
-do
-    Organism=P.fragariae
-    Strain=Bc16
-    OutDir=$(dirname $Assembly)
-    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
-done
-```
-
-** Results from quast:
-
-Number of contigs: 3956
-N50: 133227
-L50: 180 **
 
 #Checking PacBio coverage against BC-16 contigs
 
