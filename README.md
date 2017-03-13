@@ -545,7 +545,7 @@ for BC-16 pacbio data:
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-for BestAss in $(ls assembly/merged_canu_spades/*/*/95m/filtered_contigs/Bc16_contigs_renamed.fasta)
+for BestAss in $(ls assembly/canu/*/*/filtered_contigs/*_contigs_renamed.fasta)
 do
     qsub $ProgDir/rep_modeling.sh $BestAss
     qsub $ProgDir/transposonPSI.sh $BestAss
