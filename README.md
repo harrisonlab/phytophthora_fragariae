@@ -663,6 +663,7 @@ done
 Outputs were summarised using the commands:
 
 ```bash
+echo "" > gene_pred/cegma/cegma_results_dna_summary.txt
 for File in $(ls gene_pred/cegma/*/*/*_dna_cegma.completeness_report)
 do
     Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
