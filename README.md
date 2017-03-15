@@ -585,49 +585,49 @@ done
 ```
 
 ** A4
-The number of bases masked by RepeatMasker:	24836372
-The number of bases masked by TransposonPSI:	6237528
-The total number of masked bases are:	26598776
+The number of bases masked by RepeatMasker:	24,836,372
+The number of bases masked by TransposonPSI:	6,237,528
+The total number of masked bases are:	26,598,776
 Bc16
-The number of bases masked by RepeatMasker:	37871080
-The number of bases masked by TransposonPSI:	8820517
-The total number of masked bases are:	39592894
+The number of bases masked by RepeatMasker:	38,101,973
+The number of bases masked by TransposonPSI:	8,914,164
+The total number of masked bases are:	39,926,297
 Bc1
-The number of bases masked by RepeatMasker:	24254593
-The number of bases masked by TransposonPSI:	6219671
-The total number of masked bases are:	26154357
+The number of bases masked by RepeatMasker:	24,254,593
+The number of bases masked by TransposonPSI:	6,219,671
+The total number of masked bases are:	26,154,357
 Bc23
-The number of bases masked by RepeatMasker:	23771588
-The number of bases masked by TransposonPSI:	6101880
-The total number of masked bases are:	25516134
+The number of bases masked by RepeatMasker:	23,771,588
+The number of bases masked by TransposonPSI:	6,101,880
+The total number of masked bases are:	25,516,134
 Nov27
-The number of bases masked by RepeatMasker:	24653573
-The number of bases masked by TransposonPSI:	6209723
-The total number of masked bases are:	26343538
+The number of bases masked by RepeatMasker:	24,653,573
+The number of bases masked by TransposonPSI:	6,209,723
+The total number of masked bases are:	26,343,538
 Nov5
-The number of bases masked by RepeatMasker:	24011096
-The number of bases masked by TransposonPSI:	6242538
-The total number of masked bases are:	25856769
+The number of bases masked by RepeatMasker:	24,011,096
+The number of bases masked by TransposonPSI:	6,242,538
+The total number of masked bases are:	25,856,769
 Nov71
-The number of bases masked by RepeatMasker:	24200190
-The number of bases masked by TransposonPSI:	6080704
-The total number of masked bases are:	25824977
+The number of bases masked by RepeatMasker:	24,200,190
+The number of bases masked by TransposonPSI:	6,080,704
+The total number of masked bases are:	25,824,977
 Nov77
-The number of bases masked by RepeatMasker:	24253868
-The number of bases masked by TransposonPSI:	6250930
-The total number of masked bases are:	26117699
+The number of bases masked by RepeatMasker:	24,253,868
+The number of bases masked by TransposonPSI:	6,250,930
+The total number of masked bases are:	26,117,699
 Nov9
-The number of bases masked by RepeatMasker:	24774161
-The number of bases masked by TransposonPSI:	6290033
-The total number of masked bases are:	26664169
+The number of bases masked by RepeatMasker:	24,774,161
+The number of bases masked by TransposonPSI:	6,290,033
+The total number of masked bases are:	26,664,169
 ONT3
-The number of bases masked by RepeatMasker:	25224812
-The number of bases masked by TransposonPSI:	6238377
-The total number of masked bases are:	26981713
+The number of bases masked by RepeatMasker:	25,224,812
+The number of bases masked by TransposonPSI:	6,238,377
+The total number of masked bases are:	26,981,713
 SCRP245_v2
-The number of bases masked by RepeatMasker:	23381847
-The number of bases masked by TransposonPSI:	6037837
-The total number of masked bases are:	25248164 **
+The number of bases masked by RepeatMasker:	23,381,847
+The number of bases masked by TransposonPSI:	6,037,837
+The total number of masked bases are:	25,248,164 **
 
 #Merging RepeatMasker and TransposonPSI outputs
 
