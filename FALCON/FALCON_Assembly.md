@@ -31,3 +31,10 @@ nano fc_run_Bc16_local.cfg
 ```
 
 ## Run falcon job itself in a screen session
+
+```bash
+screen -a
+export PYTHONUSERBASE=/path/to/FALCON-integrate/fc_env
+export PATH=$PYTHONUSERBASE/bin:$PATH
+fc_run.py fc_run.cfg
+```
