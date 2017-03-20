@@ -656,8 +656,8 @@ ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
 for Genome in $(ls repeat_masked/P.*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
 do
     echo $Genome
-    Strain=$(echo $File | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $File | rev | cut -f4 -d '/' | rev)
+    Strain=$(echo $Genome | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Genome | rev | cut -f4 -d '/' | rev)
     OutDir=gene_pred/cegma/$Organism/$Strain
     mkdir -p $OutDir
     qsub $ProgDir/sub_cegma.sh $Genome dna $OutDir
