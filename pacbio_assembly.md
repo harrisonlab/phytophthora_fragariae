@@ -260,3 +260,18 @@ mkdir -p $OutDir
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/bwa
 qsub $ProgDir/sub_bwa_pacbio.sh $Assembly $Reads $OutDir
 ```
+
+A genome announcement has been published recently with a genome size of 74MB so I need to confirm the 95MB I've been using here. My SPAdes hybrid assembly has given a genome size of 70,028,085, so use this as the genome size to guide canu and see what happens.
+
+```bash
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+Reads1=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_1.fastq.gz)
+Reads2=$(ls raw_dna/pacbio/*/*/extracted/concatenated_pacbio_2.fastq.gz)
+GenomeSz="70028085"
+Strain=$(echo $Reads1 | rev | cut -f3 -d '/' | rev)
+Organism=$(echo $Reads1 | rev | cut -f4 -d '/' | rev)
+Prefix="$Strain"_canu
+OutDir="assembly/canu/$Organism/$Strain/size_test"
+ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
+qsub $ProgDir/submit_canu_2lib.sh $Reads1 $Reads2 $GenomeSz $Prefix $OutDir
+```
