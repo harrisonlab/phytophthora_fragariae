@@ -275,3 +275,22 @@ OutDir="assembly/canu/$Organism/$Strain/size_test"
 ProgDir=~/git_repos/tools/seq_tools/assemblers/canu
 qsub $ProgDir/submit_canu_2lib.sh $Reads1 $Reads2 $GenomeSz $Prefix $OutDir
 ```
+
+QUAST this
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+for Assembly in $(ls assembly/canu/P.fragariae/Bc16/size_test/Bc16_canu.contigs.fasta)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    OutDir=$(dirname $Assembly)
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+done
+```
+
+** Statistics from QUAST:
+Number of contigs: 353
+N50: 634,032
+L50: 47
+Genome Size: 96,639,573 **
