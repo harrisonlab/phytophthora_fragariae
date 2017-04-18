@@ -34,7 +34,7 @@ Copy over fasta file and create an index file and an index file for GATK
 mkdir -p Polarising
 cd Polarising
 cp ../SNP_calling/Polarising* .
-cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/Bc16_contigs_unmasked.fa .
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/95m_contigs_unmasked.fa Bc16_contigs_unmasked.fa
 
 #Create .dict file
 java -jar /home/sobczm/bin/picard-tools-2.5.0/picard.jar CreateSequenceDictionary \
