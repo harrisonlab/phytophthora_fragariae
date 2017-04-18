@@ -51,6 +51,6 @@ java -jar /home/sobczm/bin/GenomeAnalysisTK-3.6/GenomeAnalysisTK.jar \
 -R Bc16_contigs_unmasked.fa \
 -V Polarising_95m_contigs_unmasked_filtered.vcf \
 -F CHROM -F POS -F ID -F REF -F ALT -F QUAL \
--GF GT \
+-GF GT -GF AD -GF DP -GF GQ -GF PL\
 -o Parsed_Polarising_95m_contigs_unmasked.tbl
 ```
