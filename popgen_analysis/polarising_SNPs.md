@@ -48,7 +48,7 @@ samtools faidx Bc16_contigs_unmasked.fa
 ```bash
 java -jar /home/sobczm/bin/GenomeAnalysisTK-3.6/GenomeAnalysisTK.jar \
 -T VariantsToTable \
--R Bc16_contigs_unmasked.fa
+-R Bc16_contigs_unmasked.fa \
 -V Polarising_95m_contigs_unmasked_filtered.vcf \
 -F CHROM -F POS -F ID -F QUAL \
 -GF A4 -GF Bc1 -GF Bc16 -GF Nov27 -GF Nov5 -GF Nov71 -GF Nov9 -GF SCRP249 -GF SCRP324 -GF SCRP333 \
