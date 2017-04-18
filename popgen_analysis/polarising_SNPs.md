@@ -37,7 +37,7 @@ cp ../SNP_calling/Polarising* .
 cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/Bc16_contigs_unmasked.fa .
 
 #Create .dict file
-java jvm-args -jar picard.jar CreateSequenceDirectory \
+java -jar /home/sobczm/bin/picard-tools-2.5.0/picard.jar CreateSequenceDictionary \
 R= Bc16_contigs_unmasked.fa \
 O= Bc16_contigs_unmasked.dict
 
