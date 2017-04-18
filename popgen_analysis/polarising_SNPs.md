@@ -28,9 +28,17 @@ qsub $script $vcf 40 30 10 30 0.95 N
 
 ##Parse vcf file to a table for easier working
 
+Copy over fasta file and create an index file and an index file for GATK
+
+```bash
+mkdir -p Polarising
+cd Polarising
+cp ../SNP_calling/Polarising* .
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/Bc16_contigs_unmasked.fa .
+```
+
 ```bash
 java -jar /home/sobczm/bin/GenomeAnalysisTK-3.6/GenomeAnalysisTK.jar \
--R /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/Bc16_contigs_unmasked.fa \
 -T VariantsToTable \
 -V Polarising_95m_contigs_unmasked_filtered.vcf \
 -F CHROM -F POS -F ID -F QUAL \
