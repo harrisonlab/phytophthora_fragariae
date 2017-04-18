@@ -29,10 +29,10 @@ qsub $script $vcf 40 30 10 30 0.95 N
 ##Parse vcf file to a table for easier working
 
 ```bash
-java -jar GenomeAnalysisTK.jar \
+java -jar /home/sobczm/bin/GenomeAnalysisTK-3.6/GenomeAnalysisTK.jar \
 -R /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/Bc16_contigs_unmasked.fa \
 -T VariantsToTable \
--V Polarising_95m_contigs_unmasked.vcf \
+-V Polarising_95m_contigs_unmasked_filtered.vcf \
 -F CHROM -F POS -F ID -F QUAL \
 -GF A4 -GF Bc1 -GF Bc16 -GF Nov27 -GF Nov5 -GF Nov71 -GF Nov9 -GF SCRP249 -GF SCRP324 -GF SCRP333 \
 -AMD \
