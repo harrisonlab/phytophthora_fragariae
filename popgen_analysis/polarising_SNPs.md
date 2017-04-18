@@ -16,6 +16,16 @@ cd SNP_calling
 $vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 > Polarising_95m_contigs_unmasked.vcf
 ```
 
+##Filter vcf for quality, but keep multi-allelic variants and indels
+
+All options except indel choice kept at default
+
+```bash
+vcf=Polarising_95m_contigs_unmasked.vcf
+script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
+qsub $script $vcf 40 30 10 30 0.95 N
+```
+
 ##Parse vcf file to a table for easier working
 
 ```bash
