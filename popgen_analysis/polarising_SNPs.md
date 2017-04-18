@@ -35,11 +35,20 @@ mkdir -p Polarising
 cd Polarising
 cp ../SNP_calling/Polarising* .
 cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/Bc16_contigs_unmasked.fa .
+
+#Create .dict file
+java jvm-args -jar picard.jar CreateSequenceDirectory \
+R= Bc16_contigs_unmasked.fa \
+O= Bc16_contigs_unmasked.dict
+
+#Create .fai file
+samtools faidx Bc16_contigs_unmasked.fa
 ```
 
 ```bash
 java -jar /home/sobczm/bin/GenomeAnalysisTK-3.6/GenomeAnalysisTK.jar \
 -T VariantsToTable \
+-R Bc16_contigs_unmasked.fa
 -V Polarising_95m_contigs_unmasked_filtered.vcf \
 -F CHROM -F POS -F ID -F QUAL \
 -GF A4 -GF Bc1 -GF Bc16 -GF Nov27 -GF Nov5 -GF Nov71 -GF Nov9 -GF SCRP249 -GF SCRP324 -GF SCRP333 \
