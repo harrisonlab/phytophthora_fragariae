@@ -64,6 +64,10 @@ python /home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/UK3
 ```
 
 ```
+UK1:
+None found
 UK2:
 None are in genes
+UK3:
+None found
 ```
