@@ -62,3 +62,8 @@ python /home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/UK1
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/UK2_polarisation.py
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/UK3_polarisation.py
 ```
+
+```
+UK2:
+None are in genes
+```
