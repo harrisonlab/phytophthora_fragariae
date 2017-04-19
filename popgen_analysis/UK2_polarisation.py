@@ -27,4 +27,4 @@ tbl10 = tbl9[tbl9[:,7] != tbl9[:,11]]
 
 with open("UK2_polarisation.csv", "wb") as f:
     writer = csv.writer(f)
-    writer.writerows(tbl2)
+    writer.writerows(tbl10)
