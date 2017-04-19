@@ -27,6 +27,7 @@ tbl10 = tbl9[tbl9[:,8] != tbl9[:,10]]
 
 header = Inital_tbl[0,:]
 CSV = numpy.append(header, tbl10)
+CSV = numpy.reshape(CSV, (1, 14))
 
 #Print resulting table to a .csv
 
