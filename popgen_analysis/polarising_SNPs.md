@@ -108,5 +108,5 @@ Also one indel that is 3kb upstream of a TSS
 ###UK1 based analysis
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_bw_filtered.recode.vcf --out 95m_contigs_unmasked_bw_filtered_fixed.vcf --ply 2 --pop1 Bc1,,Nov5,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_bw_filtered.recode.vcf --out 95m_contigs_unmasked_bw_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
 ```
