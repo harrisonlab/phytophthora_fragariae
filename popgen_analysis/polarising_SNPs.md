@@ -80,3 +80,15 @@ None found
 scripts=/home/sobczm/bin/popgen/summary_stats
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 ```
+
+##Create a cut-down vcf and filter it
+
+```bash
+cd $input
+
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 > 95m_contigs_unmasked_bw.vcf
+
+vcftools=/home/sobczm/bin/vcftools/bin
+$vcftools/vcftools --vcf 95m_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out Ash_farm_172_pacbio_contigs_unmasked_bw_filtered
+```
