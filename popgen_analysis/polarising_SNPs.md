@@ -78,6 +78,5 @@ None found
 
 ```bash
 scripts=/home/sobczm/bin/popgen/summary_stats
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 ```
-
-VCF is already cut down from my work
