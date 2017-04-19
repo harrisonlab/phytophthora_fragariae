@@ -1,19 +1,12 @@
 #Import modues
 
-import argparse
 import numpy
 import csv
 import glob
 
-#Import arguments
-
-parser = argparse.ArgumentParser(description='Choose a tbl file to analyse')
-parser.add_argument('--tbl',required=True,type=str,help='tbl file to be analysed by script')
-conf = parser.parse_args()
-
 #Import dataset to numpy
 
-Inital_tbl = numpy.loadtxt(fname="conf.tbl", dtype=object)
+Inital_tbl = numpy.loadtxt(fname="Parsed_Polarising_95m_contigs_unmasked.tbl", dtype=object)
 
 #Cut down table to give equal variants
 
