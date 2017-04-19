@@ -79,3 +79,5 @@ None found
 ```bash
 scripts=/home/sobczm/bin/popgen/summary_stats
 ```
+
+VCF is already cut down from my work
