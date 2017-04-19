@@ -71,3 +71,11 @@ None are in genes
 UK3:
 None found
 ```
+
+#Maria has a (probably better) script to look at this.
+
+##Set inital variables
+
+```bash
+scripts=/home/sobczm/bin/popgen/summary_stats
+```
