@@ -23,8 +23,13 @@ tbl8 = tbl7[tbl7[:,6] != tbl7[:,8]]
 tbl9 = tbl8[tbl8[:,6] != tbl8[:,9]]
 tbl10 = tbl9[tbl9[:,6] != tbl9[:,10]]
 
+#Create and append Header row
+
+header = Inital_tbl[0,:]
+CSV = numpy.append(header, tbl10)
+
 #Print resulting table to a .csv
 
 with open("UK2_polarisation.csv", "wb") as f:
     writer = csv.writer(f)
-    writer.writerows(tbl10)
+    writer.writerows(CSV)
