@@ -30,6 +30,6 @@ CSV = numpy.append(header, tbl10)
 
 #Print resulting table to a .csv
 
-with open("UK3_polarisation.csv", "wb") as f:
+with open("UK1_polarisation.csv", "wb") as f:
     writer = csv.writer(f)
     writer.writerows(CSV)
