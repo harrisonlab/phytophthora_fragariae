@@ -78,7 +78,7 @@ None found
 
 ```bash
 scripts=/home/sobczm/bin/popgen/summary_stats
-input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/Polarising
 ```
 
 ##Create a cut-down vcf and filter it
