@@ -16,3 +16,15 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 mkdir -p $input
 cd $input
 ```
+
+###Set up bwa-mem for illumina reads aligning to SMRT sequenced *P. fragariae* genome
+
+```bash
+for sample in $input_dip/*
+do
+    reads_forward=$sample/F/*trim.fq.gz
+    reads_reverse=$sample/R/*trim.fq.gz
+    sname=$(echo $(basename "$reads_forward") | cut -d"_" -f1)
+    qsub $scripts/sub_bwa_mem.sh Illumina $sname $input_dip_assembly $reads_forward $reads_reverse
+done
+```
