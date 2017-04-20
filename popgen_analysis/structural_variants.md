@@ -19,6 +19,37 @@ cd $input
 
 ###Set up bwa-mem for illumina reads aligning to SMRT sequenced *P. fragariae* genome
 
+####Before running, individuals with multiple libraries require concatenating
+
+```bash
+for sample in $(ls $input_dip/* | grep -v '62471' | grep -v 'A4' | grep -v 'Bc23' | grep -v 'Nov27' | grep -v 'Nov5' | grep -v 'Nov77' | grep -v 'ONT3' | grep -v 'SCRP245_v2')
+do
+    F1_Read=$(ls $sample/F/*.fq.gz | head -n1)
+    Forward_out=$(basename "F1_Read")
+    #Copy the forward reads to the working folder
+    cp -r $sample/F/*.fq.gz ./
+    #Uncompress and concatenate
+    for a in *.fq.gz
+    do
+        gzip -d $a
+        cat ${a%.gz} >> ${Forward_out%.fq.gz}_concat_F.fastq
+    done
+    #Copy the reverse reads to the working folder
+    cp -r $sample/R/*.fq.gz ./
+    #Uncompress and concatenate
+    for b in *.fq.gz
+    do
+        gzip -d $b
+        cat ${b%.gz} >> ${Forward_out%.fq.gz}_concat_R.fastq
+    done
+    #Compress the output
+    gzip ${Forward_out%.fq.gz}_concat_F.fastq
+    gzip ${Forward_out%.fq.gz}_concat_R.fastq
+done
+```
+
+####Now run bwa-mem
+
 ```bash
 for sample in $input_dip/*
 do
