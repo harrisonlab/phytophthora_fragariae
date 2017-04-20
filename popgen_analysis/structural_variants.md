@@ -22,7 +22,7 @@ cd $input
 ####Before running, individuals with multiple libraries require concatenating
 
 ```bash
-for sample in $(ls $input_dip/* | grep -v '62471' | grep -v 'A4' | grep -v 'Bc23' | grep -v 'Nov27' | grep -v 'Nov5' | grep -v 'Nov77' | grep -v 'ONT3' | grep -v 'SCRP245_v2')
+for sample in $(ls $input_dip | grep -v '62471' | grep -v 'A4' | grep -v 'Bc23' | grep -v 'Nov27' | grep -v 'Nov5' | grep -v 'Nov77' | grep -v 'ONT3' | grep -v 'SCRP245_v2')
 do
     F1_Read=$(ls $sample/F/*.fq.gz | head -n1)
     Forward_out=$(basename "F1_Read")
