@@ -9,3 +9,10 @@ input_dip_assembly=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 scripts=/home/sobczm/bin/popgen/snp
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 ```
+
+####Move to correct directory
+
+```bash
+mkdir -p $input
+cd $input
+```
