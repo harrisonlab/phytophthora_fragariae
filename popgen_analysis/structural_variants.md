@@ -61,3 +61,9 @@ done
 ```
 
 In some cases, the forward and reverse read files are corrupted (reads do not match in the two files) and this crashes bwa-mem. These need to be fixed with $scripts/sub_pairfq.sh
+
+##Run lumpy to call structural variants
+
+```bash
+qsub $scripts/sub_lumpy.sh pfrag_struc_variants
+```
