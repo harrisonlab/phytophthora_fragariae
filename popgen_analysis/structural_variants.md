@@ -26,7 +26,7 @@ for isolate in $(ls $input_dip | grep -v '62471' | grep -v 'A4' | grep -v 'Bc23'
 do
     sample=$input_dip/$isolate
     F1_Read=$(ls $sample/F/*.fq.gz | head -n1)
-    Forward_out=$(basename "F1_Read")
+    Forward_out=$(basename "$F1_Read")
     #Copy the forward reads to the working folder
     cp -r $sample/F/*.fq.gz ./
     #Uncompress and concatenate
