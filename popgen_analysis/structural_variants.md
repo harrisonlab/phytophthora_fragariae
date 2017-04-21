@@ -49,6 +49,17 @@ do
 done
 ```
 
+####Now copy over reads for isolates with only a single library
+
+```bash
+for isolate in $(ls $input_dip | grep -v '62471' | grep -v 'Bc1' | grep -v 'Bc16' | grep -v 'Nov9' | grep -v 'Nov71')
+do
+    sample=$input_dip/$isolate
+    cp -r $sample/F/*.fq.gz ./
+    cp -r $sample/R/*.fq.gz ./
+done
+```
+
 ####Now run bwa-mem
 
 ```bash
