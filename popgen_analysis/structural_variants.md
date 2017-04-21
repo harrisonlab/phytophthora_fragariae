@@ -52,7 +52,7 @@ done
 ####Now run bwa-mem
 
 ```bash
-for sample in $input_dip/*
+for sample in $input/*
 do
     reads_forward=$sample/F/*trim.fq.gz
     reads_reverse=$sample/R/*trim.fq.gz
