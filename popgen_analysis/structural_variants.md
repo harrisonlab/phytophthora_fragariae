@@ -48,6 +48,8 @@ do
     #Compress the output
     gzip ${Forward_out%.fq.gz}_concat_F.fastq
     gzip ${Forward_out%.fq.gz}_concat_R.fastq
+    mkdir F
+    mkdir R
     mv *_concat_F* F/./
     mv *_concat_R* R/./
     cd $input
@@ -62,6 +64,8 @@ do
     sample=$input_dip/$isolate
     mkdir -p $input/$isolate
     cd $input/$isolate
+    mkdir F
+    mkdir R
     cp -r $sample/F/*.fq.gz F/./
     cp -r $sample/R/*.fq.gz R/./
     cd $input
