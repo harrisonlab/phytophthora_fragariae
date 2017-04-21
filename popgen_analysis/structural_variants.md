@@ -35,7 +35,7 @@ do
     for a in *.fq.gz
     do
         gzip -d $a
-        cat ${a%.gz} >> ${Forward_out%.fq.gz}_concat_F.fastq
+        cat ${a%.gz} >> ${Forward_out%.fq.gz}_concat_F.fq
     done
     #Copy the reverse reads to the working folder
     cp -r $sample/R/*.fq.gz ./
@@ -43,7 +43,7 @@ do
     for b in *.fq.gz
     do
         gzip -d $b
-        cat ${b%.gz} >> ${Forward_out%.fq.gz}_concat_R.fastq
+        cat ${b%.gz} >> ${Forward_out%.fq.gz}_concat_R.fq
     done
     #Compress the output
     gzip ${Forward_out%.fq.gz}_concat_F.fastq
@@ -77,8 +77,8 @@ done
 ```bash
 for sample in $input/*
 do
-    reads_forward=$sample/F/*trim.fq.gz
-    reads_reverse=$sample/R/*trim.fq.gz
+    reads_forward=$sample/F/*fq.gz
+    reads_reverse=$sample/R/*fq.gz
     sname=$(echo $(basename "$reads_forward") | cut -d"_" -f1)
     qsub $scripts/sub_bwa_mem.sh Illumina $sname $input_dip_assembly $reads_forward $reads_reverse
 done
