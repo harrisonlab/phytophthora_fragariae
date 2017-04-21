@@ -27,6 +27,8 @@ do
     sample=$input_dip/$isolate
     F1_Read=$(ls $sample/F/*.fq.gz | head -n1)
     Forward_out=$(basename "$F1_Read")
+    mkdir -p $input/$isolate
+    cd $input/$isolate
     #Copy the forward reads to the working folder
     cp -r $sample/F/*.fq.gz ./
     #Uncompress and concatenate
@@ -46,6 +48,7 @@ do
     #Compress the output
     gzip ${Forward_out%.fq.gz}_concat_F.fastq
     gzip ${Forward_out%.fq.gz}_concat_R.fastq
+    cd $input
 done
 ```
 
@@ -55,8 +58,11 @@ done
 for isolate in $(ls $input_dip | grep -v '62471' | grep -v 'Bc1' | grep -v 'Bc16' | grep -v 'Nov9' | grep -v 'Nov71')
 do
     sample=$input_dip/$isolate
+    mkdir -p $input/$isolate
+    cd $input/$isolate
     cp -r $sample/F/*.fq.gz ./
     cp -r $sample/R/*.fq.gz ./
+    cd $input
 done
 ```
 
