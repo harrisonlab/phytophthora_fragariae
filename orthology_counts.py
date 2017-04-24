@@ -34,3 +34,16 @@ for rows in Orthology_tbl:
 
 print 'UK2'
 print hits
+
+#Run calculations for UK3
+
+hits = []
+
+for rows in Orthology_tbl:
+    a = float(column[5] + column[7] + column[9]) / 3
+    b = float(column[2] + column[1] + column[6] + column[3]) / 4
+    if a > b:
+        hits.append(column[0])
+
+print 'UK3'
+print hits
