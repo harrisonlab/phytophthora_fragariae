@@ -1337,3 +1337,10 @@ OrthoMCL_output=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_orthogroup
 OutName=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_count_table.tsv
 $ProgDir/parse_orthogroups.py --orthogroups $OrthoMCL_output --out_dir $OutName
 ```
+
+##Analyse this count table for expanded groups
+
+```bash
+cd analysis/orthology/orthomcl/All_Strains
+python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
+```
