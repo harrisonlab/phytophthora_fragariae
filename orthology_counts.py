@@ -15,7 +15,7 @@ hits = []
 for row in Orthology_tbl:
     a = float(row[2] + row[6]) / 2
     b = float(row[1] + row[5] + row[3] + row[7] + row[9]) / 5
-    if a > b and row[2] > 0 and row[6] > 0:
+    if a > b and float(row[2]) > 0 and float(row[6]) > 0:
         hits.append(row[0])
 
 print 'UK1'
