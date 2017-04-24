@@ -13,10 +13,10 @@ Orthology_tbl = numpy.loadtxt(fname="All_Strains_count_table.tsv", dtype=object,
 hits = []
 
 for rows in Orthology_tbl:
-    a = float([:2] + [:6]) / 2
-    b = float([:1] + [:5] + [:3] + [:7] + [:9]) / 5
+    a = float(row[2] + row[6]) / 2
+    b = float(row[1] + row[5] + row[3] + row[7] + row[9]) / 5
     if a > b:
-        hits.append([:0])
+        hits.append(row[0])
 
 print 'UK1'
 print hits
@@ -27,10 +27,10 @@ print hits
 hits = []
 
 for rows in Orthology_tbl:
-    a = float(column[1] + column[3]) / 2
-    b = float(column[2] + column[5] + column[6] + column[7] + column[9]) / 5
+    a = float(row[1] + row[3]) / 2
+    b = float(row[2] + row[5] + row[6] + row[7] + row[9]) / 5
     if a > b:
-        hits.append(column[0])
+        hits.append(row[0])
 
 print 'UK2'
 print hits
@@ -40,10 +40,10 @@ print hits
 hits = []
 
 for rows in Orthology_tbl:
-    a = float(column[5] + column[7] + column[9]) / 3
-    b = float(column[2] + column[1] + column[6] + column[3]) / 4
+    a = float(row[5] + row[7] + row[9]) / 3
+    b = float(row[2] + row[1] + row[6] + row[3]) / 4
     if a > b:
-        hits.append(column[0])
+        hits.append(row[0])
 
 print 'UK3'
 print hits
