@@ -34,9 +34,7 @@ print hits
 hits = []
 
 for row in Orthology_tbl:
-    a = (float(row[5]) + float(row[7]) + float(row[9])) / 3
-    b = (float(row[2]) + float(row[1]) + float(row[6]) + float(row[3])) / 4
-    if a > b and float(row[5]) > 0 and float(row[7]) > 0 and float(row[9]) > 0:
+    if float(row[5]) > float(row[1]) and float(row[5]) > float(row[2]) and float(row[5]) > float(row[3]) and float(row[5]) > float(row[6]) and float(row[7]) > float(row[1]) and float(row[7]) > float(row[2]) and float(row[7]) > float(row[3]) and float(row[7]) > float(row[6]) and float(row[9]) > float(row[1]) and float(row[9]) > float(row[2]) and float(row[9]) > float(row[3]) and float(row[9]) > float(row[6]) and float(row[5]) > 0 and float(row[7]) > 0 and float(row[9]) > 0:
         hits.append(row[0])
 
 print 'UK3'
