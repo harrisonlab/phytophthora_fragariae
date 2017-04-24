@@ -12,7 +12,7 @@ Orthology_tbl = numpy.loadtxt(fname="All_Strains_count_table.tsv", dtype=object,
 
 hits = []
 
-for rows in Orthology_tbl:
+for row in Orthology_tbl:
     a = float(row[2] + row[6]) / 2
     b = float(row[1] + row[5] + row[3] + row[7] + row[9]) / 5
     if a > b:
@@ -26,7 +26,7 @@ print hits
 
 hits = []
 
-for rows in Orthology_tbl:
+for row in Orthology_tbl:
     a = float(row[1] + row[3]) / 2
     b = float(row[2] + row[5] + row[6] + row[7] + row[9]) / 5
     if a > b:
@@ -39,7 +39,7 @@ print hits
 
 hits = []
 
-for rows in Orthology_tbl:
+for row in Orthology_tbl:
     a = float(row[5] + row[7] + row[9]) / 3
     b = float(row[2] + row[1] + row[6] + row[3]) / 4
     if a > b:
