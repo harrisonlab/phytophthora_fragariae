@@ -13,7 +13,7 @@ ssh vicker@10.1.10.170
 /bin/bash
 ```
 
-## Next, extract the concatenated pacio reads created in pacbio_assembly.md
+## Next, extract the concatenated pacbio reads created in pacbio_assembly.md
 
 ```bash
 cd /data/projects/vicker/tom_adams_pfrag/
