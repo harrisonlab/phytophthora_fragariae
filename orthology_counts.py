@@ -32,5 +32,5 @@ for rows in Orthology_tbl:
     if a > b:
         hits.append(column[0])
 
-print(UK2)
-print(hits)
+print 'UK2'
+print hits
