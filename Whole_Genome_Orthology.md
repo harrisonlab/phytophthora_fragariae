@@ -1354,7 +1354,7 @@ do
     do
         echo $line | sed 's/O/o/g' | sed 's/ //g' >> tmp.txt
     done < "$file"
-    Start=basename "$file" .txt
+    Start=$(basename "$file" .txt)
     New_File="$Start"_modified.txt
     while IFS=' ' read -r line
     do
