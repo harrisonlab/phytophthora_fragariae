@@ -1,7 +1,6 @@
 #Import modules
 
 import numpy
-import json
 
 #Import tsv into numpy
 
