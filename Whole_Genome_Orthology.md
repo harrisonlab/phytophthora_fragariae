@@ -1400,3 +1400,16 @@ do
     cat $RxLR_Orthogroup | wc -l
 done
 ```
+
+```
+The number of RxLRs searched for is:
+674
+Of these, the following number were found in orthogroups:
+3
+These were distributed through the following number of Orthogroups:
+1
+This is orthogroup 37, containing:
+Bc16|g33201.t1
+A4|g9316.t1
+A4|g26518.t1
+```
