@@ -1348,11 +1348,18 @@ python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
 ###Reformat the lists and extract full orthogroup details
 
 ```bash
-for file in UK1_expanded.txt
+for file in UK*_expanded.txt
 do
     while IFS=' ' read -r line
     do
-        echo $line | sed 's/O/o/g' | sed 's/ //g' >> test.txt
+        echo $line | sed 's/O/o/g' | sed 's/ //g' >> tmp.txt
     done < "$file"
+    Start=basename "$file" .txt
+    New_File="$Start"_modified.txt
+    while IFS=' ' read -r line
+    do
+        echo All_Strains_orthogroups.txt | grep -w "$line" >> $New_File
+    done < tmp.txt
+    rm tmp.txt
 done
 ```
