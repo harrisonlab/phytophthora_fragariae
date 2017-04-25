@@ -89,5 +89,6 @@ In some cases, the forward and reverse read files are corrupted (reads do not ma
 ##Run lumpy to call structural variants
 
 ```bash
+scripts=/home/adamst/git_repos/script/phytophthora_fragariae
 qsub $scripts/sub_lumpy.sh pfrag_struc_variants
 ```
