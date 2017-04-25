@@ -14,7 +14,9 @@ for row in Orthology_tbl:
     if float(row[2]) > float(row[1]) and float(row[2]) > float(row[3]) and float(row[2]) > float(row[5]) and float(row[2]) > float(row[7]) and float(row[2]) > float(row[9]) and float(row[6]) > float(row[1]) and float(row[6]) > float(row[3]) and float(row[6]) > float(row[5]) and float(row[6]) > float(row[7]) and float(row[6]) > float(row[9]) and float(row[2]) > 0 and float(row[6]) > 0:
         hits.append(row[0])
 
-
+with open("UK1_expanded.txt", "w") as f:
+    for o in hits:
+        f.write(str(o))
 
 #Run calculations for UK2
 
