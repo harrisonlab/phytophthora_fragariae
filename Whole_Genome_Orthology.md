@@ -1358,7 +1358,7 @@ do
     New_File="$Start"_modified.txt
     while IFS=' ' read -r line
     do
-        echo All_Strains_orthogroups.txt | grep -w "$line" >> $New_File
+        grep -w "$line" All_Strains_orthogroups.txt >> $New_File
     done < tmp.txt
     rm tmp.txt
 done
