@@ -1398,7 +1398,5 @@ do
     RxLR_Orthogroup=$RxLR_Dir/UK2_RxLR_Orthogroups.txt
     cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
     cat $RxLR_Orthogroup | wc -l
-    echo "These orthogroups contain the following number of RxLRs:"
-    cat $RxLR_UK2_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
 done
 ```
