@@ -1338,18 +1338,9 @@ OutName=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_count_table.tsv
 $ProgDir/parse_orthogroups.py --orthogroups $OrthoMCL_output --out_dir $OutName
 ```
 
-##Analyse this count table for expanded groups
+##Analyse this count table for expanded groups and write orthogroups to a text file 'UKX_expanded.txt'
 
 ```bash
 cd analysis/orthology/orthomcl/All_Strains
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
-```
-
-```
-UK1
-'Orthogroup 33', 'Orthogroup 71', 'Orthogroup 82', 'Orthogroup 204', 'Orthogroup 249', 'Orthogroup 547', 'Orthogroup 661', 'Orthogroup 824', 'Orthogroup 1426', 'Orthogroup 1486', 'Orthogroup 1907', 'Orthogroup 2941', 'Orthogroup 3289', 'Orthogroup 3397', 'Orthogroup 12264', 'Orthogroup 15606', 'Orthogroup 16511', 'Orthogroup 16827', 'Orthogroup 16842', 'Orthogroup 16995', 'Orthogroup 17317', 'Orthogroup 17458', 'Orthogroup 17498', 'Orthogroup 17642', 'Orthogroup 17643', 'Orthogroup 17644', 'Orthogroup 18343', 'Orthogroup 18371', 'Orthogroup 18377', 'Orthogroup 18384'
-UK2
-'Orthogroup 6', 'Orthogroup 12', 'Orthogroup 13', 'Orthogroup 24', 'Orthogroup 26', 'Orthogroup 32', 'Orthogroup 37', 'Orthogroup 58', 'Orthogroup 61', 'Orthogroup 63', 'Orthogroup 108', 'Orthogroup 153', 'Orthogroup 198', 'Orthogroup 301', 'Orthogroup 302', 'Orthogroup 365', 'Orthogroup 370', 'Orthogroup 435', 'Orthogroup 510', 'Orthogroup 518', 'Orthogroup 542', 'Orthogroup 568', 'Orthogroup 570', 'Orthogroup 609', 'Orthogroup 623', 'Orthogroup 689', 'Orthogroup 747', 'Orthogroup 771', 'Orthogroup 1009', 'Orthogroup 1263', 'Orthogroup 1323', 'Orthogroup 1477', 'Orthogroup 1546', 'Orthogroup 1612', 'Orthogroup 1622', 'Orthogroup 2480', 'Orthogroup 2557', 'Orthogroup 2675', 'Orthogroup 2742', 'Orthogroup 2766', 'Orthogroup 2815', 'Orthogroup 2871', 'Orthogroup 2938', 'Orthogroup 3032', 'Orthogroup 3040', 'Orthogroup 3179', 'Orthogroup 3555', 'Orthogroup 3970', 'Orthogroup 4271', 'Orthogroup 14274', 'Orthogroup 15056', 'Orthogroup 15670', 'Orthogroup 16061', 'Orthogroup 16096', 'Orthogroup 16434', 'Orthogroup 16494', 'Orthogroup 16854', 'Orthogroup 16860', 'Orthogroup 16861', 'Orthogroup 16902', 'Orthogroup 17353', 'Orthogroup 17392', 'Orthogroup 17398', 'Orthogroup 17409', 'Orthogroup 17414', 'Orthogroup 17427', 'Orthogroup 17454', 'Orthogroup 17459', 'Orthogroup 17471', 'Orthogroup 18204', 'Orthogroup 18215', 'Orthogroup 18230', 'Orthogroup 18254', 'Orthogroup 18277', 'Orthogroup 18290', 'Orthogroup 18306', 'Orthogroup 18328', 'Orthogroup 18334'
-UK3
-'Orthogroup 16', 'Orthogroup 372', 'Orthogroup 1422', 'Orthogroup 1463', 'Orthogroup 1510', 'Orthogroup 1557', 'Orthogroup 1733', 'Orthogroup 2621', 'Orthogroup 2765', 'Orthogroup 2790', 'Orthogroup 2888', 'Orthogroup 2902', 'Orthogroup 2908', 'Orthogroup 2912', 'Orthogroup 2917', 'Orthogroup 2995', 'Orthogroup 3024', 'Orthogroup 3116', 'Orthogroup 3152', 'Orthogroup 3163', 'Orthogroup 3169', 'Orthogroup 15696', 'Orthogroup 15944', 'Orthogroup 15945', 'Orthogroup 15970', 'Orthogroup 15984', 'Orthogroup 16012', 'Orthogroup 16025', 'Orthogroup 16176', 'Orthogroup 16287', 'Orthogroup 16289', 'Orthogroup 16292', 'Orthogroup 16326', 'Orthogroup 16328', 'Orthogroup 16356', 'Orthogroup 16365', 'Orthogroup 16426', 'Orthogroup 16606', 'Orthogroup 16631', 'Orthogroup 16632', 'Orthogroup 16633', 'Orthogroup 16634', 'Orthogroup 16635', 'Orthogroup 16649', 'Orthogroup 16748', 'Orthogroup 16760', 'Orthogroup 16776', 'Orthogroup 16785', 'Orthogroup 17117', 'Orthogroup 17120', 'Orthogroup 17122', 'Orthogroup 17130', 'Orthogroup 17136', 'Orthogroup 17156', 'Orthogroup 17157', 'Orthogroup 17158', 'Orthogroup 17164', 'Orthogroup 17705', 'Orthogroup 17755', 'Orthogroup 17763', 'Orthogroup 17765', 'Orthogroup 17770'
 ```
