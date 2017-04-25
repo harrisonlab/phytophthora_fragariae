@@ -1348,7 +1348,7 @@ python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
 ###Reformat the lists and extract full orthogroup details
 
 ```bash
-for file in UK*_expanded.txt
+for file in $(ls UK*_expanded.txt)
 do
     while IFS=' ' read -r line
     do
