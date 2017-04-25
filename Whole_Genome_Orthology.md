@@ -1344,3 +1344,15 @@ $ProgDir/parse_orthogroups.py --orthogroups $OrthoMCL_output --out_dir $OutName
 cd analysis/orthology/orthomcl/All_Strains
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
 ```
+
+###Reformat the lists and extract full orthogroup details
+
+```bash
+for file in UK1_expanded.txt
+do
+    while IFS=' ' read -r line
+    do
+        echo $line | sed 's/O/o/g' | sed 's/ //g' >> test.txt
+    done < "$file"
+done
+```
