@@ -1363,3 +1363,42 @@ do
     rm tmp.txt
 done
 ```
+
+###Look for RxLRs in each race
+
+###Create a list of RxLRs
+
+```bash
+for num in 1
+do
+    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_EER_motif_hmm.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains
+    RxLR_Dir=$WorkDir/UKR2_RxLR
+    Orthogroups=$WorkDir/UK2_expanded_modified.txt
+    RxLR_ID=$RxLR_Dir/UKR2_aug_RxLR_EER_IDs.txt
+    mkdir -p $RxLR_Dir
+    cat $RxLR_Names_Bc16 | sed -r 's/^/Bc16|/g' > $RxLR_ID
+    cat $RxLR_Names_A4 | sed -r 's/^/A4|/g' >> $RxLR_ID
+done
+```
+
+#Ortholog groups containing RxLR proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of RxLRs searched for is:"
+    cat $RxLR_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    RxLR_Orthogroup_hits=$RxLR_Dir/UK2_RxLR_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
+    cat $RxLR_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    RxLR_Orthogroup=$RxLR_Dir/UK2_RxLR_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
+    cat $RxLR_Orthogroup | wc -l
+    echo "These orthogroups contain the following number of RxLRs:"
+    cat $RxLR_UK2_uniq_groups | grep -w -o -f $RxLR_ID | wc -l
+done
+```
