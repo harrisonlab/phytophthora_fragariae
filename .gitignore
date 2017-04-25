@@ -3,3 +3,4 @@
 *.csv
 *.tbl
 sub_lumpy.sh
+FALCON/ovlp.stats
