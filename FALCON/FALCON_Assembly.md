@@ -45,6 +45,8 @@ Because FALCON is not a plug-and-play assembler, the initial run provides inform
 ```
 From countFasta.pl:
 
+primary contigs:
+
 Total length of sequence:       94100515 bp
 Total number of sequences:      287
 N25 stats:                      25% of total sequence length is contained in the 12 sequences >= 1648251
@@ -57,6 +59,19 @@ Total GC count:                 50198336 bp
 GC %:                           53.35 %
 
 This is about 2kb smaller than the canu assembly, but has a larger N50 and the GC content is about the same.
+
+associate contigs:
+
+Total length of sequence:       472036 bp
+Total number of sequences:      34
+N25 stats:                      25% of total sequence length is contained in the 3 sequences >= 20138
+bp
+N50 stats:                      50% of total sequence length is contained in the 10 sequences >= 15101
+bp
+N75 stats:                      75% of total sequence length is contained in the 18 sequences >= 13255
+bp
+Total GC count:                 260149 bp
+GC %:                           55.11 %
 
 -----
 
