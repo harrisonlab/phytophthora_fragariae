@@ -1528,6 +1528,20 @@ Nov9|PGN_05230.t1
 Nov71|PGN_04367.t1
 ```
 
+##Extract the fasta files for selected orthogroups
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains/UKR3_RxLR/UK3_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains/UKR3_RxLR/orthogroups_fasta_UK3_RxLR
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
 ###Look for CRNs in each race
 
 ##UK1
