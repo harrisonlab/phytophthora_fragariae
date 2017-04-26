@@ -86,7 +86,7 @@ Statistics for all reads of length 70 bases or more
 
   Base composition: 0.240(A) 0.260(C) 0.260(G) 0.240(T)
 
-This shows a much lower number of base pairs than in the raw reads, I am not clear if this is normal or not.
+This shows a much lower number of base pairs than in the raw reads, but this is fine.
 
 -----
 
