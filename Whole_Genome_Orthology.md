@@ -1569,15 +1569,15 @@ These were distributed through the following number of Orthogroups:
 ```bash
 for num in 1
 do
-    CRN_Names_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN.txt
-    CRN_Names_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN.txt
+    CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+    CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains
-    CRN_Dir=$WorkDir/UKR1_CRN
-    Orthogroups=$WorkDir/UK1_expanded_modified.txt
-    CRN_ID=$CRN_Dir/UKR1_CRN_hmmer_IDs.txt
+    CRN_Dir=$WorkDir/UKR2_CRN
+    Orthogroups=$WorkDir/UK2_expanded_modified.txt
+    CRN_ID=$CRN_Dir/UKR2_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
-    cat $CRN_Names_Bc1 | sed -r 's/^/Bc1|/g' > $CRN_ID
-    cat $CRN_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $CRN_ID
+    cat $CRN_Names_Bc16 | sed -r 's/^/Bc16|/g' > $CRN_ID
+    cat $CRN_Names_A4 | sed -r 's/^/A4|/g' >> $CRN_ID
 done
 ```
 
