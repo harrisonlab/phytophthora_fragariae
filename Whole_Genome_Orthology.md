@@ -1694,6 +1694,10 @@ Nov9|g20293.t1
 Nov9|g4254.t1
 Nov71|g3854.t1
 Nov27|g3856.t1
+These group into three sets:
+A = Nov9|g4254.t1, Nov27|g3856.t1 and Nov71|g3854.t1 - also have exact matches in BC-23 and SCRP245
+B = Nov9|g20292.t1, Nov27|g19382.t1 and Nov71|g19146.t1 - has a large number of exact homologues
+C = Nov9|g20293.t1, Nov27|g19383.t1 and Nov71|g19147.t1 - Exact match in ONT-3 of extended version, shortened version has many UK1 and 2 homologues.
 ```
 
 ```bash
