@@ -1646,3 +1646,22 @@ do
     cat $CRN_Orthogroup | wc -l
 done
 ```
+
+```
+The number of CRNs searched for is:
+338
+Of these, the following number were found in orthogroups:
+3
+These were distributed through the following number of Orthogroups:
+1
+This is orthogroup 1557, which contains the following UK3 CRNs:
+Nov9|g20292.t1
+Nov71|g19146.t1
+Nov27|g19382.t1
+Nov71|g19147.t1
+Nov27|g19383.t1
+Nov9|g20293.t1
+Nov9|g4254.t1
+Nov71|g3854.t1
+Nov27|g3856.t1
+```
