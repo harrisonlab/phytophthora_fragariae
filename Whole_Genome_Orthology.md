@@ -1460,6 +1460,7 @@ This is orthogroup 37, containing:
 Bc16|g33201.t1
 A4|g9316.t1
 A4|g26518.t1
+The genes from A4 do not align well with the gene from BC-16, so this is a false positive.
 ```
 
 ##Extract the fasta files for selected orthogroups
