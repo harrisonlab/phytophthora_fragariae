@@ -1540,15 +1540,15 @@ done
 ```bash
 for num in 1
 do
-    echo "The number of RxLRs searched for is:"
-    cat $RxLR_ID | wc -l
+    echo "The number of CRNs searched for is:"
+    cat $CRN_ID | wc -l
     echo "Of these, the following number were found in orthogroups:"
-    RxLR_Orthogroup_hits=$RxLR_Dir/UK1_RxLR_Orthogroups_hits.txt
-    cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
-    cat $RxLR_Orthogroup_hits | wc -l
+    CRN_Orthogroup_hits=$CRN_Dir/UK1_CRN_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $CRN_ID > $CRN_Orthogroup_hits
+    cat $CRN_Orthogroup_hits | wc -l
     echo "These were distributed through the following number of Orthogroups:"
-    RxLR_Orthogroup=$RxLR_Dir/UK1_RxLR_Orthogroups.txt
-    cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
-    cat $RxLR_Orthogroup | wc -l
+    CRN_Orthogroup=$CRN_Dir/UK1_CRN_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $CRN_ID > $CRN_Orthogroup
+    cat $CRN_Orthogroup | wc -l
 done
 ```
