@@ -1693,3 +1693,15 @@ Nov9|g4254.t1
 Nov71|g3854.t1
 Nov27|g3856.t1
 ```
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains/UKR3_CRN/UK3_CRN_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains/UKR3_CRN/orthogroups_fasta_UK3_CRN
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
