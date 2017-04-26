@@ -1552,3 +1552,12 @@ do
     cat $CRN_Orthogroup | wc -l
 done
 ```
+
+```
+The number of CRNs searched for is:
+222
+Of these, the following number were found in orthogroups:
+0
+These were distributed through the following number of Orthogroups:
+0
+```
