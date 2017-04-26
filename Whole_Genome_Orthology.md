@@ -1527,6 +1527,7 @@ This is orthogroup 16649, containing:
 Nov27|PGN_07235.t1
 Nov9|PGN_05230.t1
 Nov71|PGN_04367.t1
+These genes are all identical, but there is also a identical gene in ONT-3, and one with a 4AA insertion in NOV-77 - These two are not the same race either
 ```
 
 ##Extract the fasta files for selected orthogroups
