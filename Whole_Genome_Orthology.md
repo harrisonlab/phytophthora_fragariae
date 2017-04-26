@@ -1589,11 +1589,11 @@ do
     echo "The number of CRNs searched for is:"
     cat $CRN_ID | wc -l
     echo "Of these, the following number were found in orthogroups:"
-    CRN_Orthogroup_hits=$CRN_Dir/UK1_CRN_Orthogroups_hits.txt
+    CRN_Orthogroup_hits=$CRN_Dir/UK2_CRN_Orthogroups_hits.txt
     cat $Orthogroups | grep -o -w -f $CRN_ID > $CRN_Orthogroup_hits
     cat $CRN_Orthogroup_hits | wc -l
     echo "These were distributed through the following number of Orthogroups:"
-    CRN_Orthogroup=$CRN_Dir/UK1_CRN_Orthogroups.txt
+    CRN_Orthogroup=$CRN_Dir/UK2_CRN_Orthogroups.txt
     cat $Orthogroups | grep -w -f $CRN_ID > $CRN_Orthogroup
     cat $CRN_Orthogroup | wc -l
 done
