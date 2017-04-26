@@ -1462,6 +1462,20 @@ A4|g9316.t1
 A4|g26518.t1
 ```
 
+##Extract the fasta files for selected orthogroups
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains/UKR2_RxLR/UK2_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains/UKR2_RxLR/orthogroups_fasta_UK2_RxLR
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
 ##UK3
 
 ###Create a list of RxLRs
