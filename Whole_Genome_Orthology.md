@@ -1518,7 +1518,7 @@ Nov71|PGN_04367.t1
 
 ##UK1
 
-###Create a list of RxLRs
+###Create a list of CRNs
 
 ```bash
 for num in 1
