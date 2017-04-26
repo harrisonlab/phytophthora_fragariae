@@ -1607,3 +1607,40 @@ Of these, the following number were found in orthogroups:
 These were distributed through the following number of Orthogroups:
 0
 ```
+
+##UK2
+
+###Create a list of CRNs
+
+```bash
+for num in 1
+do
+    CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+    CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains
+    CRN_Dir=$WorkDir/UKR2_CRN
+    Orthogroups=$WorkDir/UK2_expanded_modified.txt
+    CRN_ID=$CRN_Dir/UKR2_CRN_hmmer_IDs.txt
+    mkdir -p $CRN_Dir
+    cat $CRN_Names_Bc16 | sed -r 's/^/Bc16|/g' > $CRN_ID
+    cat $CRN_Names_A4 | sed -r 's/^/A4|/g' >> $CRN_ID
+done
+```
+
+#Ortholog groups containing CRN proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of CRNs searched for is:"
+    cat $CRN_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    CRN_Orthogroup_hits=$CRN_Dir/UK2_CRN_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $CRN_ID > $CRN_Orthogroup_hits
+    cat $CRN_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    CRN_Orthogroup=$CRN_Dir/UK2_CRN_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $CRN_ID > $CRN_Orthogroup
+    cat $CRN_Orthogroup | wc -l
+done
+```
