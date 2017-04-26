@@ -1535,7 +1535,7 @@ do
 done
 ```
 
-#Ortholog groups containing RxLR proteins were identified using the following commands:
+#Ortholog groups containing CRN proteins were identified using the following commands:
 
 ```bash
 for num in 1
