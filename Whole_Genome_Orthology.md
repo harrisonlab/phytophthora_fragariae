@@ -1513,3 +1513,5 @@ Nov27|PGN_07235.t1
 Nov9|PGN_05230.t1
 Nov71|PGN_04367.t1
 ```
+
+###Look for CRNs in each race
