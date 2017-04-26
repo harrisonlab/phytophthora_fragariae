@@ -125,3 +125,7 @@ An assembly graph will also be created, asked Maria to run the following command
 cd 2-asm-falcon
 fc_ovlp_stats.py --fofn 1-preads_ovl/merge-gather/las.fofn > ovlp.stats
 ```
+
+This is plotted using the R script Plot_ovlp_stats.R
+
+This has a cluster at the far left of the graph, this will inform coverage cut off values
