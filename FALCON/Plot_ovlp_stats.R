@@ -5,9 +5,9 @@ colnames(o)<-c("pread","length","fivePrimeOvlps","threePrimeOvlps")
 pdf(file="OvlpHist.pdf", width=11, height=5)
 par(oma=c(3,3,2,0), cex=1.6, las=1, mar=c(4,4,2,2), mfrow=c(1,2))
 hist(o$fivePrimeOvlps, breaks=100,
-        xlab="number of overlaps between preads",
+        xlab="number of overlaps between preads", xlim=c(0,200),
         ylab="count", main="Five Prime")
 hist(o$threePrimeOvlps, breaks=100,
-        xlab="number of overlaps between preads",
+        xlab="number of overlaps between preads", xlim=c(0,200),
         ylab="count", main="Three Prime")
 dev.off()
