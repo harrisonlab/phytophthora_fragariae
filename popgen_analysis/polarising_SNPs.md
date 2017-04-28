@@ -140,7 +140,7 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/Polarising
 cd $input
 
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 > 95m_contigs_unmasked_bw.vcf
+$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 SCRP249 SCRP324 SCRP333 > 95m_contigs_unmasked_bw.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf 95m_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out 95m_contigs_unmasked_bw_filtered
