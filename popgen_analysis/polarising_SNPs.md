@@ -174,7 +174,7 @@ python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_pol_filter
 ```
 
 ```
-Nothing found
+None found
 ```
 
 ###UK3 based analysis
