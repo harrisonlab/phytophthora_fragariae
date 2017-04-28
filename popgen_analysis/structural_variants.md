@@ -92,3 +92,7 @@ In some cases, the forward and reverse read files are corrupted (reads do not ma
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae
 qsub $scripts/sub_lumpy.sh pfrag_struc_variants
 ```
+
+###Analysis of output of lumpy
+
+####UK2 focused analysis
