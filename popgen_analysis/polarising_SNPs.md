@@ -154,8 +154,17 @@ python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_pol_filter
 ```
 
 ```
-Two variants identifed, the same SNP as mine, 1kb upstream of a TSS
-Also one indel that is 3kb upstream of a TSS
+contig_2 2,193,093 G/T
+contig_2 2,193,105 C/T
+contig_3 1,536,609 T/C
+contig_12 164,098 A/C
+contig_32 467,075 T/C
+contig_45 358,224 T/C
+contig_49 37,872 TG/T/TGG
+contig_113 185,134 T/C
+contig_182 18,638 T/A
+contig_201 99,050 A/G
+contig_305 38,563 T/C
 ```
 
 ###UK1 based analysis
