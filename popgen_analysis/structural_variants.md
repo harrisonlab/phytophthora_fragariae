@@ -119,3 +119,13 @@ $vcftools/vcftools --vcf pfrag_struc_variants_plus_pr.vcf  --max-missing 0.95 --
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants_plus_pr_filtered.recode.vcf --out pfrag_struc_variants_UK2.vcf --ply 2 --pop1 Bc16,,PfragariaeA4 --pop2 Pfrag-Nov-5,,Bc1,,Nov9,,Nov27,,Pfrag-Nov71 --thr 0.95
 ```
+
+```
+No variants found
+```
+
+####UK1 focused analysis
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants_plus_pr_filtered.recode.vcf --out pfrag_struc_variants_UK1.vcf --ply 2 --pop1 Bc1,,Pfrag-Nov-5 --pop2 PfragariaeA4,,Bc16,,Nov9,,Nov27,,Pfrag-Nov71 --thr 0.95
+```
