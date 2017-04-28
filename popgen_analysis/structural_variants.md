@@ -93,7 +93,7 @@ scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae
 qsub $scripts/sub_lumpy.sh pfrag_struc_variants
 ```
 
-###Analysis of output of lumpy
+###Analysis of output of lumpy - PRELIMINARY DATA, only goes up to contig_92
 
 ####Set variables
 
@@ -108,14 +108,14 @@ input=/home/sobczm/popgen/snp/sv_calling/pfrag
 cd $input
 
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 SCRP249 SCRP324 SCRP333 > 95m_contigs_unmasked_pol.vcf
+$vcflib/vcfremovesamples pfrag_struc_variants.vcf SCRP245_v2 ONT3 Nov77 Bc23  > pfrag_struc_variants_plus_pr.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
-$vcftools/vcftools --vcf 95m_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out 95m_contigs_unmasked_pol_filtered
+$vcftools/vcftools --vcf pfrag_struc_variants_plus_pr.vcf  --max-missing 0.95 --recode --out pfrag_struc_variants_plus_pr_filtered
 ```
 
 ####UK2 focused analysis
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants.vcf --out pfrag_struc_variants_UK2.vcf --ply 2 --pop1 Bc16,,A4 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants_plus_pr_filtered.vcf --out pfrag_struc_variants_plus_pr_filtered_UK2.vcf --ply 2 --pop1 Bc16,,A4,,SCRP249,,SCRP324,,SCRP333 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
 ```
