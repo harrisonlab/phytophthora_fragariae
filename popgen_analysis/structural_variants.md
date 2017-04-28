@@ -108,7 +108,7 @@ input=/home/sobczm/popgen/snp/sv_calling/pfrag
 cd $input
 
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples pfrag_struc_variants.vcf SCRP245_v2 ONT3 Nov77 Bc23  > pfrag_struc_variants_plus_pr.vcf
+$vcflib/vcfremovesamples pfrag_struc_variants.vcf Pfrag-SCRP245 Pfrag-ONT-3 Pfrag-Nov-77 Pfrag-Bc23 62471  > pfrag_struc_variants_plus_pr.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf pfrag_struc_variants_plus_pr.vcf  --max-missing 0.95 --recode --out pfrag_struc_variants_plus_pr_filtered
@@ -117,5 +117,5 @@ $vcftools/vcftools --vcf pfrag_struc_variants_plus_pr.vcf  --max-missing 0.95 --
 ####UK2 focused analysis
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants_plus_pr_filtered.vcf --out pfrag_struc_variants_plus_pr_filtered_UK2.vcf --ply 2 --pop1 Bc16,,A4,,SCRP249,,SCRP324,,SCRP333 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants_plus_pr_filtered.recode.vcf --out pfrag_struc_variants_UK2.vcf --ply 2 --pop1 Bc16,,PfragariaeA4 --pop2 Pfrag-Nov-5,,Bc1,,Nov9,,Nov27,,Pfrag-Nov71 --thr 0.95
 ```
