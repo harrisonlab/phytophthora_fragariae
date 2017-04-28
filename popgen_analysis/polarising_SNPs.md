@@ -126,3 +126,54 @@ Nothing found
 ```
 
 #Polarising variants without rubi, just looking for polarised differences within UK123 strains
+
+##Set inital variables
+
+```bash
+scripts=/home/sobczm/bin/popgen/summary_stats
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/Polarising
+```
+
+##Create a cut-down vcf and filter it
+
+```bash
+cd $input
+
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 > 95m_contigs_unmasked_bw.vcf
+
+vcftools=/home/sobczm/bin/vcftools/bin
+$vcftools/vcftools --vcf 95m_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out 95m_contigs_unmasked_bw_filtered
+```
+
+##This requires editing every time, the python script is designed by Maria to find differences.
+###For UK2, set UK2 isolates and P. rubi isolates
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_bw_filtered.recode.vcf --out 95m_contigs_unmasked_bw_filtered_fixed.vcf --ply 2 --pop1 Bc16,,A4,,SCRP249,,SCRP324,,SCRP333 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
+```
+
+```
+Two variants identifed, the same SNP as mine, 1kb upstream of a TSS
+Also one indel that is 3kb upstream of a TSS
+```
+
+###UK1 based analysis
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_bw_filtered.recode.vcf --out 95m_contigs_unmasked_bw_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
+```
+
+```
+Nothing found
+```
+
+###UK3 based analysis
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_bw_filtered.recode.vcf --out 95m_contigs_unmasked_bw_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov5,,Bc11 --thr 0.95
+```
+
+```
+Nothing found
+```
