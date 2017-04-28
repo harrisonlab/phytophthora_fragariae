@@ -95,4 +95,27 @@ qsub $scripts/sub_lumpy.sh pfrag_struc_variants
 
 ###Analysis of output of lumpy
 
+####Set variables
+
+```bash
+scripts=/home/sobczm/bin/popgen/summary_stats
+input=/home/sobczm/popgen/snp/sv_calling/pfrag
+```
+
+####Cut down and filter vcf for analysis including P. rubi as an ancestral grouping
+
+```bash
+cd $input
+
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 SCRP249 SCRP324 SCRP333 > 95m_contigs_unmasked_pol.vcf
+
+vcftools=/home/sobczm/bin/vcftools/bin
+$vcftools/vcftools --vcf 95m_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out 95m_contigs_unmasked_pol_filtered
+```
+
 ####UK2 focused analysis
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants.vcf --out pfrag_struc_variants_UK2.vcf --ply 2 --pop1 Bc16,,A4 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
+```
