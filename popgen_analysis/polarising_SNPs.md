@@ -124,3 +124,5 @@ python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_bw_filtere
 ```
 Nothing found
 ```
+
+#Polarising variants without rubi, just looking for polarised differences within UK123 strains
