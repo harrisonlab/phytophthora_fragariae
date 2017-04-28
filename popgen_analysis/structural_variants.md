@@ -129,3 +129,17 @@ No variants found
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants_plus_pr_filtered.recode.vcf --out pfrag_struc_variants_UK1.vcf --ply 2 --pop1 Bc1,,Pfrag-Nov-5 --pop2 PfragariaeA4,,Bc16,,Nov9,,Nov27,,Pfrag-Nov71 --thr 0.95
 ```
+
+```
+No variants found
+```
+
+####UK3 focused analysis
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants_plus_pr_filtered.recode.vcf --out pfrag_struc_variants_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Pfrag-Nov71 --pop2 Bc1,,Pfrag-Nov-5,,PfragariaeA4,,Bc16 --thr 0.95
+```
+
+```
+No variants found
+```
