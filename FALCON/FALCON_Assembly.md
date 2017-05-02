@@ -180,3 +180,11 @@ min_cov = 2
 ```
 max_cov = 150
 ```
+
+This seems to be balancing act of contiguity vs assembly size - increasing it increases size but decreases contiguity
+
+#Fourth trial, see what changing max_diff does
+
+```
+max_diff = 35
+```
