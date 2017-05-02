@@ -165,7 +165,7 @@ After running
 
 ```
 cd 2-asm-falcon
-../../../sobczm/pfrag/2-asm-falcon/countFasta.pl p_ctg.fa
+perl ../../../sobczm/pfrag/2-asm-falcon/countFasta.pl p_ctg.fa
 ```
 
 #Second attempt run with the following parameters changed:
