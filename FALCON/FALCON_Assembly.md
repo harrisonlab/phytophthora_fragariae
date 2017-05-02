@@ -161,6 +161,13 @@ source /home/sobczm/bin/FALCON-integrate/env.sh
 /home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_run.py fc_run.cfg
 ```
 
+After running
+
+```
+cd 2-asm-falcon
+../../sobczm/pfrag/2-asm-falcon/countFasta.pl p_ctg.fa
+```
+
 #Second attempt run with the following parameters changed:
 
 ```
