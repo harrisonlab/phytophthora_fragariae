@@ -158,7 +158,7 @@ export PYTHONUSERBASE=/home/sobczm/bin/FALCON-integrate/fc_env
 export PATH=$PYTHONUSERBASE/bin:${PATH}
 export PATH=/home/sobczm/usr/local/bin:${PATH}
 source /home/sobczm/bin/FALCON-integrate/env.sh
-fc_run.py fc_run.cfg
+/home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_run.pyfc_run.py fc_run.cfg
 ```
 
 #Second attempt run with the following parameters changed:
