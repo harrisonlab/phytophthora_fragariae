@@ -151,13 +151,14 @@ This has a cluster at the far left of the graph, this will inform coverage cut o
 ```
 screen -a
 
+/bin/bash
 export PYTHONPATH="$PYTHONPATH:/home/sobczm/usr/local/lib/python2.7/site-packages"
 export PYTHONPATH="$PYTHONPATH:/home/sobczm/bin/FALCON-integrate/fc_env/lib/python2.7/site-packages"
 export PYTHONUSERBASE=/home/sobczm/bin/FALCON-integrate/fc_env
 export PATH=$PYTHONUSERBASE/bin:${PATH}
 export PATH=/home/sobczm/usr/local/bin:${PATH}
 source /home/sobczm/bin/FALCON-integrate/env.sh
-fc_run.py fc_run.cfg 
+fc_run.py fc_run.cfg
 ```
 
 #Second attempt run with the following parameters changed:
