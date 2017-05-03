@@ -183,7 +183,7 @@ max_cov = 150
 
 This seems to be balancing act of contiguity vs assembly size - increasing it increases size but decreases contiguity
 
-#Fourth trial, see what changing max_diff does
+#Fourth trial, see what changing max_diff does - this looks like less of the repetitive regions have assembled, so the genome size is smaller, but the contiguity is worse
 
 ```
 max_diff = 35
