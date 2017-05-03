@@ -148,7 +148,7 @@ This has a cluster at the far left of the graph, this will inform coverage cut o
 
 #Run commands from Maria
 
-```
+```bash
 screen -a
 
 /bin/bash
@@ -187,4 +187,10 @@ This seems to be balancing act of contiguity vs assembly size - increasing it in
 
 ```
 max_diff = 35
+```
+
+#Trial 5, increase length_cutoff
+
+```
+length_cutoff=15000
 ```
