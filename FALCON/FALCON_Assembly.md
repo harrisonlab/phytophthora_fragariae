@@ -195,8 +195,8 @@ max_diff = 35
 length_cutoff=15000
 ```
 
-#Trial 6, lower it, which was my inital intention
+#Trial 6, lower it, which was my inital intention. Still smaller with more contigs, make small increases up to default value to see if any are better.
 
 ```
-length_cutoff=5000
+length_cutoff=5000 - then try 7500
 ```
