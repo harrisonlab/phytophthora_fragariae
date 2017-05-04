@@ -688,20 +688,7 @@ done
 ```
 
 ```
-The number of RxLRs searched for is:
-674
-Of these, the following number were found in orthogroups:
-485
-These were distributed through the following number of Orthogroups:
-185
-The following RxLRs were found in Race 2 unique orthogroups:
-0
-These orthogroups contain the following number of RxLRs:
-0
-The following RxLRs were found in P.fragariae unique orthogroups:
-185
-These orthogroups contain the following number of RxLRs:
-485
+
 ```
 
 #The Race 2 secreted protein genes that were not found in orthogroups were identified:
@@ -724,19 +711,18 @@ done
 ```
 
 ```
-The number of UK2 unique RxLRs are:
-189
+
 ```
 
-##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
+##Extracting fasta files for orthogroups containing Race 2 putative secreted proteins
 
 ```bash
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_RxLR/UK2_RxLR_Orthogroups.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Sec/UK2_Sec_Orthogroups.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_RxLR/orthogroups_fasta_UK2_RxLR
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Sec/orthogroups_fasta_UK2_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
