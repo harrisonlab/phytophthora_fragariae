@@ -679,7 +679,7 @@ do
     echo "These orthogroups contain the following number of secreted proteins:"
     cat $Sec_UK2_uniq_groups | grep -w -o -f $Sec_ID | wc -l
     echo "The following secreted proteins were found in P.fragariae unique orthogroups:"
-    Sec_Pf_uniq_groups=$RxLR_Dir/Sec_RxLR_Orthogroups_hits.txt
+    Sec_Pf_uniq_groups=$RxLR_Dir/Pf_Sec_Orthogroups_hits.txt
     cat $Sec_Orthogroup > $Sec_Pf_uniq_groups
     cat $Sec_Pf_uniq_groups | wc -l
     echo "These orthogroups contain the following number of Secreted proteins:"
@@ -1006,6 +1006,111 @@ do
     OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK1_RxLR/Pf_RxLR_Orthogroups_hits.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UK1_RxLR/orthogroups_fasta_Pf_RxLR
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+#Race 1 unique secreted proteins
+
+#Race 1 secreted protein genes were parsed to the same format as the gene names used in the analysis:
+
+```bash
+for num in 1
+do
+    Sec_Names_Bc1=gene_pred/combined_sigP_CQ/P.fragariae/Bc1/Bc1_secreted.txt
+    Sec_Names_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_secreted.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+    Sec_Dir=$WorkDir/UKR1_Secreted
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+    Sec_ID=$Sec_Dir/UKR1_aug_Sec_IDs.txt
+    mkdir -p $Sec_Dir
+    cat $Sec_Names_Bc1 | sed -r 's/^/Bc1|/g' > $Sec_ID
+    cat $Sec_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $Sec_ID
+done
+```
+
+#Ortholog groups containing Secreted proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of secreted proteins searched for is:"
+    cat $Sec_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    Sec_Orthogroup_hits=$Sec_Dir/UK1_Sec_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $Sec_ID > $Sec_Orthogroup_hits
+    cat $Sec_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    Sec_Orthogroup=$Sec_Dir/UK1_Sec_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $Sec_ID > $Sec_Orthogroup
+    cat $Sec_Orthogroup | wc -l
+    echo "The following secreted proteins were found in Race 1 unique orthogroups:"
+    Sec_UK1_uniq_groups=$Sec_Dir/UK1_uniq_Sec_Orthogroups_hits.txt
+    cat $Sec_Orthogroup | grep -v -e 'A4|' -e 'Nov27|' -e 'Nov71|' -e 'Bc16|' -e 'Nov9|' | grep -e 'Nov5|' | grep -e 'Bc1|' > $Sec_UK1_uniq_groups
+    cat $Sec_UK1_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of secreted proteins:"
+    cat $Sec_UK1_uniq_groups | grep -w -o -f $Sec_ID | wc -l
+    echo "The following secreted proteins were found in P.fragariae unique orthogroups:"
+    Sec_Pf_uniq_groups=$Sec_Dir/Pf_Sec_Orthogroups_hits.txt
+    cat $Sec_Orthogroup > $Sec_Pf_uniq_groups
+    cat $Sec_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of Secreted proteins:"
+    cat $Sec_Pf_uniq_groups | grep -w -o -f $Sec_ID | wc -l
+done
+```
+
+```
+
+```
+
+#The Race 1 secreted protein genes that were not found in orthogroups were identified:
+
+```bash
+for num in 1
+do
+    Sec_UK1_uniq=$Sec_Dir/UK1_unique_Sec.txt
+    cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits | tr -d 'Bc1|' | tr -d 'Nov5|' > $Sec_UK1_uniq
+    echo "The number of UK1 unique secreted proteins are:"
+    cat $Sec_UK1_uniq | wc -l
+    Sec_Seq_Bc1=gene_pred/combined_sigP_CQ/P.fragariae/Bc1/Bc1_all_secreted.fa
+    Sec_Seq_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_all_secreted.fa
+    Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
+    Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
+    Sec_UK1_uniq_fa=$Sec_Dir/UK1_unique_Sec.fa
+    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK1_uniq | grep -E -v '^--' > $Sec_UK1_uniq_fa
+    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK1_uniq | grep -E -v '^--' >> $Sec_UK1_uniq_fa
+done
+```
+
+```
+
+```
+
+##Extracting fasta files for orthogroups containing Race 1 putative secreted proteins
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR1_Sec/UK1_Sec_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR1_Sec/orthogroups_fasta_UK1_Sec
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+
+##Extracting fasta files for P. fragariae orthogroups containing Race 1 putative secreted proteins
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR1_Sec/Pf_Sec_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR1_Sec/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
