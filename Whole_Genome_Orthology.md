@@ -704,22 +704,22 @@ These orthogroups contain the following number of RxLRs:
 485
 ```
 
-#The Race 2 RxLR genes that were not found in orthogroups were identified:
+#The Race 2 secreted protein genes that were not found in orthogroups were identified:
 
 ```bash
 for num in 1
 do
-    RxLR_UK2_uniq=$RxLR_Dir/UK2_unique_RxLRs.txt
-    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc16|' | tr -d 'A4|' > $RxLR_UK2_uniq
-    echo "The number of UK2 unique RxLRs are:"
-    cat $RxLR_UK2_uniq | wc -l
-    RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR_EER.fa
-    RxLR_Seq_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_final_RxLR_EER.fa
+    Sec_UK2_uniq=$Sec_Dir/UK2_unique_Sec.txt
+    cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits | tr -d 'Bc16|' | tr -d 'A4|' > $Sec_UK2_uniq
+    echo "The number of UK2 unique secreted proteins are:"
+    cat $Sec_UK2_uniq | wc -l
+    Sec_Seq_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted.fa
+    Sec_Seq_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_all_secreted.fa
     Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
     Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
-    RxLR_UK2_uniq_fa=$RxLR_Dir/UK2_unique_RxLRs.fa
-    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' > $RxLR_UK2_uniq_fa
-    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' >> $RxLR_UK2_uniq_fa
+    Sec_UK2_uniq_fa=$Sec_Dir/UK2_unique_Sec.fa
+    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK2_uniq | grep -E -v '^--' > $Sec_UK2_uniq_fa
+    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK2_uniq | grep -E -v '^--' >> $Sec_UK2_uniq_fa
 done
 ```
 
