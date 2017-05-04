@@ -1390,6 +1390,116 @@ do
 done
 ```
 
+#Race 3 unique secreted proteins
+
+#Race 3 secreted protein genes were parsed to the same format as the gene names used in the analysis:
+
+```bash
+for num in 1
+do
+    Sec_Names_Nov9=gene_pred/combined_sigP_CQ/P.fragariae/Nov9/Nov9_secreted.txt
+    Sec_Names_Nov27=gene_pred/combined_sigP_CQ/P.fragariae/Nov27/Nov27_secreted.txt
+    Sec_Names_Nov71=gene_pred/combined_sigP_CQ/P.fragariae/Nov71/Nov71_secreted.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+    Sec_Dir=$WorkDir/UKR3_Secreted
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+    Sec_ID=$Sec_Dir/UKR3_aug_Sec_IDs.txt
+    mkdir -p $Sec_Dir
+    cat $Sec_Names_Nov9 | sed -r 's/^/Nov9|/g' > $Sec_ID
+    cat $Sec_Names_Nov27 | sed -r 's/^/Nov27|/g' >> $Sec_ID
+    cat $Sec_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $Sec_ID
+done
+```
+
+#Ortholog groups containing Secreted proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of secreted proteins searched for is:"
+    cat $Sec_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    Sec_Orthogroup_hits=$Sec_Dir/UK3_Sec_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $Sec_ID > $Sec_Orthogroup_hits
+    cat $Sec_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    Sec_Orthogroup=$Sec_Dir/UK3_Sec_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $Sec_ID > $Sec_Orthogroup
+    cat $Sec_Orthogroup | wc -l
+    echo "The following secreted proteins were found in Race 3 unique orthogroups:"
+    Sec_UK3_uniq_groups=$Sec_Dir/UK3_uniq_Sec_Orthogroups_hits.txt
+    cat $Sec_Orthogroup | grep -v -e 'A4|' -e 'Bc1|' -e 'Nov5|' -e 'Bc16|' | grep -e 'Nov9|' | grep -e 'Nov27|' | grep -e 'Nov71|' > $Sec_UK1_uniq_groups
+    cat $Sec_UK3_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of secreted proteins:"
+    cat $Sec_UK3_uniq_groups | grep -w -o -f $Sec_ID | wc -l
+    echo "The following secreted proteins were found in P.fragariae unique orthogroups:"
+    Sec_Pf_uniq_groups=$Sec_Dir/Pf_Sec_Orthogroups_hits.txt
+    cat $Sec_Orthogroup > $Sec_Pf_uniq_groups
+    cat $Sec_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of Secreted proteins:"
+    cat $Sec_Pf_uniq_groups | grep -w -o -f $Sec_ID | wc -l
+done
+```
+
+```
+
+```
+
+#The Race 3 secreted protein genes that were not found in orthogroups were identified:
+
+```bash
+for num in 1
+do
+    Sec_UK3_uniq=$Sec_Dir/UK3_unique_Sec.txt
+    cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits | tr -d 'Nov9|' | tr -d 'Nov27|' | tr -d 'Nov71|' > $Sec_UK3_uniq
+    echo "The number of UK3 unique secreted proteins are:"
+    cat $Sec_UK3_uniq | wc -l
+    Sec_Seq_Nov9=gene_pred/combined_sigP_CQ/P.fragariae/Nov9/Nov9_all_secreted.fa
+    Sec_Seq_Nov27=gene_pred/combined_sigP_CQ/P.fragariae/Nov27/Nov27_all_secreted.fa
+    Sec_Seq_Nov71=gene_pred/combined_sigP_CQ/P.fragariae/Nov71/Nov71_all_secreted.fa
+    Final_genes_Nov9=gene_pred/codingquary/P.fragariae/Nov9/final/final_genes_combined.pep.fasta
+    Final_genes_Nov27=gene_pred/codingquary/P.fragariae/Nov27/final/final_genes_combined.pep.fasta
+    Final_genes_Nov71=gene_pred/codingquary/P.fragariae/Nov71/final/final_genes_combined.pep.fasta
+    Sec_UK3_uniq_fa=$Sec_Dir/UK3_unique_Sec.fa
+    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' > $Sec_UK3_uniq_fa
+    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' >> $Sec_UK3_uniq_fa
+    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' >> $Sec_UK3_uniq_fa
+done
+```
+
+```
+
+```
+
+##Extracting fasta files for orthogroups containing Race 1 putative secreted proteins
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Sec/UK3_Sec_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Sec/orthogroups_fasta_UK3_Sec
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+
+##Extracting fasta files for P. fragariae orthogroups containing Race 3 putative secreted proteins
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Sec/Pf_Sec_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Sec/orthogroups_fasta_Pf_Sec
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
 ##Race 3 unique Crinkler families
 
 #Race 3 crinkler genes were parsed to the same format as the gene names used in the analysis:
