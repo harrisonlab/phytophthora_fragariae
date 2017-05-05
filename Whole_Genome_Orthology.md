@@ -679,7 +679,7 @@ do
     echo "These orthogroups contain the following number of secreted proteins:"
     cat $Sec_UK2_uniq_groups | grep -w -o -f $Sec_ID | wc -l
     echo "The following secreted proteins were found in P.fragariae unique orthogroups:"
-    Sec_Pf_uniq_groups=$RxLR_Dir/Pf_Sec_Orthogroups_hits.txt
+    Sec_Pf_uniq_groups=$Sec_Dir/Pf_Sec_Orthogroups_hits.txt
     cat $Sec_Orthogroup > $Sec_Pf_uniq_groups
     cat $Sec_Pf_uniq_groups | wc -l
     echo "These orthogroups contain the following number of Secreted proteins:"
@@ -1061,7 +1061,20 @@ done
 ```
 
 ```
-
+The number of secreted proteins searched for is:
+7277
+Of these, the following number were found in orthogroups:
+7035
+These were distributed through the following number of Orthogroups:
+2775
+The following secreted proteins were found in Race 1 unique orthogroups:
+2
+These orthogroups contain the following number of secreted proteins:
+3
+The following secreted proteins were found in P.fragariae unique orthogroups:
+2775
+These orthogroups contain the following number of Secreted proteins:
+7035
 ```
 
 #The Race 1 secreted protein genes that were not found in orthogroups were identified:
@@ -1084,7 +1097,8 @@ done
 ```
 
 ```
-
+The number of UK1 unique secreted proteins are:
+242
 ```
 
 ##Extracting fasta files for orthogroups containing Race 1 putative secreted proteins
@@ -1093,7 +1107,7 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR1_Sec/UK1_Sec_Orthogroups.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR1_Secreted/UK1_Sec_Orthogroups.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR1_Sec/orthogroups_fasta_UK1_Sec
     mkdir -p $OutDir
@@ -1428,7 +1442,7 @@ do
     cat $Sec_Orthogroup | wc -l
     echo "The following secreted proteins were found in Race 3 unique orthogroups:"
     Sec_UK3_uniq_groups=$Sec_Dir/UK3_uniq_Sec_Orthogroups_hits.txt
-    cat $Sec_Orthogroup | grep -v -e 'A4|' -e 'Bc1|' -e 'Nov5|' -e 'Bc16|' | grep -e 'Nov9|' | grep -e 'Nov27|' | grep -e 'Nov71|' > $Sec_UK1_uniq_groups
+    cat $Sec_Orthogroup | grep -v -e 'A4|' -e 'Bc1|' -e 'Nov5|' -e 'Bc16|' | grep -e 'Nov9|' | grep -e 'Nov27|' | grep -e 'Nov71|' > $Sec_UK3_uniq_groups
     cat $Sec_UK3_uniq_groups | wc -l
     echo "These orthogroups contain the following number of secreted proteins:"
     cat $Sec_UK3_uniq_groups | grep -w -o -f $Sec_ID | wc -l
