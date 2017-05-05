@@ -46,8 +46,8 @@ do
         cat ${b%.gz} >> ${Forward_out%.fq.gz}_concat_R.fq
     done
     #Compress the output
-    gzip ${Forward_out%.fq.gz}_concat_F.fastq
-    gzip ${Forward_out%.fq.gz}_concat_R.fastq
+    gzip ${Forward_out%.fq.gz}_concat_F.fq
+    gzip ${Forward_out%.fq.gz}_concat_R.fq
     mkdir F
     mkdir R
     mv *_concat_F* F/./
