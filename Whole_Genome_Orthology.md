@@ -688,7 +688,20 @@ done
 ```
 
 ```
-
+The number of secreted proteins searched for is:
+7835
+Of these, the following number were found in orthogroups:
+7584
+These were distributed through the following number of Orthogroups:
+2859
+The following secreted proteins were found in Race 2 unique orthogroups:
+6
+These orthogroups contain the following number of secreted proteins:
+10
+The following secreted proteins were found in P.fragariae unique orthogroups:
+2859
+These orthogroups contain the following number of Secreted proteins:
+7584
 ```
 
 #The Race 2 secreted protein genes that were not found in orthogroups were identified:
@@ -711,7 +724,8 @@ done
 ```
 
 ```
-
+The number of UK2 unique secreted proteins are:
+251
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative secreted proteins
@@ -720,9 +734,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Sec/UK2_Sec_Orthogroups.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Secreted/UK2_Sec_Orthogroups.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Sec/orthogroups_fasta_UK2_Sec
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Secreted/orthogroups_fasta_UK2_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -735,9 +749,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Sec/Pf_Sec_Orthogroups_hits.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Secreted/Pf_Sec_Orthogroups_hits.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Sec/orthogroups_fasta_Pf_Sec
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR2_Secreted/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
