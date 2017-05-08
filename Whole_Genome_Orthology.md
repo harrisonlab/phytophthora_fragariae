@@ -2087,3 +2087,183 @@ do
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
 ```
+
+###Look for RxLRs in each race
+
+##UK1
+
+###Create a list of RxLRs
+
+```bash
+for num in 1
+do
+    RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_EER_motif_hmm.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains
+    RxLR_Dir=$WorkDir/UKR1_RxLR
+    Orthogroups=$WorkDir/UK1_expanded_modified.txt
+    RxLR_ID=$RxLR_Dir/UKR1_aug_RxLR_EER_IDs.txt
+    mkdir -p $RxLR_Dir
+    cat $RxLR_Names_Bc1 | sed -r 's/^/Bc1|/g' > $RxLR_ID
+    cat $RxLR_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $RxLR_ID
+done
+```
+
+#Ortholog groups containing RxLR proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of RxLRs searched for is:"
+    cat $RxLR_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    RxLR_Orthogroup_hits=$RxLR_Dir/UK1_RxLR_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
+    cat $RxLR_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    RxLR_Orthogroup=$RxLR_Dir/UK1_RxLR_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
+    cat $RxLR_Orthogroup | wc -l
+done
+```
+
+```
+The number of RxLRs searched for is:
+629
+Of these, the following number were found in orthogroups:
+0
+These were distributed through the following number of Orthogroups:
+0
+```
+
+##UK2
+
+###Create a list of RxLRs
+
+```bash
+for num in 1
+do
+    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_EER_motif_hmm.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains
+    RxLR_Dir=$WorkDir/UKR2_RxLR
+    Orthogroups=$WorkDir/UK2_expanded_modified.txt
+    RxLR_ID=$RxLR_Dir/UKR2_aug_RxLR_EER_IDs.txt
+    mkdir -p $RxLR_Dir
+    cat $RxLR_Names_Bc16 | sed -r 's/^/Bc16|/g' > $RxLR_ID
+    cat $RxLR_Names_A4 | sed -r 's/^/A4|/g' >> $RxLR_ID
+done
+```
+
+#Ortholog groups containing RxLR proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of RxLRs searched for is:"
+    cat $RxLR_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    RxLR_Orthogroup_hits=$RxLR_Dir/UK2_RxLR_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
+    cat $RxLR_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    RxLR_Orthogroup=$RxLR_Dir/UK2_RxLR_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
+    cat $RxLR_Orthogroup | wc -l
+done
+```
+
+```
+The number of RxLRs searched for is:
+674
+Of these, the following number were found in orthogroups:
+3
+These were distributed through the following number of Orthogroups:
+1
+This is orthogroup 37, containing:
+Bc16|g33201.t1
+A4|g9316.t1
+A4|g26518.t1
+The genes from A4 do not align well with the gene from BC-16, so this is a false positive.
+```
+
+##Extract the fasta files for selected orthogroups
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains/UKR2_RxLR/UK2_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains/UKR2_RxLR/orthogroups_fasta_UK2_RxLR
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+##UK3
+
+###Create a list of RxLRs
+
+```bash
+for num in 1
+do
+    RxLR_Names_Nov27=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov27/Nov27_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Nov71=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov71/Nov71_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Nov9=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov9/Nov9_Total_RxLR_EER_motif_hmm.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains
+    RxLR_Dir=$WorkDir/UKR3_RxLR
+    Orthogroups=$WorkDir/UK3_expanded_modified.txt
+    RxLR_ID=$RxLR_Dir/UKR3_aug_RxLR_EER_IDs.txt
+    mkdir -p $RxLR_Dir
+    cat $RxLR_Names_Nov27 | sed -r 's/^/Nov27|/g' > $RxLR_ID
+    cat $RxLR_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $RxLR_ID
+    cat $RxLR_Names_Nov9 | sed -r 's/^/Nov9|/g' >> $RxLR_ID
+done
+```
+
+#Ortholog groups containing RxLR proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of RxLRs searched for is:"
+    cat $RxLR_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    RxLR_Orthogroup_hits=$RxLR_Dir/UK3_RxLR_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
+    cat $RxLR_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    RxLR_Orthogroup=$RxLR_Dir/UK3_RxLR_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
+    cat $RxLR_Orthogroup | wc -l
+done
+```
+
+```
+The number of RxLRs searched for is:
+938
+Of these, the following number were found in orthogroups:
+3
+These were distributed through the following number of Orthogroups:
+1
+This is orthogroup 16649, containing:
+Nov27|PGN_07235.t1
+Nov9|PGN_05230.t1
+Nov71|PGN_04367.t1
+These genes are all identical, but there is also a identical gene in ONT-3, and one with a 4AA insertion in NOV-77 - These two are not the same race either
+```
+
+##Extract the fasta files for selected orthogroups
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains/UKR3_RxLR/UK3_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains/UKR3_RxLR/orthogroups_fasta_UK3_RxLR
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
