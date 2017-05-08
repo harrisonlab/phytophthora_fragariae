@@ -11,6 +11,7 @@ cd ../../../../
 ```
 
 #Copy files from triticum - each folder name is different for each file
+
 dec_lengthcut dec_max_cov dec_max_diff inc_lengthcut inc_max_cov
 
 example for inc_max_cov
@@ -19,4 +20,27 @@ example for inc_max_cov
 mkdir -p assembly/FALCON_Trial/inc_max_cov
 scp -r vicker@10.1.10.170:/data/projects/adamst/P.fragariae/inc_max_cov/2*/p_ctg.fa /home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial/inc_max_cov/.
 scp -r vicker@10.1.10.170:/data/projects/adamst/P.fragariae/inc_max_cov/2*/a_ctg.fa /home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial/inc_max_cov/.
+```
+
+#For an idea of how the genomes compare even at this stage, run BUSCO on all of them
+
+```bash
+for Assembly in $(ls assembly/FALCON_Trial/*/p_ctg.fa)
+do
+    Name=$(echo $Assembly | rev |cut -d '/' -f2 | rev)
+    echo "$Name"
+    ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/busco
+    BuscoDB=Eukaryotic
+    OutDir=assembly/FALCON_Trial/$Name
+    qsub $ProgDir/sub_busco2.sh $Assembly $BuscoDB $OutDir
+done
+
+for Assembly in $(ls assembly/downloaded/P.sojae/*/*.fna)
+do
+    Name=P.sojae
+    ProgDir=/home/armita/git_repos/emr_repos/tools/gene_prediction/busco
+    BuscoDB=Eukaryotic
+    OutDir=assembly/FALCON_Trial/$Name
+    qsub $ProgDir/sub_busco2.sh $Assembly $BuscoDB $OutDir
+done
 ```
