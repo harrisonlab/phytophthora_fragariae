@@ -2169,17 +2169,7 @@ done
 ```
 
 ```
-The number of RxLRs searched for is:
-674
-Of these, the following number were found in orthogroups:
-3
-These were distributed through the following number of Orthogroups:
-1
-This is orthogroup 37, containing:
-Bc16|g33201.t1
-A4|g9316.t1
-A4|g26518.t1
-The genes from A4 do not align well with the gene from BC-16, so this is a false positive.
+
 ```
 
 ##Extract the fasta files for selected orthogroups
