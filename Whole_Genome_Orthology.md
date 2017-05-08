@@ -1508,7 +1508,8 @@ done
 ```
 
 ```
-
+The number of UK3 unique secreted proteins are:
+378
 ```
 
 ##Extracting fasta files for orthogroups containing Race 1 putative secreted proteins
@@ -1517,9 +1518,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Sec/UK3_Sec_Orthogroups.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Secreted/UK3_Sec_Orthogroups.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Sec/orthogroups_fasta_UK3_Sec
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Secreted/orthogroups_fasta_UK3_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1532,9 +1533,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Sec/Pf_Sec_Orthogroups_hits.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Secreted/Pf_Sec_Orthogroups_hits.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Sec/orthogroups_fasta_Pf_Sec
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi/UKR3_Secreted/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
