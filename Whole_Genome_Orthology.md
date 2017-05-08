@@ -2088,7 +2088,7 @@ do
 done
 ```
 
-###Look for RxLRs in each race
+###Look for secreted proteins in each race
 
 ##UK1
 
