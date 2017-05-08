@@ -2092,7 +2092,7 @@ done
 
 ##UK1
 
-###Create a list of RxLRs
+###Create a list of secreted proteins
 
 ```bash
 for num in 1
