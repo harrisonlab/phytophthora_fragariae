@@ -14,7 +14,7 @@ cd ../../../../
 
 ```bash
 mkdir -p assembly/FALCON_Trial
-scp -r /home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial vicker@10.1.10.170:/data/projects/adamst/P.fragariae/
+scp -r vicker@10.1.10.170:/data/projects/adamst/P.fragariae/ /home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial
 ```
 
 Excess files manually removed just to leave primary and associate contig files for analysis.
