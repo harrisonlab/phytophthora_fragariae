@@ -2097,15 +2097,15 @@ done
 ```bash
 for num in 1
 do
-    RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_EER_motif_hmm.txt
-    RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_EER_motif_hmm.txt
+    Sec_Names_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
+    Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains
-    RxLR_Dir=$WorkDir/UKR1_RxLR
+    Sec_Dir=$WorkDir/UKR1_Secreted
     Orthogroups=$WorkDir/UK1_expanded_modified.txt
-    RxLR_ID=$RxLR_Dir/UKR1_aug_RxLR_EER_IDs.txt
-    mkdir -p $RxLR_Dir
-    cat $RxLR_Names_Bc1 | sed -r 's/^/Bc1|/g' > $RxLR_ID
-    cat $RxLR_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $RxLR_ID
+    Sec_ID=$Sec_Dir/UKR1_secreted_proteins.txt
+    mkdir -p $Sec_Dir
+    cat $Sec_Names_Bc1 | sed -r 's/^/Bc1|/g' > $Sec_ID
+    cat $Sec_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $Sec_ID
 done
 ```
 
