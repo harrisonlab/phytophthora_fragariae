@@ -1089,6 +1089,9 @@ The following secreted proteins were found in P.fragariae unique orthogroups:
 2775
 These orthogroups contain the following number of Secreted proteins:
 7035
+
+orthogroup13162 - two genes differ between BC-1 and NOV-5 at 5 residues, but BC-1 matches BC-23 and SCRP245 exactly, probably not explanatory
+orthogroup17016 - genes exactly match between BC-1 and NOV-5 and do not match other two genes in this group by a large difference
 ```
 
 #The Race 1 secreted protein genes that were not found in orthogroups were identified:
