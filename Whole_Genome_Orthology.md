@@ -2128,12 +2128,7 @@ done
 ```
 
 ```
-The number of RxLRs searched for is:
-629
-Of these, the following number were found in orthogroups:
-0
-These were distributed through the following number of Orthogroups:
-0
+
 ```
 
 ##UK2
