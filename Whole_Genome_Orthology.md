@@ -1098,7 +1098,7 @@ These orthogroups contain the following number of Secreted proteins:
 7035
 
 orthogroup13162 - two genes differ between BC-1 and NOV-5 at 5 residues, but BC-1 matches BC-23 and SCRP245 exactly, probably not explanatory
-orthogroup17016 - genes exactly match between BC-1 and NOV-5 and do not match other two genes in this group by a large difference - no interproscan hits on BC-1 or NOV-5
+orthogroup17016 - genes exactly match between BC-1 and NOV-5 and do not match other two genes in this group by a large difference - no interproscan hits on BC-1 or NOV-5, BLAST - no good hits, 66.6% hit to a reverse transcriptase from Albugo
 ```
 
 #The Race 1 secreted protein genes that were not found in orthogroups were identified:
@@ -1494,10 +1494,10 @@ The following secreted proteins were found in P.fragariae unique orthogroups:
 These orthogroups contain the following number of Secreted proteins:
 10659
 
-orthogroup14670 - single residue differences to other Pfrag genes - match Prubi genes, interproscan - no NOV-9, NOV-71 or NOV-27
+orthogroup14670 - single residue differences to other Pfrag genes - match Prubi genes, interproscan - no NOV-9, NOV-71 or NOV-27 - BLAST identifies Dpy-30 motif, variety of functions - closest hits are histone methyl transferase in Plasmopara halstedii & flagella associated protein in P. parasitica
 orthogroup15629 - proteins exactly match BC-23
 orthogroup16823 - proteins exactly match ONT-3
-orthogroup18417 - Only race 3, interproscan - no NOV-27, NOV-9 or NOV-71
+orthogroup18417 - Only race 3, interproscan - no NOV-27, NOV-9 or NOV-71 - only hits a protein from green turtle...
 ```
 
 #The Race 3 secreted protein genes that were not found in orthogroups were identified:
