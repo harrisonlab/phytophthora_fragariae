@@ -2138,15 +2138,15 @@ done
 ```bash
 for num in 1
 do
-    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_EER_motif_hmm.txt
-    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_EER_motif_hmm.txt
+    Sec_Names_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
+    Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains
-    RxLR_Dir=$WorkDir/UKR2_RxLR
+    Sec_Dir=$WorkDir/UKR2_Sec
     Orthogroups=$WorkDir/UK2_expanded_modified.txt
-    RxLR_ID=$RxLR_Dir/UKR2_aug_RxLR_EER_IDs.txt
-    mkdir -p $RxLR_Dir
-    cat $RxLR_Names_Bc16 | sed -r 's/^/Bc16|/g' > $RxLR_ID
-    cat $RxLR_Names_A4 | sed -r 's/^/A4|/g' >> $RxLR_ID
+    Sec_ID=$Sec_Dir/UKR2_expanded_modified.txt
+    mkdir -p $Sec_Dir
+    cat $Sec_Names_Bc16 | sed -r 's/^/Bc16|/g' > $Sec_ID
+    cat $Sec_Names_A4 | sed -r 's/^/A4|/g' >> $Sec_ID
 done
 ```
 
