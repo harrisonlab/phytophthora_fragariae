@@ -2212,16 +2212,16 @@ done
 ```bash
 for num in 1
 do
-    echo "The number of RxLRs searched for is:"
-    cat $RxLR_ID | wc -l
+    echo "The number of secreted proteins searched for is:"
+    cat $Sec_ID | wc -l
     echo "Of these, the following number were found in orthogroups:"
-    RxLR_Orthogroup_hits=$RxLR_Dir/UK3_RxLR_Orthogroups_hits.txt
-    cat $Orthogroups | grep -o -w -f $RxLR_ID > $RxLR_Orthogroup_hits
-    cat $RxLR_Orthogroup_hits | wc -l
+    Sec_Orthogroup_hits=$Sec_Dir/UK3_Sec_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $Sec_ID > $Sec_Orthogroup_hits
+    cat $Sec_Orthogroup_hits | wc -l
     echo "These were distributed through the following number of Orthogroups:"
-    RxLR_Orthogroup=$RxLR_Dir/UK3_RxLR_Orthogroups.txt
-    cat $Orthogroups | grep -w -f $RxLR_ID > $RxLR_Orthogroup
-    cat $RxLR_Orthogroup | wc -l
+    Sec_Orthogroup=$Sec_Dir/UK3_Sec_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $Sec_ID > $Sec_Orthogroup
+    cat $Sec_Orthogroup | wc -l
 done
 ```
 
