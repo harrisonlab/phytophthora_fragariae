@@ -1486,6 +1486,11 @@ The following secreted proteins were found in P.fragariae unique orthogroups:
 2904
 These orthogroups contain the following number of Secreted proteins:
 10659
+
+orthogroup14670 - single residue differences to other Pfrag genes - match Prubi genes, interproscan - no NOV-9, NOV-71 or NOV-27
+orthogroup15629 - proteins exactly match BC-23
+orthogroup16823 - proteins exactly match ONT-3
+orthogroup18417 - Only race 3, interproscan - no NOV-27, NOV-9 or NOV-71
 ```
 
 #The Race 3 secreted protein genes that were not found in orthogroups were identified:
