@@ -13,10 +13,10 @@ cd ../../../../
 #Copy files from triticum - each folder name is different for each file
 dec_lengthcut dec_max_cov dec_max_diff inc_lengthcut inc_max_cov
 
-example for dec_max_cov
+example for inc_max_cov
 
 ```bash
-mkdir -p assembly/FALCON_Trial/dec_max_cov
-scp -r vicker@10.1.10.170:/data/projects/adamst/P.fragariae/dec_max_cov/2*/p_ctg.fa /home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial/dec_max_cov/.
-scp -r vicker@10.1.10.170:/data/projects/adamst/P.fragariae/dec_max_cov/2*/a_ctg.fa /home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial/dec_max_cov/.
+mkdir -p assembly/FALCON_Trial/inc_max_cov
+scp -r vicker@10.1.10.170:/data/projects/adamst/P.fragariae/inc_max_cov/2*/p_ctg.fa /home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial/inc_max_cov/.
+scp -r vicker@10.1.10.170:/data/projects/adamst/P.fragariae/inc_max_cov/2*/a_ctg.fa /home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial/inc_max_cov/.
 ```
