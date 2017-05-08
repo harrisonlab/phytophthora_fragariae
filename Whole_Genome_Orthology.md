@@ -2143,7 +2143,7 @@ do
     WorkDir=analysis/orthology/orthomcl/All_Strains
     Sec_Dir=$WorkDir/UKR2_Sec
     Orthogroups=$WorkDir/UK2_expanded_modified.txt
-    Sec_ID=$Sec_Dir/UKR2_expanded_modified.txt
+    Sec_ID=$Sec_Dir/UKR2_secreted_proteins.txt
     mkdir -p $Sec_Dir
     cat $Sec_Names_Bc16 | sed -r 's/^/Bc16|/g' > $Sec_ID
     cat $Sec_Names_A4 | sed -r 's/^/A4|/g' >> $Sec_ID
@@ -2193,17 +2193,17 @@ done
 ```bash
 for num in 1
 do
-    RxLR_Names_Nov27=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov27/Nov27_Total_RxLR_EER_motif_hmm.txt
-    RxLR_Names_Nov71=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov71/Nov71_Total_RxLR_EER_motif_hmm.txt
-    RxLR_Names_Nov9=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov9/Nov9_Total_RxLR_EER_motif_hmm.txt
+    Sec_Names_Nov27=gene_pred/combined_sigP_CQ/P.fragariae/Nov27/Nov27_secreted.txt
+    Sec_Names_Nov71=gene_pred/combined_sigP_CQ/P.fragariae/Nov71/Nov71_secreted.txt
+    Sec_Names_Nov9=gene_pred/combined_sigP_CQ/P.fragariae/Nov9/Nov9_secreted.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains
-    RxLR_Dir=$WorkDir/UKR3_RxLR
+    Sec_Dir=$WorkDir/UKR3_Sec
     Orthogroups=$WorkDir/UK3_expanded_modified.txt
-    RxLR_ID=$RxLR_Dir/UKR3_aug_RxLR_EER_IDs.txt
-    mkdir -p $RxLR_Dir
-    cat $RxLR_Names_Nov27 | sed -r 's/^/Nov27|/g' > $RxLR_ID
-    cat $RxLR_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $RxLR_ID
-    cat $RxLR_Names_Nov9 | sed -r 's/^/Nov9|/g' >> $RxLR_ID
+    Sec_ID=$Sec_Dir/UKR3_secreted_proteins.txt
+    mkdir -p $Sec_Dir
+    cat $Sec_Names_Nov27 | sed -r 's/^/Nov27|/g' > $Sec_ID
+    cat $Sec_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $Sec_ID
+    cat $Sec_Names_Nov9 | sed -r 's/^/Nov9|/g' >> $Sec_ID
 done
 ```
 
