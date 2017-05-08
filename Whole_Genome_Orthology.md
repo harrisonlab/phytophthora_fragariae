@@ -2150,7 +2150,7 @@ do
 done
 ```
 
-#Ortholog groups containing RxLR proteins were identified using the following commands:
+#Ortholog groups containing secreted proteins were identified using the following commands:
 
 ```bash
 for num in 1
