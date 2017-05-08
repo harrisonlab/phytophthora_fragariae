@@ -2235,9 +2235,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains/UKR3_RxLR/UK3_RxLR_Orthogroups.txt
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains/UKR3_Sec/UK3_Sec_Orthogroups.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains/UKR3_RxLR/orthogroups_fasta_UK3_RxLR
+    OutDir=analysis/orthology/orthomcl/All_Strains/UKR3_Sec/orthogroups_fasta_UK3_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
