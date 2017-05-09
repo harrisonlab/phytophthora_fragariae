@@ -2169,7 +2169,12 @@ done
 ```
 
 ```
-
+The number of secreted proteins searched for is:
+7835
+Of these, the following number were found in orthogroups:
+51
+These were distributed through the following number of Orthogroups:
+18
 ```
 
 ##Extract the fasta files for selected orthogroups
