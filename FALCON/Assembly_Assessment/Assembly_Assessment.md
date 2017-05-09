@@ -46,3 +46,8 @@ done
 ```
 
 Output files from BUSCO are used to create a spreadsheet for ease of comparison, spreadsheet stored on my local machine.
+*P. sojae* genome is of good quality, so assess for colinearity with inc_max_cov.
+
+```bash
+/home/adamst/git_repos/scripts/phytophthora_fragariae/Robs_scripts/plot_compare_kmers.py 31 assembly/downloaded/P.sojae/P6497/GCA_000149755.2_P.sojae_V3.0_genomic.fna assembly/FALCON_Trial/inc_max_cov/p_ctg.fa colinearity_assessement.png
+```
