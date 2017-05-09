@@ -2097,8 +2097,8 @@ done
 ```bash
 for num in 1
 do
-    Sec_Names_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
-    Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted.txt
+    Sec_Names_Bc1=gene_pred/combined_sigP_CQ/P.fragariae/Bc1/Bc1_secreted.txt
+    Sec_Names_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_secreted.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains
     Sec_Dir=$WorkDir/UKR1_Secreted
     Orthogroups=$WorkDir/UK1_expanded_modified.txt
