@@ -2150,6 +2150,16 @@ do
 done
 ```
 
+###Overview of results
+
+```
+Orthogroup33 - no unqiue sequences, except one BC-1 secreted protein (g27192) which has no equivalent in NOV-5
+Orthogroup71 only contains two BC-1 secreted proteins
+Orthogroup249 - BC-1|g20529.t1 has 5AA extra at start but NOV-5 exactly matches others. BC-1|g20531.t1 is truncated, full length NOV-5 matches others. BC-1|g26283.t1 has 5AAs extra at start, but NOV-5 matches others. NOV-5|g26419.t1 is different at the end, but BC-1 matches exactly.
+Orthogroup824 only contains one BC-1 protein
+Orthogroup3289 no unique sequences
+```
+
 ##UK2
 
 ###Create a list of secreted proteins
