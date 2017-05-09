@@ -44,3 +44,5 @@ do
     qsub $ProgDir/sub_busco2.sh $Assembly $BuscoDB $OutDir
 done
 ```
+
+Output files from BUSCO are used to create a spreadsheet for ease of comparison, spreadsheet stored on my local machine.
