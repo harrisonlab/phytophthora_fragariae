@@ -2285,6 +2285,16 @@ Of these, the following number were found in orthogroups:
 46
 These were distributed through the following number of Orthogroups:
 9
+
+Orthogroup 16 - NOV-71 is truncated and matches NOV-5, other two isolates match BC-23
+Orthogroup 372 - All proteins match other isolates
+Orthogroup 1422 - All proteins match other isolates
+Orthogroup 2888 - single insertion in NOV-71 (matches BC-16), other two match two other strains. t2 does not have a NOV-71 example
+Orthogroup 2917 - NOV-27 is truncated, matches two other isolates. NOV-9 and NOV-71 are unique at the end of the protein - probably not informative
+Orthogroup 15696 - UK3 identical to each other, single AA subs in other isolates - Nov9|g14735.t1 (no interproscan hits), Nov71|CUFF_14914_1_1.t1 (no interproscan hits) & Nov27|g13517.t1 (no interproscan hits) - BLAST gives dpy30 motif, closest is H3 methyltransferase or flag associated - not very good hits
+Orthogroup 16606 - all proteins match BC-23
+Orthogroup 16649 - All proteins match ONT-3
+Orthogroup 17755 - Only contains UK3 proteins - Nov27|g3633.t1, Nov9|g4077.t1 & Nov71|g3548.t1 - no interproscan hits, it's the damned green turtle things!
 ```
 
 ##Extract the fasta files for selected orthogroups
