@@ -2204,6 +2204,25 @@ Of these, the following number were found in orthogroups:
 51
 These were distributed through the following number of Orthogroups:
 18
+
+Orthogroup 6 - 3 BC-16 proteins have no match in A4, the one that does is truncated in A4 and is different A4|g23055.t1 and Bc16|g21815.t1, may be a candidate, though genes are very similar.
+Orthogroup 13 - A4 and BC-16 proteins do not match
+Orthogroup 26 - No BC-16 secreted proteins
+Orthogroup 32 - No match between A4 and BC-16 proteins
+Orthogroup 61 - A4 & BC-16 do not match
+Orthogroup 301 - Proteins match many other isolates
+Orthogroup 302 - Bc16|g9197 is oddly truncated, full length A4 matches other isolates, other proteins either do not match in UK2 or match other isolates exactly.
+Orthogroup 518 - Only one BC-16 protein
+Orthogroup 542 - Only one BC-16 protein
+Orthogroup 568 - Only one BC-16 protein
+Orthogroup 570 - Proteins match other isolates
+Orthogroup 3040 - Only one A4 protein
+Orthogroup 16861 - Only one A4 protein
+Orthogroup 16902 - Proteins match other isolates
+Orthogroup 17353 - BC-16 truncated and matches NOV-77
+Orthogroup 17398 - BC-16 truncated, A4 matches NOV-77
+Orthogroup 17427 - BC-16 only
+Orthogroup 18204 - BC-16 only
 ```
 
 ##Extract the fasta files for selected orthogroups
