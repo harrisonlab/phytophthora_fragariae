@@ -200,3 +200,5 @@ length_cutoff=15000
 ```
 length_cutoff=5000 - then try 7500, then 9000, try 11,000 too
 ```
+
+Now run through a set of parameters to optimise: start with the ones acting earliest then move through the pipeline, testing BUSCO every time.
