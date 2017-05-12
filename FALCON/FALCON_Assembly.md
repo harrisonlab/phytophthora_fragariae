@@ -201,4 +201,4 @@ length_cutoff=15000
 length_cutoff=5000 - then try 7500, then 9000, try 11,000 too
 ```
 
-Now run through a set of parameters to optimise, start with the ones acting earliest then move through the pipeline, testing BUSCO every time. Parameters are: length_cutoff, length_cutoff_pr, falcon_sense_option min_cov, max_n_read, final step min_cov, max_cov, max_diff
+Now run through a set of parameters to optimise, start with the ones acting earliest then move through the pipeline, testing BUSCO every time. Parameters are: length_cutoff, length_cutoff_pr, falcon_sense_option min_cov, max_n_read, overlap_filtering_setting min_cov, max_cov, max_diff
