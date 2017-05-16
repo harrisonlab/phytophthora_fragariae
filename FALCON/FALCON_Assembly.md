@@ -211,3 +211,16 @@ max_n_read = 150
 overlap_filtering_setting min_cov = 2
 max_cov = 120
 max_diff = 120
+
+#Polishing the assembly
+
+FALCON produces two fasta files: primary contigs and associate contigs. Use FALCON_Unzip. This requires bam files to be created using pitchfork
+
+##Copy bax.h5 files to triticum
+
+```bash
+for raw_data in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_dna/pacbio/P.fragariae/Bc16/*/Analysis_Results/*.bax.h5)
+do
+    sshpass -f ./super_secret_file scp $raw_data vicker@10.1.10.170:/data/projects/adamst/P.fragariae/raw_pacbio_data/
+done
+```
