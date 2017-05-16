@@ -202,3 +202,12 @@ length_cutoff=5000 - then try 7500, then 9000, try 11,000 too
 ```
 
 Now run through a set of parameters to optimise, start with the ones acting earliest then move through the pipeline, testing BUSCO every time. Parameters are: length_cutoff, length_cutoff_pr, falcon_sense_option min_cov, max_n_read, overlap_filtering_setting min_cov, max_cov, max_diff
+
+Final parameters used:
+length_cutoff = -1, genome_size = 100000000, seed_coverage = 30
+length_cutoff_pr = 3500
+falcon_sene_option min_cov = 4
+max_n_read = 150
+overlap_filtering_setting min_cov = 2
+max_cov = 120
+max_diff = 120
