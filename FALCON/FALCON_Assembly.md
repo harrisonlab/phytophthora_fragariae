@@ -263,12 +263,14 @@ LD_LIBRARY_PATH=/home/sobczm/bin/pitchfork/deployment/lib $bb/bax2bam -o S7.bam 
 
 #After copying input_bam.fofn and fc_unzip.cfg, run unzip, as Rob's triticum login has no bash profile, manually export Maria's profile to my path too
 
+This MUST be run from the directory where the inital FALCON run was performed
+
 ```bash
 screen -a
 
 /bin/bash
 
-cd /data/projects/adamst/P.fragariae/final_assembly
+cd /data/projects/adamst/P.fragariae
 export PATH=/home/sobczm/bin/cmake-3.8.0/bin:${PATH}
 export PATH=/home/sobczm/bin/gawk-4.1.4:${PATH}
 export PYTHONPATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin
