@@ -283,5 +283,5 @@ export PATH=/home/sobczm/bin/pbh5tools/bin:${PATH}
 export PATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin:${PATH}
 source /home/sobczm/bin/FALCON-integrate/env.sh
 
-fc_unzip.py fc_unzip.cfg
+/home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_unzip.py fc_unzip.cfg
 ```
