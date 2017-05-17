@@ -212,6 +212,20 @@ overlap_filtering_setting min_cov = 1
 max_cov = 120
 max_diff = 120
 
+```
+BUSCO statistics:
+Complete and single copy genes: 266
+Complete and duplicated genes: 6
+Fragmented genes: 8
+Missing genes: 23
+
+Assembly statistics:
+Genome size: 94,234,702 bp
+Number of contigs: 288
+N50: 916,748
+GC content: 53.32%
+```
+
 #Polishing the assembly
 
 FALCON produces two fasta files: primary contigs and associate contigs. Use FALCON_Unzip. This requires bam files to be created using pitchfork
