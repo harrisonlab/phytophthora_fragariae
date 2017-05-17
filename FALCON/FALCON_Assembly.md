@@ -223,4 +223,5 @@ for raw_data in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragari
 do
     sshpass -f ./super_secret_file scp $raw_data vicker@10.1.10.170:/data/projects/adamst/P.fragariae/raw_pacbio_data/
 done
+rm ./super_secret_file
 ```
