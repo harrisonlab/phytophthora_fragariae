@@ -208,7 +208,7 @@ length_cutoff = -1, genome_size = 100000000, seed_coverage = 30
 length_cutoff_pr = 3500
 falcon_sene_option min_cov = 4
 max_n_read = 150
-overlap_filtering_setting min_cov = 2
+overlap_filtering_setting min_cov = 1
 max_cov = 120
 max_diff = 120
 
