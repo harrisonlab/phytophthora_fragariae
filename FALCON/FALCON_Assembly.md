@@ -284,4 +284,6 @@ export PATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analys
 source /home/sobczm/bin/FALCON-integrate/env.sh
 
 /home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_unzip.py fc_unzip.cfg
+
+/home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_quiver.py fc_unzip.cfg
 ```
