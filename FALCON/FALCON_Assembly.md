@@ -268,6 +268,7 @@ screen -a
 
 /bin/bash
 
+cd /data/projects/adamst/P.fragariae/final_assembly
 export PATH=/home/sobczm/bin/cmake-3.8.0/bin:${PATH}
 export PATH=/home/sobczm/bin/gawk-4.1.4:${PATH}
 export PYTHONPATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin
