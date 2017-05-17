@@ -1,7 +1,7 @@
-S1.bam.subreads.bam
-S2.bam.subreads.bam
-S3.bam.subreads.bam
-S4.bam.subreads.bam
-S5.bam.subreads.bam
-S6.bam.subreads.bam
-S7.bam.subreads.bam
+raw_pacbio_data/S1.bam.subreads.bam
+raw_pacbio_data/S2.bam.subreads.bam
+raw_pacbio_data/S3.bam.subreads.bam
+raw_pacbio_data/S4.bam.subreads.bam
+raw_pacbio_data/S5.bam.subreads.bam
+raw_pacbio_data/S6.bam.subreads.bam
+raw_pacbio_data/S7.bam.subreads.bam
