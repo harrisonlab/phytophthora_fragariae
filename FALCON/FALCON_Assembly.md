@@ -260,3 +260,27 @@ LD_LIBRARY_PATH=/home/sobczm/bin/pitchfork/deployment/lib $bb/bax2bam -o S6.bam 
 #S7
 LD_LIBRARY_PATH=/home/sobczm/bin/pitchfork/deployment/lib $bb/bax2bam -o S7.bam m170122_044633_42165_c101117442550000001823252505221774_s1_p0.1.bax.h5 m170122_044633_42165_c101117442550000001823252505221774_s1_p0.2.bax.h5 m170122_044633_42165_c101117442550000001823252505221774_s1_p0.3.bax.h5
 ```
+
+#After copying input_bam.fofn and fc_unzip.cfg, run unzip, as Rob's triticum login has no bash profile, manually export Maria's profile to my path too
+
+```bash
+screen -a
+
+/bin/bash
+export PATH=/home/sobczm/bin/cmake-3.8.0/bin:${PATH}
+export PATH=/home/sobczm/bin/gawk-4.1.4:${PATH}
+export PYTHONPATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin
+export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/common/lib"
+export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib/python2.7"
+export PYTHONPATH="$PYTHONPATH:/home/sobczm/usr/local/lib/python2.7/site-packages"
+export PYTHONPATH="$PYTHONPATH:/home/sobczm/bin/FALCON-integrate/fc_env/lib/python2.7/site-packages"
+export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib"
+export PYTHONUSERBASE=/home/sobczm/bin/FALCON-integrate/fc_env
+export PATH=$PYTHONUSERBASE/bin:${PATH}
+export PATH=/home/sobczm/usr/local/bin:${PATH}
+export PATH=/home/sobczm/bin/pbh5tools/bin:${PATH}
+export PATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin:${PATH}
+source /home/sobczm/bin/FALCON-integrate/env.sh
+
+fc_unzip.py fc_unzip.cfg
+```
