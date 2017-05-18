@@ -290,3 +290,20 @@ source /home/sobczm/bin/FALCON-integrate/env.sh
 
 /home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_quiver.py fc_unzip.cfg
 ```
+
+Check BUSCOs at every step, data listed below
+
+```
+After FALCON_Unzip:
+BUSCO statistics: 264
+Complete and single copy genes: 257
+Complete and duplicated genes: 7
+Fragmented genes: 10
+Missing genes: 29
+
+Assembly statistics:
+Genome size: 91,008,576 bp
+Number of contigs: 185
+N50: 922,664
+GC content: 53.36%
+```
