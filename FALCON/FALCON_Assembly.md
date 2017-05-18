@@ -306,4 +306,17 @@ Genome size: 91,008,576 bp
 Number of contigs: 185
 N50: 922,664
 GC content: 53.36%
+
+After Quiver:
+BUSCO statistics:
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
+
+Assembly statistics:
+Genome size:
+Number of contigs:
+N50:
+GC content:
 ```
