@@ -60,6 +60,8 @@ fc_run.py fc_run.cfg
 #My script was immediately crashing, Maria managed to get it working and put together a config file for this assembly.
 Because FALCON is not a plug-and-play assembler, the initial run provides information that can be used for improving the assembly. Following is a summary of the statistics it is suggested to generate in the FALCON tutorial documentation: https://pb-falcon.readthedocs.io/en/latest/tutorial.html#raw-and-pread-coverage-and-quality
 
+Ways of assessing each step of the assembly is detailed in Assembly_Assessment.md
+
 ```
 From countFasta.pl:
 
@@ -347,4 +349,10 @@ Genome size: 91,011,663 bp
 Number of contigs: 180
 N50: 923,397
 GC content: 53.39%
+```
+
+Compare the two assemblies to see if any contigs have been removed due to lack of variation
+
+```bash
+/home/adamst/git_repos/scripts/phytophthora_fragariae/Robs_scripts/plot_compare_kmers.py 31 assembly/FALCON_Trial/quiver_results/cns_p_ctg.fasta assembly/FALCON_Trial/dec_min_cov_1/p_ctg.fa Quiver_assessement.png
 ```
