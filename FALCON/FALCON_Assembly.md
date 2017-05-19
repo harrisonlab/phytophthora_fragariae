@@ -274,8 +274,8 @@ cd /data/projects/adamst/P.fragariae
 export PATH=/home/sobczm/bin/cmake-3.8.0/bin:${PATH}
 export PATH=/home/sobczm/bin/gawk-4.1.4:${PATH}
 export PYTHONPATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin
-export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/common/lib"
-export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib/python2.7"
+# export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/common/lib"
+# export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib/python2.7"
 export PYTHONPATH="$PYTHONPATH:/home/sobczm/usr/local/lib/python2.7/site-packages"
 export PYTHONPATH="$PYTHONPATH:/home/sobczm/bin/FALCON-integrate/fc_env/lib/python2.7/site-packages"
 export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib"
