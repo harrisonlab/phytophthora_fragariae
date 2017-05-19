@@ -13,6 +13,24 @@ ssh vicker@10.1.10.170
 /bin/bash
 ```
 
+The following lines must be in your bash profile
+
+```bash
+export PATH=/home/sobczm/bin/cmake-3.8.0/bin:${PATH}
+export PATH=/home/sobczm/bin/gawk-4.1.4:${PATH}
+export PYTHONPATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin
+export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/common/lib"
+export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib/python2.7"
+export PYTHONPATH="$PYTHONPATH:/home/sobczm/usr/local/lib/python2.7/site-packages"
+export PYTHONPATH="$PYTHONPATH:/home/sobczm/bin/FALCON-integrate/fc_env/lib/python2.7/site-packages"
+export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib"
+export PYTHONUSERBASE=/home/sobczm/bin/FALCON-integrate/fc_env
+export PATH=$PYTHONUSERBASE/bin:${PATH}
+export PATH=/home/sobczm/usr/local/bin:${PATH}
+export PATH=/home/sobczm/bin/pbh5tools/bin:${PATH}
+export PATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin:${PATH}
+```
+
 ## Next, extract the concatenated pacbio reads created in pacbio_assembly.md
 
 ```bash
@@ -152,11 +170,7 @@ This has a cluster at the far left of the graph, this will inform coverage cut o
 screen -a
 
 /bin/bash
-export PYTHONPATH="$PYTHONPATH:/home/sobczm/usr/local/lib/python2.7/site-packages"
-export PYTHONPATH="$PYTHONPATH:/home/sobczm/bin/FALCON-integrate/fc_env/lib/python2.7/site-packages"
-export PYTHONUSERBASE=/home/sobczm/bin/FALCON-integrate/fc_env
-export PATH=$PYTHONUSERBASE/bin:${PATH}
-export PATH=/home/sobczm/usr/local/bin:${PATH}
+
 source /home/sobczm/bin/FALCON-integrate/env.sh
 /home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_run.py fc_run.cfg
 ```
@@ -165,7 +179,7 @@ After running
 
 ```
 cd 2-asm-falcon
-perl ../../../sobczm/pfrag/2-asm-falcon/countFasta.pl p_ctg.fa
+perl /data/projects/sobczm/pfrag/2-asm-falcon/countFasta.pl p_ctg.fa
 ```
 
 #Second attempt run with the following parameters changed:
@@ -265,29 +279,43 @@ LD_LIBRARY_PATH=/home/sobczm/bin/pitchfork/deployment/lib $bb/bax2bam -o S7.bam 
 
 This MUST be run from the directory where the inital FALCON run was performed
 
+##Run FALCON_Unzip
+
 ```bash
 screen -a
 
 /bin/bash
 
 cd /data/projects/adamst/P.fragariae
-export PATH=/home/sobczm/bin/cmake-3.8.0/bin:${PATH}
-export PATH=/home/sobczm/bin/gawk-4.1.4:${PATH}
-export PYTHONPATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin
-# export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/common/lib"
-# export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib/python2.7"
-export PYTHONPATH="$PYTHONPATH:/home/sobczm/usr/local/lib/python2.7/site-packages"
-export PYTHONPATH="$PYTHONPATH:/home/sobczm/bin/FALCON-integrate/fc_env/lib/python2.7/site-packages"
-export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib"
-export PYTHONUSERBASE=/home/sobczm/bin/FALCON-integrate/fc_env
-export PATH=$PYTHONUSERBASE/bin:${PATH}
-export PATH=/home/sobczm/usr/local/bin:${PATH}
-export PATH=/home/sobczm/bin/pbh5tools/bin:${PATH}
-export PATH=/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/bin:${PATH}
 source /home/sobczm/bin/FALCON-integrate/env.sh
 
 /home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_unzip.py fc_unzip.cfg
+```
 
+To run quiver, the following two lines MUST be commented out of your profile.
+
+```
+# export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/common/lib"
+# export PYTHONPATH="$PYTHONPATH:/data/software/smrtanalysis/install/smrtanalysis_2.3.0.140936/analysis/lib/python2.7"
+```
+
+Check that this has been successful by checking your version of numpy in a python interface, if it is 1.7.1 then quiver will fail.
+
+```python
+python
+import numpy
+numpy.version.version
+```
+
+##Run Quiver
+
+```bash
+screen -a
+
+/bin/bash
+
+cd /data/projects/adamst/P.fragariae
+source /home/sobczm/bin/FALCON-integrate/env.sh
 /home/sobczm/bin/FALCON-integrate/fc_env/bin/fc_quiver.py fc_unzip.cfg
 ```
 
@@ -308,15 +336,15 @@ N50: 922,664
 GC content: 53.36%
 
 After Quiver:
-BUSCO statistics:
-Complete and single copy genes:
-Complete and duplicated genes:
-Fragmented genes:
-Missing genes:
+BUSCO statistics: 273
+Complete and single copy genes: 264
+Complete and duplicated genes: 9
+Fragmented genes: 5
+Missing genes: 25
 
 Assembly statistics:
-Genome size:
-Number of contigs:
-N50:
-GC content:
+Genome size: 91,011,663 bp
+Number of contigs: 180
+N50: 923,397
+GC content: 53.39%
 ```
