@@ -55,3 +55,31 @@ mv TA-18_2* 96hr/R/.
 mv TA-19_2* 96hr/R/.
 mv TA-20_2* 96hr/R/.
 ```
+
+##Perform qc on RNA-Seq timecourse and mycelium data
+
+```bash
+for FilePath in $(ls -d raw_rna/paired/160415_7001448.B.Project_Lysoe-RNA2-2016-02-01/*)
+do
+    echo $FilePath
+    FileNum=$(ls $FilePath/F/*.gz | wc -l)
+    for num in $(seq 1 $FileNum)
+    do
+        FileF=$(ls $FilePath/F/*.gz | head -n $num | tail -n1)
+        FileR=$(ls $FilePath/R/*.gz | head -n $num | tail -n1)
+        echo $FileF
+        echo $FileR
+        Jobs=$(qstat | grep 'rna_qc' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 16 ]
+        do
+            sleep 5m
+            printf "."
+            Jobs=$(qstat | grep 'rna_qc' | grep 'qw' | wc -l)
+        done		
+        printf "\n"
+        IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+        qsub $ProgDir/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
+    done
+done
+```
