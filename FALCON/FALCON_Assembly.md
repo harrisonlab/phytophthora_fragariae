@@ -379,3 +379,15 @@ Iterations=10
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
 qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir $Iterations
 ```
+
+##Run BUSCO analysis after pilon
+
+```bash
+Assembly=assembly/FALCON_Trial/quiver_results/polished/pilon_9.fasta
+Name=$(echo $Assembly | rev |cut -d '/' -f2 | rev)
+echo "$Name"
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+BuscoDB=Eukaryotic
+OutDir=assembly/FALCON_Trial/quiver_results/$Name
+qsub $ProgDir/sub_busco2.sh $Assembly $BuscoDB $OutDir
+```
