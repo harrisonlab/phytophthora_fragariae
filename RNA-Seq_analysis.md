@@ -14,24 +14,44 @@ tar -C /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/nov
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/novogene/
 mdkir -p P.fragariae/Bc16
 cd P.fragariae/Bc16
-mkdir mycelium
-mkdir 0hr
-mkdir 24hr
-mkdir 48hr
-mkdir 96hr
-mv TA-32_* mycelium/.
-mv TA-34_* mycelium/.
-mv TA-35_* mycelium/.
-mv TA-01_* 0hr/.
-mv TA-02_* 0hr/.
-mv TA-03_* 0hr/.
-mv TA-07_* 24hr/.
-mv TA-08_* 24hr/.
-mv TA-09_* 24hr/.
-mv TA-12_* 48hr/.
-mv TA-13_* 48hr/.
-mv TA-14_* 48hr/.
-mv TA-18_* 96hr/.
-mv TA-19_* 96hr/.
-mv TA-20_* 96hr/.
+mkdir -p mycelium/F
+mkdir -p mycelium/R
+mkdir -p 0hr/F
+mkdir -p 0hr/R
+mkdir -p 24hr/F
+mkdir -p 24hr/R
+mkdir -p 48hr/F
+mkdir -p 48hr/R
+mkdir -p 96hr/F
+mkdir -p 96hr/R
+mv TA-32_1* mycelium/F/.
+mv TA-34_1* mycelium/F/.
+mv TA-35_1* mycelium/F/.
+mv TA-01_1* 0hr/F/.
+mv TA-02_1* 0hr/F/.
+mv TA-03_1* 0hr/F/.
+mv TA-07_1* 24hr/F/.
+mv TA-08_1* 24hr/F/.
+mv TA-09_1* 24hr/F/.
+mv TA-12_1* 48hr/F/.
+mv TA-13_1* 48hr/F/.
+mv TA-14_1* 48hr/F/.
+mv TA-18_1* 96hr/F/.
+mv TA-19_1* 96hr/F/.
+mv TA-20_1* 96hr/F/.
+mv TA-32_2* mycelium/R/.
+mv TA-34_2* mycelium/R/.
+mv TA-35_2* mycelium/R/.
+mv TA-01_2* 0hr/R/.
+mv TA-02_2* 0hr/R/.
+mv TA-03_2* 0hr/R/.
+mv TA-07_2* 24hr/R/.
+mv TA-08_2* 24hr/R/.
+mv TA-09_2* 24hr/R/.
+mv TA-12_2* 48hr/R/.
+mv TA-13_2* 48hr/R/.
+mv TA-14_2* 48hr/R/.
+mv TA-18_2* 96hr/R/.
+mv TA-19_2* 96hr/R/.
+mv TA-20_2* 96hr/R/.
 ```
