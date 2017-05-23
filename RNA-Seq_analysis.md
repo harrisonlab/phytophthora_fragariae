@@ -60,7 +60,7 @@ mv ../../C101HW17030405/raw_data/MD5.txt .
 ##Perform qc on RNA-Seq timecourse and mycelium data
 
 ```bash
-for FilePath in $(ls -d raw_rna/novogene/P.fragariae/Bc16/*/*/*)
+for FilePath in $(ls -d raw_rna/novogene/P.fragariae/Bc16/*)
 do
     echo $FilePath
     FileNum=$(ls $FilePath/F/*.gz | wc -l)
