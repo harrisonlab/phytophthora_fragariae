@@ -56,6 +56,8 @@ mv TA-19_2* 96hr/R/.
 mv TA-20_2* 96hr/R/.
 ```
 
+--progress here--
+
 ##Perform qc on RNA-Seq timecourse and mycelium data
 
 ```bash
