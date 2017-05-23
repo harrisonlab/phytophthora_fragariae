@@ -391,3 +391,31 @@ BuscoDB=Eukaryotic
 OutDir=assembly/FALCON_Trial/quiver_results/$Name
 qsub $ProgDir/sub_busco2.sh $Assembly $BuscoDB $OutDir
 ```
+
+```
+Before Pilon:
+BUSCO statistics: 273
+Complete and single copy genes: 264
+Complete and duplicated genes: 9
+Fragmented genes: 5
+Missing genes: 25
+
+Assembly statistics:
+Genome size: 91,011,663 bp
+Number of contigs: 180
+N50: 923,397
+GC content: 53.39%
+
+After Pilon:
+BUSCO statistics: 
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Assembly statistics:
+Genome size:  bp
+Number of contigs: 
+N50: 
+GC content: 
+```
