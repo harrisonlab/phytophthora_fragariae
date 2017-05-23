@@ -57,8 +57,6 @@ mv ../../C101HW17030405/raw_data/TA-20_2* 96hr/R/.
 mv ../../C101HW17030405/raw_data/MD5.txt .
 ```
 
---progress here--
-
 ##Perform qc on RNA-Seq timecourse and mycelium data
 
 ```bash
@@ -87,4 +85,4 @@ do
 done
 ```
 
-#Align the RNA-Seq data to the genome using STAR
+--progress here--
