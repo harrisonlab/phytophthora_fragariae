@@ -86,3 +86,33 @@ done
 ```
 
 --progress here--
+
+#Align reads to FALCON assembly with STAR
+
+```bash
+for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta)
+do
+    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    for FileF in $(ls qc_rna/paired/*/*/F/*_R1_001_trim.fq.gz)
+    do
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        done
+        printf "\n"
+        FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/R1/R2/g')
+        echo $FileF
+        echo $FileR
+        Timepoint=$(echo $FileF| rev | cut -d '/' -f3 | rev)
+        echo "$Timepoint"
+        OutDir=alignment/star/$Organism/$Strain/$Timepoint
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/sub_star.sh $Assembly $FileF $FileR $OutDir
+    done
+done
+```
