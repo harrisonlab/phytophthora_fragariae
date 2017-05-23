@@ -24,36 +24,37 @@ mkdir -p 48hr/F
 mkdir -p 48hr/R
 mkdir -p 96hr/F
 mkdir -p 96hr/R
-mv TA-32_1* mycelium/F/.
-mv TA-34_1* mycelium/F/.
-mv TA-35_1* mycelium/F/.
-mv TA-01_1* 0hr/F/.
-mv TA-02_1* 0hr/F/.
-mv TA-03_1* 0hr/F/.
-mv TA-07_1* 24hr/F/.
-mv TA-08_1* 24hr/F/.
-mv TA-09_1* 24hr/F/.
-mv TA-12_1* 48hr/F/.
-mv TA-13_1* 48hr/F/.
-mv TA-14_1* 48hr/F/.
-mv TA-18_1* 96hr/F/.
-mv TA-19_1* 96hr/F/.
-mv TA-20_1* 96hr/F/.
-mv TA-32_2* mycelium/R/.
-mv TA-34_2* mycelium/R/.
-mv TA-35_2* mycelium/R/.
-mv TA-01_2* 0hr/R/.
-mv TA-02_2* 0hr/R/.
-mv TA-03_2* 0hr/R/.
-mv TA-07_2* 24hr/R/.
-mv TA-08_2* 24hr/R/.
-mv TA-09_2* 24hr/R/.
-mv TA-12_2* 48hr/R/.
-mv TA-13_2* 48hr/R/.
-mv TA-14_2* 48hr/R/.
-mv TA-18_2* 96hr/R/.
-mv TA-19_2* 96hr/R/.
-mv TA-20_2* 96hr/R/.
+mv ../../C101HW17030405/raw_data/TA-32_1* mycelium/F/.
+mv ../../C101HW17030405/raw_data/TA-34_1* mycelium/F/.
+mv ../../C101HW17030405/raw_data/TA-35_1* mycelium/F/.
+mv ../../C101HW17030405/raw_data/TA-01_1* 0hr/F/.
+mv ../../C101HW17030405/raw_data/TA-02_1* 0hr/F/.
+mv ../../C101HW17030405/raw_data/TA-03_1* 0hr/F/.
+mv ../../C101HW17030405/raw_data/TA-07_1* 24hr/F/.
+mv ../../C101HW17030405/raw_data/TA-08_1* 24hr/F/.
+mv ../../C101HW17030405/raw_data/TA-09_1* 24hr/F/.
+mv ../../C101HW17030405/raw_data/TA-12_1* 48hr/F/.
+mv ../../C101HW17030405/raw_data/TA-13_1* 48hr/F/.
+mv ../../C101HW17030405/raw_data/TA-14_1* 48hr/F/.
+mv ../../C101HW17030405/raw_data/TA-18_1* 96hr/F/.
+mv ../../C101HW17030405/raw_data/TA-19_1* 96hr/F/.
+mv ../../C101HW17030405/raw_data/TA-20_1* 96hr/F/.
+mv ../../C101HW17030405/raw_data/TA-32_2* mycelium/R/.
+mv ../../C101HW17030405/raw_data/TA-34_2* mycelium/R/.
+mv ../../C101HW17030405/raw_data/TA-35_2* mycelium/R/.
+mv ../../C101HW17030405/raw_data/TA-01_2* 0hr/R/.
+mv ../../C101HW17030405/raw_data/TA-02_2* 0hr/R/.
+mv ../../C101HW17030405/raw_data/TA-03_2* 0hr/R/.
+mv ../../C101HW17030405/raw_data/TA-07_2* 24hr/R/.
+mv ../../C101HW17030405/raw_data/TA-08_2* 24hr/R/.
+mv ../../C101HW17030405/raw_data/TA-09_2* 24hr/R/.
+mv ../../C101HW17030405/raw_data/TA-12_2* 48hr/R/.
+mv ../../C101HW17030405/raw_data/TA-13_2* 48hr/R/.
+mv ../../C101HW17030405/raw_data/TA-14_2* 48hr/R/.
+mv ../../C101HW17030405/raw_data/TA-18_2* 96hr/R/.
+mv ../../C101HW17030405/raw_data/TA-19_2* 96hr/R/.
+mv ../../C101HW17030405/raw_data/TA-20_2* 96hr/R/.
+mv ../../C101HW17030405/raw_data/MD5.txt .
 ```
 
 --progress here--
@@ -85,3 +86,5 @@ do
     done
 done
 ```
+
+#Align the RNA-Seq data to the genome using STAR
