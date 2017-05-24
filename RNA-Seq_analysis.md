@@ -86,39 +86,42 @@ do
         load05=$(qstat -u "*" | grep 'blacklace05'| grep 'rna' | wc -l)
         load06=$(qstat -u "*" | grep 'blacklace06'| grep 'rna' | wc -l)
         load10=$(qstat -u "*" | grep 'blacklace10'| grep 'rna' | wc -l)
-        if (($load02 < 3))
-        then
-            qalter $JobID -l h=blacklace02.blacklace
-            sleep 5s
-            qalter $JobID -h U
-            sleep 5s
-            echo "Submitted to node 2"
-        elif (($load05 < 3))
-        then
-            qalter $JobID -l h=blacklace05.blacklace
-            sleep 5s
-            qalter $JobID -h U
-            sleep 5s
-            echo "Submitted to node 5"
-        elif (($load06 < 3))
-        then
-            qalter $JobID -l h=blacklace06.blacklace
-            sleep 5s
-            qalter $JobID -h U
-            sleep 5s
-            echo "Submitted to node 6"
-        elif (($load10 < 3))
-        then
-            qalter $JobID -l h=blacklace10.blacklace
-            sleep 5s
-            qalter $JobID -h U
-            sleep 5s
-            echo "Submitted to node 10"
-        else
-            echo "all nodes full, waiting ten minutes"
-            sleep 10m
-            continue
-        fi    
+        Queue_Status=$(qstat | grep 'rna' | grep 'hqw' | wc -l)
+        while (($Queue_Status > 0))
+        do
+            if (($load02 < 3))
+            then
+                qalter $JobID -l h=blacklace02.blacklace
+                sleep 5s
+                qalter $JobID -h U
+                sleep 5s
+                echo "Submitted to node 2"
+            elif (($load05 < 3))
+            then
+                qalter $JobID -l h=blacklace05.blacklace
+                sleep 5s
+                qalter $JobID -h U
+                sleep 5s
+                echo "Submitted to node 5"
+            elif (($load06 < 3))
+            then
+                qalter $JobID -l h=blacklace06.blacklace
+                sleep 5s
+                qalter $JobID -h U
+                sleep 5s
+                echo "Submitted to node 6"
+            elif (($load10 < 3))
+            then
+                qalter $JobID -l h=blacklace10.blacklace
+                sleep 5s
+                qalter $JobID -h U
+                sleep 5s
+                echo "Submitted to node 10"
+            else
+                echo "all nodes full, waiting ten minutes"
+                sleep 10m
+            fi
+        done    
     done
 done
 
