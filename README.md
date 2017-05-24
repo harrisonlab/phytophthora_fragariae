@@ -479,6 +479,8 @@ do
 done
 ```
 
+--start here with FALCON assembly--
+
 ###QUAST used to summarise assembly statistics
 
 ```bash
