@@ -83,6 +83,9 @@ do
         qsub $ProgDir/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
     done
 done
+
+mkdir -p qc_rna/novogene
+mv qc_rna/P.fragariae qc_rna/novogene/.
 ```
 
 --progress here--
@@ -95,7 +98,7 @@ do
     Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
     Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    for FileF in $(ls qc_rna/paired/*/*/F/*_R1_001_trim.fq.gz)
+    for FileF in $(ls qc_rna/novogene/*/*/F/*_R1_001_trim.fq.gz)
     do
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
         while [ $Jobs -gt 1 ]
