@@ -654,26 +654,25 @@ Gene prediction followed three steps: Pre-gene prediction - Quality of genome as
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
-for Genome in $(ls repeat_masked/P.*/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+for Assembly in $(ls assembly/spades/P.fragariae/*/filtered_contigs/contigs_min_500bp_renamed.fasta)
 do
-    echo $Genome
-    Strain=$(echo $Genome | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Genome | rev | cut -f4 -d '/' | rev)
-    OutDir=gene_pred/cegma/$Organism/$Strain
-    mkdir -p $OutDir
-    qsub $ProgDir/sub_cegma.sh $Genome dna $OutDir
+    Strain=$(echo $Assembly | rev |cut -d '/' -f3 | rev)
+    echo "$Strain"
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+    BuscoDB=Eukaryotic
+    OutDir=assembly/spades/P.fragariae/$Strain/filtered_contigs/
+    qsub $ProgDir/sub_busco2.sh $Assembly $BuscoDB $OutDir
 done
 ```
 
 Outputs were summarised using the commands:
 
 ```bash
-echo "" > gene_pred/cegma/cegma_results_dna_summary.txt
-for File in $(ls gene_pred/cegma/*/*/*_dna_cegma.completeness_report)
+echo "" > gene_pred/busco/busco_results_dna_summary.txt
+for File in $(ls  assembly/spades/P.fragariae/*/filtered_contigs/run_*/short_summary_*.txt)
 do
-    Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
-    Species=$(echo $File | rev | cut -f3 -d '/' | rev)
+    Strain=$(echo $File | rev | cut -f4 -d '/' | rev)
+    Species=$(echo $File | rev | cut -f5 -d '/' | rev)
     printf "$Species\t$Strain\n"
     cat $File | head -n18 | tail -n+4;printf "\n"
 done >> gene_pred/cegma/cegma_results_dna_summary.txt
