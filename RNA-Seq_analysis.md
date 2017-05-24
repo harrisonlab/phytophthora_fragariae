@@ -60,7 +60,7 @@ mv ../../C101HW17030405/raw_data/MD5.txt .
 ##Perform qc on RNA-Seq timecourse and mycelium data
 
 ```bash
-for FilePath in $(ls -d raw_rna/novogene/P.fragariae/Bc16/*)
+for FilePath in $(ls -d raw_rna/novogene/P.fragariae/Bc16/* | grep -v '0hr' | grep -v 'MD5.txt')
 do
     echo $FilePath
     FileNum=$(ls $FilePath/F/*.gz | wc -l)
@@ -70,7 +70,7 @@ do
         FileR=$(ls $FilePath/R/*.gz | head -n $num | tail -n1)
         echo $FileF
         echo $FileR
-        Jobs=$(qstat | grep 'rna_qc' | grep 'qw' | wc -l)
+        Jobs=$(qstat -u "*" | grep 'rna_qc' | grep 'qw' | wc -l)
         while [ $Jobs -gt 16 ]
         do
             sleep 5m
@@ -80,7 +80,45 @@ do
         printf "\n"
         IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
         ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
-        qsub $ProgDir/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
+        qsub -h $ProgDir/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
+        JobID=$(qstat | grep 'rna' | tail -n 1 | cut -d ' ' -f1)
+        load02=$(qstat -u "*" | grep 'blacklace02'| grep 'rna' | wc -l)
+        load05=$(qstat -u "*" | grep 'blacklace05'| grep 'rna' | wc -l)
+        load06=$(qstat -u "*" | grep 'blacklace06'| grep 'rna' | wc -l)
+        load10=$(qstat -u "*" | grep 'blacklace10'| grep 'rna' | wc -l)
+        if (($load02 < 3))
+        then
+            qalter $JobID -l h=blacklace02.blacklace
+            sleep 5s
+            qalter $JobID -h U
+            sleep 5s
+            echo "Submitted to node 2"
+        elif (($load05 < 3))
+        then
+            qalter $JobID -l h=blacklace05.blacklace
+            sleep 5s
+            qalter $JobID -h U
+            sleep 5s
+            echo "Submitted to node 5"
+        elif (($load06 < 3))
+        then
+            qalter $JobID -l h=blacklace06.blacklace
+            sleep 5s
+            qalter $JobID -h U
+            sleep 5s
+            echo "Submitted to node 6"
+        elif (($load10 < 3))
+        then
+            qalter $JobID -l h=blacklace10.blacklace
+            sleep 5s
+            qalter $JobID -h U
+            sleep 5s
+            echo "Submitted to node 10"
+        else
+            echo "all nodes full, waiting ten minutes"
+            sleep 10m
+            continue
+        fi    
     done
 done
 
