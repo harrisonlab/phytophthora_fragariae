@@ -82,13 +82,14 @@ do
         ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
         qsub -h $ProgDir/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
         JobID=$(qstat | grep 'rna' | tail -n 1 | cut -d ' ' -f1)
-        load02=$(qstat -u "*" | grep 'blacklace02'| grep 'rna' | wc -l)
-        load05=$(qstat -u "*" | grep 'blacklace05'| grep 'rna' | wc -l)
-        load06=$(qstat -u "*" | grep 'blacklace06'| grep 'rna' | wc -l)
-        load10=$(qstat -u "*" | grep 'blacklace10'| grep 'rna' | wc -l)
         Queue_Status=$(qstat | grep 'rna' | grep 'hqw' | wc -l)
         while (($Queue_Status > 0))
         do
+            Queue_Status=$(qstat | grep 'rna' | grep 'hqw' | wc -l)
+            load02=$(qstat -u "*" | grep 'blacklace02'| grep 'rna' | wc -l)
+            load05=$(qstat -u "*" | grep 'blacklace05'| grep 'rna' | wc -l)
+            load06=$(qstat -u "*" | grep 'blacklace06'| grep 'rna' | wc -l)
+            load10=$(qstat -u "*" | grep 'blacklace10'| grep 'rna' | wc -l)
             if (($load02 < 3))
             then
                 qalter $JobID -l h=blacklace02.blacklace
