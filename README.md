@@ -484,6 +484,7 @@ ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_con
 touch tmp.csv
 for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta)
 do
+    Strain=Bc16
     OutDir=assembly/FALCON_Trial/quiver_results/polished/filtered_contigs
     mkdir -p $OutDir
     $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/"$Strain"_contigs_renamed.fasta --coord_file tmp.csv
