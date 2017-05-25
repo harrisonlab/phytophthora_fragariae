@@ -479,6 +479,18 @@ do
 done
 ```
 
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+touch tmp.csv
+for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta)
+do
+    OutDir=assembly/FALCON_Trial/quiver_results/polished/filtered_contigs
+    mkdir -p $OutDir
+    $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/"$Strain"_contigs_renamed.fasta --coord_file tmp.csv
+done
+rm tmp.csv
+```
+
 ###QUAST used to summarise assembly statistics
 
 ```bash
@@ -547,7 +559,7 @@ Repeat masking was performed and used the following programs: Repeatmasker Repea
 
 The best assemblies were used to perform repeatmasking
 
-for BC-16 pacbio data:
+for BC-16 FALCON assembly:
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
