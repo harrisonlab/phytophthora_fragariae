@@ -154,10 +154,10 @@ Looks okay, AT rich at early timepoints as expected from a plant genome, rising 
 ```bash
 for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta)
 do
-    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
-    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    Strain=Bc16
+    Organism=P.fragariae
     echo "$Organism - $Strain"
-    for FileF in $(ls qc_rna/novogene/*/*/F/*_R1_001_trim.fq.gz)
+    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz | grep -v 'TA-3')
     do
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
         while [ $Jobs -gt 1 ]
@@ -167,7 +167,7 @@ do
             Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
         done
         printf "\n"
-        FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/R1/R2/g')
+        FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
         echo $FileF
         echo $FileR
         Timepoint=$(echo $FileF| rev | cut -d '/' -f3 | rev)
