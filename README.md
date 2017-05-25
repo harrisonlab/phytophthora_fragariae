@@ -564,7 +564,7 @@ for BC-16 FALCON assembly:
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-for BestAss in $(ls assembly/canu/*/*/filtered_contigs/*_contigs_renamed.fasta)
+for BestAss in $(ls assembly/FALCON_Trial/quiver_results/polished/filtered_contigs/*_contigs_renamed.fasta)
 do
     qsub $ProgDir/rep_modeling.sh $BestAss
     qsub $ProgDir/transposonPSI.sh $BestAss
