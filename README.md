@@ -497,6 +497,13 @@ do
 done
 ```
 
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+Assembly=assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta
+OutDir=assembly/FALCON_Trial/quiver_results/polished/
+qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+```
+
 **N50:
 A4: 18,245
 BC-16: 623,191
