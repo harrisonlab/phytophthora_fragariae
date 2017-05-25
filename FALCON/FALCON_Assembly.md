@@ -406,7 +406,7 @@ qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Re
 ##Run BUSCO analysis after pilon
 
 ```bash
-Assembly=assembly/FALCON_Trial/quiver_results/polished/pilon_9.fasta
+Assembly=assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta
 Name=$(echo $Assembly | rev |cut -d '/' -f2 | rev)
 echo "$Name"
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
