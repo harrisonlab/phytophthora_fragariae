@@ -130,6 +130,17 @@ mkdir -p qc_rna/novogene
 mv qc_rna/P.fragariae qc_rna/novogene/.
 ```
 
+###Visualise data quality using fastqc
+
+```bash
+for RawData in $(ls qc_rna/novogene/P.fragariae/Bc16/*/*/*)
+do
+    echo $RawData
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
+    qsub $ProgDir/run_fastqc.sh $RawData
+done
+```
+
 --progress here--
 
 #Align reads to FALCON assembly with STAR
