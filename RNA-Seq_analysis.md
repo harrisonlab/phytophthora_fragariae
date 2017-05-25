@@ -132,6 +132,8 @@ mv qc_rna/P.fragariae qc_rna/novogene/.
 
 ###Visualise data quality using fastqc
 
+Only submit three jobs at a time, copying 30 files is too much!
+
 ```bash
 for RawData in $(ls qc_rna/novogene/P.fragariae/Bc16/*/*/*)
 do
