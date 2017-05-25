@@ -147,8 +147,6 @@ done
 Looks okay, AT rich at early timepoints as expected from a plant genome, rising to higher GC contents at later timepoints
 ```
 
---progress here--
-
 #Align reads to FALCON assembly with STAR
 
 ```bash
