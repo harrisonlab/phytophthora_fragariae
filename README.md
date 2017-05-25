@@ -510,7 +510,7 @@ done
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-Assembly=assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta
+Assembly=assembly/FALCON_Trial/quiver_results/polished/filtered_contigs/Bc16_contigs_renamed.fasta
 OutDir=assembly/FALCON_Trial/quiver_results/polished/
 qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 ```
