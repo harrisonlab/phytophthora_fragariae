@@ -683,21 +683,6 @@ do
 done
 ```
 
-Outputs were summarised using the commands:
-
-```bash
-echo "" > gene_pred/busco/busco_results_dna_summary.txt
-for File in $(ls  assembly/spades/P.fragariae/*/filtered_contigs/run_*/short_summary_*.txt)
-do
-    Strain=$(echo $File | rev | cut -f4 -d '/' | rev)
-    Species=$(echo $File | rev | cut -f5 -d '/' | rev)
-    printf "$Species\t$Strain\n"
-    cat $File | head -n18 | tail -n+4;printf "\n"
-done >> gene_pred/cegma/cegma_results_dna_summary.txt
-
-less gene_pred/cegma/cegma_results_dna_summary.txt
-```
-
 ```
 A4
 Complete and single copy genes:
