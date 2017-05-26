@@ -901,12 +901,12 @@ Concordant read mapping rate =
 Cufflinks was run to produce the fragment length and stdev statistics
 
 ```bash
-for Assembly in $(ls repeat_masked/*/Bc16/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_softmasked_repeatmasker_TPSI_appended.fa)
 do
-    Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
-    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    Strain=Bc16
+    Organism=P.fragariae
     echo "$Organism - $Strain"
-    for AcceptedHits in $(ls -d alignment/P.fragariae/Bc16/P.*/*/accepted_hits.bam)
+    for AcceptedHits in $(ls -d alignment/P.fragariae/Bc16/novogene/*/accepted_hits.bam)
     do
         Species=$(echo $AcceptedHits| rev | cut -d '/' -f3 | rev)
         Num=$(echo $AcceptedHits | rev | cut -d '/' -f2 | rev)
