@@ -830,37 +830,6 @@ do
 done
 ```
 
-Novogene data
-
-```bash
-for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_softmasked_repeatmasker_TPSI_appended.fa)
-do
-    Strain=Bc16
-    Organism=P.fragariae
-    echo "$Organism - $Strain"
-    for RNADir in $(ls -d qc_rna/novogene/P.fragariae/Bc16/mycelium/)
-    do
-        Species=mycelium
-        echo "$Species"
-        FileF1=$(ls $RNADir/F/TA-32_1_trim.fq.gz)
-        FileR1=$(ls $RNADir/R/TA-32_2_trim.fq.gz)
-        FileF2=$(ls $RNADir/F/TA-34_1_trim.fq.gz)
-        FileR2=$(ls $RNADir/R/TA-34_2_trim.fq.gz)
-        FileF3=$(ls $RNADir/F/TA-35_1_trim.fq.gz)
-        FileR3=$(ls $RNADir/R/TA-35_2_trim.fq.gz)
-        OutDir1=alignment/$Organism/$Strain/$Species/1
-        OutDir2=alignment/$Organism/$Strain/$Species/2
-        OutDir3=alignment/$Orgnaism/$Strain/$Species/3
-        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF1 $FileR1 $OutDir1
-        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF2 $FileR2 $OutDir2
-        qsub $ProgDir/tophat_alignment.sh $Assembly $FileF3 $FileR3 $OutDir3
-    done
-done
-```
-
---progress here--
-
 ```
 P.frag 4954V8:
 
@@ -881,21 +850,6 @@ P.rubi Pr4671PB:
 
 Overall read mapping rate = 85.1%
 Concordant read mapping rate = 76.4%
-
-P.frag TA-32:
-
-Overall read mapping rate =
-Concordant read mapping rate =
-
-P.frag TA-34:
-
-Overall read mapping rate =
-Concordant read mapping rate =
-
-P.frag TA-35:
-
-Overall read mapping rate =
-Concordant read mapping rate =
 ```
 
 Cufflinks was run to produce the fragment length and stdev statistics
@@ -940,21 +894,6 @@ P.rubi Pr4671PB:
 
 Estimated mean = 188.54
 Estimated Std Dev = 26.86
-
-P.frag TA-32:
-
-Estimated mean =
-Estimated Std Dev =
-
-P.frag TA-34:
-
-Estimated mean =
-Estimated Std Dev =
-
-P.frag TA-35:
-
-Estimated mean =
-Estimated Std Dev =
 ```
 
 These estimated mean values allowed us to calculate the mean insert size. Read length was estimated from fast_qc output. The equation used was: insert gap = mean length - (2 * read length)
