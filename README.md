@@ -881,6 +881,21 @@ P.rubi Pr4671PB:
 
 Overall read mapping rate = 85.1%
 Concordant read mapping rate = 76.4%
+
+P.frag TA-32:
+
+Overall read mapping rate =
+Concordant read mapping rate =
+
+P.frag TA-34:
+
+Overall read mapping rate =
+Concordant read mapping rate =
+
+P.frag TA-35:
+
+Overall read mapping rate =
+Concordant read mapping rate =
 ```
 
 Cufflinks was run to produce the fragment length and stdev statistics
