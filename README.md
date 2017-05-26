@@ -698,49 +698,73 @@ done >> gene_pred/cegma/cegma_results_dna_summary.txt
 less gene_pred/cegma/cegma_results_dna_summary.txt
 ```
 
-** A4
-Complete: 95.16%
-Partial: 97.98%
+```
+A4
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 Bc16
-Complete: 94.35%
-Partial: 96.37%
+Complete and single copy genes: 264
+Complete and duplicated genes: 9
+Fragmented genes: 5
+Missing genes: 25
 
 Bc1
-Complete: 95.16%
-Partial: 97.58%
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 Bc23
-Complete: 95.16%
-Partial: 97.58%
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 Nov27
-Complete: 94.76%
-Partial: 97.18%
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 Nov5
-Complete: 94.76%
-Partial: 97.18%
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 Nov71
-Complete: 95.16%
-Partial: 97.98%
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 Nov77
-Complete: 94.76%
-Partial: 97.18%
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 Nov9
-Complete: 94.35%
-Partial: 97.18%
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 ONT3
-Complete: 95.16%
-Partial: 97.18%
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
 
 SCRP245_v2
-Complete: 95.16%
-Partial: 97.18% **
+Complete and single copy genes:
+Complete and duplicated genes:
+Fragmented genes:
+Missing genes:
+```
 
 #Gene prediction
 Gene prediction was performed for the P. fragariae genomes. Two gene prediction approaches were used:
