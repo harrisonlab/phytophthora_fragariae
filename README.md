@@ -683,8 +683,6 @@ do
 done
 ```
 
---progress here--
-
 ```
 A4
 Complete and single copy genes: 272
@@ -860,6 +858,8 @@ do
     done
 done
 ```
+
+--progress here--
 
 ```
 P.frag 4954V8:
