@@ -940,6 +940,21 @@ P.rubi Pr4671PB:
 
 Estimated mean = 188.54
 Estimated Std Dev = 26.86
+
+P.frag TA-32:
+
+Estimated mean =
+Estimated Std Dev =
+
+P.frag TA-34:
+
+Estimated mean =
+Estimated Std Dev =
+
+P.frag TA-35:
+
+Estimated mean =
+Estimated Std Dev =
 ```
 
 These estimated mean values allowed us to calculate the mean insert size. Read length was estimated from fast_qc output. The equation used was: insert gap = mean length - (2 * read length)
