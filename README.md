@@ -770,6 +770,8 @@ It looks like P. rubi and P. fragariae data has been mixed up, align both to see
 
 First perform qc of all RNA using fastqc_mcf
 
+qc of novogene RNA is detailed in RNA-Seq_analysis.md
+
 ```bash
 for Species in P.rubi P.frag
 do
