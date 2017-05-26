@@ -150,7 +150,7 @@ Looks okay, AT rich at early timepoints as expected from a plant genome, rising 
 #Align reads to FALCON assembly with STAR
 
 ```bash
-for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta)
+for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
 do
     Strain=Bc16
     Organism=P.fragariae
