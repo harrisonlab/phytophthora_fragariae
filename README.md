@@ -1072,43 +1072,13 @@ This has had issues running
 ##Use STAR
 This is a more recent aligner and should be used for all aligning of RNA-Seq data
 
-FALCON assembly
-
-```bash
-for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
-do
-    Strain=Bc16
-    Organism=P.fragariae
-    echo "$Organism - $Strain"
-    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/mycelium/F/*_trim.fq.gz)
-    do
-        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-        while [ $Jobs -gt 1 ]
-        do
-            sleep 1m
-            printf "."
-            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-        done
-        printf "\n"
-        FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
-        echo $FileF
-        echo $FileR
-        Timepoint=$(echo $FileF| rev | cut -d '/' -f3 | rev)
-        echo "$Timepoint"
-        OutDir=alignment/star/$Organism/$Strain/$Timepoint
-        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/sub_star.sh $Assembly $FileF $FileR $OutDir
-    done
-done
-```
-
 SPAdes assemblies of Illumina MiSeq data
 
 ```bash
-for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+for Assembly in $(ls repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
 do
-    Assembly=repeat_masked/P.fragariae/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa)
-    Organism=P.fragariae
+    Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
     for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/mycelium/F/*_trim.fq.gz)
     do
@@ -1123,7 +1093,7 @@ do
         FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
         echo $FileF
         echo $FileR
-        Timepoint=$(echo $FileF| rev | cut -d '/' -f3 | rev)
+        Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
         echo "$Timepoint"
         OutDir=alignment/star/$Organism/$Strain/$Timepoint
         ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
