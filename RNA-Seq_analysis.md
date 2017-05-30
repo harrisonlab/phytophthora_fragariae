@@ -147,7 +147,7 @@ done
 Looks okay, AT rich at early timepoints as expected from a plant genome, rising to higher GC contents at later timepoints
 ```
 
-#Align reads to FALCON assembly with STAR
+#Align reads to FALCON assembly with STAR, also align mycelium for gene prediction
 
 ```bash
 for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
