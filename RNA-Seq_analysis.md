@@ -168,7 +168,7 @@ do
         FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
         echo $FileF
         echo $FileR
-        Timepoint=$(echo $FileF| rev | cut -d '/' -f3 | rev)
+        Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
         echo "$Timepoint"
         OutDir=alignment/star/$Organism/$Strain/$Timepoint
         ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
