@@ -442,3 +442,16 @@ Number of contigs: 180
 N50: 923,458
 GC content: 53.39%
 ```
+
+#Illumina only SPAdes assembly has improved BUSCO statistics compared to the FALCON assembly. Run Quickmerge to see if it helps
+
+```bash
+PacBioAssembly=assembly/FALCON_Trial/quiver_results/polished/filtered_contigs/Bc16_contigs_renamed.fasta
+Organism=P.fragariae
+Strain=Bc16
+IlluminaAssembly=assembly/spades/P.fragariae/Bc16/filtered_contigs/contigs_min_500bp.fasta
+OutDir=assembly/merged_FALCON_spades/$Organism/$Strain
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/quickmerge
+echo $IlluminaAssembly
+qsub $ProgDir/sub_quickmerge.sh $IlluminaAssembly $PacBioAssembly $OutDir
+```
