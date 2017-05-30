@@ -155,7 +155,7 @@ do
     Strain=Bc16
     Organism=P.fragariae
     echo "$Organism - $Strain"
-    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz | grep -v 'TA-3')
+    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz)
     do
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
         while [ $Jobs -gt 1 ]
