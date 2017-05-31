@@ -147,7 +147,7 @@ done
 Looks okay, AT rich at early timepoints as expected from a plant genome, rising to higher GC contents at later timepoints
 ```
 
-#Align reads to FALCON assembly with STAR, also align mycelium for gene prediction
+#Align mycelium reads to FALCON assembly with STAR
 
 ```bash
 for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
@@ -155,7 +155,7 @@ do
     Strain=Bc16
     Organism=P.fragariae
     echo "$Organism - $Strain"
-    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz)
+    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/mycelium/F/*_trim.fq.gz)
     do
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
         while [ $Jobs -gt 1 ]
@@ -177,5 +177,3 @@ do
     done
 done
 ```
-
---progress here--
