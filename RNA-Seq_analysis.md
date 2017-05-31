@@ -181,7 +181,7 @@ done
 ##Align all timepoints to *Fragaria vesca* genome v1.1
 
 ```bash
-for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz | grep -v 'TA-3')
+for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz | grep -v 'TA-3')
 do
     Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
     while [ $Jobs -gt 1 ]
