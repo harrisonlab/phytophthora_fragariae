@@ -453,7 +453,7 @@ IlluminaAssembly=assembly/spades/P.fragariae/Bc16/filtered_contigs/contigs_min_5
 OutDir=assembly/merged_FALCON_spades/$Organism/$Strain
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/quickmerge
 echo $IlluminaAssembly
-qsub $ProgDir/sub_quickmerge.sh $IlluminaAssembly $PacBioAssembly $OutDir 19795
+qsub $ProgDir/sub_quickmerge.sh $PacBioAssembly $IlluminaAssembly $OutDir 923458
 ```
 
 Regardless of whether the N50 of SPAdes or FALCON assembly it ends up with > 1000 contigs!
