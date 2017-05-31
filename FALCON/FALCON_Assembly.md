@@ -453,5 +453,5 @@ IlluminaAssembly=assembly/spades/P.fragariae/Bc16/filtered_contigs/contigs_min_5
 OutDir=assembly/merged_FALCON_spades/$Organism/$Strain
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/quickmerge
 echo $IlluminaAssembly
-qsub $ProgDir/sub_quickmerge.sh $IlluminaAssembly $PacBioAssembly $OutDir
+qsub $ProgDir/sub_quickmerge.sh $IlluminaAssembly $PacBioAssembly $OutDir 923458
 ```
