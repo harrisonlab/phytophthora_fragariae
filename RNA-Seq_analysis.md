@@ -177,3 +177,30 @@ do
     done
 done
 ```
+
+##Align all timepoints to *Fragaria vesca* genome v1.1
+
+```bash
+for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz | grep -v 'TA-3')
+do
+    Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+    done
+    printf "\n"
+    FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
+    echo $FileF
+    echo $FileR
+    Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
+    echo "$Timepoint"
+    Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
+    OutDir=alignment/star/vesca_alignment/$Timepoint/$Sample_Name
+    ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
+    Assembly=/home/sobczm/popgen/rnaseq/fvesca_v1.1_all.fa
+    GFF=/home/sobczm/popgen/rnaseq/Fragaria_vesca_v1.1.a2.gff3
+    qsub $ProgDir/sub_star_sensitive.sh $Assembly $FileF $FileR $OutDir $GFF
+done
+```
