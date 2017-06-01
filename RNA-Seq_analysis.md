@@ -212,13 +212,6 @@ done
 ```bash
 for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
 do
-    Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-    while [ $Jobs -gt 1 ]
-    do
-        sleep 1m
-        printf "."
-        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-    done
     printf "\n"
     cat $AlignDir/star_aligmentUnmapped.out.mate1 | gzip -cf >$AlignDir/star_aligmentUnmapped.out.mate1.fq.gz
     cat $AlignDir/star_aligmentUnmapped.out.mate2 | gzip -cf >$AlignDir/star_aligmentUnmapped.out.mate2.fq.gz
