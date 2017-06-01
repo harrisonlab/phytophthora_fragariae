@@ -228,10 +228,40 @@ do
     echo $File2
     Timepoint=$(echo $AlignDir | rev | cut -d '/' -f2 | rev)
     echo "$Timepoint"
-    Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev)
+    Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
     OutDir=alignment/star/P.fragariae/Bc16/$Timepoint/$Sample_Name
     ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
     Assembly=/home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial/quiver_results/polished/filtered_contigs/Bc16_contigs_renamed.fasta
     qsub $ProgDir/sub_star_sensitive.sh $Assembly $File1 $File2 $OutDir
+done
+```
+
+###Illumina genomes
+
+```bash
+for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+do
+    for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
+    do
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        done
+        printf "\n"
+        File1=$AlignDir/star_aligmentUnmapped.out.mate1.fq.gz
+        File2=$AlignDir/star_aligmentUnmapped.out.mate2.fq.gz
+        echo $File1
+        echo $File2
+        Timepoint=$(echo $AlignDir | rev | cut -d '/' -f2 | rev)
+        echo "$Timepoint"
+        Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
+        Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
+        OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
+        ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
+        qsub $ProgDir/sub_star_sensitive.sh $Assembly $File1 $File2 $OutDir
+    done
 done
 ```
