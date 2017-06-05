@@ -1110,25 +1110,28 @@ FALCON assembly aligning shown in RNA-Seq_analysis.md
 Alignment outputs were concatenated and braker prediction was run
 
 ```bash
-for Assembly in $(ls repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+for Assembly in $(ls repeat_masked/*/*/filtered_contigs_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
 do
-    Jobs=$(qstat | grep 'tophat' | grep -w 'r' | wc -l)
-    while [ $Jobs -gt 1 ]
-    do
-        sleep 10
-        printf "."
-        Jobs=$(qstat | grep 'tophat' | grep -w 'r' | wc -l)
-    done
-    printf "\n"
     Strain=$(echo $Assembly| rev | cut -d '/' -f3 | rev)
-    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
+    Organism=P.fragariae
     echo "$Organism - $Strain"
     mkdir -p alignment/$Organism/$Strain/concatenated
     samtools merge -f alignment/$Organism/$Strain/concatenated/concatenated.bam \
-    alignment/$Organism/$Strain/P.frag/1/accepted_hits.bam \
-    alignment/$Organism/$Strain/P.frag/2/accepted_hits.bam \
-    alignment/$Organism/$Strain/P.rubi/1/accepted_hits.bam \
-    alignment/$Organism/$Strain/P.frag/2/accepted_hits.bam
+    alignment/star/$Organism/$Strain/0hr/TA-01/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/0hr/TA-02/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/0hr/TA-03/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/24hr/TA-07/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/24hr/TA-08/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/24hr/TA-09/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/48hr/TA-12/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/48hr/TA-13/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/48hr/TA-14/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/96hr/TA-18/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/96hr/TA-19/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/96hr/TA-20/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/mycelium/TA-32/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/mycelium/TA-34/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/mycelium/TA-35/star_aligmentAligned.sortedByCoord.out.bam
     OutDir=gene_pred/braker/$Organism/"$Strain"_braker
     AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
     GeneModelName="$Organism"_"$Strain"_braker
