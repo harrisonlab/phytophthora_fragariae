@@ -1109,15 +1109,17 @@ FALCON assembly aligning shown in RNA-Seq_analysis.md
 
 #Braker prediction
 
-Alignment outputs were concatenated and braker prediction was run
+##Alignment outputs were concatenated and braker prediction was run
 
-TODO: A4, BC-1, BC-16, BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245
+TODO: A4 (CAT), BC-1, BC-16 (B), BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245
+
+###Concatenation
 
 ```bash
-Strain=Bc16
+Strain=A4
 Organism=P.fragariae
 echo "$Organism - $Strain"
-Assembly=repeat_masked/quiver_results/$Strain/filtered_contigs_repmask/polished_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
 mkdir -p alignment/$Organism/$Strain/concatenated
 samtools merge -f alignment/$Organism/$Strain/concatenated/concatenated.bam \
 alignment/star/$Organism/$Strain/0hr/TA-01/star_aligmentAligned.sortedByCoord.out.bam \
@@ -1135,6 +1137,15 @@ alignment/star/$Organism/$Strain/96hr/TA-20/star_aligmentAligned.sortedByCoord.o
 alignment/star/$Organism/$Strain/mycelium/TA-32/star_aligmentAligned.sortedByCoord.out.bam \
 alignment/star/$Organism/$Strain/mycelium/TA-34/star_aligmentAligned.sortedByCoord.out.bam \
 alignment/star/$Organism/$Strain/mycelium/TA-35/star_aligmentAligned.sortedByCoord.out.bam
+```
+
+###Run Braker
+
+```bash
+Strain=A4
+Organism=P.fragariae
+echo "$Organism - $Strain"
+Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
 OutDir=gene_pred/braker/$Organism/"$Strain"_braker
 AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
 GeneModelName="$Organism"_"$Strain"_braker
