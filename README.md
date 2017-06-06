@@ -1114,7 +1114,7 @@ TODO: A4 (Brak & Cuff), BC-1, BC-16 (Brak & Cuff), BC-23, NOV-27, NOV-5, NOV-71,
 ###Concatenation
 
 ```bash
-Strain=A4
+Strain=Bc1
 Organism=P.fragariae
 echo "$Organism - $Strain"
 Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
