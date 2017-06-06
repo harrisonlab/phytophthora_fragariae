@@ -1161,10 +1161,10 @@ Firstly, aligned RNAseq data was assembled into transcripts using Cufflinks.
 Note - cufflinks doesn't always predict direction of a transcript and therefore features can not be restricted by strand when they are intersected.
 
 ```bash
-Strain=Bc16
+Strain=A4
 Organism=P.fragariae
 echo "$Organism - $Strain"
-Assembly=repeat_masked/quiver_results/$Strain/filtered_contigs_repmask/polished_contigs_unmasked.fa
+Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/polished_contigs_unmasked.fa
 OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated
 mkdir -p $OutDir
 AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
