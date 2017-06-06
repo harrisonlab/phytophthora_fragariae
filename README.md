@@ -1105,8 +1105,6 @@ done
 
 FALCON assembly aligning shown in RNA-Seq_analysis.md
 
---progress here--
-
 #Braker prediction
 
 ##Alignment outputs were concatenated and braker prediction was run
