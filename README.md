@@ -1230,13 +1230,13 @@ done
 The final number of genes per isolate was observed using:
 
 ```bash
-for DirPath in $(ls -d gene_pred/codingquary/P.*/*/final)
+for DirPath in $(ls -d gene_pred/codingquarry/P.*/*/final)
 do
     echo $DirPath
     echo Braker:
     cat $DirPath/final_genes_Braker.pep.fasta | grep '>' | wc -l
     echo CodingQuarry:
-    cat $DirPath/final_genes_CodingQuary.pep.fasta | grep '>' | wc -l
+    cat $DirPath/final_genes_CodingQuarry.pep.fasta | grep '>' | wc -l
     echo Total:
     cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l
     echo ""
@@ -1254,11 +1254,11 @@ Total:
 
 Bc16
 Braker:
-33989
+31,743
 CodingQuarry:
-3875
+4,817
 Total:
-37864
+36,560
 
 Bc1
 Braker:
