@@ -1109,7 +1109,7 @@ FALCON assembly aligning shown in RNA-Seq_analysis.md
 
 ##Alignment outputs were concatenated and braker prediction was run
 
-TODO: A4 (CQ), BC-1 (Brak & Cuff), BC-16 (CQ), BC-23 (CAT), NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245
+TODO: A4 (CQ), BC-1 (Brak & Cuff), BC-16 (CQ), BC-23 (Brak & Cuff), NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245
 
 ###Concatenation
 
@@ -1140,7 +1140,7 @@ alignment/star/$Organism/$Strain/mycelium/TA-35/star_aligmentAligned.sortedByCoo
 ###Run Braker
 
 ```bash
-Strain=Bc1
+Strain=Bc23
 Organism=P.fragariae
 echo "$Organism - $Strain"
 Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
@@ -1161,7 +1161,7 @@ Firstly, aligned RNAseq data was assembled into transcripts using Cufflinks.
 Note - cufflinks doesn't always predict direction of a transcript and therefore features can not be restricted by strand when they are intersected.
 
 ```bash
-Strain=Bc1
+Strain=Bc23
 Organism=P.fragariae
 echo "$Organism - $Strain"
 Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/polished_contigs_unmasked.fa
