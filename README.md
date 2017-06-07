@@ -1109,7 +1109,7 @@ FALCON assembly aligning shown in RNA-Seq_analysis.md
 
 ##Alignment outputs were concatenated and braker prediction was run
 
-TODO: A4 ([Brak] & [Cuff]), BC-1 ([CAT]), BC-16 ([Brak] & Cuff), BC-23 (CAT), NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245
+TODO: A4 ([Brak] & [Cuff]), BC-1 (Brak & Cuff), BC-16 ([Brak] & Cuff), BC-23 (CAT), NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245
 
 ###Concatenation
 
