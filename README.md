@@ -1175,10 +1175,10 @@ qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
 Secondly, genes were predicted using CodingQuarry:
 
 ```bash
-Strain=Bc16
+Strain=A4
 Organism=P.fragariae
 echo "$Organism - $Strain"
-Assembly=repeat_masked/quiver_results/$Strain/filtered_contigs_repmask/polished_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
 OutDir=gene_pred/codingquarry/$Organism/$Strain
 CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
