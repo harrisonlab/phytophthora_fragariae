@@ -1739,15 +1739,13 @@ do
 done
 ```
 
---BC-16 progress A--
-
 ```
 P.fragariae A4
 Initial search space (Z):              32263  [actual number of targets]
 Domain search space  (domZ):             179  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):              37864  [actual number of targets]
-Domain search space  (domZ):             211  [number of targets reported over threshold]
+Initial search space (Z):              36,560 [actual number of targets]
+Domain search space  (domZ):             216  [number of targets reported over threshold]
 P.fragariae Bc1
 Initial search space (Z):              33022  [actual number of targets]
 Domain search space  (domZ):             192  [number of targets reported over threshold]
