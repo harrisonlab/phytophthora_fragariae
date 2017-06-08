@@ -1380,7 +1380,7 @@ ORF_finder - Bc1
 657485
 
 ORF_finder - Bc16
-821804
+776,140
 
 ORF_finder - Bc23
 648214
