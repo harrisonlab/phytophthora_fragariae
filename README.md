@@ -1518,7 +1518,7 @@ Secreted proteins from different sources were combined into a single file:
 ```bash
 for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    for Proteome in $(ls gene_pred/codingquary/*/$Strain/final/final_genes_combined.pep.fasta)
+    for Proteome in $(ls gene_pred/codingquarry/*/$Strain/final/final_genes_combined.pep.fasta)
     do
         Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
         echo "$Organism - $Strain"
