@@ -1109,12 +1109,12 @@ FALCON assembly aligning shown in RNA-Seq_analysis.md
 
 ##Alignment outputs were concatenated and braker prediction was run
 
-TODO: A4 (done), BC-1 ([CQ]), BC-16 (done), BC-23 ([CQ]), NOV-27 ([CQ]), NOV-5 ([CQ]), NOV-71 (Brak & Cuff), NOV-77 (Brak & Cuff), NOV-9 (missing all 48hr alignments - resubmit), ONT-3 (Brak & Cuff), SCRP245 (Brak & Cuff)
+TODO: A4 (done), BC-1 ([CQ]), BC-16 (done), BC-23 ([CQ]), NOV-27 ([CQ]), NOV-5 ([CQ]), NOV-71 (Brak & Cuff), NOV-77 (Brak & Cuff), NOV-9 (CAT), ONT-3 (Brak & Cuff), SCRP245 (Brak & Cuff)
 
 ###Concatenation
 
 ```bash
-Strain=SCRP245_v2
+Strain=Nov9
 Organism=P.fragariae
 echo "$Organism - $Strain"
 Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
