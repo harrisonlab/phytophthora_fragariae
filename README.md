@@ -1109,7 +1109,7 @@ FALCON assembly aligning shown in RNA-Seq_analysis.md
 
 ##Alignment outputs were concatenated and braker prediction was run
 
-TODO: A4 (done), BC-1 (CQ), BC-16 (merge), BC-23 (Brak & Cuff), NOV-27 (Brak & Cuff), NOV-5 (Brak & Cuff), NOV-71 (CON), NOV-77, NOV-9, ONT-3, SCRP245
+TODO: A4 (done), BC-1 (CQ), BC-16 (done), BC-23 (CQ), NOV-27 (Brak & Cuff), NOV-5 (Brak & Cuff), NOV-71 (CON), NOV-77, NOV-9, ONT-3, SCRP245
 
 ###Concatenation
 
@@ -1175,7 +1175,7 @@ qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
 Secondly, genes were predicted using CodingQuarry:
 
 ```bash
-Strain=Bc1
+Strain=Bc23
 Organism=P.fragariae
 echo "$Organism - $Strain"
 Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
