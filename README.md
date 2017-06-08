@@ -1633,6 +1633,8 @@ do
 done
 ```
 
+--BC-16 progress A--
+
 ```
 strain: A4      species: P.fragariae
 the total number of SigP gene is:       10228
@@ -2083,6 +2085,8 @@ do
     done
 done
 ```
+
+--BC-16 progress O--
 
 The batch files of predicted secreted proteins needed to be combined into a single file for each strain. This was done with the following commands:
 
