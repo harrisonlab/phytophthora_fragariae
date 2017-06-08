@@ -1809,8 +1809,6 @@ do
 done
 ```
 
---BC-16 progress A--
-
 ```
 P.fragariae - A4
 Number of RxLRs identified by Regex:
@@ -1823,13 +1821,13 @@ Number of genes in the extracted gff file:
 222
 P.fragariae - Bc16
 Number of RxLRs identified by Regex:
-219
+206
 Number of RxLRs identified by Hmm:
-211
+213
 Number of RxLRs in combined dataset:
-263
+256
 Number of genes in the extracted gff file:
-263
+256
 P.fragariae - Bc1
 Number of RxLRs identified by Regex:
 196
