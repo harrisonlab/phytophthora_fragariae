@@ -1957,12 +1957,12 @@ Domain search space  (domZ):             112  [number of targets reported over t
 Total number of CRNs from both models
 102
 P.fragariae - Bc16
-Initial search space (Z):              37864  [actual number of targets]
-Domain search space  (domZ):             150  [number of targets reported over threshold]
-Initial search space (Z):              37864  [actual number of targets]
-Domain search space  (domZ):             133  [number of targets reported over threshold]
+Initial search space (Z):             36,560  [actual number of targets]
+Domain search space  (domZ):             152  [number of targets reported over threshold]
+Initial search space (Z):             36,560  [actual number of targets]
+Domain search space  (domZ):             130  [number of targets reported over threshold]
 Total number of CRNs from both models
-120
+121
 P.fragariae - Bc1
 Initial search space (Z):              33022  [actual number of targets]
 Domain search space  (domZ):             140  [number of targets reported over threshold]
