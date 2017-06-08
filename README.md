@@ -1633,8 +1633,6 @@ do
 done
 ```
 
---BC-16 progress A--
-
 ```
 strain: A4      species: P.fragariae
 the total number of SigP gene is:       10228
@@ -1644,10 +1642,10 @@ the number of SigP-RxLR-EER genes are:  182
 
 
 strain: Bc16    species: P.fragariae
-the total number of SigP gene is:       12456
-the number of unique SigP gene is:      4270
-the number of SigP-RxLR genes are:      445
-the number of SigP-RxLR-EER genes are:  219
+the total number of SigP gene is:       12,230
+the number of unique SigP gene is:      4,223
+the number of SigP-RxLR genes are:      444
+the number of SigP-RxLR-EER genes are:  209
 
 
 strain: Bc1     species: P.fragariae
