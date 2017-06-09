@@ -2084,8 +2084,6 @@ do
 done
 ```
 
---BC-16 progress O--
-
 The batch files of predicted secreted proteins needed to be combined into a single file for each strain. This was done with the following commands:
 
 ```bash
@@ -2267,6 +2265,8 @@ do
     done
 done
 ```
+
+--progress here--
 
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
 
