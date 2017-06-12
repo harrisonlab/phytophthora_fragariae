@@ -2266,8 +2266,6 @@ do
 done
 ```
 
---progress here--
-
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
 
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
@@ -2319,10 +2317,10 @@ Merged RxLR-EER regex proteins: 260
 
 
 strain: Bc16    species: P.fragariae
-the number of SigP gene is:     92845
-the number of SigP-RxLR genes are:      2773
-the number of SigP-RxLR-EER genes are:  327
-Merged RxLR-EER regex proteins: 297
+the number of SigP gene is:     87,857
+the number of SigP-RxLR genes are:      2,648
+the number of SigP-RxLR-EER genes are:  317
+Merged RxLR-EER regex proteins: 288
 
 
 strain: Bc1     species: P.fragariae
