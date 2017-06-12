@@ -258,3 +258,5 @@ do
     done
 done
 ```
+
+#Making a combined file of Braker and CodingQuary genes with additional ORF effector candidates
