@@ -487,7 +487,7 @@ rld <- rlog( dds )
 # Through heatmaps:
 #=
 
-pdf("alignment/star/P.cactorum/10300/DeSeq/heatmap_vst.pdf", width=12,height=12)
+pdf("alignment/star/P.fragariae/Bc16/DeSeq/heatmap_vst.pdf", width=12,height=12)
 sampleDists<-dist(t(assay(vst)))
 
 sampleDistMatrix <- as.matrix(sampleDists)
