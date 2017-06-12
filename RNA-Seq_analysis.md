@@ -290,3 +290,22 @@ Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polishe
 $ProgDir/gff2fasta.pl $Assembly $OutDir/Bc16_genes_incl_ORFeffectors.gff3 $OutDir/Bc16_genes_incl_ORFeffectors
 # Note - these fasta files have not been validated - do not use
 ```
+
+#Quantification of gene models
+
+```bash
+Gff=gene_pred/annotation/P.cactorum/10300/10300_genes_incl_ORFeffectors.gff3
+for BamFile in $(ls alignment/star/P.cactorum/10300/Sample_*/star_aligmentAligned.sortedByCoord.out.bam); do
+    OutDir=$(dirname $BamFile)
+    Prefix=$(echo $BamFile | rev | cut -f2 -d '/' | rev)
+    Jobs=$(qstat | grep 'sub_fea' | grep 'qw'| wc -l)
+    while [ $Jobs -gt 1 ]; do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_fea' | grep 'qw'| wc -l)
+    done
+    printf "\n"
+    echo $Prefix
+    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/RNAseq
+    qsub $ProgDir/sub_featureCounts.sh $BamFile $Gff $OutDir $Prefix
+done
