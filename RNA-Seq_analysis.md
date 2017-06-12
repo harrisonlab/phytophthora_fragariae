@@ -517,7 +517,7 @@ dev.off()
 #=
 
 
-pdf("alignment/star/P.cactorum/10300/DeSeq/PCA_vst.pdf")
+pdf("alignment/star/P.fragariae/Bc16/DeSeq/PCA_vst.pdf")
 plotPCA(vst,intgroup=c("Isolate", "Timepoint"))
 dev.off()
 
