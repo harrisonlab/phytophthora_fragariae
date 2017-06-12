@@ -425,7 +425,7 @@ write.table(countData,"alignment/star/P.fragariae/Bc16/DeSeq/countData.txt",sep=
 #write.table(countDataSubset,"alignment/star/P.cactorum/10300/DeSeq/countDataCombined.txt",sep="\t",na="",quote=F)
 
 #output gene details
-write.table(m[,1:6,with=F],"alignment/star/P.cactorum/10300/DeSeq/genes.txt",sep="\t",quote=F,row.names=F)
+write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/genes.txt",sep="\t",quote=F,row.names=F)
 # colnames(countData) <- sub("X","",colnames(countData)) countData <- countData[,colData$Sample]
 
 
