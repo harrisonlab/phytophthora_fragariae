@@ -420,7 +420,7 @@ countData <- countData[,-1]
 #===============================================================================
 
 #output countData
-write.table(countData,"alignment/star/P.cactorum/10300/DeSeq/countData.txt",sep="\t",na="",quote=F)
+write.table(countData,"alignment/star/P.fragariae/Bc16/DeSeq/countData.txt",sep="\t",na="",quote=F)
 # output countData with technical reps combined
 #write.table(countDataSubset,"alignment/star/P.cactorum/10300/DeSeq/countDataCombined.txt",sep="\t",na="",quote=F)
 
