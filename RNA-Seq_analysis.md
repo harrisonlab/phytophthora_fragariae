@@ -343,8 +343,6 @@ do
     printf "Sample_$i\t$Timepoint\n"
 done >> $OutDir/P.frag_Bc16_RNAseq_design.txt
 
-cat $OutDir/P.cac_10300_RNAseq_design.txt | grep -e "Sample.name" -e "Sample_13" -e "Sample_14" -e "Sample_15" -e "Sample_16" -e "Sample_17" -e "Sample_18" > $OutDir/P.cac_10300_RNAseq_design_parsed.txt
-
 # Edit header lines of feature coutn files to ensure they have the treatment name rather than file name
 OutDir=alignment/star/P.cactorum/10300/DeSeq
 mkdir -p $OutDir
