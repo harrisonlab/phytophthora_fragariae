@@ -316,27 +316,32 @@ done
 ##A file was created with columns referring to experimental treatments
 
 ```bash
-OutDir=alignment/star/P.cactorum/10300/DeSeq
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq
 mkdir -p $OutDir
-printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.cac_10300_RNAseq_design.txt
+printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_Bc16_RNAseq_design.txt
 # for File in $(ls alignment/star/P.cactorum/10300/Sample_*/Sample_*_featurecounts.txt); do
 # Sample=$(echo $File | rev | cut -f2 -d '/' | rev)
 # i=$(echo $Sample | sed 's/Sample_//g')
-for i in $(seq 1 18); do
-    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ] || [ $i == '7' ] || [ $i == '8' ] || [ $i == '9' ] || [ $i == '10' ]; then
-        Timepoint='24_hpi'
-    elif [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ] || [ $i == '11' ] || [ $i == '12' ] || [ $i == '13' ] || [ $i == '14' ] || [ $i == '15' ]; then
-        Timepoint='72_hpi'
-    elif [ $i == '16' ] || [ $i == '17' ] || [ $i == '18' ]; then
-        Timepoint='V8_media'
+for i in $(seq 1 15)
+do
+    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
+    then
+        Timepoint='0hr'
+    elif [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ]
+    then
+        Timepoint='24hr'
+    elif [ $i == '7' ] || [ $i == '8' ] || [ $i == '9' ]
+    then
+        Timepoint='48hr'
+    elif [ $i == '10' ] || [ $i == '11' ] || [ $i == '12' ]
+    then
+        Timepoint='96hr'
+    elif [ $i == '13' ] || [ $i == '14' ] || [ $i == '15' ]
+    then
+        Timepoint='mycelium'
     fi
-    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ] || [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ]; then
-        Infection='mock'
-    else
-        Infection='Pcac'
-    fi
-    printf "Sample_$i\t$Timepoint\t$Infection\n"
-done >> $OutDir/P.cac_10300_RNAseq_design.txt
+    printf "Sample_$i\t$Timepoint\n"
+done >> $OutDir/P.frag_Bc16_RNAseq_design.txt
 
 cat $OutDir/P.cac_10300_RNAseq_design.txt | grep -e "Sample.name" -e "Sample_13" -e "Sample_14" -e "Sample_15" -e "Sample_16" -e "Sample_17" -e "Sample_18" > $OutDir/P.cac_10300_RNAseq_design_parsed.txt
 
