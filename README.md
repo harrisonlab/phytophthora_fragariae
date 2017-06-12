@@ -3238,7 +3238,7 @@ Interproscan was used to give gene models functional annotations.
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Genes in $(ls gene_pred/codingquary/P.fragariae/*/final/final_genes_combined.gene.fasta)
+for Genes in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.gene.fasta)
 do
     $ProgDir/sub_interproscan.sh $Genes
 done
