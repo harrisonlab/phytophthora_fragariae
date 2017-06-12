@@ -2693,7 +2693,7 @@ do
     Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
     AugGff=$MergeDir/"$Strain"_total_RxLR.gff
     AugTxt=$MergeDir/"$Strain"_total_RxLR_headers.txt
-    AugFa=$(ls gene_pred/codingquary/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
+    AugFa=$(ls gene_pred/codingquarry/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
 
     ORFGff=$(ls $MergeDir/"$Strain"_total_ORF_RxLR.gff)
     ORFsFa=$(ls gene_pred/ORF_finder/"$Species"/"$Strain"/"$Strain".aa_cat.fa)
