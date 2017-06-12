@@ -294,18 +294,20 @@ $ProgDir/gff2fasta.pl $Assembly $OutDir/Bc16_genes_incl_ORFeffectors.gff3 $OutDi
 #Quantification of gene models
 
 ```bash
-Gff=gene_pred/annotation/P.cactorum/10300/10300_genes_incl_ORFeffectors.gff3
-for BamFile in $(ls alignment/star/P.cactorum/10300/Sample_*/star_aligmentAligned.sortedByCoord.out.bam); do
+Gff=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3
+for BamFile in $(ls alignment/star/P.fragariae/Bc16/*/*/star_aligmentAligned.sortedByCoord.out.bam)
+do
     OutDir=$(dirname $BamFile)
     Prefix=$(echo $BamFile | rev | cut -f2 -d '/' | rev)
     Jobs=$(qstat | grep 'sub_fea' | grep 'qw'| wc -l)
-    while [ $Jobs -gt 1 ]; do
+    while [ $Jobs -gt 1 ]
+    do
         sleep 1m
         printf "."
         Jobs=$(qstat | grep 'sub_fea' | grep 'qw'| wc -l)
     done
     printf "\n"
     echo $Prefix
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/RNAseq
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
     qsub $ProgDir/sub_featureCounts.sh $BamFile $Gff $OutDir $Prefix
 done
