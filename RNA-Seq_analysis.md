@@ -340,7 +340,13 @@ do
     then
         Timepoint='mycelium'
     fi
-    printf "Sample_$i\t$Timepoint\n"
+    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
+    then
+        Infection='mock'
+    else
+        Infection='Bc16'
+    fi
+    printf "Sample_$i\t$Timepoint\t$Infection\n"
 done >> $OutDir/P.frag_Bc16_RNAseq_design.txt
 
 # Edit header lines of feature counts files to ensure they have the treatment name rather than file name
