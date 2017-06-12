@@ -344,13 +344,15 @@ do
 done >> $OutDir/P.frag_Bc16_RNAseq_design.txt
 
 # Edit header lines of feature coutn files to ensure they have the treatment name rather than file name
-OutDir=alignment/star/P.cactorum/10300/DeSeq
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq
 mkdir -p $OutDir
-for File in $(ls alignment/star/P.cactorum/10300/Sample*/*_featurecounts.txt); do
-    echo $File;
-    cp $File $OutDir/.;
+for File in $(ls alignment/star/P.fragariae/Bc16/*/*/*_featurecounts.txt)
+do
+    echo $File
+    cp $File $OutDir/.
 done
-for File in $(ls $OutDir/*_featurecounts.txt); do
+for File in $(ls $OutDir/*_featurecounts.txt)
+do
     Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
     sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
 done
