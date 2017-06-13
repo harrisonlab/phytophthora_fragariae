@@ -396,7 +396,7 @@ library("naturalsort")
 #===============================================================================
 
 #load tables into a "list of lists"
-qq <- lapply(list.files("alignment/star/P.cactorum/10300/DeSeq","Sample_.*_featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
+qq <- lapply(list.files("alignment/star/P.fragariae/Bc16/DeSeq","*_featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
 
 # ensure the samples column is the same name as the treament you want to use:
 qq[7]
