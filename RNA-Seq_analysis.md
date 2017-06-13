@@ -377,7 +377,7 @@ install.packages("ggrepel", Sys.getenv("R_LIBS_USER"), repos = "http://cran.case
 install.packages("gplots")
 #source("http://bioconductor.org/biocLite.R")
 #biocLite("DESeq2")
-install.packages(naturalsort)
+install.packages("naturalsort")
 
 
 # Load libraries
