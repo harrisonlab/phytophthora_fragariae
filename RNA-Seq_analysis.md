@@ -481,7 +481,7 @@ rld <- rlog( dds )
 # Through heatmaps:
 #=
 
-pdf("alignment/star/P.cactorum/10300/DeSeq/V8_heatmap_vst.pdf", width=12,height=12)
+pdf("alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_heatmap_vst.pdf", width=12,height=12)
 sampleDists<-dist(t(assay(vst)))
 
 sampleDistMatrix <- as.matrix(sampleDists)
@@ -496,7 +496,7 @@ heatmap( sampleDistMatrix,
   srtCol=45)
 dev.off()
 
-pdf("alignment/star/P.cactorum/10300/DeSeq/V8_heatmap_rld.pdf")
+pdf("alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_heatmap_rld.pdf")
 sampleDists <- dist( t( assay(rld) ) )
 library("RColorBrewer")
 sampleDistMatrix <- as.matrix( sampleDists )
