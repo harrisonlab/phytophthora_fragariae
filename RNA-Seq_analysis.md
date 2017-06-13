@@ -450,9 +450,8 @@ countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
 #       Setting the experimental design
 #===============================================================================
 
-#colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
-#design <- ~Group
-design <- ~ 1
+colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
+design <- ~Group
 
 #===============================================================================
 #       Setting "size factors" for normalisation between treatments
