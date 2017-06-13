@@ -377,6 +377,7 @@ install.packages("ggrepel", Sys.getenv("R_LIBS_USER"), repos = "http://cran.case
 install.packages("gplots")
 #source("http://bioconductor.org/biocLite.R")
 #biocLite("DESeq2")
+install.packages(naturalsort)
 
 
 # Load libraries
@@ -395,12 +396,10 @@ library(naturalsort)
 #===============================================================================
 
 #load tables into a "list of lists"
-qq <- lapply(list.files("alignment/star/P.fragariae/Bc16/DeSeq","*_featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
+qq <- lapply(list.files("alignment/star/P.cactorum/10300/DeSeq","Sample_.*_featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
 
 # ensure the samples column is the same name as the treament you want to use:
 qq[7]
-
-#mm <- qq%>%Reduce(function(dtf1,dtf2) inner_join(dtf1,dtf2,by=c("Geneid","Chr","Start","End","Strand","Length")), .)
 
 #merge the "list of lists" into a single table
 m <- Reduce(function(...) merge(..., all = T,by=c("Geneid","Chr","Start","End","Strand","Length")), qq)
@@ -414,25 +413,19 @@ countData <- countData[,-1]
 #       Select a subset of samples (if required)
 #===============================================================================
 
-
-# indexes <- unique(gsub("(.*)_L00.*", "\\1", colnames(countData)))
-#indexes <- c("Sample_13","Sample_14","Sample_15","Sample_16", "Sample_17", "Sample_18")
-
-#countDataSubset <- sapply(indexes, function(xx) rowSums(countData[,grep(paste(xx,'_', sep = ""), names(countData)), drop=FALSE]))
-
+indexes <- c("Sample_16", "Sample_17", "Sample_18")
+countDataSubset <- data.frame(countData[indexes])
 
 #===============================================================================
 #       Write a table of feature counts
 #===============================================================================
 
 #output countData
-write.table(countData,"alignment/star/P.fragariae/Bc16/DeSeq/countData.txt",sep="\t",na="",quote=F)
-# output countData with technical reps combined
-#write.table(countDataSubset,"alignment/star/P.cactorum/10300/DeSeq/countDataCombined.txt",sep="\t",na="",quote=F)
+write.table(countDataSubset,"alignment/star/P.cactorum/10300/DeSeq/V8_countData.txt",sep="\t",na="",quote=F)
 
 #output gene details
-write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/genes.txt",sep="\t",quote=F,row.names=F)
-# colnames(countData) <- sub("X","",colnames(countData)) countData <- countData[,colData$Sample]
+write.table(m[,1:6,with=F],"alignment/star/P.cactorum/10300/DeSeq/V8_genes.txt",sep="\t",quote=F,row.names=F)
+
 
 
 
@@ -444,10 +437,12 @@ write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/genes.txt",sep
 # as the rows of treatments in the experimental design table
 # As such, datasets are re-ordered before being combined.
 
-unorderedColData <- read.table("alignment/star/P.fragariae/Bc16/DeSeq/P.frag_Bc16_RNAseq_design.txt",header=T,sep="\t")
-colData <- data.frame(unorderedColData[ order(unorderedColData$Sample.name),])
-unorderedData <- read.table("alignment/star/P.fragariae/Bc16/DeSeq/countData.txt",header=T,sep="\t")
-#unorderedData <- read.table("alignment/star/P.cactorum/10300/DeSeq/countDataCombined.txt",header=T,sep="\t")
+unorderedColData <- read.table("alignment/star/P.cactorum/10300/DeSeq/P.cac_10300_RNAseq_design.txt",header=T,sep="\t")
+rownames(unorderedColData) <- unorderedColData$Sample.name
+unorderedColDataSubset <- unorderedColData[indexes,]
+
+colData <- data.frame(unorderedColDataSubset[ order(unorderedColDataSubset$Sample.name),])
+unorderedData <- read.table("alignment/star/P.cactorum/10300/DeSeq/V8_countData.txt",header=T,sep="\t")
 countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
 
 
@@ -455,10 +450,9 @@ countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
 #       Setting the experimental design
 #===============================================================================
 
-colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
-design <- ~Group
-
-
+#colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
+#design <- ~Group
+design <- ~ 1
 
 #===============================================================================
 #       Setting "size factors" for normalisation between treatments
@@ -487,7 +481,7 @@ rld <- rlog( dds )
 # Through heatmaps:
 #=
 
-pdf("alignment/star/P.fragariae/Bc16/DeSeq/heatmap_vst.pdf", width=12,height=12)
+pdf("alignment/star/P.cactorum/10300/DeSeq/V8_heatmap_vst.pdf", width=12,height=12)
 sampleDists<-dist(t(assay(vst)))
 
 sampleDistMatrix <- as.matrix(sampleDists)
@@ -502,7 +496,7 @@ heatmap( sampleDistMatrix,
   srtCol=45)
 dev.off()
 
-pdf("alignment/star/P.fragariae/Bc16/DeSeq/heatmap_rld.pdf")
+pdf("alignment/star/P.cactorum/10300/DeSeq/V8_heatmap_rld.pdf")
 sampleDists <- dist( t( assay(rld) ) )
 library("RColorBrewer")
 sampleDistMatrix <- as.matrix( sampleDists )
@@ -517,93 +511,27 @@ dev.off()
 #=
 
 
-pdf("alignment/star/P.fragariae/Bc16/DeSeq/PCA_vst.pdf")
+pdf("alignment/star/P.cactorum/10300/DeSeq/V8_PCA_vst.pdf")
 plotPCA(vst,intgroup=c("Isolate", "Timepoint"))
 dev.off()
 
-pdf("alignment/star/P.fragariae/Bc16/DeSeq/PCA_rld.pdf")
+pdf("alignment/star/P.cactorum/10300/DeSeq/V8_PCA_rld.pdf")
 plotPCA(rld,intgroup=c("Isolate","Timepoint"))
 dev.off()
 
 
 #Plot using rlog transformation, showing sample names:
 
-data <- plotPCA(rld, intgroup="Group", returnData=TRUE)
-percentVar <- round(100 * attr(data, "percentVar"))
+#data <- plotPCA(rld, intgroup="Group", returnData=TRUE)
+#percentVar <- round(100 * attr(data, "percentVar"))
 
-pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
- geom_point(size=3) +
- xlab(paste0("PC1: ",percentVar[1],"% variance")) +
- ylab(paste0("PC2: ",percentVar[2],"% variance")) + geom_text_repel(aes(label=colnames(rld)))
- coord_fixed()
+#pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
+# geom_point(size=3) +
+# xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+# ylab(paste0("PC2: ",percentVar[2],"% variance")) + geom_text_repel(aes(label=colnames(rld)))
+# coord_fixed()
 
-ggsave("alignment/star/P.fragariae/Bc16/DeSeq/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
-
-
-#===============================================================================
-#       Differential gene expression
-#===============================================================================
-
-#=
-# "Pcac_V8_media","Pcac_24_hpi":
-#=
-
-alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","Pcac_V8_media","Pcac_24_hpi"))
-sig.res <- subset(res,padj<=alpha)
-sig.res <- sig.res[order(sig.res$padj),]
-#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
-#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
-sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
-sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
-# No threshold
-sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
-sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
-
-write.table(sig.res,"alignment/star/P.cactorum/10300/DeSeq/Pcac_V8_media_vs_Pcac_24_hpi.txt",sep="\t",na="",quote=F)
-write.table(sig.res.upregulated,"alignment/star/P.cactorum/10300/DeSeq/Pcac_V8_media_vs_Pcac_24_hpi_up.txt",sep="\t",na="",quote=F)
-write.table(sig.res.downregulated,"alignment/star/P.cactorum/10300/DeSeq/Pcac_V8_media_vs_Pcac_24_hpi_down.txt",sep="\t",na="",quote=F)
-
-#=
-# "Pcac_V8_media","Pcac_72_hpi":
-#=
-
-alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","Pcac_V8_media","Pcac_72_hpi"))
-sig.res <- subset(res,padj<=alpha)
-sig.res <- sig.res[order(sig.res$padj),]
-#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
-#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
-sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
-sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
-# No threshold
-sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
-sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
-
-write.table(sig.res,"alignment/star/P.cactorum/10300/DeSeq/Pcac_V8_media_vs_Pcac_72_hpi.txt",sep="\t",na="",quote=F)
-write.table(sig.res.upregulated,"alignment/star/P.cactorum/10300/DeSeq/Pcac_V8_media_vs_Pcac_72_hpi_up.txt",sep="\t",na="",quote=F)
-write.table(sig.res.downregulated,"alignment/star/P.cactorum/10300/DeSeq/Pcac_V8_media_vs_Pcac_72_hpi_down.txt",sep="\t",na="",quote=F)
-
-#=
-# "Pcac_24_hpi","Pcac_72_hpi":
-#=
-
-alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","Pcac_24_hpi","Pcac_72_hpi"))
-sig.res <- subset(res,padj<=alpha)
-sig.res <- sig.res[order(sig.res$padj),]
-#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
-#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
-sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
-sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
-# No threshold
-sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
-sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
-
-write.table(sig.res,"alignment/star/P.cactorum/10300/DeSeq/Pcac_24_hpi_vs_Pcac_72_hpi.txt",sep="\t",na="",quote=F)
-write.table(sig.res.upregulated,"alignment/star/P.cactorum/10300/DeSeq/Pcac_24_hpi_vs_Pcac_72_hpi_up.txt",sep="\t",na="",quote=F)
-write.table(sig.res.downregulated,"alignment/star/P.cactorum/10300/DeSeq/Pcac_24_hpi_vs_Pcac_72_hpi_down.txt",sep="\t",na="",quote=F)
-
+#ggsave("alignment/star/P.cactorum/10300/DeSeq/V8_PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
 
 #===============================================================================
@@ -615,8 +543,8 @@ write.table(sig.res.downregulated,"alignment/star/P.cactorum/10300/DeSeq/Pcac_24
 #=
 
 raw_counts <- data.frame(counts(dds, normalized=FALSE))
-colnames(raw_counts) <- paste(colData$Group)
-write.table(raw_counts,"alignment/star/P.cactorum/10300/DeSeq/raw_counts.txt",sep="\t",na="",quote=F)
+# colnames(raw_counts) <- paste(colData$Group)
+write.table(raw_counts,"alignment/star/P.cactorum/10300/DeSeq/V8_raw_counts.txt",sep="\t",na="",quote=F)
 
 #=
 # Normalised counts:
@@ -626,8 +554,8 @@ write.table(raw_counts,"alignment/star/P.cactorum/10300/DeSeq/raw_counts.txt",se
 # odd "size factors"
 
 norm_counts <- data.frame(counts(dds, normalized=TRUE))
-colnames(norm_counts) <- paste(colData$Group)
-write.table(norm_counts,"alignment/star/P.cactorum/10300/DeSeq/normalised_counts.txt",sep="\t",na="",quote=F)
+#colnames(norm_counts) <- paste(colData$Group)
+write.table(norm_counts,"alignment/star/P.cactorum/10300/DeSeq/V8_normalised_counts.txt",sep="\t",na="",quote=F)
 
 #=
 # FPKM:
@@ -640,19 +568,16 @@ mygenes <- readDNAStringSet("gene_pred/annotation/P.cactorum/10300/10300_genes_i
 t1 <- counts(dds)
 
 
-
-#rownames(t1) <- gsub(".t.*", "", rownames(t1))
-
 t1 <- mygenes[rownames(t1)]
 rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
 
 # Robust option
 fpkm_counts <- data.frame(fpkm(dds, robust = TRUE))
-colnames(fpkm_counts) <- paste(colData$Group)
-write.table(fpkm_counts,"alignment/star/P.cactorum/10300/DeSeq/fpkm_norm_counts.txt",sep="\t",na="",quote=F)
+#colnames(fpkm_counts) <- paste(colData$Group)
+write.table(fpkm_counts,"alignment/star/P.cactorum/10300/DeSeq/V8_fpkm_norm_counts.txt",sep="\t",na="",quote=F)
 
 # Total counts
 fpkm_counts <- data.frame(fpkm(dds, robust = FALSE))
-colnames(fpkm_counts) <- paste(colData$Group)
-write.table(fpkm_counts,"alignment/star/P.cactorum/10300/DeSeq/fpkm_counts.txt",sep="\t",na="",quote=F)
+#colnames(fpkm_counts) <- paste(colData$Group)
+write.table(fpkm_counts,"alignment/star/P.cactorum/10300/DeSeq/V8_fpkm_counts.txt",sep="\t",na="",quote=F)
 ```
