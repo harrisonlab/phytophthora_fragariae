@@ -421,10 +421,10 @@ countDataSubset <- data.frame(countData[indexes])
 #===============================================================================
 
 #output countData
-write.table(countDataSubset,"alignment/star/P.cactorum/10300/DeSeq/V8_countData.txt",sep="\t",na="",quote=F)
+write.table(countDataSubset,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countData.txt",sep="\t",na="",quote=F)
 
 #output gene details
-write.table(m[,1:6,with=F],"alignment/star/P.cactorum/10300/DeSeq/V8_genes.txt",sep="\t",quote=F,row.names=F)
+write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_genes.txt",sep="\t",quote=F,row.names=F)
 
 
 
