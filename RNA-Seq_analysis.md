@@ -413,7 +413,7 @@ countData <- countData[,-1]
 #       Select a subset of samples (if required)
 #===============================================================================
 
-indexes <- c("Sample_16", "Sample_17", "Sample_18")
+indexes <- c("TA.07", "TA.08", "TA.09", "TA.12", "TA.13", "TA.14", "TA.18", "TA.19", "TA.20", "TA.32", "TA.34", "TA.35")
 countDataSubset <- data.frame(countData[indexes])
 
 #===============================================================================
