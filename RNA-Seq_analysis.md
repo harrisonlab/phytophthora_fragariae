@@ -346,7 +346,52 @@ do
     else
         Infection='Bc16'
     fi
-    printf "Sample_$i\t$Timepoint\t$Infection\n"
+    if [ $i == '1' ]
+    then
+        printf "TA.01\t$Timepoint\t$Infection\n"
+    elif [ $i == '2' ]
+    then
+        printf "TA.02\t$Timepoint\t$Infection\n"
+    elif [ $i == '3' ]
+    then
+        printf "TA.03\t$Timepoint\t$Infection\n"
+    elif [ $i == '4' ]
+    then
+        printf "TA.07\t$Timepoint\t$Infection\n"
+    elif [ $i == '5' ]
+    then
+        printf "TA.08\t$Timepoint\t$Infection\n"
+    elif [ $i == '6' ]
+    then
+        printf "TA.09\t$Timepoint\t$Infection\n"
+    elif [ $i == '7' ]
+    then
+        printf "TA.12\t$Timepoint\t$Infection\n"
+    elif [ $i == '8' ]
+    then
+        printf "TA.13\t$Timepoint\t$Infection\n"
+    elif [ $i == '9' ]
+    then
+        printf "TA.14\t$Timepoint\t$Infection\n"
+    elif [ $i == '10' ]
+    then
+        printf "TA.18\t$Timepoint\t$Infection\n"
+    elif [ $i == '11' ]
+    then
+        printf "TA.19\t$Timepoint\t$Infection\n"
+    elif [ $i == '12' ]
+    then
+        printf "TA.20\t$Timepoint\t$Infection\n"
+    elif [ $i == '13' ]
+    then
+        printf "TA.32\t$Timepoint\t$Infection\n"
+    elif [ $i == '14' ]
+    then
+        printf "TA.34\t$Timepoint\t$Infection\n"
+    elif [ $i == '15' ]
+    then
+        printf "TA.35\t$Timepoint\t$Infection\n"
+    fi
 done >> $OutDir/P.frag_Bc16_RNAseq_design.txt
 
 # Edit header lines of feature counts files to ensure they have the treatment name rather than file name
