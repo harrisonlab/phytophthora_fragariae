@@ -618,7 +618,7 @@ rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
 # Robust option
 fpkm_counts <- data.frame(fpkm(dds, robust = TRUE))
 #colnames(fpkm_counts) <- paste(colData$Group)
-write.table(fpkm_counts,"alignment/star/P.cactorum/10300/DeSeq/V8_fpkm_norm_counts.txt",sep="\t",na="",quote=F)
+write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_fpkm_norm_counts.txt",sep="\t",na="",quote=F)
 
 # Total counts
 fpkm_counts <- data.frame(fpkm(dds, robust = FALSE))
