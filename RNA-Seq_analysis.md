@@ -599,7 +599,7 @@ write.table(raw_counts,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_raw_counts
 
 norm_counts <- data.frame(counts(dds, normalized=TRUE))
 #colnames(norm_counts) <- paste(colData$Group)
-write.table(norm_counts,"alignment/star/P.cactorum/10300/DeSeq/V8_normalised_counts.txt",sep="\t",na="",quote=F)
+write.table(norm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_normalised_counts.txt",sep="\t",na="",quote=F)
 
 #=
 # FPKM:
