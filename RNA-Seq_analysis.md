@@ -382,14 +382,14 @@ install.packages("naturalsort")
 
 # Load libraries
 require("pheatmap")             
-require(data.table)
-require(DESeq2)
+require("data.table")
+require("DESeq2")
 library("RColorBrewer")
 #library("gplots", Sys.getenv("R_LIBS_USER"))
 library("ggplot2")
 library("ggrepel")
-library(Biostrings)
-library(naturalsort)
+library("Biostrings")
+library("naturalsort")
 
 #===============================================================================
 #       Import data
