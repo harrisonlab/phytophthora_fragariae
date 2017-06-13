@@ -588,7 +588,7 @@ dev.off()
 
 raw_counts <- data.frame(counts(dds, normalized=FALSE))
 # colnames(raw_counts) <- paste(colData$Group)
-write.table(raw_counts,"alignment/star/P.cactorum/10300/DeSeq/V8_raw_counts.txt",sep="\t",na="",quote=F)
+write.table(raw_counts,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_raw_counts.txt",sep="\t",na="",quote=F)
 
 #=
 # Normalised counts:
