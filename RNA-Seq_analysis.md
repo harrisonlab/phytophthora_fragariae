@@ -608,7 +608,7 @@ write.table(norm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_normalise
 # from the "library normalisation factors" of the library ("robust" option). This will
 # be influenced by your confidence in the normalisation accross your samples.
 
-mygenes <- readDNAStringSet("gene_pred/annotation/P.cactorum/10300/10300_genes_incl_ORFeffectors.cdna.fasta")
+mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cdna.fasta")
 t1 <- counts(dds)
 
 
