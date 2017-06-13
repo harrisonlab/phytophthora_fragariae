@@ -437,12 +437,12 @@ write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_genes.
 # as the rows of treatments in the experimental design table
 # As such, datasets are re-ordered before being combined.
 
-unorderedColData <- read.table("alignment/star/P.cactorum/10300/DeSeq/P.cac_10300_RNAseq_design.txt",header=T,sep="\t")
+unorderedColData <- read.table("alignment/star/P.fragariae/Bc16/DeSeq/P.frag_Bc16_RNAseq_design.txt",header=T,sep="\t")
 rownames(unorderedColData) <- unorderedColData$Sample.name
 unorderedColDataSubset <- unorderedColData[indexes,]
 
 colData <- data.frame(unorderedColDataSubset[ order(unorderedColDataSubset$Sample.name),])
-unorderedData <- read.table("alignment/star/P.cactorum/10300/DeSeq/V8_countData.txt",header=T,sep="\t")
+unorderedData <- read.table("alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countData.txt",header=T,sep="\t")
 countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
 
 
