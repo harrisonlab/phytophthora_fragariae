@@ -612,7 +612,8 @@ sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
 write.table(sig.res,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium.txt",sep="\t",na="",quote=F)
 write.table(sig.res.upregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
 write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
-Make a table of raw counts, normalised counts and fpkm values:
+
+#Make a table of raw counts, normalised counts and fpkm values:
 
 raw_counts <- data.frame(counts(dds, normalized=FALSE))
 colnames(raw_counts) <- paste(colData$Group)
