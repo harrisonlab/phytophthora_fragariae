@@ -590,10 +590,10 @@ sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
 sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
 sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
 
-write.table(sig.res.upregulated,"alignment/star/P.cactorum/414_v2/DeSeq/P414Fenella12h_vs_P414Fenella48.txt",sep="\t",na="",quote=F)
-write.table(sig.res,"alignment/star/P.cactorum/414_v2/DeSeq/P414Fenella12h_vs_P414Fenella48.txt",sep="\t",na="",quote=F)
-write.table(sig.res.upregulated,"alignment/star/P.cactorum/414_v2/DeSeq/P414Fenella12h_vs_P414Fenella48_up.txt",sep="\t",na="",quote=F)
-write.table(sig.res.downregulated,"alignment/star/P.cactorum/414_v2/DeSeq/P414Fenella12h_vs_P414Fenella48_down.txt",sep="\t",na="",quote=F)
+write.table(sig.res,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
+
 "P414Fenella48 hours","P414Emily48 hours"
 
 alpha <- 0.05
