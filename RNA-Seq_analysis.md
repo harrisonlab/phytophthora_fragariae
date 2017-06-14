@@ -455,10 +455,10 @@ write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_genes.
 #biocLite("DESeq2")
 require("DESeq2")
 
-unorderedColData <- read.table("alignment/star/P.cactorum/414_v2/DeSeq/P.cactorum_RNAseq_design_parsed.txt",header=T,sep="\t")
+unorderedColData <- read.table("alignment/star/P.fragariae/Bc16/DeSeq/P.frag_Bc16_RNAseq_design.txt",header=T,sep="\t")
 colData <- data.frame(unorderedColData[ order(unorderedColData$Sample.name),])
 # unorderedData <- read.table("alignment/star/P.cactorum/414_v2/DeSeq/countData.txt",header=T,sep="\t")
-unorderedData <- read.table("alignment/star/P.cactorum/414_v2/DeSeq/countDataCombined.txt",header=T,sep="\t")
+unorderedData <- read.table("alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countDataCombined.txt",header=T,sep="\t")
 countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
 # colData$Group <- paste0(colData$Isolate,colData$Plant.Line,colData$Rep,colData$Flowcell,colData$Timepoint)
 colData$Group <- paste0(colData$Isolate,colData$Plant.Line,colData$Timepoint)
