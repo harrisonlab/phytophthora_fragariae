@@ -498,7 +498,7 @@ library("ggrepel")
 
 vst<-varianceStabilizingTransformation(dds)
 
-pdf("alignment/star/P.cactorum/414_v2/DeSeq/heatmap_vst.pdf", width=12,height=12)
+pdf("alignment/star/P.fragariae/Bc16/DeSeq/heatmap_vst.pdf", width=12,height=12)
 sampleDists<-dist(t(assay(vst)))
 
 sampleDistMatrix <- as.matrix(sampleDists)
