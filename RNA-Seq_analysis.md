@@ -553,7 +553,7 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  ylab(paste0("PC2: ",percentVar[2],"% variance")) + geom_text_repel(aes(label=colnames(rld)))
  coord_fixed()
 
-ggsave("alignment/star/P.cactorum/414_v2/DeSeq/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
+ggsave("alignment/star/P.fragariae/Bc16/DeSeq/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 Analysis of gene expression
 
 "P414Emily12 hours","P414Emily48 hours"
