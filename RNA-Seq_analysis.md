@@ -530,12 +530,12 @@ heatmap( sampleDistMatrix, trace="none", col=colours, margins=c(12,12),srtCol=45
 
 #vst<-varianceStabilizingTransformation(dds)
 pdf("alignment/star/P.fragariae/Bc16/DeSeq/PCA_vst.pdf")
-plotPCA(vst,intgroup=c("Isolate", "Plant.Line", "Timepoint"))
+plotPCA(vst,intgroup=c("Isolate", "Timepoint"))
 dev.off()
 
 #Plot using rlog transformation:
 pdf("alignment/star/P.fragariae/Bc16/DeSeq/PCA_rld.pdf")
-plotPCA(rld,intgroup=c("Isolate", "Plant.Line", "Timepoint"))
+plotPCA(rld,intgroup=c("Isolate", "Timepoint"))
 dev.off()
 
 pdf("alignment/star/P.fragariae/Bc16/DeSeq/PCA_additional.pdf")
