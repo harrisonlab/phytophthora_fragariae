@@ -624,7 +624,7 @@ write.table(norm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/normalised_counts
 
 library(Biostrings)
 library(naturalsort)
-mygenes <- readDNAStringSet("gene_pred/annotation/P.cactorum/414_v2/414_v2_genes_incl_ORFeffectors.cdna.fasta")
+mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cdna.fasta")
 t1 <- counts(dds)
 t1 <- mygenes[rownames(t1)]
 rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
