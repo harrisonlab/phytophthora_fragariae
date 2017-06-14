@@ -525,8 +525,8 @@ rownames(sampleDistMatrix) <- paste(rld$Group)
 colnames(sampleDistMatrix) <- paste(rld$Group)
 colours = colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
 heatmap( sampleDistMatrix, trace="none", col=colours, margins=c(12,12),srtCol=45)
-dev.off()
-PCA plots
+
+#PCA plots
 
 #vst<-varianceStabilizingTransformation(dds)
 pdf("alignment/star/P.cactorum/414_v2/DeSeq/PCA_vst.pdf")
