@@ -3272,4 +3272,17 @@ do
 done
 ```
 
+##C)Identify genes with transmembrane domains
+WARNING: This has a high false positive rate
+
+```bash
+for Proteome in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.gene.fasta | grep 'Bc16')
+do
+    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
+    qsub $ProgDir/submit_TMHMM.sh $Proteome
+done
+```
+
 Further downstream analysis done in orthology_analysis.md
