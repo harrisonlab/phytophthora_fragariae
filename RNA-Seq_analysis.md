@@ -441,9 +441,7 @@ countDataSubset <- sapply(indexes, function(xx) rowSums(countData[,grep(paste(xx
 
 
 #output countData
-write.table(countData,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countData.txt",sep="\t",na="",quote=F)
-# output countData with technical reps combined
-write.table(countDataSubset,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countDataCombined.txt",sep="\t",na="",quote=F)
+write.table(countDataSubset,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countData.txt",sep="\t",na="",quote=F)
 
 #output gene details
 write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_genes.txt",sep="\t",quote=F,row.names=F)
