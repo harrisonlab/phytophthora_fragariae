@@ -578,7 +578,7 @@ write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24
 #48hr vs mycelium
 
 alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","P414Fenella12 hours","P414Fenella48 hours"))
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_48hr","Bc16_mycelium"))
 sig.res <- subset(res,padj<=alpha)
 sig.res <- sig.res[order(sig.res$padj),]
 #Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
