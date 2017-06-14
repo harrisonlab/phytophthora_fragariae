@@ -617,7 +617,7 @@ write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96
 
 raw_counts <- data.frame(counts(dds, normalized=FALSE))
 colnames(raw_counts) <- paste(colData$Group)
-write.table(raw_counts,"alignment/star/P.cactorum/414_v2/DeSeq/raw_counts2.txt",sep="\t",na="",quote=F)
+write.table(raw_counts,"alignment/star/P.fragariae/Bc16/DeSeq/raw_counts.txt",sep="\t",na="",quote=F)
 norm_counts <- data.frame(counts(dds, normalized=TRUE))
 colnames(norm_counts) <- paste(colData$Group)
 write.table(norm_counts,"alignment/star/P.cactorum/414_v2/DeSeq/normalised_counts.txt",sep="\t",na="",quote=F)
