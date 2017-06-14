@@ -437,7 +437,7 @@ countData <- countData[,-1]
 #indexes <- unique(gsub("(.*)_L00.*", "\\1", colnames(countData)))
 indexes <- c("TA.07", "TA.08", "TA.09", "TA.12", "TA.13", "TA.14", "TA.18", "TA.19", "TA.20", "TA.32", "TA.34", "TA.35")
 
-countDataSubset <- sapply(indexes, function(xx) rowSums(countData[,grep(paste(xx,'_', sep = ""), names(countData)), drop=FALSE]))
+countDataSubset <- data.frame(countData[indexes])
 
 
 #output countData
