@@ -487,7 +487,7 @@ dds <- DESeq(dds, fitType="local")
 #  sizeFactors(dds) <- sizeFactors(estimateSizeFactors(dds))
 #  dds <- DESeq(dds, fitType="local")
 #
-Sample Distances
+#Sample Distances
 
 library("RColorBrewer")
 install.packages("gplots")
