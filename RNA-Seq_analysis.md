@@ -453,7 +453,7 @@ write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_genes.
 
 #source("http://bioconductor.org/biocLite.R")
 #biocLite("DESeq2")
-require(DESeq2)
+require("DESeq2")
 
 unorderedColData <- read.table("alignment/star/P.cactorum/414_v2/DeSeq/P.cactorum_RNAseq_design_parsed.txt",header=T,sep="\t")
 colData <- data.frame(unorderedColData[ order(unorderedColData$Sample.name),])
