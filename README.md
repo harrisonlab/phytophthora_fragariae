@@ -3285,4 +3285,27 @@ do
 done
 ```
 
+##D)Identify genes with GPI anchors
+
+Proteins were identified by submitting the combined protein file to webserver at http://gpi.unibe.ch
+
+Output directory made
+
+```bash
+for Proteome in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.gene.fasta | grep 'Bc16')
+do
+    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    OutDir=gene_pred/trans_mem/$Organism/$Strain/GPIsom
+    mkdir -p $OutDir
+done
+```
+
+Results were parsed to the file
+
+```bash
+nano gene_pred/trans_mem/P.cactorum/414_v2/GPIsom/GPI_pos.fa
+```
+
 Further downstream analysis done in orthology_analysis.md
