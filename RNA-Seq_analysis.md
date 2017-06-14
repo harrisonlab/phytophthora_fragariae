@@ -554,7 +554,8 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  coord_fixed()
 
 ggsave("alignment/star/P.fragariae/Bc16/DeSeq/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
-Analysis of gene expression
+
+#Analysis of gene expression
 
 "P414Emily12 hours","P414Emily48 hours"
 
