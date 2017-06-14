@@ -461,7 +461,7 @@ colData <- data.frame(unorderedColData[ order(unorderedColData$Sample.name),])
 unorderedData <- read.table("alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countDataCombined.txt",header=T,sep="\t")
 countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
 # colData$Group <- paste0(colData$Isolate,colData$Plant.Line,colData$Rep,colData$Flowcell,colData$Timepoint)
-colData$Group <- paste0(colData$Isolate,colData$Timepoint)
+colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
 
 design <- ~Group
 #design <- colData$Group
