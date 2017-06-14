@@ -612,24 +612,6 @@ sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
 write.table(sig.res,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium.txt",sep="\t",na="",quote=F)
 write.table(sig.res.upregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
 write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
-"P414Fenella12 hours","P414Emily12 hours"
-
-alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","P414Fenella12 hours","P414Emily12 hours"))
-sig.res <- subset(res,padj<=alpha)
-sig.res <- sig.res[order(sig.res$padj),]
-#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
-#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
-sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
-sig.res.upregulated <- sig.res[order(sig.res$log2FoldChange, decreasing = TRUE),]
-sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
-# No threshold
-sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
-sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
-
-write.table(sig.res,"alignment/star/P.cactorum/414_v2/DeSeq/P414Fenella12h_vs_P414Emily12.txt",sep="\t",na="",quote=F)
-write.table(sig.res.upregulated,"alignment/star/P.cactorum/414_v2/DeSeq/P414Fenella12h_vs_P414Emily12_up.txt",sep="\t",na="",quote=F)
-write.table(sig.res.downregulated,"alignment/star/P.cactorum/414_v2/DeSeq/P414Fenella12h_vs_P414Emily12_down.txt",sep="\t",na="",quote=F)
 Make a table of raw counts, normalised counts and fpkm values:
 
 raw_counts <- data.frame(counts(dds, normalized=FALSE))
