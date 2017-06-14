@@ -416,7 +416,7 @@ done
 
 #install and load libraries
 require("pheatmap")             
-require(data.table)
+require("data.table")
 
 #load tables into a "list of lists"
 qq <- lapply(list.files("alignment/star/P.cactorum/414_v2/DeSeq","PRO.*_featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
