@@ -517,7 +517,7 @@ dev.off()
 
 rld <- rlog( dds )
 
-pdf("alignment/star/P.cactorum/414_v2/DeSeq/heatmap_rld.pdf")
+pdf("alignment/star/P.fragariae/Bc16/DeSeq/heatmap_rld.pdf")
 sampleDists <- dist( t( assay(rld) ) )
 library("RColorBrewer")
 sampleDistMatrix <- as.matrix( sampleDists )
