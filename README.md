@@ -3257,4 +3257,19 @@ do
 done
 ```
 
+##B)Swissprot
+
+```bash
+for Proteome in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.gene.fasta | grep 'Bc16')
+do
+    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+    OutDir=gene_pred/swissprot/$Organism/$Strain
+    SwissDbDir=/home/groups/harrisonlab/uniprot/swissprot
+    SwissDbName=uniprot_sprot
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/swissprot
+    qsub $ProgDir/sub_swissprot.sh $Proteome $OutDir $SwissDbDir $SwissDbName
+done
+```
+
 Further downstream analysis done in orthology_analysis.md
