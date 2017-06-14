@@ -638,3 +638,14 @@ fpkm_counts <- data.frame(fpkm(dds, robust = FALSE))
 colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt",sep="\t",na="",quote=F)
 ```
+
+#Inital analysis of tables of DEGs
+
+```bash
+for File in $(ls alignment/star/P.fragariae/Bc16/Bc16*)
+do
+    Assessment=basename $File
+    echo $Assessment
+    cat $File | grep -v 'baseMean' | wc -l
+done
+```
