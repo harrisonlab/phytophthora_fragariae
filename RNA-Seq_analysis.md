@@ -642,10 +642,21 @@ write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt",
 #Inital analysis of tables of DEGs
 
 ```bash
+RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_EER_motif_hmm.txt
+CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
 for File in $(ls alignment/star/P.fragariae/Bc16/DeSeq/Bc16*)
 do
     Assessment=$(basename $File | sed "s/.txt//g")
     echo $Assessment
+    echo "Total number of genes in dataset:"
     cat $File | grep -v 'baseMean' | wc -l
+    echo "Total number of RxLRs in dataset:"
+    RxLR_File=$(echo $File | sed "s/.txt/_RxLRs.txt/g")
+    cat $File | grep -o -w -f $RxLR_Names_Bc16 > $RxLR_File
+    cat $RxLR_File | wc -l
+    echo "Total number of CRNs in dataset:"
+    CRN_File=$(echo $File | sed "s/.txt/_CRNs.txt/g")
+    cat $File | grep -o -w -f $CRN_Names_Bc16 > $CRN_File
+    cat $CRN_File | wc -l
 done
 ```
