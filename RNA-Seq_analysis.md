@@ -642,9 +642,9 @@ write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt",
 #Inital analysis of tables of DEGs
 
 ```bash
-for File in $(ls alignment/star/P.fragariae/Bc16/Bc16*)
+for File in $(ls alignment/star/P.fragariae/Bc16/DeSeq/Bc16*)
 do
-    Assessment=basename $File
+    Assessment=$(basename $File | sed "s/.txt//g")
     echo $Assessment
     cat $File | grep -v 'baseMean' | wc -l
 done
