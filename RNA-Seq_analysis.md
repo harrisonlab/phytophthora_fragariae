@@ -633,7 +633,7 @@ rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
 # robust may be better set at fasle to normalise based on total counts rather than 'library normalisation factors'
 fpkm_counts <- data.frame(fpkm(dds, robust = TRUE))
 colnames(fpkm_counts) <- paste(colData$Group)
-write.table(fpkm_counts,"alignment/star/P.cactorum/414_v2/DeSeq/fpkm_norm_counts.txt",sep="\t",na="",quote=F)
+write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/fpkm_norm_counts.txt",sep="\t",na="",quote=F)
 fpkm_counts <- data.frame(fpkm(dds, robust = FALSE))
 colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"alignment/star/P.cactorum/414_v2/DeSeq/fpkm_counts.txt",sep="\t",na="",quote=F)
