@@ -448,7 +448,8 @@ write.table(countDataSubset,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_count
 #output gene details
 write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_genes.txt",sep="\t",quote=F,row.names=F)
 # colnames(countData) <- sub("X","",colnames(countData)) countData <- countData[,colData$Sample]
-Running DeSeq2
+
+#Running DeSeq2
 
 #source("http://bioconductor.org/biocLite.R")
 #biocLite("DESeq2")
