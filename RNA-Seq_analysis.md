@@ -441,12 +441,12 @@ countDataSubset <- sapply(indexes, function(xx) rowSums(countData[,grep(paste(xx
 
 
 #output countData
-write.table(countData,"alignment/star/P.cactorum/414_v2/DeSeq/countData.txt",sep="\t",na="",quote=F)
+write.table(countData,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countData.txt",sep="\t",na="",quote=F)
 # output countData with technical reps combined
-write.table(countDataSubset,"alignment/star/P.cactorum/414_v2/DeSeq/countDataCombined.txt",sep="\t",na="",quote=F)
+write.table(countDataSubset,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countDataCombined.txt",sep="\t",na="",quote=F)
 
 #output gene details
-write.table(m[,1:6,with=F],"alignment/star/P.cactorum/414_v2/DeSeq/genes.txt",sep="\t",quote=F,row.names=F)
+write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_genes.txt",sep="\t",quote=F,row.names=F)
 # colnames(countData) <- sub("X","",colnames(countData)) countData <- countData[,colData$Sample]
 Running DeSeq2
 
