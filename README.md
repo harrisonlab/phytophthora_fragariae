@@ -3242,4 +3242,19 @@ do
 done
 ```
 
+Following this, split files were combined as follows:
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan
+for Proteome in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.gene.fasta | grep 'Bc16')
+do
+    Strain=$(echo $Proteome | rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Proteome | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    echo $Strain
+    InterProRaw=gene_pred/interproscan/$Organism/$Strain/raw
+    $ProgDir/append_interpro.sh $Proteome $InterProRaw
+done
+```
+
 Further downstream analysis done in orthology_analysis.md
