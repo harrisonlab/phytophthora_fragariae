@@ -557,8 +557,6 @@ ggsave("alignment/star/P.fragariae/Bc16/DeSeq/PCA_sample_names.pdf", pca_plot, d
 
 #Analysis of gene expression
 
-"P414Emily12 hours","P414Emily48 hours"
-
 alpha <- 0.05
 res= results(dds, alpha=alpha,contrast=c("Group","P414Emily12 hours","P414Emily48 hours"))
 sig.res <- subset(res,padj<=alpha)
