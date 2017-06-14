@@ -1109,8 +1109,6 @@ FALCON assembly aligning shown in RNA-Seq_analysis.md
 
 ##Alignment outputs were concatenated and braker prediction was run
 
-TODO: A4 (done), BC-1 (done), BC-16 (done), BC-23 (done), NOV-27 (done), NOV-5 (done), NOV-71 (done), NOV-77 (done), NOV-9 (Brak & Cuff), ONT-3 (done), SCRP245 (done)
-
 ###Concatenation
 
 ```bash
