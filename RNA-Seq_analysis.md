@@ -575,7 +575,7 @@ write.table(sig.res,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_myc
 write.table(sig.res.upregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
 write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
 
-"P414Fenella12 hours","P414Fenella48 hours"
+#48hr vs mycelium
 
 alpha <- 0.05
 res= results(dds, alpha=alpha,contrast=c("Group","P414Fenella12 hours","P414Fenella48 hours"))
