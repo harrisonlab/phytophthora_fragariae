@@ -3265,7 +3265,7 @@ do
     Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
     OutDir=gene_pred/swissprot/$Organism/$Strain
-    SwissDbDir=/home/groups/harrisonlab/uniprot/swissprot
+    SwissDbDir=../../uniprot/swissprot
     SwissDbName=uniprot_sprot
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/swissprot
     qsub $ProgDir/sub_swissprot.sh $Proteome $OutDir $SwissDbDir $SwissDbName
