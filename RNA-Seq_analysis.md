@@ -660,3 +660,69 @@ do
     cat $CRN_File | wc -l
 done
 ```
+
+```
+Bc16_24hr_vs_Bc16_mycelium_down
+Total number of genes in dataset:
+3142
+Total number of RxLRs in dataset:
+23
+Total number of CRNs in dataset:
+9
+Bc16_24hr_vs_Bc16_mycelium
+Total number of genes in dataset:
+7330
+Total number of RxLRs in dataset:
+99
+Total number of CRNs in dataset:
+25
+Bc16_24hr_vs_Bc16_mycelium_up
+Total number of genes in dataset:
+2232
+Total number of RxLRs in dataset:
+71
+Total number of CRNs in dataset:
+5
+Bc16_48hr_vs_Bc16_mycelium_down
+Total number of genes in dataset:
+3243
+Total number of RxLRs in dataset:
+27
+Total number of CRNs in dataset:
+17
+Bc16_48hr_vs_Bc16_mycelium
+Total number of genes in dataset:
+9781
+Total number of RxLRs in dataset:
+118
+Total number of CRNs in dataset:
+42
+Bc16_48hr_vs_Bc16_mycelium_up
+Total number of genes in dataset:
+9781
+Total number of RxLRs in dataset:
+118
+Total number of CRNs in dataset:
+42
+Bc16_96hr_vs_Bc16_mycelium_down
+Total number of genes in dataset:
+2285
+Total number of RxLRs in dataset:
+26
+Total number of CRNs in dataset:
+7
+Bc16_96hr_vs_Bc16_mycelium
+Total number of genes in dataset:
+10031
+Total number of RxLRs in dataset:
+117
+Total number of CRNs in dataset:
+37
+Bc16_96hr_vs_Bc16_mycelium_up
+Total number of genes in dataset:
+10031
+Total number of RxLRs in dataset:
+117
+Total number of CRNs in dataset:
+37
+```
