@@ -1186,7 +1186,7 @@ qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 Then, additional transcripts were added to Braker1 gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker1 gene models:
 
 ```bash
-for BrakerGff in $(ls gene_pred/braker/P.*/*_braker/*/augustus.gff3 | grep -e "Bc16")
+for BrakerGff in $(ls gene_pred/braker/P.*/*_braker/*/augustus.gff3 | grep -v "Bc16")
 do
     Strain=$(echo $BrakerGff| rev | cut -d '/' -f3 | rev | sed 's/_braker//g')
     Organism=$(echo $BrakerGff | rev | cut -d '/' -f4 | rev)
