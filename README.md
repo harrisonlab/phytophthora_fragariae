@@ -1191,7 +1191,7 @@ do
     Strain=$(echo $BrakerGff| rev | cut -d '/' -f3 | rev | sed 's/_braker//g')
     Organism=$(echo $BrakerGff | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    Assembly=$(ls repeat_masked/quiver_results/$Strain/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
+    Assembly=$(ls repeat_masked/$Organism/$Strain/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
     CodingQuaryGff=gene_pred/codingquarry/$Organism/$Strain/out/PredictedPass.gff3
     PGNGff=gene_pred/codingquarry/$Organism/$Strain/out/PGN_predictedPass.gff3
     AddDir=gene_pred/codingquarry/$Organism/$Strain/additional
