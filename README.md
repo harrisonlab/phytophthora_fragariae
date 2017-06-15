@@ -3304,6 +3304,16 @@ done
 4,268 are positive for TM domains
 ```
 
+Create a headers file
+
+```bash
+for PosFile in $(ls gene_pred/trans_mem/*/*/*_TM_genes_pos.txt)
+do
+    TmHeaders=$(echo $PosFile | sed 's/.txt/_headers.txt/g')
+    cat $PosFile | cut -f1 > $TmHeaders
+done
+```
+
 ##D)Identify genes with GPI anchors
 
 Proteins were identified by submitting the combined protein file to webserver at http://gpi.unibe.ch
