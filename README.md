@@ -3305,7 +3305,7 @@ done
 Results were parsed to the file
 
 ```bash
-nano gene_pred/trans_mem/P.cactorum/414_v2/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc16/GPIsom/GPI_pos.fa
 ```
 
 Further downstream analysis done in orthology_analysis.md
