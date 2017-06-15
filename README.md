@@ -3285,6 +3285,10 @@ do
 done
 ```
 
+```
+4,268 are positive for TM domains
+```
+
 ##D)Identify genes with GPI anchors
 
 Proteins were identified by submitting the combined protein file to webserver at http://gpi.unibe.ch
@@ -3308,6 +3312,8 @@ Results were parsed to the file
 nano gene_pred/trans_mem/P.fragariae/Bc16/GPIsom/GPI_pos.fa
 ```
 
+```
 598 are positive for GPI
+```
 
 Further downstream analysis done in orthology_analysis.md
