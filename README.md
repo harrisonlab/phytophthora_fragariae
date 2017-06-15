@@ -1331,6 +1331,21 @@ Total:
 36676
 ```
 
+##Predicted gene set assessed using BUSCO to assess completeness
+
+```bash
+for Transcriptome in $(ls gene_pred/codingquarry/*/*/final/final_genes_combined.gene.fasta)
+do
+    Strain=$(echo $Transcriptome| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Transcriptome | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+    BuscoDB=Eukaryotic
+    OutDir=gene_pred/busco/$Organism/$Strain/
+    qsub $ProgDir/sub_busco2.sh $Transcriptome $BuscoDB $OutDir
+done
+```
+
 #Gene prediction 2 - atg.pl prediction of ORFs
 
 Open reading frame predictions were made using the atg.pl script as part of the path_pipe.sh pipeline. This pipeline also identifies open reading frames containing Signal peptide sequences and RxLRs. This pipeline was run with the following commands:
