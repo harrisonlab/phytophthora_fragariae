@@ -3308,4 +3308,6 @@ Results were parsed to the file
 nano gene_pred/trans_mem/P.fragariae/Bc16/GPIsom/GPI_pos.fa
 ```
 
+598 are positive for GPI
+
 Further downstream analysis done in orthology_analysis.md
