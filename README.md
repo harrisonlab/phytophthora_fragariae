@@ -3341,4 +3341,14 @@ nano gene_pred/trans_mem/P.fragariae/Bc16/GPIsom/GPI_pos.fa
 598 are positive for GPI
 ```
 
+Create a file just listing gene names
+
+```bash
+for PosFile in $(ls gene_pred/trans_mem/*/*/GPIsom/GPI_pos.fa)
+do
+    GPIHeaders=$(echo $PosFile | sed 's/.fa/.txt/g')
+    cat $PosFile | grep -e ">" | cut -f1 -d ' ' | sed 's/>//g' > $GPIHeaders
+done
+```
+
 Further downstream analysis done in orthology_analysis.md
