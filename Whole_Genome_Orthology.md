@@ -1707,7 +1707,7 @@ done
 #Produce a count table of the number of genes for each strain in each groups
 
 ```bash
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
 Taxon_code=All_Strains
 OrthoMCL_output=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_orthogroups.txt
 OutName=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_count_table.tsv
