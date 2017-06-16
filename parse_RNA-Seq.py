@@ -81,3 +81,8 @@ for x in genes:
 
 z = len(genes) + 1
 a = numpy.reshape(a, (z, 4))
+
+outfile = str(conf.out_dir)
+with open(outfile, "w") as o:
+    writer = csv.writer(o, delimiter='\t')
+    writer.writerows(a)
