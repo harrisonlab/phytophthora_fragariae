@@ -28,3 +28,8 @@ with open(conf.input_1) as f1:
     genes = []
     for x in inp1_lines:
         genes.append(x.split('\t')[0])
+
+with open(conf.input_2) as f2:
+    inp2_lines = f2.readlines()[1:]
+    for x in inp2_lines:
+        genes.append(x.split('\t')[0])
