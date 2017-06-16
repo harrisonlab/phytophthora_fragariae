@@ -733,8 +733,8 @@ do
     Strain=$(echo $GeneGff | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $GeneGff | rev | cut -f3 -d '/' | rev)
     Assembly=$(ls repeat_masked/quiver_results/$Strain/*/*_contigs_unmasked.fa)
-    # InterPro=$(ls gene_pred/interproscan/$Organism/$Strain/*_interproscan.tsv)
-    # SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/swissprot_vJul2016_tophit_parsed.tbl)
+    InterPro=$(ls gene_pred/interproscan/$Organism/$Strain/*_interproscan.tsv)
+    SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/swissprot_vJul2016_tophit_parsed.tbl)
     OutDir=gene_pred/annotation/$Organism/$Strain
     mkdir -p $OutDir
     # GeneFasta=$(ls gene_pred/annotation/P.cactorum/414_v2/414_v2_genes_incl_ORFeffectors.pep.fasta)
@@ -759,6 +759,6 @@ do
     # NormCount=$(ls alignment/star/P.cactorum/414_v2/DeSeq/normalised_counts.txt)
     RawCount=$(ls alignment/star/P.fragariae/Bc16/DeSeq/raw_counts.txt)
     FPKM=$(ls alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt)
-    $ProgDir/TA_pacbio_anntoation_tables.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP4 $SigP4 --phobius $PhobiusTxt --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --CRN_total $CRN_total --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM > $OutDir/Bc16_gene_table_incl_exp.tsv
+    $ProgDir/pacbio_anntoation_tables.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP4 $SigP4 --phobius $PhobiusTxt --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --CRN_total $CRN_total --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM --InterPro $InterPro --Swissprot $SwissProt > $OutDir/Bc16_gene_table_incl_exp.tsv
 done
 ```
