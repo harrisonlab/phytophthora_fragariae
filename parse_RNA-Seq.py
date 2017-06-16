@@ -14,6 +14,7 @@ import csv
 #-----------------------------------------------------
 # Step 1
 # Import variables, load input files & create set of genes
+# If using a different number of files, arguments & appending to list of genes will need to be changed
 #-----------------------------------------------------
 
 ap = argparse.ArgumentParser()
@@ -40,3 +41,9 @@ with open(conf.input_3) as f3:
         genes_list.append(x.split('\t')[0])
 
 genes = set(genes_list)
+
+#-----------------------------------------------------
+# Step 2
+# Load gene names to a numpy array and reshape array to size required for analysis
+# If doing with a different number of files, change the number in the numpy.reshape() command
+#-----------------------------------------------------
