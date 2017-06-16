@@ -762,3 +762,14 @@ do
     $ProgDir/pacbio_anntoation_tables.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP4 $SigP4 --phobius $PhobiusTxt --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --CRN_total $CRN_total --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM --InterPro $InterPro --Swissprot $SwissProt > $OutDir/Bc16_gene_table_incl_exp.tsv
 done
 ```
+
+#Draw venn diagrams of differenitally expressed genes
+
+```bash
+ProgDir=/home/adamst/git_repos/phytophthora_fragariae
+inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium.txt
+inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.tsv
+python $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
