@@ -41,8 +41,10 @@ with open(conf.input_2) as f2:
 
 with open(conf.input_3) as f3:
     inp3_lines = f3.readlines()[1:]
+    inp3 = []
     for x in inp3_lines:
         genes_list.append(x.split('\t')[0])
+        inp3.append(x.split('\t')[0])
 
 genes = set(genes_list)
 
