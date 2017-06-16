@@ -78,3 +78,6 @@ for x in genes:
     else:
         to_add.append('0')
     a = numpy.append(a, to_add, axis=0)
+
+z = len(genes) + 1
+a = numpy.reshape(a, (z, 4))
