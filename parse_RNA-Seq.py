@@ -25,16 +25,18 @@ conf = ap.parse_args()
 
 with open(conf.input_1) as f1:
     inp1_lines = f1.readlines()[1:]
-    genes = []
+    genes_list = []
     for x in inp1_lines:
-        genes.append(x.split('\t')[0])
+        genes_list.append(x.split('\t')[0])
 
 with open(conf.input_2) as f2:
     inp2_lines = f2.readlines()[1:]
     for x in inp2_lines:
-        genes.append(x.split('\t')[0])
+        genes_list.append(x.split('\t')[0])
 
 with open(conf.input_3) as f3:
     inp3_lines = f3.readlines()[1:]
     for x in inp3_lines:
-        genes.append(x.split('\t')[0])
+        genes_list.append(x.split('\t')[0])
+
+genes = set(genes_list)
