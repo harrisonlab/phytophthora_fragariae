@@ -14,7 +14,6 @@ import csv
 #-----------------------------------------------------
 # Step 1
 # Import variables & load input files
-# Copied from orthoMCLgroups2fasta.py
 #-----------------------------------------------------
 
 ap = argparse.ArgumentParser()
