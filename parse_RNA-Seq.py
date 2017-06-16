@@ -47,3 +47,5 @@ genes = set(genes_list)
 # Load gene names to a numpy array and reshape array to size required for analysis
 # If doing with a different number of files, change the number in the numpy.reshape() command
 #-----------------------------------------------------
+
+a = numpy.array(["Gene_Name", "24hr", "48hr", "96hr"])
