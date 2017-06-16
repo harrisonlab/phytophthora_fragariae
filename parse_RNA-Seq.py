@@ -56,8 +56,8 @@ genes = set(genes_list)
 
 a = numpy.array(["Gene_Name", "24hr", "48hr", "96hr"])
 
-to_add = []
 for x in genes:
+    to_add = []
     to_add.append(x)
     try:
         b = inp1.index(x)
@@ -65,3 +65,16 @@ for x in genes:
         to_add.append('1')
     else:
         to_add.append('0')
+    try:
+        c = inp2.index(x)
+    except ValueError:
+        to_add.append('1')
+    else:
+        to_add.append('0')
+    try:
+        d = inp3.index(x)
+    except ValueError:
+        to_add.append('1')
+    else:
+        to_add.append('0')
+    a = numpy.append(a, to_add, axis=0)
