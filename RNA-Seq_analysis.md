@@ -762,7 +762,7 @@ do
     $ProgDir/pacbio_anntoation_tables.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP4 $SigP4 --phobius $PhobiusTxt --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --CRN_total $CRN_total --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM --InterPro $InterPro --Swissprot $SwissProt > $OutDir/Bc16_gene_table_incl_exp.tsv
 done
 ```
-test
+
 #Draw venn diagrams of differenitally expressed genes
 
 ##All DEGs
