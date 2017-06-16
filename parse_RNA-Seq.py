@@ -13,7 +13,7 @@ import csv
 
 #-----------------------------------------------------
 # Step 1
-# Import variables & load input files
+# Import variables, load input files & create set of genes
 #-----------------------------------------------------
 
 ap = argparse.ArgumentParser()
