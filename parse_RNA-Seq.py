@@ -27,8 +27,10 @@ conf = ap.parse_args()
 with open(conf.input_1) as f1:
     inp1_lines = f1.readlines()[1:]
     genes_list = []
+    inp1 = []
     for x in inp1_lines:
         genes_list.append(x.split('\t')[0])
+        inp1.append(x.split('\t')[0])
 
 with open(conf.input_2) as f2:
     inp2_lines = f2.readlines()[1:]
@@ -49,3 +51,13 @@ genes = set(genes_list)
 #-----------------------------------------------------
 
 a = numpy.array(["Gene_Name", "24hr", "48hr", "96hr"])
+
+to_add = []
+for x in genes:
+    to_add.append(x)
+    try:
+        b = inp1.index(x)
+    except ValueError:
+        to_add.append('1')
+    else:
+        to_add.append('0')
