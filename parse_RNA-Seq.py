@@ -44,7 +44,7 @@ genes = set(genes_list)
 
 #-----------------------------------------------------
 # Step 2
-# Load gene names to a numpy array and reshape array to size required for analysis
+# Load gene names to a numpy array and create new columns
 # If doing with a different number of files, change the number in the numpy.reshape() command
 #-----------------------------------------------------
 
