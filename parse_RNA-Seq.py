@@ -18,9 +18,9 @@ import csv
 #-----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--input_1',required=True,type=str,help='text file of genes')
-ap.add_argument('--input_2',required=True,type=str,help='text file of genes')
-ap.add_argument('--input_3',required=True,type=str,help='text file of genes')
+ap.add_argument('--input_1',required=True,type=str,help='text file of genes at 24hrs')
+ap.add_argument('--input_2',required=True,type=str,help='text file of genes at 48hrs')
+ap.add_argument('--input_3',required=True,type=str,help='text file of genes at 96hrs')
 ap.add_argument('--out_dir',required=True,type=str,help='the tsv file where the count table is output to')
 conf = ap.parse_args()
 
@@ -63,3 +63,31 @@ if found:
     new_col_24.append('1')
 else:
     new_col_24.append('0')
+
+new_col_48 = []
+def check():
+    for x in genes:
+        for line in inp2_lines:
+            if x in line:
+                found = True
+                break
+        return found
+found = check()
+if found:
+    new_col_48.append('1')
+else:
+    new_col_48.append('0')
+
+new_col_96 = []
+def check():
+    for x in genes:
+        for line in inp3_lines:
+            if x in line:
+                found = True
+                break
+        return found
+found = check()
+if found:
+    new_col_96.append('1')
+else:
+    new_col_96.append('0')
