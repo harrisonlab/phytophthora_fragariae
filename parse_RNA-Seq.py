@@ -49,3 +49,17 @@ genes = set(genes_list)
 #-----------------------------------------------------
 
 a = numpy.array(["Gene_Name", "24hr", "48hr", "96hr"])
+
+new_col_24 = []
+def check():
+    for x in genes:
+        for line in inp1_lines:
+            if x in line:
+                found = True
+                break
+        return found
+found = check()
+if found:
+    new_col_24.append('1')
+else:
+    new_col_24.append('0')
