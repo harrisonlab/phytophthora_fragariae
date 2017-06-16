@@ -33,3 +33,8 @@ with open(conf.input_2) as f2:
     inp2_lines = f2.readlines()[1:]
     for x in inp2_lines:
         genes.append(x.split('\t')[0])
+
+with open(conf.input_3) as f3:
+    inp3_lines = f3.readlines()[1:]
+    for x in inp3_lines:
+        genes.append(x.split('\t')[0])
