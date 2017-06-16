@@ -22,3 +22,9 @@ ap.add_argument('--input_2',required=True,type=str,help='text file of genes')
 ap.add_argument('--input_3',required=True,type=str,help='text file of genes')
 ap.add_argument('--out_dir',required=True,type=str,help='the tsv file where the count table is output to')
 conf = ap.parse_args()
+
+with open(conf.input_1) as f1:
+    inp1_lines = f1.readlines()[1:]
+    genes = []
+    for x in inp1_lines:
+        genes.append(x.split('\t')[0])
