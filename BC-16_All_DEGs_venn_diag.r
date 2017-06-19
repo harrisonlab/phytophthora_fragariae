@@ -22,9 +22,9 @@ opt = parse_args(OptionParser(option_list=opt_list))
 f = opt$inp
 o = opt$out
 
-orthotabs <-data.frame()
-orthotabs <- read.table(f)
-df1 <- t(orthotabs)
+DEGs <-data.frame()
+DEGs <- read.table(f)
+df1 <- t(DEGs)
 summary(df1)
 
 
