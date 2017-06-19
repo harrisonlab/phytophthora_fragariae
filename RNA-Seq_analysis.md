@@ -800,7 +800,52 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Venn diagram for all genes
+###Venn diagrams
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+WorkDir=alignment/star/P.fragariae/Bc16/DeSeq
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_all_DEGs.tsv --out $WorkDir/Bc16_all_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_DEGs.tsv --out $WorkDir/Bc16_up_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_DEGs.tsv --out $WorkDir/Bc16_down_DEGs.pdf
+```
+
+#RxLRs
+
+###All DEGs
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium.txt
+inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.tsv
+$ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
+
+###Upregulated DEGs
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_up.txt
+inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_up.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_up.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_DEGs.tsv
+$ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
+
+###Downregulated DEGs
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_down.txt
+inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_down.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_down.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs.tsv
+$ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
+
+###Venn diagrams
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
