@@ -1,14 +1,14 @@
 #!/usr/bin/Rscript
 
 # Plot a 3-way Venn diagram from a tab delimited file containing a matrix showing
- # presence of DEGs between 3 timepoints post inoculation.
+# presence of DEGs between 3 timepoints post inoculation.
 
- # This is intended to be used on the output of parse_RNA-Seq.py, after the creation of DEG lists by DeSeq
+# This is intended to be used on the output of parse_RNA-Seq.py, after the creation of DEG lists by DeSeq
 
- # The script also requires the colorspace package. This can be downloaded by
- # opening R and running the following command:
- # options(download.file.method = "wget")
- # install.packages("colorspace")
+# The script also requires the colorspace package. This can be downloaded by
+# opening R and running the following command:
+# options(download.file.method = "wget")
+# install.packages("colorspace")
 
  #get config options
 library(optparse)
