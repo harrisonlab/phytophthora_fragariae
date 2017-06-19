@@ -62,15 +62,15 @@ for x in genes:
     try:
         b = inp1.index(x)
     except ValueError:
-        to_add.append('1')
-    else:
         to_add.append('0')
+    else:
+        to_add.append('1')
     try:
         c = inp2.index(x)
     except ValueError:
-        to_add.append('1')
-    else:
         to_add.append('0')
+    else:
+        to_add.append('1')
     try:
         d = inp3.index(x)
     except ValueError:
