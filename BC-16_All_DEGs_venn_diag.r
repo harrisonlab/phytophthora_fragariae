@@ -10,7 +10,7 @@
 # options(download.file.method = "wget")
 # install.packages("colorspace")
 
- #get config options
+#get config options
 library(optparse)
 library(colorspace)
 library(VennDiagram, lib.loc="/home/armita/R-packages/")
