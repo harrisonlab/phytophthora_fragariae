@@ -15,7 +15,7 @@ library(optparse)
 library(colorspace)
 library(VennDiagram, lib.loc="/home/armita/R-packages/")
 opt_list = list(
-    make_option("--inp", type="character", help="tab seperated file containing matrix of presence of orthogroups"),
+    make_option("--inp", type="character", help="tab seperated file containing matrix of DEGs"),
     make_option("--out", type="character", help="output venn diagram in pdf format")
 )
 opt = parse_args(OptionParser(option_list=opt_list))
