@@ -800,6 +800,8 @@ $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_
 
 ##Drawing venn diagrams
 
+###All genes
+
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 WorkDir=alignment/star/P.fragariae/Bc16/DeSeq
