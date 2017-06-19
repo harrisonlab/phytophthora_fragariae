@@ -24,7 +24,7 @@ ap.add_argument('--input_3',required=True,type=str,help='text file of genes at 9
 ap.add_argument('--out_dir',required=True,type=str,help='the tsv file where the count table is output to')
 conf = ap.parse_args()
 
-inp1_dict = defaultdict(float)
+inp1_dict = defaultdict(tuple)
 with open(conf.input_1) as f1:
     inp1_lines = f1.readlines()[1:]
     genes_list = []
@@ -36,7 +36,7 @@ with open(conf.input_1) as f1:
         value = float(x.split('\t')[2])
         inp1_dict[gene_name].append(value)
 
-inp2_dict = defaultdict(float)
+inp2_dict = defaultdict(tuple)
 with open(conf.input_2) as f2:
     inp2_lines = f2.readlines()[1:]
     inp2 = []
@@ -47,7 +47,7 @@ with open(conf.input_2) as f2:
         value = float(x.split('\t')[2])
         inp2_dict[gene_name].append(value)
 
-inp3_dict = defaultdict(float)
+inp3_dict = defaultdict(tuple)
 with open(conf.input_3) as f3:
     inp3_lines = f3.readlines()[1:]
     inp3 = []
