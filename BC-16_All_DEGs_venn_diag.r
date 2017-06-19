@@ -65,9 +65,9 @@ area1=(nrow(TP1) + (n12 - n123) + (n13 - n123) + n123)
 area2=(nrow(TP2) + (n12 - n123) + (n23 - n123) + n123)
 area3=(nrow(TP3) + (n13 - n123) + (n23 - n123) + n123)
 #nrow(nonpath)
-nrow(NOV5)
-nrow(BC1)
-nrow(Others)
+nrow(TP1)
+nrow(TP2)
+nrow(TP3)
 n12
 n13
 n23
