@@ -852,7 +852,7 @@ $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 WorkDir=alignment/star/P.fragariae/Bc16/DeSeq
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_all_RxLR_DEGs.tsv --out $WorkDir/Bc16_all_RxLR_DEGs.pdf
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_RxLR_DEGs.tsv --out $WorkDir/Bc16_up_RxLR_DEGs.pdf
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_RxLR_DEGs.tsv --out $WorkDir/Bc16_down_RxLR_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_all_RxLRs_DEGs.tsv --out $WorkDir/Bc16_all_RxLRs_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_RxLRs_DEGs.tsv --out $WorkDir/Bc16_up_RxLRs_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_RxLRs_DEGs.tsv --out $WorkDir/Bc16_down_RxLRs_DEGs.pdf
 ```
