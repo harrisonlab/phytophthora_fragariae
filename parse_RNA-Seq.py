@@ -74,9 +74,9 @@ for x in genes:
     try:
         d = inp3.index(x)
     except ValueError:
-        to_add.append('1')
-    else:
         to_add.append('0')
+    else:
+        to_add.append('1')
     a = numpy.append(a, to_add, axis=0)
 
 z = len(genes) + 1
