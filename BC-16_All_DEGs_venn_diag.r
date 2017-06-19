@@ -23,7 +23,7 @@ f = opt$inp
 o = opt$out
 
 DEGs <-data.frame()
-DEGs <- read.table(f)
+DEGs <- read.table(f, skip = 1)
 df1 <- t(DEGs)
 summary(df1)
 
