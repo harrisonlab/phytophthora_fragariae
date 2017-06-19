@@ -650,11 +650,11 @@ do
     cat $File | grep -v 'baseMean' | wc -l
     echo "Total number of RxLRs in dataset:"
     RxLR_File=$(echo $File | sed "s/.txt/_RxLRs.txt/g")
-    cat $File | grep -o -w -f $RxLR_Names_Bc16 > $RxLR_File
+    cat $File | grep -w -f $RxLR_Names_Bc16 > $RxLR_File
     cat $RxLR_File | wc -l
     echo "Total number of CRNs in dataset:"
     CRN_File=$(echo $File | sed "s/.txt/_CRNs.txt/g")
-    cat $File | grep -o -w -f $CRN_Names_Bc16 > $CRN_File
+    cat $File | grep -w -f $CRN_Names_Bc16 > $CRN_File
     cat $CRN_File | wc -l
 done
 ```
