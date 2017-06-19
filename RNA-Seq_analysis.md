@@ -765,7 +765,9 @@ done
 
 #Draw venn diagrams of differenitally expressed genes
 
-##All DEGs
+##All genes
+
+###All DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -776,7 +778,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-##Upregulated DEGs
+###Upregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -787,7 +789,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-##Downregulated DEGs
+###Downregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -798,9 +800,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-##Drawing venn diagrams
-
-###All genes
+###Venn diagram for all genes
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
