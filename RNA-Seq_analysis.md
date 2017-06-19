@@ -799,3 +799,11 @@ $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_
 ```
 
 ##Drawing venn diagrams
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+WorkDir=alignment/star/P.fragariae/Bc16/DeSeq
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_all_DEGs.tsv --out $WorkDir/Bc16_all_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_DEGs.tsv --out $WorkDir/Bc16_up_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_DEGs.tsv --out $WorkDir/Bc16_down_DEGs.pdf
+```
