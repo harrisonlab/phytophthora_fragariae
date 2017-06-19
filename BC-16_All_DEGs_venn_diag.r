@@ -3,9 +3,7 @@
 # Plot a 3-way Venn diagram from a tab delimited file containing a matrix showing
  # presence of DEGs between 3 timepoints post inoculation.
 
- # This is intended to be used on the output of the orthoMCL pipeline following
- # building of the matrix using:
- # ~/git_repos/emr_repos/tools/pathogen/orthology/orthoMCL/orthoMCLgroups2tab.py
+ # This is intended to be used on the output of parse_RNA-Seq.py, after the creation of DEG lists by DeSeq
 
  # The script also requires the colorspace package. This can be downloaded by
  # opening R and running the following command:
