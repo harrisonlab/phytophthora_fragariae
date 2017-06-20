@@ -905,5 +905,6 @@ $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_CRNs_DEGs.tsv --out
 #Extract fasta file of all DEGs for BLAST analysis
 
 ```bash
-
+cat $DEGFile | cut -d '\t' -f1 > $DEGNames
+$ProgDir/extract_from_fasta.py --fasta $Genes --headers $DegNames > $DEGFasta
 ```
