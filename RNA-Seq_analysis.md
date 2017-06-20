@@ -910,6 +910,6 @@ DEGNames=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs_names.txt
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 Genes=gene_pred/codingquarry/P.fragariae/Bc16/final/final_genes_combined.cdna.fasta
 DEGFasta=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.fa
-cat $DEGFile | cut -f1 | cut -d '.' -f1 | tail -n +2 > $DEGNames
+cat $DEGFile | cut -f1 | tail -n +2 > $DEGNames
 $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 ```
