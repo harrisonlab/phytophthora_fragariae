@@ -901,3 +901,9 @@ $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_all_CRNs_DEGs.tsv --out 
 $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_CRNs_DEGs.tsv --out $WorkDir/Bc16_up_CRNs_DEGs.pdf
 $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_CRNs_DEGs.tsv --out $WorkDir/Bc16_down_CRNs_DEGs.pdf
 ```
+
+#Extract fasta file of all DEGs for BLAST analysis
+
+```bash
+
+```
