@@ -31,3 +31,30 @@ ap.add_argument('--downreg_2',required=True,type=str,help='text file of genes do
 ap.add_argument('--downreg_3',required=True,type=str,help='text file of genes downregulated at 96hrs')
 
 conf = ap.parse_args()
+
+with open(conf.gene_gff) as f:
+    gene_lines = f.readlines()
+
+with open(conf.InterPro) as f:
+    InterPro_lines = f.readlines()
+
+with open(conf.Swissprot) as f:
+    swissprot_lines = f.readlines()
+
+with open(conf.upreg_1) as f:
+    up1_lines = f.readlines()[1:]
+
+with open(conf.upreg_2) as f:
+    up2_lines = f.readlines()[1:]
+
+with open(conf.upreg_3) as f:
+    up3_lines = f.readlines()[1:]
+
+with open(conf.downreg_1) as f:
+    down1_lines = f.readlines()[1:]
+
+with open(conf.downreg_2) as f:
+    down2_lines = f.readlines()[1:]
+
+with open(conf.downreg_3) as f:
+    down3_lines = f.readlines()[1:]
