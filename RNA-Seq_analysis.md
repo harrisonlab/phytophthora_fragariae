@@ -913,3 +913,5 @@ DEGFasta=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.fa
 cat $DEGFile | cut -f1 | tail -n +2 > $DEGNames
 $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 ```
+
+#Investigate enriched functional annotations in DEGs vs all genes
