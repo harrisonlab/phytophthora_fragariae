@@ -29,3 +29,5 @@ ap.add_argument('--upreg_3',required=True,type=str,help='text file of genes upre
 ap.add_argument('--downreg_1',required=True,type=str,help='text file of genes downregulated at 24hrs')
 ap.add_argument('--downreg_2',required=True,type=str,help='text file of genes downregulated at 48hrs')
 ap.add_argument('--downreg_3',required=True,type=str,help='text file of genes downregulated at 96hrs')
+
+conf = ap.parse_args()
