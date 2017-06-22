@@ -922,7 +922,7 @@ $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 OutDir=analysis/enrichment/P.fragariae/Bc16/Whole_Genome
 mkdir -p $OutDir
 InterProTSV=gene_pred/interproscan/P.fragariae/Bc16/Bc16_interproscan.tsv
-ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/analysis/gene_enrichment
+ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
 $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Fus2_gene_GO_annots.tsv
 
 AnnotTable=gene_pred/annotations/F.oxysporum_fsp_cepae/Fus2_canu_new/Fus2_canu_new_gene_annotations.tab
