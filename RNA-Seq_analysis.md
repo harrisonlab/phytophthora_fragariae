@@ -919,7 +919,7 @@ $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 ##Extract Gene Ontology terms
 
 ```bash
-OutDir=analysis/enrichment/F.oxysporum_fsp_cepae/Fus2_canu_new/PS_vs_core
+OutDir=analysis/enrichment/P.fragariae/Bc16/Whole_Genome
 mkdir -p $OutDir
 InterProTSV=gene_pred/interproscan/F.oxysporum_fsp_cepae/Fus2_canu_new/Fus2_canu_new_interproscan.tsv
 ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/analysis/gene_enrichment
