@@ -916,6 +916,8 @@ $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 
 #Investigate enriched functional annotations in DEGs vs all genes
 
+##Extract Gene Ontology terms
+
 ```bash
 
 ```
