@@ -1574,8 +1574,6 @@ do
 done
 ```
 
---progress here--
-
 ####B.2) Prediction using Phobius
 
 Secreted proteins were also predicted using Phobius
