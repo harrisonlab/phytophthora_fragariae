@@ -1620,9 +1620,9 @@ done
 ```
 P.fragariae - A4
 The following number of sequences were predicted as secreted:
-10228
+10,536
 This represented the following number of unique genes:
-3565
+3,682
 P.fragariae - Bc16
 The following number of sequences were predicted as secreted:
 12,230
@@ -1630,49 +1630,49 @@ This represented the following number of unique genes:
 4,223
 P.fragariae - Bc1
 The following number of sequences were predicted as secreted:
-10609
+10,677
 This represented the following number of unique genes:
-3697
+3,706
 P.fragariae - Bc23
 The following number of sequences were predicted as secreted:
-10568
+10,668
 This represented the following number of unique genes:
-3644
+3,723
 P.fragariae - Nov27
 The following number of sequences were predicted as secreted:
-10593
+10,661
 This represented the following number of unique genes:
-3698
+3,705
 P.fragariae - Nov5
 The following number of sequences were predicted as secreted:
-10398
+10,618
 This represented the following number of unique genes:
-3580
+3,689
 P.fragariae - Nov71
 The following number of sequences were predicted as secreted:
-10373
+10,712
 This represented the following number of unique genes:
-3600
+3,724
 P.fragariae - Nov77
 The following number of sequences were predicted as secreted:
-10388
+10,547
 This represented the following number of unique genes:
-3581
+3,661
 P.fragariae - Nov9
 The following number of sequences were predicted as secreted:
-10793
+10,773
 This represented the following number of unique genes:
-3739
+3,700
 P.fragariae - ONT3
 The following number of sequences were predicted as secreted:
-12929
+13,161
 This represented the following number of unique genes:
-4524
+4,604
 P.fragariae - SCRP245_v2
 The following number of sequences were predicted as secreted:
-11448
+11,784
 This represented the following number of unique genes:
-4035
+4,137
 ```
 
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
