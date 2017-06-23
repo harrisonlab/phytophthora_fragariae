@@ -926,10 +926,8 @@ ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
 $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.tsv
 
 AnnotTable=Bc16_gene_table_incl_exp.tsv
-AllGenes=gene_prep/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_Headers.cds.txt
-cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
 AllGenes=$OutDir/Bc16_all_genes.txt
-cat $Set1Genes $Set2Genes > $AllGenes
+cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
 
 $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Fus2_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
 ```
