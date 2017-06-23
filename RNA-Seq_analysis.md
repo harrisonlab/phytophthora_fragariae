@@ -929,8 +929,6 @@ AnnotTable=Bc16_gene_table_incl_exp.tsv
 AllGenes=gene_prep/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_Headers.cds.txt
 cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
 AllGenes=$OutDir/Bc16_all_genes.txt
-cat $AnnotTable | tail -n+2 | grep -e 'contig_10' -e 'contig_16' -e 'contig_19' -e 'contig_21' | cut -f1 | sed -e 's/$/\t0.001/g'> $Set1Genes
-cat $AnnotTable | tail -n+2 | grep -v -e 'contig_10' -e 'contig_16' -e 'contig_19' -e 'contig_21' | cut -f1 | sed -e 's/$/\t1.00/g' > $Set2Genes
 cat $Set1Genes $Set2Genes > $AllGenes
 
 $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Fus2_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
