@@ -1594,8 +1594,6 @@ do
 done
 ```
 
---progress here--
-
 Secreted proteins from different sources were combined into a single file:
 
 ```bash
