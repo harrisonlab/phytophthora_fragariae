@@ -925,7 +925,7 @@ InterProTSV=gene_pred/interproscan/P.fragariae/Bc16/Bc16_interproscan.tsv
 ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
 $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.tsv
 
-AnnotTable=Bc16_gene_table_incl_exp.tsv
+AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
 AllGenes=$OutDir/Bc16_all_genes.txt
 cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
 
