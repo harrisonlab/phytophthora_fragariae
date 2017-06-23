@@ -926,7 +926,6 @@ ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
 $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.tsv
 
 AnnotTable=Bc16_gene_table_incl_exp.tsv
-cat gene_prep/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cds.fasta | grep '>' | tr -d '>' | sort | uniq > gene_prep/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_Headers.cds.fasta
 AllGenes=gene_prep/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_Headers.cds.fasta
 cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
 Set1Genes=$OutDir/Fus2_Set1_genes.txt
