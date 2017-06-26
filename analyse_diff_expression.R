@@ -1,9 +1,10 @@
 #!/usr/bin/Rscript
-    print $ofh "library(cluster)\n";
-    print $ofh "library(gplots)\n";
-    print $ofh "library(Biobase)\n";
-    print $ofh "library(ctc)\n";
-    print $ofh "library(ape)\n";
+
+library(cluster)
+library(gplots)
+library(Biobase)
+library(ctc)
+library(ape)
 
     print $ofh "data = read.table(\"$diff_expr_matrix_file\", header=T, com=\'\', sep=\"\\t\")\n";
     print $ofh "rownames(data) = data[,1] # set rownames to gene identifiers\n";
