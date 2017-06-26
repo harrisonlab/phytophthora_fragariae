@@ -1,12 +1,4 @@
 #!/usr/bin/Rscript
-
-sub cluster_diff_expressed_transcripts {
-    my ($diff_expr_matrix_file) = @_;
-
-    my $R_script = "$diff_expr_matrix_file.R";
-
-    open (my $ofh, ">$R_script") or die "Error, cannot write to $R_script";
-
     print $ofh "library(cluster)\n";
     print $ofh "library(gplots)\n";
     print $ofh "library(Biobase)\n";
