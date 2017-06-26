@@ -5,6 +5,7 @@ library(gplots)
 library(Biobase)
 library(ctc)
 library(ape)
+library(argparse)
 
     print $ofh "data = read.table(\"$diff_expr_matrix_file\", header=T, com=\'\', sep=\"\\t\")\n";
     print $ofh "rownames(data) = data[,1] # set rownames to gene identifiers\n";
