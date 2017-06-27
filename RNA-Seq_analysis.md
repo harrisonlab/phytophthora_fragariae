@@ -930,7 +930,7 @@ DEGs=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs_names.txt
 AllGenes=$OutDir/Bc16_all_genes.txt
 cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
 Set1Genes=$OutDir/Bc16_DEGs.txt
-Set2Genes=$OutDir/Bc16_all_genes.txt
+Set2Genes=$OutDir/Bc16_all_genes2.txt
 AllGenes=$OutDir/Bc16_all_genes.txt
 cat $DEGs | sed -e 's/$/\t0.001/g' > $Set1Genes
 cat $AnnotTable | tail -n+2 | cut -f1 | sed -e 's/$/\t1.00/g' > $Set2Genes
