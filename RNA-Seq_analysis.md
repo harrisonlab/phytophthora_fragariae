@@ -916,7 +916,7 @@ $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 
 #Investigate enriched functional annotations in DEGs vs all genes
 
-##Extract Gene Ontology terms
+##Analysis of DEGs vs all genes
 
 ```bash
 OutDir=analysis/enrichment/P.fragariae/Bc16/Whole_Genome
@@ -928,8 +928,8 @@ $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.
 AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
 AllGenes=$OutDir/Bc16_all_genes.txt
 cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
-Set1Genes=$OutDir/Bc16_Set1_genes.txt
-Set2Genes=$OutDir/Bc16_Set2_genes.txt
+Set1Genes=$OutDir/Bc16_DEGs.txt
+Set2Genes=$OutDir/Bc16_all_genes.txt
 AllGenes=$OutDir/Bc16_all_genes.txt
 cat $AnnotTable | tail -n+2 | grep -e 'contig_10' -e 'contig_16' -e 'contig_19' -e 'contig_21' | cut -f1 | sed -e 's/$/\t0.001/g'> $Set1Genes
 cat $AnnotTable | tail -n+2 | grep -v -e 'contig_10' -e 'contig_16' -e 'contig_19' -e 'contig_21' | cut -f1 | sed -e 's/$/\t1.00/g' > $Set2Genes
