@@ -927,7 +927,13 @@ $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.
 
 AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
 AllGenes=$OutDir/Bc16_all_genes.txt
-cat $AnnotTable | tail -n+2  | cut -f1 | sed -e 's/$/\t1.00/g' > $AllGenes
+cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
+Set1Genes=$OutDir/Fus2_Set1_genes.txt
+Set2Genes=$OutDir/Fus2_Set2_genes.txt
+AllGenes=$OutDir/Fus2_all_genes.txt
+cat $AnnotTable | tail -n+2 | grep -e 'contig_10' -e 'contig_16' -e 'contig_19' -e 'contig_21' | cut -f1 | sed -e 's/$/\t0.001/g'> $Set1Genes
+cat $AnnotTable | tail -n+2 | grep -v -e 'contig_10' -e 'contig_16' -e 'contig_19' -e 'contig_21' | cut -f1 | sed -e 's/$/\t1.00/g' > $Set2Genes
+cat $Set1Genes $Set2Genes > $AllGenes
 
 $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Bc16_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
 ```
