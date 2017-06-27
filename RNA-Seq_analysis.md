@@ -919,15 +919,5 @@ $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 ##Extract Gene Ontology terms
 
 ```bash
-OutDir=analysis/enrichment/P.fragariae/Bc16/Whole_Genome
-mkdir -p $OutDir
-InterProTSV=gene_pred/interproscan/P.fragariae/Bc16/Bc16_interproscan.tsv
-ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
-$ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.tsv
 
-AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
-AllGenes=$OutDir/Bc16_all_genes.txt
-cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
-
-$ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Fus2_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
 ```
