@@ -50,6 +50,7 @@ resultFisher
 allGO = usedGO(object = GOdata)
 allRes <- GenTable(GOdata, classicFisher = resultFisher, orderBy = "resultFisher", ranksOf = "classicFisher", topNodes = length(allGO))
 allRes
+write.table(allRes, file = "MF_GO_enrichment.tsv", sep = "\t")
 showSigOfNodes(GOdata, score(resultFisher), firstSigNodes = 10, useInfo ='all')
 out_prefix <- paste(o, "/", "TopGO_MF", sep="")
 printGraph(GOdata, resultFisher, firstSigNodes = 10, fn.prefix = out_prefix, useInfo = "all", pdfSW = TRUE)
@@ -69,6 +70,7 @@ resultFisher
 allGO = usedGO(object = GOdata)
 allRes <- GenTable(GOdata, classicFisher = resultFisher, orderBy = "resultFisher", ranksOf = "classicFisher", topNodes = length(allGO))
 allRes
+write.table(allRes, file = "BP_GO_enrichment.tsv", sep = "\t")
 showSigOfNodes(GOdata, score(resultFisher), firstSigNodes = 10, useInfo ='all')
 out_prefix <- paste(o, "/", "TopGO_BP", sep="")
 printGraph(GOdata, resultFisher, firstSigNodes = 10, fn.prefix = out_prefix, useInfo = "all", pdfSW = TRUE)
@@ -88,6 +90,7 @@ resultFisher
 allGO = usedGO(object = GOdata)
 allRes <- GenTable(GOdata, classicFisher = resultFisher, orderBy = "resultFisher", ranksOf = "classicFisher", topNodes = length(allGO))
 allRes
+write.table(allRes, file = "CC_GO_enrichment.tsv", sep = "\t")
 showSigOfNodes(GOdata, score(resultFisher), firstSigNodes = 10, useInfo ='all')
 out_prefix <- paste(o, "/", "TopGO_CC", sep="")
 printGraph(GOdata, resultFisher, firstSigNodes = 10, fn.prefix = out_prefix, useInfo = "all", pdfSW = TRUE)
