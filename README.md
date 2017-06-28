@@ -2216,6 +2216,8 @@ Because of the way ORF_finder predicts proteins, phobius predictions cannot be u
 
 Secreted proteins from different sources were combined into a single file:
 
+--progress here--
+
 ```bash
 for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa)
 do
