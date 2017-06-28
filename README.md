@@ -2241,9 +2241,9 @@ done
 ```
 P.fragariae - A4
 The following number of sequences were predicted as secreted:
-74345
+74,345
 This represented the following number of unique genes:
-35756
+35,756
 P.fragariae - Bc16
 The following number of sequences were predicted as secreted:
 87,857
@@ -2251,49 +2251,49 @@ This represented the following number of unique genes:
 42,305
 P.fragariae - Bc1
 The following number of sequences were predicted as secreted:
-75022
+75,022
 This represented the following number of unique genes:
-36030
+36,030
 P.fragariae - Bc23
 The following number of sequences were predicted as secreted:
-73943
+73,943
 This represented the following number of unique genes:
-35520
+35,520
 P.fragariae - Nov27
 The following number of sequences were predicted as secreted:
-74330
+74,330
 This represented the following number of unique genes:
-35763
+35,763
 P.fragariae - Nov5
 The following number of sequences were predicted as secreted:
-74233
+74,233
 This represented the following number of unique genes:
-35726
+35,726
 P.fragariae - Nov71
 The following number of sequences were predicted as secreted:
-74434
+74,434
 This represented the following number of unique genes:
-35714
+35,714
 P.fragariae - Nov77
 The following number of sequences were predicted as secreted:
-74426
+74,426
 This represented the following number of unique genes:
-35842
+35,842
 P.fragariae - Nov9
 The following number of sequences were predicted as secreted:
-75097
+75,097
 This represented the following number of unique genes:
-36114
+36,114
 P.fragariae - ONT3
 The following number of sequences were predicted as secreted:
-86098
+86,098
 This represented the following number of unique genes:
-41450
+41,450
 P.fragariae - SCRP245_v2
 The following number of sequences were predicted as secreted:
-78047
+78,047
 This represented the following number of unique genes:
-37585
+37,585
 ```
 
 E.3) Prediction of RxLRs
