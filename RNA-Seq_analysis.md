@@ -922,9 +922,10 @@ $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 OutDir=analysis/enrichment/P.fragariae/Bc16/Whole_Genome
 mkdir -p $OutDir
 InterProTSV=gene_pred/interproscan/P.fragariae/Bc16/Bc16_interproscan.tsv
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
 $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.tsv
 
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
 DEGs=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs_names.txt
 AllGenes=$OutDir/Bc16_all_genes.txt
