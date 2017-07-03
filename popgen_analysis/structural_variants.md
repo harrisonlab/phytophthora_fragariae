@@ -108,7 +108,7 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 cd $input
 
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples pfrag_struc_variants.vcf Pfrag-SCRP245 Pfrag-ONT-3 Pfrag-Nov-77 Pfrag-Bc23 62471  > pfrag_struc_variants_plus_pr.vcf
+$vcflib/vcfremovesamples pfrag.vcf Pfrag-SCRP245 Pfrag-ONT-3 Pfrag-Nov-77 Pfrag-Bc23 62471  > pfrag_struc_variants_plus_pr.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf pfrag_struc_variants_plus_pr.vcf  --max-missing 0.95 --recode --out pfrag_struc_variants_plus_pr_filtered
