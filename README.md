@@ -2573,7 +2573,7 @@ done
 
 ```
 P.fragariae A4
-Initial search space (Z):              74345  [actual number of targets]
+Initial search space (Z):             74,345  [actual number of targets]
 Domain search space  (domZ):             654  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   198
 P.fragariae Bc16
@@ -2581,39 +2581,39 @@ Initial search space (Z):             87,857  [actual number of targets]
 Domain search space  (domZ):             708  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   217
 P.fragariae Bc1
-Initial search space (Z):              75022  [actual number of targets]
+Initial search space (Z):             75,022  [actual number of targets]
 Domain search space  (domZ):             654  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   198
 P.fragariae Bc23
-Initial search space (Z):              73943  [actual number of targets]
+Initial search space (Z):             73,943  [actual number of targets]
 Domain search space  (domZ):             671  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   202
 P.fragariae Nov27
-Initial search space (Z):              74330  [actual number of targets]
+Initial search space (Z):             74,330  [actual number of targets]
 Domain search space  (domZ):             654  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   198
 P.fragariae Nov5
-Initial search space (Z):              74233  [actual number of targets]
+Initial search space (Z):             74,233  [actual number of targets]
 Domain search space  (domZ):             654  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   198
 P.fragariae Nov71
-Initial search space (Z):              74434  [actual number of targets]
+Initial search space (Z):             74,434  [actual number of targets]
 Domain search space  (domZ):             654  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   198
 P.fragariae Nov77
-Initial search space (Z):              74426  [actual number of targets]
+Initial search space (Z):             74,426  [actual number of targets]
 Domain search space  (domZ):             643  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   194
 P.fragariae Nov9
-Initial search space (Z):              75097  [actual number of targets]
+Initial search space (Z):             75,097  [actual number of targets]
 Domain search space  (domZ):             657  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   199
 P.fragariae ONT3
-Initial search space (Z):              86098  [actual number of targets]
+Initial search space (Z):             86,098  [actual number of targets]
 Domain search space  (domZ):             677  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   204
 P.fragariae SCRP245_v2
-Initial search space (Z):              78047  [actual number of targets]
+Initial search space (Z):             78,047  [actual number of targets]
 Domain search space  (domZ):             666  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   202
 ```
