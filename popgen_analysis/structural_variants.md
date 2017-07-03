@@ -99,7 +99,7 @@ qsub $scripts/sub_lumpy.sh pfrag_struc_variants
 
 ```bash
 scripts=/home/sobczm/bin/popgen/summary_stats
-input=/home/sobczm/popgen/snp/sv_calling/pfrag
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 ```
 
 ####Cut down and filter vcf for analysis including P. rubi as an ancestral grouping
