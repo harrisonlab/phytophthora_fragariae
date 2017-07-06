@@ -3470,11 +3470,6 @@ nano gene_pred/trans_mem/P.fragariae/ONT3/GPIsom/GPI_pos.fa
 nano gene_pred/trans_mem/P.fragariae/SCRP245_v2/GPIsom/GPI_pos.fa
 ```
 
-```
-Bc16
-598 are positive for GPI
-```
-
 Create a file just listing gene names
 
 ```bash
