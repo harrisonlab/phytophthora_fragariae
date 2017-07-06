@@ -3375,14 +3375,35 @@ for TM in $(ls gene_pred/trans_mem/P.fragariae/*/*_TM_genes_pos.txt)
 do
     Strain=$(echo $TM | rev | cut -f2 -d '/' | rev)
     echo $Strain
+    echo "The number of proteins scoring positive for a transmembrane helix is:"
     cat $TM | wc -l
+    echo ""
 done
 ```
 
 ```
+A4
+4260
 Bc16
-4,268 are positive for TM domains
-```
+4268
+Bc1
+4252
+Bc23
+4261
+Nov27
+4270
+Nov5
+4313
+Nov71
+4272
+Nov77
+4266
+Nov9
+4250
+ONT3
+6035
+SCRP245_v2
+5248```
 
 Create a headers file
 
