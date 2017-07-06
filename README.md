@@ -3493,4 +3493,50 @@ do
 done
 ```
 
+```
+A4
+The number of proteins scoring positive for being GPI anchored is:
+574
+
+Bc16
+The number of proteins scoring positive for being GPI anchored is:
+598
+
+Bc1
+The number of proteins scoring positive for being GPI anchored is:
+554
+
+Bc23
+The number of proteins scoring positive for being GPI anchored is:
+575
+
+Nov27
+The number of proteins scoring positive for being GPI anchored is:
+569
+
+Nov5
+The number of proteins scoring positive for being GPI anchored is:
+561
+
+Nov71
+The number of proteins scoring positive for being GPI anchored is:
+583
+
+Nov77
+The number of proteins scoring positive for being GPI anchored is:
+563
+
+Nov9
+The number of proteins scoring positive for being GPI anchored is:
+590
+
+ONT3
+The number of proteins scoring positive for being GPI anchored is:
+687
+
+SCRP245_v2
+The number of proteins scoring positive for being GPI anchored is:
+614
+```
+
 Further downstream analysis done in orthology_analysis.md
