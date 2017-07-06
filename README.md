@@ -3389,7 +3389,7 @@ Proteins were identified by submitting the combined protein file to webserver at
 Output directory made
 
 ```bash
-for Proteome in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.gene.fasta | grep 'Bc16')
+for Proteome in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.gene.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
