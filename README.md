@@ -3487,7 +3487,7 @@ for GPI in $(ls gene_pred/trans_mem/P.fragariae/*/GPIsom/*.txt)
 do
     Strain=$(echo $GPI | rev | cut -f3 -d '/' | rev)
     echo $Strain
-    echo "The number of proteins scoring positive for a transmembrane helix is:"
+    echo "The number of proteins scoring positive for being GPI anchored is:"
     cat $GPI | wc -l
     echo ""
 done
