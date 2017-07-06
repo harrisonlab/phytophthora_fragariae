@@ -3416,6 +3416,7 @@ nano gene_pred/trans_mem/P.fragariae/SCRP245_v2/GPIsom/GPI_pos.fa
 ```
 
 ```
+Bc16
 598 are positive for GPI
 ```
 
