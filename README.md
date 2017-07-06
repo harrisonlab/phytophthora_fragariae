@@ -3383,27 +3383,49 @@ done
 
 ```
 A4
-4260
+The number of proteins scoring positive for a transmembrane helix is:
+4,260
+
 Bc16
-4268
+The number of proteins scoring positive for a transmembrane helix is:
+4,268
+
 Bc1
-4252
+The number of proteins scoring positive for a transmembrane helix is:
+4,252
+
 Bc23
-4261
+The number of proteins scoring positive for a transmembrane helix is:
+4,261
+
 Nov27
-4270
+The number of proteins scoring positive for a transmembrane helix is:
+4,270
+
 Nov5
-4313
+The number of proteins scoring positive for a transmembrane helix is:
+4,313
+
 Nov71
-4272
+The number of proteins scoring positive for a transmembrane helix is:
+4,272
+
 Nov77
-4266
+The number of proteins scoring positive for a transmembrane helix is:
+4,266
+
 Nov9
-4250
+The number of proteins scoring positive for a transmembrane helix is:
+4,250
+
 ONT3
-6035
+The number of proteins scoring positive for a transmembrane helix is:
+6,035
+
 SCRP245_v2
-5248```
+The number of proteins scoring positive for a transmembrane helix is:
+5,248
+```
 
 Create a headers file
 
