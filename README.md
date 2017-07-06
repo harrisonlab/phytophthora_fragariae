@@ -3483,9 +3483,9 @@ done
 Summarise numbers of GPI Proteins
 
 ```bash
-for GPI in $(ls gene_pred/trans_mem/P.fragariae/*//GPIsom/*.txt)
+for GPI in $(ls gene_pred/trans_mem/P.fragariae/*/GPIsom/*.txt)
 do
-    Strain=$(echo $GPI | rev | cut -f2 -d '/' | rev)
+    Strain=$(echo $GPI | rev | cut -f3 -d '/' | rev)
     echo $Strain
     echo "The number of proteins scoring positive for a transmembrane helix is:"
     cat $GPI | wc -l
