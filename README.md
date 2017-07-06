@@ -3368,7 +3368,7 @@ do
 done
 ```
 
-###Summarise numbers of TM Proteins
+Summarise numbers of TM Proteins
 
 ```bash
 for TM in $(ls gene_pred/trans_mem/P.fragariae/*/*_TM_genes_pos.txt)
@@ -3477,6 +3477,19 @@ for PosFile in $(ls gene_pred/trans_mem/*/*/GPIsom/GPI_pos.fa)
 do
     GPIHeaders=$(echo $PosFile | sed 's/.fa/.txt/g')
     cat $PosFile | grep -e ">" | cut -f1 -d ' ' | sed 's/>//g' > $GPIHeaders
+done
+```
+
+Summarise numbers of GPI Proteins
+
+```bash
+for GPI in $(ls gene_pred/trans_mem/P.fragariae/*//GPIsom/*.txt)
+do
+    Strain=$(echo $GPI | rev | cut -f2 -d '/' | rev)
+    echo $Strain
+    echo "The number of proteins scoring positive for a transmembrane helix is:"
+    cat $GPI | wc -l
+    echo ""
 done
 ```
 
