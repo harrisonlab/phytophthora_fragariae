@@ -3368,7 +3368,19 @@ do
 done
 ```
 
+###Summarise numbers of TM Proteins
+
+```bash
+for TM in $(ls gene_pred/trans_mem/P.fragariae/*/*_TM_genes_pos.txt)
+do
+    Strain=$(echo $TM | rev | cut -f2 -d '/' | rev)
+    echo $Strain
+    cat $TM | wc -l
+done
 ```
+
+```
+Bc16
 4,268 are positive for TM domains
 ```
 
