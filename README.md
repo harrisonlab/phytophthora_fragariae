@@ -3402,7 +3402,17 @@ done
 Results were parsed to the file
 
 ```bash
+nano gene_pred/trans_mem/P.fragariae/A4/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc1/GPIsom/GPI_pos.fa
 nano gene_pred/trans_mem/P.fragariae/Bc16/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc23/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov27/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov5/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov71/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov77/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov9/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/ONT3/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/SCRP245_v2/GPIsom/GPI_pos.fa
 ```
 
 ```
