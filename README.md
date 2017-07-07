@@ -648,14 +648,12 @@ Results were summarised using the following commands
 
 ```bash
 # for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
-for File in $(ls assembly/spades/P.*/*/deconseq_Paen/log.txt)
-do
-    Name=$(echo $File | rev | cut -f3 -d '/' | rev)
-    Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
-    Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
-    Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
-    printf "$Name\t$Good\t$Both\t$Bad\n"
-done
+File=assembly/FALCON_Trial/quiver_results/polished//deconseq_Paen/log.txt)
+Name=$(echo $File | rev | cut -f3 -d '/' | rev)
+Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
+Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
+Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
+printf "$Name\t$Good\t$Both\t$Bad\n"
 ```
 
 ```
