@@ -554,6 +554,10 @@ NOV-71: 7,885
 NOV-9: 7,655
 BC-1: 7,504**
 
+##Run Deconseq to identify potential contaminents in the assembly
+
+
+
 #Repeatmasking
 
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
