@@ -648,7 +648,7 @@ Results were summarised using the following commands
 
 ```bash
 # for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
-File=assembly/FALCON_Trial/quiver_results/polished/deconseq_Paen/log.txt)
+File=assembly/FALCON_Trial/quiver_results/polished/deconseq_Paen/log.txt
 Name=$(echo $File | rev | cut -f3 -d '/' | rev)
 Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
 Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
