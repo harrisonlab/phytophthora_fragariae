@@ -597,6 +597,17 @@ done
 
 Assembly stats were collected on filtered assemblies
 
+```bash
+for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta)
+do
+  Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+  Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+  OutDir=$(dirname $Assembly)
+  ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+  qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+done
+```
+
 #Repeatmasking
 
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
