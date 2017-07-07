@@ -648,7 +648,7 @@ Results were summarised using the following commands
 
 ```bash
 # for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
-File=assembly/FALCON_Trial/quiver_results/polished//deconseq_Paen/log.txt)
+File=assembly/FALCON_Trial/quiver_results/polished/deconseq_Paen/log.txt)
 Name=$(echo $File | rev | cut -f3 -d '/' | rev)
 Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
 Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
@@ -663,14 +663,12 @@ printf "$Name\t$Good\t$Both\t$Bad\n"
 Assembly stats were collected on filtered assemblies
 
 ```bash
-for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta)
-do
-    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
-    OutDir=$(dirname $Assembly)
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
-done
+Assembly=assembly/FALCON_Trial/quiver_results/polished/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta
+Strain=Bc16
+Organism=P.fragariae
+OutDir=$(dirname $Assembly)
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 ```
 
 Assembly stats were summarised and compared to previous assembly results
