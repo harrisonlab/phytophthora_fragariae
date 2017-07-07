@@ -595,7 +595,7 @@ done
 
 ```
 
-
+Assembly stats were collected on filtered assemblies
 
 #Repeatmasking
 
