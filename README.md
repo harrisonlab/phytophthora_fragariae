@@ -625,7 +625,7 @@ done
 
 ```
 
-###SPAdes assemblies
+###FALCON assembly
 
 Contigs were identified that had BLAST hits to non-phytophthora genomes
 
