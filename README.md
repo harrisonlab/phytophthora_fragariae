@@ -600,12 +600,29 @@ Assembly stats were collected on filtered assemblies
 ```bash
 for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta)
 do
-  Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
-  Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
-  OutDir=$(dirname $Assembly)
-  ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-  qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    OutDir=$(dirname $Assembly)
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 done
+```
+
+Assembly stats were summarised and compared to previous assembly results
+
+```bash
+for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/report.tsv)
+do  
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/'| rev)
+    Size=$(cat $Assembly | grep 'Total length' | head -n1 | cut -f2)
+    OldAssembly=$(ls assembly/spades/P.*/$Strain/filtered_contigs*/report.tsv)
+    OldSize=$(cat $OldAssembly | grep 'Total length' | head -n1 | cut -f2)
+    printf "$Strain\t$Size\t$OldSize\n"
+done
+```
+
+```
+
 ```
 
 #Repeatmasking
