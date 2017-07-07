@@ -592,7 +592,16 @@ done
 ```
 
 ```
-
+A4	13445	1	1
+Bc1	11555	1	1
+Bc23	13189	2	1
+Nov27	12487	2	1
+Nov5	13526	2	1
+Nov71	12211	2	1
+Nov77	13319	2	1
+Nov9	11801	1	1
+ONT3	13290	2	54
+SCRP245_v2	13247	2	10
 ```
 
 Assembly stats were collected on filtered assemblies
