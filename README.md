@@ -558,6 +558,8 @@ BC-1: 7,504**
 
 ###SPAdes assemblies
 
+Contigs were identified that had BLAST hits to non-phytophthora genomes
+
 ```bash
 for Assembly in $(ls assembly/spades/*/*/filtered_contigs/contigs_min_500bp_renamed.fasta | grep -v 'Bc16')
 do
@@ -572,6 +574,20 @@ do
     OutDir=$AssemblyDir/../deconseq_Paen
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
     qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
+done
+```
+
+Results were summarised using the following commands
+
+```bash
+# for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
+for File in $(ls assembly/spades/P.*/*/deconseq_Paen/log.txt)
+do
+    Name=$(echo $File | rev | cut -f3 -d '/' | rev)
+    Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
+    Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
+    Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
+    printf "$Name\t$Good\t$Both\t$Bad\n"
 done
 ```
 
