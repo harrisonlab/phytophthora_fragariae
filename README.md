@@ -556,7 +556,24 @@ BC-1: 7,504**
 
 ##Run Deconseq to identify potential contaminents in the assembly
 
+SPAdes assemblies
 
+```bash
+for Assembly in $(ls assembly/spades/*/*/filtered_contigs/contigs_min_500bp_renamed.fasta | grep -v 'Bc16')
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    # Exclude_db="bact,virus,hsref"
+    Exclude_db="paenibacillus"
+    Good_db="phytoph"
+    AssemblyDir=$(dirname $Assembly)
+    # OutDir=$AssemblyDir/../deconseq
+    OutDir=$AssemblyDir/../deconseq_Paen
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+    qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
+done
+```
 
 #Repeatmasking
 
