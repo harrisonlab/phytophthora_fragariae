@@ -701,7 +701,7 @@ printf "$Strain\t$Size\t$OldSize\n"
 ```
 
 ```
-
+Bc16	90967989	90967989
 ```
 
 #Repeatmasking
