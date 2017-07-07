@@ -556,7 +556,7 @@ BC-1: 7,504**
 
 ##Run Deconseq to identify potential contaminents in the assembly
 
-SPAdes assemblies
+###SPAdes assemblies
 
 ```bash
 for Assembly in $(ls assembly/spades/*/*/filtered_contigs/contigs_min_500bp_renamed.fasta | grep -v 'Bc16')
