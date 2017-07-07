@@ -674,14 +674,12 @@ qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 Assembly stats were summarised and compared to previous assembly results
 
 ```bash
-for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/report.tsv)
-do  
-    Strain=$(echo $Assembly | rev | cut -f3 -d '/'| rev)
-    Size=$(cat $Assembly | grep 'Total length' | head -n1 | cut -f2)
-    OldAssembly=$(ls assembly/spades/P.*/$Strain/filtered_contigs*/report.tsv)
-    OldSize=$(cat $OldAssembly | grep 'Total length' | head -n1 | cut -f2)
-    printf "$Strain\t$Size\t$OldSize\n"
-done
+Assembly=assembly/FALCON_Trial/quiver_results/polished/deconseq_Paen/report.tsv
+Strain=Bc16
+Size=$(cat $Assembly | grep 'Total length' | head -n1 | cut -f2)
+OldAssembly=assembly/FALCON_Trial/quiver_results/polished/report.tsv
+OldSize=$(cat $OldAssembly | grep 'Total length' | head -n1 | cut -f2)
+printf "$Strain\t$Size\t$OldSize\n"
 ```
 
 ```
