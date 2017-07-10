@@ -79,7 +79,7 @@ Sets up variables for Circos
 
 ```bash
 ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos/
-Bc16_genome=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa
+Bc16_genome=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa
 OutDir=analysis/circos/P.fragariae/Bc16
 mkdir -p $OutDir
 ```
