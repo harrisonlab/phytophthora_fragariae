@@ -515,7 +515,8 @@ OutDir=assembly/FALCON_Trial/quiver_results/polished/
 qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 ```
 
-**N50:
+```
+N50:
 A4: 18,245
 BC-16: 923,458
 BC-23: 18,227
@@ -526,9 +527,9 @@ ONT-3: 22,074
 SCRP245_v2: 20,105
 NOV-71: 20,226
 NOV-9: 21,522
-BC-1: 21,834**
+BC-1: 21,834
 
-**L50:
+L50:
 A4: 1,116
 BC-16: 33
 BC-23: 1,119
@@ -539,9 +540,9 @@ ONT-3: 917
 SCRP245_v2: 994
 NOV-71: 1,016
 NOV-9: 978
-BC-1: 954**
+BC-1: 954
 
-**Number of contigs > 1kb:
+Number of contigs > 1kb:
 A4: 8,660
 BC-16: 180
 BC-23: 8,556
@@ -552,7 +553,8 @@ ONT-3: 8,540
 SCRP245_v2: 8,584
 NOV-71: 7,885
 NOV-9: 7,655
-BC-1: 7,504**
+BC-1: 7,504
+```
 
 ##Run Deconseq to identify potential contaminents in the assembly
 
@@ -742,6 +744,49 @@ printf "$Strain\t$Size\t$OldSize\n"
 
 ```
 Bc16	90967989	90967989
+```
+
+Final Assembly statistics
+
+```
+N50:
+A4: 18,245
+BC-16: 923,458
+BC-23: 18,227
+NOV-27: 19,406
+NOV-5: 17,887
+NOV-77: 18,925
+ONT-3: 20,565
+SCRP245_v2: 20,056
+NOV-71: 20,226
+NOV-9: 21,522
+BC-1: 21,842
+
+L50:
+A4: 1,116
+BC-16: 33
+BC-23: 1,119
+NOV-27: 1,046
+NOV-5: 1,134
+NOV-77: 1,101
+ONT-3: 988
+SCRP245_v2: 995
+NOV-71: 1,016
+NOV-9: 978
+BC-1: 953
+
+Number of contigs > 1kb:
+A4: 8,659
+BC-16: 180
+BC-23: 8,555
+NOV-27: 8,039
+NOV-5: 8,759
+NOV-77: 8,499
+ONT-3: 8,492
+SCRP245_v2: 8,576
+NOV-71: 7,884
+NOV-9: 7,654
+BC-1: 7,503
 ```
 
 #Repeatmasking
