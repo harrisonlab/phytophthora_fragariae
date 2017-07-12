@@ -907,7 +907,7 @@ Gene prediction followed three steps: Pre-gene prediction - Quality of genome as
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
 ```bash
-for Assembly in $(ls assembly/spades/P.fragariae/*/filtered_contigs/contigs_min_500bp_renamed.fasta)
+for Assembly in $(ls assembly/spades/P.fragariae/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta)
 do
     Strain=$(echo $Assembly | rev |cut -d '/' -f3 | rev)
     echo "$Strain"
