@@ -1356,9 +1356,6 @@ do
     Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
     mkdir -p alignment/$Organism/$Strain/concatenated
     samtools merge -f alignment/$Organism/$Strain/concatenated/concatenated.bam \
-    alignment/star/$Organism/$Strain/0hr/TA-01/star_aligmentAligned.sortedByCoord.out.bam \
-    alignment/star/$Organism/$Strain/0hr/TA-02/star_aligmentAligned.sortedByCoord.out.bam \
-    alignment/star/$Organism/$Strain/0hr/TA-03/star_aligmentAligned.sortedByCoord.out.bam \
     alignment/star/$Organism/$Strain/24hr/TA-07/star_aligmentAligned.sortedByCoord.out.bam \
     alignment/star/$Organism/$Strain/24hr/TA-08/star_aligmentAligned.sortedByCoord.out.bam \
     alignment/star/$Organism/$Strain/24hr/TA-09/star_aligmentAligned.sortedByCoord.out.bam \
