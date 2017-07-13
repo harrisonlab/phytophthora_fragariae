@@ -1312,7 +1312,7 @@ This is a more recent aligner and should be used for all aligning of RNA-Seq dat
 SPAdes assemblies of Illumina MiSeq data
 
 ```bash
-for Assembly in $(ls repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+for Assembly in $(ls repeat_masked/P.fragariae/*/deconseq_Paen_repmask/*_contigs_unmasked.fa)
 do
     Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
     Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
