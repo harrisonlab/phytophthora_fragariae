@@ -1339,19 +1339,21 @@ do
 done
 ```
 
-###Run Braker
+###Run Braker1
 
 ```bash
-Strain=Nov9
-Organism=P.fragariae
-echo "$Organism - $Strain"
-Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
-OutDir=gene_pred/braker/$Organism/"$Strain"_braker
-AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
-GeneModelName="$Organism"_"$Strain"_braker
-rm -r /home/armita/prog/augustus-3.1/config/species/"$Organism"_"$Strain"_braker
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-qsub $ProgDir/sub_braker_fungi.sh $Assembly $OutDir $AcceptedHits $GeneModelName
+for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+do
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    OutDir=gene_pred/braker/$Organism/"$Strain"_braker
+    AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+    GeneModelName="$Organism"_"$Strain"_braker
+    rm -r /home/armita/prog/augustus-3.1/config/species/"$Organism"_"$Strain"_braker
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
+    qsub $ProgDir/sub_braker_fungi.sh $Assembly $OutDir $AcceptedHits $GeneModelName
+done
 ```
 
 #Supplementing Braker gene models with CodingQuarry genes
