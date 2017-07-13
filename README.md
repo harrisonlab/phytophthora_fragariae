@@ -1349,27 +1349,29 @@ FALCON assembly aligning shown in RNA-Seq_analysis.md
 ###Concatenation
 
 ```bash
-Strain=Nov9
-Organism=P.fragariae
-echo "$Organism - $Strain"
-Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
-mkdir -p alignment/$Organism/$Strain/concatenated
-samtools merge -f alignment/$Organism/$Strain/concatenated/concatenated.bam \
-alignment/star/$Organism/$Strain/0hr/TA-01/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/0hr/TA-02/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/0hr/TA-03/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/24hr/TA-07/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/24hr/TA-08/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/24hr/TA-09/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/48hr/TA-12/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/48hr/TA-13/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/48hr/TA-14/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/96hr/TA-18/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/96hr/TA-19/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/96hr/TA-20/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/mycelium/TA-32/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/mycelium/TA-34/star_aligmentAligned.sortedByCoord.out.bam \
-alignment/star/$Organism/$Strain/mycelium/TA-35/star_aligmentAligned.sortedByCoord.out.bam
+for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+do
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    mkdir -p alignment/$Organism/$Strain/concatenated
+    samtools merge -f alignment/$Organism/$Strain/concatenated/concatenated.bam \
+    alignment/star/$Organism/$Strain/0hr/TA-01/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/0hr/TA-02/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/0hr/TA-03/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/24hr/TA-07/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/24hr/TA-08/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/24hr/TA-09/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/48hr/TA-12/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/48hr/TA-13/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/48hr/TA-14/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/96hr/TA-18/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/96hr/TA-19/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/96hr/TA-20/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/mycelium/TA-32/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/mycelium/TA-34/star_aligmentAligned.sortedByCoord.out.bam \
+    alignment/star/$Organism/$Strain/mycelium/TA-35/star_aligmentAligned.sortedByCoord.out.bam
+done
 ```
 
 ###Run Braker
