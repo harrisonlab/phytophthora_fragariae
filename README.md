@@ -1321,7 +1321,7 @@ for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
-    Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    Assembly=repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
     mkdir -p alignment/$Organism/$Strain/concatenated
     samtools merge -f alignment/$Organism/$Strain/concatenated/concatenated.bam \
     alignment/star/$Organism/$Strain/24hr/TA-07/star_aligmentAligned.sortedByCoord.out.bam \
@@ -1346,7 +1346,7 @@ for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
-    Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    Assembly=repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
     OutDir=gene_pred/braker/$Organism/"$Strain"_braker
     AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
     GeneModelName="$Organism"_"$Strain"_braker
@@ -1365,28 +1365,32 @@ Firstly, aligned RNAseq data was assembled into transcripts using Cufflinks.
 Note - cufflinks doesn't always predict direction of a transcript and therefore features can not be restricted by strand when they are intersected.
 
 ```bash
-Strain=Nov9
-Organism=P.fragariae
-echo "$Organism - $Strain"
-Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/polished_contigs_unmasked.fa
-OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated
-mkdir -p $OutDir
-AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
-ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
+for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+do
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    Assembly=repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/polished_contigs_unmasked.fa
+    OutDir=gene_pred/cufflinks/$Organism/$Strain/concatenated
+    mkdir -p $OutDir
+    AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+    qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
+done
 ```
 
 Secondly, genes were predicted using CodingQuarry:
 
 ```bash
-Strain=Nov9
-Organism=P.fragariae
-echo "$Organism - $Strain"
-Assembly=repeat_masked/$Organism/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
-OutDir=gene_pred/codingquarry/$Organism/$Strain
-CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
-qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
+for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+do
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    Assembly=repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    OutDir=gene_pred/codingquarry/$Organism/$Strain
+    CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
+    qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
+done
 ```
 
 Then, additional transcripts were added to Braker1 gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker1 gene models:
