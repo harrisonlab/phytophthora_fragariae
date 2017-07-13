@@ -1307,40 +1307,8 @@ done
 This has had issues running
 
 ##Use STAR
-This is a more recent aligner and should be used for all aligning of RNA-Seq data
 
-SPAdes assemblies of Illumina MiSeq data
-
-```bash
-for Assembly in $(ls repeat_masked/P.fragariae/*/deconseq_Paen_repmask/*_contigs_unmasked.fa)
-do
-    Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
-    Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
-    echo "$Organism - $Strain"
-    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz)
-    do
-        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-        while [ $Jobs -gt 1 ]
-        do
-            sleep 1m
-            printf "."
-            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-        done
-        printf "\n"
-        FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
-        echo $FileF
-        echo $FileR
-        Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
-        echo "$Timepoint"
-        Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
-        OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
-        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/sub_star.sh $Assembly $FileF $FileR $OutDir
-    done
-done
-```
-
-FALCON assembly aligning shown in RNA-Seq_analysis.md
+FALCON and Illumina assemblies aligning shown in RNA-Seq_analysis.md
 
 #Braker prediction
 
