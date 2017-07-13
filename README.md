@@ -823,7 +823,7 @@ done
 The number of bases masked by transposonPSI and Repeatmasker were summarised using the following commands:
 
 ```bash
-for RepDir in $(ls -d repeat_masked/P.*/*/filtered_contigs_repmask)
+for RepDir in $(ls -d repeat_masked/P.*/*/deconseq_Paen_repmask)
 do
     Strain=$(echo $RepDir | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $RepDir | rev | cut -f3 -d '/' | rev)  
@@ -839,18 +839,19 @@ do
 done
 ```
 
-** P.fragariae	A4
+```
+P.fragariae	A4
 The number of bases masked by RepeatMasker:	25,229,733
 The number of bases masked by TransposonPSI:	6,237,528
 The total number of masked bases are:	26,843,307
-P.fragariae	Bc16
-The number of bases masked by RepeatMasker:	34,336,727
-The number of bases masked by TransposonPSI:	8,335,020
-The total number of masked bases are:	36,243,959
 P.fragariae	Bc1
 The number of bases masked by RepeatMasker:	24,577,702
 The number of bases masked by TransposonPSI:	6,219,671
 The total number of masked bases are:	26,373,524
+P.fragariae	Bc16
+The number of bases masked by RepeatMasker:	34,336,727
+The number of bases masked by TransposonPSI:	8,335,020
+The total number of masked bases are:	36,243,959
 P.fragariae	Bc23
 The number of bases masked by RepeatMasker:	23,825,527
 The number of bases masked by TransposonPSI:	6,101,880
@@ -882,7 +883,8 @@ The total number of masked bases are:	27,069,806
 P.fragariae	SCRP245_v2
 The number of bases masked by RepeatMasker:	23,819,461
 The number of bases masked by TransposonPSI:	6,037,837
-The total number of masked bases are:	25,498,886 **
+The total number of masked bases are:	25,498,886
+```
 
 #Merging RepeatMasker and TransposonPSI outputs
 
