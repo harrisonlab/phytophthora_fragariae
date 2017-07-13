@@ -974,14 +974,14 @@ Fragmented genes: 8
 Missing genes: 18
 
 ONT3
-Complete and single copy genes: 276
-Complete and duplicated genes: 7
+Complete and single copy genes: 274
+Complete and duplicated genes: 8
 Fragmented genes: 4
-Missing genes: 16
+Missing genes: 17
 
 SCRP245_v2
-Complete and single copy genes: 268
-Complete and duplicated genes: 10
+Complete and single copy genes: 270
+Complete and duplicated genes: 8
 Fragmented genes: 7
 Missing genes: 18
 ```
