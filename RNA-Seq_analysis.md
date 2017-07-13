@@ -232,7 +232,7 @@ done
 ###Illumina genomes
 
 ```bash
-for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/*/filtered_contigs_repmask/*_contigs_unmasked.fa)
+for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/*/deconseq_Paen_repmask/*_contigs_unmasked.fa)
 do
     for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
     do
