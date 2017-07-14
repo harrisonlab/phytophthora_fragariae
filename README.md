@@ -1312,7 +1312,7 @@ FALCON and Illumina assemblies aligning shown in RNA-Seq_analysis.md
 
 #Braker prediction
 
-##Alignment outputs were concatenated and braker prediction was run
+##Alignment outputs were concatenated and Braker1 prediction was run
 
 ###Concatenation
 
