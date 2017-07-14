@@ -1042,7 +1042,7 @@ done
 
 #Aligning
 
-Insert sizes of the RNA seq library were unknown until a draft alignment could be made. To do this tophat and cufflinks were run, aligning the reads against a single genome. The fragment length and stdev were printed to stdout while cufflinks was running.
+<!-- Insert sizes of the RNA seq library were unknown until a draft alignment could be made. To do this tophat and cufflinks were run, aligning the reads against a single genome. The fragment length and stdev were printed to stdout while cufflinks was running.
 
 ```bash
 for Assembly in $(ls repeat_masked/*/Bc16/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
@@ -1304,7 +1304,7 @@ do
 done
 ```
 
-This has had issues running
+This has had issues running -->
 
 ##Use STAR
 
