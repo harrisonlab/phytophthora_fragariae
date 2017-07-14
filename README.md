@@ -1652,7 +1652,7 @@ done
 The final number of genes per isolate was observed using:
 
 ```bash
-for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
+for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov9 Nov71 Nov77 ONT3 SCRP245_v2
 do
     for DirPath in $(ls -d gene_pred/ORF_finder/*/$Strain)
     do
