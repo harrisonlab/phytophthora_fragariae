@@ -1379,6 +1379,21 @@ do
 done
 ```
 
+```bash
+for Strain in Bc16
+do
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    Assembly=repeat_masked/quiver_results/$Strain/filtered_contigs_repmask/"$Strain"_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    OutDir=gene_pred/braker/$Organism/"$Strain"_braker
+    AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+    GeneModelName="$Organism"_"$Strain"_braker
+    rm -r /home/armita/prog/augustus-3.1/config/species/"$Organism"_"$Strain"_braker
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
+    qsub $ProgDir/sub_braker_fungi.sh $Assembly $OutDir $AcceptedHits $GeneModelName
+done
+```
+
 #Supplementing Braker gene models with CodingQuarry genes
 
 Additional genes were added to Braker gene predictions, using CodingQuarry in pathogen mode to predict additional regions.
