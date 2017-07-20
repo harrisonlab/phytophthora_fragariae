@@ -659,7 +659,7 @@ do
 done
 ```
 
-Assembly stats were summarised and compared to previous assembly results
+Assembly size was summarised and compared to previous assembly results
 
 ```bash
 for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/report.tsv)
