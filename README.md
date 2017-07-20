@@ -1445,6 +1445,20 @@ do
 done
 ```
 
+```bash
+for Strain in Bc16
+do
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    Assembly=repeat_masked/quiver_results/$Strain/filtered_contigs_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    OutDir=gene_pred/codingquarry/$Organism/$Strain
+    CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
+    qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
+done
+```
+
+
 Then, additional transcripts were added to Braker1 gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker1 gene models:
 
 ```bash
