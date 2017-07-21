@@ -2070,7 +2070,7 @@ the number of SigP-RxLR genes are:      383
 the number of SigP-RxLR-EER genes are:  189
 ```
 
-####G) From Secreted gene models - Hmm evidence of RxLR effectors
+####F) From Secreted gene models - Hmm evidence of RxLR effectors
 
 ```bash
 for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
@@ -2134,7 +2134,7 @@ Initial search space (Z):             37,462  [actual number of targets]
 Domain search space  (domZ):             196  [number of targets reported over threshold]
 ```
 
-####F) Combining RxLRs from Regex and hmm searches
+####G) Combining RxLRs from Regex and hmm searches
 
 The total RxLRs are found by combining different sources:
 
