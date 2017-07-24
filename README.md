@@ -1734,6 +1734,76 @@ Fragmented genes: 9
 Missing genes: 15
 ```
 
+Changes with respect to genome sequence
+
+```
+A4
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Bc16
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Bc1
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Bc23
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Nov27
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Nov5
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Nov71
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Nov77
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+Nov9
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+ONT3
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+
+SCRP245_v2
+Complete and single copy genes: 
+Complete and duplicated genes: 
+Fragmented genes: 
+Missing genes: 
+```
+
 #Gene prediction 2 - atg.pl prediction of ORFs
 
 Open reading frame predictions were made using the atg.pl script as part of the path_pipe.sh pipeline. This pipeline also identifies open reading frames containing Signal peptide sequences and RxLRs. This pipeline was run with the following commands:
