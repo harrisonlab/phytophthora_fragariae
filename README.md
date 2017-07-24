@@ -1468,7 +1468,7 @@ do
     Organism=$(echo $BrakerGff | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
     Assembly=$(ls repeat_masked/$Organism/$Strain/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa)
-    CodingQuaryGff=gene_pred/codingquarry/$Organism/$Strain/out/PredictedPass.gff3
+    CodingQuarryGff=gene_pred/codingquarry/$Organism/$Strain/out/PredictedPass.gff3
     PGNGff=gene_pred/codingquarry/$Organism/$Strain/out/PGN_predictedPass.gff3
     AddDir=gene_pred/codingquarry/$Organism/$Strain/additional
     FinalDir=gene_pred/codingquarry/$Organism/$Strain/final
@@ -1478,10 +1478,10 @@ do
     mkdir -p $AddDir
     mkdir -p $FinalDir
 
-    bedtools intersect -v -a $CodingQuaryGff -b $BrakerGff | grep 'gene'| cut -f2 -d'=' | cut -f1 -d';' > $AddGenesList
+    bedtools intersect -v -a $CodingQuarryGff -b $BrakerGff | grep 'gene'| cut -f2 -d'=' | cut -f1 -d';' > $AddGenesList
     bedtools intersect -v -a $PGNGff -b $BrakerGff | grep 'gene'| cut -f2 -d'=' | cut -f1 -d';' >> $AddGenesList
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-    $ProgDir/gene_list_to_gff.pl $AddGenesList $CodingQuaryGff CodingQuarry_v2.0 ID CodingQuary > $AddGenesGff
+    $ProgDir/gene_list_to_gff.pl $AddGenesList $CodingQuarryGff CodingQuarry_v2.0 ID CodingQuary > $AddGenesGff
     $ProgDir/gene_list_to_gff.pl $AddGenesList $PGNGff PGNCodingQuarry_v2.0 ID CodingQuary >> $AddGenesGff
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
 
