@@ -1733,37 +1733,37 @@ done
 
 ```
 ORF_finder - A4
-654,541
+654,457
 
 ORF_finder - Bc1
-657,485
+657,401
 
 ORF_finder - Bc16
 776,140
 
 ORF_finder - Bc23
-648,214
+648,130
 
 ORF_finder - Nov27
-653,883
+653,798
 
 ORF_finder - Nov5
-654,169
+654,082
 
 ORF_finder - Nov9
-660,342
+660,256
 
 ORF_finder - Nov71
-649,628
+649,542
 
 ORF_finder - Nov77
-653,363
+653,276
 
 ORF_finder - ONT3
-777,535
+722,865
 
 ORF_finder - SCRP245_v2
-691,456
+689,938
 ```
 
 #Genomic analysis
