@@ -1510,7 +1510,7 @@ BrakerGff=gene_pred/braker/P.fragariae/Bc16_braker/P.fragariae_Bc16_braker/augus
 Strain=$(echo $BrakerGff| rev | cut -d '/' -f3 | rev | sed 's/_braker//g')
 Organism=$(echo $BrakerGff | rev | cut -d '/' -f4 | rev)
 echo "$Organism - $Strain"
-    Assembly=repeat_masked/quiver_results/$Strain/filtered_contigs_repmask/polished_contigs_softmasked_repeatmasker_TPSI_appended.fa
+Assembly=repeat_masked/quiver_results/$Strain/filtered_contigs_repmask/polished_contigs_softmasked_repeatmasker_TPSI_appended.fa
 CodingQuarryGff=gene_pred/codingquarry/$Organism/$Strain/out/PredictedPass.gff3
 PGNGff=gene_pred/codingquarry/$Organism/$Strain/out/PGN_predictedPass.gff3
 AddDir=gene_pred/codingquarry/$Organism/$Strain/additional
