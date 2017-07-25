@@ -1572,11 +1572,11 @@ Total:
 
 Bc16
 Braker:
-31,743
+31,846
 CodingQuarry:
-4,817
+4,752
 Total:
-36,560
+36,598
 
 Bc1
 Braker:
