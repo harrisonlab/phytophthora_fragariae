@@ -1744,10 +1744,10 @@ Fragmented genes: +3
 Missing genes: -2
 
 Bc16
-Complete and single copy genes:
-Complete and duplicated genes:
-Fragmented genes:
-Missing genes:
+Complete and single copy genes: -3
+Complete and duplicated genes: +1
+Fragmented genes: +5
+Missing genes: -3
 
 Bc1
 Complete and single copy genes: -2
