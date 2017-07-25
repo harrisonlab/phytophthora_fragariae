@@ -1674,9 +1674,9 @@ Fragmented genes: 10
 Missing genes: 16
 
 Bc16
-Complete and single copy genes: 263
+Complete and single copy genes: 261
 Complete and duplicated genes: 10
-Fragmented genes: 8
+Fragmented genes: 10
 Missing genes: 22
 
 Bc1
