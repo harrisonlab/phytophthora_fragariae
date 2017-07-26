@@ -192,7 +192,8 @@ for Strain in Nov9; do
 done
 ```
 
-** Estimated Genome Size is:
+```
+Estimated Genome Size is:
 A4: 93,413,554
 SCRP245_v2: 127,550,025
 Bc23: 103,251,773
@@ -203,7 +204,8 @@ Bc16: 90,864,210
 Nov27: 93,851,233
 Bc1: 1,196,301,136
 Nov9: 959,591,302
-Nov71: 810,779,109 **
+Nov71: 810,779,109
+```
 
 ##Calculate coverage using the count_nucl.pl script
 
