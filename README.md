@@ -892,7 +892,7 @@ The total number of masked bases are:	26,062,283
 #Merging RepeatMasker and TransposonPSI outputs
 
 ```bash
-for File in $(ls -d repeat_masked/P.*/*/deconseq_Paen_repmask/*_contigs_softmasked.fa)
+for File in $(ls -d repeat_masked/*/*/*/*_contigs_softmasked.fa)
 do
     OutDir=$(dirname $File)
     TPSI=$(ls $OutDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
