@@ -911,6 +911,8 @@ Gene prediction followed three steps: Pre-gene prediction - Quality of genome as
 
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
+FALCON assembly BUSCO predictions performed in FALCON/FALCON_Assembly.md
+
 ```bash
 for Assembly in $(ls assembly/spades/P.fragariae/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta)
 do
