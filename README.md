@@ -378,7 +378,8 @@ cat raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_1.fastq | past
 cat raw_dna/pacbio/P.fragariae/Bc16/extracted/concatenated_pacbio_2.fastq | paste - - - - | cut -f3 | tr -d '\n' | wc -c
 ```
 
-** Esimated Coverage is:
+```
+Estimated Coverage is:
 A4: 35.91
 SCRP245_v2: 51.47
 Bc23: 49.33
@@ -389,8 +390,8 @@ Bc16: 61.29
 Nov27: 52.27
 Bc1: 116.25
 Nov9: 103.23
-Nov71: 79.92 **
-
+Nov71: 79.92
+```
 Target coverage is 20.
 The ones at value 5 are errors from filtering of error kmers, estimate from plots follow in ().
 
