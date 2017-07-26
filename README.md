@@ -2109,38 +2109,38 @@ done
 
 ```
 P.fragariae A4
-Initial search space (Z):             33,133  [actual number of targets]
-Domain search space  (domZ):             190  [number of targets reported over threshold]
+Initial search space (Z):             33,381  [actual number of targets]
+Domain search space  (domZ):             194  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):             36,560  [actual number of targets]
-Domain search space  (domZ):             216  [number of targets reported over threshold]
+Initial search space (Z):             36,598  [actual number of targets]
+Domain search space  (domZ):             217  [number of targets reported over threshold]
 P.fragariae Bc1
-Initial search space (Z):             33,047  [actual number of targets]
-Domain search space  (domZ):             193  [number of targets reported over threshold]
-P.fragariae Bc23
-Initial search space (Z):             33,627  [actual number of targets]
-Domain search space  (domZ):             198  [number of targets reported over threshold]
-P.fragariae Nov27
-Initial search space (Z):             33,207  [actual number of targets]
-Domain search space  (domZ):             187  [number of targets reported over threshold]
-P.fragariae Nov5
-Initial search space (Z):             33,555  [actual number of targets]
-Domain search space  (domZ):             191  [number of targets reported over threshold]
-P.fragariae Nov71
-Initial search space (Z):             33,004  [actual number of targets]
+Initial search space (Z):             33,144 [actual number of targets]
 Domain search space  (domZ):             190  [number of targets reported over threshold]
-P.fragariae Nov77
-Initial search space (Z):             33,363  [actual number of targets]
-Domain search space  (domZ):             186  [number of targets reported over threshold]
-P.fragariae Nov9
-Initial search space (Z):             32,978  [actual number of targets]
-Domain search space  (domZ):             193  [number of targets reported over threshold]
-P.fragariae ONT3
-Initial search space (Z):             38,301  [actual number of targets]
-Domain search space  (domZ):             186  [number of targets reported over threshold]
-P.fragariae SCRP245_v2
-Initial search space (Z):             37,462  [actual number of targets]
+P.fragariae Bc23
+Initial search space (Z):             33,039  [actual number of targets]
 Domain search space  (domZ):             196  [number of targets reported over threshold]
+P.fragariae Nov27
+Initial search space (Z):             33,171  [actual number of targets]
+Domain search space  (domZ):             189  [number of targets reported over threshold]
+P.fragariae Nov5
+Initial search space (Z):             33,566  [actual number of targets]
+Domain search space  (domZ):             193  [number of targets reported over threshold]
+P.fragariae Nov71
+Initial search space (Z):             32,660  [actual number of targets]
+Domain search space  (domZ):             193  [number of targets reported over threshold]
+P.fragariae Nov77
+Initial search space (Z):             33,068  [actual number of targets]
+Domain search space  (domZ):             180  [number of targets reported over threshold]
+P.fragariae Nov9
+Initial search space (Z):             32,670  [actual number of targets]
+Domain search space  (domZ):             194  [number of targets reported over threshold]
+P.fragariae ONT3
+Initial search space (Z):             36,913  [actual number of targets]
+Domain search space  (domZ):             189  [number of targets reported over threshold]
+P.fragariae SCRP245_v2
+Initial search space (Z):             36,759  [actual number of targets]
+Domain search space  (domZ):             194  [number of targets reported over threshold]
 ```
 
 ####G) Combining RxLRs from Regex and hmm searches
