@@ -1707,7 +1707,7 @@ Open reading frame predictions were made using the atg.pl script as part of the 
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-for Genome in $(ls repeat_masked/P.*/*/deconseq_Paen_repmask/*_contigs_unmasked.fa)
+for Genome in $(ls repeat_masked/*/*/*/*_contigs_unmasked.fa)
 do
     echo "$Genome"
     qsub $ProgDir/run_ORF_finder.sh $Genome
