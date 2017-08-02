@@ -3316,10 +3316,10 @@ done
 
 ```
 Searching for LFLAK domains in: P.fragariae A4
-Initial search space (Z):            654,541  [actual number of targets]
+Initial search space (Z):            654,457  [actual number of targets]
 Domain search space  (domZ):             243  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae A4
-Initial search space (Z):            654,541  [actual number of targets]
+Initial search space (Z):            654,457  [actual number of targets]
 Domain search space  (domZ):             380  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 169
@@ -3336,90 +3336,90 @@ The number of CRNs common to both models are:
 Number of CRN ORFs after merging:
 118
 Searching for LFLAK domains in: P.fragariae Bc1
-Initial search space (Z):            657,485  [actual number of targets]
+Initial search space (Z):            657,401  [actual number of targets]
 Domain search space  (domZ):             243  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Bc1
-Initial search space (Z):            657,485  [actual number of targets]
+Initial search space (Z):            657,401  [actual number of targets]
 Domain search space  (domZ):             380  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 169
 Number of CRN ORFs after merging:
 106
 Searching for LFLAK domains in: P.fragariae Bc23
-Initial search space (Z):            648,214  [actual number of targets]
+Initial search space (Z):            648,130  [actual number of targets]
 Domain search space  (domZ):             244  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Bc23
-Initial search space (Z):            648,214  [actual number of targets]
+Initial search space (Z):            648,130  [actual number of targets]
 Domain search space  (domZ):             367  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 169
 Number of CRN ORFs after merging:
 106
 Searching for LFLAK domains in: P.fragariae Nov27
-Initial search space (Z):            653,883  [actual number of targets]
+Initial search space (Z):            653,798  [actual number of targets]
 Domain search space  (domZ):             246  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Nov27
-Initial search space (Z):            653,883  [actual number of targets]
+Initial search space (Z):            653,798  [actual number of targets]
 Domain search space  (domZ):             371  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 171
 Number of CRN ORFs after merging:
 106
 Searching for LFLAK domains in: P.fragariae Nov5
-Initial search space (Z):            654,169  [actual number of targets]
+Initial search space (Z):            654,082  [actual number of targets]
 Domain search space  (domZ):             245  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Nov5
-Initial search space (Z):            654,169  [actual number of targets]
+Initial search space (Z):            654,082  [actual number of targets]
 Domain search space  (domZ):             378  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 171
 Number of CRN ORFs after merging:
 106
 Searching for LFLAK domains in: P.fragariae Nov71
-Initial search space (Z):            649,628  [actual number of targets]
+Initial search space (Z):            649,542  [actual number of targets]
 Domain search space  (domZ):             247  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Nov71
-Initial search space (Z):            649,628  [actual number of targets]
+Initial search space (Z):            649,542  [actual number of targets]
 Domain search space  (domZ):             377  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 170
 Number of CRN ORFs after merging:
 105
 Searching for LFLAK domains in: P.fragariae Nov77
-Initial search space (Z):            653,363  [actual number of targets]
+Initial search space (Z):            653,276  [actual number of targets]
 Domain search space  (domZ):             230  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Nov77
-Initial search space (Z):            653,363  [actual number of targets]
+Initial search space (Z):            653,276  [actual number of targets]
 Domain search space  (domZ):             371  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 167
 Number of CRN ORFs after merging:
 104
 Searching for LFLAK domains in: P.fragariae Nov9
-Initial search space (Z):            660,342  [actual number of targets]
+Initial search space (Z):            660,256  [actual number of targets]
 Domain search space  (domZ):             243  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Nov9
-Initial search space (Z):            660,342  [actual number of targets]
+Initial search space (Z):            660,256  [actual number of targets]
 Domain search space  (domZ):             377  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 167
 Number of CRN ORFs after merging:
 105
 Searching for LFLAK domains in: P.fragariae ONT3
-Initial search space (Z):            777,535  [actual number of targets]
+Initial search space (Z):            722,865  [actual number of targets]
 Domain search space  (domZ):             241  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae ONT3
-Initial search space (Z):            777,535  [actual number of targets]
+Initial search space (Z):            722,865  [actual number of targets]
 Domain search space  (domZ):             361  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 166
 Number of CRN ORFs after merging:
 103
 Searching for LFLAK domains in: P.fragariae SCRP245_v2
-Initial search space (Z):            691,456  [actual number of targets]
+Initial search space (Z):            689,938  [actual number of targets]
 Domain search space  (domZ):             241  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae SCRP245_v2
-Initial search space (Z):            691,456  [actual number of targets]
+Initial search space (Z):            689,938  [actual number of targets]
 Domain search space  (domZ):             363  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 167
