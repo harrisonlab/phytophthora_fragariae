@@ -3427,7 +3427,7 @@ Number of CRN ORFs after merging:
 105
 ```
 
-Extract crinklers from published gene models
+Merge CRNs from augustus models and ORF fragments
 
 ```bash
 for MergeDir in $(ls -d analysis/CRN_effectors/hmmer_CRN/*/*)
