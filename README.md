@@ -3029,13 +3029,13 @@ Number of genes in the extracted gff file:
 
 P.fragariae - ONT3
 Number of RxLRs identified by Regex:
-266
+263
 Number of RxLRs identified by Hmm:
 204
 Number of RxLRs in combined dataset:
-295
+292
 Number of genes in the extracted gff file:
-295
+292
 
 P.fragariae - SCRP245_v2
 Number of RxLRs identified by Regex:
