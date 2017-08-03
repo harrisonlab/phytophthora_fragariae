@@ -3681,10 +3681,10 @@ done
 WARNING: This has a high false positive rate
 
 ```bash
-for Proteome in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.pep.fasta)
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
 do
-    Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
+    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
     qsub $ProgDir/submit_TMHMM.sh $Proteome
 done
