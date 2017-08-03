@@ -3651,10 +3651,10 @@ Following this, split files were combined as follows:
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan
-for Proteome in $(ls gene_pred/codingquarry/P.fragariae/*/final/final_genes_combined.pep.fasta)
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
 do
-    Strain=$(echo $Proteome | rev | cut -d '/' -f3 | rev)
-    Organism=$(echo $Proteome | rev | cut -d '/' -f4 | rev)
+    Strain=$(echo $Proteome | rev | cut -d '/' -f2 | rev)
+    Organism=$(echo $Proteome | rev | cut -d '/' -f3 | rev)
     echo "$Organism - $Strain"
     echo $Strain
     InterProRaw=gene_pred/interproscan/$Organism/$Strain/raw
