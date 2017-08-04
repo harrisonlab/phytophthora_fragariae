@@ -2861,6 +2861,81 @@ the number of SigP-RxLR-EER genes are:  292
 Merged RxLR-EER regex proteins: 264
 
 Without EER:
+strain: A4      species: P.fragariae
+the number of SigP gene is:     74332
+the number of SigP-RxLR genes are:      2367
+the number of SigP-RxLR-EER genes are:  288
+Merged RxLR-EER regex proteins: 1950
+
+
+strain: Bc16    species: P.fragariae
+the number of SigP gene is:     87857
+the number of SigP-RxLR genes are:      2648
+the number of SigP-RxLR-EER genes are:  317
+Merged RxLR-EER regex proteins: 2205
+
+
+strain: Bc1     species: P.fragariae
+the number of SigP gene is:     75009
+the number of SigP-RxLR genes are:      2390
+the number of SigP-RxLR-EER genes are:  289
+Merged RxLR-EER regex proteins: 1969
+
+
+strain: Bc23    species: P.fragariae
+the number of SigP gene is:     73930
+the number of SigP-RxLR genes are:      2392
+the number of SigP-RxLR-EER genes are:  294
+Merged RxLR-EER regex proteins: 1967
+
+
+strain: Nov27   species: P.fragariae
+the number of SigP gene is:     74317
+the number of SigP-RxLR genes are:      2362
+the number of SigP-RxLR-EER genes are:  289
+Merged RxLR-EER regex proteins: 1945
+
+
+strain: Nov5    species: P.fragariae
+the number of SigP gene is:     74198
+the number of SigP-RxLR genes are:      2362
+the number of SigP-RxLR-EER genes are:  288
+Merged RxLR-EER regex proteins: 1942
+
+
+strain: Nov71   species: P.fragariae
+the number of SigP gene is:     74421
+the number of SigP-RxLR genes are:      2361
+the number of SigP-RxLR-EER genes are:  288
+Merged RxLR-EER regex proteins: 1942
+
+
+strain: Nov77   species: P.fragariae
+the number of SigP gene is:     74413
+the number of SigP-RxLR genes are:      2338
+the number of SigP-RxLR-EER genes are:  279
+Merged RxLR-EER regex proteins: 1928
+
+
+strain: Nov9    species: P.fragariae
+the number of SigP gene is:     75084
+the number of SigP-RxLR genes are:      2394
+the number of SigP-RxLR-EER genes are:  287
+Merged RxLR-EER regex proteins: 1978
+
+
+strain: ONT3    species: P.fragariae
+the number of SigP gene is:     80829
+the number of SigP-RxLR genes are:      2483
+the number of SigP-RxLR-EER genes are:  292
+Merged RxLR-EER regex proteins: 2032
+
+
+strain: SCRP245_v2      species: P.fragariae
+the number of SigP gene is:     77920
+the number of SigP-RxLR genes are:      2346
+the number of SigP-RxLR-EER genes are:  292
+Merged RxLR-EER regex proteins: 1935
 ```
 
 E5) From ORF gene models - Hmm evidence of WY domains
