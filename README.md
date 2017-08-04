@@ -3363,12 +3363,12 @@ do
     ORFsFa=$(ls gene_pred/ORF_finder/"$Species"/"$Strain"/"$Strain".aa_cat.fa)
     ORFsTxt=$(ls $MergeDir/"$Strain"_total_ORF_RxLR_headers.txt)
 
-    ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_RxLR_EER_motif_hmm.gff
-    AugInORFs=$MergeDir/"$Strain"_AugInORFs_RxLR_EER_motif_hmm.gff
-    ORFsUniq=$MergeDir/"$Strain"_ORFsUniq_RxLR_EER_motif_hmm.gff
-    AugUniq=$MergeDir/"$Strain"_Aug_Uniq_RxLR_EER_motif_hmm.gff
-    TotalRxLRsTxt=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm.txt
-    TotalRxLRsGff=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm.gff
+    ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_RxLR_motif_hmm.gff
+    AugInORFs=$MergeDir/"$Strain"_AugInORFs_RxLR_motif_hmm.gff
+    ORFsUniq=$MergeDir/"$Strain"_ORFsUniq_RxLR_motif_hmm.gff
+    AugUniq=$MergeDir/"$Strain"_Aug_Uniq_RxLR_motif_hmm.gff
+    TotalRxLRsTxt=$MergeDir/"$Strain"_Total_RxLR_motif_hmm.txt
+    TotalRxLRsGff=$MergeDir/"$Strain"_Total_RxLR_motif_hmm.gff
 
     bedtools intersect -wa -u -a $ORFGff -b $AugGff > $ORFsInAug
     bedtools intersect -wa -u -a $AugGff -b $ORFGff > $AugInORFs
