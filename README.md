@@ -3185,7 +3185,7 @@ do
     echo "Number of genes in the extracted gff file:" >> report.txt
     cat $OutDir/"$Strain"_total_ORF_RxLR_EER.gff | grep -w 'gene' | wc -l >> report.txt
     echo "" >> report.txt
-    echo "$Strain done without EER"
+    echo "$Strain done with EER"
 done
 ```
 
