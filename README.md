@@ -3420,6 +3420,7 @@ Intersection between the coodinates of putative RxLRs from gene models and ORFs 
 The RxLR effectors from both Gene models and ORF finding approaches were combined into a single file.
 
 ```bash
+echo "Without EER" >> report.txt
 for MergeDir in $(ls -d analysis/RxLR_effectors/combined_evidence/*/*)
 do
     Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
@@ -3460,13 +3461,63 @@ do
     cat $TotalRxLRsTxt | wc -l >> report.txt
     cat $AugInORFs $AugUniq $ORFsUniq | grep -w -f $TotalRxLRsTxt > $TotalRxLRsGff
 
+    RxLRsFa=$MergeDir/"$Strain"_final_RxLR.fa
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/extract_from_fasta.py --fasta $AugFa --headers $TotalRxLRsTxt > $RxLRsFa
+    $ProgDir/extract_from_fasta.py --fasta $ORFsFa --headers $TotalRxLRsTxt >> $RxLRsFa
+    echo "The number of sequences extracted is" >> report.txt
+    cat $RxLRsFa | grep '>' | wc -l >> report.txt
+    echo "$Strain done without EER"
+done
+
+echo "With EER" >> report.txt
+for MergeDir in $(ls -d analysis/RxLR_effectors/combined_evidence/*/*)
+do
+    Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
+    Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
+    AugGff=$MergeDir/"$Strain"_total_RxLR_EER.gff
+    AugTxt=$MergeDir/"$Strain"_total_RxLR_EER_headers.txt
+    AugFa=$(ls gene_pred/codingquarry/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
+
+    ORFGff=$(ls $MergeDir/"$Strain"_total_ORF_RxLR_EER.gff)
+    ORFsFa=$(ls gene_pred/ORF_finder/"$Species"/"$Strain"/"$Strain".aa_cat.fa)
+    ORFsTxt=$(ls $MergeDir/"$Strain"_total_ORF_RxLR_EER_headers.txt)
+
+    ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_RxLR_EER_motif_hmm.gff
+    AugInORFs=$MergeDir/"$Strain"_AugInORFs_RxLR_EER_motif_hmm.gff
+    ORFsUniq=$MergeDir/"$Strain"_ORFsUniq_RxLR_EER_motif_hmm.gff
+    AugUniq=$MergeDir/"$Strain"_Aug_Uniq_RxLR_EER_motif_hmm.gff
+    TotalRxLRsTxt=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm.txt
+    TotalRxLRsGff=$MergeDir/"$Strain"_Total_RxLR_EER_motif_hmm.gff
+
+    bedtools intersect -wa -u -a $ORFGff -b $AugGff > $ORFsInAug
+    bedtools intersect -wa -u -a $AugGff -b $ORFGff > $AugInORFs
+    bedtools intersect -v -wa -a $ORFGff -b $AugGff > $ORFsUniq
+    bedtools intersect -v -wa -a $AugGff -b $ORFGff > $AugUniq
+
+    echo "$Species - $Strain" >> report.txt
+    echo "The number of ORF RxLRs overlapping Augustus RxLRs:" >> report.txt
+    cat $ORFsInAug | grep -w 'gene' | wc -l >> report.txt
+    echo "The number of Augustus RxLRs overlapping ORF RxLRs:" >> report.txt
+    cat $AugInORFs | grep -w 'gene' | wc -l >> report.txt
+    echo "The number of RxLRs unique to ORF models:" >> report.txt
+    cat $ORFsUniq | grep -w 'transcript' | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' | wc -l >> report.txt
+    echo "The number of RxLRs unique to Augustus models:" >> report.txt
+    cat $AugUniq | grep -w -e 'transcript' -e 'mRNA' | wc -l >> report.txt
+    echo "The total number of putative RxLRs are:" >> report.txt
+    cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' > $TotalRxLRsTxt
+    cat $AugUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' >> $TotalRxLRsTxt
+    cat $ORFsUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f3 -d ';' | cut -f2 -d '=' >> $TotalRxLRsTxt
+    cat $TotalRxLRsTxt | wc -l >> report.txt
+    cat $AugInORFs $AugUniq $ORFsUniq | grep -w -f $TotalRxLRsTxt > $TotalRxLRsGff
+
     RxLRsFa=$MergeDir/"$Strain"_final_RxLR_EER.fa
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $AugFa --headers $TotalRxLRsTxt > $RxLRsFa
     $ProgDir/extract_from_fasta.py --fasta $ORFsFa --headers $TotalRxLRsTxt >> $RxLRsFa
     echo "The number of sequences extracted is" >> report.txt
     cat $RxLRsFa | grep '>' | wc -l >> report.txt
-    echo "$Strain done"
+    echo "$Strain done without EER"
 done
 ```
 
