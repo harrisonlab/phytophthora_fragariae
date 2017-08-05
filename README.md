@@ -2175,7 +2175,7 @@ do
     cat $Gff | grep -w -f $OutDir/"$Strain"_total_RxLR_headers.txt > $OutDir/"$Strain"_total_RxLR.gff
     echo "Number of genes in the extracted gff file:" >> report.txt
     cat $OutDir/"$Strain"_total_RxLR.gff | grep -w 'gene' | wc -l >> report.txt
-    echo "$Strain complete"
+    echo "$Strain complete without EER"
 done
 
 echo "With EER" >> report.txt
@@ -2204,7 +2204,7 @@ do
     cat $Gff | grep -w -f $OutDir/"$Strain"_total_RxLR_EER_headers.txt > $OutDir/"$Strain"_total_RxLR_EER.gff
     echo "Number of genes in the extracted gff file:" >> report.txt
     cat $OutDir/"$Strain"_total_RxLR_EER.gff | grep -w 'gene' | wc -l >> report.txt
-    echo "$Strain complete"
+    echo "$Strain complete with EER"
 done
 ```
 
