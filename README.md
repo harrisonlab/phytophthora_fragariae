@@ -2149,6 +2149,7 @@ Domain search space  (domZ):             194  [number of targets reported over t
 The total RxLRs are found by combining different sources:
 
 ```bash
+echo "Without EER" >> report.txt
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_regex.txt)
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
@@ -2177,6 +2178,7 @@ do
     echo "$Strain complete"
 done
 
+echo "With EER" >> report.txt
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_EER_regex.txt)
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
