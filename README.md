@@ -2564,12 +2564,12 @@ do
     Strain=$(echo $SplitDir | cut -d '/' -f4)
     Organism=$(echo $SplitDir | cut -d '/' -f3)
     echo "$Organism - $Strain"
-    InStringAA=''
-    InStringNeg=''
-    InStringTab=''
-    InStringTxt=''
     for SigpDir in $(ls -d gene_pred/ORF_sig* | cut -f2 -d'/')
     do
+        InStringAA=''
+        InStringNeg=''
+        InStringTab=''
+        InStringTxt=''
         for GRP in $(ls -l $SplitDir/*_ORF_*.fa | rev | cut -d '_' -f1 | rev | sort -n)
         do  
             InStringAA="$InStringAA gene_pred/$SigpDir/$Organism/$Strain/split/"$Organism"_"$Strain"_ORF_preds_$GRP""_sp.aa"
