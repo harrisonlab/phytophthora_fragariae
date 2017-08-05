@@ -2095,25 +2095,14 @@ do
         HmmResults="$Strain"_RxLR_hmmer.txt
         hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
         echo "$Organism $Strain" >> report.txt
-        cat $OutDir/$HmmResults | grep 'Initial search space without EER' >> report.txt
-        cat $OutDir/$HmmResults | grep 'number of targets reported over threshold without EER' >> report.txt
+        cat $OutDir/$HmmResults | grep 'Initial search space' >> report.txt
+        cat $OutDir/$HmmResults | grep 'number of targets reported over threshold' >> report.txt
         HmmFasta="$Strain"_RxLR_hmmer.fa
         $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
         Headers="$Strain"_RxLR_hmmer_headers.txt
         cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
         Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
         cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_Aug_RxLR_regex.gff3
-        HmmResults="$Strain"_RxLR_EER_hmmer.txt
-        hmmsearch -T 0 $HmmModel $Proteome > $OutDir/$HmmResults
-        echo "$Organism $Strain" >> report.txt
-        cat $OutDir/$HmmResults | grep 'Initial search space with EER' >> report.txt
-        cat $OutDir/$HmmResults | grep 'number of targets reported over threshold with EER' >> report.txt
-        HmmFasta="$Strain"_RxLR_EER_hmmer.fa
-        $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
-        Headers="$Strain"_RxLR_EER_hmmer_headers.txt
-        cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
-        Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
-        cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_Aug_RxLR_EER_regex.gff3
         echo "$Strain complete"
     done
 done
