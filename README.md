@@ -2550,6 +2550,7 @@ do
         printf "\n"
         echo $File
         qsub $ProgDir/pred_sigP.sh $File
+        qsub $ProgDir/pred_sigP.sh $File signalp-3.0
         qsub $ProgDir/pred_sigP.sh $File signalp-4.1
     done
 done
