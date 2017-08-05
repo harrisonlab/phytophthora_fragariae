@@ -1796,7 +1796,7 @@ Required programs:
 SigP
 biopython
 
-####A.1) Signal peptide prediction using SignalP 2.0 & 4.1
+####A.1) Signal peptide prediction using SignalP 2.0, 3.0 & 4.1
 
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
@@ -1805,7 +1805,7 @@ for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     for Proteome in $(ls gene_pred/codingquarry/*/$Strain/final/final_genes_combined.pep.fasta)
     do
-        SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
+        SplitfileDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation/signal_peptides
         ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
         Organism=P.fragariae
         SplitDir=gene_pred/final_split/$Organism/$Strain
@@ -1824,6 +1824,7 @@ do
             printf "\n"
             echo $File
             qsub $ProgDir/pred_sigP.sh $File
+            qsub $ProgDir/pred_sigP.sh $File signalp-3.0
             qsub $ProgDir/pred_sigP.sh $File signalp-4.1
         done
     done
