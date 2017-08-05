@@ -3136,6 +3136,7 @@ E7) Combining RxLRs from Regex and hmm searches
 The total RxLRs are
 
 ```bash
+echo "Without EER" >> report.txt
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_ORF_RxLR_regex_merged.txt)
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
@@ -3158,7 +3159,33 @@ do
     echo "Number of genes in the extracted gff file:" >> report.txt
     cat $OutDir/"$Strain"_total_ORF_RxLR.gff | grep -w 'gene' | wc -l >> report.txt
     echo "" >> report.txt
-    echo "$Strain done"
+    echo "$Strain done without EER"
+done
+
+echo "With EER" >> report.txt
+for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_ORF_RxLR_EER_regex_merged.txt)
+do
+    Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
+    Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
+    Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF.gff3)
+    Proteome=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa)
+    HmmRxLR=$(ls analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/"$Strain"_ORF_RxLR_hmm_merged.txt)
+    echo "$Organism - $Strain" >> report.txt
+    echo "Number of RxLRs identified by Regex:" >> report.txt
+    cat $RegexRxLR | sort | uniq | wc -l >> report.txt
+    echo "Number of RxLRs identified by Hmm:" >> report.txt
+    cat $HmmRxLR | sort | uniq | wc -l >> report.txt
+    echo "Number of RxLRs in combined dataset:" >> report.txt
+    cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l >> report.txt
+    OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
+    mkdir -p $OutDir
+    cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_ORF_RxLR_EER_headers.txt
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+    $ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_total_ORF_RxLR_EER_headers.txt $Gff ORF_RxLR Name Augustus > $OutDir/"$Strain"_total_ORF_RxLR_EER.gff
+    echo "Number of genes in the extracted gff file:" >> report.txt
+    cat $OutDir/"$Strain"_total_ORF_RxLR_EER.gff | grep -w 'gene' | wc -l >> report.txt
+    echo "" >> report.txt
+    echo "$Strain done without EER"
 done
 ```
 
