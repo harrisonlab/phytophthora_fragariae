@@ -2185,7 +2185,7 @@ do
     Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
     Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
     Proteome=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_combined.pep.fasta)
-    HmmRxLR=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_EER_hmmer_headers.txt
+    HmmRxLR=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer_headers.txt
     echo "$Organism - $Strain" >> report.txt
     echo "Number of RxLRs identified by Regex:" >> report.txt
     cat $RegexRxLR | sort | uniq | wc -l >> report.txt
