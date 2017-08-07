@@ -1908,59 +1908,59 @@ done
 ```
 P.fragariae - A4
 The following number of sequences were predicted as secreted:
-10,510
+10,961
 This represented the following number of unique genes:
-3,651
-P.fragariae - Bc16
-The following number of sequences were predicted as secreted:
-12,2456
-This represented the following number of unique genes:
-4,227
+3,717
 P.fragariae - Bc1
 The following number of sequences were predicted as secreted:
-10,559
+11,035
 This represented the following number of unique genes:
-3,659
+3,732
+P.fragariae - Bc16
+The following number of sequences were predicted as secreted:
+12,785
+This represented the following number of unique genes:
+4,300
 P.fragariae - Bc23
 The following number of sequences were predicted as secreted:
-10,917
+11,404
 This represented the following number of unique genes:
-3,660
+3,732
 P.fragariae - Nov27
 The following number of sequences were predicted as secreted:
-10,643
+11,113
 This represented the following number of unique genes:
-3,700
+3,772
 P.fragariae - Nov5
 The following number of sequences were predicted as secreted:
-10,582
+11,065
 This represented the following number of unique genes:
-3,673
+3,743
 P.fragariae - Nov71
 The following number of sequences were predicted as secreted:
-10,625
+11,108
 This represented the following number of unique genes:
-3,661
+3,732
 P.fragariae - Nov77
 The following number of sequences were predicted as secreted:
-10,602
+11,085
 This represented the following number of unique genes:
-3,670
+3,750
 P.fragariae - Nov9
 The following number of sequences were predicted as secreted:
-10,674
+11,138
 This represented the following number of unique genes:
-3,681
+3,751
 P.fragariae - ONT3
 The following number of sequences were predicted as secreted:
-12,442
+13,022
 This represented the following number of unique genes:
-4,224
+4,301
 P.fragariae - SCRP245_v2
 The following number of sequences were predicted as secreted:
-11,862
+12,368
 This represented the following number of unique genes:
-4,039
+4,110
 ```
 
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
