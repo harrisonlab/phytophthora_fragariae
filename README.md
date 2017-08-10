@@ -2313,6 +2313,51 @@ Number of genes in the extracted gff file:
 Without EER:
 P.fragariae - A4
 Number of RxLRs identified by Regex:
+382
+Number of RxLRs identified by Hmm:
+193
+Number of RxLRs in combined dataset:
+416
+Number of genes in the extracted gff file:
+416
+P.fragariae - Bc16
+Number of RxLRs identified by Regex:
+447
+Number of RxLRs identified by Hmm:
+215
+Number of RxLRs in combined dataset:
+489
+Number of genes in the extracted gff file:
+489
+P.fragariae - Bc1
+Number of RxLRs identified by Regex:
+380
+Number of RxLRs identified by Hmm:
+188
+Number of RxLRs in combined dataset:
+410
+Number of genes in the extracted gff file:
+410
+P.fragariae - Bc23
+Number of RxLRs identified by Regex:
+378
+Number of RxLRs identified by Hmm:
+196
+Number of RxLRs in combined dataset:
+416
+Number of genes in the extracted gff file:
+410
+P.fragariae - Nov27
+Number of RxLRs identified by Regex:
+375
+Number of RxLRs identified by Hmm:
+189
+Number of RxLRs in combined dataset:
+408
+Number of genes in the extracted gff file:
+408
+P.fragariae - Nov5
+Number of RxLRs identified by Regex:
 377
 Number of RxLRs identified by Hmm:
 193
@@ -2320,96 +2365,51 @@ Number of RxLRs in combined dataset:
 411
 Number of genes in the extracted gff file:
 411
-P.fragariae - Bc16
-Number of RxLRs identified by Regex:
-442
-Number of RxLRs identified by Hmm:
-215
-Number of RxLRs in combined dataset:
-484
-Number of genes in the extracted gff file:
-484
-P.fragariae - Bc1
-Number of RxLRs identified by Regex:
-375
-Number of RxLRs identified by Hmm:
-188
-Number of RxLRs in combined dataset:
-405
-Number of genes in the extracted gff file:
-405
-P.fragariae - Bc23
-Number of RxLRs identified by Regex:
-373
-Number of RxLRs identified by Hmm:
-196
-Number of RxLRs in combined dataset:
-411
-Number of genes in the extracted gff file:
-405
-P.fragariae - Nov27
-Number of RxLRs identified by Regex:
-370
-Number of RxLRs identified by Hmm:
-189
-Number of RxLRs in combined dataset:
-403
-Number of genes in the extracted gff file:
-403
-P.fragariae - Nov5
-Number of RxLRs identified by Regex:
-371
-Number of RxLRs identified by Hmm:
-193
-Number of RxLRs in combined dataset:
-405
-Number of genes in the extracted gff file:
-405
 P.fragariae - Nov71
 Number of RxLRs identified by Regex:
-375
+379
 Number of RxLRs identified by Hmm:
 192
 Number of RxLRs in combined dataset:
-411
+415
 Number of genes in the extracted gff file:
-411
+415
 P.fragariae - Nov77
 Number of RxLRs identified by Regex:
-351
+357
 Number of RxLRs identified by Hmm:
 180
 Number of RxLRs in combined dataset:
-389
+395
 Number of genes in the extracted gff file:
-389
+395
 P.fragariae - Nov9
 Number of RxLRs identified by Regex:
-373
+378
 Number of RxLRs identified by Hmm:
 194
 Number of RxLRs in combined dataset:
-410
+415
 Number of genes in the extracted gff file:
-410
+415
 P.fragariae - ONT3
 Number of RxLRs identified by Regex:
-403
+409
 Number of RxLRs identified by Hmm:
 189
 Number of RxLRs in combined dataset:
-433
+439
 Number of genes in the extracted gff file:
-416
+422
 P.fragariae - SCRP245_v2
 Number of RxLRs identified by Regex:
-395
+400
 Number of RxLRs identified by Hmm:
 194
 Number of RxLRs in combined dataset:
-429
+434
 Number of genes in the extracted gff file:
-419
+424
 ```
 
 ####D) From Augustus gene models - Hmm evidence of CRN effectors
