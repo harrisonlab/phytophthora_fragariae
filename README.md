@@ -4324,10 +4324,11 @@ done
 Summarise numbers of TM Proteins
 
 ```bash
-for TM in $(ls gene_pred/trans_mem/P.fragariae/*/*_TM_genes_pos.txt)
+for TM in $(ls gene_pred/trans_mem/P.fragariae/*/*/*_TM_genes_pos.txt)
 do
-    Strain=$(echo $TM | rev | cut -f2 -d '/' | rev)
-    echo $Strain
+    Strain=$(echo $TM | rev | cut -f3 -d '/' | rev)
+    Type=$(echo $TM | rev | cut -f2 -d '/' | rev)
+    echo "$Strain - $Type"
     echo "The number of proteins scoring positive for a transmembrane helix is:"
     cat $TM | wc -l
     echo ""
