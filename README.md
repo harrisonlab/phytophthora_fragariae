@@ -4288,7 +4288,7 @@ do
     qsub $ProgDir/sub_swissprot.sh $Proteome $OutDir $SwissDbDir $SwissDbName
 done
 
-for Proteome in $(ls gene_pred/annotation/P.rubi/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
