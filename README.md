@@ -4420,17 +4420,28 @@ done
 Results were parsed to the file
 
 ```bash
-nano gene_pred/trans_mem/P.fragariae/A4/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/Bc1/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/Bc16/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/Bc23/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/Nov27/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/Nov5/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/Nov71/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/Nov77/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/Nov9/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/ONT3/GPIsom/GPI_pos.fa
-nano gene_pred/trans_mem/P.fragariae/SCRP245_v2/GPIsom/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/A4/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc1/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc16/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc23/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov27/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov5/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov71/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov77/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov9/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/ONT3/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/SCRP245_v2/GPIsom/greedy/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/A4/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc1/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc16/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Bc23/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov27/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov5/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov71/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov77/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/Nov9/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/ONT3/GPIsom/conservative/GPI_pos.fa
+nano gene_pred/trans_mem/P.fragariae/SCRP245_v2/GPIsom/conservative/GPI_pos.fa
 ```
 
 Create a file just listing gene names
