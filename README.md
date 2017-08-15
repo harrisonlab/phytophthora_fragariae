@@ -4403,7 +4403,16 @@ do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    OutDir=gene_pred/trans_mem/$Organism/$Strain/GPIsom
+    OutDir=gene_pred/trans_mem/$Organism/$Strain/GPIsom/greedy
+    mkdir -p $OutDir
+done
+
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
+do
+    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    echo "$Organism - $Strain"
+    OutDir=gene_pred/trans_mem/$Organism/$Strain/GPIsom/conservative
     mkdir -p $OutDir
 done
 ```
