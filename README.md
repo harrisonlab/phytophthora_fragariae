@@ -4311,6 +4311,14 @@ do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
     qsub $ProgDir/submit_TMHMM.sh $Proteome
 done
+
+for Proteome in $(ls gene_pred/annotation/P.rubi/*/*_genes_incl_ORFeffectors.pep.fasta)
+do
+    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
+    qsub $ProgDir/submit_TMHMM2.sh $Proteome
+done
 ```
 
 Summarise numbers of TM Proteins
