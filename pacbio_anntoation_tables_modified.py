@@ -59,6 +59,9 @@ with open(conf.gene_fasta) as f:
 with open(conf.SigP2) as f:
     sigP2_lines = f.readlines()
 
+with open(conf.SigP3) as f:
+    sigP3_lines = f.readlines()
+
 with open(conf.SigP4) as f:
     sigP4_lines = f.readlines()
 
@@ -68,8 +71,8 @@ with open(conf.phobius) as f:
 with open(conf.trans_mem) as f:
     trans_mem_lines = f.readlines()
 
-with open(conf.GPI_anchor) as f:
-    gpi_lines = f.readlines()
+# with open(conf.GPI_anchor) as f:
+#     gpi_lines = f.readlines()
 
 # with open(conf.RxLR_motif) as f:
 #     RxLR_motif_lines = f.readlines()
@@ -82,6 +85,9 @@ with open(conf.GPI_anchor) as f:
 
 with open(conf.RxLR_total) as f:
     RxLR_total_lines = f.readlines()
+
+with open(conf.RxLR_EER_total) as f:
+    RxLR_EER_total_lines = f.readlines()
 
 # with open(conf.CRN_LFLAK) as f:
 #     CRN_LFLAK_lines = f.readlines()
@@ -118,40 +124,40 @@ with open(conf.raw_counts) as f:
 with open(conf.fpkm) as f:
     fpkm_lines = f.readlines()
 
-with open(conf.InterPro) as f:
-    InterPro_lines = f.readlines()
-
-with open(conf.Swissprot) as f:
-    swissprot_lines = f.readlines()
-
-SNP_files = conf.SNP
-SNP_dict = defaultdict(list)
-for SNP_file in SNP_files:
-    comparison = SNP_file.split("/")[-2]
-    with open(SNP_file) as f:
-        filename = SNP_file
-        SNP_lines = f.readlines()
-        for line in SNP_lines:
-            if line.startswith('#'):
-                continue
-            else:
-                split_line = line.split()
-                SNP_info = split_line[7]
-                split_info = SNP_info.split("|")
-                effect = split_info[1]
-                # print effect
-                transcript_id = split_info[6]
-                if 'missense_variant' in effect:
-                    AA_change = split_info[10]
-                    SNP_dict[transcript_id].append("_".join([comparison, AA_change]))
-                elif 'nonsense_variant' in effect:
-                    AA_change = "stop"
-                    SNP_dict[transcript_id].append("_".join([comparison, AA_change]))
-                    # print effect
-
-
-with open(conf.gene_conversion) as f:
-    conversion_lines = f.readlines()
+# with open(conf.InterPro) as f:
+#     InterPro_lines = f.readlines()
+#
+# with open(conf.Swissprot) as f:
+#     swissprot_lines = f.readlines()
+#
+# SNP_files = conf.SNP
+# SNP_dict = defaultdict(list)
+# for SNP_file in SNP_files:
+#     comparison = SNP_file.split("/")[-2]
+#     with open(SNP_file) as f:
+#         filename = SNP_file
+#         SNP_lines = f.readlines()
+#         for line in SNP_lines:
+#             if line.startswith('#'):
+#                 continue
+#             else:
+#                 split_line = line.split()
+#                 SNP_info = split_line[7]
+#                 split_info = SNP_info.split("|")
+#                 effect = split_info[1]
+#                 # print effect
+#                 transcript_id = split_info[6]
+#                 if 'missense_variant' in effect:
+#                     AA_change = split_info[10]
+#                     SNP_dict[transcript_id].append("_".join([comparison, AA_change]))
+#                 elif 'nonsense_variant' in effect:
+#                     AA_change = "stop"
+#                     SNP_dict[transcript_id].append("_".join([comparison, AA_change]))
+#                     # print effect
+#
+#
+# with open(conf.gene_conversion) as f:
+#     conversion_lines = f.readlines()
 
 
 #-----------------------------------------------------
