@@ -413,23 +413,23 @@ for line in fpkm_lines:
 # into a set.
 #-----------------------------------------------------
 
-interpro_set =  Set([])
-interpro_dict = defaultdict(list)
-
-for line in InterPro_lines:
-    line = line.rstrip("\n")
-    split_line = line.split("\t")
-    interpro_columns = []
-    index_list = [0, 4, 5, 11, 12]
-    for x in index_list:
-        if len(split_line) > x:
-            interpro_columns.append(split_line[x])
-    set_line = ";".join(interpro_columns)
-    if set_line not in interpro_set:
-        gene_id = interpro_columns[0]
-        interpro_feat = ";".join(interpro_columns[1:])
-        interpro_dict[gene_id].append(interpro_feat)
-    interpro_set.add(set_line)
+# interpro_set =  Set([])
+# interpro_dict = defaultdict(list)
+#
+# for line in InterPro_lines:
+#     line = line.rstrip("\n")
+#     split_line = line.split("\t")
+#     interpro_columns = []
+#     index_list = [0, 4, 5, 11, 12]
+#     for x in index_list:
+#         if len(split_line) > x:
+#             interpro_columns.append(split_line[x])
+#     set_line = ";".join(interpro_columns)
+#     if set_line not in interpro_set:
+#         gene_id = interpro_columns[0]
+#         interpro_feat = ";".join(interpro_columns[1:])
+#         interpro_dict[gene_id].append(interpro_feat)
+#     interpro_set.add(set_line)
 
 
 #-----------------------------------------------------
@@ -437,37 +437,37 @@ for line in InterPro_lines:
 # Build a dictionary of Swissprot annotations
 #-----------------------------------------------------
 
-swissprot_dict = defaultdict(list)
-
-for line in swissprot_lines:
-    line = line.rstrip("\n")
-    split_line = line.split("\t")
-    gene_id = split_line[0]
-    swissprot_columns = itemgetter(14, 12, 13)(split_line)
-
-    swissprot_dict[gene_id].extend(swissprot_columns)
+# swissprot_dict = defaultdict(list)
+#
+# for line in swissprot_lines:
+#     line = line.rstrip("\n")
+#     split_line = line.split("\t")
+#     gene_id = split_line[0]
+#     swissprot_columns = itemgetter(14, 12, 13)(split_line)
+#
+#     swissprot_dict[gene_id].extend(swissprot_columns)
 
 
 #-----------------------------------------------------
 #
-# Build a dictionary of Swissprot annotations
+# Build a dictionary of gene conversions
 #-----------------------------------------------------
 
-conversion_dict = defaultdict(list)
-
-for line in conversion_lines:
-    line = line.rstrip("\n")
-    split_line = line.split("\t")
-    old_id = split_line[0]
-    new_id = split_line[2]
-    conversion_dict[new_id] = old_id
-    # print "-".join([new_id, old_id])
+# conversion_dict = defaultdict(list)
+#
+# for line in conversion_lines:
+#     line = line.rstrip("\n")
+#     split_line = line.split("\t")
+#     old_id = split_line[0]
+#     new_id = split_line[2]
+#     conversion_dict[new_id] = old_id
+#     # print "-".join([new_id, old_id])
 
 
 #-----------------------------------------------------
 # Step 3
 # Itterate through genes in file, identifying if
-# they ahve associated information
+# they have associated information
 #-----------------------------------------------------
 
 # Print header line:
