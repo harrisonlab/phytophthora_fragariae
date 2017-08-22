@@ -580,8 +580,8 @@ for line in transcript_lines:
         phobius = 'Yes'
     if old_id in trans_mem_set:
         trans_mem = 'Yes'
-    if old_id in gpi_set:
-        gpi = 'Yes'
+    # if old_id in gpi_set:
+    #     gpi = 'Yes'
     if any([sigP2 == 'Yes', sigP4 == 'Yes']) and all([trans_mem == '', gpi == '']):
         secreted = 'Yes'
     else:
