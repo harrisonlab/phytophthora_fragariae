@@ -760,7 +760,7 @@ do
     # NormCount=$(ls alignment/star/P.cactorum/414_v2/DeSeq/normalised_counts.txt)
     RawCount=$(ls alignment/star/P.fragariae/Bc16/DeSeq/raw_counts.txt)
     FPKM=$(ls alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt)
-    $ProgDir/pacbio_anntoation_tables.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP4 $SigP4 --phobius $PhobiusTxt --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --CRN_total $CRN_total --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM --InterPro $InterPro --Swissprot $SwissProt > $OutDir/Bc16_gene_table_incl_exp.tsv
+    $ProgDir/pacbio_anntoation_tables.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP3 $SigP3 --SigP4 $SigP4 --phobius $PhobiusTxt --trans_mem $TMHMM_headers --RxLR_total $RxLR_total --RxLR_EER_total $RxLR_EER_total --CRN_total $CRN_total --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM > $OutDir/Bc16_gene_table_incl_exp.tsv
 done
 ```
 
