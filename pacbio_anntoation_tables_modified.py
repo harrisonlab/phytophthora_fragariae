@@ -466,7 +466,7 @@ for line in fpkm_lines:
 
 #-----------------------------------------------------
 # Step 3
-# Itterate through genes in file, identifying if
+# Iterate through genes in file, identifying if
 # they have associated information
 #-----------------------------------------------------
 
