@@ -569,18 +569,18 @@ for line in transcript_lines:
     else:
         transcript_id = split_line[8]
     gene_id = transcript_id.split(".")[0]
-    old_gene = "".join(conversion_dict[gene_id])
-    old_id = transcript_id.replace(gene_id, old_gene)
+    # old_gene = "".join(conversion_dict[gene_id])
+    # old_id = transcript_id.replace(gene_id, old_gene)
 
-    if old_id in SigP2_set:
+    if gene_id in SigP2_set:
         sigP2 = 'Yes'
-    if old_id in SigP3_set:
+    if gene_id in SigP3_set:
         sigP3 = 'Yes'
-    if old_id in SigP4_set:
+    if gene_id in SigP4_set:
         sigP4 = 'Yes'
-    if old_id in phobius_set:
+    if gene_id in phobius_set:
         phobius = 'Yes'
-    if old_id in trans_mem_set:
+    if gene_id in trans_mem_set:
         trans_mem = 'Yes'
     # if old_id in gpi_set:
     #     gpi = 'Yes'
@@ -595,15 +595,15 @@ for line in transcript_lines:
     # if transcript_id in RxLR_WY_set:
     #     WY_hmm = 'Yes'
     # gene_id = transcript_id.split('.')[0]
-    if old_id in RxLR_total_set:
+    if gene_id in RxLR_total_set:
         RxLR_total = 'Yes'
-    if old_id in RxLR_EER_total_set:
+    if gene_id in RxLR_EER_total_set:
         RxLR_EER_total = 'Yes'
     # if transcript_id in CRN_LFLAK_set:
     #     CRN_LFLAK = 'Yes'
     # if transcript_id in CRN_DWL_set:
     #     CRN_DWL = 'Yes'
-    if old_id in CRN_total_set:
+    if gene_id in CRN_total_set:
         CRN_total = 'Yes'
     # if ortho_dict[transcript_id]:
     #     orthogroup = ortho_dict[transcript_id]
