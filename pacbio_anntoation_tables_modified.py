@@ -247,10 +247,10 @@ for line in trans_mem_lines:
 #         header = split_line[0].replace('>', '')
 #         RxLR_motif_set.add(header)
 
-# #-----------------------------------------------------
-# # Load RxLR hmm +ve proteins into a set
-# #-----------------------------------------------------
-#
+#-----------------------------------------------------
+# Load RxLR hmm +ve proteins into a set
+#-----------------------------------------------------
+
 # RxLR_hmm_set = Set()
 # for line in RxLR_hmm_lines:
 #     line = line.rstrip()
@@ -258,11 +258,11 @@ for line in trans_mem_lines:
 #         split_line = line.split()
 #         header = split_line[0].replace('>', '')
 #         RxLR_hmm_set.add(header)
-#
-# #-----------------------------------------------------
-# # Load RxLR hmm +ve proteins into a set
-# #-----------------------------------------------------
-#
+
+#-----------------------------------------------------
+# Load RxLR hmm +ve proteins into a set
+#-----------------------------------------------------
+
 # RxLR_WY_set = Set()
 # for line in RxLR_WY_lines:
 #     line = line.rstrip()
