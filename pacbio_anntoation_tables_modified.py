@@ -584,7 +584,7 @@ for line in transcript_lines:
         trans_mem = 'Yes'
     # if old_id in gpi_set:
     #     gpi = 'Yes'
-    if any([sigP2 == 'Yes', sigP3 ==  'Yes', sigP4 == 'Yes']) and all([trans_mem == '']):
+    if any([sigP2 == 'Yes', sigP3 == 'Yes', sigP4 == 'Yes']) and all([trans_mem == '']):
         secreted = 'Yes'
     else:
         secreted = ''
