@@ -488,7 +488,7 @@ for DEG_file in DEG_files:
     header_line.append("LFC_" + file_name)
     header_line.append("P-val_" + file_name)
 header_line.append('prot_seq')
-header_line.append('Non-syn_SNP')
+# header_line.append('Non-syn_SNP')
 print ("\t".join(header_line))
 
 transcript_lines = []
