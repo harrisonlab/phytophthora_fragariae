@@ -185,6 +185,18 @@ for line in sigP2_lines:
         SigP2_set.add(header)
 
 #-----------------------------------------------------
+# Load signalP3.0 files into a set
+#-----------------------------------------------------
+
+SigP3_set = Set()
+for line in sigP3_lines:
+    line = line.rstrip()
+    if line.startswith('>'):
+        split_line = line.split()
+        header = split_line[0].replace('>', '')
+        SigP3_set.add(header)
+
+#-----------------------------------------------------
 # Load signalP4.0 files into a set
 #-----------------------------------------------------
 
