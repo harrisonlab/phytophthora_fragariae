@@ -158,7 +158,7 @@ for line in sigP2_lines:
         SigP2_set.add(header)
 
 #-----------------------------------------------------
-# Load signalP2.0 files into a set
+# Load signalP2.0_ORF files into a set
 #-----------------------------------------------------
 
 SigP2_ORF_set = Set()
