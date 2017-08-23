@@ -340,6 +340,8 @@ for line in RxLR_total_lines:
 RxLR_ORF_total_set = Set()
 for line in RxLR_orf_total_lines:
     header = line.rstrip()
+    if 'contig' in header:
+        header = header + '.t1'
     RxLR_ORF_total_set.add(header)
     # line = line.rstrip()
     # if line.startswith('>'):
@@ -368,6 +370,8 @@ for line in RxLR_EER_total_lines:
 RxLR_EER_ORF_total_set = Set()
 for line in RxLR_EER_orf_total_lines:
     header = line.rstrip()
+    if 'contig' in header:
+        header = header + '.t1'
     RxLR_EER_ORF_total_set.add(header)
     # line = line.rstrip()
     # if line.startswith('>'):
