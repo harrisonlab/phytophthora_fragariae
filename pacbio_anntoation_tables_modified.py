@@ -382,23 +382,23 @@ for line in fpkm_lines:
 # into a set.
 #-----------------------------------------------------
 
-interpro_set =  Set([])
-interpro_dict = defaultdict(list)
-
-for line in InterPro_lines:
-    line = line.rstrip("\n")
-    split_line = line.split("\t")
-    interpro_columns = []
-    index_list = [0, 4, 5, 11, 12]
-    for x in index_list:
-        if len(split_line) > x:
-            interpro_columns.append(split_line[x])
-    set_line = ";".join(interpro_columns)
-    if set_line not in interpro_set:
-        gene_id = interpro_columns[0]
-        interpro_feat = ";".join(interpro_columns[1:])
-        interpro_dict[gene_id].append(interpro_feat)
-    interpro_set.add(set_line)
+# interpro_set =  Set([])
+# interpro_dict = defaultdict(list)
+#
+# for line in InterPro_lines:
+#     line = line.rstrip("\n")
+#     split_line = line.split("\t")
+#     interpro_columns = []
+#     index_list = [0, 4, 5, 11, 12]
+#     for x in index_list:
+#         if len(split_line) > x:
+#             interpro_columns.append(split_line[x])
+#     set_line = ";".join(interpro_columns)
+#     if set_line not in interpro_set:
+#         gene_id = interpro_columns[0]
+#         interpro_feat = ";".join(interpro_columns[1:])
+#         interpro_dict[gene_id].append(interpro_feat)
+#     interpro_set.add(set_line)
 
 
 #-----------------------------------------------------
