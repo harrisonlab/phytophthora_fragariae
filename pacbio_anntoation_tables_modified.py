@@ -406,6 +406,8 @@ for line in RxLR_EER_orf_total_lines:
 CRN_total_set = Set()
 for line in CRN_total_lines:
     header = line.rstrip()
+    if 'contig' in header:
+        header = header + '.t1'
     CRN_total_set.add(header)
     # line = line.rstrip()
     # if line.startswith('>'):
