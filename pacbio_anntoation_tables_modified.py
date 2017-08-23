@@ -77,6 +77,9 @@ with open(conf.SigP3_ORF) as f:
 with open(conf.SigP4) as f:
     sigP4_lines = f.readlines()
 
+with open(conf.SigP4_ORF) as f:
+    sigp4_orf_lines = f.readlines()
+
 with open(conf.phobius) as f:
     phobius_lines = f.readlines()
 
