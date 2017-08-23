@@ -320,6 +320,20 @@ for line in RxLR_total_lines:
     #     RxLR_total_set.add(header)
 
 #-----------------------------------------------------
+# Load RxLR total +ve ORF proteins into a set
+#-----------------------------------------------------
+
+RxLR_ORF_total_set = Set()
+for line in RxLR_orf_total_lines:
+    header = line.rstrip()
+    RxLR_ORF_total_set.add(header)
+    # line = line.rstrip()
+    # if line.startswith('>'):
+    #     split_line = line.split()
+    #     header = split_line[0].replace('>', '')
+    #     RxLR_total_set.add(header)
+
+#-----------------------------------------------------
 # Load RxLR_EER total +ve proteins into a set
 #-----------------------------------------------------
 
