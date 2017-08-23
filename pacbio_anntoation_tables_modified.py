@@ -202,7 +202,7 @@ for line in sigp3_orf_lines:
         SigP3_ORF_set.add(header)
 
 #-----------------------------------------------------
-# Load signalP4.0 files into a set
+# Load signalP4.1 files into a set
 #-----------------------------------------------------
 
 SigP4_set = Set()
@@ -212,6 +212,19 @@ for line in sigP4_lines:
         split_line = line.split()
         header = split_line[0].replace('>', '')
         SigP4_set.add(header)
+
+#-----------------------------------------------------
+# Load signalP4.1_ORF files into a set
+#-----------------------------------------------------
+
+SigP4_ORF_set = Set()
+for line in sigp4_orf_lines:
+    line = line.rstrip()
+    if line.startswith('>'):
+        split_line = line.split()
+        header = split_line[0].replace('>', '')
+        header = header + ".t1"
+        SigP4_ORF_set.add(header)
 
 #-----------------------------------------------------
 # Load phobius files into a set
