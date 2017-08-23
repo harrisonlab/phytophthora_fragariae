@@ -741,6 +741,7 @@ do
     # GeneFasta=$(ls gene_pred/annotation/P.cactorum/414_v2/414_v2_genes_incl_ORFeffectors.pep.fasta)
     GeneFasta=$(ls gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cds.fasta)
     SigP2=$(ls gene_pred/final_sigP/$Organism/$Strain/*_aug_sp.aa)
+    SigP2_ORF=$(ls gene_pred/ORF_sigP/$Organism/$Strain/*_aug_sp.aa)
     SigP3=$(ls gene_pred/final_signalp-3.0/$Organism/$Strain/*_aug_sp.aa)
     SigP4=$(ls gene_pred/final_signalp-4.1/$Organism/$Strain/*_aug_sp.aa)
     TMHMM_headers=$(ls gene_pred/trans_mem/$Organism/$Strain/greedy/*_TM_genes_pos_headers.txt)
