@@ -184,7 +184,9 @@ for line in sigP4_lines:
 phobius_set = Set()
 for line in phobius_lines:
     header = line.rstrip()
-    phobius_set.add(header)
+    if header.startswith('ID'):
+        a, b = header.split("   ")
+        phobius_set.add(b)
 
 #-----------------------------------------------------
 # Load TMHMM headers into a set
