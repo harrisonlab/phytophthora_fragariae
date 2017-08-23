@@ -162,7 +162,7 @@ for line in sigP2_lines:
 #-----------------------------------------------------
 
 SigP2_ORF_set = Set()
-for line in sigP2_orf_lines:
+for line in sigp2_orf_lines:
     line = line.rstrip()
     if line.startswith('>'):
         split_line = line.split()
