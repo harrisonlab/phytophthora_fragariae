@@ -628,6 +628,7 @@ for line in transcript_lines:
     sigP4 = ''
     sigP4_ORF = ''
     phobius = ''
+    phobius_ORF = ''
     trans_mem = ''
     # gpi = ''
     # RxLR_motif = ''
