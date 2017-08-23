@@ -83,6 +83,9 @@ with open(conf.SigP4_ORF) as f:
 with open(conf.phobius) as f:
     phobius_lines = f.readlines()
 
+with open(conf.phobius_ORF) as f:
+    phobius_orf_lines = f.readlines()
+
 with open(conf.trans_mem) as f:
     trans_mem_lines = f.readlines()
 
