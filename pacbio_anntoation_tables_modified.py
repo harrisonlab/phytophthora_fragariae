@@ -123,11 +123,11 @@ with open(conf.raw_counts) as f:
 with open(conf.fpkm) as f:
     fpkm_lines = f.readlines()
 
-with open(conf.InterPro) as f:
-    InterPro_lines = f.readlines()
+# with open(conf.InterPro) as f:
+#     InterPro_lines = f.readlines()
 
-with open(conf.Swissprot) as f:
-    swissprot_lines = f.readlines()
+# with open(conf.Swissprot) as f:
+#     swissprot_lines = f.readlines()
 
 #-----------------------------------------------------
 # Load protein sequence data into a dictionary
