@@ -103,13 +103,13 @@ with open(conf.trans_mem) as f:
 with open(conf.RxLR_total) as f:
     RxLR_total_lines = f.readlines()
 
-with open(conf.RxLR_ORF_total) as f:
+with open(conf.RxLR_total_ORF) as f:
     RxLR_orf_total_lines = f.readlines()
 
 with open(conf.RxLR_EER_total) as f:
     RxLR_EER_total_lines = f.readlines()
 
-with open(conf.RxLR_ORF_EER_total) as f:
+with open(conf.RxLR_EER_total_ORF) as f:
     RxLR_EER_orf_total_lines = f.readlines()
 
 # with open(conf.CRN_LFLAK) as f:
