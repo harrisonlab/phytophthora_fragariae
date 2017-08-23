@@ -70,8 +70,8 @@ with open(conf.phobius) as f:
 with open(conf.trans_mem) as f:
     trans_mem_lines = f.readlines()
 
-with open(conf.GPI_anchor) as f:
-    gpi_lines = f.readlines()
+# with open(conf.GPI_anchor) as f:
+#     gpi_lines = f.readlines()
 
 # with open(conf.RxLR_motif) as f:
 #     RxLR_motif_lines = f.readlines()
