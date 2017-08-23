@@ -348,6 +348,20 @@ for line in RxLR_EER_total_lines:
     #     RxLR_EER_total_set.add(header)
 
 #-----------------------------------------------------
+# Load RxLR_EER total +ve proteins into a set
+#-----------------------------------------------------
+
+RxLR_EER_ORF_total_set = Set()
+for line in RxLR_EER_orf_total_lines:
+    header = line.rstrip()
+    RxLR_EER_ORF_total_set.add(header)
+    # line = line.rstrip()
+    # if line.startswith('>'):
+    #     split_line = line.split()
+    #     header = split_line[0].replace('>', '')
+    #     RxLR_EER_total_set.add(header)
+
+#-----------------------------------------------------
 # Load CRN LFLAK hmm +ve proteins into a set
 #-----------------------------------------------------
 
