@@ -366,7 +366,7 @@ for line in RxLR_EER_total_lines:
     #     RxLR_EER_total_set.add(header)
 
 #-----------------------------------------------------
-# Load RxLR_EER total +ve proteins into a set
+# Load RxLR_EER total +ve ORFs into a set
 #-----------------------------------------------------
 
 RxLR_EER_ORF_total_set = Set()
@@ -418,7 +418,7 @@ for line in CRN_total_lines:
     #     CRN_total_set.add(header)
 
 #-----------------------------------------------------
-# Load CRN total proteins into a set
+# Load CRN total ORFs into a set
 #-----------------------------------------------------
 
 CRN_ORF_total_set = Set()
