@@ -406,15 +406,15 @@ for line in fpkm_lines:
 # Build a dictionary of Swissprot annotations
 #-----------------------------------------------------
 
-swissprot_dict = defaultdict(list)
-
-for line in swissprot_lines:
-    line = line.rstrip("\n")
-    split_line = line.split("\t")
-    gene_id = split_line[0]
-    swissprot_columns = itemgetter(14, 12, 13)(split_line)
-
-    swissprot_dict[gene_id].extend(swissprot_columns)
+# swissprot_dict = defaultdict(list)
+#
+# for line in swissprot_lines:
+#     line = line.rstrip("\n")
+#     split_line = line.split("\t")
+#     gene_id = split_line[0]
+#     swissprot_columns = itemgetter(14, 12, 13)(split_line)
+#
+#     swissprot_dict[gene_id].extend(swissprot_columns)
 
 
 
