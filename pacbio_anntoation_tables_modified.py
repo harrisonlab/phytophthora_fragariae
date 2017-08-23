@@ -544,6 +544,8 @@ for line in transcript_lines:
 
     if transcript_id in SigP2_set:
         sigP2 = 'Yes'
+    if transcript_id in SigP2_ORF_set:
+        sigP2 = 'Yes'
     if transcript_id in SigP3_set:
         sigP3 = 'Yes'
     if transcript_id in SigP4_set:
