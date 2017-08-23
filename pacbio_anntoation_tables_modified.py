@@ -27,6 +27,7 @@ ap.add_argument('--SigP2_ORF',required=True,type=str,help='fasta file of ORF fra
 ap.add_argument('--SigP3',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP3.0')
 ap.add_argument('--SigP3_ORF',required=True,type=str,help='fasta file of ORF fragments testing positive for signal peptide using SigP3.0')
 ap.add_argument('--SigP4',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP4.1')
+ap.add_argument('--SigP4_ORF',required=True,type=str,help='fasta file of ORF fragments testing positive for signal peptide using SigP4.1')
 ap.add_argument('--phobius',required=True,type=str,help='fasta file of  gene testing positive for signal peptide using phobius')
 ap.add_argument('--trans_mem',required=True,type=str,help='txt file of headers from gene testing positive for tranmembrane proteins by TMHMM')
 # ap.add_argument('--GPI_anchor',required=True,type=str,help='txt file of headers from gene testing positive for GPI anchors as identified by GPI-SOM')
