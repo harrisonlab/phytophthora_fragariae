@@ -85,6 +85,9 @@ with open(conf.trans_mem) as f:
 with open(conf.RxLR_total) as f:
     RxLR_total_lines = f.readlines()
 
+with open(conf.RxLR_EER_total) as f:
+    RxLR_EER_total_lines = f.readlines()
+
 # with open(conf.CRN_LFLAK) as f:
 #     CRN_LFLAK_lines = f.readlines()
 
