@@ -501,7 +501,7 @@ for line in transcript_lines:
     sigP4 = ''
     phobius = ''
     trans_mem = ''
-    gpi = ''
+    # gpi = ''
     # RxLR_motif = ''
     # RxLR_hmm = ''
     # WY_hmm = ''
