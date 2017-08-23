@@ -664,6 +664,8 @@ for line in transcript_lines:
         sigP3 = 'Yes'
     if transcript_id in SigP4_set:
         sigP4 = 'Yes'
+    if transcript_id in SigP4_ORF_set:
+        sigP4 = 'Yes'
     if transcript_id in phobius_set:
         phobius = 'Yes'
     if transcript_id in trans_mem_set:
