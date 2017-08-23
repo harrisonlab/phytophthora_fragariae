@@ -38,6 +38,7 @@ ap.add_argument('--trans_mem',required=True,type=str,help='txt file of headers f
 ap.add_argument('--RxLR_total',required=True,type=str,help='fasta file of all transcripts considered low confidence RxLRs')
 ap.add_argument('--RxLR_total_ORF',required=True,type=str,help='fasta file of all transcripts considered low confidence RxLRs from ORFs')
 ap.add_argument('--RxLR_EER_total',required=True,type=str,help='fasta file of all transcripts considered high confidence RxLRs')
+ap.add_argument('--RxLR_EER_total_ORF',required=True,type=str,help='fasta file of all transcripts considered high confidence RxLRs from ORFs')
 #ap.add_argument('--CRN_LFLAK',required=True,type=str,help='fasta file of genes testing positive for LFLAK domains using an hmm model')
 #ap.add_argument('--CRN_DWL',required=True,type=str,help='fasta file of genes testing positive for DWL domains using an hmm model')
 ap.add_argument('--CRN_total',required=True,type=str,help='fasta file of all transcripts considered CRNs')
