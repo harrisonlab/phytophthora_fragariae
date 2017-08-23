@@ -414,20 +414,6 @@ for line in CRN_total_lines:
     #     CRN_total_set.add(header)
 
 #-----------------------------------------------------
-# Load CRN total ORFs into a set
-#-----------------------------------------------------
-
-CRN_ORF_total_set = Set()
-for line in CRN_orf_total_lines:
-    header = line.rstrip()
-    CRN_ORF_total_set.add(header)
-    # line = line.rstrip()
-    # if line.startswith('>'):
-    #     split_line = line.split()
-    #     header = split_line[0].replace('>', '')
-    #     CRN_total_set.add(header)
-
-#-----------------------------------------------------
 # Store genes and their ortholog groups in a dictionary
 #-----------------------------------------------------
 
