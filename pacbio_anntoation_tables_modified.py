@@ -497,6 +497,7 @@ for line in transcript_lines:
     useful_cols = [split_line[0],  split_line[3], split_line[4], split_line[6]]
     # Set defaults
     sigP2 = ''
+    sigP3 = ''
     sigP4 = ''
     phobius = ''
     trans_mem = ''
