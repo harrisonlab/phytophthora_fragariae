@@ -167,6 +167,7 @@ for line in sigp2_orf_lines:
     if line.startswith('>'):
         split_line = line.split()
         header = split_line[0].replace('>', '')
+        header = header + ".t1"
         SigP2_ORF_set.add(header)
 
 #-----------------------------------------------------
