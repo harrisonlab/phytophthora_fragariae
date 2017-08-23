@@ -424,7 +424,7 @@ for line in fpkm_lines:
 #-----------------------------------------------------
 # Step 3
 # Iterate through genes in file, identifying if
-# they ahve associated information
+# they have associated information
 #-----------------------------------------------------
 
 # Print header line:
