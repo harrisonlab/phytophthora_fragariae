@@ -58,6 +58,9 @@ with open(conf.gene_fasta) as f:
 with open(conf.SigP2) as f:
     sigP2_lines = f.readlines()
 
+with open(conf.SigP3) as f:
+    sigP3_lines = f.readlines()
+
 with open(conf.SigP4) as f:
     sigP4_lines = f.readlines()
 
