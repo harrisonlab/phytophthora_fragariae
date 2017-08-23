@@ -625,7 +625,6 @@ for line in transcript_lines:
     # CRN_LFLAK = ''
     # CRN_DWL = ''
     CRN_total = ''
-    CRN_ORF_total = ''
     # orthogroup = ''
     prot_seq = ''
     # swissprot_cols = []
