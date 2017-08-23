@@ -745,7 +745,7 @@ do
     SigP4=$(ls gene_pred/final_signalp-4.1/$Organism/$Strain/*_aug_sp.aa)
     TMHMM_headers=$(ls gene_pred/trans_mem/$Organism/$Strain/greedy/*_TM_genes_pos_headers.txt)
     # GPI_headers=$(ls gene_pred/trans_mem/$Organism/$Strain/GPIsom/GPI_pos.txt)
-    PhobiusTxt=$(ls analysis/phobius_CQ/$Organism/$Strain/*_phobius.txt)
+    PhobiusFa=$(ls analysis/phobius_CQ/$Organism/$Strain/*_phobius.fa)
     #RxLR_Motif=$(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/$Organism/$Strain/*_RxLR_EER_regex.fa | grep -v 'ORF')
     #RxLR_Hmm=$(ls analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer.fa | grep -v 'ORF')
     #RxLR_WY=$(ls analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain/*_WY_hmmer_headers.txt | grep -v 'ORF')
@@ -762,7 +762,7 @@ do
     # NormCount=$(ls alignment/star/P.cactorum/414_v2/DeSeq/normalised_counts.txt)
     RawCount=$(ls alignment/star/P.fragariae/Bc16/DeSeq/raw_counts.txt)
     FPKM=$(ls alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt)
-    $ProgDir/pacbio_anntoation_tables_modified.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP3 $SigP3 --SigP4 $SigP4 --phobius $PhobiusTxt --trans_mem $TMHMM_headers --RxLR_total $RxLR_total --RxLR_EER_total $RxLR_EER_total --CRN_total $CRN_total --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM > $OutDir/Bc16_gene_table_incl_exp.tsv
+    $ProgDir/pacbio_anntoation_tables_modified.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP3 $SigP3 --SigP4 $SigP4 --phobius $PhobiusFa --trans_mem $TMHMM_headers --RxLR_total $RxLR_total --RxLR_EER_total $RxLR_EER_total --CRN_total $CRN_total --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM > $OutDir/Bc16_gene_table_incl_exp.tsv
 done
 ```
 
