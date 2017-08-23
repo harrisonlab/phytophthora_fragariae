@@ -41,8 +41,8 @@ ap.add_argument('--CRN_total',required=True,type=str,help='fasta file of all tra
 ap.add_argument('--DEG_files',required=True,nargs='+',type=str,help='space spererated list of files containing DEG information')
 ap.add_argument('--raw_counts',required=True,type=str,help='raw count data as output from DESeq')
 ap.add_argument('--fpkm',required=True,type=str,help='normalised fpkm count data as output from DESeq')
-ap.add_argument('--InterPro',required=True,type=str,help='The Interproscan functional annotation .tsv file')
-ap.add_argument('--Swissprot',required=True,type=str,help='A parsed table of BLAST results against the Swissprot database. Note - must have been parsed with swissprot_parser.py')
+# ap.add_argument('--InterPro',required=True,type=str,help='The Interproscan functional annotation .tsv file')
+# ap.add_argument('--Swissprot',required=True,type=str,help='A parsed table of BLAST results against the Swissprot database. Note - must have been parsed with swissprot_parser.py')
 
 
 conf = ap.parse_args()
