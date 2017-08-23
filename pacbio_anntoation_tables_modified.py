@@ -471,8 +471,9 @@ if conf.gff_format == 'gff3':
         if line.startswith('#'):
             continue
         split_line = line.split()
-        if 'ORF_RxLR' in split_line[1] or 'CRN_HMM' in split_line[1] and 'gene' in split_line[2]:
-            transcript_lines.append("\t".join(split_line))
+        if 'ORF_RxLR' in split_line[1] or 'CRN_HMM' in split_line[1]:
+            if 'gene' in split_line[2]:
+                transcript_lines.append("\t".join(split_line))
         elif 'transcript' in split_line[2] or 'mRNA' in split_line[2]:
             transcript_lines.append("\t".join(split_line))
 
