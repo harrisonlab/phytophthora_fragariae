@@ -239,6 +239,19 @@ for line in phobius_lines:
         phobius_set.add(header)
 
 #-----------------------------------------------------
+# Load phobius_ORF files into a set
+#-----------------------------------------------------
+
+phobius_ORF_set = Set()
+for line in phobius_orf_lines:
+    line = line.rstrip()
+    if line.startswith('>'):
+        split_line = line.split()
+        header = split_line[0].replace('>', '')
+        header = header + ".t1"
+        phobius_ORF_set.add(header)
+
+#-----------------------------------------------------
 # Load TMHMM headers into a set
 #-----------------------------------------------------
 
