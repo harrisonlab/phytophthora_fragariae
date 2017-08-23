@@ -23,6 +23,7 @@ ap.add_argument('--gff_format',required=True,type=str,choices=['gff3', 'gtf'],he
 ap.add_argument('--gene_gff',required=True,type=str,help='Gff file of predicyted gene models')
 ap.add_argument('--gene_fasta',required=True,type=str,help='amino acid sequence of predicted proteins')
 ap.add_argument('--SigP2',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP2.0')
+ap.add_argument('--SigP3',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP3.0')
 ap.add_argument('--SigP4',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP4.1')
 ap.add_argument('--phobius',required=True,type=str,help='txt file of headers from gene testing positive for signal peptide using phobius')
 ap.add_argument('--trans_mem',required=True,type=str,help='txt file of headers from gene testing positive for tranmembrane proteins by TMHMM')
