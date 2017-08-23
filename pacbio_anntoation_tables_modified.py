@@ -590,15 +590,15 @@ for line in transcript_lines:
         # print mean_fpkm_cols
 
     # # Add in Swissprot info
-    if swissprot_dict[transcript_id]:
-        swissprot_cols = swissprot_dict[transcript_id]
-    else:
-        swissprot_cols = ['.','.','.']
-    # Add in interproscan info
-    if interpro_dict[transcript_id]:
-        interpro_col = "|".join(interpro_dict[transcript_id])
-    else:
-        interpro_col = '.'
+    # if swissprot_dict[transcript_id]:
+    #     swissprot_cols = swissprot_dict[transcript_id]
+    # else:
+    #     swissprot_cols = ['.','.','.']
+    # # Add in interproscan info
+    # if interpro_dict[transcript_id]:
+    #     interpro_col = "|".join(interpro_dict[transcript_id])
+    # else:
+    #     interpro_col = '.'
 
     prot_seq = "".join(prot_dict[transcript_id])
     # outline = [transcript_id, sigP2, phobius ,RxLR_motif, RxLR_hmm, WY_hmm, CRN_LFLAK, CRN_DWL, orthogroup]
