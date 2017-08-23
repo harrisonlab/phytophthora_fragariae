@@ -660,6 +660,8 @@ for line in transcript_lines:
         sigP2 = 'Yes'
     if transcript_id in SigP3_set:
         sigP3 = 'Yes'
+    if transcript_id in SigP3_ORF_set:
+        sigP3 = 'Yes'
     if transcript_id in SigP4_set:
         sigP4 = 'Yes'
     if transcript_id in phobius_set:
