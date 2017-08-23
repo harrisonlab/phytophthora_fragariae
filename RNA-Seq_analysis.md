@@ -760,7 +760,6 @@ do
     #CRN_LFLAK=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_pub_CRN_LFLAK_hmm.fa | grep -v 'ORF')
     #CRN_DWL=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_pub_CRN_DWL_hmm.fa | grep -v 'ORF')
     CRN_total=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_final_CRN.txt)
-    CRN_ORF_total=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_ORF_CRN.txt)
     #	OrthoName=Pcac
     #	OrthoFile=$(ls analysis/orthology/orthomcl/Pcac_Pinf_Ppar_Pcap_Psoj/Pcac_Pinf_Ppar_Pcap_Psoj_orthogroups.txt)
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
