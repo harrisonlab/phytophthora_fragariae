@@ -253,11 +253,25 @@ for line in RxLR_total_lines:
     #     split_line = line.split()
     #     header = split_line[0].replace('>', '')
     #     RxLR_total_set.add(header)
-#
-# #-----------------------------------------------------
-# # Load CRN LFLAK hmm +ve proteins into a set
-# #-----------------------------------------------------
-#
+
+#-----------------------------------------------------
+# Load RxLR_EER total +ve proteins into a set
+#-----------------------------------------------------
+
+RxLR_EER_total_set = Set()
+for line in RxLR_EER_total_lines:
+    header = line.rstrip()
+    RxLR_EER_total_set.add(header)
+    # line = line.rstrip()
+    # if line.startswith('>'):
+    #     split_line = line.split()
+    #     header = split_line[0].replace('>', '')
+    #     RxLR_EER_total_set.add(header)
+
+#-----------------------------------------------------
+# Load CRN LFLAK hmm +ve proteins into a set
+#-----------------------------------------------------
+
 # CRN_LFLAK_set = Set()
 # for line in CRN_LFLAK_lines:
 #     line = line.rstrip()
@@ -265,11 +279,11 @@ for line in RxLR_total_lines:
 #         split_line = line.split()
 #         header = split_line[0].replace('>', '')
 #         CRN_LFLAK_set.add(header)
-#
-# #-----------------------------------------------------
-# # Load CRN DWL hmm +ve proteins into a set
-# #-----------------------------------------------------
-#
+
+#-----------------------------------------------------
+# Load CRN DWL hmm +ve proteins into a set
+#-----------------------------------------------------
+
 # CRN_DWL_set = Set()
 # for line in CRN_DWL_lines:
 #     line = line.rstrip()
