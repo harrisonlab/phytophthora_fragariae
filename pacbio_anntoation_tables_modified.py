@@ -23,16 +23,14 @@ ap.add_argument('--gff_format',required=True,type=str,choices=['gff3', 'gtf'],he
 ap.add_argument('--gene_gff',required=True,type=str,help='Gff file of predicyted gene models')
 ap.add_argument('--gene_fasta',required=True,type=str,help='amino acid sequence of predicted proteins')
 ap.add_argument('--SigP2',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP2.0')
-ap.add_argument('--SigP3',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP3.0')
 ap.add_argument('--SigP4',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP4.1')
 ap.add_argument('--phobius',required=True,type=str,help='txt file of headers from gene testing positive for signal peptide using phobius')
 ap.add_argument('--trans_mem',required=True,type=str,help='txt file of headers from gene testing positive for tranmembrane proteins by TMHMM')
-# ap.add_argument('--GPI_anchor',required=True,type=str,help='txt file of headers from gene testing positive for GPI anchors as identified by GPI-SOM')
+ap.add_argument('--GPI_anchor',required=True,type=str,help='txt file of headers from gene testing positive for GPI anchors as identified by GPI-SOM')
 #ap.add_argument('--RxLR_motif',required=True,type=str,help='fasta file of genes testing positive for RxLR-EER motifs')
 #ap.add_argument('--RxLR_Hmm',required=True,type=str,help='fasta file of genes testing positive for RxLR-EER domains using an hmm model')
 #ap.add_argument('--RxLR_WY',required=True,type=str,help='fasta file of genes testing positive for WY domains using an hmm model')
-ap.add_argument('--RxLR_total',required=True,type=str,help='fasta file of all transcripts considered low confidence RxLRs')
-ap.add_argument('--RxLR_EER_total',required=True,type=str,help='fasta file of all transcripts considered high confidence RxLRs')
+ap.add_argument('--RxLR_total',required=True,type=str,help='fasta file of all transcripts considered RxLRs')
 #ap.add_argument('--CRN_LFLAK',required=True,type=str,help='fasta file of genes testing positive for LFLAK domains using an hmm model')
 #ap.add_argument('--CRN_DWL',required=True,type=str,help='fasta file of genes testing positive for DWL domains using an hmm model')
 ap.add_argument('--CRN_total',required=True,type=str,help='fasta file of all transcripts considered CRNs')
@@ -41,10 +39,9 @@ ap.add_argument('--CRN_total',required=True,type=str,help='fasta file of all tra
 ap.add_argument('--DEG_files',required=True,nargs='+',type=str,help='space spererated list of files containing DEG information')
 ap.add_argument('--raw_counts',required=True,type=str,help='raw count data as output from DESeq')
 ap.add_argument('--fpkm',required=True,type=str,help='normalised fpkm count data as output from DESeq')
-# ap.add_argument('--InterPro',required=True,type=str,help='The Interproscan functional annotation .tsv file')
-# ap.add_argument('--Swissprot',required=True,type=str,help='A parsed table of BLAST results against the Swissprot database. Note - must have been parsed with swissprot_parser.py')
-# ap.add_argument('--SNP',required=True,nargs='+',type=str,help='A list of annotated .vcf with information on synonymous and non-synonymous SNPs in comparisons to the reference. Note - each of these files should be contained within a sepperate directory which is named on the comparison to be made.')
-# ap.add_argument('--gene_conversion',required=True,type=str,help='Conversion of gene ids of effector genes prior to ncbi-renaming for RxLRs, secreted genes and CRNs.')
+ap.add_argument('--InterPro',required=True,type=str,help='The Interproscan functional annotation .tsv file')
+ap.add_argument('--Swissprot',required=True,type=str,help='A parsed table of BLAST results against the Swissprot database. Note - must have been parsed with swissprot_parser.py')
+
 
 conf = ap.parse_args()
 
@@ -59,9 +56,6 @@ with open(conf.gene_fasta) as f:
 with open(conf.SigP2) as f:
     sigP2_lines = f.readlines()
 
-with open(conf.SigP3) as f:
-    sigP3_lines = f.readlines()
-
 with open(conf.SigP4) as f:
     sigP4_lines = f.readlines()
 
@@ -71,8 +65,8 @@ with open(conf.phobius) as f:
 with open(conf.trans_mem) as f:
     trans_mem_lines = f.readlines()
 
-# with open(conf.GPI_anchor) as f:
-#     gpi_lines = f.readlines()
+with open(conf.GPI_anchor) as f:
+    gpi_lines = f.readlines()
 
 # with open(conf.RxLR_motif) as f:
 #     RxLR_motif_lines = f.readlines()
@@ -85,9 +79,6 @@ with open(conf.trans_mem) as f:
 
 with open(conf.RxLR_total) as f:
     RxLR_total_lines = f.readlines()
-
-with open(conf.RxLR_EER_total) as f:
-    RxLR_EER_total_lines = f.readlines()
 
 # with open(conf.CRN_LFLAK) as f:
 #     CRN_LFLAK_lines = f.readlines()
@@ -124,41 +115,11 @@ with open(conf.raw_counts) as f:
 with open(conf.fpkm) as f:
     fpkm_lines = f.readlines()
 
-# with open(conf.InterPro) as f:
-#     InterPro_lines = f.readlines()
-#
-# with open(conf.Swissprot) as f:
-#     swissprot_lines = f.readlines()
-#
-# SNP_files = conf.SNP
-# SNP_dict = defaultdict(list)
-# for SNP_file in SNP_files:
-#     comparison = SNP_file.split("/")[-2]
-#     with open(SNP_file) as f:
-#         filename = SNP_file
-#         SNP_lines = f.readlines()
-#         for line in SNP_lines:
-#             if line.startswith('#'):
-#                 continue
-#             else:
-#                 split_line = line.split()
-#                 SNP_info = split_line[7]
-#                 split_info = SNP_info.split("|")
-#                 effect = split_info[1]
-#                 # print effect
-#                 transcript_id = split_info[6]
-#                 if 'missense_variant' in effect:
-#                     AA_change = split_info[10]
-#                     SNP_dict[transcript_id].append("_".join([comparison, AA_change]))
-#                 elif 'nonsense_variant' in effect:
-#                     AA_change = "stop"
-#                     SNP_dict[transcript_id].append("_".join([comparison, AA_change]))
-#                     # print effect
-#
-#
-# with open(conf.gene_conversion) as f:
-#     conversion_lines = f.readlines()
+with open(conf.InterPro) as f:
+    InterPro_lines = f.readlines()
 
+with open(conf.Swissprot) as f:
+    swissprot_lines = f.readlines()
 
 #-----------------------------------------------------
 # Load protein sequence data into a dictionary
@@ -183,18 +144,6 @@ for line in sigP2_lines:
         split_line = line.split()
         header = split_line[0].replace('>', '')
         SigP2_set.add(header)
-
-#-----------------------------------------------------
-# Load signalP3.0 files into a set
-#-----------------------------------------------------
-
-SigP3_set = Set()
-for line in sigP3_lines:
-    line = line.rstrip()
-    if line.startswith('>'):
-        split_line = line.split()
-        header = split_line[0].replace('>', '')
-        SigP3_set.add(header)
 
 #-----------------------------------------------------
 # Load signalP4.0 files into a set
@@ -230,15 +179,15 @@ for line in trans_mem_lines:
 # Load GPI-anchored proteins into a set
 #-----------------------------------------------------
 
-# gpi_set = Set()
-# for line in gpi_lines:
-#     header = line.rstrip()
-#     gpi_set.add(header)
-
-#-----------------------------------------------------
-# Load RxLR motif +ve proteins into a set
-#-----------------------------------------------------
-
+gpi_set = Set()
+for line in gpi_lines:
+    header = line.rstrip()
+    gpi_set.add(header)
+#
+# #-----------------------------------------------------
+# # Load RxLR motif +ve proteins into a set
+# #-----------------------------------------------------
+#
 # RxLR_motif_set = Set()
 # for line in RxLR_motif_lines:
 #     line = line.rstrip()
@@ -246,11 +195,11 @@ for line in trans_mem_lines:
 #         split_line = line.split()
 #         header = split_line[0].replace('>', '')
 #         RxLR_motif_set.add(header)
-
-#-----------------------------------------------------
-# Load RxLR hmm +ve proteins into a set
-#-----------------------------------------------------
-
+#
+# #-----------------------------------------------------
+# # Load RxLR hmm +ve proteins into a set
+# #-----------------------------------------------------
+#
 # RxLR_hmm_set = Set()
 # for line in RxLR_hmm_lines:
 #     line = line.rstrip()
@@ -258,11 +207,11 @@ for line in trans_mem_lines:
 #         split_line = line.split()
 #         header = split_line[0].replace('>', '')
 #         RxLR_hmm_set.add(header)
-
-#-----------------------------------------------------
-# Load RxLR hmm +ve proteins into a set
-#-----------------------------------------------------
-
+#
+# #-----------------------------------------------------
+# # Load RxLR hmm +ve proteins into a set
+# #-----------------------------------------------------
+#
 # RxLR_WY_set = Set()
 # for line in RxLR_WY_lines:
 #     line = line.rstrip()
@@ -284,25 +233,11 @@ for line in RxLR_total_lines:
     #     split_line = line.split()
     #     header = split_line[0].replace('>', '')
     #     RxLR_total_set.add(header)
-
-#-----------------------------------------------------
-# Load RxLR_EER total +ve proteins into a set
-#-----------------------------------------------------
-
-RxLR_EER_total_set = Set()
-for line in RxLR_EER_total_lines:
-    header = line.rstrip()
-    RxLR_EER_total_set.add(header)
-    # line = line.rstrip()
-    # if line.startswith('>'):
-    #     split_line = line.split()
-    #     header = split_line[0].replace('>', '')
-    #     RxLR_total_set.add(header)
-
-#-----------------------------------------------------
-# Load CRN LFLAK hmm +ve proteins into a set
-#-----------------------------------------------------
-
+#
+# #-----------------------------------------------------
+# # Load CRN LFLAK hmm +ve proteins into a set
+# #-----------------------------------------------------
+#
 # CRN_LFLAK_set = Set()
 # for line in CRN_LFLAK_lines:
 #     line = line.rstrip()
@@ -310,11 +245,11 @@ for line in RxLR_EER_total_lines:
 #         split_line = line.split()
 #         header = split_line[0].replace('>', '')
 #         CRN_LFLAK_set.add(header)
-
-#-----------------------------------------------------
-# Load CRN DWL hmm +ve proteins into a set
-#-----------------------------------------------------
-
+#
+# #-----------------------------------------------------
+# # Load CRN DWL hmm +ve proteins into a set
+# #-----------------------------------------------------
+#
 # CRN_DWL_set = Set()
 # for line in CRN_DWL_lines:
 #     line = line.rstrip()
@@ -413,23 +348,23 @@ for line in fpkm_lines:
 # into a set.
 #-----------------------------------------------------
 
-# interpro_set =  Set([])
-# interpro_dict = defaultdict(list)
-#
-# for line in InterPro_lines:
-#     line = line.rstrip("\n")
-#     split_line = line.split("\t")
-#     interpro_columns = []
-#     index_list = [0, 4, 5, 11, 12]
-#     for x in index_list:
-#         if len(split_line) > x:
-#             interpro_columns.append(split_line[x])
-#     set_line = ";".join(interpro_columns)
-#     if set_line not in interpro_set:
-#         gene_id = interpro_columns[0]
-#         interpro_feat = ";".join(interpro_columns[1:])
-#         interpro_dict[gene_id].append(interpro_feat)
-#     interpro_set.add(set_line)
+interpro_set =  Set([])
+interpro_dict = defaultdict(list)
+
+for line in InterPro_lines:
+    line = line.rstrip("\n")
+    split_line = line.split("\t")
+    interpro_columns = []
+    index_list = [0, 4, 5, 11, 12]
+    for x in index_list:
+        if len(split_line) > x:
+            interpro_columns.append(split_line[x])
+    set_line = ";".join(interpro_columns)
+    if set_line not in interpro_set:
+        gene_id = interpro_columns[0]
+        interpro_feat = ";".join(interpro_columns[1:])
+        interpro_dict[gene_id].append(interpro_feat)
+    interpro_set.add(set_line)
 
 
 #-----------------------------------------------------
@@ -437,44 +372,29 @@ for line in fpkm_lines:
 # Build a dictionary of Swissprot annotations
 #-----------------------------------------------------
 
-# swissprot_dict = defaultdict(list)
-#
-# for line in swissprot_lines:
-#     line = line.rstrip("\n")
-#     split_line = line.split("\t")
-#     gene_id = split_line[0]
-#     swissprot_columns = itemgetter(14, 12, 13)(split_line)
-#
-#     swissprot_dict[gene_id].extend(swissprot_columns)
+swissprot_dict = defaultdict(list)
 
+for line in swissprot_lines:
+    line = line.rstrip("\n")
+    split_line = line.split("\t")
+    gene_id = split_line[0]
+    swissprot_columns = itemgetter(14, 12, 13)(split_line)
 
-#-----------------------------------------------------
-#
-# Build a dictionary of gene conversions
-#-----------------------------------------------------
+    swissprot_dict[gene_id].extend(swissprot_columns)
 
-# conversion_dict = defaultdict(list)
-#
-# for line in conversion_lines:
-#     line = line.rstrip("\n")
-#     split_line = line.split("\t")
-#     old_id = split_line[0]
-#     new_id = split_line[2]
-#     conversion_dict[new_id] = old_id
-#     # print "-".join([new_id, old_id])
 
 
 #-----------------------------------------------------
 # Step 3
-# Iterate through genes in file, identifying if
-# they have associated information
+# Itterate through genes in file, identifying if
+# they ahve associated information
 #-----------------------------------------------------
 
 # Print header line:
 header_line = ['transcript_id']
 header_line.extend(['contig', 'start', 'stop', 'strand'])
 #header_line.extend(['sigP2', 'sigP4', 'phobius', 'RxLR_motif', 'RxLR_hmm', 'WY_hmm', 'RxLR_total', 'CRN_LFLAK', 'CRN_DWL', 'CRN_total', 'orthogroup'])
-header_line.extend(['sigP2', 'sigP3', 'sigP4', 'phobius', 'TMHMM', 'secreted', 'RxLR_total', 'RxLR_EER_total' 'CRN_total'])
+header_line.extend(['sigP2', 'sigP4', 'phobius', 'TMHMM', 'GPI_anchor', 'secreted', 'RxLR_total', 'CRN_total'])
 for treatment in set(count_treatment_list):
     treatment = "raw_count_" + treatment
     header_line.append(treatment)
@@ -488,7 +408,6 @@ for DEG_file in DEG_files:
     header_line.append("LFC_" + file_name)
     header_line.append("P-val_" + file_name)
 header_line.append('prot_seq')
-# header_line.append('Non-syn_SNP')
 print ("\t".join(header_line))
 
 transcript_lines = []
@@ -544,23 +463,21 @@ for line in transcript_lines:
     useful_cols = [split_line[0],  split_line[3], split_line[4], split_line[6]]
     # Set defaults
     sigP2 = ''
-    sigP3 = ''
     sigP4 = ''
     phobius = ''
     trans_mem = ''
-    # gpi = ''
+    gpi = ''
     # RxLR_motif = ''
     # RxLR_hmm = ''
     # WY_hmm = ''
     RxLR_total = ''
-    RxLR_EER_total = ''
     # CRN_LFLAK = ''
     # CRN_DWL = ''
     CRN_total = ''
     # orthogroup = ''
     prot_seq = ''
-    # swissprot_cols = []
-    # interpro_col = []
+    swissprot_cols = []
+    interpro_col = []
     # Identify gene id
     if 'ID' in split_line[8]:
         split_col9 = split_line[8].split(';')
@@ -568,23 +485,18 @@ for line in transcript_lines:
         transcript_id = transcript_id.replace('ID=', '')
     else:
         transcript_id = split_line[8]
-    gene_id = transcript_id.split(".")[0]
-    # old_gene = "".join(conversion_dict[gene_id])
-    # old_id = transcript_id.replace(gene_id, old_gene)
 
-    if gene_id in SigP2_set:
+    if transcript_id in SigP2_set:
         sigP2 = 'Yes'
-    if gene_id in SigP3_set:
-        sigP3 = 'Yes'
-    if gene_id in SigP4_set:
+    if transcript_id in SigP4_set:
         sigP4 = 'Yes'
-    if gene_id in phobius_set:
+    if transcript_id in phobius_set:
         phobius = 'Yes'
-    if gene_id in trans_mem_set:
+    if transcript_id in trans_mem_set:
         trans_mem = 'Yes'
-    # if old_id in gpi_set:
-    #     gpi = 'Yes'
-    if any([sigP2 == 'Yes', sigP3 == 'Yes', sigP4 == 'Yes']) and all([trans_mem == '']):
+    if transcript_id in gpi_set:
+        gpi = 'Yes'
+    if any([sigP2 == 'Yes', sigP4 == 'Yes']) and all([trans_mem == '', gpi == '']):
         secreted = 'Yes'
     else:
         secreted = ''
@@ -595,15 +507,13 @@ for line in transcript_lines:
     # if transcript_id in RxLR_WY_set:
     #     WY_hmm = 'Yes'
     # gene_id = transcript_id.split('.')[0]
-    if gene_id in RxLR_total_set:
+    if transcript_id in RxLR_total_set:
         RxLR_total = 'Yes'
-    if gene_id in RxLR_EER_total_set:
-        RxLR_EER_total = 'Yes'
     # if transcript_id in CRN_LFLAK_set:
     #     CRN_LFLAK = 'Yes'
     # if transcript_id in CRN_DWL_set:
     #     CRN_DWL = 'Yes'
-    if gene_id in CRN_total_set:
+    if transcript_id in CRN_total_set:
         CRN_total = 'Yes'
     # if ortho_dict[transcript_id]:
     #     orthogroup = ortho_dict[transcript_id]
@@ -640,40 +550,30 @@ for line in transcript_lines:
         # print mean_fpkm_cols
 
     # # Add in Swissprot info
-    # if swissprot_dict[transcript_id]:
-    #     swissprot_cols = swissprot_dict[transcript_id]
-    # else:
-    #     swissprot_cols = ['.','.','.']
+    if swissprot_dict[transcript_id]:
+        swissprot_cols = swissprot_dict[transcript_id]
+    else:
+        swissprot_cols = ['.','.','.']
     # Add in interproscan info
-    # if interpro_dict[transcript_id]:
-    #     interpro_col = "|".join(interpro_dict[transcript_id])
-    # else:
-    #     interpro_col = '.'
-
-    # Add in SNP info
-    # if SNP_dict[transcript_id]:
-        # print(SNP_dict[transcript_id])
-    #     non_syn_col = "|".join(SNP_dict[transcript_id])
-    # else:
-    #     non_syn_col = ""
+    if interpro_dict[transcript_id]:
+        interpro_col = "|".join(interpro_dict[transcript_id])
+    else:
+        interpro_col = '.'
 
     prot_seq = "".join(prot_dict[transcript_id])
     # outline = [transcript_id, sigP2, phobius ,RxLR_motif, RxLR_hmm, WY_hmm, CRN_LFLAK, CRN_DWL, orthogroup]
     outline = [transcript_id]
     outline.extend(useful_cols)
     # outline.extend([sigP2, sigP4, phobius, RxLR_motif, RxLR_hmm, WY_hmm, RxLR_total, CRN_LFLAK, CRN_DWL, CRN_total, orthogroup])
-    outline.extend([sigP2, sigP3, sigP4, phobius])
-    outline.extend([trans_mem, secreted])
-    outline.extend([RxLR_total, RxLR_EER_total, CRN_total])
+    outline.extend([sigP2, sigP4, phobius])
+    outline.extend([trans_mem, gpi, secreted])
+    outline.extend([RxLR_total, CRN_total])
     # outline.append(orthogroup)
     outline.extend(mean_count_cols)
     outline.extend(mean_fpkm_cols)
     outline.extend(DEG_out)
-    # outline.append(non_syn_col)
     outline.append(prot_seq)
-    # outline.extend(swissprot_cols)
-    # outline.append(interpro_col)
-
-
+    outline.extend(swissprot_cols)
+    outline.append(interpro_col)
     print "\t".join(outline)
     # print DEG_out
