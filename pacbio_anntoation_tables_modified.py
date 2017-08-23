@@ -605,7 +605,7 @@ for line in transcript_lines:
     outline = [transcript_id]
     outline.extend(useful_cols)
     # outline.extend([sigP2, sigP4, phobius, RxLR_motif, RxLR_hmm, WY_hmm, RxLR_total, CRN_LFLAK, CRN_DWL, CRN_total, orthogroup])
-    outline.extend([sigP2, sigP4, phobius])
+    outline.extend([sigP2, sigP3, sigP4, phobius])
     outline.extend([trans_mem, gpi, secreted])
     outline.extend([RxLR_total, CRN_total])
     # outline.append(orthogroup)
