@@ -158,6 +158,18 @@ for line in sigP2_lines:
         SigP2_set.add(header)
 
 #-----------------------------------------------------
+# Load signalP2.0 files into a set
+#-----------------------------------------------------
+
+SigP2_ORF_set = Set()
+for line in sigP2_orf_lines:
+    line = line.rstrip()
+    if line.startswith('>'):
+        split_line = line.split()
+        header = split_line[0].replace('>', '')
+        SigP2_ORF_set.add(header)
+
+#-----------------------------------------------------
 # Load signalP3.0 files into a set
 #-----------------------------------------------------
 
