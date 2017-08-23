@@ -624,6 +624,7 @@ for line in transcript_lines:
     sigP2 = ''
     sigP2_ORF = ''
     sigP3 = ''
+    sigP3_ORF = ''
     sigP4 = ''
     phobius = ''
     trans_mem = ''
