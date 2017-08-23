@@ -199,15 +199,15 @@ for line in trans_mem_lines:
 # Load GPI-anchored proteins into a set
 #-----------------------------------------------------
 
-gpi_set = Set()
-for line in gpi_lines:
-    header = line.rstrip()
-    gpi_set.add(header)
-#
-# #-----------------------------------------------------
-# # Load RxLR motif +ve proteins into a set
-# #-----------------------------------------------------
-#
+# gpi_set = Set()
+# for line in gpi_lines:
+#     header = line.rstrip()
+#     gpi_set.add(header)
+
+#-----------------------------------------------------
+# Load RxLR motif +ve proteins into a set
+#-----------------------------------------------------
+
 # RxLR_motif_set = Set()
 # for line in RxLR_motif_lines:
 #     line = line.rstrip()
@@ -215,11 +215,11 @@ for line in gpi_lines:
 #         split_line = line.split()
 #         header = split_line[0].replace('>', '')
 #         RxLR_motif_set.add(header)
-#
-# #-----------------------------------------------------
-# # Load RxLR hmm +ve proteins into a set
-# #-----------------------------------------------------
-#
+
+#-----------------------------------------------------
+# Load RxLR hmm +ve proteins into a set
+#-----------------------------------------------------
+
 # RxLR_hmm_set = Set()
 # for line in RxLR_hmm_lines:
 #     line = line.rstrip()
@@ -227,11 +227,11 @@ for line in gpi_lines:
 #         split_line = line.split()
 #         header = split_line[0].replace('>', '')
 #         RxLR_hmm_set.add(header)
-#
-# #-----------------------------------------------------
-# # Load RxLR hmm +ve proteins into a set
-# #-----------------------------------------------------
-#
+
+#-----------------------------------------------------
+# Load RxLR hmm +ve proteins into a set
+#-----------------------------------------------------
+
 # RxLR_WY_set = Set()
 # for line in RxLR_WY_lines:
 #     line = line.rstrip()
