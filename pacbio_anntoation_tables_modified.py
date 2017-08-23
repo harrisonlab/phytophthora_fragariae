@@ -687,6 +687,8 @@ for line in transcript_lines:
     # gene_id = transcript_id.split('.')[0]
     if transcript_id in RxLR_total_set:
         RxLR_total = 'Yes'
+    if transcript_id in RxLR_ORF_total_set:
+        RxLR_total = 'Yes'
     if transcript_id in RxLR_EER_total_set:
         RxLR_EER_total = 'Yes'
     # if transcript_id in CRN_LFLAK_set:
