@@ -721,10 +721,10 @@ for line in transcript_lines:
         # print mean_fpkm_cols
 
     # # Add in Swissprot info
-    # if swissprot_dict[transcript_id]:
-    #     swissprot_cols = swissprot_dict[transcript_id]
-    # else:
-    #     swissprot_cols = ['.','.','.']
+    if swissprot_dict[transcript_id]:
+        swissprot_cols = swissprot_dict[transcript_id]
+    else:
+        swissprot_cols = ['.','.','.']
     # # Add in interproscan info
     # if interpro_dict[transcript_id]:
     #     interpro_col = "|".join(interpro_dict[transcript_id])
