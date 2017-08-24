@@ -744,7 +744,7 @@ for line in transcript_lines:
     outline.extend(mean_fpkm_cols)
     outline.extend(DEG_out)
     outline.append(prot_seq)
-    # outline.extend(swissprot_cols)
+    outline.extend(swissprot_cols)
     # outline.append(interpro_col)
     print "\t".join(outline)
     # print DEG_out
