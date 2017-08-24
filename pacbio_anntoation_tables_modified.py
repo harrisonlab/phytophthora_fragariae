@@ -631,7 +631,7 @@ for line in transcript_lines:
     CRN_total = ''
     # orthogroup = ''
     prot_seq = ''
-    # swissprot_cols = []
+    swissprot_cols = []
     # interpro_col = []
     # Identify gene id
     if 'ID' in split_line[8]:
