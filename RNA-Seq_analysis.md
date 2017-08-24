@@ -735,7 +735,7 @@ do
     Organism=$(echo $GeneGff | rev | cut -f3 -d '/' | rev)
     Assembly=$(ls repeat_masked/quiver_results/$Strain/*/*_contigs_unmasked.fa)
     # InterPro=$(ls gene_pred/interproscan/$Organism/$Strain/*_interproscan.tsv)
-    # SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/swissprot_vJul2016_tophit_parsed.tbl)
+    SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/greedy/swissprot_vJul2016_tophit_parsed.tbl)
     OutDir=gene_pred/annotation/$Organism/$Strain
     mkdir -p $OutDir
     # GeneFasta=$(ls gene_pred/annotation/P.cactorum/414_v2/414_v2_genes_incl_ORFeffectors.pep.fasta)
