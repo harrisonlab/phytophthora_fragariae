@@ -22,6 +22,6 @@ WorkDir=analysis/reciprocal_BLAST
 for Strain in Nov5 Bc1
 do
     Assembly=repeat_masked/P.fragariae/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_unmasked.fa
-    cat $Assembly | sed "s/>/>$Strain_/g" >> $WorkDir/UK1_genomes.fa
+    cat $Assembly | sed "s/>/>"$Strain"_/g" >> $WorkDir/UK1_genomes.fa
 done
 ```
