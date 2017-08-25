@@ -34,3 +34,12 @@ do
     cat $Assembly | sed "s/>/>"$Strain"_/g" >> $WorkDir/UK3_genomes.fa
 done
 ```
+
+##Create databases from these sequences
+
+```bash
+WorkDir=analysis/reciprocal_BLAST
+cd $WorkDir
+makeblastdb -in UK1_genomes.fa -dbtype 'nucleotide' -out UK1_genomes
+makeblastdb -in UK3_genomes.fa -dbtype 'nucleotide' -out UK3_genomes
+```
