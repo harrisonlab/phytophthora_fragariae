@@ -18,14 +18,24 @@ RxLRs=$WorkDir/Bc16_expressed_RxLR_headers_parsed.txt
 for Strain in Bc1 Nov5
 do
     Assembly=repeat_masked/P.fragariae/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_unmasked.fa
-    cat $Assembly | sed "s/>/>"$Strain"/g" >> $WorkDir/UK1_genomes.fa
+    cat $Assembly | sed "s/>/>"$Strain"_/g" >> $WorkDir/UK1_genomes.fa
 done
 for Strain in Nov71 Nov9 Nov27
 do
     Assembly=repeat_masked/P.fragariae/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_unmasked.fa
-    cat $Assembly | sed "s/>/>"$Strain"/g" >> $WorkDir/UK3_genomes.fa
+    cat $Assembly | sed "s/>/>"$Strain"_/g" >> $WorkDir/UK3_genomes.fa
 done
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 Genome=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
 $ProgDir/extract_from_fasta.py --fasta $Genome --headers $RxLRs > $WorkDir/Bc16_expressed_RxLR.fa
+```
+
+##Run python script from external developers
+
+```bash
+WorkDir=analysis/Reciprocal_BLAST
+blast_rbh.py -a nucl -t blastn -o $WorkDir/RxLR_vs_UK1.tsv $WorkDir/Bc16_expressed_RxLR.fa $WorkDir/UK1_genomes.fa
+
+WorkDir=analysis/Reciprocal_BLAST
+blast_rbh.py -a nucl -t blastn -o $WorkDir/RxLR_vs_UK3.tsv $WorkDir/Bc16_expressed_RxLR.fa $WorkDir/UK3_genomes.fa
 ```
