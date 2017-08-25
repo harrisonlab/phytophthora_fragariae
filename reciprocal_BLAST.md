@@ -39,5 +39,3 @@ WorkDir=analysis/Reciprocal_BLAST
 WorkDir=analysis/Reciprocal_BLAST
 /home/adamst/git_repos/scripts/blast_rbh.py -a nucl -t blastn -o $WorkDir/RxLR_vs_UK3.tsv $WorkDir/Bc16_expressed_RxLR.fa $WorkDir/UK3_genomes.fa
 ```
-
-I don't think this has worked.
