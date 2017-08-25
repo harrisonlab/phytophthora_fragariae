@@ -40,6 +40,6 @@ done
 ```bash
 WorkDir=analysis/reciprocal_BLAST
 cd $WorkDir
-makeblastdb -in UK1_genomes.fa -dbtype 'nucleotide' -out UK1_genomes
-makeblastdb -in UK3_genomes.fa -dbtype 'nucleotide' -out UK3_genomes
+makeblastdb -in UK1_genomes.fa -dbtype 'nucl' -out UK1_genomes
+makeblastdb -in UK3_genomes.fa -dbtype 'nucl' -out UK3_genomes
 ```
