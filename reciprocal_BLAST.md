@@ -2,7 +2,7 @@
 
 ##Create a fasta file of the genes required for BLAST
 
-Merge header files together in new folder
+Merge header files together in new folder and create fasta file
 
 ```bash
 NewDir=analysis/reciprocal_BLAST/
