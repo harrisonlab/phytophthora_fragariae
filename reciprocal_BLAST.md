@@ -38,5 +38,6 @@ GeneDir=gene_pred/annotation/P.fragariae/Bc16
 /home/adamst/git_repos/scripts/blast_rbh.py -a nucl -t blastn -o $WorkDir/Bc16_vs_UK1.tsv $GeneDir/Bc16_genes_incl_ORFeffectors.gene.fasta $WorkDir/UK1_genomes.fa
 
 WorkDir=analysis/Reciprocal_BLAST
+GeneDir=gene_pred/annotation/P.fragariae/Bc16
 /home/adamst/git_repos/scripts/blast_rbh.py -a nucl -t blastn -o $WorkDir/Bc16_vs_UK3.tsv $GeneDir/Bc16_genes_incl_ORFeffectors.gene.fasta $WorkDir/UK3_genomes.fa
 ```
