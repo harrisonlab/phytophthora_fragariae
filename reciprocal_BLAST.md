@@ -21,7 +21,7 @@ $ProgDir/extract_from_fasta.py --fasta $GeneDir/Bc16_genes_incl_ORFeffectors.gen
 WorkDir=analysis/reciprocal_BLAST
 for Strain in Nov5 Bc1
 do
-    Assembly=repeatmasked/P.fragariae/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_unmasked.fa
+    Assembly=repeat_masked/P.fragariae/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_unmasked.fa
     cat $Assembly | sed 's/>/>"$Strain"_/g' > $WorkDir/UK1_genomes.fa
 done
 ```
