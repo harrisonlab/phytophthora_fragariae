@@ -25,3 +25,12 @@ do
     cat $Assembly | sed "s/>/>"$Strain"_/g" >> $WorkDir/UK1_genomes.fa
 done
 ```
+
+```bash
+WorkDir=analysis/reciprocal_BLAST
+for Strain in Nov71 Nov9 Nov27
+do
+    Assembly=repeat_masked/P.fragariae/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_unmasked.fa
+    cat $Assembly | sed "s/>/>"$Strain"_/g" >> $WorkDir/UK3_genomes.fa
+done
+```
