@@ -14,3 +14,14 @@ GeneDir=gene_pred/annotation/P.fragariae/Bc16/
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 $ProgDir/extract_from_fasta.py --fasta $GeneDir/Bc16_genes_incl_ORFeffectors.gene.fasta --headers $NewDir/Bc16_RxLRs_headers.txt > $NewDir/Bc16_RxLRs.fa
 ```
+
+##Create BLAST databases for race 1 and race 3
+
+```bash
+WorkDir=analysis/reciprocal_BLAST
+for Strain in Nov5 Bc1
+do
+    Assembly=repeatmasked/P.fragariae/$Strain/deconseq_Paen_repmask/"$Strain"_contigs_unmasked.fa
+    cat $Assembly | sed 's/>/>"$Strain"_/g' > $WorkDir/UK1_genomes.fa
+done
+```
