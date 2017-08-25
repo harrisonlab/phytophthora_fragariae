@@ -34,8 +34,8 @@ $ProgDir/extract_from_fasta.py --fasta $Genome --headers $RxLRs > $WorkDir/Bc16_
 
 ```bash
 WorkDir=analysis/Reciprocal_BLAST
-blast_rbh.py -a nucl -t blastn -o $WorkDir/RxLR_vs_UK1.tsv $WorkDir/Bc16_expressed_RxLR.fa $WorkDir/UK1_genomes.fa
+/home/adamst/git_repos/scripts/blast_rbh.py -a nucl -t blastn -o $WorkDir/RxLR_vs_UK1.tsv $WorkDir/Bc16_expressed_RxLR.fa $WorkDir/UK1_genomes.fa
 
 WorkDir=analysis/Reciprocal_BLAST
-blast_rbh.py -a nucl -t blastn -o $WorkDir/RxLR_vs_UK3.tsv $WorkDir/Bc16_expressed_RxLR.fa $WorkDir/UK3_genomes.fa
+/home/adamst/git_repos/scripts/blast_rbh.py -a nucl -t blastn -o $WorkDir/RxLR_vs_UK3.tsv $WorkDir/Bc16_expressed_RxLR.fa $WorkDir/UK3_genomes.fa
 ```
