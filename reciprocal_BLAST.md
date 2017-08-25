@@ -43,3 +43,16 @@ cd $WorkDir
 makeblastdb -in UK1_genomes.fa -dbtype 'nucl' -out UK1_genomes
 makeblastdb -in UK3_genomes.fa -dbtype 'nucl' -out UK3_genomes
 ```
+
+##Run blastn search in a screen session with a qlogin
+
+```bash
+screen -a
+
+qlogin -pe smp 8
+
+WorkDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/reciprocal_BLAST
+cd $WorkDir
+blastn -db UK1_genomes -query Bc16_RxLRs.fa -out RxLRs_vs_UK1.tbl -evalue 1e-10 -outfmt 6 -num_threads 8
+blastn -db UK3_genomes -query Bc16_RxLRs.fa -out RxLRs_vs_UK3.tbl -evalue 1e-10 -outfmt 6 -num_threads 8
+```
