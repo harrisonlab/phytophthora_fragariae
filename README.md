@@ -4192,7 +4192,7 @@ do
     echo "$Organism - $Strain"
     echo $Strain
     InterProRaw=gene_pred/interproscan/$Organism/$Strain/greedy/raw
-    $ProgDir/append_interpro.sh $Proteome $InterProRaw
+    $ProgDir/append_interpro_2.sh $Proteome $InterProRaw
 done
 
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan
@@ -4203,7 +4203,7 @@ do
     echo "$Organism - $Strain"
     echo $Strain
     InterProRaw=gene_pred/interproscan/$Organism/$Strain/conservative/raw
-    $ProgDir/append_interpro.sh $Proteome $InterProRaw
+    $ProgDir/append_interpro_2.sh $Proteome $InterProRaw
 done
 ```
 
