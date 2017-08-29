@@ -745,6 +745,6 @@ for line in transcript_lines:
     outline.extend(DEG_out)
     outline.append(prot_seq)
     outline.extend(swissprot_cols)
-    # outline.append(interpro_col)
+    outline.append(interpro_col)
     print "\t".join(outline)
     # print DEG_out
