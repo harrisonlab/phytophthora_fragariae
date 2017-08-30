@@ -5,6 +5,27 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/gen
 scripts=/home/adamst/git_repos/scripts/popgen/snp
 ```
 
+##Repeat alignments for new FALCON assembly of BC-16
+
+###Single run of data
+
+```bash
+Reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa)
+for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -v -e 'Nov71' -e 'Bc1' -e 'Nov9' -e '62471')
+do
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
+    Strain=$(echo $StrainPath | rev | cut -f1 -d '/' | rev)
+    Organism=$(echo $StrainPath | rev | cut -f2 -d '/' | rev)
+    F_Read=$(ls $StrainPath/F/*_trim.fq.gz)
+    R_Read=$(ls $StrainPath/R/*_trim.fq.gz)
+    echo $F_Read
+    echo $R_Read
+    OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
+    qsub $ProgDir/bowtie/sub_bowtie.sh $Reference $F_Read $R_Read $OutDir
+done
+```
+
 ## Rename input mapping files in each folder by prefixing with the strain ID
 
 ```bash
