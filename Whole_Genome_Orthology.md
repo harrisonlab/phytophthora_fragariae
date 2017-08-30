@@ -20,7 +20,7 @@ mkdir -p $WorkDir/badProteins
 
 ```bash
 Taxon_code=A4
-Fasta_file=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
+Fasta_file=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
 Id_field=1
 orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
