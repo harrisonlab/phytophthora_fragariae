@@ -26,11 +26,30 @@ do
 done
 ```
 
-###Double run of data
+###Two runs of data
 
 ```bash
 Reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa)
 for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -e 'Nov71')
+do
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
+    Strain=$(echo $StrainPath | rev | cut -f1 -d '/' | rev)
+    Organism=$(echo $StrainPath | rev | cut -f2 -d '/' | rev)
+    F_Read=$(ls $StrainPath/F/*_trim.fq.gz)
+    R_Read=$(ls $StrainPath/R/*_trim.fq.gz)
+    echo $F_Read
+    echo $R_Read
+    OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
+    qsub $ProgDir/bowtie/sub_bowtie.sh $Reference $F_Read $R_Read $OutDir
+done
+```
+
+###Three runs of data
+
+```bash
+Reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa)
+for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -e 'Bc1' -e 'Nov9')
 do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
     Strain=$(echo $StrainPath | rev | cut -f1 -d '/' | rev)
