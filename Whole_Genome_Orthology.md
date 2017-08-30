@@ -5,7 +5,7 @@
 ```bash
 ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 cd $ProjDir
-IsolateAbrv=All_Strains_plus_rubi
+IsolateAbrv=All_Strains_plus_rubi_no_removal
 WorkDir=analysis/orthology/orthomcl/$IsolateAbrv
 mkdir -p $WorkDir
 mkdir -p $WorkDir/formatted
