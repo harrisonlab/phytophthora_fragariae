@@ -130,7 +130,7 @@ mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 
 ```bash
 Taxon_code=SCRP249
-Fasta_file=../phytophthora_rubi/gene_pred/codingquary/discovar/P.rubi/SCRP249/final/final_genes_combined.pep.fasta
+Fasta_file=../phytophthora_rubi/gene_pred/annotation/P.rubi/SCRP249/SCRP249_genes_incl_ORFeffectors.pep.fasta
 Id_field=1
 orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
