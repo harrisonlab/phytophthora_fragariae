@@ -17,6 +17,6 @@ $ProgDir/extract_from_fasta.py --fasta $fasta --headers $headers > BLAST/putativ
 qlogin
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/BLAST
 Genes=../gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
-makeblastdb -in putative_targets.fa -input_type fasta -dbtype nucl -out putative_targets.db
-blastn -db putative_targets.db -query $Genes -out target_self_BLAST.tbl -evalue 0.0000000001 -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"
+makeblastdb -in $Genes -input_type fasta -dbtype nucl -out BC-16_genes.db
+blastn -db BC-16_genes.db -query putative_targets.fa -out target_self_BLAST.tbl -evalue 0.0000000001 -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"
 ```
