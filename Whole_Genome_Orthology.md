@@ -100,7 +100,7 @@ mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 
 ```bash
 Taxon_code=Nov9
-Fasta_file=gene_pred/codingquary/P.fragariae/Nov9/final/final_genes_combined.pep.fasta
+Fasta_file=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
 Id_field=1
 orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
