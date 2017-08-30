@@ -50,7 +50,7 @@ mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 
 ```bash
 Taxon_code=Bc23
-Fasta_file=gene_pred/codingquary/P.fragariae/Bc23/final/final_genes_combined.pep.fasta
+Fasta_file=gene_pred/annotation/P.fragariae/Bc23/Bc23_genes_incl_ORFeffectors.pep.fasta
 Id_field=1
 orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
