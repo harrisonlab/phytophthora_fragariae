@@ -792,6 +792,8 @@ NOV-9: 7,654
 BC-1: 7,503
 ```
 
+Extra corrections for submitting to genbank performed in Genbank_corrections.md
+
 #Repeatmasking
 
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
