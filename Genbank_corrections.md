@@ -60,3 +60,62 @@ do
     qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
 done
 ```
+
+Results were summarised using the following commands
+
+Illumina fragariae genomes
+
+```bash
+# for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
+for File in $(ls assembly/spades/P.*/*/deconseq_Paen/log.txt)
+do
+    Name=$(echo $File | rev | cut -f3 -d '/' | rev)
+    Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
+    Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
+    Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
+    printf "$Name\t$Good\t$Both\t$Bad\n"
+done
+```
+
+Pacbio fragariae genomes
+
+```bash
+# for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
+File=assembly/FALCON_Trial/quiver_results/polished/deconseq_Paen/log.txt
+Name=Bc16
+Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
+Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
+Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
+printf "$Name\t$Good\t$Both\t$Bad\n"
+```
+
+Illumina rubi genomes
+
+```bash
+# for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
+for File in $(ls ../phytophthora_rubi/assembly/spades/P.*/*/deconseq_Paen/log.txt)
+do
+    Name=$(echo $File | rev | cut -f3 -d '/' | rev)
+    Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
+    Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
+    Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
+    printf "$Name\t$Good\t$Both\t$Bad\n"
+done
+```
+
+```
+A4	13445	0	1
+Bc1	11554	1	1
+Bc23	13189	2	0
+Nov27	12487	1	1
+Nov5	13526	2	0
+Nov71	12209	3	1
+Nov77	13320	1	0
+Nov9	11801	0	1
+ONT3	13291	1	0
+SCRP245_v2	13239	1	9
+Bc16	180	0	0
+SCRP249	14020	3	0
+SCRP324	13945	1	1
+SCRP333	13678	1	0
+```
