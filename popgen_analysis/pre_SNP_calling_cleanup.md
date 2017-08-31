@@ -188,20 +188,20 @@ Convention used:
 qsub $scripts/sub_pre_snp_calling.sh <INPUT SAM FILE> <SAMPLE_ID>
 
 ```bash
-qsub $scripts/sub_pre_snp_calling.sh $input/*/A4/vs_Bc16_unmasked_max1200/A4_95m_contigs_unmasked.fa_aligned.sam A4
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc1/vs_Bc16_unmasked_max1200/Bc1_95m_contigs_unmasked.fa_aligned.sam Bc1
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc16/vs_Bc16_unmasked_max1200_SNP/Bc16_95m_contigs_unmasked.fa_aligned.sam Bc16
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc23/vs_Bc16_unmasked_max1200/Bc23_95m_contigs_unmasked.fa_aligned.sam Bc23
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov27/vs_Bc16_unmasked_max1200/Nov27_95m_contigs_unmasked.fa_aligned.sam Nov27
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov5/vs_Bc16_unmasked_max1200/Nov5_95m_contigs_unmasked.fa_aligned.sam Nov5
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov71/vs_Bc16_unmasked_max1200/Nov71_95m_contigs_unmasked.fa_aligned.sam Nov71
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov77/vs_Bc16_unmasked_max1200/Nov77_95m_contigs_unmasked.fa_aligned.sam Nov77
-qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov9/vs_Bc16_unmasked_max1200/Nov9_95m_contigs_unmasked.fa_aligned.sam Nov9
-qsub $scripts/sub_pre_snp_calling.sh $input/*/ONT3/vs_Bc16_unmasked_max1200/ONT3_95m_contigs_unmasked.fa_aligned.sam ONT3
-qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP245_v2/vs_Bc16_unmasked_max1200/SCRP245_v2_95m_contigs_unmasked.fa_aligned.sam SCRP245_v2
-qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP249/vs_Bc16_unmasked_max1200/SCRP249_95m_contigs_unmasked.fa_aligned.sam SCRP249
-qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP324/vs_Bc16_unmasked_max1200/SCRP324_95m_contigs_unmasked.fa_aligned.sam SCRP324
-qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP333/vs_Bc16_unmasked_max1200/SCRP333_95m_contigs_unmasked.fa_aligned.sam SCRP333
+qsub $scripts/sub_pre_snp_calling.sh $input/*/A4/vs_Bc16_FALCON/A4_polished_contigs_unmasked.fa_aligned.sam A4
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc1/vs_Bc16_FALCON/Bc1_polished_contigs_unmasked.fa_aligned.sam Bc1
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc16/vs_Bc16_FALCON/Bc16_polished_contigs_unmasked.fa_aligned.sam Bc16
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc23/vs_Bc16_FALCON/Bc23_polished_contigs_unmasked.fa_aligned.sam Bc23
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov27/vs_Bc16_FALCON/Nov27_polished_contigs_unmasked.fa_aligned.sam Nov27
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov5/vs_Bc16_FALCON/Nov5_polished_contigs_unmasked.fa_aligned.sam Nov5
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov71/vs_Bc16_FALCON/Nov71_polished_contigs_unmasked.fa_aligned.sam Nov71
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov77/vs_Bc16_FALCON/Nov77_polished_contigs_unmasked.fa_aligned.sam Nov77
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov9/vs_Bc16_FALCON/Nov9_polished_contigs_unmasked.fa_aligned.sam Nov9
+qsub $scripts/sub_pre_snp_calling.sh $input/*/ONT3/vs_Bc16_FALCON/ONT3_polished_contigs_unmasked.fa_aligned.sam ONT3
+qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP245_v2/vs_Bc16_FALCON/SCRP245_v2_polished_contigs_unmasked.fa_aligned.sam SCRP245_v2
+qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP249/vs_Bc16_FALCON/SCRP249_polished_contigs_unmasked.fa_aligned.sam SCRP249
+qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP324/vs_Bc16_FALCON/SCRP324_polished_contigs_unmasked.fa_aligned.sam SCRP324
+qsub $scripts/sub_pre_snp_calling.sh $input/*/SCRP333/vs_Bc16_FALCON/SCRP333_polished_contigs_unmasked.fa_aligned.sam SCRP333
 ```
 
 ##Copy outputs from cleanup to alignment folder
