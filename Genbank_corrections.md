@@ -4,8 +4,6 @@ The identity of the contaminants has been passed to Andy to allow tweaking of De
 
 ##One of the assemblies had a number of hits to Bacillus spp., run my isolates through to see if there are any hits in the other isolates.
 
-###SPAdes assemblies
-
 Contigs were identified that had BLAST hits to non-phytophthora genomes
 
 ```bash
@@ -23,4 +21,19 @@ do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
     qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
 done
+```
+
+```bash
+Assembly=assembly/FALCON_Trial/quiver_results/polished/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta
+Strain=Bc16
+Organism=P.fragariae
+echo "$Organism - $Strain"
+# Exclude_db="bact,virus,hsref"
+Exclude_db="bacillus"
+Good_db="phytoph"
+AssemblyDir=$(dirname $Assembly)
+# OutDir=$AssemblyDir/../deconseq
+OutDir=$AssemblyDir/../deconseq_Paen
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
 ```
