@@ -119,3 +119,9 @@ SCRP249	14020	3	0
 SCRP324	13945	1	1
 SCRP333	13678	1	0
 ```
+
+Contaminant organisms identified by NCBI BLAST
+
+```
+A lot of these contaminant contigs hit phytophthora's when BLASTed. Do not keep this. A few contigs in SCRP245 have bacillus hits, these have been noted and will be removed along with genbanks flagged sequences. Too high a false positive rate.
+```
