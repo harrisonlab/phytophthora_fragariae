@@ -125,3 +125,15 @@ Contaminant organisms identified by NCBI BLAST
 ```
 A lot of these contaminant contigs hit phytophthora's when BLASTed. Do not keep this. A few contigs in SCRP245 have bacillus hits, these have been noted and will be removed along with genbanks flagged sequences. Too high a false positive rate.
 ```
+
+##Manually download report files from NCBI for correction
+
+```bash
+for Assembly in $(ls assembly/spades/P.*/*/deconseq_appended/contigs_min_500bp_renamed.fasta | grep -e 'P.cactorum' -e 'P.idaei')
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)  
+    NCBI_report_dir=genome_submission/$Organism/$Strain/initial_submission
+    mkdir -p $NCBI_report_dir
+done
+```
