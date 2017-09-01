@@ -128,8 +128,10 @@ A lot of these contaminant contigs hit phytophthora's when BLASTed. Do not keep 
 
 ##Manually download report files from NCBI for correction
 
+Phytophthora fragariae
+
 ```bash
-for Assembly in $(ls assembly/spades/P.*/*/deconseq_appended/contigs_min_500bp_renamed.fasta | grep -e 'P.cactorum' -e 'P.idaei')
+for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta | grep -e 'A4' -e 'Bc1' -e 'Nov5' -e 'Nov71' -e 'Nov9' -e 'SCRP245_v2')
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)  
