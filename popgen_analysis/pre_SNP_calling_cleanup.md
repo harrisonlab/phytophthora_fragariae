@@ -21,6 +21,7 @@ do
     echo $F_Read
     echo $R_Read
     OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
+    mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie.sh $Reference $F_Read $R_Read $OutDir
 done
@@ -44,6 +45,7 @@ do
     echo $F2_Read
     echo $R2_Read
     OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
+    mkdir -p $OutDir
     ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie_2lib.sh $Reference $F1_Read $R1_Read $F2_Read $R2_Read $OutDir
 done
@@ -71,6 +73,7 @@ do
     echo $F3_Read
     echo $R3_Read
     OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
+    mkdir -p $OutDir
     ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie_3lib.sh $Reference $F1_Read $R1_Read $F2_Read $R2_Read $F3_Read $R3_Read $OutDir
 done
