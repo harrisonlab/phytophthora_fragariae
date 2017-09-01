@@ -43,7 +43,7 @@ do
     echo $R1_Read
     echo $F2_Read
     echo $R2_Read
-    OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_414
+    OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
     ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie_2lib.sh $Reference $F1_Read $R1_Read $F2_Read $R2_Read $OutDir
 done
@@ -70,7 +70,7 @@ do
     echo $R2_Read
     echo $F3_Read
     echo $R3_Read
-    OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_414
+    OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
     ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie_3lib.sh $Reference $F1_Read $R1_Read $F2_Read $R2_Read $F3_Read $R3_Read $OutDir
 done
