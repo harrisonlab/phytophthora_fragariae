@@ -146,7 +146,7 @@ done
 ###Assembly statistics were summarised using
 
 ```bash
-for File in $(ls assembly/spades/P.*/*/ncbi_edits/filtered_contigs/report.tsv)
+for File in $(ls assembly/spades/P.*/*/ncbi_edits/report.tsv)
 do
     echo "$File" | rev | cut -f3 -d '/' | rev
     cat $File | cut -f2
