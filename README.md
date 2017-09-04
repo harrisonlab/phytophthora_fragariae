@@ -825,6 +825,20 @@ do
 done   
 ```
 
+For assemblies cleaned after NCBI detection of contaminants
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
+for Strain in A4 Bc1 Nov5 Nov71 Nov9 SCRP245_v2
+do
+    for BestAss in $(ls assembly/spades/*/$Strain/ncbi_edits/contigs_min_500bp_renamed.fasta)
+    do
+        qsub $ProgDir/rep_modeling.sh $BestAss
+        qsub $ProgDir/transposonPSI.sh $BestAss
+    done
+done   
+```
+
 The number of bases masked by transposonPSI and Repeatmasker were summarised using the following commands:
 
 ```bash
