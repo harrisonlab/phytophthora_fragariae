@@ -70,20 +70,6 @@ Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
 printf "$Name\t$Good\t$Both\t$Bad\n"
 ```
 
-Illumina rubi genomes
-
-```bash
-# for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
-for File in $(ls ../phytophthora_rubi/assembly/spades/P.*/*/deconseq_Paen/log.txt)
-do
-    Name=$(echo $File | rev | cut -f3 -d '/' | rev)
-    Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
-    Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
-    Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
-    printf "$Name\t$Good\t$Both\t$Bad\n"
-done
-```
-
 ```
 A4	13445	0	1
 Bc1	11554	1	1
