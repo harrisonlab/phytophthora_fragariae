@@ -113,12 +113,6 @@ do
     mv "$filename" "Bc1_$filename"
 done
 
-cd $input/*/Bc16/vs_Bc16_FALCON
-for filename in polished_contigs_unmasked.fa_aligned.sam
-do
-    mv "$filename" "Bc16_$filename"
-done
-
 cd $input/*/Bc23/vs_Bc16_FALCON
 for filename in polished_contigs_unmasked.fa_aligned.sam
 do
