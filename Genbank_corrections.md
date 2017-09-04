@@ -107,7 +107,7 @@ done
 ##These files were used to correct assemblies
 
 ```bash
-for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_renamed.fasta | grep -e 'A4' -e 'Bc1' -e 'Nov5' -e 'Nov71' -e 'Nov9' -e 'SCRP245_v2')
+for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta | grep -e 'A4' -e 'Bc1' -e 'Nov5' -e 'Nov71' -e 'Nov9' -e 'SCRP245_v2')
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
