@@ -170,3 +170,5 @@ Nov71: 1,016 (No change)
 Nov9: 978 (No change)
 SCRP245_v2: 995 (Increased by 1)
 ```
+
+##SCRP245_v2 had some hits in the bacillus database that will now be removed in the same manner
