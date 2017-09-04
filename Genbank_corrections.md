@@ -142,3 +142,13 @@ do
     qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 done
 ```
+
+###Assembly statistics were summarised using
+
+```bash
+for File in $(ls assembly/spades/P.*/*/filtered_contigs/report.tsv)
+do
+    echo "$File" | rev | cut -f3 -d '/' | rev
+    cat $File | cut -f2
+done
+```
