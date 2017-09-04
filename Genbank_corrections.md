@@ -173,6 +173,8 @@ SCRP245_v2: 995 (Increased by 1)
 
 ##SCRP245_v2 had some hits in the bacillus database that will now be removed in the same manner
 
+NOTE: Lines 97 - 105 of remove_contaminants.py need commenting out
+
 ```bash
 for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta | grep -e 'SCRP245_v2')
 do
