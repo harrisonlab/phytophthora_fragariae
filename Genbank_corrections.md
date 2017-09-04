@@ -143,12 +143,30 @@ do
 done
 ```
 
-###Assembly statistics were summarised using
+Summary statistics
 
-```bash
-for File in $(ls assembly/spades/P.*/*/ncbi_edits/report.tsv)
-do
-    echo "$File" | rev | cut -f3 -d '/' | rev
-    cat $File | cut -f2
-done
+```
+Number of contigs > 1kb:
+A4: 8,659 (Decreased by 1)
+Bc1: 7,504 (No change)
+Nov5: 8,762 (Decreased by 2)
+Nov71: 7,884 (Decreased by 1)
+Nov9: 7,654 (Decreased by 1)
+SCRP245_v2: 8,577 (Decreased by 7)
+
+N50:
+A4: 18,245 (No change)
+Bc1: 21,842 (Increased by 8)
+Nov5: 17,887 (No change)
+Nov71: 20,226 (No change)
+Nov9: 21,522 (No change)
+SCRP245_v2: 20,056 (Decreased by 49)
+
+L50:
+A4: 1,116 (No change)
+Bc1: 953 (Decreased by 1)
+Nov5: 1,134 (No change)
+Nov71: 1,016 (No change)
+Nov9: 978 (No change)
+SCRP245_v2: 995 (Increased by 1)
 ```
