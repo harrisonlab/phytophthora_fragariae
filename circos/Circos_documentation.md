@@ -93,7 +93,7 @@ $ProgDir/fasta2circos.py --genome $Bc16_genome --contig_prefix "" > $OutDir/Bc16
 Make 100kb windows for plots
 
 ```bash
-$ProgDir/fasta2gff_windows.py --genome $OutDir/Bc16_genome.txt > $OutDir/Bc16_100kb_windows.gff
+$ProgDir/fasta2gff_windows.py --genome $Bc16_genome > $OutDir/Bc16_100kb_windows.gff
 ```
 
 Convert P.frag MiSeq reads aligning in 100kb windows into coverage stats and convert bed files to circos format
