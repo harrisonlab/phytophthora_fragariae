@@ -99,7 +99,7 @@ $ProgDir/fasta2gff_windows.py --genome $OutDir/Bc16_genome.txt > $OutDir/Bc16_10
 Convert P.frag MiSeq reads aligning in 100kb windows into coverage stats and convert bed files to circos format
 
 ```bash
-for ReadsBam in $(ls analysis/genome_alignment/bowtie/*/*/vs_Bc16_unmasked_max1200/95m_contigs_unmasked.fa_aligned_sorted.bam)
+for ReadsBam in $(ls analysis/genome_alignment/bowtie/*/*/vs_Bc16_FALCON/polished_contigs_unmasked.fa_aligned_sorted.bam)
 do
     Organism=$(echo $ReadsBam | rev | cut -f4 -d '/' | rev)
     Strain=$(echo $ReadsBam | rev | cut -f3 -d '/' | rev)
