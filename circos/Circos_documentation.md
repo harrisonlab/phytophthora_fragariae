@@ -18,7 +18,7 @@ do
     echo $F_Read
     echo $R_Read
     OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_unmasked_max1200
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie.sh $Reference $F_Read $R_Read $OutDir $Strain
 done
 ```
@@ -42,7 +42,7 @@ do
     echo $F2_Read
     echo $R2_Read
     OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_unmasked_max1200
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/genome_alignment
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
     qsub $ProgDir/bowtie/sub_bowtie_2lib.sh $Reference $F1_Read $R1_Read $F2_Read $R2_Read $OutDir $Strain
 done
 ```
@@ -78,7 +78,7 @@ done
 Sets up variables for Circos
 
 ```bash
-ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos/
+ProgDir=/home/adamst/git_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos/
 Bc16_genome=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa
 OutDir=analysis/circos/P.fragariae/Bc16
 mkdir -p $OutDir
@@ -114,10 +114,10 @@ Plot location of BC-16 RxLRs and CRNs as a scatterplot
 
 ```bash
 GffRxLR=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_total_RxLR.gff
-ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+ProgDir=/home/adamst/git_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
 $ProgDir/gff2circos_scatterplot.py --gff $GffRxLR --feature gene --value 1 > $OutDir/Bc16_RxLR_plot.txt
 GffCRN=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.gff
-ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+ProgDir=/home/adamst/git_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
 $ProgDir/gff2circos_scatterplot.py --gff $GffCRN --feature CDS --value 1 > $OutDir/Bc16_CRN_plot.txt
 ```
 
