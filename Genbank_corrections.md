@@ -263,3 +263,14 @@ do
     qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 done
 ```
+
+```
+Number of contigs > 1kb:
+NOV-71: 7,884 (No change)
+
+N50:
+NOV-71: 20,226 (No change)
+
+L50:
+NOV-71: 1,016 (No change)
+```
