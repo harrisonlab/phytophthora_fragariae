@@ -224,3 +224,27 @@ SCRP245_v2: 20,056 (No change)
 L50:
 SCRP245_v2: 995 (No change)
 ```
+
+##The python script used above does not yet have the capacity to deal with duplications. Trick it into thinking it's an exclude request by mocking up a text file.
+
+```bash
+for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta | grep -e 'Nov71')
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    NCBI_report=assembly/spades/P.fragariae/Nov71/ncbi_edits/duplication_trick.txt
+    if [[ $NCBI_report ]]
+    then
+        echo "Contamination report found"
+    else
+        NCBI_report=genome_submission/$Organism/$Strain/initial_submission/no_edits.txt
+        printf "Exclude:\nSequence name, length, apparent source\n" > $NCBI_report
+    fi
+    OutDir=assembly/spades/$Organism/$Strain/ncbi_edits
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+    $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
+    # $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
+done
+```
