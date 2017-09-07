@@ -290,6 +290,67 @@ do
 done
 ```
 
+Repeat for those genomes cleaned for NCBI
+
+```bash
+for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/*/ncbi_edits_repmask/*_contigs_unmasked.fa)
+do
+    for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
+    do
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        done
+        printf "\n"
+        File1=$AlignDir/star_aligmentUnmapped.out.mate1.fq.gz
+        File2=$AlignDir/star_aligmentUnmapped.out.mate2.fq.gz
+        echo $File1
+        echo $File2
+        Timepoint=$(echo $AlignDir | rev | cut -d '/' -f2 | rev)
+        echo "$Timepoint"
+        Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
+        Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
+        OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
+        ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
+        qsub $ProgDir/sub_star_sensitive.sh $Assembly $File1 $File2 $OutDir
+    done
+done
+```
+
+Align mycelium too
+
+```bash
+for Assembly in $(ls repeat_masked/P.fragariae/*/ncbi_edits_repmask/*_contigs_unmasked.fa)
+do
+    Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/mycelium/F/*_trim.fq.gz)
+    do
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        done
+        printf "\n"
+        FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
+        echo $FileF
+        echo $FileR
+        Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
+        echo "$Timepoint"
+        Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
+        OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/sub_star.sh $Assembly $FileF $FileR $OutDir
+    done
+done
+```
+
 #Quantification of gene models
 
 ```bash
