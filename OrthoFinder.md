@@ -30,3 +30,11 @@ done
 ```bash
 qsub /home/adamst/git_repos/scripts/phytophthora_fragariae/reserve_cluster.sh
 ```
+
+###Blacklace01.blacklace was reserved
+
+```bash
+screen -a
+qlogin -l h=blacklace01.blacklace
+sh $scripts/run_orthofinder.sh $fasta_directory
+```
