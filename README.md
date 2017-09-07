@@ -979,6 +979,18 @@ do
 done
 ```
 
+```bash
+for Assembly in $(ls assembly/spades/P.fragariae/*/ncbi_edits/contigs_min_500bp_renamed.fasta)
+do
+    Strain=$(echo $Assembly | rev |cut -d '/' -f3 | rev)
+    echo "$Strain"
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+    BuscoDB=Eukaryotic
+    OutDir=assembly/spades/P.fragariae/$Strain/filtered_contigs/
+    qsub $ProgDir/sub_busco2.sh $Assembly $BuscoDB $OutDir
+done
+```
+
 ```
 A4
 Complete and single copy genes: 272
