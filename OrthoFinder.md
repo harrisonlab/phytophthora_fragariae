@@ -41,3 +41,5 @@ scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 cd $input
 sh $scripts/run_orthofinder.sh $fasta_directory
 ```
+
+This throws an error about packages when run on a worker node. Maria's only solution is for her to run it.
