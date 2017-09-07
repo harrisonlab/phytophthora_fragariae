@@ -993,10 +993,10 @@ done
 
 ```
 A4
-Complete and single copy genes: 272
+Complete and single copy genes: 274
 Complete and duplicated genes: 6
-Fragmented genes: 7
-Missing genes: 18
+Fragmented genes: 6
+Missing genes: 17
 
 Bc16
 Complete and single copy genes: 264
@@ -1005,10 +1005,10 @@ Fragmented genes: 5
 Missing genes: 25
 
 Bc1
-Complete and single copy genes: 272
+Complete and single copy genes: 274
 Complete and duplicated genes: 6
-Fragmented genes: 7
-Missing genes: 18
+Fragmented genes: 6
+Missing genes: 17
 
 Bc23
 Complete and single copy genes: 273
@@ -1023,16 +1023,16 @@ Fragmented genes: 8
 Missing genes: 18
 
 Nov5
-Complete and single copy genes: 271
+Complete and single copy genes: 273
 Complete and duplicated genes: 7
-Fragmented genes: 7
-Missing genes: 18
+Fragmented genes: 6
+Missing genes: 17
 
 Nov71
-Complete and single copy genes: 273
+Complete and single copy genes: 274
 Complete and duplicated genes: 6
 Fragmented genes: 6
-Missing genes: 18
+Missing genes: 17
 
 Nov77
 Complete and single copy genes: 269
@@ -1041,10 +1041,10 @@ Fragmented genes: 6
 Missing genes: 20
 
 Nov9
-Complete and single copy genes: 271
+Complete and single copy genes: 273
 Complete and duplicated genes: 6
-Fragmented genes: 8
-Missing genes: 18
+Fragmented genes: 7
+Missing genes: 17
 
 ONT3
 Complete and single copy genes: 274
@@ -1053,10 +1053,10 @@ Fragmented genes: 4
 Missing genes: 17
 
 SCRP245_v2
-Complete and single copy genes: 270
-Complete and duplicated genes: 8
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
 Fragmented genes: 7
-Missing genes: 18
+Missing genes: 16
 ```
 
 #Gene prediction
