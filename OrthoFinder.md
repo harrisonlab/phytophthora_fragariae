@@ -11,6 +11,7 @@ scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 
 ```bash
 fasta_directory=$input/protein_sequences
+mkdir $fasta_directory
 for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     FastaFile=gene_pred/annotation/P.fragariae/$Isolate/"$Isolate"_genes_incl_ORFeffectors.pep.fasta
