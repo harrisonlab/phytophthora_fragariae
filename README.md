@@ -842,7 +842,45 @@ done
 The number of bases masked by transposonPSI and Repeatmasker were summarised using the following commands:
 
 ```bash
-for RepDir in $(ls -d repeat_masked/*/*/deconseq_Paen_repmask)
+for RepDir in $(ls -d repeat_masked/phytophthora_fragariae/*/deconseq_Paen_repmask)
+do
+    Strain=$(echo $RepDir | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $RepDir | rev | cut -f3 -d '/' | rev)  
+    RepMaskGff=$(ls $RepDir/"$Strain"_contigs_hardmasked.gff)
+    TransPSIGff=$(ls $RepDir/"$Strain"_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+    printf "$Organism\t$Strain\n"
+    printf "The number of bases masked by RepeatMasker:\t"
+    sortBed -i $RepMaskGff | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+    printf "The number of bases masked by TransposonPSI:\t"
+    sortBed -i $TransPSIGff | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+    printf "The total number of masked bases are:\t"
+    cat $RepMaskGff $TransPSIGff | sortBed | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+done
+```
+
+For FALCON assembly
+
+```bash
+for RepDir in $(ls -d repeat_masked/quiver_results/*/*)
+do
+    Strain=$(echo $RepDir | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $RepDir | rev | cut -f3 -d '/' | rev)  
+    RepMaskGff=$(ls $RepDir/polished_contigs_hardmasked.gff)
+    TransPSIGff=$(ls $RepDir/polished_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+    printf "$Organism\t$Strain\n"
+    printf "The number of bases masked by RepeatMasker:\t"
+    sortBed -i $RepMaskGff | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+    printf "The number of bases masked by TransposonPSI:\t"
+    sortBed -i $TransPSIGff | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+    printf "The total number of masked bases are:\t"
+    cat $RepMaskGff $TransPSIGff | sortBed | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+done
+```
+
+For assemblies corrected by NCBI
+
+```bash
+for RepDir in $(ls -d repeat_masked/*/*/ncbi_edits)
 do
     Strain=$(echo $RepDir | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $RepDir | rev | cut -f3 -d '/' | rev)  
