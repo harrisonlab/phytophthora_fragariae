@@ -880,7 +880,7 @@ done
 For assemblies corrected by NCBI
 
 ```bash
-for RepDir in $(ls -d repeat_masked/P.fragariae/*/ncbi_edits)
+for RepDir in $(ls -d repeat_masked/P.fragariae/*/ncbi_edits_repmask)
 do
     Strain=$(echo $RepDir | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $RepDir | rev | cut -f3 -d '/' | rev)  
