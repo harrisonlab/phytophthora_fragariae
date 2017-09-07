@@ -29,20 +29,19 @@ java -jar $gatk/GenomeAnalysisTK.jar \
      -ploidy 2 \
      -nct 6 \
      --allow_potentially_misencoded_quality_scores \
-     -I $input/*/A4/*/A4_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/Bc1/*/Bc1_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/Bc16/*/Bc16_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/Bc23/*/Bc23_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/Nov27/*/Nov27_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/Nov5/*/Nov5_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/Nov71/*/Nov71_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/Nov77/*/Nov77_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/Nov9/*/Nov9_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/ONT3/*/ONT3_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/SCRP245_v2/*/SCRP245_v2_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/SCRP249/*/SCRP249_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/SCRP324/*/SCRP324_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
-     -I $input/*/SCRP333/*/SCRP333_95m_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/A4/*/A4_polishedm_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/Bc1/*/Bc1_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/Bc23/*/Bc23_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/Nov27/*/Nov27_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/Nov5/*/Nov5_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/Nov71/*/Nov71_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/Nov77/*/Nov77_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/Nov9/*/Nov9_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/ONT3/*/ONT3_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/SCRP245_v2/*/SCRP245_v2_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/SCRP249/*/SCRP249_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/SCRP324/*/SCRP324_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/SCRP333/*/SCRP333_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
      -o $output
 
 #Break down complex SNPs into primitive ones with VariantsToAllelicPrimitives
