@@ -24,3 +24,9 @@ do
     cp $FastaFile $fasta_directory/"$Isolate".pep.fa
 done
 ```
+
+##Run the job on a high memory cluster node
+
+```bash
+qsub /home/adamst/git_repos/scripts/popgen/other/reserve_cluster.sh
+```
