@@ -36,5 +36,8 @@ qsub /home/adamst/git_repos/scripts/phytophthora_fragariae/reserve_cluster.sh
 ```bash
 screen -a
 qlogin -l h=blacklace01.blacklace
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
+scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
+cd $input
 sh $scripts/run_orthofinder.sh $fasta_directory
 ```
