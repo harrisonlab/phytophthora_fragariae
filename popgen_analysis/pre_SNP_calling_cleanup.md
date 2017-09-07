@@ -31,7 +31,7 @@ done
 
 ```bash
 Reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa
-for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -e 'Nov71')
+for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -e 'Nov71' -e 'Bc16')
 do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
     Strain=$(echo $StrainPath | rev | cut -f1 -d '/' | rev)
