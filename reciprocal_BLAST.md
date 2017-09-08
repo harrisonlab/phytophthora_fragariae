@@ -41,12 +41,15 @@ do
 done
 ```
 
-#And vice versa
+##And vice versa
+
+```bash
 query=Bc16_genes_incl_ORFeffectors.gene.fasta
-for db in Bc1_genes_incl_ORFeffectors.gene_nucl.db Nov27_genes_incl_ORFeffectors.gene_nucl.db Nov5_genes_incl_ORFeffectors.gene_nucl.db Nov71_genes_incl_ORFeffectors.gene_nucl.db Nov9_genes_incl_ORFeffectors.gene_nucl.db
+for db in A4_genes_incl_ORFeffectors.gene_nucl.db
 do
-blastn -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"  -num_threads 1 -max_target_seqs 100 -evalue 0.0000000001 -query $query -db $db >> ${query}_vs_${db}
+    blastn -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"  -num_threads 1 -max_target_seqs 100 -evalue 0.0000000001 -query $query -db $db >> ${query}_vs_${db}
 done
+```
 
 #Identify RBB matches.
 for Strain in Bc1 Nov27 Nov5 Nov71 Nov9
