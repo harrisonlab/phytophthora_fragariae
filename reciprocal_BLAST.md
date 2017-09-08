@@ -12,7 +12,7 @@ mkdir -p $input
 
 ###Copy relevant assemblies
 
-Target header list created manually
+Target header list created manually as Bc16_targets.txt
 
 ```bash
 #A4 genome
