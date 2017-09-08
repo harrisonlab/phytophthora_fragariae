@@ -27,16 +27,19 @@ cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
 ```bash
 for assembly in *.fasta
 do
-makeblastdb -in $assembly -input_type fasta -dbtype nucl -title "${assembly%.*}"_nucl.db -parse_seqids -out "${assembly%.*}"_nucl.db
+    makeblastdb -in $assembly -input_type fasta -dbtype nucl -title "${assembly%.*}"_nucl.db -parse_seqids -out "${assembly%.*}"_nucl.db
 done
 ```
 
-#Run BLAST for all race 1 and race 2 assemblies against BC16...
+##Run BLAST of A4 gene set against BC16
+
+```bash
 db=Bc16_genes_incl_ORFeffectors.gene_nucl.db
-for query in *.fasta
+for query in A4_genes_incl_ORFeffectors.gene.fasta
 do
-blastn -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"  -num_threads 1 -max_target_seqs 100 -evalue 0.0000000001 -query $query -db $db >> ${query}_vs_${db}
+    blastn -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"  -num_threads 1 -max_target_seqs 100 -evalue 0.0000000001 -query $query -db $db >> ${query}_vs_${db}
 done
+```
 
 #And vice versa
 query=Bc16_genes_incl_ORFeffectors.gene.fasta
