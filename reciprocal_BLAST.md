@@ -6,31 +6,21 @@
 scripts=/home/sobczm/bin/popgen/other
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/BLAST/UK2_check
 mkdir -p $input
-cd $input
 ```
 
 ##Set up directory with required fasta files
-#Copy relevant assemblies
-frag_dir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
-#Race1 genomes
-for Strain in Bc1 Nov5
-do
-    Assembly=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.gene.fasta
-    cp $frag_dir/$Assembly $input
-done
 
-#Race 3 genomes
-for Strain in Nov71 Nov9 Nov27
-do
-    Assembly=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.gene.fasta
-    cp $frag_dir/$Assembly $input
-done
+###Copy relevant assemblies
+
+Target header list created manually
+
+```bash
+#A4 genome
+cp gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.gene.fasta $input
 
 #Bc16 genome
-cp $frag_dir/gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta $input
-
-#Copy the list of RXLRs.
-cp $frag_dir/analysis/Reciprocal_BLAST/Bc16_expressed_RxLR_headers_parsed.txt $input
+cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta $input
+```
 
 #Make nucleotide BLAST db of all genomes.
 for assembly in *.fasta
