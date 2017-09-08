@@ -193,6 +193,7 @@ qsub $scripts/sub_pre_snp_calling.sh <INPUT SAM FILE> <SAMPLE_ID>
 ```bash
 qsub $scripts/sub_pre_snp_calling.sh $input/*/A4/vs_Bc16_FALCON/A4_polished_contigs_unmasked.fa_aligned.sam A4
 qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc1/vs_Bc16_FALCON/Bc1_polished_contigs_unmasked.fa_aligned.sam Bc1
+qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc16/vs_Bc16_FALCON/Bc16_polished_contigs_unmasked.fa_aligned.sam Bc16
 qsub $scripts/sub_pre_snp_calling.sh $input/*/Bc23/vs_Bc16_FALCON/Bc23_polished_contigs_unmasked.fa_aligned.sam Bc23
 qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov27/vs_Bc16_FALCON/Nov27_polished_contigs_unmasked.fa_aligned.sam Nov27
 qsub $scripts/sub_pre_snp_calling.sh $input/*/Nov5/vs_Bc16_FALCON/Nov5_polished_contigs_unmasked.fa_aligned.sam Nov5
