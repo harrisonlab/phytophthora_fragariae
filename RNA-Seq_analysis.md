@@ -297,12 +297,12 @@ for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragari
 do
     for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
     do
-        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        Jobs=$(qstat | grep 'sub_test' | grep 'qw'| wc -l)
         while [ $Jobs -gt 1 ]
         do
             sleep 1m
             printf "."
-            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+            Jobs=$(qstat | grep 'sub_test' | grep 'qw'| wc -l)
         done
         printf "\n"
         File1=$AlignDir/star_aligmentUnmapped.out.mate1.fq.gz
