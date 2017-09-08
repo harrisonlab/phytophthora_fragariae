@@ -25,6 +25,7 @@ cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
 ##Make nucleotide BLAST db of all genomes.
 
 ```bash
+cd $input
 for assembly in *.fasta
 do
     makeblastdb -in $assembly -input_type fasta -dbtype nucl -title "${assembly%.*}"_nucl.db -parse_seqids -out "${assembly%.*}"_nucl.db
