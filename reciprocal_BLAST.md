@@ -22,11 +22,14 @@ cp gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.gene.fasta $in
 cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta $input
 ```
 
-#Make nucleotide BLAST db of all genomes.
+##Make nucleotide BLAST db of all genomes.
+
+```bash
 for assembly in *.fasta
 do
 makeblastdb -in $assembly -input_type fasta -dbtype nucl -title "${assembly%.*}"_nucl.db -parse_seqids -out "${assembly%.*}"_nucl.db
 done
+```
 
 #Run BLAST for all race 1 and race 2 assemblies against BC16...
 db=Bc16_genes_incl_ORFeffectors.gene_nucl.db
