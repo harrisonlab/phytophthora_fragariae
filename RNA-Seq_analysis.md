@@ -314,8 +314,8 @@ do
         Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
         Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
         OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
-        ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
-        qsub $ProgDir/sub_star_sensitive.sh $Assembly $File1 $File2 $OutDir
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/sub_test_star.sh $Assembly $File1 $File2 $OutDir
     done
 done
 ```
