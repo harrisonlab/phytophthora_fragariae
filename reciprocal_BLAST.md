@@ -51,18 +51,24 @@ do
 done
 ```
 
-#Identify RBB matches.
-for Strain in Bc1 Nov27 Nov5 Nov71 Nov9
-do
-python $scripts/rbb.py Bc16_genes_incl_ORFeffectors.gene.fasta_vs_${Strain}_genes_incl_ORFeffectors.gene_nucl.db ${Strain}_genes_incl_ORFeffectors.gene.fasta_vs_Bc16_genes_incl_ORFeffectors.gene_nucl.db >Bc16_vs_${Strain}.tophits
-done
+##Identify RBB matches
 
-#Fish out only RLXLR RBB hits
-my_list=""
-for Strain in Bc1 Nov27 Nov5 Nov71 Nov9
+```bash
+for Strain in A4
 do
-my_list+=" Bc16_vs_${Strain}.tophits"
+    python $scripts/rbb.py Bc16_genes_incl_ORFeffectors.gene.fasta_vs_${Strain}_genes_incl_ORFeffectors.gene_nucl.db ${Strain}_genes_incl_ORFeffectors.gene.fasta_vs_Bc16_genes_incl_ORFeffectors.gene_nucl.db >Bc16_vs_${Strain}.tophits
 done
+```
+
+##Fish out only RLXLR RBB hits
+
+```bash
+my_list=""
+for Strain in A4
+do
+    my_list+=" Bc16_vs_${Strain}.tophits"
+done
+```
 
 #Analyse RBB matches.
 python $scripts/analyse_rbb.py Bc16_expressed_RxLR_headers_parsed.txt $my_list
