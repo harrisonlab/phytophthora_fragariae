@@ -70,5 +70,8 @@ do
 done
 ```
 
-#Analyse RBB matches.
-python $scripts/analyse_rbb.py Bc16_expressed_RxLR_headers_parsed.txt $my_list
+##Analyse RBB matches.
+
+```bash
+python $scripts/analyse_rbb.py Bc16_targets.txt $my_list
+```
