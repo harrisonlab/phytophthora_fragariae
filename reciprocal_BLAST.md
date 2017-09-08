@@ -1,8 +1,14 @@
 #Maria carried out an RBB, I have narrowed down to eight candidates. The presence of these needs to be confirmed in the other race 2 isolate, A4 with the same method.
 
+##Set inital variables
+
+```bash
 scripts=/home/sobczm/bin/popgen/other
-input=/home/sobczm/popgen/other/phytophthora/RBB
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/BLAST/UK2_check
+mkdir -p $input
 cd $input
+```
+
 ##Set up directory with required fasta files
 #Copy relevant assemblies
 frag_dir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
