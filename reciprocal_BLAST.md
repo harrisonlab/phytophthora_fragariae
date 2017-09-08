@@ -1,3 +1,5 @@
+#Maria carried out an RBB, I have narrowed down to eight candidates. The presence of these needs to be confirmed in the other race 2 isolate, A4 with the same method.
+
 scripts=/home/sobczm/bin/popgen/other
 input=/home/sobczm/popgen/other/phytophthora/RBB
 cd $input
