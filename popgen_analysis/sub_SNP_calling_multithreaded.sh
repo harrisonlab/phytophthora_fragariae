@@ -31,6 +31,7 @@ java -jar $gatk/GenomeAnalysisTK.jar \
      --allow_potentially_misencoded_quality_scores \
      -I $input/*/A4/*/A4_polishedm_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
      -I $input/*/Bc1/*/Bc1_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
+     -I $input/*/Bc16/*/Bc16_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
      -I $input/*/Bc23/*/Bc23_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
      -I $input/*/Nov27/*/Nov27_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
      -I $input/*/Nov5/*/Nov5_polished_contigs_unmasked.fa_aligned_nomulti_proper_sorted_nodup_rg.bam \
