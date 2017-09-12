@@ -61,7 +61,7 @@ do
 done
 ```
 
-##Fish out only RLXLR RBB hits
+##Fish out only target RBB hits
 
 ```bash
 my_list=""
