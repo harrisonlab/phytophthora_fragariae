@@ -524,8 +524,8 @@ The following number genes are contained in these orthogroups:
 ```bash
 for num in 1
 do
-    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_EER_motif_hmm.txt
-    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_EER_motif_hmm.txt
+    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_motif_hmm.txt
     WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
     RxLR_Dir=$WorkDir/UKR2_RxLR
     Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
@@ -568,19 +568,19 @@ done
 
 ```
 The number of RxLRs searched for is:
-674
+696
 Of these, the following number were found in orthogroups:
-485
+696
 These were distributed through the following number of Orthogroups:
-185
+264
 The following RxLRs were found in Race 2 unique orthogroups:
-0
+1
 These orthogroups contain the following number of RxLRs:
-0
+1
 The following RxLRs were found in P.fragariae unique orthogroups:
-185
+264
 These orthogroups contain the following number of RxLRs:
-485
+696
 ```
 
 #The Race 2 RxLR genes that were not found in orthogroups were identified:
