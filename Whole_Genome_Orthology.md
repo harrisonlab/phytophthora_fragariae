@@ -488,7 +488,7 @@ The total number of singleton genes not in the venn diagram:  1,062
 ##First variables were set:
 
 ```bash
-WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
 UK2UniqDir=$WorkDir/UK2_unique
 Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
