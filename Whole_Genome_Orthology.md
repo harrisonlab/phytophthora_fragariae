@@ -254,10 +254,6 @@ do
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'ONT3|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'SCRP249|' -e 'SCRP324|' -e 'SCRP333|' | grep -e 'Bc23|' | grep -e 'Nov77|' | wc -l
     echo "This represents the following number of genes:"
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'A4|' -e 'Bc16|' -e 'ONT3|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'SCRP249|' -e 'SCRP324|' -e 'SCRP333|' | grep -e 'Bc23|' | grep -e 'Nov77|' | grep -o '|' | wc -l
-    echo "The number of orthogroups common to US4 strains is:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'SCRP249|' -e 'SCRP324|' -e 'SCRP333|' | grep -e 'A4|' | wc -l
-    echo "This represents the following number of genes:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'SCRP245_v2|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'SCRP249|' -e 'SCRP324|' -e 'SCRP333|' | grep -e 'A4|' | grep -o '|' | wc -l
     echo "The number of orthogroups common to Unknown race strains is:"
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -v -e 'ONT3|' -e 'Bc16|' -e 'Bc23|' -e 'Nov77|' -e 'Nov9|' -e 'A4|' -e 'Bc1|' -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'SCRP249|' -e 'SCRP324|' -e 'SCRP333|' | grep -e 'SCRP245_v2|' | wc -l
     echo "This represents the following number of genes:"
@@ -275,53 +271,49 @@ done
 
 ```
 The total number of orthogroups is:
-22,944
+23,026
 The total number of genes in orthogroups is:
-444,665
+479,016
 The number of orthogroups common to P. rubi is:
-1,321
+1,311
 This represents the following number of genes:
-4,187
+4,150
 The number of orthogroups common to P. fragariae is:
-0
+1,095
 This represents the following number of genes:
-0
+13,079
 The number of orthogroups common to UK1 strains is:
-0
+6
 This represents the following number of genes:
-0
+12
 The number of orthogroups common to UK2 strains is:
-15
+13
 This represents the following number of genes:
-30
+26
 The number of orthogroups common to UK3 strains is:
 4
 This represents the following number of genes:
 12
 The number of orthogroups common to CA4 strains is:
-224
+222
 This represents the following number of genes:
-539
+537
 The number of orthogroups common to CA5 strains is:
 10
 This represents the following number of genes:
 20
-The number of orthogroups common to US4 strains is:
-8
-This represents the following number of genes:
-9
 The number of orthogroups common to Unknown race strains is:
-182
+177
 This represents the following number of genes:
-471
+465
 The number of orthogroups with only six highly conserved target strains is:
-0
+2
 This represents the following number of genes:
-0
+13
 The number of orthogroups containing all six highly conserved target strains is:
-0
+15,490
 This represents the following number of genes:
-0
+439,889
 ```
 
 Identification of orthogroups of closely related strains for further analysis
