@@ -589,16 +589,17 @@ These orthogroups contain the following number of RxLRs:
 for num in 1
 do
     RxLR_UK2_uniq=$RxLR_Dir/UK2_unique_RxLRs.txt
-    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | cut -f2 -d "|" > $RxLR_UK2_uniq
+    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits > $RxLR_UK2_uniq
     echo "The number of UK2 unique RxLRs are:"
     cat $RxLR_UK2_uniq | wc -l
     RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR.fa
     RxLR_Seq_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_final_RxLR.fa
     Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
     Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
-    RxLR_UK2_uniq_fa=$RxLR_Dir/UK2_unique_RxLRs.fa
-    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' > $RxLR_UK2_uniq_fa
-    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' >> $RxLR_UK2_uniq_fa
+    Bc16_RxLR_UK2_uniq_fa=$RxLR_Dir/Bc16_UK2_unique_RxLRs.fa
+    A4_RxLR_UK2_uniq_fa=$RxLR_Dir/A4_UK2_unique_RxLRs.fa
+    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' > $Bc16_RxLR_UK2_uniq_fa
+    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK2_uniq | grep -E -v '^--' > $A4_RxLR_UK2_uniq_fa
 done
 ```
 
