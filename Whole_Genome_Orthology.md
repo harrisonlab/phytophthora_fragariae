@@ -589,7 +589,7 @@ These orthogroups contain the following number of RxLRs:
 for num in 1
 do
     RxLR_UK2_uniq=$RxLR_Dir/UK2_unique_RxLRs.txt
-    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc16|' | tr -d 'A4|' > $RxLR_UK2_uniq
+    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | cut -f2 -d "|" > $RxLR_UK2_uniq
     echo "The number of UK2 unique RxLRs are:"
     cat $RxLR_UK2_uniq | wc -l
     RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR.fa
