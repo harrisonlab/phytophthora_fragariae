@@ -604,12 +604,20 @@ do
     cat $RxLR_UK2_uniq | grep 'A4|' | cut -f2 -d "|" > $A4_to_extract
     cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Bc16_to_extract | grep -E -v '^--' > $Bc16_RxLR_UK2_uniq_fa
     cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $A4_to_extract | grep -E -v '^--' > $A4_RxLR_UK2_uniq_fa
+    echo "The number of BC-16 genes extracted is:"
+    cat $Bc16_RxLR_UK2_uniq_fa | grep '>' | wc -l
+    echo "The number of A4 genes extracted is:"
+    cat $A4_RxLR_UK2_uniq_fa | grep '>' | wc -l
 done
 ```
 
 ```
 The number of UK2 unique RxLRs are:
 97
+The number of BC-16 genes extracted is:
+59
+The number of A4 genes extracted is:
+38
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
