@@ -1491,6 +1491,22 @@ do
 done
 ```
 
+Repeat for assemblies cleaned for NCBI
+
+```bash
+for Strain in Bc1 Bc16 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+do
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    Assembly=repeat_masked/*/$Strain/ncbi_edits_repmask/*_contigs_unmasked.fa
+    OutDir=gene_pred/star/cufflinks/$Organism/$Strain/concatenated
+    mkdir -p $OutDir
+    AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+    qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
+done
+```
+
 Secondly, genes were predicted using CodingQuarry:
 
 ```bash
