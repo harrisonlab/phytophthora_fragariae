@@ -1494,7 +1494,7 @@ done
 Repeat for assemblies cleaned for NCBI
 
 ```bash
-for Strain in Bc1 Bc16 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+for Strain in Bc1 Nov5 A4 Nov71 SCRP245_v2 Nov9
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
