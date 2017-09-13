@@ -348,23 +348,23 @@ done
 The total number of shared orthogroups is:
 15,300
 The total number of genes in shared orthogroups is:
-0
+437,632
 The total number of orthogroups is:
-420
+463
 The total number of genes in orthogroups is:
-1,179
+1,393
 The total number of UK1 orthogroups is:
-0
+15
 The total number of genes in UK1 orthogroups is:
-0
+48
 The total number of UK2 orthogroups is:
-75
+47
 The total number of genes in UK2 orthogroups is:
-358
+201
 The total number of UK3 orthogroups is:
-21
+11
 The total number of genes in UK3 orthogroups is:
-106
+46
 ```
 
 ##4.5.b Plot venn diagrams:
