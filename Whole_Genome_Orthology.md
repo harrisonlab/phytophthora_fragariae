@@ -645,9 +645,9 @@ for num in 1
 do
     Sec_Names_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
     Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
     Sec_Dir=$WorkDir/UKR2_Secreted
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
     Sec_ID=$Sec_Dir/UKR2_aug_Sec_IDs.txt
     mkdir -p $Sec_Dir
     cat $Sec_Names_Bc16 | sed -r 's/^/Bc16|/g' > $Sec_ID
