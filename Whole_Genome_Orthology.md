@@ -604,7 +604,7 @@ done
 
 ```
 The number of UK2 unique RxLRs are:
-189
+97
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
