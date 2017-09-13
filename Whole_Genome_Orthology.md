@@ -282,38 +282,38 @@ The number of orthogroups common to P. fragariae is:
 1,095
 This represents the following number of genes:
 13,079
-The number of orthogroups common to UK1 strains is:
+The number of orthogroups common to UK1 isolates is:
 6
 This represents the following number of genes:
 12
-The number of orthogroups common to UK2 strains is:
+The number of orthogroups common to UK2 isolates is:
 13
 This represents the following number of genes:
 26
-The number of orthogroups common to UK3 strains is:
+The number of orthogroups common to UK3 isolates is:
 4
 This represents the following number of genes:
 12
-The number of orthogroups common to CA4 strains is:
+The number of orthogroups common to CA4 isolates is:
 222
 This represents the following number of genes:
 537
-The number of orthogroups common to CA5 strains is:
+The number of orthogroups common to CA5 isolates is:
 10
 This represents the following number of genes:
 20
-The number of orthogroups common to Unknown race strains is:
+The number of orthogroups common to Unknown race isolates is:
 177
 This represents the following number of genes:
 465
-The number of orthogroups with only six highly conserved target strains is:
-2
+The number of orthogroups with only seven highly conserved target isolates is:
+37
 This represents the following number of genes:
-13
-The number of orthogroups containing all six highly conserved target strains is:
-15,490
+256
+The number of orthogroups containing all seven highly conserved target isolates is:
+15,395
 This represents the following number of genes:
-439,889
+438,771
 ```
 
 Identification of orthogroups of closely related strains for further analysis
