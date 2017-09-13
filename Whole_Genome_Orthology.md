@@ -512,9 +512,9 @@ cat $Uniq_UK2_groups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e '
 
 ```
 The number of orthogroups unique to Race 2 are:
-29
+47
 The following number genes are contained in these orthogroups:
-127
+201
 ```
 
 #Race 2 unique RxLR families
