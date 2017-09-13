@@ -592,8 +592,8 @@ do
     cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc16|' | tr -d 'A4|' > $RxLR_UK2_uniq
     echo "The number of UK2 unique RxLRs are:"
     cat $RxLR_UK2_uniq | wc -l
-    RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR_EER.fa
-    RxLR_Seq_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_final_RxLR_EER.fa
+    RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR.fa
+    RxLR_Seq_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_final_RxLR.fa
     Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
     Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
     RxLR_UK2_uniq_fa=$RxLR_Dir/UK2_unique_RxLRs.fa
