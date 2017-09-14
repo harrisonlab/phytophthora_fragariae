@@ -843,7 +843,7 @@ The following CRNs were found in P.fragariae unique orthogroups:
 for num in 1
 do
     CRN_UK2_uniq=$CRN_Dir/UK2_unique_CRNs.txt
-    cat $CRN_ID_UK2 | grep -v -w -f $CRN_Orthogroup_hits_UK2 | tr -d 'Bc16|' | tr -d 'A4|' > $CRN_UK2_uniq
+    cat $CRN_ID_UK2 | grep -v -w -f $CRN_Orthogroup_hits_UK2 > $CRN_UK2_uniq
     echo "The number of Race 2 unique CRNs are:"
     cat $CRN_UK2_uniq | wc -l
     CRN_Seq_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.fa
