@@ -989,6 +989,8 @@ do
 done
 ```
 
+--running here--
+
 ```
 The number of RxLRs searched for is:
 629
@@ -1189,13 +1191,13 @@ for num in 1
 do
     CRN_Names_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN.txt
     CRN_Names_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
     CRN_Dir=$WorkDir/UK1_CRN
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
     CRN_ID_UK1=$CRN_Dir/UK1_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
-    cat $CRN_Names_Bc1 | sed 's/g/Bc1|g/g' > $CRN_ID_UK1
-    cat $CRN_Names_Nov5 | sed 's/g/Nov5|g/g' >> $CRN_ID_UK1
+    cat $CRN_Names_Bc1 | sed -r 's/^/Bc1|/g' > $CRN_ID_UK1
+    cat $CRN_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $CRN_ID_UK1
 done
 ```
 
