@@ -1663,20 +1663,24 @@ do
     CRN_Pf_uniq_groups=$CRN_Dir/Pf_CRN_Orthogroups_hits.txt
     cat $CRN_Orthogroup_UK3 > $CRN_Pf_uniq_groups
     cat $CRN_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of CRNs:"
+    cat $CRN_Pf_uniq_groups | grep -w -o -f $CRN_ID_UK3 | wc -l
 done
 ```
 
 ```
 The number of CRNs searched for is:
-338
+355
 Of these, the following number were found in orthogroups:
-321
+337
 These were distributed through the following number of Orthogroups:
-72
+70
 The following CRNs were found in Race 3 unique orthogroups:
 0
 The following CRNs were found in P.fragariae unique orthogroups:
-72
+70
+These orthogroups contain the following number of CRNs:
+337
 ```
 
 #The Race 3 CRN genes not found in orthogroups were identified:
