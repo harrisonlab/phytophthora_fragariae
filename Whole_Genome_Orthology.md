@@ -721,16 +721,23 @@ These orthogroups contain the following number of Secreted proteins:
 for num in 1
 do
     Sec_UK2_uniq=$Sec_Dir/UK2_unique_Sec.txt
-    cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits | tr -d 'Bc16|' | tr -d 'A4|' > $Sec_UK2_uniq
+    cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits > $Sec_UK2_uniq
     echo "The number of UK2 unique secreted proteins are:"
     cat $Sec_UK2_uniq | wc -l
-    Sec_Seq_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted.fa
-    Sec_Seq_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_all_secreted.fa
-    Final_genes_Bc16=gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_combined.pep.fasta
-    Final_genes_A4=gene_pred/codingquary/P.fragariae/A4/final/final_genes_combined.pep.fasta
-    Sec_UK2_uniq_fa=$Sec_Dir/UK2_unique_Sec.fa
-    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK2_uniq | grep -E -v '^--' > $Sec_UK2_uniq_fa
-    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK2_uniq | grep -E -v '^--' >> $Sec_UK2_uniq_fa
+    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
+    Bc16_Sec_UK2_uniq_fa=$Sec_Dir/Bc16_UK2_unique_Secs.fa
+    A4_Sec_UK2_uniq_fa=$Sec_Dir/A4_UK2_unique_Secs.fa
+    Bc16_to_extract=$Sec_Dir/Bc16_to_extract.txt
+    A4_to_extract=$Sec_Dir/A4_to_extract.txt
+    cat $Sec_UK2_uniq | grep 'Bc16|' | cut -f2 -d "|" > $Bc16_to_extract
+    cat $Sec_UK2_uniq | grep 'A4|' | cut -f2 -d "|" > $A4_to_extract
+    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Bc16_to_extract | grep -E -v '^--' > $Bc16_Sec_UK2_uniq_fa
+    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $A4_to_extract | grep -E -v '^--' > $A4_Sec_UK2_uniq_fa
+    echo "The number of BC-16 genes extracted is:"
+    cat $Bc16_Sec_UK2_uniq_fa | grep '>' | wc -l
+    echo "The number of A4 genes extracted is:"
+    cat $A4_Sec_UK2_uniq_fa | grep '>' | wc -l
 done
 ```
 
