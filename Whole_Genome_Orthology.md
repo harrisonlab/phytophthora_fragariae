@@ -1269,6 +1269,10 @@ do
     cat $CRN_UK1_uniq | grep 'Nov5|' | cut -f2 -d "|" > $Nov5_to_extract
     cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Bc1_to_extract | grep -E -v '^--' > $Bc1_CRN_UK1_uniq_fa
     cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov5_to_extract | grep -E -v '^--' > $Nov5_CRN_UK1_uniq_fa
+    echo "The number of BC-1 genes extracted is:"
+    cat $Bc1_CRN_UK1_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-5 genes extracted is:"
+    cat $Nov5_CRN_UK1_uniq_fa | grep '>' | wc -l
 done
 ```
 
