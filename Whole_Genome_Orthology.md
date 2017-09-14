@@ -1224,6 +1224,8 @@ do
     CRN_Pf_uniq_groups=$CRN_Dir/Pf_CRN_Orthogroups_hits.txt
     cat $CRN_Orthogroup_UK1 > $CRN_Pf_uniq_groups
     cat $CRN_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of CRNs:"
+    cat $CRN_Pf_uniq_groups | grep -w -o -f $CRN_ID | wc -l
 done
 ```
 
