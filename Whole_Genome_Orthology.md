@@ -536,8 +536,6 @@ do
 done
 ```
 
---running this--
-
 #Ortholog groups containing RxLR proteins were identified using the following commands:
 
 ```bash
@@ -836,6 +834,8 @@ The following CRNs were found in Race 2 unique orthogroups:
 The following CRNs were found in P.fragariae unique orthogroups:
 73
 ```
+
+--running here--
 
 #The Race 2 CRN genes not found in orthogroups were identified:
 
