@@ -698,23 +698,21 @@ do
 done
 ```
 
---running here second--
-
 ```
 The number of secreted proteins searched for is:
-7835
+8,017
 Of these, the following number were found in orthogroups:
-7584
+7,685
 These were distributed through the following number of Orthogroups:
-2859
+2,935
 The following secreted proteins were found in Race 2 unique orthogroups:
-6
+5
 These orthogroups contain the following number of secreted proteins:
-10
+8
 The following secreted proteins were found in P.fragariae unique orthogroups:
-2859
+2,935
 These orthogroups contain the following number of Secreted proteins:
-7584
+7,685
 
 orthogroup16476 - Two UK2 match, interproscan - no A4 or BC-16
 orthogroup17164 - A4 is unique, but BC-16 matches BC-23 - probably not informative
