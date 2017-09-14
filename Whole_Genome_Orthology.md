@@ -835,7 +835,6 @@ The following CRNs were found in P.fragariae unique orthogroups:
 73
 ```
 
---running here--
 
 #The Race 2 CRN genes not found in orthogroups were identified:
 
@@ -867,7 +866,11 @@ done
 
 ```
 The number of Race 2 unique CRNs are:
-12
+0
+The number of BC-16 genes extracted is:
+0
+The number of A4 genes extracted is:
+0
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative CRNs
