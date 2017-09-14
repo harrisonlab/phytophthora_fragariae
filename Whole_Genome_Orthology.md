@@ -1689,19 +1689,24 @@ These orthogroups contain the following number of CRNs:
 for num in 1
 do
     CRN_UK3_uniq=$CRN_Dir/UK3_unique_CRNs.txt
-    cat $CRN_ID_UK3 | grep -v -w -f $CRN_Orthogroup_hits_UK3 | tr -d 'Nov27|' | tr -d 'Nov71|' | tr -d 'Nov9|' > $CRN_UK3_uniq
+    cat $CRN_ID_UK3 | grep -v -w -f $CRN_Orthogroup_hits_UK3 > $CRN_UK3_uniq
     echo "The number of Race 3 unique CRNs are:"
     cat $CRN_UK3_uniq | wc -l
-    CRN_Seq_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN.fa
-    CRN_Seq_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN.fa
-    CRN_Seq_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN.fa
-    Final_genes_Nov27=gene_pred/codingquary/P.fragariae/Nov27/final/final_genes_combined.pep.fasta
-    Final_genes_Nov71=gene_pred/codingquary/P.fragariae/Nov71/final/final_genes_combined.pep.fasta
-    Final_genes_Nov9=gene_pred/codingquary/P.fragariae/Nov9/final/final_genes_combined.pep.fasta
-    CRN_UK3_uniq_fa=$CRN_Dir/UK3_unique_CRNs.fa
-    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK3_uniq | grep -E -v '^--' > $CRN_UK3_uniq_fa
-    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK3_uniq | grep -E -v '^--' >> $CRN_UK3_uniq_fa
-    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $CRN_UK3_uniq | grep -E -v '^--' >> $CRN_UK3_uniq_fa
+    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+    Nov27_CRN_UK3_uniq_fa=$CRN_Dir/Nov27_UK3_unique_CRNs.fa
+    Nov71_CRN_UK3_uniq_fa=$CRN_Dir/Nov71_UK3_unique_CRNs.fa
+    Nov9_CRN_UK3_uniq_fa=$CRN_Dir/Nov9_UK3_unique_CRNs.fa
+    Nov27_to_extract=$CRN_Dir/Nov27_to_extract.txt
+    Nov71_to_extract=$CRN_Dir/Nov71_to_extract.txt
+    Nov9_to_extract=$CRN_Dir/Nov9_to_extract.txt
+    cat $CRN_UK3_uniq | grep 'Nov27|' | cut -f2 -d "|" > $Nov27_to_extract
+    cat $CRN_UK3_uniq | grep 'Nov71|' | cut -f2 -d "|" > $Nov71_to_extract
+    cat $CRN_UK3_uniq | grep 'Nov9|' | cut -f2 -d "|" > $Nov9_to_extract
+    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov27_to_extract | grep -E -v '^--' > $Nov27_CRN_UK3_uniq_fa
+    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov71_to_extract | grep -E -v '^--' > $Nov71_CRN_UK3_uniq_fa
+    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov9_to_extract | grep -E -v '^--' > $Nov9_CRN_UK3_uniq_fa
 done
 ```
 
