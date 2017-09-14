@@ -1586,7 +1586,7 @@ The number of UK3 unique secreted proteins are:
 378
 ```
 
-##Extracting fasta files for orthogroups containing Race 1 putative secreted proteins
+##Extracting fasta files for orthogroups containing Race 3 putative secreted proteins
 
 ```bash
 for num in 1
