@@ -536,6 +536,8 @@ do
 done
 ```
 
+--running this--
+
 #Ortholog groups containing RxLR proteins were identified using the following commands:
 
 ```bash
@@ -698,6 +700,8 @@ do
 done
 ```
 
+--running here second--
+
 ```
 The number of secreted proteins searched for is:
 7835
@@ -784,9 +788,9 @@ for num in 1
 do
     CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
     CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
     CRN_Dir=$WorkDir/UK2_CRN
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
     CRN_ID_UK2=$CRN_Dir/UK2_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
     cat $CRN_Names_Bc16 | sed 's/g/Bc16|g/g' > $CRN_ID_UK2
@@ -822,15 +826,15 @@ done
 
 ```
 The number of CRNs searched for is:
-236
+243
 Of these, the following number were found in orthogroups:
-225
+230
 These were distributed through the following number of Orthogroups:
-69
+68
 The following CRNs were found in Race 2 unique orthogroups:
 0
 The following CRNs were found in P.fragariae unique orthogroups:
-69
+68
 ```
 
 #The Race 2 CRN genes not found in orthogroups were identified:
