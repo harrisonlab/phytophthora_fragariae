@@ -793,8 +793,8 @@ do
     Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
     CRN_ID_UK2=$CRN_Dir/UK2_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
-    cat $CRN_Names_Bc16 | sed 's/g/Bc16|g/g' > $CRN_ID_UK2
-    cat $CRN_Names_A4 | sed 's/g/A4|g/g' >> $CRN_ID_UK2
+    cat $CRN_Names_Bc16 | sed -r 's/^/Bc16|/g' > $CRN_ID_UK2
+    cat $CRN_Names_A4 | sed -r 's/^/A4|/g' >> $CRN_ID_UK2
 done
 ```
 
