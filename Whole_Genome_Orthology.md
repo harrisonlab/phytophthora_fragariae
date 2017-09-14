@@ -1014,16 +1014,25 @@ These orthogroups contain the following number of RxLRs:
 for num in 1
 do
     RxLR_UK1_uniq=$RxLR_Dir/UK1_unique_RxLRs.txt
-    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits | tr -d 'Bc1|' | tr -d 'Nov5|' > $RxLR_UK1_uniq
+    cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits > $RxLR_UK1_uniq
     echo "The number of UK1 unique RxLRs are:"
     cat $RxLR_UK1_uniq | wc -l
-    RxLR_Seq_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_final_RxLR_EER.fa
-    RxLR_Seq_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_final_RxLR_EER.fa
-    Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
-    Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
-    RxLR_UK1_uniq_fa=$RxLR_Dir/UK1_unique_RxLRs.fa
-    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK1_uniq | grep -E -v '^--' > $RxLR_UK1_uniq_fa
-    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $RxLR_UK1_uniq | grep -E -v '^--' >> $RxLR_UK1_uniq_fa
+    RxLR_Seq_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_final_RxLR.fa
+    RxLR_Seq_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_final_RxLR.fa
+    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
+    Bc1_RxLR_UK1_uniq_fa=$RxLR_Dir/Bc1_UK1_unique_RxLRs.fa
+    Nov5_RxLR_UK1_uniq_fa=$RxLR_Dir/Nov5_UK1_unique_RxLRs.fa
+    Bc1_to_extract=$RxLR_Dir/Bc1_to_extract.txt
+    Nov5_to_extract=$RxLR_Dir/Nov5_to_extract.txt
+    cat $RxLR_UK1_uniq | grep 'Bc1|' | cut -f2 -d "|" > $Bc1_to_extract
+    cat $RxLR_UK1_uniq | grep 'Nov5|' | cut -f2 -d "|" > $Nov5_to_extract
+    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Bc1_to_extract | grep -E -v '^--' > $Bc1_RxLR_UK1_uniq_fa
+    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov5_to_extract | grep -E -v '^--' > $Nov5_RxLR_UK1_uniq_fa
+    echo "The number of BC-1 genes extracted is:"
+    cat $Bc1_RxLR_UK1_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-5 genes extracted is:"
+    cat $Nov5_RxLR_UK1_uniq_fa | grep '>' | wc -l
 done
 ```
 
