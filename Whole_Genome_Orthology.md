@@ -819,6 +819,8 @@ do
     CRN_Pf_uniq_groups=$CRN_Dir/Pf_CRN_Orthogroups_hits.txt
     cat $CRN_Orthogroup_UK2 > $CRN_Pf_uniq_groups
     cat $CRN_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of CRNs:"
+    cat $CRN_Pf_uniq_groups | grep -w -o -f $CRN_ID_UK2 | wc -l
 done
 ```
 
@@ -833,6 +835,8 @@ The following CRNs were found in Race 2 unique orthogroups:
 0
 The following CRNs were found in P.fragariae unique orthogroups:
 73
+These orthogroups contain the following number of CRNs:
+243
 ```
 
 
