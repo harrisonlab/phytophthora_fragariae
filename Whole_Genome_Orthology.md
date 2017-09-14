@@ -1634,9 +1634,9 @@ do
     Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
     CRN_ID_UK3=$CRN_Dir/UK3_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
-    cat $CRN_Names_Nov27 | sed 's/g/Nov27|g/g' > $CRN_ID_UK3
-    cat $CRN_Names_Nov71 | sed 's/g/Nov71|g/g' >> $CRN_ID_UK3
-    cat $CRN_Names_Nov9 | sed 's/g/Nov9|g/g' >> $CRN_ID_UK3
+    cat $CRN_Names_Nov27 | sed 's/^/Nov27|/g' > $CRN_ID_UK3
+    cat $CRN_Names_Nov71 | sed 's/^/Nov71|/g' >> $CRN_ID_UK3
+    cat $CRN_Names_Nov9 | sed 's/^/Nov9|/g' >> $CRN_ID_UK3
 done
 ```
 
@@ -1718,7 +1718,8 @@ done
 
 ```
 The number of Race 3 unique CRNs are:
-20
+18
+
 ```
 
 ##Extracting fasta files for orthogroups containing Race 3 putative CRNs
