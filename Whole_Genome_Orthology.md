@@ -1329,13 +1329,13 @@ done
 ##First variables were set:
 
 ```bash
-WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
+WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
 UK3UniqDir=$WorkDir/UK3_unique
-Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
+Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-Final_genes_Nov27=gene_pred/codingquary/P.fragariae/Nov27/final/final_genes_combined.pep.fasta
-Final_genes_Nov71=gene_pred/codingquary/P.fragariae/Nov71/final/final_genes_combined.pep.fasta
-Final_genes_Nov9=gene_pred/codingquary/P.fragariae/Nov9/final/final_genes_combined.pep.fasta
+Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
+Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
+Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
 Uniq_UK3_groups=$UK3UniqDir/UK3_uniq_orthogroups.txt
 mkdir -p $UK3UniqDir
 ```
