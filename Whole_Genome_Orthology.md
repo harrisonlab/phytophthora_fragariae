@@ -1278,7 +1278,11 @@ done
 
 ```
 The number of Race 1 unique CRNs are:
-12
+0
+The number of BC-1 genes extracted is:
+0
+The number of NOV-5 genes extracted is:
+0
 ```
 
 ##Extracting fasta files for orthogroups containing Race 1 putative CRNs
