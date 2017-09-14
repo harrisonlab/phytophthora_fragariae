@@ -991,23 +991,21 @@ do
 done
 ```
 
---running here--
-
 ```
 The number of RxLRs searched for is:
-629
+4,556
 Of these, the following number were found in orthogroups:
-462
+4,474
 These were distributed through the following number of Orthogroups:
-184
+2,001
 The following RxLRs were found in Race 1 unique orthogroups:
-0
+1
 These orthogroups contain the following number of RxLRs:
-0
+2
 The following RxLRs were found in P.fragariae unique orthogroups:
-184
+2,001
 These orthogroups contain the following number of RxLRs:
-462
+4,474
 ```
 
 #The Race 1 RxLR genes that were not found in orthogroups were identified:
