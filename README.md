@@ -1951,7 +1951,7 @@ ORF_finder - A4
 654,457
 
 ORF_finder - Bc1
-657,401
+657,394
 
 ORF_finder - Bc16
 776,140
@@ -1963,10 +1963,10 @@ ORF_finder - Nov27
 653,798
 
 ORF_finder - Nov5
-654,082
+654,072
 
 ORF_finder - Nov9
-660,256
+660,249
 
 ORF_finder - Nov71
 649,542
