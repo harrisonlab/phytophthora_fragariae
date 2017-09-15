@@ -1672,15 +1672,15 @@ done
 The number of CRNs searched for is:
 355
 Of these, the following number were found in orthogroups:
-337
+355
 These were distributed through the following number of Orthogroups:
-70
+75
 The following CRNs were found in Race 3 unique orthogroups:
 0
 The following CRNs were found in P.fragariae unique orthogroups:
-70
+75
 These orthogroups contain the following number of CRNs:
-337
+355
 ```
 
 #The Race 3 CRN genes not found in orthogroups were identified:
