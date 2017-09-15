@@ -1718,8 +1718,13 @@ done
 
 ```
 The number of Race 3 unique CRNs are:
-18
-
+0
+The number of NOV-27 genes extracted is:
+0
+The number of NOV-71 genes extracted is:
+0
+The number of NOV-9 genes extracted is:
+0
 ```
 
 ##Extracting fasta files for orthogroups containing Race 3 putative CRNs
