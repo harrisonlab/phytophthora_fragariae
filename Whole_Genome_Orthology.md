@@ -1091,13 +1091,17 @@ for num in 1
 do
     Sec_Names_Bc1=gene_pred/combined_sigP_CQ/P.fragariae/Bc1/Bc1_secreted.txt
     Sec_Names_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_secreted.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi
-    Sec_Dir=$WorkDir/UKR1_Secreted
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_orthogroups.txt
-    Sec_ID=$Sec_Dir/UKR1_aug_Sec_IDs.txt
+    Sec_Names_Bc1_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc1/Bc1_all_secreted_merged.txt
+    Sec_Names_Nov5_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov5/Nov5_all_secreted_merged.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    Sec_Dir=$WorkDir/UKR2_Secreted
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    Sec_ID=$Sec_Dir/UKR2_aug_Sec_IDs.txt
     mkdir -p $Sec_Dir
     cat $Sec_Names_Bc1 | sed -r 's/^/Bc1|/g' > $Sec_ID
     cat $Sec_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $Sec_ID
+    cat $Sec_Names_Bc1_ORFs | sed -r 's/^/Bc1|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
+    cat $Sec_Names_Nov5_ORFs | sed -r 's/^/Nov5|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
 done
 ```
 
