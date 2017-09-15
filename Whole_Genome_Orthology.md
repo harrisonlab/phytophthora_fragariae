@@ -1465,12 +1465,18 @@ do
     cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov27_to_extract | grep -E -v '^--' > $Nov27_RxLR_UK3_uniq_fa
     cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov71_to_extract | grep -E -v '^--' > $Nov71_RxLR_UK3_uniq_fa
     cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov9_to_extract | grep -E -v '^--' > $Nov9_RxLR_UK3_uniq_fa
+    echo "The number of NOV-27 genes extracted is:"
+    cat $Nov27_RxLR_UK3_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-71 genes extracted is:"
+    cat $Nov71_RxLR_UK3_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-9 genes extracted is:"
+    cat $Nov9_RxLR_UK3_uniq_fa | grep '>' | wc -l
 done
 ```
 
 ```
 The number of UK3 unique RxLRs are:
-248
+113
 ```
 
 ##Extracting fasta files for orthogroups containing Race 3 putative RxLRs
