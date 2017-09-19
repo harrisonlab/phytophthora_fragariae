@@ -1577,24 +1577,19 @@ done
 
 ```
 The number of secreted proteins searched for is:
-11037
+100,025
 Of these, the following number were found in orthogroups:
-10659
+15,738
 These were distributed through the following number of Orthogroups:
-2904
+4,405
 The following secreted proteins were found in Race 3 unique orthogroups:
 4
 These orthogroups contain the following number of secreted proteins:
-12
+8
 The following secreted proteins were found in P.fragariae unique orthogroups:
-2904
+4,405
 These orthogroups contain the following number of Secreted proteins:
-10659
-
-orthogroup14670 - single residue differences to other Pfrag genes - match Prubi genes, interproscan - no NOV-9, NOV-71 or NOV-27 - BLAST identifies Dpy-30 motif, variety of functions - closest hits are histone methyl transferase in Plasmopara halstedii & flagella associated protein in P. parasitica
-orthogroup15629 - proteins exactly match BC-23
-orthogroup16823 - proteins exactly match ONT-3
-orthogroup18417 - Only race 3, interproscan - no NOV-27, NOV-9 or NOV-71 - only hits a protein from green turtle...
+15,738
 ```
 
 #The Race 3 secreted protein genes that were not found in orthogroups were identified:
