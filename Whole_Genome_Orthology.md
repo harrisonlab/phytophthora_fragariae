@@ -743,28 +743,6 @@ do
     echo "The number of A4 genes extracted is:"
     cat $A4_Sec_UK2_uniq_fa | grep '>' | wc -l
 done
-
-for num in 1
-do
-    Sec_UK3_uniq=$Sec_Dir/UK3_unique_Sec.txt
-    cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits | tr -d 'Nov9|' | tr -d 'Nov27|' | tr -d 'Nov71|' > $Sec_UK3_uniq
-    echo "The number of UK3 unique secreted proteins are:"
-    cat $Sec_UK3_uniq | wc -l
-    Sec_Seq_Nov9=gene_pred/combined_sigP_CQ/P.fragariae/Nov9/Nov9_all_secreted.fa
-    Sec_Seq_Nov27=gene_pred/combined_sigP_CQ/P.fragariae/Nov27/Nov27_all_secreted.fa
-    Sec_Seq_Nov71=gene_pred/combined_sigP_CQ/P.fragariae/Nov71/Nov71_all_secreted.fa
-    Sec_Seq_Nov9_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Nov9/Nov9_all_secreted_merged.aa
-    Sec_Seq_Nov27_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Nov27/Nov27_all_secreted_merged.aa
-    Sec_Seq_Nov71_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Nov71/Nov71_all_secreted_merged.aa
-    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
-    Sec_UK3_uniq_fa=$Sec_Dir/UK3_unique_Sec.fa
-    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' > $Sec_UK3_uniq_fa
-    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' >> $Sec_UK3_uniq_fa
-    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' >> $Sec_UK3_uniq_fa
-done
-
 ```
 
 ```
