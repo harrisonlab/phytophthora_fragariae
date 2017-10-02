@@ -1137,22 +1137,19 @@ done
 
 ```
 The number of secreted proteins searched for is:
-7277
+66,716
 Of these, the following number were found in orthogroups:
-7035
+10,475
 These were distributed through the following number of Orthogroups:
-2775
+4,259
 The following secreted proteins were found in Race 1 unique orthogroups:
-2
+4
 These orthogroups contain the following number of secreted proteins:
-3
+7
 The following secreted proteins were found in P.fragariae unique orthogroups:
-2775
+4,259
 These orthogroups contain the following number of Secreted proteins:
-7035
-
-orthogroup13162 - two genes differ between BC-1 and NOV-5 at 5 residues, but BC-1 matches BC-23 and SCRP245 exactly, probably not explanatory
-orthogroup17016 - genes exactly match between BC-1 and NOV-5 and do not match other two genes in this group by a large difference - no interproscan hits on BC-1 or NOV-5, BLAST - no good hits, 66.6% hit to a reverse transcriptase from Albugo
+10,475
 ```
 
 #The Race 1 secreted protein genes that were not found in orthogroups were identified:
