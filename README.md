@@ -1596,6 +1596,42 @@ do
 done
 ```
 
+Then, remove duplicated transcripts
+
+```bash
+for GffAppended in $(ls gene_pred/final/*/*/final/final_genes_appended.gff3)
+do
+    Strain=$(echo $GffAppended | rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $GffAppended | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    FinalDir=gene_pred/final/$Organism/$Strain/final
+    GffFiltered=$FinalDir/filtered_duplicates.gff
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
+    $ProgDir/remove_dup_features.py --inp_gff $GffAppended --out_gff $GffFiltered
+    GffRenamed=$FinalDir/final_genes_appended_renamed.gff3
+    LogFile=$FinalDir/final_genes_appended_renamed.log
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
+    $ProgDir/gff_rename_genes.py --inp_gff $GffFiltered --conversion_log $LogFile > $GffRenamed
+    rm $GffFiltered
+    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    fi
+    $ProgDir/gff2fasta.pl $Assembly $GffRenamed gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed
+    # The proteins fasta file contains * instead of Xs for stop codons, these should
+    # be changed
+    sed -i 's/\*/X/g' gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.pep.fasta
+done
+```
+
 The final number of genes per isolate was observed using:
 
 ```bash
