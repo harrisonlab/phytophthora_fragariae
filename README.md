@@ -1635,7 +1635,7 @@ done
 The final number of genes per isolate was observed using:
 
 ```bash
-for DirPath in $(ls -d gene_pred/codingquarry/P.*/*/final)
+for DirPath in $(ls -d gene_pred/final/P.*/*/final)
 do
     echo $DirPath
     echo Braker:
@@ -1653,9 +1653,9 @@ A4
 Braker:
 31,329
 CodingQuarry:
-2,263
+2,257
 Total:
-33,592
+33,586
 
 Bc16
 Braker:
@@ -1669,9 +1669,9 @@ Bc1
 Braker:
 30,365
 CodingQuarry:
-2,704
+2,698
 Total:
-33,069
+33,063
 
 Bc23
 Braker:
@@ -1693,17 +1693,17 @@ Nov5
 Braker:
 30,781
 CodingQuarry:
-2,501
+2,497
 Total:
-33,282
+33,278
 
 Nov71
 Braker:
 30,341
 CodingQuarry:
-2,444
+2,434
 Total:
-32,785
+32,775
 
 Nov77
 Braker:
@@ -1717,9 +1717,9 @@ Nov9
 Braker:
 30,367
 CodingQuarry:
-2,454
+2,448
 Total:
-32,821
+32,815
 
 ONT3
 Braker:
@@ -1733,9 +1733,9 @@ SCRP245_v2
 Braker:
 34,774
 CodingQuarry:
-2,051
+2,043
 Total:
-36,825
+36,817
 ```
 
 ##Predicted gene set assessed using BUSCO to assess completeness
