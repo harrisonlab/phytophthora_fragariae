@@ -1555,6 +1555,7 @@ do
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
     else
         Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+    fi
     CodingQuarryGff=gene_pred/codingquarry/$Organism/$Strain/out/PredictedPass.gff3
     PGNGff=gene_pred/codingquarry/$Organism/$Strain/out/PGN_predictedPass.gff3
     AddDir=gene_pred/codingquarry/$Organism/$Strain/additional
