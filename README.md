@@ -1894,22 +1894,23 @@ Missing genes: -3
 Open reading frame predictions were made using the atg.pl script as part of the path_pipe.sh pipeline. This pipeline also identifies open reading frames containing Signal peptide sequences and RxLRs. This pipeline was run with the following commands:
 
 ```bash
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-for Genome in $(ls repeat_masked/*/*/*/*_contigs_unmasked.fa)
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    echo "$Genome"
-    qsub $ProgDir/run_ORF_finder.sh $Genome
-done
-```
-
-Repeat for assemblies corrected for NCBI
-
-```bash
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-for Genome in $(ls repeat_masked/*/*/ncbi_edits_repmask/*_contigs_unmasked.fa)
-do
-    echo "$Genome"
-    qsub $ProgDir/run_ORF_finder.sh $Genome
+    Organism=P.fragariae
+    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_unmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_unmasked.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/*_unmasked.fa)
+        echo $Assembly
+    fi
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    qsub $ProgDir/run_ORF_finder.sh $Assembly
 done
 ```
 
