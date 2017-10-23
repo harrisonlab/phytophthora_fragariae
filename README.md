@@ -1755,68 +1755,68 @@ done
 
 ```
 A4
-Complete and single copy genes: 270
-Complete and duplicated genes: 7
-Fragmented genes: 10
-Missing genes: 16
-
-Bc16
-Complete and single copy genes: 261
-Complete and duplicated genes: 10
-Fragmented genes: 10
-Missing genes: 22
-
-Bc1
-Complete and single copy genes: 270
-Complete and duplicated genes: 7
-Fragmented genes: 10
-Missing genes: 16
-
-Bc23
-Complete and single copy genes: 272
-Complete and duplicated genes: 7
-Fragmented genes: 8
-Missing genes: 16
-
-Nov27
-Complete and single copy genes: 272
-Complete and duplicated genes: 7
-Fragmented genes: 8
-Missing genes: 16
-
-Nov5
 Complete and single copy genes: 271
 Complete and duplicated genes: 7
-Fragmented genes: 9
-Missing genes: 16
+Fragmented genes: 10
+Missing genes: 15
+
+Bc16
+Complete and single copy genes: 263
+Complete and duplicated genes: 9
+Fragmented genes: 10
+Missing genes: 21
+
+Bc1
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
+Missing genes: 15
+
+Bc23
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
+Missing genes: 15
+
+Nov27
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
+Missing genes: 15
+
+Nov5
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
+Missing genes: 15
 
 Nov71
 Complete and single copy genes: 271
 Complete and duplicated genes: 7
-Fragmented genes: 9
-Missing genes: 16
+Fragmented genes: 10
+Missing genes: 15
 
 Nov77
-Complete and single copy genes: 271
+Complete and single copy genes: 272
 Complete and duplicated genes: 7
 Fragmented genes: 9
-Missing genes: 16
+Missing genes: 15
 
 Nov9
 Complete and single copy genes: 273
 Complete and duplicated genes: 7
-Fragmented genes: 7
-Missing genes: 16
+Fragmented genes: 8
+Missing genes: 15
 
 ONT3
-Complete and single copy genes: 273
-Complete and duplicated genes: 9
+Complete and single copy genes: 275
+Complete and duplicated genes: 8
 Fragmented genes: 7
-Missing genes: 14
+Missing genes: 13
 
 SCRP245_v2
-Complete and single copy genes: 272
-Complete and duplicated genes: 8
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
 Fragmented genes: 8
 Missing genes: 15
 ```
