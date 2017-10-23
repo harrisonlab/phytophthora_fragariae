@@ -1823,33 +1823,33 @@ Changes with respect to genome sequence
 
 ```
 A4
-Complete and single copy genes: -2
+Complete and single copy genes: -3
 Complete and duplicated genes: +1
-Fragmented genes: +3
+Fragmented genes: +4
 Missing genes: -2
 
 Bc16
 Complete and single copy genes: -3
-Complete and duplicated genes: +1
+Complete and duplicated genes: 0
 Fragmented genes: +5
-Missing genes: -3
+Missing genes: -2
 
 Bc1
-Complete and single copy genes: -2
+Complete and single copy genes: -1
 Complete and duplicated genes: +1
-Fragmented genes: +3
+Fragmented genes: +2
 Missing genes: -2
 
 Bc23
-Complete and single copy genes: -1
+Complete and single copy genes: -2
 Complete and duplicated genes: +2
-Fragmented genes: 0
+Fragmented genes: +1
 Missing genes: -1
 
 Nov27
-Complete and single copy genes: +1
+Complete and single copy genes: 0
 Complete and duplicated genes: +1
-Fragmented genes: 0
+Fragmented genes: +1
 Missing genes: -2
 
 Nov5
@@ -1859,34 +1859,34 @@ Fragmented genes: +2
 Missing genes: -2
 
 Nov71
+Complete and single copy genes: -3
+Complete and duplicated genes: +1
+Fragmented genes: +4
+Missing genes: -2
+
+Nov77
+Complete and single copy genes: 0
+Complete and duplicated genes: -1
+Fragmented genes: +3
+Missing genes: -2
+
+Nov9
+Complete and single copy genes: 0
+Complete and duplicated genes: +1
+Fragmented genes: +1
+Missing genes: -2
+
+ONT3
 Complete and single copy genes: -2
 Complete and duplicated genes: +1
 Fragmented genes: +3
 Missing genes: -2
 
-Nov77
-Complete and single copy genes: +2
-Complete and duplicated genes: -1
-Fragmented genes: +3
-Missing genes: -4
-
-Nov9
-Complete and single copy genes: +2
-Complete and duplicated genes: +1
-Fragmented genes: -1
-Missing genes: -2
-
-ONT3
-Complete and single copy genes: -1
-Complete and duplicated genes: +1
-Fragmented genes: +3
-Missing genes: -3
-
 SCRP245_v2
-Complete and single copy genes: +2
+Complete and single copy genes: 0
 Complete and duplicated genes: 0
 Fragmented genes: +1
-Missing genes: -3
+Missing genes: -1
 ```
 
 #Gene prediction 2 - atg.pl prediction of ORFs
