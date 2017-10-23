@@ -1749,7 +1749,7 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
     BuscoDB=Eukaryotic
     OutDir=gene_pred/busco/$Organism/$Strain/
-    qsub $ProgDir/sub_busco2.sh $Transcriptome $BuscoDB $OutDir
+    qsub $ProgDir/sub_busco3.sh $Transcriptome $BuscoDB $OutDir
 done
 ```
 
