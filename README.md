@@ -966,8 +966,9 @@ Gene prediction followed three steps: Pre-gene prediction - Quality of genome as
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
 ```bash
-for num in 1
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
+    Organism=P.fragariae
     if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
@@ -980,8 +981,6 @@ do
         Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
         echo $Assembly
     fi
-    Strain=$(echo $Assembly | rev |cut -d '/' -f3 | rev)
-    echo "$Strain"
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
     BuscoDB=Eukaryotic
     OutDir=assembly/spades/P.fragariae/$Strain/Busco
