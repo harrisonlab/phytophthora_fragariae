@@ -2188,23 +2188,23 @@ do
     Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
     OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain"
     mkdir -p $OutDir
-    printf "\nstrain: $Strain\tspecies: $Organism\n" >> report.txt
-    printf "the total number of SigP gene is:\t" >> report.txt
+    printf "\nstrain: $Strain\tspecies: $Organism\n"
+    printf "the total number of SigP gene is:\t"
     cat $Secretome | grep '>' | wc -l >> report.txt
-    printf "the number of unique SigP gene is:\t" >> report.txt
-    cat $Secretome | grep '>' | cut -f1 | tr -d ' '| sort | uniq | wc -l >> report.txt
-    printf "the number of SigP-RxLR genes are:\t" >> report.txt
+    printf "the number of unique SigP gene is:\t"
+    cat $Secretome | grep '>' | cut -f1 | tr -d ' '| sort | uniq | wc -l
+    printf "the number of SigP-RxLR genes are:\t"
     ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
     $ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_all_secreted_RxLR_regex.fa
     cat $OutDir/"$Strain"_all_secreted_RxLR_regex.fa | grep '>' | cut -f1 | tr -d '>' | tr -d ' ' | sort -g | uniq > $OutDir/"$Strain"_RxLR_regex.txt
-    cat $OutDir/"$Strain"_RxLR_regex.txt | wc -l >> report.txt
+    cat $OutDir/"$Strain"_RxLR_regex.txt | wc -l
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_RxLR_regex.txt > $OutDir/"$Strain"_RxLR_EER_regex.fa
-    printf "the number of SigP-RxLR-EER genes are:\t" >> report.txt
+    printf "the number of SigP-RxLR-EER genes are:\t"
     cat $OutDir/"$Strain"_all_secreted_RxLR_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | tr -d ' ' | sort -g | uniq > $OutDir/"$Strain"_RxLR_EER_regex.txt
-    cat $OutDir/"$Strain"_RxLR_EER_regex.txt | wc -l >> report.txt
+    cat $OutDir/"$Strain"_RxLR_EER_regex.txt | wc -l
     $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/"$Strain"_RxLR_EER_regex.txt > $OutDir/"$Strain"_RxLR_EER_regex.fa
-    printf "\n" >> report.txt
+    printf "\n"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
     sed -i -r 's/\.t.*//' $OutDir/"$Strain"_RxLR_regex.txt
     sed -i -r 's/\.t.*//' $OutDir/"$Strain"_RxLR_EER_regex.txt
