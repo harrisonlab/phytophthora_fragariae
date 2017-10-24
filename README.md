@@ -3203,9 +3203,9 @@ do
     mkdir -p $OutDir
     HmmResults="$Strain"_ORF_RxLR_hmmer_unmerged.txt
     hmmsearch -T 0 $HmmModel $Secretome > $OutDir/$HmmResults
-    echo "$Organism $Strain" >> report.txt
-    cat $OutDir/$HmmResults | grep 'Initial search space' >> report.txt
-    cat $OutDir/$HmmResults | grep 'number of targets reported over threshold' >> report.txt
+    echo "$Organism $Strain"
+    cat $OutDir/$HmmResults | grep 'Initial search space'
+    cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
     HmmFasta="$Strain"_ORF_RxLR_hmmer.fa
     $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Secretome > $OutDir/$HmmFasta
     Headers="$Strain"_ORF_RxLR_hmmer_headers_unmerged.txt
@@ -3223,8 +3223,8 @@ do
     cat $RxLR_Merged_Gff | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
     ORF_fasta=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa)
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
-    printf "Merged RxLR-EER Hmm proteins:\t" >> report.txt
-    cat $RxLR_Merged_AA | grep '>' | wc -l >> report.txt
+    printf "Merged RxLR-EER Hmm proteins:\t"
+    cat $RxLR_Merged_AA | grep '>' | wc -l
     echo "$Strain done"
 done
 ```
