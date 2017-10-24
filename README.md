@@ -2216,10 +2216,10 @@ done
 
 ```
 strain: A4      species: P.fragariae
-the total number of SigP gene is:       10,961
-the number of unique SigP gene is:      3,717
-the number of SigP-RxLR genes are:      384
-the number of SigP-RxLR-EER genes are:  194
+the total number of SigP gene is:       11,042
+the number of unique SigP gene is:      3,751
+the number of SigP-RxLR genes are:      379
+the number of SigP-RxLR-EER genes are:  189
 
 
 strain: Bc16    species: P.fragariae
@@ -2230,9 +2230,9 @@ the number of SigP-RxLR-EER genes are:  207
 
 
 strain: Bc1     species: P.fragariae
-the total number of SigP gene is:       11,035
-the number of unique SigP gene is:      3,732
-the number of SigP-RxLR genes are:      384
+the total number of SigP gene is:       11,152
+the number of unique SigP gene is:      3,765
+the number of SigP-RxLR genes are:      382
 the number of SigP-RxLR-EER genes are:  192
 
 
@@ -2251,17 +2251,17 @@ the number of SigP-RxLR-EER genes are:  187
 
 
 strain: Nov5    species: P.fragariae
-the total number of SigP gene is:       11,065
-the number of unique SigP gene is:      3,743
-the number of SigP-RxLR genes are:      378
-the number of SigP-RxLR-EER genes are:  192
+the total number of SigP gene is:       11,110
+the number of unique SigP gene is:      3,762
+the number of SigP-RxLR genes are:      388
+the number of SigP-RxLR-EER genes are:  194
 
 
 strain: Nov71   species: P.fragariae
-the total number of SigP gene is:       11,108
-the number of unique SigP gene is:      3,732
-the number of SigP-RxLR genes are:      381
-the number of SigP-RxLR-EER genes are:  187
+the total number of SigP gene is:       11,135
+the number of unique SigP gene is:      3,763
+the number of SigP-RxLR genes are:      389
+the number of SigP-RxLR-EER genes are:  190
 
 
 strain: Nov77   species: P.fragariae
@@ -2272,9 +2272,9 @@ the number of SigP-RxLR-EER genes are:  170
 
 
 strain: Nov9    species: P.fragariae
-the total number of SigP gene is:       11,138
-the number of unique SigP gene is:      3,751
-the number of SigP-RxLR genes are:      378
+the total number of SigP gene is:       11,302
+the number of unique SigP gene is:      3,809
+the number of SigP-RxLR genes are:      375
 the number of SigP-RxLR-EER genes are:  191
 
 
@@ -2286,9 +2286,9 @@ the number of SigP-RxLR-EER genes are:  191
 
 
 strain: SCRP245_v2      species: P.fragariae
-the total number of SigP gene is:       12,058
-the number of unique SigP gene is:      4,110
-the number of SigP-RxLR genes are:      391
+the total number of SigP gene is:       11,935
+the number of unique SigP gene is:      4,078
+the number of SigP-RxLR genes are:      383
 the number of SigP-RxLR-EER genes are:  189
 ```
 
@@ -2322,13 +2322,13 @@ done
 
 ```
 P.fragariae A4
-Initial search space (Z):             33,381  [actual number of targets]
-Domain search space  (domZ):             194  [number of targets reported over threshold]
+Initial search space (Z):             33,586  [actual number of targets]
+Domain search space  (domZ):             186  [number of targets reported over threshold]
 P.fragariae Bc16
 Initial search space (Z):             36,598  [actual number of targets]
 Domain search space  (domZ):             217  [number of targets reported over threshold]
 P.fragariae Bc1
-Initial search space (Z):             33,144 [actual number of targets]
+Initial search space (Z):             33,063  [actual number of targets]
 Domain search space  (domZ):             190  [number of targets reported over threshold]
 P.fragariae Bc23
 Initial search space (Z):             33,039  [actual number of targets]
@@ -2337,23 +2337,23 @@ P.fragariae Nov27
 Initial search space (Z):             33,171  [actual number of targets]
 Domain search space  (domZ):             189  [number of targets reported over threshold]
 P.fragariae Nov5
-Initial search space (Z):             33,566  [actual number of targets]
+Initial search space (Z):             33,278  [actual number of targets]
 Domain search space  (domZ):             193  [number of targets reported over threshold]
 P.fragariae Nov71
-Initial search space (Z):             32,660  [actual number of targets]
-Domain search space  (domZ):             193  [number of targets reported over threshold]
+Initial search space (Z):             32,775  [actual number of targets]
+Domain search space  (domZ):             190  [number of targets reported over threshold]
 P.fragariae Nov77
 Initial search space (Z):             33,068  [actual number of targets]
 Domain search space  (domZ):             180  [number of targets reported over threshold]
 P.fragariae Nov9
-Initial search space (Z):             32,670  [actual number of targets]
-Domain search space  (domZ):             194  [number of targets reported over threshold]
+Initial search space (Z):             32,815  [actual number of targets]
+Domain search space  (domZ):             193  [number of targets reported over threshold]
 P.fragariae ONT3
 Initial search space (Z):             36,913  [actual number of targets]
 Domain search space  (domZ):             189  [number of targets reported over threshold]
 P.fragariae SCRP245_v2
-Initial search space (Z):             36,759  [actual number of targets]
-Domain search space  (domZ):             194  [number of targets reported over threshold]
+Initial search space (Z):             36,817  [actual number of targets]
+Domain search space  (domZ):             193  [number of targets reported over threshold]
 ```
 
 ####G) Combining RxLRs from Regex and hmm searches
@@ -2663,12 +2663,12 @@ done
 
 ```
 P.fragariae - A4
-Initial search space (Z):             33,381  [actual number of targets]
-Domain search space  (domZ):             144  [number of targets reported over threshold]
-Initial search space (Z):             33,381  [actual number of targets]
+Initial search space (Z):             33,586  [actual number of targets]
+Domain search space  (domZ):             141  [number of targets reported over threshold]
+Initial search space (Z):             33,586  [actual number of targets]
 Domain search space  (domZ):             117  [number of targets reported over threshold]
 Total number of CRNs from both models
-105
+106
 P.fragariae - Bc16
 Initial search space (Z):             36,598  [actual number of targets]
 Domain search space  (domZ):             151  [number of targets reported over threshold]
@@ -2677,10 +2677,10 @@ Domain search space  (domZ):             132  [number of targets reported over t
 Total number of CRNs from both models
 122
 P.fragariae - Bc1
-Initial search space (Z):             33,144  [actual number of targets]
-Domain search space  (domZ):             141  [number of targets reported over threshold]
-Initial search space (Z):             33,144  [actual number of targets]
-Domain search space  (domZ):             118  [number of targets reported over threshold]
+Initial search space (Z):             33,063  [actual number of targets]
+Domain search space  (domZ):             142  [number of targets reported over threshold]
+Initial search space (Z):             33,063  [actual number of targets]
+Domain search space  (domZ):             117  [number of targets reported over threshold]
 Total number of CRNs from both models
 108
 P.fragariae - Bc23
@@ -2698,19 +2698,19 @@ Domain search space  (domZ):             121  [number of targets reported over t
 Total number of CRNs from both models
 110
 P.fragariae - Nov5
-Initial search space (Z):             33,566  [actual number of targets]
-Domain search space  (domZ):             139  [number of targets reported over threshold]
-Initial search space (Z):             33,566  [actual number of targets]
-Domain search space  (domZ):             117  [number of targets reported over threshold]
+Initial search space (Z):             33,278  [actual number of targets]
+Domain search space  (domZ):             143  [number of targets reported over threshold]
+Initial search space (Z):             33,278  [actual number of targets]
+Domain search space  (domZ):             118  [number of targets reported over threshold]
 Total number of CRNs from both models
-107
+108
 P.fragariae - Nov71
-Initial search space (Z):             32,660  [actual number of targets]
-Domain search space  (domZ):             137  [number of targets reported over threshold]
-Initial search space (Z):             33,660  [actual number of targets]
-Domain search space  (domZ):             117  [number of targets reported over threshold]
+Initial search space (Z):             32,775  [actual number of targets]
+Domain search space  (domZ):             141  [number of targets reported over threshold]
+Initial search space (Z):             32,775  [actual number of targets]
+Domain search space  (domZ):             118  [number of targets reported over threshold]
 Total number of CRNs from both models
-103
+105
 P.fragariae - Nov77
 Initial search space (Z):             33,068  [actual number of targets]
 Domain search space  (domZ):             134  [number of targets reported over threshold]
@@ -2719,12 +2719,12 @@ Domain search space  (domZ):             119  [number of targets reported over t
 Total number of CRNs from both models
 105
 P.fragariae - Nov9
-Initial search space (Z):             32,670  [actual number of targets]
-Domain search space  (domZ):             144  [number of targets reported over threshold]
-Initial search space (Z):             32,670  [actual number of targets]
-Domain search space  (domZ):             120  [number of targets reported over threshold]
+Initial search space (Z):             32,815  [actual number of targets]
+Domain search space  (domZ):             145  [number of targets reported over threshold]
+Initial search space (Z):             32,815  [actual number of targets]
+Domain search space  (domZ):             118  [number of targets reported over threshold]
 Total number of CRNs from both models
-109
+108
 P.fragariae - ONT3
 Initial search space (Z):             36,913  [actual number of targets]
 Domain search space  (domZ):             138  [number of targets reported over threshold]
@@ -2733,12 +2733,12 @@ Domain search space  (domZ):             117  [number of targets reported over t
 Total number of CRNs from both models
 103
 P.fragariae - SCRP245_v2
-Initial search space (Z):             36,759  [actual number of targets]
-Domain search space  (domZ):             138  [number of targets reported over threshold]
-Initial search space (Z):             36,759  [actual number of targets]
+Initial search space (Z):             36,817  [actual number of targets]
+Domain search space  (domZ):             142  [number of targets reported over threshold]
+Initial search space (Z):             36,817  [actual number of targets]
 Domain search space  (domZ):             119  [number of targets reported over threshold]
 Total number of CRNs from both models
-107
+109
 ```
 
 Extract gff annotations for Crinklers:
@@ -2750,7 +2750,7 @@ do
     Organism=$(echo $CRNlist | rev | cut -f3 -d '/' | rev)
     OutName=$(echo $CRNlist | sed 's/.txt/.gff/g')
     echo "$Organism - $Strain"
-    Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
+    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
     cat $CRNlist | sed -r 's/\.t.$//g' > tmp.txt
     cat $Gff | grep -w -f tmp.txt > $OutName
     rm tmp.txt
