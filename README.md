@@ -2313,7 +2313,7 @@ do
         $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Proteome > $OutDir/$HmmFasta
         Headers="$Strain"_RxLR_hmmer_headers.txt
         cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
-        Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
+        Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
         cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_Aug_RxLR_regex.gff3
         echo "$Strain complete"
     done
