@@ -2190,7 +2190,7 @@ do
     mkdir -p $OutDir
     printf "\nstrain: $Strain\tspecies: $Organism\n"
     printf "the total number of SigP gene is:\t"
-    cat $Secretome | grep '>' | wc -l >> report.txt
+    cat $Secretome | grep '>' | wc -l
     printf "the number of unique SigP gene is:\t"
     cat $Secretome | grep '>' | cut -f1 | tr -d ' '| sort | uniq | wc -l
     printf "the number of SigP-RxLR genes are:\t"
