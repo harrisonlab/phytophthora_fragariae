@@ -2773,7 +2773,7 @@ Proteins that were predicted to contain signal peptides were identified using th
 for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa)
 do
     SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
-    ProgDir=/home/armita/git_repos/emr_repos/tools/seq_tools/feature_annotation/signal_peptides
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     SplitDir=gene_pred/ORF_split/$Organism/$Strain
