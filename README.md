@@ -3140,9 +3140,9 @@ do
     mkdir -p $OutDir
     HmmResults="$Strain"_ORF_WY_hmmer.txt
     hmmsearch -T 0 $HmmModel $Secretome > $OutDir/$HmmResults
-    echo "$Organism $Strain" >> report.txt
-    cat $OutDir/$HmmResults | grep 'Initial search space' >> report.txt
-    cat $OutDir/$HmmResults | grep 'number of targets reported over threshold' >> report.txt
+    echo "$Organism $Strain"
+    cat $OutDir/$HmmResults | grep 'Initial search space'
+    cat $OutDir/$HmmResults | grep 'number of targets reported over threshold'
     HmmFasta="$Strain"_ORF_WY_hmmer.fa
     $ProgDir/hmmer2fasta.pl $OutDir/$HmmResults $Secretome > $OutDir/$HmmFasta
     Headers="$Strain"_ORF_WY_hmmer_headers.txt
