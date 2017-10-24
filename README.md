@@ -2525,13 +2525,13 @@ Number of genes in the extracted gff file:
 Without EER:
 P.fragariae - A4
 Number of RxLRs identified by Regex:
-382
+379
 Number of RxLRs identified by Hmm:
-193
+186
 Number of RxLRs in combined dataset:
-416
+409
 Number of genes in the extracted gff file:
-416
+409
 P.fragariae - Bc16
 Number of RxLRs identified by Regex:
 447
@@ -2543,13 +2543,13 @@ Number of genes in the extracted gff file:
 489
 P.fragariae - Bc1
 Number of RxLRs identified by Regex:
-380
+378
 Number of RxLRs identified by Hmm:
 188
 Number of RxLRs in combined dataset:
-410
+409
 Number of genes in the extracted gff file:
-410
+409
 P.fragariae - Bc23
 Number of RxLRs identified by Regex:
 372
@@ -2570,11 +2570,11 @@ Number of genes in the extracted gff file:
 408
 P.fragariae - Nov5
 Number of RxLRs identified by Regex:
-377
+387
 Number of RxLRs identified by Hmm:
 193
 Number of RxLRs in combined dataset:
-411
+419
 Number of genes in the extracted gff file:
 411
 P.fragariae - Nov71
