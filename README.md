@@ -2120,14 +2120,14 @@ done
 ```
 P.fragariae - A4
 The following number of sequences were predicted as secreted:
-10,961
+11,042
 This represented the following number of unique genes:
-3,717
+3,751
 P.fragariae - Bc1
 The following number of sequences were predicted as secreted:
-11,035
+11,152
 This represented the following number of unique genes:
-3,732
+3,765
 P.fragariae - Bc16
 The following number of sequences were predicted as secreted:
 12,785
@@ -2145,14 +2145,14 @@ This represented the following number of unique genes:
 3,772
 P.fragariae - Nov5
 The following number of sequences were predicted as secreted:
-11,065
+11,110
 This represented the following number of unique genes:
-3,743
+3,762
 P.fragariae - Nov71
 The following number of sequences were predicted as secreted:
-11,108
+11,135
 This represented the following number of unique genes:
-3,732
+3,763
 P.fragariae - Nov77
 The following number of sequences were predicted as secreted:
 11,085
@@ -2160,9 +2160,9 @@ This represented the following number of unique genes:
 3,750
 P.fragariae - Nov9
 The following number of sequences were predicted as secreted:
-11,138
+11,302
 This represented the following number of unique genes:
-3,751
+3,809
 P.fragariae - ONT3
 The following number of sequences were predicted as secreted:
 12,473
@@ -2170,9 +2170,9 @@ This represented the following number of unique genes:
 4,297
 P.fragariae - SCRP245_v2
 The following number of sequences were predicted as secreted:
-12,058
+11,935
 This represented the following number of unique genes:
-4,110
+4,078
 ```
 
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
