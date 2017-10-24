@@ -2992,16 +2992,16 @@ do
     Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev)
     OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain"
     mkdir -p $OutDir
-    printf "\nstrain: $Strain\tspecies: $Organism\n" >> report.txt
-    printf "the number of SigP gene is:\t" >> report.txt
-    cat $Secretome | grep '>' | wc -l >> report.txt
-    printf "the number of SigP-RxLR genes are:\t" >> report.txt
+    printf "\nstrain: $Strain\tspecies: $Organism\n"
+    printf "the number of SigP gene is:\t"
+    cat $Secretome | grep '>' | wc -l
+    printf "the number of SigP-RxLR genes are:\t"
     $ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.fa
     cat $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.fa | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' > $OutDir/"$Strain"_ORF_RxLR_regex_unmerged.txt
-    cat $OutDir/"$Strain"_ORF_RxLR_regex_unmerged.txt | tr -d ' ' | sort | uniq | wc -l >> report.txt
-    printf "the number of SigP-RxLR-EER genes are:\t" >> report.txt
+    cat $OutDir/"$Strain"_ORF_RxLR_regex_unmerged.txt | tr -d ' ' | sort | uniq | wc -l
+    printf "the number of SigP-RxLR-EER genes are:\t"
     cat $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' '> $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.txt
-    cat $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.txt | tr -d ' ' | sort | uniq | wc -l >> report.txt
+    cat $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.txt | tr -d ' ' | sort | uniq | wc -l
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
     SigP_Gff=gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_unmerged.gff
     ORF_fasta=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa)
@@ -3016,8 +3016,8 @@ do
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR.db --id sigP_ORF_RxLR --out sigP_ORF_RxLR_merged.db --gff > $RxLR_Merged_Gff
     cat $RxLR_Merged_Gff | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
-    printf "Merged RxLR regex proteins:\t" >> report.txt
-    cat $RxLR_Merged_AA | grep '>' | wc -l >> report.txt
+    printf "Merged RxLR regex proteins:\t"
+    cat $RxLR_Merged_AA | grep '>' | wc -l
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
     $ProgDir/gene_list_to_gff.pl $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.txt  $SigP_Gff   RxLR_regex_finder.py Name Augustus > $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.gff
     RxLR_Merged_Gff=$OutDir/"$Strain"_ORF_RxLR_EER_regex_merged.gff
@@ -3029,9 +3029,9 @@ do
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR.db --id sigP_ORF_RxLR --out sigP_ORF_RxLR_merged.db --gff > $RxLR_Merged_Gff
     cat $RxLR_Merged_Gff | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
-    printf "Merged RxLR-EER regex proteins:\t" >> report.txt
-    cat $RxLR_Merged_AA | grep '>' | wc -l >> report.txt
-    printf "\n" >> report.txt
+    printf "Merged RxLR-EER regex proteins:\t"
+    cat $RxLR_Merged_AA | grep '>' | wc -l
+    printf "\n"
     echo "$Strain done"
 done
 ```
