@@ -2361,21 +2361,21 @@ Domain search space  (domZ):             193  [number of targets reported over t
 The total RxLRs are found by combining different sources:
 
 ```bash
-echo "Without EER" >> report.txt
+echo "Without EER"
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_regex.txt)
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
     Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
-    Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
-    Proteome=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_combined.pep.fasta)
+    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
+    Proteome=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_combined.pep.fasta)
     HmmRxLR=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer_headers.txt
-    echo "$Organism - $Strain" >> report.txt
-    echo "Number of RxLRs identified by Regex:" >> report.txt
-    cat $RegexRxLR | sort | uniq | wc -l >> report.txt
-    echo "Number of RxLRs identified by Hmm:" >> report.txt
-    cat $HmmRxLR | sort | uniq | wc -l >> report.txt
-    echo "Number of RxLRs in combined dataset:" >> report.txt
-    cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l >> report.txt
+    echo "$Organism - $Strain"
+    echo "Number of RxLRs identified by Regex:"
+    cat $RegexRxLR | sort | uniq | wc -l
+    echo "Number of RxLRs identified by Hmm:"
+    cat $HmmRxLR | sort | uniq | wc -l
+    echo "Number of RxLRs in combined dataset:"
+    cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l
     # echo "Number of RxLRs in both datasets:"
     # cat $RegexRxLR $HmmRxLR | sort | uniq -d | wc -l
     echo ""
@@ -2383,28 +2383,28 @@ do
     OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
     mkdir -p $OutDir
     cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_RxLR_headers.txt
-    Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
+    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
     cat $Gff | grep -w -f $OutDir/"$Strain"_total_RxLR_headers.txt > $OutDir/"$Strain"_total_RxLR.gff
-    echo "Number of genes in the extracted gff file:" >> report.txt
-    cat $OutDir/"$Strain"_total_RxLR.gff | grep -w 'gene' | wc -l >> report.txt
+    echo "Number of genes in the extracted gff file:"
+    cat $OutDir/"$Strain"_total_RxLR.gff | grep -w 'gene' | wc -l
     echo "$Strain complete without EER"
 done
 
-echo "With EER" >> report.txt
+echo "With EER"
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_RxLR_EER_regex.txt)
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
     Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
-    Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
-    Proteome=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_combined.pep.fasta)
+    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
+    Proteome=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_combined.pep.fasta)
     HmmRxLR=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer_headers.txt
-    echo "$Organism - $Strain" >> report.txt
-    echo "Number of RxLRs identified by Regex:" >> report.txt
-    cat $RegexRxLR | sort | uniq | wc -l >> report.txt
-    echo "Number of RxLRs identified by Hmm:" >> report.txt
-    cat $HmmRxLR | sort | uniq | wc -l >> report.txt
-    echo "Number of RxLRs in combined dataset:" >> report.txt
-    cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l >> report.txt
+    echo "$Organism - $Strain"
+    echo "Number of RxLRs identified by Regex:"
+    cat $RegexRxLR | sort | uniq | wc -l
+    echo "Number of RxLRs identified by Hmm:"
+    cat $HmmRxLR | sort | uniq | wc -l
+    echo "Number of RxLRs in combined dataset:"
+    cat $RegexRxLR $HmmRxLR | sort | uniq | wc -l
     # echo "Number of RxLRs in both datasets:"
     # cat $RegexRxLR $HmmRxLR | sort | uniq -d | wc -l
     echo ""
@@ -2412,10 +2412,10 @@ do
     OutDir=analysis/RxLR_effectors/combined_evidence/$Organism/$Strain
     mkdir -p $OutDir
     cat $RegexRxLR $HmmRxLR | sort | uniq > $OutDir/"$Strain"_total_RxLR_EER_headers.txt
-    Gff=$(ls gene_pred/codingquarry/$Organism/$Strain/final/final_genes_appended.gff3)
+    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
     cat $Gff | grep -w -f $OutDir/"$Strain"_total_RxLR_EER_headers.txt > $OutDir/"$Strain"_total_RxLR_EER.gff
-    echo "Number of genes in the extracted gff file:" >> report.txt
-    cat $OutDir/"$Strain"_total_RxLR_EER.gff | grep -w 'gene' | wc -l >> report.txt
+    echo "Number of genes in the extracted gff file:"
+    cat $OutDir/"$Strain"_total_RxLR_EER.gff | grep -w 'gene' | wc -l
     echo "$Strain complete with EER"
 done
 ```
