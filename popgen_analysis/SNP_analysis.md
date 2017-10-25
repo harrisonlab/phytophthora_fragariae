@@ -85,7 +85,7 @@ Bc16v1.0.genome: BC-16
 
 ```bash
 mkdir $snpeff/data/Bc16v1.0
-cp repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa $snpeff/data/Bc16v1.0
+cp repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa $snpeff/data/Bc16v1.0
 cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3 $snpeff/data/Bc16v1.0
 ```
 
@@ -93,8 +93,8 @@ cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3 $snpe
 
 ```bash
 cd $snpeff/data/Bc16v1.0
-mv final_genes_appended.gff3 genes.gff
-mv 95m_contigs_unmasked.fa sequences.fa
+mv Bc16_genes_incl_ORFeffectors.gff3 genes.gff
+mv polished_contigs_unmasked.fa sequences.fa
 ```
 
 #Build database using GFF3 annotation
