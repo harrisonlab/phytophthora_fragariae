@@ -4142,7 +4142,7 @@ do
     Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
     Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
     AugGff=$(ls $MergeDir/"$Strain"_pub_CRN_LFLAK_DWL.gff)
-    AugFa=$(ls gene_pred/codingquarry/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
+    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
     ORFsFa=$(ls gene_pred/ORF_finder/"$Species"/"$Strain"/"$Strain".aa_cat.fa)
     ORFGff=$MergeDir/"$Strain"_CRN_merged_hmmer.gff3
     ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_CRN_hmmer.bed
@@ -4156,18 +4156,18 @@ do
     bedtools intersect -wa -u -a $AugGff -b $ORFGff > $AugInORFs
     bedtools intersect -v -wa -a $ORFGff -b $AugGff > $ORFsUniq
     bedtools intersect -v -wa -a $AugGff -b $ORFGff > $AugUniq
-    echo "$Species - $Strain" >> report.txt
+    echo "$Species - $Strain"
 
-    echo "The number of ORF CRNs overlapping Augustus CRNs:" >> report.txt
-    cat $ORFsInAug | grep -w -e 'transcript' -e 'mRNA' | wc -l >> report.txt
-    echo "The number of Augustus CRNs overlapping ORF CRNs:" >> report.txt
-    cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA' | wc -l >> report.txt
+    echo "The number of ORF CRNs overlapping Augustus CRNs:"
+    cat $ORFsInAug | grep -w -e 'transcript' -e 'mRNA' | wc -l
+    echo "The number of Augustus CRNs overlapping ORF CRNs:"
+    cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA' | wc -l
     cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' > $TotalCRNsTxt
-    echo "The number of CRNs unique to ORF models:" >> report.txt
-    cat $ORFsUniq | grep -w 'transcript'| grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f4 -d ';' | cut -f2 -d '=' | wc -l >> report.txt
+    echo "The number of CRNs unique to ORF models:"
+    cat $ORFsUniq | grep -w 'transcript'| grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f4 -d ';' | cut -f2 -d '=' | wc -l
     cat $ORFsUniq | grep -w 'transcript'| grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f4 -d ';' | cut -f2 -d '=' >> $TotalCRNsTxt
-    echo "The number of CRNs unique to Augustus models:" >> report.txt
-    cat $AugUniq | grep -w -e 'transcript' -e 'mRNA' | wc -l >> report.txt
+    echo "The number of CRNs unique to Augustus models:"
+    cat $AugUniq | grep -w -e 'transcript' -e 'mRNA' | wc -l
     cat $AugUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' >> $TotalCRNsTxt
 
     cat $AugInORFs $AugUniq $ORFsUniq | grep -w -f $TotalCRNsTxt > $TotalCRNsGff
@@ -4176,8 +4176,8 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $AugFa --headers $TotalCRNsTxt > $CRNsFa
     $ProgDir/extract_from_fasta.py --fasta $ORFsFa --headers $TotalCRNsTxt >> $CRNsFa
-    echo "The number of sequences extracted is" >> report.txt
-    cat $CRNsFa | grep '>' | wc -l >> report.txt
+    echo "The number of sequences extracted is"
+    cat $CRNsFa | grep '>' | wc -l
     echo "$Strain done"
 done
 ```
