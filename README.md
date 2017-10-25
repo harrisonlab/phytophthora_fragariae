@@ -3977,25 +3977,25 @@ do
     LFLAK_hmm=$HmmDir/Pinf_Pram_Psoj_Pcap_LFLAK.hmm
     HmmResultsLFLAK="$Strain"_ORF_CRN_LFLAK_unmerged_hmmer.txt
     hmmsearch -T 0 $LFLAK_hmm $Proteome > $OutDir/$HmmResultsLFLAK
-    echo "Searching for LFLAK domains in: $Organism $Strain" >> report.txt
-    cat $OutDir/$HmmResultsLFLAK | grep 'Initial search space' >> report.txt
-    cat $OutDir/$HmmResultsLFLAK | grep 'number of targets reported over threshold' >> report.txt
+    echo "Searching for LFLAK domains in: $Organism $Strain"
+    cat $OutDir/$HmmResultsLFLAK | grep 'Initial search space'
+    cat $OutDir/$HmmResultsLFLAK | grep 'number of targets reported over threshold'
     HmmFastaLFLAK="$Strain"_ORF_CRN_LFLAK_unmerged_hmmer.fa
     $ProgDir/hmmer2fasta.pl $OutDir/$HmmResultsLFLAK $Proteome > $OutDir/$HmmFastaLFLAK
     # Searches for DWL domain
     DWL_hmm=$HmmDir/Pinf_Pram_Psoj_Pcap_DWL.hmm
     HmmResultsDWL="$Strain"_ORF_CRN_DWL_unmerged_hmmer.txt
     hmmsearch -T 0 $DWL_hmm $Proteome > $OutDir/$HmmResultsDWL
-    echo "Searching for DWL domains in: $Organism $Strain" >> report.txt
-    cat $OutDir/$HmmResultsDWL | grep 'Initial search space' >> report.txt
-    cat $OutDir/$HmmResultsDWL | grep 'number of targets reported over threshold' >> report.txt
+    echo "Searching for DWL domains in: $Organism $Strain"
+    cat $OutDir/$HmmResultsDWL | grep 'Initial search space'
+    cat $OutDir/$HmmResultsDWL | grep 'number of targets reported over threshold'
     HmmFastaDWL="$Strain"_ORF_CRN_DWL_unmerged_hmmer.fa
     $ProgDir/hmmer2fasta.pl $OutDir/$HmmResultsDWL $Proteome > $OutDir/$HmmFastaDWL
     # Identify ORFs found by both models
     CommonHeaders=$OutDir/"$Strain"_ORF_CRN_DWL_LFLAK_unmerged_headers.txt
     cat $OutDir/$HmmFastaLFLAK $OutDir/$HmmFastaDWL | grep '>' | cut -f1 | tr -d '>' | sort | uniq -d > $CommonHeaders
-    echo "The number of CRNs common to both models are:" >> report.txt
-    cat $CommonHeaders | wc -l >> report.txt
+    echo "The number of CRNs common to both models are:"
+    cat $CommonHeaders | wc -l
     # The sequences will be merged based upon the strength of their DWL domain score
     # For this reason headers as they appear in the DWL fasta file were extracted
     Headers=$OutDir/"$Strain"_CRN_hmmer_unmerged_headers.txt
@@ -4015,8 +4015,8 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp $DbDir/CRN_ORF.db --id LFLAK_DWL_CRN --out $DbDir/CRN_ORF_merged.db --gff > $CRN_Merged_Gff
     # Final results are reported:
-    echo "Number of CRN ORFs after merging:" >> report.txt
-    cat $CRN_Merged_Gff | grep 'gene' | wc -l >> report.txt
+    echo "Number of CRN ORFs after merging:"
+    cat $CRN_Merged_Gff | grep 'gene' | wc -l
     echo "$Strain done"
 done
 ```
