@@ -4316,11 +4316,11 @@ do
     echo $Strain
     GffOrfRxLR=$(ls analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_ORFsUniq_RxLR_motif_hmm.gff)
     GffOrfCRN=$(ls analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_ORFsUniq_CRN_hmmer.bed)
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
-    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
@@ -4359,11 +4359,11 @@ do
     echo $Strain
     GffOrfRxLR=$(ls analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_ORFsUniq_RxLR_EER_motif_hmm.gff)
     GffOrfCRN=$(ls analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_ORFsUniq_CRN_hmmer.bed)
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
-    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
