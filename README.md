@@ -4310,7 +4310,7 @@ The number of sequences extracted is
 
 ```bash
 #Without EER discrimination
-for GeneGff in $(ls gene_pred/codingquarry/*/*/final/final_genes_appended.gff3)
+for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended.gff3)
 do
     Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
     echo $Strain
@@ -4342,7 +4342,7 @@ do
 done
 
 #With EER discrimination
-for GeneGff in $(ls gene_pred/codingquarry/*/*/final/final_genes_appended.gff3)
+for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended.gff3)
 do
     Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
     echo $Strain
