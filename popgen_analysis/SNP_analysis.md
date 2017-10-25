@@ -86,7 +86,7 @@ Bc16v1.0.genome: BC-16
 ```bash
 mkdir $snpeff/data/Bc16v1.0
 cp repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa $snpeff/data/Bc16v1.0
-cp gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_appended.gff3 $snpeff/data/Bc16v1.0
+cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3 $snpeff/data/Bc16v1.0
 ```
 
 #Rename input files
