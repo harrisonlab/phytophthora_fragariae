@@ -26,13 +26,13 @@ Annotation with ancestral alleles can be used just to polarise the mutation stat
 
 ```bash
 #_P. fragariae_
-Pf=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_hardmasked.fa
+Pf=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_hardmasked.fa
 #_P. rubi_ SCRP249
-Pra=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP249/filtered_contigs_repmask/SCRP249_contigs_hardmasked.fa
+Pra=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP249/deconseq_Paen_repmask/SCRP249_contigs_hardmasked.fa
 #_P. rubi_ SCRP324
-Prb=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP324/filtered_contigs_repmask/SCRP324_contigs_hardmasked.fa
+Prb=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP324/ncbi_edits_repmask/SCRP324_contigs_hardmasked.fa
 #_P. rubi_ SCRP333
-Prc=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/spades/P.rubi/SCRP333/filtered_contigs_repmask/SCRP333_contigs_hardmasked.fa
+Prc=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP333/deconseq_Paen_repmask/SCRP333_contigs_hardmasked.fa
 ```
 
 ###1
