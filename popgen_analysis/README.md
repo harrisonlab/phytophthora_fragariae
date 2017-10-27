@@ -8,3 +8,4 @@ Maria has put together a series of tools for population genetics analyses. This 
 3. sub_SNP_calling_multithreaded.md - Script that is qsubbed for core SNP calling
 4. SNP_analysis.md - Inital sets of analysis on resulting .vcf file
 5. structural_variants.md - Uses bwa-mem and lumpy to ID and assess structural variants between isolates
+6. polarising_SNPs.md - Incorrectly named file that identifies private SNPs. UK*_polarisation.py is a set of redundant scripts used in this document that is no longer relevant
