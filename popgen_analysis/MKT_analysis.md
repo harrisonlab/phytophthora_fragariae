@@ -12,11 +12,11 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 ```
 Establish ancestral allele using genotype(s) from select outgroup species
 1)
-P. rubi - used as outgroup (incorrectly, as derived from P. fragariae) in order to test the ancestral allele anonotation procedure using VCF polymorphism data stemming from alignment of genome outgroup reads to the focal species genome.
+*P. rubi* - used as outgroup (incorrectly, as derived from *P. fragariae*) in order to test the ancestral allele annotation procedure using VCF polymorphism data stemming from alignment of genome outgroup reads to the focal species genome.
 2)
-Outgroups: P. sojae, P. ramorum (P. ramorum is quite distantly related to the other two species) in order to test the ancestral allele anonotation procedure using Mauve-based whole-genome alignment.
+Outgroups: *P. sojae*, *P. ramorum* (*P. ramorum* is quite distantly related to the other two species) in order to test the ancestral allele annotation procedure using Mauve-based whole-genome alignment.
 3)
-Lastly, the results of ancenstral allele annotation using VCF-based annotation (#1) will be compared to the whole genome alignment annotation (#2).
+Lastly, the results of ancestral allele annotation using VCF-based annotation (#1) will be compared to the whole genome alignment annotation (#2).
 
 Choice of the analysis to follow: 1, 2, 3 depends on the available resources and researcher preferences.
 Annotation with ancestral alleles can be used just to polarise the mutation status of SNPs of interest or can be used in the formal tests for selection (e.g. McDonald-Kreitman Test and Fay & Wu's H described below)
