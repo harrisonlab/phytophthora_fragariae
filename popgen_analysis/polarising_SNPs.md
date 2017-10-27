@@ -1,6 +1,8 @@
-#SNPs will be polarised to identify those ancestral in UK2 & P. rubi, but differs in UK1 and UK3
+#Analysis of private SNPs
 
-##First, filter vcf to remove SCRP245, ONT-3, NOV-77 & BC-23
+Commented commands were my attempt, after discussions with Maria she found several faults and suggested I use her script instead. This begins after commented out commands, which are kept for reference.
+
+<!-- ##First, filter vcf to remove SCRP245, ONT-3, NOV-77 & BC-23
 
 Set key variables
 
@@ -70,7 +72,7 @@ UK2:
 None are in genes
 UK3:
 None found
-```
+``` -->
 
 #Maria has a (probably better) script to look at this.
 
