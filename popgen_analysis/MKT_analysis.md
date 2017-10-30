@@ -1,6 +1,6 @@
 #Runs analysis of *P. fragariae* and *P. rubi* genomes in preparation for McDonald-Kreitman test. Fay & Wu's H is not necessary right now.
 
-#Set inital variables
+#Set initial variables
 
 ```bash
 scripts=/home/adamst/git_repos/scripts/popgen/summary_stats
