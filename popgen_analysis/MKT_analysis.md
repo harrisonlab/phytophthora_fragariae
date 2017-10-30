@@ -78,7 +78,7 @@ $input/summary_stats/polished_contigs_unmasked_filtered.vcf 2 Y
 
 ```bash
 python $scripts/annotate_gen_aa.py $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
-$input/summary_stats/95m_contigs_unmasked_filtered.vcf 2 N
+$input/summary_stats/polished_contigs_unmasked_filtered.vcf 2 N
 ```
 
 ###3
