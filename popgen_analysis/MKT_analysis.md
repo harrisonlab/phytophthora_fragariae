@@ -152,9 +152,8 @@ cd $input/faywuh
 ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_hardmasked.fa
 vcf_file=$input/SNP_calling/polished_contigs_unmasked_filtered_gen_aa.vcf
 python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
-```
-
 ##Prepare Popgenome input
 Popgenome
 #Requires custom adjustment of the R script called below to include the samples being analysed.
 qsub $scripts/sub_calculate_faywu.sh
+```
