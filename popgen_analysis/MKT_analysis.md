@@ -51,8 +51,8 @@ cp $Pf ./
 cp $Pra ./
 cp $Prb ./
 cp $Prc ./
-qsub $scripts/run_progressive_mauve.sh $input/progressiveMauve "95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
-rm 95m_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa
+qsub $scripts/run_progressive_mauve.sh $input/progressiveMauve "polished_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
+rm polished_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa
 ```
 
 #####Parse Mauve output
