@@ -86,8 +86,8 @@ $input/summary_stats/polished_contigs_unmasked_filtered.vcf 2 N
 ####Compare the results of ancestral allele annotation obtained using VCF and genome alignment and print both AA field and fake genotype with the ancestral allele:
 
 ```bash
-python $scripts/compare_outgroup_results.py $input/summary_stats/95m_contigs_unmasked_filtered_gen_aa.vcf \
-$input/summary_stats/95m_contigs_unmasked_filtered_gen_aa.vcf 2 N
+python $scripts/compare_outgroup_results.py $input/summary_stats/polished_contigs_unmasked_filtered_gen_aa.vcf \
+$input/summary_stats/polished_contigs_unmasked_filtered_gen_aa.vcf 2 N
 ```
 
 #B)
