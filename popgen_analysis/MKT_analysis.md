@@ -145,11 +145,15 @@ qsub $scripts/sub_calculate_mkt.sh
 ################ Outgroup-based tests for selection
 ##Fay & Wu's H (at least one outgroup genotype needed) calculated by PopGenome
 ##As an example, generate FASTA input using VCF created in A) 2
+
+```bash
 mkdir -p $input/faywuh
 cd $input/faywuh
-ref_genome=/home/sobczm/popgen/other/phytophthora/genomes/95m_contigs_hardmasked.fa
-vcf_file=$input/SNP_calling/95m_contigs_unmasked_filtered_gen_aa.vcf
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_hardmasked.fa
+vcf_file=$input/SNP_calling/polished_contigs_unmasked_filtered_gen_aa.vcf
 python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
+```
+
 ##Prepare Popgenome input
 Popgenome
 #Requires custom adjustment of the R script called below to include the samples being analysed.
