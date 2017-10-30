@@ -118,7 +118,7 @@ done
 
 #Gff files
 cd ..
-gff=/home/groups/harrisonlab/project_files/phytophthora_fragariae/gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_appended.gff3
+gff=/home/groups/harrisonlab/project_files/phytophthora_fragariae/gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_conservative.pep.fasta
 $scripts/split_gff_contig.sh $gff
 mkdir gff && mv *.gff ./gff
 
