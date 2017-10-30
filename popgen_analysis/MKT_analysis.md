@@ -38,7 +38,7 @@ Prc=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rub
 ###1
 
 ```bash
-python $scripts/annotate_vcf_aa.py $input/SNP_calling/95m_contigs_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
+python $scripts/annotate_vcf_aa.py $input/SNP_calling/polished_contigs_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
 ```
 
 ###2
