@@ -25,13 +25,13 @@ Annotation with ancestral alleles can be used just to polarise the mutation stat
 ##Set variables for locations of *P. fragariae* and *P. rubi* genomes
 
 ```bash
-#_P. fragariae_
+#*P. fragariae*
 Pf=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_hardmasked.fa
-#_P. rubi_ SCRP249
+#*P. rubi* SCRP249
 Pra=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP249/deconseq_Paen_repmask/SCRP249_contigs_hardmasked.fa
-#_P. rubi_ SCRP324
+#*P. rubi* SCRP324
 Prb=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP324/ncbi_edits_repmask/SCRP324_contigs_hardmasked.fa
-#_P. rubi_ SCRP333
+#*P. rubi* SCRP333
 Prc=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP333/deconseq_Paen_repmask/SCRP333_contigs_hardmasked.fa
 ```
 
