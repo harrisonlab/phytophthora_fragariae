@@ -22,7 +22,7 @@ Choice of the analysis to follow: 1, 2, 3 depends on the available resources and
 Annotation with ancestral alleles can be used just to polarise the mutation status of SNPs of interest or can be used in the formal tests for selection (e.g. McDonald-Kreitman Test and Fay & Wu's H described below)
 ```
 
-##Set variables for locations of _P. fragariae_ and _P. rubi_ genomes
+##Set variables for locations of *P. fragariae* and *P. rubi* genomes
 
 ```bash
 #_P. fragariae_
