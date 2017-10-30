@@ -9,4 +9,4 @@ Maria has put together a series of tools for population genetics analyses. This 
 4. SNP_analysis.md - Inital sets of analysis on resulting .vcf file
 5. structural_variants.md - Uses bwa-mem and lumpy to ID and assess structural variants between isolates
 6. polarising_SNPs.md - Incorrectly named file that identifies private SNPs.
-7. MKT_analysis.md - Commands to test ancestral variants and run some popgen tests such as MKT and Fay & Wu's H
+7. MKT_analysis.md - Commands to test ancestral variants and run some popgen tests such as MKT and Fay & Wu's H - also uses sub_calculate_mkt.sh and calculate_outgroup_mktest.R
