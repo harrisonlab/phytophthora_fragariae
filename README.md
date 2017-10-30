@@ -2770,12 +2770,12 @@ biopython
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
 ```bash
-for Proteome in $(ls gene_pred/ORF_finder/P.*/*/*.aa_cat.fa)
+for Proteome in $(ls gene_pred/ORF_finder/*/*/*.aa_cat.fa)
 do
     SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    Organism=P.fragariae
     SplitDir=gene_pred/ORF_split/$Organism/$Strain
     mkdir -p $SplitDir
     BaseName="$Organism""_$Strain"_ORF_preds
