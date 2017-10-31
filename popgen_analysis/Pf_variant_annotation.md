@@ -12,10 +12,10 @@ scripts=/home/adamst/git_repos/scripts/popgen
 
 ```bash
 mkdir -p $input
-cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling/95m_contigs_unmasked.vcf $input
-cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling/95m_contigs_unmasked_filtered.vcf $input
-cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa $input
-cp gene_pred/codingquary/P.fragariae/Bc16/final/final_genes_appended.gff3 $input
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling/polished_contigs_unmasked.vcf $input
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling/polished_contigs_unmasked_filtered.vcf $input
+cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa $input
+cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3 $input
 cd $input
 ```
 
