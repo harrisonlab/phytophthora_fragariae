@@ -71,17 +71,8 @@ for group_name in keys:
     to_add = [group_names, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245]
     a = numpy.append(a, to_add, axis=0)
 
-# # Counts number of lines in file in order to correctly reshape the numpy array
-#
-# i = -1
-# def file_len(ortho_lines):
-#     with open(ortho_lines) as f:
-#         for i, l in enumerate(f):
-#             pass
-#     return i + 1
-#
-
-a = numpy.reshape(a, (19953, 12))
+z = len(group_names) + 1
+a = numpy.reshape(a, (z, 12))
 
 outfile = str(conf.out_dir)
 with open(outfile, "w") as o:
