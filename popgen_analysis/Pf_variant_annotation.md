@@ -70,11 +70,11 @@ do
 done
 ```
 
-##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in the Pf_popgenome_analysis.sh script. From now onwards, analysing only UK123.
+##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in Pf_popgenome_analysis.md. From now onwards, analysing only UK123.
 
 ```bash
 cd $input
-ref_genome=$input/95m_contigs_unmasked.fa
+ref_genome=$input/polished_contigs_unmasked.fa
 ```
 
 ###all
