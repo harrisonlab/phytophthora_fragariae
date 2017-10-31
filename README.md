@@ -3989,7 +3989,7 @@ do
     Headers=$OutDir/"$Strain"_CRN_hmmer_unmerged_headers.txt
     cat $OutDir/$HmmFastaDWL | grep '>' | grep -w -f $CommonHeaders | tr -d '>' | sed -r 's/\s+/\t/g'| sed 's/=\t/=/g' | tr -d '-' | sed 's/hmm_score/HMM_score/g' > $Headers
     # As we are dealing with JGI and Broad sequences, some features need formatting:
-    ORF_Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/*_ORF.gff3)
+    ORF_Gff=$(ls gene_pred/ORF_finder/*/$Strain/*_ORF.gff3)
     # Gff features were extracted for each header
     CRN_unmerged_Gff=$OutDir/"$Strain"_CRN_unmerged_hmmer.gff3
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
@@ -4031,10 +4031,10 @@ The number of CRNs common to both models are:
 Number of CRN ORFs after merging:
 118
 Searching for LFLAK domains in: P.fragariae Bc1
-Initial search space (Z):            657,401  [actual number of targets]
+Initial search space (Z):            657,394  [actual number of targets]
 Domain search space  (domZ):             243  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Bc1
-Initial search space (Z):            657,401  [actual number of targets]
+Initial search space (Z):            657,394  [actual number of targets]
 Domain search space  (domZ):             380  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 169
@@ -4061,10 +4061,10 @@ The number of CRNs common to both models are:
 Number of CRN ORFs after merging:
 106
 Searching for LFLAK domains in: P.fragariae Nov5
-Initial search space (Z):            654,082  [actual number of targets]
+Initial search space (Z):            654,072  [actual number of targets]
 Domain search space  (domZ):             245  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Nov5
-Initial search space (Z):            654,082  [actual number of targets]
+Initial search space (Z):            654,072  [actual number of targets]
 Domain search space  (domZ):             378  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 171
@@ -4091,10 +4091,10 @@ The number of CRNs common to both models are:
 Number of CRN ORFs after merging:
 104
 Searching for LFLAK domains in: P.fragariae Nov9
-Initial search space (Z):            660,256  [actual number of targets]
+Initial search space (Z):            660,249  [actual number of targets]
 Domain search space  (domZ):             243  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Nov9
-Initial search space (Z):            660,256  [actual number of targets]
+Initial search space (Z):            660,249  [actual number of targets]
 Domain search space  (domZ):             377  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 167
