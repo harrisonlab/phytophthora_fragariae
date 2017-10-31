@@ -3123,7 +3123,7 @@ do
     ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
     HmmModel=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer/WY_motif.hmm
     Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    Organism=P.fragariae
     OutDir=analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain
     mkdir -p $OutDir
     HmmResults="$Strain"_ORF_WY_hmmer.txt
