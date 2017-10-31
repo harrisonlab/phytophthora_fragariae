@@ -1918,7 +1918,7 @@ The Gff files from the the ORF finder are not in true Gff3 format. These were co
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-for OrfGff in $(ls gene_pred/ORF_finder/*/*/*_ORF.gff | grep -v 'atg' | grep -v "Bc16")
+for OrfGff in $(ls gene_pred/ORF_finder/*/*/*_ORF.gff | grep -v 'atg')
 do
     echo "$OrfGff"
     OrfGffMod=$(echo $OrfGff | sed 's/.gff/.gff3/g')
