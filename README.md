@@ -3563,7 +3563,7 @@ do
     AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
 
     ORFGff=$(ls $MergeDir/"$Strain"_total_ORF_RxLR.gff)
-    ORFsFa=$(ls gene_pred/ORF_finder/"$Species"/"$Strain"/"$Strain".aa_cat.fa)
+    ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
     ORFsTxt=$(ls $MergeDir/"$Strain"_total_ORF_RxLR_headers.txt)
 
     ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_RxLR_motif_hmm.gff
@@ -3613,7 +3613,7 @@ do
     AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
 
     ORFGff=$(ls $MergeDir/"$Strain"_total_ORF_RxLR_EER.gff)
-    ORFsFa=$(ls gene_pred/ORF_finder/"$Species"/"$Strain"/"$Strain".aa_cat.fa)
+    ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
     ORFsTxt=$(ls $MergeDir/"$Strain"_total_ORF_RxLR_EER_headers.txt)
 
     ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_RxLR_EER_motif_hmm.gff
