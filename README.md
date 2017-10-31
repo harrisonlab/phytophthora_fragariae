@@ -3186,7 +3186,7 @@ do
     ProgDir=/home/armita/git_repos/emr_repos/scripts/phytophthora/pathogen/hmmer
     HmmModel=/home/armita/git_repos/emr_repos/SI_Whisson_et_al_2007/cropped.hmm
     Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    Organism=P.fragariae
     OutDir=analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain
     mkdir -p $OutDir
     HmmResults="$Strain"_ORF_RxLR_hmmer_unmerged.txt
@@ -3209,7 +3209,7 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR_hmm.db --id sigP_ORF_RxLR_hmm --out sigP_ORF_RxLR_hmm_merged.db --gff > $RxLR_Merged_Gff
     cat $RxLR_Merged_Gff | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
-    ORF_fasta=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa)
+    ORF_fasta=$(ls gene_pred/ORF_finder/*/$Strain/"$Strain".aa_cat.fa)
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
     printf "Merged RxLR-EER Hmm proteins:\t"
     cat $RxLR_Merged_AA | grep '>' | wc -l
