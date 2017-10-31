@@ -112,8 +112,6 @@ do
 done
 ```
 
---progress here--
-
 #Visualise the output as heatmap and clustering dendrogram
 
 ```bash
