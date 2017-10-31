@@ -2951,7 +2951,7 @@ for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     for ORF_Gff in $(ls gene_pred/ORF_finder/*/$Strain/"$Strain"_ORF.gff3)
     do
-        Organism=P.fragariae
+        Organism=$(echo $ORF_Gff | rev |  cut -d '/' -f3 | rev)
         OutDir=$(ls -d gene_pred/combined_sigP_ORF/$Organism/$Strain)
         echo "$Organism - $Strain"
         SigP_fasta=$(ls $OutDir/"$Strain"_all_secreted.fa)
