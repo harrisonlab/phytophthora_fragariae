@@ -28,9 +28,9 @@ done
 
 ```bash
 perl /home/sobczm/bin/vcftools/bin/vcf-stats \
-BC1_NOV9_only_95m_contigs_unmasked.vcf >BC1_NOV9_only_95m_contigs_unmasked.stat
+BC1_NOV9_only_polished_contigs_unmasked.vcf > BC1_NOV9_only_polished_contigs_unmasked.stat
 perl /home/sobczm/bin/vcftools/bin/vcf-stats \
-BC1_NOV9_only_95m_contigs_unmasked_filtered.vcf >BC1_NOV9_only_95m_contigs_unmasked_filtered.stat
+BC1_NOV9_only_polished_contigs_unmasked_filtered.vcf > BC1_NOV9_only_polished_contigs_unmasked_filtered.stat
 ```
 
 #Calculate the index for percentage of shared SNP alleles between the individuals.
