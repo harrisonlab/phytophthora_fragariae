@@ -31,8 +31,8 @@ First argument: unfiltered input VCF file with all SNPs
 Subsequent arguments: Sample names of individuals to be removed
 
 ```bash
-$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 SCRP249 SCRP324 SCRP333 >95m_contigs_unmasked_UK123.vcf
-$vcflib/vcfremovesamples 95m_contigs_unmasked.vcf Nov77 SCRP249 SCRP324 SCRP333 >95m_contigs_unmasked_Pf.vcf
+$vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 SCRP249 SCRP324 SCRP333 > polished_contigs_unmasked_UK123.vcf
+$vcflib/vcfremovesamples polished_contigs_unmasked.vcf Nov77 SCRP249 SCRP324 SCRP333 > polished_contigs_unmasked_Pf.vcf
 ```
 
 ##Filter the SNPs
