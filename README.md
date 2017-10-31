@@ -3955,7 +3955,7 @@ for Proteome in $(ls gene_pred/ORF_finder/*/*/*.aa_cat.fa)
 do
     # Setting variables
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    Organism=P.fragariae
     OutDir=analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain
     mkdir -p $OutDir
     # Hmmer variables
