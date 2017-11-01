@@ -724,65 +724,65 @@ done
 ```
 Bc16_24hr_vs_Bc16_mycelium_down
 Total number of genes in dataset:
-3,197
+3,010
 Total number of RxLRs in dataset:
-104
+94
 Total number of CRNs in dataset:
-9
+8
 Bc16_24hr_vs_Bc16_mycelium
 Total number of genes in dataset:
-7,338
+6,986
 Total number of RxLRs in dataset:
-244
+225
 Total number of CRNs in dataset:
-25
+20
 Bc16_24hr_vs_Bc16_mycelium_up
 Total number of genes in dataset:
-2,225
+2,107
 Total number of RxLRs in dataset:
-108
+103
 Total number of CRNs in dataset:
-5
+6
 Bc16_48hr_vs_Bc16_mycelium_down
 Total number of genes in dataset:
-3,338
+3,181
 Total number of RxLRs in dataset:
-126
+120
 Total number of CRNs in dataset:
-17
+19
 Bc16_48hr_vs_Bc16_mycelium
 Total number of genes in dataset:
-9,877
+9,614
 Total number of RxLRs in dataset:
-318
+305
 Total number of CRNs in dataset:
-40
+44
 Bc16_48hr_vs_Bc16_mycelium_up
 Total number of genes in dataset:
-2,618
+2,544
 Total number of RxLRs in dataset:
-129
+123
 Total number of CRNs in dataset:
 3
 Bc16_96hr_vs_Bc16_mycelium_down
 Total number of genes in dataset:
-2,339
+2,217
 Total number of RxLRs in dataset:
 103
 Total number of CRNs in dataset:
 7
 Bc16_96hr_vs_Bc16_mycelium
 Total number of genes in dataset:
-10,122
+9,917
 Total number of RxLRs in dataset:
-336
+329
 Total number of CRNs in dataset:
 37
 Bc16_96hr_vs_Bc16_mycelium_up
 Total number of genes in dataset:
-3,237
+3,203
 Total number of RxLRs in dataset:
-139
+138
 Total number of CRNs in dataset:
 8
 ```
