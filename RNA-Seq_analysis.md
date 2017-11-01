@@ -492,7 +492,7 @@ m <- Reduce(function(...) merge(..., all = T,by=c("Geneid","Chr","Start","End","
 #convert data.table to data.frame for use with DESeq2
 countData <- data.frame(m[,c(1,7:(ncol(m))),with=F])
 rownames(countData) <- countData[,1]
-countData <- countData[,-1]
+countData <- round(countData,0)
 
 #indexes <- unique(gsub("(.*)_L00.*", "\\1", colnames(countData)))
 indexes <- c("TA.07", "TA.08", "TA.09", "TA.12", "TA.13", "TA.14", "TA.18", "TA.19", "TA.20", "TA.32", "TA.34", "TA.35")
