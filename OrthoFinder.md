@@ -31,7 +31,7 @@ done
 qsub /home/adamst/git_repos/scripts/phytophthora_fragariae/reserve_cluster.sh
 ```
 
-###Blacklace01.blacklace was reserved
+###Blacklace11.blacklace was reserved
 
 ```bash
 screen -a
