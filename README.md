@@ -4604,7 +4604,7 @@ do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    OutDir=gene_pred/trans_mem/$Organism/$Strain/GPIsom/greedy
+    OutDir=gene_pred/GPIsom/$Organism/$Strain/greedy
     mkdir -p $OutDir
 done
 
@@ -4613,7 +4613,7 @@ do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    OutDir=gene_pred/trans_mem/$Organism/$Strain/GPIsom/conservative
+    OutDir=gene_pred/GPIsom/$Organism/$Strain/conservative
     mkdir -p $OutDir
 done
 ```
