@@ -520,6 +520,7 @@ colData <- data.frame(unorderedColDataSubset[ order(unorderedColDataSubset$Sampl
 unorderedData <- read.table("alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countData.txt",header=T,sep="\t")
 countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
 colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
+countData <- round(countData,0)
 
 design <- ~Group
 #design <- colData$Group
