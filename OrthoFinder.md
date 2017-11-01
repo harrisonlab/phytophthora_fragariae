@@ -25,12 +25,6 @@ do
 done
 ```
 
-##Run the job on a high memory cluster node
-
-```bash
-qsub /home/adamst/git_repos/scripts/phytophthora_fragariae/reserve_cluster.sh
-```
-
 ###Blacklace11.blacklace was reserved
 
 ```bash
