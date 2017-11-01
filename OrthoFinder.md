@@ -29,7 +29,7 @@ done
 
 ```bash
 screen -a
-qlogin -l h=blacklace01.blacklace|blacklace11.blacklace
+qlogin -l h=blacklace01.blacklace
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
 scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 cd $input
