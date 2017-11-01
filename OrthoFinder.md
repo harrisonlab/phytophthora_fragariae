@@ -25,7 +25,7 @@ do
 done
 ```
 
-###Blacklace11.blacklace was reserved
+###Runs orthofinder
 
 ```bash
 screen -a
