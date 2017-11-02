@@ -540,7 +540,7 @@ for line in swissprot_lines:
 header_line = ['transcript_id']
 header_line.extend(['contig', 'start', 'stop', 'strand'])
 #header_line.extend(['sigP2', 'sigP4', 'phobius', 'RxLR_motif', 'RxLR_hmm', 'WY_hmm', 'RxLR_total', 'CRN_LFLAK', 'CRN_DWL', 'CRN_total', 'orthogroup'])
-header_line.extend(['sigP2', 'sigP3', 'sigP4', 'phobius', 'TMHMM', 'secreted', 'RxLR_total', 'RxLR_EER_total', 'CRN_total'])
+header_line.extend(['sigP2', 'sigP3', 'sigP4', 'phobius', 'TMHMM', 'GPI', 'secreted', 'RxLR_total', 'RxLR_EER_total', 'CRN_total', 'orthogroup'])
 for treatment in sorted(set(count_treatment_list)):
     treatment = "raw_count_" + treatment
     header_line.append(treatment)
