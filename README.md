@@ -4495,7 +4495,7 @@ done
 ```
 A4 - conservative
 The number of proteins scoring positive for a transmembrane helix is:
-4,275
+4,268
 
 A4 - greedy
 The number of proteins scoring positive for a transmembrane helix is:
@@ -4511,7 +4511,7 @@ The number of proteins scoring positive for a transmembrane helix is:
 
 Bc1 - conservative
 The number of proteins scoring positive for a transmembrane helix is:
-4,262
+4,233
 
 Bc1 - greedy
 The number of proteins scoring positive for a transmembrane helix is:
@@ -4535,7 +4535,7 @@ The number of proteins scoring positive for a transmembrane helix is:
 
 Nov5 - conservative
 The number of proteins scoring positive for a transmembrane helix is:
-4,274
+4,288
 
 Nov5 - greedy
 The number of proteins scoring positive for a transmembrane helix is:
@@ -4543,7 +4543,7 @@ The number of proteins scoring positive for a transmembrane helix is:
 
 Nov71 - conservative
 The number of proteins scoring positive for a transmembrane helix is:
-4,261
+4,276
 
 Nov71 - greedy
 The number of proteins scoring positive for a transmembrane helix is:
@@ -4559,7 +4559,7 @@ The number of proteins scoring positive for a transmembrane helix is:
 
 Nov9 - conservative
 The number of proteins scoring positive for a transmembrane helix is:
-4,231
+4,251
 
 Nov9 - greedy
 The number of proteins scoring positive for a transmembrane helix is:
@@ -4575,7 +4575,7 @@ The number of proteins scoring positive for a transmembrane helix is:
 
 SCRP245_v2 - conservative
 The number of proteins scoring positive for a transmembrane helix is:
-5,162
+5,159
 
 SCRP245_v2 - greedy
 The number of proteins scoring positive for a transmembrane helix is:
