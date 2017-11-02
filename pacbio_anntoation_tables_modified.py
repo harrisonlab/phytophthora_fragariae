@@ -423,18 +423,18 @@ for line in CRN_total_lines:
 # Store genes and their ortholog groups in a dictionary
 #-----------------------------------------------------
 
-# organism_name = conf.ortho_name
-# ortho_dict = defaultdict(list)
-# for line in ortho_lines:
-#     line = line.rstrip()
-#     split_line = line.split()
-#     orthogroup = split_line[0]
-#     orthogroup = orthogroup.replace(":", "")
-#     genes_in_group = [ x for x in split_line if organism_name in x ]
-#     for gene in genes_in_group:
-#         gene = gene.replace(organism_name, '').replace('|', '')
-#         # print gene
-#         ortho_dict[gene] = orthogroup
+organism_name = conf.ortho_name
+ortho_dict = defaultdict(list)
+for line in ortho_lines:
+    line = line.rstrip()
+    split_line = line.split()
+    orthogroup = split_line[0]
+    orthogroup = orthogroup.replace(":", "")
+    genes_in_group = [ x for x in split_line if organism_name in x ]
+    for gene in genes_in_group:
+        gene = gene.replace(organism_name, '').replace('|', '')
+        # print gene
+        ortho_dict[gene] = orthogroup
 
 #-----------------------------------------------------
 #
