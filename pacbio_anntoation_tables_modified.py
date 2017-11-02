@@ -515,7 +515,6 @@ for line in InterPro_lines:
 
 
 #-----------------------------------------------------
-#
 # Build a dictionary of Swissprot annotations
 #-----------------------------------------------------
 
