@@ -794,7 +794,7 @@ for GeneGff in $(ls gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeff
 do
     Strain=$(echo $GeneGff | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $GeneGff | rev | cut -f3 -d '/' | rev)
-    Assembly=$(ls repeat_masked/quiver_results/$Strain/*/*_contigs_unmasked.fa)
+    Assembly=$(ls repeat_masked/quiver_results/$Strain/*/polished_contigs_unmasked.fa)
     InterPro=$(ls gene_pred/interproscan/$Organism/$Strain/greedy/*_interproscan.tsv)
     SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/greedy/swissprot_vJul2016_tophit_parsed.tbl)
     OutDir=gene_pred/annotation/$Organism/$Strain
