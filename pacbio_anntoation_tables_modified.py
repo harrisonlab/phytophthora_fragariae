@@ -685,8 +685,8 @@ for line in transcript_lines:
     #     CRN_DWL = 'Yes'
     if transcript_id in CRN_total_set:
         CRN_total = 'Yes'
-    # if ortho_dict[transcript_id]:
-    #     orthogroup = ortho_dict[transcript_id]
+    if ortho_dict[transcript_id]:
+        orthogroup = ortho_dict[transcript_id]
     DEG_out = []
     for DEG_file in DEG_files:
         entryname = "_".join([DEG_file, transcript_id])
