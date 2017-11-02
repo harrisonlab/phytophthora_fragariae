@@ -278,10 +278,10 @@ for line in trans_mem_lines:
 # Load GPI-anchored proteins into a set
 #-----------------------------------------------------
 
-# gpi_set = Set()
-# for line in gpi_lines:
-#     header = line.rstrip()
-#     gpi_set.add(header)
+gpi_set = Set()
+for line in gpi_lines:
+    header = line.rstrip()
+    gpi_set.add(header)
 
 #-----------------------------------------------------
 # Load RxLR motif +ve proteins into a set
