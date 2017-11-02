@@ -810,7 +810,7 @@ do
     TMHMM_headers=$(ls gene_pred/trans_mem/$Organism/$Strain/greedy/*_TM_genes_pos_headers.txt)
     # GPI_headers=$(ls gene_pred/trans_mem/$Organism/$Strain/GPIsom/GPI_pos.txt)
     PhobiusFa=$(ls analysis/phobius_CQ/$Organism/$Strain/*_phobius.fa)
-    PhobiusFa_ORF=$(ls analysis/phobius_ORF/$Organism/$Strain/*_phobius.fa)
+    PhobiusFa_ORF=$(ls analysis/phobius_ORF/quiver_results/$Strain/*_phobius.fa)
     #RxLR_Motif=$(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/$Organism/$Strain/*_RxLR_EER_regex.fa | grep -v 'ORF')
     #RxLR_Hmm=$(ls analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer.fa | grep -v 'ORF')
     #RxLR_WY=$(ls analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain/*_WY_hmmer_headers.txt | grep -v 'ORF')
