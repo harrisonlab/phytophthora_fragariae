@@ -617,7 +617,7 @@ for line in transcript_lines:
     phobius = ''
     phobius_ORF = ''
     trans_mem = ''
-    # gpi = ''
+    gpi = ''
     # RxLR_motif = ''
     # RxLR_hmm = ''
     # WY_hmm = ''
@@ -628,7 +628,7 @@ for line in transcript_lines:
     # CRN_LFLAK = ''
     # CRN_DWL = ''
     CRN_total = ''
-    # orthogroup = ''
+    orthogroup = ''
     prot_seq = ''
     swissprot_cols = []
     interpro_col = []
