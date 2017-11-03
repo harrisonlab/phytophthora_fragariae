@@ -12,13 +12,14 @@ First argument: unfiltered input VCF file with all SNPs
 Subsequent arguments: Sample names of individuals to be removed
 
 ```bash
+cd SNP_calling
 $vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP249 SCRP324 SCRP333 > Pfrag_only_polished_contigs_unmasked.vcf
 ```
 
 #Filter vcf outputs, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
 
 ```bash
-for vcf in $(ls SNP_calling/*_contigs_unmasked.vcf)
+for vcf in $(ls *_contigs_unmasked.vcf)
 do
     echo $vcf
     script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
