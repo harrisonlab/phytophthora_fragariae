@@ -54,8 +54,9 @@ nano fc_run_Bc16_local.cfg
 screen -a
 export PYTHONUSERBASE=/data/software/FALCON-integrate/fc_env
 export PATH=$PYTHONUSERBASE/bin:$PATH
-fc_run.py fc_run.cfg
+# fc_run.py fc_run.cfg
 ```
+These commands failed, see below for correct commands
 
 #My script was immediately crashing, Maria managed to get it working and put together a config file for this assembly.
 Because FALCON is not a plug-and-play assembler, the initial run provides information that can be used for improving the assembly. Following is a summary of the statistics it is suggested to generate in the FALCON tutorial documentation: https://pb-falcon.readthedocs.io/en/latest/tutorial.html#raw-and-pread-coverage-and-quality
