@@ -212,7 +212,7 @@ max_diff = 35
 length_cutoff=15000
 ```
 
-#Trial 6, lower it, which was my inital intention. Still smaller with more contigs, make small increases up to default value to see if any are better. 9000 seems somewhat sensible, but again it looks like a trade-off between assembly size and assembly contiguity, need to see if Rob can enlighten me any further.
+#Trial 6, lower it, which was my initial intention. Still smaller with more contigs, make small increases up to default value to see if any are better. 9000 seems somewhat sensible, but again it looks like a trade-off between assembly size and assembly contiguity, need to see if Rob can enlighten me any further.
 
 ```
 length_cutoff=5000 - then try 7500, then 9000, try 11,000 too
