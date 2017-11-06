@@ -47,6 +47,7 @@ SNP_calling/Pfrag_only_polished_contigs_unmasked_filtered.vcf > SNP_calling/Pfra
 for vcf in $(ls SNP_calling/*_filtered.vcf)
 do
     scripts=/home/adamst/git_repos/scripts/popgen/snp
+    echo $vcf
     $scripts/similarity_percentage.py $vcf
 done
 ```
