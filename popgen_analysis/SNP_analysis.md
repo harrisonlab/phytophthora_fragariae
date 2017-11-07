@@ -146,10 +146,11 @@ done
 #Calculate an NJ tree based on all the SNPs. Outputs a basic diplay of the tree, plus a Newick file to be used for displaying the tree in FigTree and beautifying it.
 
 ```bash
-for vcf in $(ls SNP_calling/*filtered.vcf)
+cd SNP_calling
+for vcf in $(ls *filtered.vcf)
 do
     echo $vcf
     scripts=/home/adamst/git_repos/scripts/popgen/snp
-    $scripts/nj_tree.sh $vcf
+    $scripts/nj_tree.sh $vcf 2
 done
 ```
