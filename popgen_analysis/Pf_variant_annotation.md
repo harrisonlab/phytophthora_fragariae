@@ -38,7 +38,6 @@ $vcflib/vcfremovesamples polished_contigs_unmasked.vcf Nov77 SCRP249 SCRP324 SCR
 ##Filter the SNPs
 
 ```bash
-cd summary_stats/
 for vcf in $(ls *_contigs_unmasked_*.vcf | grep -e 'UK123\.' -e 'Pf\.')
 do
     echo $vcf
