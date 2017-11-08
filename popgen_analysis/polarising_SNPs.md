@@ -168,7 +168,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 7. contig_19 961,636 T/C - Within CDS of g10892, but is silent
 8. contig_40 631,727 AC/A,ACC,AGC,AGCC - ~1kb upstream of NS_18151, ~3kb upstream of g18144
 9. contig_48 312,824 T/C - ~2kb upstream of g20096
-10. contig_51 571,287 A/G - g20917, changes a Leucine to a Proline at position 11
+10. contig_51 571,287 A/G - g20917, changes a Leucine to a Proline at position 11 - isn't even secreted from the cell
 11. contig_76 248,619 T/C - ~1kb upstream of g25856, ~4.5kb upstream of g25855
 ```
 
