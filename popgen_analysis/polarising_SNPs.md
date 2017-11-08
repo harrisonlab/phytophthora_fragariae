@@ -159,6 +159,17 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 
 ```
 11 private variant sites identified. Format on allele is reference/variant(s)
+1. contig_1 217,370
+2. contig_2 1,219,725
+3. contig_13 674,924
+4. contig_14 964,434
+5. contig_14 964,446
+6. contig_14 1,308,196
+7. contig_19 961,636
+8. contig_40 631,727
+9. contig_48 312,824
+10. contig_51 571,287
+11. contig_76 248,619
 ```
 
 ###UK1 based analysis
