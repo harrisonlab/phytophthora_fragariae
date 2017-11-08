@@ -316,7 +316,7 @@ This represents the following number of genes:
 438,816
 ```
 
-Identification of orthogroups of closely related strains for further analysis
+Identification of orthogroups of closely related isolates for further analysis
 
 ```bash
 for num in 1
