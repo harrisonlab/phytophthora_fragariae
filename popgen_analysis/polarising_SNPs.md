@@ -89,6 +89,8 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/Polarising
 mkdir $input
 cd $input
 
+cp ../SNP_calling/polished_contigs_unmasked.vcf .
+
 vcflib=/home/sobczm/bin/vcflib/bin
 $vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 > polished_contigs_unmasked_bw.vcf
 
