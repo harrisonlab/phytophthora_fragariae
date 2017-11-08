@@ -115,6 +115,7 @@ done
 #Visualise the output as heatmap and clustering dendrogram
 
 ```bash
+cd ../summary_stats
 for log in $(ls *distance.log | grep -e "BC1")
 do
     scripts=/home/adamst/git_repos/scripts/popgen/snp
