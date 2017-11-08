@@ -185,7 +185,7 @@ None found.
 ###UK3 based analysis
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_pol_filtered.recode.vcf --out 95m_contigs_unmasked_pol_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_filtered.recode.vcf --out polished_contigs_unmasked_pol_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
 ```
 
 ```
