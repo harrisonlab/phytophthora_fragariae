@@ -503,18 +503,21 @@ mkdir -p $UK2UniqDir
 ##Bars are to prevent incorrect filtering
 
 ```bash
-cat $Orthogroups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $Uniq_UK2_groups
-echo "The number of orthogroups unique to Race UK2 are:"
-cat $Uniq_UK2_groups | wc -l
-echo "The following number genes are contained in these orthogroups:"
-cat $Uniq_UK2_groups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' | grep -o '|' | wc -l
+for num in 1
+do
+    cat $Orthogroups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $Uniq_UK2_groups
+    echo "The number of orthogroups unique to Race UK2 are:"
+    cat $Uniq_UK2_groups | wc -l
+    echo "The following number genes are contained in these orthogroups:"
+    cat $Uniq_UK2_groups | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' | grep -o '|' | wc -l
+done
 ```
 
 ```
 The number of orthogroups unique to Race 2 are:
-47
+58
 The following number genes are contained in these orthogroups:
-201
+220
 ```
 
 #Race 2 unique RxLR families
