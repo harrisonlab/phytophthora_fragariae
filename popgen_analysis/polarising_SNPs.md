@@ -116,7 +116,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_fi
 ```
 
 ```
-Nothing found
+Nothing found.
 ```
 
 ###UK3 based analysis
@@ -126,7 +126,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_fi
 ```
 
 ```
-Nothing found
+Nothing found.
 ```
 
 #Polarising variants without rubi, just looking for polarised differences within UK123 strains
