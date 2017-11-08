@@ -139,7 +139,7 @@ done
 #Calculate an NJ tree based on all the SNPs. Outputs a basic diplay of the tree, plus a Newick file to be used for displaying the tree in FigTree and beautifying it.
 
 ```bash
-for vcf in $(ls *filtered.vcf)
+for vcf in $(ls *filtered.vcf | grep -e "BC1")
 do
     echo $vcf
     scripts=/home/adamst/git_repos/scripts/popgen/snp
