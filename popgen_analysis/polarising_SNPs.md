@@ -189,5 +189,5 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 ```
 
 ```
-Nothing found
+Nothing found.
 ```
