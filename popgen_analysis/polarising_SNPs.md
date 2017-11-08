@@ -159,20 +159,6 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 
 ```
 11 private variant sites identified. Format on allele is reference/variant(s)
-contig_2 2,193,093 G/T ~1kb upstream of TSS, g1639.
-contig_2 2,193,105 C/T ~1kb upstream of TSS, g1639.
-contig_3 1,536,609 T/C No nearby TSS, flanked by two genes going in the wrong direction, 22kb both ways to actually reach a gene! g2186 & NS_14830.
-contig_12 164,098 A/C ~1.5 and 1kb upstream of TSS going either way, g6665 and g6664.
-contig_32 467,075 T/C - In a CDS! But is silent, g12140.
-contig_45 358,224 T/C ~2kb upstream of TSS, g14706. Nearest going other way is ~5.5kb away with other genes in the way, g14705.
-contig_49 37,872 TG/T/TGG ~3kb upstream of TSS, g15246, ~8kb going the other way with other genes in the way, g15249.
-contig_113 185,134 T/C ~2kb upstream of TSS, NS_02424, ~5kb the other way, with genes in the way, NS_02421.
-contig_182 18,638 T/A 360bp upstream of TSS, g28602, ~20kb upstream the other way, with genes in the way, NS_08364.
-contig_201 99,050 A/G In a CDS! Changes L11 to P! Bc16|g29528.t1 - neither an RxLR nor a CRN, not secreted by either SigP or Phobius.
-contig_305 38,563 T/C ~1kb and 4kb upstream of TSS going either way, g32690 and g32689.
-
-Of these genes neighbouring SNPs, the following are predicted as RxLRs, CRNs or secreted:
-g12140 - secreted (Phobius), 13AA signal peptide, also predicted by SigP.
 ```
 
 ###UK1 based analysis
