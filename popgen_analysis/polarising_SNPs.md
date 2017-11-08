@@ -129,7 +129,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_fi
 Nothing found.
 ```
 
-#Polarising variants without rubi, just looking for polarised differences within UK123 strains
+#Private variants without rubi, just looking for private differences within UK123 strains
 
 ##Set inital variables
 
