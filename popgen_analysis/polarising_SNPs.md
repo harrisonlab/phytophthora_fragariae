@@ -158,6 +158,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 ```
 
 ```
+11 private variant sites identified. Format on allele is reference/variant(s)
 contig_2 2,193,093 G/T ~1kb upstream of TSS, g1639.
 contig_2 2,193,105 C/T ~1kb upstream of TSS, g1639.
 contig_3 1,536,609 T/C No nearby TSS, flanked by two genes going in the wrong direction, 22kb both ways to actually reach a gene! g2186 & NS_14830.
