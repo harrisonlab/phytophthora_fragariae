@@ -106,8 +106,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_fi
 ```
 
 ```
-Two variants identifed, the same SNP as mine, 1kb upstream of a TSS
-Also one indel that is 3kb upstream of a TSS
+Only one variant found, a G to A SNP on contig 14 at position 964,434. No gene present, but a possible promoter region, 1kb from gene models
 ```
 
 ###UK1 based analysis
