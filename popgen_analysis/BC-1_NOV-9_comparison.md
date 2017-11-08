@@ -126,7 +126,7 @@ done
 #Carry out PCA and plot the results
 
 ```bash
-for vcf in $(ls *filtered.vcf)
+for vcf in $(ls *filtered.vcf | grep -e "BC1")
 do
     echo $vcf
     scripts=/home/adamst/git_repos/scripts/popgen/snp
