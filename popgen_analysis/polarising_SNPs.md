@@ -175,7 +175,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 ###UK1 based analysis
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf 95m_contigs_unmasked_pol_filtered.recode.vcf --out 95m_contigs_unmasked_pol_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_filtered.recode.vcf --out polished_contigs_unmasked_pol_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
 ```
 
 ```
