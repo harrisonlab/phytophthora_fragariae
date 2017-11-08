@@ -86,6 +86,7 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/Polarising
 ##Create a cut-down vcf and filter it
 
 ```bash
+mkdir $input
 cd $input
 
 vcflib=/home/sobczm/bin/vcflib/bin
