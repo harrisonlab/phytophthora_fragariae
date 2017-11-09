@@ -1802,24 +1802,6 @@ do
 done
 ```
 
-#Run fasta files through interproscan to identify function of genes in UK2 unique orthogroups
-
-```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Genes in $(ls analysis/orthology/orthomcl/All_Strains_plus_rubi/group_fastas/UK2_unique/*.fa)
-do
-    Jobs=$(qstat | grep 'adamst' | grep 'qw' | wc -l)
-    while [ $Jobs -gt 1 ]
-    do
-        sleep 10
-        printf "."
-        Jobs=$(qstat | grep 'adamst' | grep 'qw' | wc -l)
-    done
-    printf "\n"
-    $ProgDir/sub_interproscan.sh $Genes
-done
-```
-
 #Produce a count table of the number of genes for each strain in each groups
 
 ```bash
