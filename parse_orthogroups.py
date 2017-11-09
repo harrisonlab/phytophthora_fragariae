@@ -71,7 +71,7 @@ for group_name in keys:
     to_add = [group_names, A4, Bc1, Bc16, Bc23, Nov27, Nov5, Nov71, Nov77, Nov9, ONT3, SCRP245]
     a = numpy.append(a, to_add, axis=0)
 
-z = len(group_names) + 1
+z = len(keys) + 1
 a = numpy.reshape(a, (z, 12))
 
 outfile = str(conf.out_dir)
