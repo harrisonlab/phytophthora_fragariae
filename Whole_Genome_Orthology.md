@@ -1480,11 +1480,11 @@ done
 
 ```
 The number of UK3 unique RxLRs are:
-113
+112
 The number of NOV-27 genes extracted is:
 35
 The number of NOV-71 genes extracted is:
-39
+38
 The number of NOV-9 genes extracted is:
 39
 ```
