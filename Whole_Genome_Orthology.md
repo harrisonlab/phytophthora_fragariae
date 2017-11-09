@@ -1815,7 +1815,7 @@ $ProgDir/parse_orthogroups.py --orthogroups $OrthoMCL_output --out_dir $OutName
 ##Analyse this count table for expanded groups and write orthogroups to a text file 'UKX_expanded.txt'
 
 ```bash
-cd analysis/orthology/orthomcl/All_Strains
+cd analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
 ```
 
