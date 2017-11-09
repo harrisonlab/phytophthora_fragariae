@@ -878,7 +878,7 @@ done
 ```
 
 ```
-The number of Race 2 unique CRNs are:
+The number of UK2 unique CRNs are:
 0
 The number of BC-16 genes extracted is:
 0
