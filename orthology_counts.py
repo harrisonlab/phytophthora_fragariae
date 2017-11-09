@@ -4,7 +4,7 @@ import numpy
 
 #Import tsv into numpy
 
-Orthology_tbl = numpy.loadtxt(fname="All_Strains_count_table.tsv", dtype=object, delimiter='\t', skiprows=1)
+Orthology_tbl = numpy.loadtxt(fname="All_Strains_plus_rubi_no_removal_count_table.tsv", dtype=object, delimiter='\t', skiprows=1)
 
 #Run calculations for UK1
 
