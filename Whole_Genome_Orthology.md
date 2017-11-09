@@ -1049,9 +1049,9 @@ done
 
 ```
 The number of UK1 unique RxLRs are:
-82
+83
 The number of BC-1 genes extracted is:
-42
+43
 The number of NOV-5 genes extracted is:
 40
 ```
