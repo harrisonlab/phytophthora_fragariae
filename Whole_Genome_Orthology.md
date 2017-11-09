@@ -925,8 +925,8 @@ WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
 UK1UniqDir=$WorkDir/UK1_unique
 Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
-Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
+Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
+Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
 Uniq_UK1_groups=$UK1UniqDir/UK1_uniq_orthogroups.txt
 mkdir -p $UK1UniqDir
 ```
