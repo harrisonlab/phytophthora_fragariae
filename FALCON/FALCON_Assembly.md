@@ -378,7 +378,7 @@ echo $TrimR2_Read
 OutDir=assembly/FALCON_Trial/quiver_results/polished
 Iterations=10
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
-qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir $Iterations
+qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir $Iterations diploid
 ```
 
 This has failed twice, first time it failed in iteration 6 and 10, this time just 10. Repeat a single iteration on the output from iteration nine.
