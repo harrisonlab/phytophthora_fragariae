@@ -392,7 +392,7 @@ echo "$Name"
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
 BuscoDB=Eukaryotic
 OutDir=assembly/FALCON_Trial/quiver_results/$Name
-qsub $ProgDir/sub_busco2.sh $Assembly $BuscoDB $OutDir
+qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 ```
 
 ```
