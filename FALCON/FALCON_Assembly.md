@@ -410,11 +410,11 @@ N50: 923,397
 GC content: 53.39%
 
 After Pilon:
-BUSCO statistics: 273
-Complete and single copy genes: 264
+BUSCO statistics: 275
+Complete and single copy genes: 266
 Complete and duplicated genes: 9
 Fragmented genes: 5
-Missing genes: 25
+Missing genes: 23
 
 Assembly statistics:
 Genome size: 90,967,989 bp
