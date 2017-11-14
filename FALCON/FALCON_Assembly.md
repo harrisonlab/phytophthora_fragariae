@@ -381,10 +381,12 @@ ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
 qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir $Iterations diploid
 ```
 
+Pilon froze on its final iteration, re-run, output will now be pilon_1.fasta
+
 ##Run BUSCO analysis after pilon
 
 ```bash
-Assembly=assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta
+Assembly=assembly/FALCON_Trial/quiver_results/polished/pilon_1.fasta
 Name=$(echo $Assembly | rev |cut -d '/' -f2 | rev)
 echo "$Name"
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
