@@ -485,7 +485,7 @@ done
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
 touch tmp.csv
-for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_10.fasta)
+for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_1.fasta)
 do
     Strain=Bc16
     OutDir=assembly/FALCON_Trial/quiver_results/polished/filtered_contigs
