@@ -381,29 +381,6 @@ ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
 qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir $Iterations diploid
 ```
 
-This has failed twice, first time it failed in iteration 6 and 10, this time just 10. Repeat a single iteration on the output from iteration nine.
-
-```bash
-Assembly=assembly/FALCON_Trial/quiver_results/polished/pilon_9.fasta
-Organism=P.fragariae
-Strain=Bc16
-IlluminaDir=$(ls -d qc_dna/paired/$Organism/$Strain)
-echo $Strain
-echo $Organism
-TrimF1_Read=$(ls $IlluminaDir/F/*_trim.fq.gz | head -n1 | tail -n1);
-TrimR1_Read=$(ls $IlluminaDir/R/*_trim.fq.gz | head -n1 | tail -n1);
-TrimF2_Read=$(ls $IlluminaDir/F/*_trim.fq.gz | head -n2 | tail -n1);
-TrimR2_Read=$(ls $IlluminaDir/R/*_trim.fq.gz | head -n2 | tail -n1);
-echo $TrimF1_Read
-echo $TrimR1_Read
-echo $TrimF2_Read
-echo $TrimR2_Read
-OutDir=assembly/FALCON_Trial/quiver_results/polished/temp
-Iterations=1
-ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
-qsub $ProgDir/sub_pilon_2_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $OutDir $Iterations
-```
-
 ##Run BUSCO analysis after pilon
 
 ```bash
