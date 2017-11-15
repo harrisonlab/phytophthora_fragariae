@@ -1475,6 +1475,21 @@ do
 done
 ```
 
+For FALCON assembly
+
+```bash
+Strain=Bc16
+Organism=P.fragariae
+Assembly=repeat_masked/*/polished/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
+OutDir=gene_pred/braker/$Organism/"$Strain"_braker
+AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+GeneModelName="$Organism"_"$Strain"_braker
+rm -r /home/armita/prog/augustus-3.1/config/species/"$Organism"_"$Strain"_braker
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
+qsub $ProgDir/sub_braker_fungi.sh $Assembly $OutDir $AcceptedHits $GeneModelName
+```
+
+
 Repeat for assemblies cleaned for ncbi
 
 ```bash
