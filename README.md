@@ -1516,7 +1516,7 @@ Firstly, aligned RNAseq data was assembled into transcripts using Cufflinks.
 Note - cufflinks doesn't always predict direction of a transcript and therefore features can not be restricted by strand when they are intersected.
 
 ```bash
-for Strain in Bc1 Bc16 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
@@ -1527,6 +1527,19 @@ do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
     qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
 done
+```
+
+For FALCON assembly
+
+```bash
+Strain=Bc16
+Organism=P.fragariae
+Assembly=repeat_masked/*/polished/*/*_contigs_unmasked.fa
+OutDir=gene_pred/star/cufflinks/$Organism/$Strain/concatenated
+mkdir -p $OutDir
+AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
+ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+qsub $ProgDir/sub_cufflinks.sh $AcceptedHits $OutDir
 ```
 
 Repeat for assemblies cleaned for NCBI
