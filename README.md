@@ -1906,7 +1906,7 @@ do
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_unmasked.fa)
         echo $Assembly
     else
-        Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/*_unmasked.fa)
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_unmasked.fa)
         echo $Assembly
     fi
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
