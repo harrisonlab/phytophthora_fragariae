@@ -209,6 +209,10 @@ done
 
 ###FALCON assembly
 
+This star script had the following options added:
+--winAnchorMultimapNmax 200
+--seedSearchStartLmax 30
+
 ```bash
 for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
 do
