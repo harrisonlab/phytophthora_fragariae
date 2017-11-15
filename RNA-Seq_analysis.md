@@ -224,7 +224,7 @@ do
     Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
     OutDir=alignment/star/P.fragariae/Bc16/$Timepoint/$Sample_Name
     ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
-    Assembly=/home/groups/harrisonlab/project_files/phytophthora_fragariae/assembly/FALCON_Trial/quiver_results/polished/filtered_contigs/Bc16_contigs_renamed.fasta
+    Assembly=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
     qsub $ProgDir/sub_star_sensitive.sh $Assembly $File1 $File2 $OutDir
 done
 ```
