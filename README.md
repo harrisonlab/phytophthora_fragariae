@@ -2054,6 +2054,7 @@ D) From Augustus gene models - Hmm evidence of CRN effectors
 E) From ORF fragments - Signal peptide & RxLR motif
 F) From ORF fragments - Hmm evidence of WY domains
 G) From ORF fragments - Hmm evidence of RxLR effectors
+H) From ORF fragments - Hmm evidence of CRN effectors
 
 ##A) From Augustus gene models - Signal peptide & RxLR motif
 
