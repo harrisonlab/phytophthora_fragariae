@@ -2014,7 +2014,7 @@ ORF_finder - Bc1
 657,394
 
 ORF_finder - Bc16
-776,140
+776,126
 
 ORF_finder - Bc23
 648,130
