@@ -1561,11 +1561,11 @@ done
 Secondly, genes were predicted using CodingQuarry:
 
 ```bash
-for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+for Strain in Nov27 ONT3 Bc23 Nov77
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
-    Assembly=repeat_masked/*/$Strain/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    Assembly=repeat_masked/*/$Strain/deconseq_Paen_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
     OutDir=gene_pred/codingquarry/$Organism/$Strain
     CufflinksGTF=gene_pred/star/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
