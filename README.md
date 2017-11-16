@@ -1567,7 +1567,7 @@ do
     echo "$Organism - $Strain"
     Assembly=repeat_masked/*/$Strain/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
     OutDir=gene_pred/codingquarry/$Organism/$Strain
-    CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
+    CufflinksGTF=gene_pred/star/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 done
@@ -1582,7 +1582,7 @@ do
     echo "$Organism - $Strain"
     Assembly=repeat_masked/*/$Strain/ncbi_edits_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
     OutDir=gene_pred/codingquarry/$Organism/$Strain
-    CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
+    CufflinksGTF=gene_pred/star/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 done
@@ -1596,7 +1596,7 @@ Organism=P.fragariae
 echo "$Organism - $Strain"
 Assembly=repeat_masked/*/polished/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
 OutDir=gene_pred/codingquarry/$Organism/$Strain
-CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
+CufflinksGTF=gene_pred/star/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
 qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 ```
