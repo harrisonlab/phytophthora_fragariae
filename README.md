@@ -1489,7 +1489,6 @@ ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
 qsub $ProgDir/sub_braker_fungi.sh $Assembly $OutDir $AcceptedHits $GeneModelName
 ```
 
-
 Repeat for assemblies cleaned for ncbi
 
 ```bash
