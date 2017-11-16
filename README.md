@@ -1561,7 +1561,7 @@ done
 Secondly, genes were predicted using CodingQuarry:
 
 ```bash
-for Strain in Bc1 Bc16 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
+for Strain in Bc1 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
@@ -1586,6 +1586,19 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 done
+```
+
+For FALCON assembly
+
+```bash
+Strain=Bc16
+Organism=P.fragariae
+echo "$Organism - $Strain"
+Assembly=repeat_masked/*/polished/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
+OutDir=gene_pred/codingquarry/$Organism/$Strain
+CufflinksGTF=gene_pred/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
+qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 ```
 
 Then, additional transcripts were added to Braker1 gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker1 gene models. This had a bug that Andy corrected:
