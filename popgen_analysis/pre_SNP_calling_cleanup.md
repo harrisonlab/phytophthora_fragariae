@@ -10,7 +10,7 @@ scripts=/home/adamst/git_repos/scripts/popgen/snp
 ###Single run of data
 
 ```bash
-Reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa
+Reference=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
 for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -v -e 'Nov71' -e 'Bc1' -e 'Nov9' -e '62471' -e 'Bc16')
 do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
@@ -30,7 +30,7 @@ done
 ###Two runs of data
 
 ```bash
-Reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa
+Reference=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
 for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -e 'Nov71' -e 'Bc16')
 do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
@@ -54,7 +54,7 @@ done
 ###Three runs of data
 
 ```bash
-Reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa
+Reference=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
 for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -e 'Bc1' -e 'Nov9' | grep -v 'Bc16')
 do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
@@ -82,7 +82,7 @@ done
 ###For *P. rubi* isolates
 
 ```bash
-Reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa
+Reference=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
 for StrainPath in $(ls -d ../phytophthora_rubi/qc_dna/paired/P.*/*)
 do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
