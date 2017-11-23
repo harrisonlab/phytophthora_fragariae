@@ -1685,7 +1685,7 @@ do
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
         echo $Assembly
     else
-        Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
         echo $Assembly
     fi
     $ProgDir/gff2fasta.pl $Assembly $GffRenamed gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed
