@@ -1818,15 +1818,15 @@ done
 
 ```
 A4
-Complete and single copy genes: 271
+Complete and single copy genes: 272
 Complete and duplicated genes: 7
-Fragmented genes: 10
+Fragmented genes: 9
 Missing genes: 15
 
 Bc16
-Complete and single copy genes: 263
+Complete and single copy genes: 264
 Complete and duplicated genes: 9
-Fragmented genes: 10
+Fragmented genes: 9
 Missing genes: 21
 
 Bc1
@@ -1848,15 +1848,15 @@ Fragmented genes: 8
 Missing genes: 15
 
 Nov5
-Complete and single copy genes: 273
+Complete and single copy genes: 272
 Complete and duplicated genes: 7
-Fragmented genes: 8
+Fragmented genes: 9
 Missing genes: 15
 
 Nov71
-Complete and single copy genes: 271
+Complete and single copy genes: 273
 Complete and duplicated genes: 7
-Fragmented genes: 10
+Fragmented genes: 8
 Missing genes: 15
 
 Nov77
@@ -1866,9 +1866,9 @@ Fragmented genes: 9
 Missing genes: 15
 
 Nov9
-Complete and single copy genes: 273
+Complete and single copy genes: 272
 Complete and duplicated genes: 7
-Fragmented genes: 8
+Fragmented genes: 9
 Missing genes: 15
 
 ONT3
@@ -1878,10 +1878,10 @@ Fragmented genes: 7
 Missing genes: 13
 
 SCRP245_v2
-Complete and single copy genes: 273
-Complete and duplicated genes: 7
-Fragmented genes: 8
-Missing genes: 15
+Complete and single copy genes: 272
+Complete and duplicated genes: 8
+Fragmented genes: 9
+Missing genes: 14
 ```
 
 Changes with respect to genome sequence
