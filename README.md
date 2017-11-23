@@ -1714,19 +1714,19 @@ done
 ```
 A4
 Braker:
-31,329
+30,620
 CodingQuarry:
-2,365
+2,526
 Total:
-33,964
+33,146
 
 Bc16
 Braker:
-31,846
+31,904
 CodingQuarry:
-4,752
+4,346
 Total:
-36,598
+36,250
 
 Bc1
 Braker:
@@ -1738,11 +1738,11 @@ Total:
 
 Bc23
 Braker:
-30,561
+30,163
 CodingQuarry:
-2,556
+2,564
 Total:
-33,117
+32,727
 
 Nov27
 Braker:
@@ -1754,35 +1754,35 @@ Total:
 
 Nov5
 Braker:
-30,781
+30,725
 CodingQuarry:
-2,497
+2,704
 Total:
-33,278
+33,429
 
 Nov71
 Braker:
-30,341
+30,525
 CodingQuarry:
-2,508
+2,368
 Total:
-32,849
+32,893
 
 Nov77
 Braker:
-30,485
+31,113
 CodingQuarry:
-2,653
+2,339
 Total:
-33,138
+33,452
 
 Nov9
 Braker:
-30,367
+30,487
 CodingQuarry:
-2,561
+2,558
 Total:
-32,928
+33,045
 
 ONT3
 Braker:
@@ -1794,11 +1794,11 @@ Total:
 
 SCRP245_v2
 Braker:
-34,774
+34,778
 CodingQuarry:
-2,564
+2,519
 Total:
-37,338
+37,297s
 ```
 
 ##Predicted gene set assessed using BUSCO to assess completeness
