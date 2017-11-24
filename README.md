@@ -2270,79 +2270,79 @@ done
 
 ```
 strain: A4      species: P.fragariae
-the total number of SigP gene is:       11,042
-the number of unique SigP gene is:      3,751
-the number of SigP-RxLR genes are:      379
-the number of SigP-RxLR-EER genes are:  189
+the total number of SigP gene is:       11,021
+the number of unique SigP gene is:      3,743
+the number of SigP-RxLR genes are:      390
+the number of SigP-RxLR-EER genes are:  190
 
 
 strain: Bc16    species: P.fragariae
-the total number of SigP gene is:       12,785
-the number of unique SigP gene is:      4,300
-the number of SigP-RxLR genes are:      449
-the number of SigP-RxLR-EER genes are:  207
+the total number of SigP gene is:       12,764
+the number of unique SigP gene is:      4,270
+the number of SigP-RxLR genes are:      460
+the number of SigP-RxLR-EER genes are:  210
 
 
 strain: Bc1     species: P.fragariae
-the total number of SigP gene is:       11,152
-the number of unique SigP gene is:      3,765
-the number of SigP-RxLR genes are:      382
+the total number of SigP gene is:       11,163
+the number of unique SigP gene is:      3,771
+the number of SigP-RxLR genes are:      384
 the number of SigP-RxLR-EER genes are:  192
 
 
 strain: Bc23    species: P.fragariae
-the total number of SigP gene is:       11,043
-the number of unique SigP gene is:      3,731
-the number of SigP-RxLR genes are:      372
-the number of SigP-RxLR-EER genes are:  191
+the total number of SigP gene is:       11,257
+the number of unique SigP gene is:      3,796
+the number of SigP-RxLR genes are:      385
+the number of SigP-RxLR-EER genes are:  198
 
 
 strain: Nov27   species: P.fragariae
-the total number of SigP gene is:       11,113
-the number of unique SigP gene is:      3,772
-the number of SigP-RxLR genes are:      375
-the number of SigP-RxLR-EER genes are:  187
+the total number of SigP gene is:       11,072
+the number of unique SigP gene is:      3,765
+the number of SigP-RxLR genes are:      373
+the number of SigP-RxLR-EER genes are:  185
 
 
 strain: Nov5    species: P.fragariae
-the total number of SigP gene is:       11,110
-the number of unique SigP gene is:      3,762
-the number of SigP-RxLR genes are:      388
-the number of SigP-RxLR-EER genes are:  194
-
-
-strain: Nov71   species: P.fragariae
-the total number of SigP gene is:       11,135
-the number of unique SigP gene is:      3,763
-the number of SigP-RxLR genes are:      389
+the total number of SigP gene is:       11,016
+the number of unique SigP gene is:      3,729
+the number of SigP-RxLR genes are:      379
 the number of SigP-RxLR-EER genes are:  190
 
 
+strain: Nov71   species: P.fragariae
+the total number of SigP gene is:       11,131
+the number of unique SigP gene is:      3,752
+the number of SigP-RxLR genes are:      387
+the number of SigP-RxLR-EER genes are:  189
+
+
 strain: Nov77   species: P.fragariae
-the total number of SigP gene is:       11,085
-the number of unique SigP gene is:      3,750
-the number of SigP-RxLR genes are:      357
-the number of SigP-RxLR-EER genes are:  170
+the total number of SigP gene is:       11,187
+the number of unique SigP gene is:      3,764
+the number of SigP-RxLR genes are:      370
+the number of SigP-RxLR-EER genes are:  180
 
 
 strain: Nov9    species: P.fragariae
-the total number of SigP gene is:       11,302
-the number of unique SigP gene is:      3,809
-the number of SigP-RxLR genes are:      375
-the number of SigP-RxLR-EER genes are:  191
+the total number of SigP gene is:       11,205
+the number of unique SigP gene is:      3,790
+the number of SigP-RxLR genes are:      378
+the number of SigP-RxLR-EER genes are:  188
 
 
 strain: ONT3    species: P.fragariae
-the total number of SigP gene is:       12,473
-the number of unique SigP gene is:      4,297
+the total number of SigP gene is:       12,584
+the number of unique SigP gene is:      4,335
 the number of SigP-RxLR genes are:      395
 the number of SigP-RxLR-EER genes are:  191
 
 
 strain: SCRP245_v2      species: P.fragariae
-the total number of SigP gene is:       11,935
-the number of unique SigP gene is:      4,078
-the number of SigP-RxLR genes are:      383
+the total number of SigP gene is:       12,075
+the number of unique SigP gene is:      4,136
+the number of SigP-RxLR genes are:      388
 the number of SigP-RxLR-EER genes are:  189
 ```
 
