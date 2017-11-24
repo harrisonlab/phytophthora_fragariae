@@ -1842,9 +1842,9 @@ Fragmented genes: 8
 Missing genes: 15
 
 Nov27
-Complete and single copy genes: 273
+Complete and single copy genes: 272
 Complete and duplicated genes: 7
-Fragmented genes: 8
+Fragmented genes: 9
 Missing genes: 15
 
 Nov5
@@ -1912,9 +1912,9 @@ Fragmented genes: +1
 Missing genes: -1
 
 Nov27
-Complete and single copy genes: 0
+Complete and single copy genes: -1
 Complete and duplicated genes: +1
-Fragmented genes: +1
+Fragmented genes: +2
 Missing genes: -2
 
 Nov5
