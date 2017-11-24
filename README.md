@@ -1746,11 +1746,11 @@ Total:
 
 Nov27
 Braker:
-30,547
+30,745
 CodingQuarry:
-2,748
+2,699
 Total:
-33,295
+33,444
 
 Nov5
 Braker:
