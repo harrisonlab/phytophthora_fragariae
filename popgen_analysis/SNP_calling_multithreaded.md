@@ -2,7 +2,7 @@
 To change in each analysis:
 
 ```bash
-input=repeat_masked/quiver_results/polished/filtered_contigs_repmasks
+input=repeat_masked/quiver_results/polished/filtered_contigs_repmask
 reference=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
 
 filename=$(basename "$reference")
