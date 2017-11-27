@@ -2933,9 +2933,9 @@ This represented the following number of unique genes:
 40,784
 P.fragariae - Bc16
 The following number of sequences were predicted as secreted:
-97,133
+97,112
 This represented the following number of unique genes:
-48,486
+48,478
 P.fragariae - Bc1
 The following number of sequences were predicted as secreted:
 82,683
