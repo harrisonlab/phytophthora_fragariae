@@ -3,7 +3,7 @@ To change in each analysis:
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/genome_alignment/bowtie
-reference=repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_unmasked.fa
+reference=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
 
 filename=$(basename "$reference")
 output="${filename%.*}.dict"
