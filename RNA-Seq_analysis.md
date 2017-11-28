@@ -205,9 +205,15 @@ do
 done
 ```
 
-##Align unmapped reads to *P. fragariae* genomes
+##Gzip output files to save space on the disk and allow star to run correctly downstream. ONLY RUN THIS ONCE
 
-###FALCON assembly
+```bash
+for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
+do
+    cat $AlignDir/star_aligmentUnmapped.out.mate1 | gzip -cf >$AlignDir/star_aligmentUnmapped.out.mate1.fq.gz
+    cat $AlignDir/star_aligmentUnmapped.out.mate2 | gzip -cf >$AlignDir/star_aligmentUnmapped.out.mate2.fq.gz
+done
+```
 
 This star script had the following options added to the sub_star.sh script in the ProgDir specified in the below commands:
 --winAnchorMultimapNmax 200
