@@ -363,12 +363,12 @@ for BamFile in $(ls alignment/star/P.fragariae/Bc16/*/*/star_aligmentAligned.sor
 do
     OutDir=$(dirname $BamFile)
     Prefix=$(echo $BamFile | rev | cut -f2 -d '/' | rev)
-    Jobs=$(qstat | grep 'sub_fea' | grep 'qw'| wc -l)
-    while [ $Jobs -gt 1 ]
+    Jobs=$(qstat | grep 'sub_fea' | wc -l)
+    while [ $Jobs -gt 5 ]
     do
         sleep 1m
         printf "."
-        Jobs=$(qstat | grep 'sub_fea' | grep 'qw'| wc -l)
+        Jobs=$(qstat | grep 'sub_fea' | wc -l)
     done
     printf "\n"
     echo $Prefix
