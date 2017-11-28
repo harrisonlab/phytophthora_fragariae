@@ -3100,11 +3100,11 @@ Merged RxLR-EER regex proteins: 269
 
 
 strain: Bc16    species: P.fragariae
-the number of SigP gene is:     97,133
-the number of SigP-RxLR genes are:      2,969
-the number of SigP-RxLR-EER genes are:  327
-Merged RxLR regex proteins: 2,450
-Merged RxLR-EER regex proteins: 297
+the number of SigP gene is:     97,112
+the number of SigP-RxLR genes are:      2,967
+the number of SigP-RxLR-EER genes are:  326
+Merged RxLR regex proteins: 2,448
+Merged RxLR-EER regex proteins: 296
 
 
 strain: Bc1     species: P.fragariae
