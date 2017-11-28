@@ -4510,6 +4510,13 @@ do
     SwissDbDir=../../uniprot/swissprot
     SwissDbName=uniprot_sprot
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/swissprot
+    Jobs=$(qstat | grep 'sub_swiss' | wc -l)
+    while [ $Jobs -gt 5 ]
+    do
+        sleep 1
+        printf "."
+        Jobs=$(qstat | grep 'sub_swiss' | wc -l)
+    done
     qsub $ProgDir/sub_swissprot.sh $Proteome $OutDir $SwissDbDir $SwissDbName
 done
 
@@ -4521,6 +4528,13 @@ do
     SwissDbDir=../../uniprot/swissprot
     SwissDbName=uniprot_sprot
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/swissprot
+    Jobs=$(qstat | grep 'sub_swiss' | wc -l)
+    while [ $Jobs -gt 5 ]
+    do
+        sleep 1
+        printf "."
+        Jobs=$(qstat | grep 'sub_swiss' | wc -l)
+    done
     qsub $ProgDir/sub_swissprot.sh $Proteome $OutDir $SwissDbDir $SwissDbName
 done
 ```
