@@ -4239,13 +4239,13 @@ done
 ```
 P.fragariae - A4
 The number of ORF CRNs overlapping Augustus CRNs:
-100
+101
 The number of Augustus CRNs overlapping ORF CRNs:
-105
+107
 The number of CRNs unique to ORF models:
-6
+5
 The number of CRNs unique to Augustus models:
-4
+3
 The number of sequences extracted is
 115
 P.fragariae - Bc1
@@ -4263,101 +4263,101 @@ P.fragariae - Bc16
 The number of ORF CRNs overlapping Augustus CRNs:
 111
 The number of Augustus CRNs overlapping ORF CRNs:
-117
+116
 The number of CRNs unique to ORF models:
 7
 The number of CRNs unique to Augustus models:
 5
 The number of sequences extracted is
-129
+128
 P.fragariae - Bc23
 The number of ORF CRNs overlapping Augustus CRNs:
-101
+99
 The number of Augustus CRNs overlapping ORF CRNs:
-107
+105
 The number of CRNs unique to ORF models:
-5
+7
 The number of CRNs unique to Augustus models:
-6
+7
 The number of sequences extracted is
-118
+119
 P.fragariae - Nov27
 The number of ORF CRNs overlapping Augustus CRNs:
 101
 The number of Augustus CRNs overlapping ORF CRNs:
-109
-The number of CRNs unique to ORF models:
-5
-The number of CRNs unique to Augustus models:
-5
-The number of sequences extracted is
-119
-P.fragariae - Nov5
-The number of ORF CRNs overlapping Augustus CRNs:
-101
-The number of Augustus CRNs overlapping ORF CRNs:
-107
+108
 The number of CRNs unique to ORF models:
 5
 The number of CRNs unique to Augustus models:
 4
 The number of sequences extracted is
-116
+117
+P.fragariae - Nov5
+The number of ORF CRNs overlapping Augustus CRNs:
+99
+The number of Augustus CRNs overlapping ORF CRNs:
+104
+The number of CRNs unique to ORF models:
+7
+The number of CRNs unique to Augustus models:
+6
+The number of sequences extracted is
+117
 P.fragariae - Nov71
 The number of ORF CRNs overlapping Augustus CRNs:
 99
 The number of Augustus CRNs overlapping ORF CRNs:
-107
+108
+The number of CRNs unique to ORF models:
+6
+The number of CRNs unique to Augustus models:
+4
+The number of sequences extracted is
+118
+P.fragariae - Nov77
+The number of ORF CRNs overlapping Augustus CRNs:
+98
+The number of Augustus CRNs overlapping ORF CRNs:
+105
 The number of CRNs unique to ORF models:
 6
 The number of CRNs unique to Augustus models:
 5
 The number of sequences extracted is
-118
-P.fragariae - Nov77
-The number of ORF CRNs overlapping Augustus CRNs:
-99
-The number of Augustus CRNs overlapping ORF CRNs:
-107
-The number of CRNs unique to ORF models:
-5
-The number of CRNs unique to Augustus models:
-4
-The number of sequences extracted is
 116
 P.fragariae - Nov9
 The number of ORF CRNs overlapping Augustus CRNs:
-100
+98
 The number of Augustus CRNs overlapping ORF CRNs:
-108
+106
 The number of CRNs unique to ORF models:
-5
+7
 The number of CRNs unique to Augustus models:
 4
 The number of sequences extracted is
 117
 P.fragariae - ONT3
 The number of ORF CRNs overlapping Augustus CRNs:
-97
+96
 The number of Augustus CRNs overlapping ORF CRNs:
-104
+103
 The number of CRNs unique to ORF models:
-6
+7
 The number of CRNs unique to Augustus models:
 4
 The number of sequences extracted is
 114
 P.fragariae - SCRP245_v2
 The number of ORF CRNs overlapping Augustus CRNs:
-100
+99
 The number of Augustus CRNs overlapping ORF CRNs:
-108
+105
 The number of CRNs unique to ORF models:
-5
-The number of CRNs unique to Augustus models:
 6
+The number of CRNs unique to Augustus models:
+4
 The number of sequences extracted is
-119
+115
 ```
 
 #Making a combined file of Braker and CodingQuary genes with additional ORF effector candidates
