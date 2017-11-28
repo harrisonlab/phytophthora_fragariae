@@ -209,7 +209,7 @@ done
 
 ###FALCON assembly
 
-This star script had the following options added:
+This star script had the following options added to the sub_star.sh script in the ProgDir specified in the below commands:
 --winAnchorMultimapNmax 200
 --seedSearchStartLmax 30
 
@@ -229,7 +229,7 @@ do
     OutDir=alignment/star/P.fragariae/Bc16/$Timepoint/$Sample_Name
     ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
     Assembly=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
-    qsub $ProgDir/sub_star.sh $Assembly $File1 $File2 $OutDir
+    qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
 done
 ```
 
