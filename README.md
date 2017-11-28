@@ -4548,6 +4548,13 @@ do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
+    Jobs=$(qstat | grep 'submit_TM' | wc -l)
+    while [ $Jobs -gt 5 ]
+    do
+        sleep 1
+        printf "."
+        Jobs=$(qstat | grep 'submit_TM' | wc -l)
+    done
     qsub $ProgDir/submit_TMHMM.sh $Proteome
 done
 
@@ -4556,6 +4563,13 @@ do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
+    Jobs=$(qstat | grep 'submit_TM' | wc -l)
+    while [ $Jobs -gt 5 ]
+    do
+        sleep 1
+        printf "."
+        Jobs=$(qstat | grep 'submit_TM' | wc -l)
+    done
     qsub $ProgDir/submit_TMHMM2.sh $Proteome
 done
 ```
