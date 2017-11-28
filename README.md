@@ -3335,7 +3335,7 @@ E7) Combining RxLRs from Regex and hmm searches
 The total RxLRs are
 
 ```bash
-echo "Without EER"
+#Without EER
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_ORF_RxLR_regex_merged.txt)
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
@@ -3361,7 +3361,7 @@ do
     echo "$Strain done without EER"
 done
 
-echo "With EER"
+#With EER
 for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_ORF_RxLR_EER_regex_merged.txt)
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
