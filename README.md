@@ -4452,6 +4452,8 @@ do
 done
 ```
 
+BC-16 conservative fails when run in this loop, but when running each line individually it runs fine.
+
 #Functional annotation
 
 ##A)Interproscan
