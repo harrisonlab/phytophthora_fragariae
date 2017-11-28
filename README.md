@@ -4380,7 +4380,7 @@ do
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
     else
-        Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/*_softmasked.fa)
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
         echo $Assembly
     fi
     OutDir=gene_pred/annotation/P.fragariae/$Strain
@@ -4424,7 +4424,7 @@ do
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
     else
-        Assembly=$(ls repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/*_softmasked.fa)
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
         echo $Assembly
     fi
     OutDir=gene_pred/annotation/P.fragariae/$Strain
