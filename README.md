@@ -4087,10 +4087,10 @@ The number of CRNs common to both models are:
 Number of CRN ORFs after merging:
 106
 Searching for LFLAK domains in: P.fragariae Bc16
-Initial search space (Z):            776,140  [actual number of targets]
+Initial search space (Z):            776,126  [actual number of targets]
 Domain search space  (domZ):             276  [number of targets reported over threshold]
 Searching for DWL domains in: P.fragariae Bc16
-Initial search space (Z):            776,140  [actual number of targets]
+Initial search space (Z):            776,126  [actual number of targets]
 Domain search space  (domZ):             425  [number of targets reported over threshold]
 The number of CRNs common to both models are:
 192
