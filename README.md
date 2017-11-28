@@ -3213,7 +3213,7 @@ P.fragariae A4
 Initial search space (Z):             81,964  [actual number of targets]
 Domain search space  (domZ):             390  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):             97,133  [actual number of targets]
+Initial search space (Z):             97,112  [actual number of targets]
 Domain search space  (domZ):             397  [number of targets reported over threshold]
 P.fragariae Bc1
 Initial search space (Z):             82,683  [actual number of targets]
