@@ -3619,7 +3619,7 @@ Intersection between the coodinates of putative RxLRs from gene models and ORFs 
 The RxLR effectors from both Gene models and ORF finding approaches were combined into a single file.
 
 ```bash
-echo "Without EER"
+#Without EER
 for MergeDir in $(ls -d analysis/RxLR_effectors/combined_evidence/*/*)
 do
     Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
@@ -3669,7 +3669,7 @@ do
     echo "$Strain done without EER"
 done
 
-echo "With EER"
+#With EER
 for MergeDir in $(ls -d analysis/RxLR_effectors/combined_evidence/*/*)
 do
     Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
