@@ -292,7 +292,7 @@ do
         OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
         mkdir -p $OutDir
         ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
-        qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
+        qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
     done
 done
 ```
