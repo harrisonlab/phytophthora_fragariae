@@ -235,19 +235,19 @@ do
         Timepoint=$(echo $AlignDir | rev | cut -d '/' -f2 | rev)
         echo "$Timepoint"
         Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
-        if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+        if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
         then
-            Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
             echo $Assembly
-        elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+        elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
         then
-            Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
             echo $Assembly
         else
-            Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
             echo $Assembly
         fi
-        OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
+        OutDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
         ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
         qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
     done
@@ -274,22 +274,22 @@ do
         FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
         echo $FileF
         echo $FileR
-        if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+        if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
         then
-            Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
             echo $Assembly
-        elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+        elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
         then
-            Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
             echo $Assembly
         else
-            Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
             echo $Assembly
         fi
         Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
         echo "$Timepoint"
         Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
-        OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
+        OutDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
         mkdir -p $OutDir
         ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
         qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
