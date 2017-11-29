@@ -247,7 +247,7 @@ do
             Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
             echo $Assembly
         fi
-        OutDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
+        OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
         ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
         qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
     done
@@ -289,7 +289,7 @@ do
         Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
         echo "$Timepoint"
         Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
-        OutDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
+        OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
         mkdir -p $OutDir
         ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
         qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
