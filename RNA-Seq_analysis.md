@@ -235,6 +235,13 @@ do
         Timepoint=$(echo $AlignDir | rev | cut -d '/' -f2 | rev)
         echo "$Timepoint"
         Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+        done
         if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
         then
             Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
