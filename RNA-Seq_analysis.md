@@ -227,6 +227,8 @@ for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
     do
+        Organism=P.fragariae
+        echo "$Organism - $Strain"
         printf "\n"
         File1=$AlignDir/star_aligmentUnmapped.out.mate1.fq.gz
         File2=$AlignDir/star_aligmentUnmapped.out.mate2.fq.gz
