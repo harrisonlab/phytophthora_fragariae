@@ -150,17 +150,93 @@ done
 Trimming was performed on data to trim adapters from sequences and remove poor quality data.
 This was done with fastq-mcf
 
+For a single run of raw data
 
 ```bash
-for Strain in Bc1 Bc16 Nov9; do
+for Strain in A4 Bc23 Nov27 Nov5 Nov77 ONT3 SCRP245_v2
+do
     echo $Strain
-    Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep '_160129')
-    Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep '_160129')
-    IluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+    Read_F=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz)
+    Read_R=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz)
+    IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
     ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
     echo $Read_F
     echo $Read_R
-    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F $Read_R $IluminaAdapters DNA
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F $Read_R $IlluminaAdapters DNA
+done
+```
+
+For two runs of raw data
+
+```bash
+for Strain in Bc16
+do
+    echo $Strain
+    Read_F1=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -v 160129)
+    Read_R1=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -v 160129)
+    Read_F2=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -e 160129)
+    Read_R2=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -e 160129)
+    IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+    echo $Read_F
+    echo $Read_R
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F1 $Read_R1 $IlluminaAdapters DNA
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F2 $Read_R2 $IlluminaAdapters DNA
+done
+
+for Strain in Nov71
+do
+    echo $Strain
+    Read_F1=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -v PfragNov71)
+    Read_R1=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -v PfragNov71)
+    Read_F2=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -e PfragNov71)
+    Read_R2=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -e PfragNov71)
+    IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+    echo $Read_F
+    echo $Read_R
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F1 $Read_R1 $IlluminaAdapters DNA
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F2 $Read_R2 $IlluminaAdapters DNA
+done
+```
+
+For three runs of raw data
+
+```bash
+for Strain in Nov9
+do
+    echo $Strain
+    Read_F1=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -e 160129)
+    Read_R1=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -e 160129)
+    Read_F2=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -e S1)
+    Read_R2=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -e S1)
+    Read_F3=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -e PfragNov9)
+    Read_R3=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -e PfragNov9)
+    IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+    echo $Read_F
+    echo $Read_R
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F1 $Read_R1 $IlluminaAdapters DNA
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F2 $Read_R2 $IlluminaAdapters DNA
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F3 $Read_R3 $IlluminaAdapters DNA
+done
+
+for Strain in Bc1
+do
+    echo $Strain
+    Read_F1=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -e 160129)
+    Read_R1=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -e 160129)
+    Read_F2=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -e S3)
+    Read_R2=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -e S3)
+    Read_F3=$(ls raw_dna/paired/P.fragariae/$Strain/F/*.fastq.gz | grep -e PfragBc1)
+    Read_R3=$(ls raw_dna/paired/P.fragariae/$Strain/R/*.fastq.gz | grep -e PfragBc1)
+    IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+    echo $Read_F
+    echo $Read_R
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F1 $Read_R1 $IlluminaAdapters DNA
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F2 $Read_R2 $IlluminaAdapters DNA
+    qsub $ProgDir/rna_qc_fastq-mcf.sh $Read_F3 $Read_R3 $IlluminaAdapters DNA
 done
 ```
 
