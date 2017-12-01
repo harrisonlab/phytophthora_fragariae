@@ -1390,7 +1390,6 @@ for Strain in Bc1 Bc16 Nov5 A4 Nov27 Nov71 ONT3 Bc23 Nov77 SCRP245_v2 Nov9
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
-    Assembly=repeat_masked/*/$Strain/deconseq_Paen_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
     mkdir -p alignment/$Organism/$Strain/concatenated
     samtools merge -f alignment/$Organism/$Strain/concatenated/concatenated.bam \
     alignment/star/$Organism/$Strain/24hr/TA-07/star_aligmentAligned.sortedByCoord.out.bam \
