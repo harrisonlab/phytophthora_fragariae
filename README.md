@@ -664,11 +664,24 @@ do
     $ProgDir/remove_contaminants.py --inp $AssFiltered --out $AssRenamed --coord_file editfile.tab
     rm editfile.tab
 done
+
+#FALCON assembled genomes
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+touch tmp.csv
+for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_1.fasta)
+do
+    Strain=Bc16
+    OutDir=assembly/FALCON_Trial/quiver_results/polished/filtered_contigs
+    mkdir -p $OutDir
+    $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/"$Strain"_contigs_renamed.fasta --coord_file tmp.csv
+done
+rm tmp.csv
 ```
 
 ###QUAST used to summarise assembly statistics
 
 ```bash
+#SPAdes assemblies
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
 for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
@@ -680,9 +693,8 @@ do
         qsub $ProgDir/sub_quast.sh $Assembly $OutDir
     done
 done
-```
 
-```bash
+#FALCON assemblies
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
 Assembly=assembly/FALCON_Trial/quiver_results/polished/filtered_contigs/Bc16_contigs_renamed.fasta
 OutDir=assembly/FALCON_Trial/quiver_results/polished/
