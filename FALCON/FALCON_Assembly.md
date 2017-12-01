@@ -417,7 +417,7 @@ Fragmented genes: 5
 Missing genes: 23
 
 Assembly statistics:
-Genome size: 90,967,989 bp
+Genome size: 90,966,605 bp
 Number of contigs: 180
 N50: 923,458
 GC content: 53.39%
