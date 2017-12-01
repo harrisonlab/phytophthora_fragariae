@@ -652,6 +652,7 @@ done
 ###Quast
 
 ```bash
+#SPAdes assembled genomes
 for Strain in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
@@ -663,19 +664,6 @@ do
     $ProgDir/remove_contaminants.py --inp $AssFiltered --out $AssRenamed --coord_file editfile.tab
     rm editfile.tab
 done
-```
-
-```bash
-ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
-touch tmp.csv
-for Assembly in $(ls assembly/FALCON_Trial/quiver_results/polished/pilon_1.fasta)
-do
-    Strain=Bc16
-    OutDir=assembly/FALCON_Trial/quiver_results/polished/filtered_contigs
-    mkdir -p $OutDir
-    $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/"$Strain"_contigs_renamed.fasta --coord_file tmp.csv
-done
-rm tmp.csv
 ```
 
 ###QUAST used to summarise assembly statistics
