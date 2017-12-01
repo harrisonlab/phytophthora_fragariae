@@ -552,12 +552,13 @@ Bc1: 116.25
 Nov9: 103.23
 Nov71: 79.92
 ```
+
 Target coverage is 20.
 The ones at value 5 are errors from filtering of error kmers, estimate from plots follow in ().
 
 # Assembly
 Assembly was performed using: Spades
-hybrid canu and spades assembly for Bc16 detailed in pacbio_assembly.md
+FALCON assembly for Bc16 detailed in FALCON directory
 
 ## Spades Assembly
 
