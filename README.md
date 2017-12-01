@@ -1410,42 +1410,22 @@ done
 ###Run Braker1
 
 ```bash
-for Strain in Nov27 ONT3 Bc23 Nov77
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
-    Assembly=repeat_masked/*/$Strain/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
-    OutDir=gene_pred/braker/$Organism/"$Strain"_braker
-    AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
-    GeneModelName="$Organism"_"$Strain"_braker
-    rm -r /home/armita/prog/augustus-3.1/config/species/"$Organism"_"$Strain"_braker
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-    qsub $ProgDir/sub_braker_fungi.sh $Assembly $OutDir $AcceptedHits $GeneModelName
-done
-```
-
-For FALCON assembly
-
-```bash
-Strain=Bc16
-Organism=P.fragariae
-Assembly=repeat_masked/*/polished/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
-OutDir=gene_pred/braker/$Organism/"$Strain"_braker
-AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
-GeneModelName="$Organism"_"$Strain"_braker
-rm -r /home/armita/prog/augustus-3.1/config/species/"$Organism"_"$Strain"_braker
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-qsub $ProgDir/sub_braker_fungi.sh $Assembly $OutDir $AcceptedHits $GeneModelName
-```
-
-Repeat for assemblies cleaned for ncbi
-
-```bash
-for Strain in Bc1 Nov5 A4 Nov71 SCRP245_v2 Nov9
-do
-    Organism=P.fragariae
-    echo "$Organism - $Strain"
-    Assembly=repeat_masked/*/$Strain/ncbi_edits_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    fi
     OutDir=gene_pred/braker/$Organism/"$Strain"_braker
     AcceptedHits=alignment/$Organism/$Strain/concatenated/concatenated.bam
     GeneModelName="$Organism"_"$Strain"_braker
