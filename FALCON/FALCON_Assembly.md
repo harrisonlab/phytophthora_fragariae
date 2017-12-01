@@ -395,6 +395,8 @@ OutDir=assembly/FALCON_Trial/quiver_results/$Name
 qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 ```
 
+QUAST performed in README.md
+
 ```
 Before Pilon:
 BUSCO statistics: 273
