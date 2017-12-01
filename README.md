@@ -136,11 +136,13 @@ Data quality was visualised using fastqc:
 
 
 ```bash
-for Strain in Bc1 Bc16 Nov9; do
-    for RawData in $(ls raw_dna/paired/P.fragariae/$Strain/*/*.fastq.gz | grep '_160129'); do
-        echo $RawData;
-        ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc;
-        qsub $ProgDir/run_fastqc.sh $RawData;
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    for RawData in $(ls raw_dna/paired/P.fragariae/$Strain/*/*.fastq.gz)
+    do
+        echo $RawData
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
+        qsub $ProgDir/run_fastqc.sh $RawData
     done
 done
 ```
