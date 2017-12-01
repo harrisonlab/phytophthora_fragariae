@@ -1471,44 +1471,27 @@ done
 Secondly, genes were predicted using CodingQuarry:
 
 ```bash
-for Strain in Nov27 ONT3 Bc23 Nov77
+for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Organism=P.fragariae
     echo "$Organism - $Strain"
-    Assembly=repeat_masked/*/$Strain/deconseq_Paen_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
+    if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    fi
     OutDir=gene_pred/codingquarry/$Organism/$Strain
     CufflinksGTF=gene_pred/star/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 done
-```
-
-Repeat for assemblies cleaned for NCBI
-
-```bash
-for Strain in Bc1 Nov5 A4 Nov71 SCRP245_v2 Nov9
-do
-    Organism=P.fragariae
-    echo "$Organism - $Strain"
-    Assembly=repeat_masked/*/$Strain/ncbi_edits_repmask/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
-    OutDir=gene_pred/codingquarry/$Organism/$Strain
-    CufflinksGTF=gene_pred/star/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
-    qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
-done
-```
-
-For FALCON assembly
-
-```bash
-Strain=Bc16
-Organism=P.fragariae
-echo "$Organism - $Strain"
-Assembly=repeat_masked/*/polished/*/*_contigs_softmasked_repeatmasker_TPSI_appended.fa
-OutDir=gene_pred/codingquarry/$Organism/$Strain
-CufflinksGTF=gene_pred/star/cufflinks/$Organism/$Strain/concatenated/transcripts.gtf
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
-qsub $ProgDir/sub_CodingQuary.sh $Assembly $CufflinksGTF $OutDir
 ```
 
 Then, additional transcripts were added to Braker1 gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker1 gene models. This had a bug that Andy corrected:
