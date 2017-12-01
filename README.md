@@ -742,7 +742,7 @@ NOV-9: 7,655
 BC-1: 7,504
 ```
 
-##Run Deconseq to identify potential contaminents in the assembly
+##Run Deconseq to identify potential contaminants in the assembly
 
 ###SPAdes assemblies
 
