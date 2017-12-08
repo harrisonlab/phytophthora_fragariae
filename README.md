@@ -1679,8 +1679,6 @@ done
 
 Then, additional transcripts were added to Braker1 gene models, when CodingQuarry genes were predicted in regions of the genome, not containing Braker1 gene models. This had a bug that Andy corrected:
 
-For set of assemblies not cleaned for NCBI:
-
 ```bash
 for BrakerGff in $(ls gene_pred/braker/*/*_braker/*/augustus.gff3)
 do
@@ -1791,91 +1789,91 @@ done
 ```
 A4
 Braker:
-30,620
+21,182
 CodingQuarry:
-2,526
+9,818
 Total:
-33,146
+31,000
 
 Bc16
 Braker:
-31,904
+20,222
 CodingQuarry:
-4,346
+17,138
 Total:
-36,250
+37,360
 
 Bc1
 Braker:
-30,365
+20,941
 CodingQuarry:
-2,784
+10,251
 Total:
-33,149
+31,192
 
 Bc23
 Braker:
-30,163
+21,043
 CodingQuarry:
-2,564
+9,752
 Total:
-32,727
+30,795
 
 Nov27
 Braker:
-30,745
+21,202
 CodingQuarry:
-2,699
+10,232
 Total:
-33,444
+31,434
 
 Nov5
 Braker:
-30,725
+21,004
 CodingQuarry:
-2,704
+10,070
 Total:
-33,429
+31,074
 
 Nov71
 Braker:
-30,525
+20,879
 CodingQuarry:
-2,368
+9,664
 Total:
-32,893
+30,543
 
 Nov77
 Braker:
-31,113
+21,163
 CodingQuarry:
-2,339
+9,772
 Total:
-33,452
+30,935
 
 Nov9
 Braker:
-30,487
+20,975
 CodingQuarry:
-2,558
+9,856
 Total:
-33,045
+30,831
 
 ONT3
 Braker:
-33,982
+24,223
 CodingQuarry:
-2,872
+9,931
 Total:
-36,854
+34,154
 
 SCRP245_v2
 Braker:
-34,778
+24,610
 CodingQuarry:
-2,519
+10,078
 Total:
-37,297s
+34,688
 ```
 
 ##Predicted gene set assessed using BUSCO to assess completeness
