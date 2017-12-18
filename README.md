@@ -2121,13 +2121,13 @@ ORF_finder - SCRP245_v2
 
 Putative RxLR genes were identified within Augustus gene models using a number of approaches:
 
-A) From Augustus gene models - Signal peptide & RxLR motif
-B) From Augustus gene models - Hmm evidence of WY domains
+A) From Augustus gene models - Signal peptides
+B) From Augustus gene models - Regex evidence of RxLRs
 C) From Augustus gene models - Hmm evidence of RxLR effectors
 D) From Augustus gene models - Hmm evidence of CRN effectors
 E) From Augustus gene models - ApoplastP prediction of apoplastic effectors
-F) From ORF fragments - Signal peptide & RxLR motif
-G) From ORF fragments - Hmm evidence of WY domains
+F) From ORF fragments - Signal peptides
+G) From ORF fragments - Regex evidence of RxLRs
 H) From ORF fragments - Hmm evidence of RxLR effectors
 I) From ORF fragments - Hmm evidence of CRN effectors
 J) From ORF fragments - ApoplastP prediction of apoplastic effectors
@@ -2205,7 +2205,7 @@ do
 done
 ```
 
-####B.2) Prediction using Phobius
+####A.2) Prediction using Phobius
 
 Secreted proteins were also predicted using Phobius
 
@@ -2306,7 +2306,7 @@ This represented the following number of unique genes:
 4,012
 ```
 
-The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
+####B) The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
 
 The RxLR_EER_regex_finder.py script was used to search for this regular expression and annotate the EER domain where present.
 
@@ -2423,7 +2423,7 @@ the number of SigP-RxLR genes are:      379
 the number of SigP-RxLR-EER genes are:  181
 ```
 
-####F) From Secreted gene models - Hmm evidence of RxLR effectors
+####C) From Secreted gene models - Hmm evidence of RxLR effectors
 
 ```bash
 for Strain in A4 Bc16 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
@@ -2487,7 +2487,7 @@ Initial search space (Z):             34,688  [actual number of targets]
 Domain search space  (domZ):             194  [number of targets reported over threshold]
 ```
 
-####G) Combining RxLRs from Regex and hmm searches
+####Combining RxLRs from Regex and hmm searches
 
 The total RxLRs are found by combining different sources:
 
@@ -2888,7 +2888,9 @@ do
 done
 ```
 
-####E) From ORF gene models - Signal peptide & RxLR motif
+####E) From Augustus gene models - ApoplastP prediction of apoplastic effectors
+
+####F) From ORF gene models - Signal peptide & RxLR motif
 
 Required programs:
 
@@ -2896,7 +2898,7 @@ SigP
 Phobius
 biopython
 
-#####E.1) Prediction using SignalP
+#####F.1) Prediction using SignalP
 
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
@@ -2958,7 +2960,7 @@ do
 done
 ```
 
-E.2) Prediction using Phobius
+#####F.2) Prediction using Phobius
 
 Secreted proteins were also predicted using Phobius
 
@@ -3060,7 +3062,7 @@ This represented the following number of unique genes:
 42,759
 ```
 
-E.3) Prediction of RxLRs
+####G) From ORF fragments - The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
 
 Names of ORFs containing signal peptides were extracted from fasta files. This included information on the position and hmm score of RxLRs.
 
@@ -3256,7 +3258,7 @@ Merged RxLR regex proteins: 2,167
 Merged RxLR-EER regex proteins: 273
 ```
 
-E5) From ORF gene models - Hmm evidence of WY domains
+####H.1) From ORF gene models - Hmm evidence of WY domains
 
 Hmm models for the WY domain contained in many RxLRs were used to search ORFs predicted with atg.pl. These were run with the following commands:
 
@@ -3321,7 +3323,7 @@ Initial search space (Z):             85,884  [actual number of targets]
 Domain search space  (domZ):             378  [number of targets reported over threshold]
 ```
 
-E6) From ORF gene models - Hmm evidence of RxLR effectors
+####H.2) From ORF gene models - Hmm evidence of RxLR effectors
 
 ```bash
 for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
@@ -3407,7 +3409,7 @@ Domain search space  (domZ):             666  [number of targets reported over t
 Merged RxLR-EER Hmm proteins:   203
 ```
 
-E7) Combining RxLRs from Regex and hmm searches
+####Combining RxLRs from Regex and hmm searches
 
 The total RxLRs are
 
@@ -3689,7 +3691,7 @@ Number of genes in the extracted gff file:
 2,178
 ```
 
-4.2.c Analysis of RxLR effectors - merger of Augustus / published genes with ORFs
+####Analysis of RxLR effectors - merger of Augustus / published genes with ORFs
 
 Intersection between the coodinates of putative RxLRs from gene models and ORFs were identified to determine the total number of RxLRs predicted in these genomes.
 
@@ -4089,7 +4091,7 @@ The number of sequences extracted is
 2,284
 ```
 
-H) From ORF gene models - Hmm evidence of CRN effectors
+####I) From ORF gene models - Hmm evidence of CRN effectors
 
 A hmm model relating to crinkler domains was used to identify putative crinklers in ORF gene models. This was done with the following commands:
 
@@ -4265,7 +4267,7 @@ Number of CRN ORFs after merging:
 105
 ```
 
-Merge CRNs from augustus models and ORF fragments
+####Merge CRNs from augustus models and ORF fragments
 
 ```bash
 for MergeDir in $(ls -d analysis/CRN_effectors/hmmer_CRN/*/*)
@@ -4436,6 +4438,8 @@ The number of CRNs unique to Augustus models:
 The number of sequences extracted is
 105
 ```
+
+####J) From ORF fragments - ApoplastP prediction of apoplastic effectors
 
 #Making a combined file of Braker and CodingQuary genes with additional ORF effector candidates
 
