@@ -1899,63 +1899,63 @@ Fragmented genes: 9
 Missing genes: 15
 
 Bc16
-Complete and single copy genes: 264
+Complete and single copy genes: 263
 Complete and duplicated genes: 9
-Fragmented genes: 9
+Fragmented genes: 10
 Missing genes: 21
 
 Bc1
-Complete and single copy genes: 273
+Complete and single copy genes: 272
 Complete and duplicated genes: 7
-Fragmented genes: 8
+Fragmented genes: 9
 Missing genes: 15
 
 Bc23
-Complete and single copy genes: 273
-Complete and duplicated genes: 7
+Complete and single copy genes: 274
+Complete and duplicated genes: 6
 Fragmented genes: 8
 Missing genes: 15
 
 Nov27
-Complete and single copy genes: 272
-Complete and duplicated genes: 7
-Fragmented genes: 9
-Missing genes: 15
-
-Nov5
-Complete and single copy genes: 272
-Complete and duplicated genes: 7
-Fragmented genes: 9
-Missing genes: 15
-
-Nov71
 Complete and single copy genes: 273
 Complete and duplicated genes: 7
 Fragmented genes: 8
 Missing genes: 15
 
-Nov77
+Nov5
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
+Missing genes: 15
+
+Nov71
 Complete and single copy genes: 272
 Complete and duplicated genes: 7
 Fragmented genes: 9
 Missing genes: 15
 
-Nov9
-Complete and single copy genes: 272
+Nov77
+Complete and single copy genes: 271
 Complete and duplicated genes: 7
 Fragmented genes: 9
+Missing genes: 16
+
+Nov9
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
 Missing genes: 15
 
 ONT3
-Complete and single copy genes: 275
+Complete and single copy genes: 276
 Complete and duplicated genes: 8
-Fragmented genes: 7
+Fragmented genes: 6
 Missing genes: 13
 
 SCRP245_v2
-Complete and single copy genes: 272
+Complete and single copy genes: 273
 Complete and duplicated genes: 8
-Fragmented genes: 9
+Fragmented genes: 8
 Missing genes: 14
 ```
 
@@ -1969,63 +1969,63 @@ Fragmented genes: +3
 Missing genes: -2
 
 Bc16
-Complete and single copy genes: -2
+Complete and single copy genes: -3
 Complete and duplicated genes: 0
-Fragmented genes: +4
+Fragmented genes: +5
 Missing genes: -2
 
 Bc1
-Complete and single copy genes: -1
+Complete and single copy genes: -2
 Complete and duplicated genes: +1
-Fragmented genes: +2
+Fragmented genes: +3
 Missing genes: -2
 
 Bc23
-Complete and single copy genes: -2
-Complete and duplicated genes: +2
+Complete and single copy genes: -1
+Complete and duplicated genes: +1
 Fragmented genes: +1
 Missing genes: -1
 
 Nov27
-Complete and single copy genes: -1
+Complete and single copy genes: 0
 Complete and duplicated genes: +1
-Fragmented genes: +2
+Fragmented genes: +1
 Missing genes: -2
 
 Nov5
-Complete and single copy genes: -1
+Complete and single copy genes: 0
 Complete and duplicated genes: 0
-Fragmented genes: +3
+Fragmented genes: +2
 Missing genes: -2
 
 Nov71
-Complete and single copy genes: -1
-Complete and duplicated genes: +1
-Fragmented genes: +2
-Missing genes: -2
-
-Nov77
-Complete and single copy genes: 0
-Complete and duplicated genes: -1
-Fragmented genes: +3
-Missing genes: -2
-
-Nov9
-Complete and single copy genes: -1
-Complete and duplicated genes: +1
-Fragmented genes: +2
-Missing genes: -2
-
-ONT3
 Complete and single copy genes: -2
 Complete and duplicated genes: +1
 Fragmented genes: +3
 Missing genes: -2
 
-SCRP245_v2
+Nov77
+Complete and single copy genes: -1
+Complete and duplicated genes: -1
+Fragmented genes: +3
+Missing genes: -1
+
+Nov9
+Complete and single copy genes: 0
+Complete and duplicated genes: +1
+Fragmented genes: +1
+Missing genes: -2
+
+ONT3
 Complete and single copy genes: -1
 Complete and duplicated genes: +1
 Fragmented genes: +2
+Missing genes: -2
+
+SCRP245_v2
+Complete and single copy genes: 0
+Complete and duplicated genes: +1
+Fragmented genes: +1
 Missing genes: -2
 ```
 
