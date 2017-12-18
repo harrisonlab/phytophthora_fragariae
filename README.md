@@ -2249,59 +2249,59 @@ done
 ```
 P.fragariae - A4
 The following number of sequences were predicted as secreted:
-11,021
+10,722
 This represented the following number of unique genes:
-3,743
+3,637
 P.fragariae - Bc1
 The following number of sequences were predicted as secreted:
-11,163
+10,668
 This represented the following number of unique genes:
-3,771
+3,602
 P.fragariae - Bc16
 The following number of sequences were predicted as secreted:
-12,764
+12,597
 This represented the following number of unique genes:
-4,270
+4,218
 P.fragariae - Bc23
 The following number of sequences were predicted as secreted:
-11,257
+10,704
 This represented the following number of unique genes:
-3,796
+3,611
 P.fragariae - Nov27
 The following number of sequences were predicted as secreted:
-11,072
+10,825
 This represented the following number of unique genes:
-3,765
+3,690
 P.fragariae - Nov5
 The following number of sequences were predicted as secreted:
-11,016
+10,717
 This represented the following number of unique genes:
-3,729
+3,626
 P.fragariae - Nov71
 The following number of sequences were predicted as secreted:
-11,131
+10,738
 This represented the following number of unique genes:
-3,752
+3,635
 P.fragariae - Nov77
 The following number of sequences were predicted as secreted:
-11,187
+10,620
 This represented the following number of unique genes:
-3,764
+3,619
 P.fragariae - Nov9
 The following number of sequences were predicted as secreted:
-11,205
+10,745
 This represented the following number of unique genes:
-3,790
+3,637
 P.fragariae - ONT3
 The following number of sequences were predicted as secreted:
-12,584
+12,117
 This represented the following number of unique genes:
-4,335
+4,147
 P.fragariae - SCRP245_v2
 The following number of sequences were predicted as secreted:
-12,075
+11,701
 This represented the following number of unique genes:
-4,136
+4,012
 ```
 
 The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
