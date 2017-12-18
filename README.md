@@ -2451,37 +2451,37 @@ done
 
 ```
 P.fragariae A4
-Initial search space (Z):             33,146  [actual number of targets]
-Domain search space  (domZ):             187  [number of targets reported over threshold]
+Initial search space (Z):             31,000  [actual number of targets]
+Domain search space  (domZ):             194  [number of targets reported over threshold]
 P.fragariae Bc16
-Initial search space (Z):             36,250  [actual number of targets]
-Domain search space  (domZ):             219  [number of targets reported over threshold]
+Initial search space (Z):             37,360  [actual number of targets]
+Domain search space  (domZ):             218  [number of targets reported over threshold]
 P.fragariae Bc1
-Initial search space (Z):             33,149  [actual number of targets]
-Domain search space  (domZ):             190  [number of targets reported over threshold]
+Initial search space (Z):             31,192  [actual number of targets]
+Domain search space  (domZ):             194  [number of targets reported over threshold]
 P.fragariae Bc23
-Initial search space (Z):             32,727  [actual number of targets]
-Domain search space  (domZ):             200  [number of targets reported over threshold]
+Initial search space (Z):             30,795  [actual number of targets]
+Domain search space  (domZ):             188  [number of targets reported over threshold]
 P.fragariae Nov27
-Initial search space (Z):             33,444  [actual number of targets]
-Domain search space  (domZ):             187  [number of targets reported over threshold]
+Initial search space (Z):             31,434  [actual number of targets]
+Domain search space  (domZ):             183  [number of targets reported over threshold]
 P.fragariae Nov5
-Initial search space (Z):             33,429  [actual number of targets]
-Domain search space  (domZ):             192  [number of targets reported over threshold]
+Initial search space (Z):             31,074  [actual number of targets]
+Domain search space  (domZ):             196  [number of targets reported over threshold]
 P.fragariae Nov71
-Initial search space (Z):             32,893  [actual number of targets]
-Domain search space  (domZ):             189  [number of targets reported over threshold]
+Initial search space (Z):             30,543  [actual number of targets]
+Domain search space  (domZ):             191  [number of targets reported over threshold]
 P.fragariae Nov77
-Initial search space (Z):             33,452  [actual number of targets]
-Domain search space  (domZ):             188  [number of targets reported over threshold]
+Initial search space (Z):             30,935  [actual number of targets]
+Domain search space  (domZ):             166  [number of targets reported over threshold]
 P.fragariae Nov9
-Initial search space (Z):             33,045  [actual number of targets]
-Domain search space  (domZ):             188  [number of targets reported over threshold]
-P.fragariae ONT3
-Initial search space (Z):             36,854  [actual number of targets]
+Initial search space (Z):             30,831  [actual number of targets]
 Domain search space  (domZ):             186  [number of targets reported over threshold]
+P.fragariae ONT3
+Initial search space (Z):             34,154  [actual number of targets]
+Domain search space  (domZ):             185  [number of targets reported over threshold]
 P.fragariae SCRP245_v2
-Initial search space (Z):             37,297  [actual number of targets]
+Initial search space (Z):             34,688  [actual number of targets]
 Domain search space  (domZ):             194  [number of targets reported over threshold]
 ```
 
