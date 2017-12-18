@@ -2890,6 +2890,18 @@ done
 
 ####E) From Augustus gene models - ApoplastP prediction of apoplastic effectors
 
+```bash
+for Secretome in $(ls gene_pred/combined_sigP_CQ/*/*/*_all_secreted.fa)
+do
+    Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    BaseName="$Organism"_"$Strain"_ApoplastP
+    OutDir=analysis/ApoplastP/$Organism/$Strain
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/apoplastic_effectors
+    qsub $ProgDir/pred_apoplastP.sh $Secretome $BaseName $OutDir
+done
+```
+
 ####F) From ORF gene models - Signal peptide & RxLR motif
 
 Required programs:
@@ -4440,6 +4452,18 @@ The number of sequences extracted is
 ```
 
 ####J) From ORF fragments - ApoplastP prediction of apoplastic effectors
+
+```bash
+for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
+do
+    Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    BaseName="$Organism"_"$Strain"_ApoplastP
+    OutDir=analysis/ApoplastP/$Organism/$Strain
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/apoplastic_effectors
+    qsub $ProgDir/pred_apoplastP.sh $Secretome $BaseName $OutDir
+done
+```
 
 #Making a combined file of Braker and CodingQuary genes with additional ORF effector candidates
 
