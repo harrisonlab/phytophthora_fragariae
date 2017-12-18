@@ -4495,10 +4495,47 @@ for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
 do
     Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
-    BaseName="$Organism"_"$Strain"_ApoplastP
+    BaseName="$Organism"_"$Strain"_ApoplastP_ORF
     OutDir=analysis/ApoplastP/$Organism/$Strain
     ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
     qsub $ProgDir/pred_apoplastP.sh $Secretome $BaseName $OutDir
+done
+```
+
+The number of proteins predicted as being apoplastic effectors were summarised using the following commands
+
+```bash
+for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_ORF.txt)
+do
+    Strain=$(echo $File | rev | cut -f2 '/' | rev)
+    Organism=$(echo $File | rev | cut -f3 '/' | rev)
+    echo "$Organism - $Strain"
+    Headers=$(echo $File | sed 's/_ApoplastP_ORF.txt/_ApoplastP_headers_ORF.txt/g')
+    echo "Creating Headers file"
+    cat $File | grep 'Apoplastic' | cut -f1 > $Headers
+    echo "The number of genes predicted as Apoplastic effectors is:"
+    cat $Headers | wc -l
+    echo "Creating GFF3 file"
+    Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF.gff3)
+    OutName=$(echo $File | sed 's/.txt/.gff3/g')
+    cat $File | sed -r 's/\.t.$//g' > tmp.txt
+    cat $Gff | grep -w -f tmp.txt > $OutName
+    rm tmp.txt
+    echo "Creating Fasta files"
+    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
+        echo $Assembly
+    fi
+    OutDir=analysis/ApoplastP/$Organism/$Strain
+    $ProgDir/gff2fasta.pl $Assembly $OutName $OutDir/"$Strain"_ApoplastP_ORF
 done
 ```
 
