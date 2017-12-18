@@ -2125,10 +2125,12 @@ A) From Augustus gene models - Signal peptide & RxLR motif
 B) From Augustus gene models - Hmm evidence of WY domains
 C) From Augustus gene models - Hmm evidence of RxLR effectors
 D) From Augustus gene models - Hmm evidence of CRN effectors
-E) From ORF fragments - Signal peptide & RxLR motif
-F) From ORF fragments - Hmm evidence of WY domains
-G) From ORF fragments - Hmm evidence of RxLR effectors
-H) From ORF fragments - Hmm evidence of CRN effectors
+E) From Augustus gene models - ApoplastP prediction of apoplastic effectors
+F) From ORF fragments - Signal peptide & RxLR motif
+G) From ORF fragments - Hmm evidence of WY domains
+H) From ORF fragments - Hmm evidence of RxLR effectors
+I) From ORF fragments - Hmm evidence of CRN effectors
+J) From ORF fragments - ApoplastP prediction of apoplastic effectors
 
 ##A) From Augustus gene models - Signal peptide & RxLR motif
 
