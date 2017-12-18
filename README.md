@@ -2902,6 +2902,43 @@ do
 done
 ```
 
+The number of proteins predicted as being apoplastic effectors were summarised using the following commands
+
+```bash
+for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP.txt)
+do
+    Strain=$(echo $File | rev | cut -f2 '/' | rev)
+    Organism=$(echo $File | rev | cut -f3 '/' | rev)
+    echo "$Organism - $Strain"
+    Headers=$(echo $File | sed 's/_ApoplastP.txt/_ApoplastP_headers.txt/g')
+    echo "Creating Headers file"
+    cat $File | grep 'Apoplastic' | cut -f1 > $Headers
+    echo "The number of genes predicted as Apoplastic effectors is:"
+    cat $Headers | wc -l
+    echo "Creating GFF3 file"
+    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.gff3)
+    OutName=$(echo $File | sed 's/.txt/.gff3/g')
+    cat $File | sed -r 's/\.t.$//g' > tmp.txt
+    cat $Gff | grep -w -f tmp.txt > $OutName
+    rm tmp.txt
+    echo "Creating Fasta files"
+    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
+        echo $Assembly
+    fi
+    OutDir=analysis/ApoplastP/$Organism/$Strain
+    $ProgDir/gff2fasta.pl $Assembly $OutName $OutDir/"$Strain"_ApoplastP
+done
+```
+
 ####F) From ORF gene models - Signal peptide & RxLR motif
 
 Required programs:
