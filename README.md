@@ -2897,7 +2897,7 @@ do
     Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
     BaseName="$Organism"_"$Strain"_ApoplastP
     OutDir=analysis/ApoplastP/$Organism/$Strain
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/apoplastic_effectors
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
     qsub $ProgDir/pred_apoplastP.sh $Secretome $BaseName $OutDir
 done
 ```
@@ -4460,7 +4460,7 @@ do
     Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
     BaseName="$Organism"_"$Strain"_ApoplastP
     OutDir=analysis/ApoplastP/$Organism/$Strain
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/apoplastic_effectors
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
     qsub $ProgDir/pred_apoplastP.sh $Secretome $BaseName $OutDir
 done
 ```
