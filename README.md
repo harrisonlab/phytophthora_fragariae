@@ -4539,8 +4539,8 @@ The number of proteins predicted as being apoplastic effectors were summarised u
 ```bash
 for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_ORF.txt)
 do
-    Strain=$(echo $File | rev | cut -f2 '/' | rev)
-    Organism=$(echo $File | rev | cut -f3 '/' | rev)
+    Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
     Headers=$(echo $File | sed 's/_ApoplastP_ORF.txt/_ApoplastP_headers_ORF.txt/g')
     echo "Creating Headers file"
