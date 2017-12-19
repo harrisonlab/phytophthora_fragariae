@@ -2951,6 +2951,7 @@ do
         echo $Assembly
     fi
     OutDir=analysis/ApoplastP/$Organism/$Strain
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     $ProgDir/gff2fasta.pl $Assembly $OutName $OutDir/"$Strain"_ApoplastP
 done
 ```
@@ -4567,6 +4568,7 @@ do
         echo $Assembly
     fi
     OutDir=analysis/ApoplastP/$Organism/$Strain
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     $ProgDir/gff2fasta.pl $Assembly $OutName $OutDir/"$Strain"_ApoplastP_ORF
 done
 ```
