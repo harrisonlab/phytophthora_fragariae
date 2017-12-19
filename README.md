@@ -2921,12 +2921,12 @@ done
 The number of proteins predicted as being apoplastic effectors were summarised using the following commands
 
 ```bash
-for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP.txt)
+for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP.fa)
 do
     Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    Headers=$(echo $File | sed 's/_ApoplastP.txt/_ApoplastP_headers.txt/g')
+    Headers=$(echo $File | sed 's/_ApoplastP.fa/_ApoplastP_headers.txt/g')
     Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.gff3)
     if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
     then
@@ -4528,12 +4528,12 @@ done
 The number of proteins predicted as being apoplastic effectors were summarised using the following commands
 
 ```bash
-for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_ORF.txt)
+for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_ORF.fa)
 do
     Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    Headers=$(echo $File | sed 's/_ApoplastP_ORF.txt/_ApoplastP_headers_ORF.txt/g')
+    Headers=$(echo $File | sed 's/_ApoplastP_ORF.fa/_ApoplastP_headers_ORF.txt/g')
     Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF.gff3)
     if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
     then
