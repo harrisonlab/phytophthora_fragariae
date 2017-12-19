@@ -2923,8 +2923,8 @@ The number of proteins predicted as being apoplastic effectors were summarised u
 ```bash
 for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP.txt)
 do
-    Strain=$(echo $File | rev | cut -f2 '/' | rev)
-    Organism=$(echo $File | rev | cut -f3 '/' | rev)
+    Strain=$(echo $File | rev | cut -f2 "/" | rev)
+    Organism=$(echo $File | rev | cut -f3 "/" | rev)
     echo "$Organism - $Strain"
     Headers=$(echo $File | sed 's/_ApoplastP.txt/_ApoplastP_headers.txt/g')
     echo "Creating Headers file"
@@ -4524,8 +4524,8 @@ TEMPORARY COMMANDS FOR RUNNING ON HEAD NODE
 ```bash
 for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
 do
-    Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    Strain=$(echo $Secretome | rev | cut -f2 -d "/" | rev)
+    Organism=$(echo $Secretome | rev | cut -f3 -d "/" | rev)
     echo "$Organism - $Strain"
     BaseName="$Organism"_"$Strain"_ApoplastP_ORF
     OutDir=analysis/ApoplastP/$Organism/$Strain
