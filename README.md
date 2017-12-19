@@ -2903,6 +2903,21 @@ do
 done
 ```
 
+TEMPORARY COMMANDS TO RUN ON THE HEAD NODE
+
+```bash
+for Secretome in $(ls gene_pred/combined_sigP_CQ/*/*/*_all_secreted.fa)
+do
+    Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    echo "$Organism - $Strain"
+    BaseName="$Organism"_"$Strain"_ApoplastP
+    OutDir=analysis/ApoplastP/$Organism/$Strain
+    mkdir -p $OutDir
+    ApoplastP.py -o "$OutDir"/"$BaseName".txt -A "$OutDir"/"$BaseName".fa -i $Secretome
+done
+```
+
 The number of proteins predicted as being apoplastic effectors were summarised using the following commands
 
 ```bash
