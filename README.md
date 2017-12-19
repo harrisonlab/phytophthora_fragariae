@@ -4507,7 +4507,7 @@ The number of sequences extracted is
 ####J) From ORF fragments - ApoplastP prediction of apoplastic effectors
 
 ```bash
-for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
+for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted_merged.aa)
 do
     Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
@@ -4522,7 +4522,7 @@ done
 TEMPORARY COMMANDS FOR RUNNING ON HEAD NODE
 
 ```bash
-for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
+for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted_merged.aa)
 do
     Strain=$(echo $Secretome | rev | cut -f2 -d "/" | rev)
     Organism=$(echo $Secretome | rev | cut -f3 -d "/" | rev)
