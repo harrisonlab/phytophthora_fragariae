@@ -2895,6 +2895,7 @@ for Secretome in $(ls gene_pred/combined_sigP_CQ/*/*/*_all_secreted.fa)
 do
     Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
+    echo "$Organism - $Strain"
     BaseName="$Organism"_"$Strain"_ApoplastP
     OutDir=analysis/ApoplastP/$Organism/$Strain
     ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
@@ -4496,6 +4497,7 @@ do
     Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
     BaseName="$Organism"_"$Strain"_ApoplastP_ORF
+    echo "$Organism - $Strain"
     OutDir=analysis/ApoplastP/$Organism/$Strain
     ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
     qsub $ProgDir/pred_apoplastP.sh $Secretome $BaseName $OutDir
