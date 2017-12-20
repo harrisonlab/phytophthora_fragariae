@@ -2929,11 +2929,11 @@ do
     Headers=$(echo $File | sed 's/_ApoplastP.fa/_ApoplastP_headers.txt/g')
     Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.gff3)
     echo "Creating Headers file"
-    cat $InFile | grep '>' | sed 's/>//g' | cut -f1 > $Headers
+    cat $File | grep '>' | sed 's/>//g' | cut -f1 > $Headers
     echo "The number of genes predicted as Apoplastic effectors is:"
     cat $Headers | wc -l
     echo "Creating GFF3 file"
-    OutName=$(echo $InFile | sed 's/.fa/.gff/g')
+    OutName=$(echo $File | sed 's/.fa/.gff/g')
     cat $Gff | grep -w -f $Headers > $OutName
     echo "Number of genes extracted into GFF3 file is:"
     cat $OutName | grep -w 'gene' | wc -l
