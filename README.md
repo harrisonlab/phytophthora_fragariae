@@ -4574,7 +4574,7 @@ do
     Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
     Headers=$(echo $File | sed 's/_ApoplastP_ORF.fa/_ApoplastP_headers_ORF.txt/g')
-    Gff=$(ls gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_merged.gff3)
+    Gff=$(ls gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_merged.gff)
     echo "Creating Headers file"
     cat $File | grep '>' | sed 's/>//g' | cut -f1 > $Headers
     echo "The number of genes predicted as Apoplastic effectors is:"
