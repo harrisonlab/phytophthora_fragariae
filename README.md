@@ -4569,7 +4569,7 @@ do
     Headers=$(echo $File | sed 's/_ApoplastP_ORF.fa/_ApoplastP_headers_ORF.txt/g')
     Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF.gff3)
     ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
-    qsub $ProgDir/parse_apoplastP.sh $File $Headers $Gfft
+    qsub $ProgDir/parse_apoplastP.sh $File $Headers $Gff
 done
 ```
 
