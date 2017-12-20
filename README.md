@@ -2928,21 +2928,8 @@ do
     echo "$Organism - $Strain"
     Headers=$(echo $File | sed 's/_ApoplastP.fa/_ApoplastP_headers.txt/g')
     Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.gff3)
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
-    then
-        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
-        echo $Assembly
-    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
-    then
-        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
-        echo $Assembly
-    else
-        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
-        echo $Assembly
-    fi
-    Output=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP
     ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
-    qsub $ProgDir/parse_apoplastP.sh $File $Headers $Gff $Assembly $Output
+    qsub $ProgDir/parse_apoplastP.sh $File $Headers $Gff
 done
 ```
 
@@ -4581,21 +4568,8 @@ do
     echo "$Organism - $Strain"
     Headers=$(echo $File | sed 's/_ApoplastP_ORF.fa/_ApoplastP_headers_ORF.txt/g')
     Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF.gff3)
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
-    then
-        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
-        echo $Assembly
-    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
-    then
-        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
-        echo $Assembly
-    else
-        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
-        echo $Assembly
-    fi
-    Output=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF
     ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
-    qsub $ProgDir/parse_apoplastP.sh $File $Headers $Gff $Assembly $Output
+    qsub $ProgDir/parse_apoplastP.sh $File $Headers $Gfft
 done
 ```
 
