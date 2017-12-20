@@ -4574,9 +4574,16 @@ do
     Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
     Headers=$(echo $File | sed 's/_ApoplastP_ORF.fa/_ApoplastP_headers_ORF.txt/g')
-    Gff=$(ls gene_pred/ORF_finder/$Organism/$Strain/"$Strain"_ORF.gff3)
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
-    qsub $ProgDir/parse_apoplastP.sh $File $Headers $Gff
+    Gff=$(ls gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_merged.gff3)
+    echo "Creating Headers file"
+    cat $File | grep '>' | sed 's/>//g' | cut -f1 > $Headers
+    echo "The number of genes predicted as Apoplastic effectors is:"
+    cat $Headers | wc -l
+    echo "Creating GFF3 file"
+    OutName=$(echo $File | sed 's/.fa/.gff/g')
+    cat $Gff | grep -w -f $Headers > $OutName
+    echo "Number of genes extracted into GFF3 file is:"
+    cat $OutName | grep -w 'gene' | wc -l
 done
 ```
 
