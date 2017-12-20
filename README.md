@@ -4573,6 +4573,52 @@ do
 done
 ```
 
+```
+P.fragariae - A4
+The number of genes predicted as Apoplastic effectors is:
+20,406
+
+P.fragariae - Bc16
+The number of genes predicted as Apoplastic effectors is:
+24,552
+
+P.fragariae - Bc1
+The number of genes predicted as Apoplastic effectors is:
+20,717
+
+P.fragariae - Bc23
+The number of genes predicted as Apoplastic effectors is:
+20,196
+
+P.fragariae - Nov27
+The number of genes predicted as Apoplastic effectors is:
+20,426
+
+P.fragariae - Nov5
+The number of genes predicted as Apoplastic effectors is:
+20,539
+
+P.fragariae - Nov71
+The number of genes predicted as Apoplastic effectors is:
+20,484
+
+P.fragariae - Nov77
+The number of genes predicted as Apoplastic effectors is:
+20,554
+
+P.fragariae - Nov9
+The number of genes predicted as Apoplastic effectors is:
+20,819
+
+P.fragariae - ONT3
+The number of genes predicted as Apoplastic effectors is:
+21,399
+
+P.fragariae - SCRP245_v2
+The number of genes predicted as Apoplastic effectors is:
+20,688
+```
+
 ####Merge apoplastic effectors from augustus models and ORF fragments
 
 ```bash
