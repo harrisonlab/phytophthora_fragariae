@@ -2946,6 +2946,52 @@ do
 done
 ```
 
+```
+P.fragariae - A4
+The number of genes predicted as Apoplastic effectors is:
+3,443
+
+P.fragariae - Bc16
+The number of genes predicted as Apoplastic effectors is:
+4,445
+
+P.fragariae - Bc1
+The number of genes predicted as Apoplastic effectors is:
+3,510
+
+P.fragariae - Bc23
+The number of genes predicted as Apoplastic effectors is:
+3,396
+
+P.fragariae - Nov27
+The number of genes predicted as Apoplastic effectors is:
+3,510
+
+P.fragariae - Nov5
+The number of genes predicted as Apoplastic effectors is:
+3,405
+
+P.fragariae - Nov71
+The number of genes predicted as Apoplastic effectors is:
+3,468
+
+P.fragariae - Nov77
+The number of genes predicted as Apoplastic effectors is:
+3,448
+
+P.fragariae - Nov9
+The number of genes predicted as Apoplastic effectors is:
+3,486
+
+P.fragariae - ONT3
+The number of genes predicted as Apoplastic effectors is:
+3,707
+
+P.fragariae - SCRP245_v2
+The number of genes predicted as Apoplastic effectors is:
+3,517
+```
+
 ####F) From ORF gene models - Signal peptide
 
 Required programs:
