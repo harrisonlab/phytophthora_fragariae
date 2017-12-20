@@ -4626,10 +4626,10 @@ for MergeDir in $(ls -d analysis/ApoplastP/*/*)
 do
     Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
     Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
-    AugGff=$(ls $MergeDir/"$Strain"_ApoplastP.gff)
+    AugGff=$(ls $MergeDir/"$Species"_"$Strain"_ApoplastP.gff3)
     AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
     ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
-    ORFGff=$(ls$MergeDir/"$Strain"_ApoplastP_ORF.gff3)
+    ORFGff=$(ls $MergeDir/"$Species"_"$Strain"_ApoplastP_ORF.gff3)
     echo "$Species - $Strain"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
     qsub $ProgDir/merge_apoplastP.sh $MergeDir $Strain $Species $AugGff $AugFa $ORFsFa $ORFGff
