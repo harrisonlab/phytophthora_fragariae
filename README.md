@@ -2881,7 +2881,7 @@ do
     Organism=$(echo $CRNlist | rev | cut -f3 -d '/' | rev)
     OutName=$(echo $CRNlist | sed 's/.txt/.gff/g')
     echo "$Organism - $Strain"
-    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
+    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.gff3)
     cat $CRNlist | sed -r 's/\.t.$//g' > tmp.txt
     cat $Gff | grep -w -f tmp.txt > $OutName
     rm tmp.txt
