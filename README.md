@@ -2315,8 +2315,8 @@ for Secretome in $(ls gene_pred/combined_sigP_CQ/*/*/*_all_secreted.fa)
 do
     Strain=$(echo $Secretome | rev | cut -d '/' -f2 | rev)
     Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev)
-    Proteome=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_combined.pep.fasta)
-    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended.gff3)
+    Proteome=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.pep.fasta)
+    Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.gff3)
     OutDir=analysis/RxLR_effectors/RxLR_EER_regex_finder/"$Organism"/"$Strain"
     mkdir -p $OutDir
     printf "\nstrain: $Strain\tspecies: $Organism\n"
