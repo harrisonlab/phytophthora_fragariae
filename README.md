@@ -4556,7 +4556,7 @@ done
 TEMPORARY COMMANDS FOR RUNNING ON HEAD NODE
 
 ```bash
-for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted_merged.aa)
+for Secretome in $(ls gene_pred/combined_sigP_ORF/*/*/*_all_secreted.fa)
 do
     Strain=$(echo $Secretome | rev | cut -f2 -d "/" | rev)
     Organism=$(echo $Secretome | rev | cut -f3 -d "/" | rev)
@@ -4564,30 +4564,36 @@ do
     BaseName="$Organism"_"$Strain"_ApoplastP_ORF
     OutDir=analysis/ApoplastP/$Organism/$Strain
     mkdir -p $OutDir
-    ApoplastP.py -o "$OutDir"/"$BaseName".txt -A "$OutDir"/"$BaseName".fa -i $Secretome
+    ApoplastP.py -o "$OutDir"/"$BaseName".txt -A "$OutDir"/"$BaseName"_unmerged.fa -i $Secretome
 done
 ```
 
 The number of proteins predicted as being apoplastic effectors were summarised using the following commands
 
 ```bash
-for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_ORF.fa)
+for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_ORF_unmerged.fa)
 do
     Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    Headers=$(echo $File | sed 's/_ApoplastP_ORF.fa/_ApoplastP_headers_ORF.txt/g')
-    Gff=$(ls gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_merged.gff)
-    echo "Creating Headers file"
+    Headers=$(echo $File | sed 's/_ApoplastP_unmerged.fa/_ApoplastP_unmerged_headers.txt/g')
+    Gff=$(echo $File | sed 's/_ApoplastP_unmerged.fa/_ApoplastP_unmerged.gff3/g')
     cat $File | grep '>' | sed 's/>//g' | cut -f1 > $Headers
+    SigP_Gff=gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_unmerged.gff
+    ProgDir=/home/adamst/git_repos/seq_tools/feature_annotation
+    $ProgDir/gene_list_to_gff.pl $Headers $SigP_Gff ApoplastP_ORF Name Augustus > $Gff
+    Apo_Merged_Gff=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged.gff
+    Apo_Merged_txt=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged_headers.txt
+    Apo_Merged_AA=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged.aa
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
+    $ProgDir/make_gff_database.py --inp $Gff --db sigP_ORF_ApoP.db
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged.db --gff > $Apo_Merged_Gff
+    cat $Apo_Merged_Gff | grep 'transcript' | rev | cut -f1 -d '=' | rev > $Apo_Merged_txt
     echo "The number of genes predicted as Apoplastic effectors is:"
-    cat $Headers | wc -l
-    echo "Creating GFF3 file"
-    OutName=$(echo $File | sed 's/.fa/.gff/g')
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-    $ProgDir/gene_list_to_gff.pl $Headers $Gff ApoplastP_ORF Name Augustus > $OutName
-    echo "Number of genes extracted into GFF3 file is:"
-    cat $OutName | grep -w 'gene' | wc -l
+    cat $Apo_Merged_txt | wc -l
+    ORF_fasta=gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa
+    $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $Apo_Merged_txt > $Apo_Merged_AA
 done
 ```
 
