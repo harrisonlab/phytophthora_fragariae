@@ -4654,7 +4654,7 @@ done
 
 ```bash
 #Without EER discrimination
-for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended.gff3)
+for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gff3)
 do
     Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
     Organism=$(echo $GeneGff | rev | cut -d '/' -f4 | rev)
@@ -4701,7 +4701,7 @@ do
 done
 
 #With EER discrimination
-for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended.gff3)
+for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gff3)
 do
     Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
     Organism=$(echo $GeneGff | rev | cut -d '/' -f4 | rev)
