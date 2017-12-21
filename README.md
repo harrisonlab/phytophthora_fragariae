@@ -2763,7 +2763,7 @@ A hmm model relating to crinkler domains was used to identify putative crinklers
 HmmDir=/home/groups/harrisonlab/project_files/idris/analysis/CRN_effectors/hmmer_models
 LFLAK_hmm=$(ls $HmmDir/Pinf_Pram_Psoj_Pcap_LFLAK.hmm)
 DWL_hmm=$(ls $HmmDir/Pinf_Pram_Psoj_Pcap_DWL.hmm)
-for Proteome in $(ls gene_pred/final/*/*/final/final_genes_combined.pep.fasta)
+for Proteome in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f4 -d '/' | rev)
