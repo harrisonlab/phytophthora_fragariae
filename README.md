@@ -4371,7 +4371,7 @@ do
     Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
     Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
     AugGff=$(ls $MergeDir/"$Strain"_pub_CRN_LFLAK_DWL.gff)
-    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
+    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_appended_renamed.pep.fasta)
     ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
     ORFGff=$MergeDir/"$Strain"_CRN_merged_hmmer.gff3
     ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_CRN_hmmer.bed
