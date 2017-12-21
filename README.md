@@ -2934,9 +2934,12 @@ do
     cat $Headers | wc -l
     echo "Creating GFF3 file"
     OutName=$(echo $File | sed 's/.fa/.gff/g')
-    cat $Gff | grep -w -f $Headers > $OutName
+    Test=analysis/ApoplastP/$Organism/$Strain/tmp.txt
+    cat $Headers | sed 's/\..*$//g' > $Test
+    cat $Gff | grep -w -f $Test > $OutName
+    rm $Test
     echo "Number of genes extracted into GFF3 file is:"
-    cat $OutName | grep -w 'start_codon' | wc -l
+    cat $OutName | grep -w 'gene' | wc -l
 done
 ```
 
