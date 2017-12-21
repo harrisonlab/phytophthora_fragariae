@@ -4584,9 +4584,10 @@ do
     cat $Headers | wc -l
     echo "Creating GFF3 file"
     OutName=$(echo $File | sed 's/.fa/.gff/g')
-    cat $Gff | grep -w -f $Headers > $OutName
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+    $ProgDir/gene_list_to_gff.pl $Headers $Gff ApoplastP_ORF Name Augustus > $OutName
     echo "Number of genes extracted into GFF3 file is:"
-    cat $OutName | grep -w 'start_codon' | wc -l
+    cat $OutName | grep -w 'gene' | wc -l
 done
 ```
 
