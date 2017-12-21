@@ -3801,7 +3801,7 @@ do
     Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
     AugGff=$MergeDir/"$Strain"_total_RxLR.gff
     AugTxt=$MergeDir/"$Strain"_total_RxLR_headers.txt
-    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
+    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_appended_renamed.pep.fasta)
 
     ORFGff=$(ls $MergeDir/"$Strain"_total_ORF_RxLR.gff)
     ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
@@ -3851,7 +3851,7 @@ do
     Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
     AugGff=$MergeDir/"$Strain"_total_RxLR_EER.gff
     AugTxt=$MergeDir/"$Strain"_total_RxLR_EER_headers.txt
-    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
+    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_appended_renamed.pep.fasta)
 
     ORFGff=$(ls $MergeDir/"$Strain"_total_ORF_RxLR_EER.gff)
     ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
