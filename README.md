@@ -1781,7 +1781,7 @@ do
     echo CodingQuarry:
     cat $DirPath/final_genes_CodingQuarry.pep.fasta | grep '>' | wc -l
     echo Total:
-    cat $DirPath/final_genes_combined.pep.fasta | grep '>' | wc -l
+    cat $DirPath/final_genes_appended_renamed.pep.fasta | grep '>' | wc -l
     echo ""
 done
 ```
