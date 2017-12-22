@@ -2953,47 +2953,91 @@ done
 ```
 P.fragariae - A4
 The number of genes predicted as Apoplastic effectors is:
-3,443
+991
+Number of genes  extracted into GFF3 file is:
+991
+Number of genes extracted to Fasta file is:
+991
 
 P.fragariae - Bc16
 The number of genes predicted as Apoplastic effectors is:
-4,445
+1,274
+Number of genes  extracted into GFF3 file is:
+1,274
+Number of genes extracted to Fasta file is:
+1,274
 
 P.fragariae - Bc1
 The number of genes predicted as Apoplastic effectors is:
-3,510
+1,002
+Number of genes  extracted into GFF3 file is:
+1,002
+Number of genes extracted to Fasta file is:
+1,002
 
 P.fragariae - Bc23
 The number of genes predicted as Apoplastic effectors is:
-3,396
+980
+Number of genes  extracted into GFF3 file is:
+
+Number of genes extracted to Fasta file is:
+
 
 P.fragariae - Nov27
 The number of genes predicted as Apoplastic effectors is:
-3,510
+
+Number of genes  extracted into GFF3 file is:
+
+Number of genes extracted to Fasta file is:
+
 
 P.fragariae - Nov5
 The number of genes predicted as Apoplastic effectors is:
-3,405
+
+Number of genes  extracted into GFF3 file is:
+
+Number of genes extracted to Fasta file is:
+
 
 P.fragariae - Nov71
 The number of genes predicted as Apoplastic effectors is:
-3,468
+
+Number of genes  extracted into GFF3 file is:
+
+Number of genes extracted to Fasta file is:
+
 
 P.fragariae - Nov77
 The number of genes predicted as Apoplastic effectors is:
-3,448
+
+Number of genes  extracted into GFF3 file is:
+
+Number of genes extracted to Fasta file is:
+
 
 P.fragariae - Nov9
 The number of genes predicted as Apoplastic effectors is:
-3,486
+
+Number of genes  extracted into GFF3 file is:
+
+Number of genes extracted to Fasta file is:
+
 
 P.fragariae - ONT3
 The number of genes predicted as Apoplastic effectors is:
-3,707
+
+Number of genes  extracted into GFF3 file is:
+
+Number of genes extracted to Fasta file is:
+
 
 P.fragariae - SCRP245_v2
 The number of genes predicted as Apoplastic effectors is:
-3,517
+
+Number of genes  extracted into GFF3 file is:
+
+Number of genes extracted to Fasta file is:
+
 ```
 
 ####F) From ORF gene models - Signal peptide
