@@ -2979,13 +2979,13 @@ P.fragariae - Bc23
 The number of genes predicted as Apoplastic effectors is:
 980
 Number of genes  extracted into GFF3 file is:
-
+980
 Number of genes extracted to Fasta file is:
-
+980
 
 P.fragariae - Nov27
 The number of genes predicted as Apoplastic effectors is:
-
+1,011
 Number of genes  extracted into GFF3 file is:
 
 Number of genes extracted to Fasta file is:
