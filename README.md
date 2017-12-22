@@ -2896,7 +2896,7 @@ do
     Strain=$(echo $Secretome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Secretome | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    BaseName="$Organism"_"$Strain"_ApoplastP
+    BaseName="$Organism"_"$Strain"_ApoplastP_raw
     OutDir=analysis/ApoplastP/$Organism/$Strain
     ProgDir=/home/adamst/git_repos/tools/seq_tools/apoplastic_effectors
     qsub $ProgDir/pred_apoplastP.sh $Secretome $BaseName $OutDir
@@ -2914,22 +2914,23 @@ do
     BaseName="$Organism"_"$Strain"_ApoplastP
     OutDir=analysis/ApoplastP/$Organism/$Strain
     mkdir -p $OutDir
-    ApoplastP.py -o "$OutDir"/"$BaseName".txt -A "$OutDir"/"$BaseName".fa -i $Secretome
+    ApoplastP.py -o "$OutDir"/"$BaseName".txt -A "$OutDir"/"$BaseName"_raw.fa -i $Secretome
 done
 ```
 
 The number of proteins predicted as being apoplastic effectors were summarised using the following commands
 
 ```bash
-for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP.fa)
+for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_raw.fa)
 do
     Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    Headers=$(echo $File | sed 's/_ApoplastP.fa/_ApoplastP_headers.txt/g')
+    Headers=$(echo $File | sed 's/_ApoplastP_raw.fa/_ApoplastP_headers.txt/g')
     Gff=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.gff3)
+    Fasta=$(ls gene_pred/final/$Organism/$Strain/final/final_genes_appended_renamed.pep.fasta)
     echo "Creating Headers file"
-    cat $File | grep '>' | sed 's/>//g' | cut -f1 > $Headers
+    cat $File | grep '>' | sed 's/>//g' | cut -f1 | tr -d '>' | tr -d ' ' | sort -g | uniq > $Headers
     echo "The number of genes predicted as Apoplastic effectors is:"
     cat $Headers | wc -l
     echo "Creating GFF3 file"
@@ -2940,6 +2941,12 @@ do
     rm $Test
     echo "Number of genes extracted into GFF3 file is:"
     cat $OutName | grep -w 'gene' | wc -l
+    echo "Creating parsed fasta file"
+    Parsed_Fasta=$(echo $File | sed 's/_ApoplastP_raw.fa/_ApoplastP.fa/g')
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $Parsed_Fasta
+    echo "Number of genes extracted to Fasta file is:"
+    cat $Parsed_Fasta | grep '>' | wc -l
 done
 ```
 
