@@ -4627,8 +4627,8 @@ do
     Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
-    Headers=$(echo $File | sed 's/_ApoplastP_unmerged.fa/_ApoplastP_unmerged_headers.txt/g')
-    Gff=$(echo $File | sed 's/_ApoplastP_unmerged.fa/_ApoplastP_unmerged.gff3/g')
+    Headers=$(echo $File | sed 's/_ApoplastP_ORF_unmerged.fa/_ApoplastP_ORF_unmerged_headers.txt/g')
+    Gff=$(echo $File | sed 's/_ApoplastP_ORF_unmerged.fa/_ApoplastP_ORF_unmerged.gff3/g')
     echo "Creating Headers file"
     cat $File | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*$//' | tr -d ' ' > $Headers
     SigP_Gff=gene_pred/combined_sigP_ORF/$Organism/$Strain/"$Strain"_all_secreted_unmerged.gff
