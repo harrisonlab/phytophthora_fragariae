@@ -2987,57 +2987,57 @@ P.fragariae - Nov27
 The number of genes predicted as Apoplastic effectors is:
 1,011
 Number of genes  extracted into GFF3 file is:
-
+1,011
 Number of genes extracted to Fasta file is:
-
+1,011
 
 P.fragariae - Nov5
 The number of genes predicted as Apoplastic effectors is:
-
+986
 Number of genes  extracted into GFF3 file is:
-
+986
 Number of genes extracted to Fasta file is:
-
+986
 
 P.fragariae - Nov71
 The number of genes predicted as Apoplastic effectors is:
-
+1,007
 Number of genes  extracted into GFF3 file is:
-
+1,007
 Number of genes extracted to Fasta file is:
-
+1,007
 
 P.fragariae - Nov77
 The number of genes predicted as Apoplastic effectors is:
-
+1,010
 Number of genes  extracted into GFF3 file is:
-
+1,010
 Number of genes extracted to Fasta file is:
-
+1,010
 
 P.fragariae - Nov9
 The number of genes predicted as Apoplastic effectors is:
-
+1,007
 Number of genes  extracted into GFF3 file is:
-
+1,007
 Number of genes extracted to Fasta file is:
-
+1,007
 
 P.fragariae - ONT3
 The number of genes predicted as Apoplastic effectors is:
-
+1,080
 Number of genes  extracted into GFF3 file is:
-
+1,080
 Number of genes extracted to Fasta file is:
-
+1,080
 
 P.fragariae - SCRP245_v2
 The number of genes predicted as Apoplastic effectors is:
-
+1,017
 Number of genes  extracted into GFF3 file is:
-
+1,017
 Number of genes extracted to Fasta file is:
-
+1,017
 ```
 
 ####F) From ORF gene models - Signal peptide
