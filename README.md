@@ -4710,7 +4710,7 @@ do
     AugGff=$(ls $MergeDir/"$Species"_"$Strain"_ApoplastP.gff)
     AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
     ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
-    ORFGff=$(ls $MergeDir/"$Species"_"$Strain"_ApoplastP_ORF_merged.gff)
+    ORFGff=$(ls $MergeDir/"$Strain"_ApoplastP_ORF_merged.gff)
     echo "$Species - $Strain"
     ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_ApoplastP.bed
     AugInORFs=$MergeDir/"$Strain"_AugInORFs_ApoplastP.bed
