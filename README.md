@@ -4751,44 +4751,48 @@ for MergeDir in $(ls -d analysis/ApoplastP/*/*)
 do
     Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
     Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
-    AugGff=$(ls $MergeDir/"$Species"_"$Strain"_ApoplastP.gff)
-    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_combined.pep.fasta)
-    ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
+    AugGff=$MergeDir/"$Species"_"$Strain"_ApoplastP.gff
+    AugTxt=$MergeDir/"$Species"_"$Strain"_ApoplastP_headers.txt
+    AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_appended_renamed.pep.fasta)
+
     ORFGff=$(ls $MergeDir/"$Strain"_ApoplastP_ORF_merged.gff)
-    echo "$Species - $Strain"
-    ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_ApoplastP.bed
-    AugInORFs=$MergeDir/"$Strain"_AugInORFs_ApoplastP.bed
-    ORFsUniq=$MergeDir/"$Strain"_ORFsUniq_ApoplastP.bed
-    AugUniq=$MergeDir/"$Strain"_Aug_Uniq_ApoplastP.bed
-    TotalApoplastPTxt=$MergeDir/"$Strain"_final_ApoplastP.txt
-    TotalApoplastPGff=$MergeDir/"$Strain"_final_ApoplastP.gff3
-    TotalApoplastPHeaders=$MergeDir/"$Strain"_Total_ApoplastP_headers.txt
+    ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
+    ORFsTxt=$(ls $MergeDir/"$Strain"_ApoplastP_ORF_merged_headers.txt)
+
+    ORFsInAug=$MergeDir/"$Strain"_ORFsInAug_ApoplastP.gff
+    AugInORFs=$MergeDir/"$Strain"_AugInORFs_ApoplastP.gff
+    ORFsUniq=$MergeDir/"$Strain"_ORFsUniq_ApoplastP.gff
+    AugUniq=$MergeDir/"$Strain"_Aug_Uniq_ApoplastP.gff
+    TotalApoPTxt=$MergeDir/"$Strain"_Total_ApoplastP.txt
+    TotalApoPGff=$MergeDir/"$Strain"_Total_ApoplastP.gff
+
     bedtools intersect -wa -u -a $ORFGff -b $AugGff > $ORFsInAug
     bedtools intersect -wa -u -a $AugGff -b $ORFGff > $AugInORFs
     bedtools intersect -v -wa -a $ORFGff -b $AugGff > $ORFsUniq
     bedtools intersect -v -wa -a $AugGff -b $ORFGff > $AugUniq
-    echo "$Species - $Strain"
 
+    echo "$Species - $Strain"
     echo "The number of ORF apoplastic effectors overlapping Augustus apoplastic effectors:"
-    cat $ORFsInAug | grep -w -e 'transcript' -e 'mRNA' | wc -l
+    cat $ORFsInAug | grep -w 'gene' | wc -l
     echo "The number of Augustus apoplastic effectors overlapping ORF apoplastic effectors:"
-    cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA' | wc -l
-    cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' > $TotalApoplastPTxt
+    cat $AugInORFs | grep -w 'gene' | wc -l
     echo "The number of apoplastic effectors unique to ORF models:"
-    cat $ORFsUniq | grep -w 'transcript'| grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f3 -d ';' | cut -f2 -d '=' | wc -l
-    cat $ORFsUniq | grep -w 'transcript'| grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f3 -d ';' | cut -f2 -d '=' >> $TotalApoplastPTxt
+    cat $ORFsUniq | grep -w 'transcript' | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' | wc -l
     echo "The number of apoplastic effectors unique to Augustus models:"
     cat $AugUniq | grep -w -e 'transcript' -e 'mRNA' | wc -l
-    cat $AugUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' >> $TotalApoplastPTxt
+    echo "The total number of putative apoplastic effectors are:"
+    cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' > $TotalApoPTxt
+    cat $AugUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' >> $TotalApoPTxt
+    cat $ORFsUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f3 -d ';' | cut -f2 -d '=' >> $TotalApoPTxt
+    cat $TotalApoPTxt | wc -l
+    cat $AugInORFs $AugUniq $ORFsUniq | grep -w -f $TotalApoPTxt > $TotalApoPGff
 
-    cat $AugInORFs $AugUniq $ORFsUniq | grep -w -f $TotalApoplastPTxt > $TotalApoplastPGff
-
-    ApoplastPFa=$MergeDir/"$Strain"_final_ApoplastP.fa
+    ApoPFa=$MergeDir/"$Strain"_final_ApoplastP.fa
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-    $ProgDir/extract_from_fasta.py --fasta $AugFa --headers $TotalApoplastPTxt > $ApoplastPFa
-    $ProgDir/extract_from_fasta.py --fasta $ORFsFa --headers $TotalApoplastPTxt >> $ApoplastPFa
+    $ProgDir/extract_from_fasta.py --fasta $AugFa --headers $TotalApoPTxt > $ApoPFa
+    $ProgDir/extract_from_fasta.py --fasta $ORFsFa --headers $TotalApoPTxt >> $ApoPFa
     echo "The number of sequences extracted is"
-    cat $ApoplastPFa | grep '>' | wc -l
+    cat $ApoPFa | grep '>' | wc -l
 done
 ```
 
