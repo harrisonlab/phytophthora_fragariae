@@ -5200,6 +5200,28 @@ do
     InterProRaw=gene_pred/interproscan/$Organism/$Strain/conservative/raw
     $ProgDir/append_interpro_2.sh $Proteome $InterProRaw
 done
+
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_noApoP.pep.fasta)
+do
+    Strain=$(echo $Proteome | rev | cut -d '/' -f2 | rev)
+    Organism=$(echo $Proteome | rev | cut -d '/' -f3 | rev)
+    echo "$Organism - $Strain"
+    echo $Strain
+    InterProRaw=gene_pred/interproscan/$Organism/$Strain/greedy/raw
+    $ProgDir/append_interpro_3.sh $Proteome $InterProRaw
+done
+
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative_noApoP.pep.fasta)
+do
+    Strain=$(echo $Proteome | rev | cut -d '/' -f2 | rev)
+    Organism=$(echo $Proteome | rev | cut -d '/' -f3 | rev)
+    echo "$Organism - $Strain"
+    echo $Strain
+    InterProRaw=gene_pred/interproscan/$Organism/$Strain/conservative/raw
+    $ProgDir/append_interpro_4.sh $Proteome $InterProRaw
+done
 ```
 
 ##B)Swissprot
