@@ -4783,7 +4783,7 @@ do
     echo "The total number of putative apoplastic effectors are:"
     cat $AugInORFs | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' > $TotalApoPTxt
     cat $AugUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f1 -d ';' | cut -f2 -d '=' >> $TotalApoPTxt
-    cat $ORFsUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f3 -d ';' | cut -f2 -d '=' >> $TotalApoPTxt
+    cat $ORFsUniq | grep -w -e 'transcript' -e 'mRNA'  | cut -f9 | cut -f4 -d ';' | cut -f2 -d '=' >> $TotalApoPTxt
     cat $TotalApoPTxt | wc -l
     cat $AugInORFs $AugUniq $ORFsUniq | grep -w -f $TotalApoPTxt > $TotalApoPGff
 
