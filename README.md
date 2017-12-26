@@ -5129,12 +5129,10 @@ do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/10300_analysis
         $ProgDir/gff_name2id.py --gff $GffOrfRxLR > $OutDir/ORF_RxLR_EER_parsed.gff3
         $ProgDir/gff_name2id.py --gff $GffOrfCRN > $OutDir/ORF_CRN_parsed.gff3
-        $ProgDir/gff_name2id.py --gff $GffOrfApo > $OutDir/ORF_ApoplastP_parsed.gff3
 
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
         $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_EER_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative_noApoP.gff3
         $ProgDir/add_ORF_features.pl $OutDir/ORF_CRN_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative_noApoP.gff3
-        $ProgDir/add_ORF_features.pl $OutDir/ORF_ApoplastP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors_noApoP.gff3
         # Make gene models from gff files.
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
         $ProgDir/gff2fasta.pl $Assembly $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative_noApoP.gff3 $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative_noApoP
