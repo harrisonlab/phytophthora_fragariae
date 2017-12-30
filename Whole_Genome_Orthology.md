@@ -1,4 +1,4 @@
-#Methodology 4 from Andy's files - run on A4, BC-1, BC-16, BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245_v2
+#Methodology 4 from Andy's files - run on A4, BC-1, BC-16, BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245_v2, SCRP249, SCRP324 & SCRP333
 
 ##Analysis 1: No removal of BC-16 ORF effectors without expression before analysis
 
