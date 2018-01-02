@@ -453,7 +453,7 @@ countData <- countData[,-1]
 indexes <- c("TA.07", "TA.08", "TA.09", "TA.12", "TA.13", "TA.14", "TA.18", "TA.19", "TA.20", "TA.32", "TA.34", "TA.35")
 
 countData <- round(countData,0)
-countDataSubset <- subset(countData, select = -c(TA.01,TA.02,TA.03) )
+countDataSubset <- subset(countData, select = -c(1:3) )
 
 #output countData
 write.table(countDataSubset,"alignment/star/P.fragariae/Bc16/DeSeq/No_Mock_countData.txt",sep="\t",na="",quote=F)
