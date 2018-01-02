@@ -5623,7 +5623,7 @@ do
     awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%39000==0){file=sprintf("greedy%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < $file
     for output in $(ls *.fa | grep -v 'expression')
     do
-    cp $output $OutDir/.
+    mv $output $OutDir/.
     done
 done
 
@@ -5634,7 +5634,7 @@ do
     awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%39000==0){file=sprintf("conservative%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < $file
     for output in $(ls *.fa | grep -v 'expression')
     do
-    cp $output $OutDir/.
+    mv $output $OutDir/.
     done
 done
 
@@ -5645,7 +5645,7 @@ do
     awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%39000==0){file=sprintf("greedy_noApoP%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < $file
     for output in $(ls *.fa | grep -v 'expression')
     do
-    cp $output $OutDir/.
+    mv $output $OutDir/.
     done
 done
 
@@ -5656,7 +5656,7 @@ do
     awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%39000==0){file=sprintf("conservative_noApoP%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < $file
     for output in $(ls *.fa | grep -v 'expression')
     do
-    cp $output $OutDir/.
+    mv $output $OutDir/.
     done
 done
 ```
