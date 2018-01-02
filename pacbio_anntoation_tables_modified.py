@@ -424,6 +424,17 @@ for line in CRN_total_lines:
     #     CRN_total_set.add(header)
 
 #-----------------------------------------------------
+# Load ApoplastP hits into a set
+#-----------------------------------------------------
+
+ApoP_total_set = Set()
+for line in ApoP_total_lines:
+    header = line.rstrip()
+    if 'contig' in header:
+        header = header + '.t1'
+    ApoP_total_set.add(header)
+
+#-----------------------------------------------------
 # Store genes and their ortholog groups in a dictionary
 #-----------------------------------------------------
 
