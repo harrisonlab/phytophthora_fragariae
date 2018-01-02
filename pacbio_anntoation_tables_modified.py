@@ -701,6 +701,8 @@ for line in transcript_lines:
     #     CRN_DWL = 'Yes'
     if transcript_id in CRN_total_set:
         CRN_total = 'Yes'
+    if transcript_id in ApoP_total_set:
+        ApoP_total = 'Yes'
     if ortho_dict[transcript_id]:
         orthogroup = ortho_dict[transcript_id]
     DEG_out = []
