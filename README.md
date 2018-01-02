@@ -5740,94 +5740,76 @@ do
 done
 ```
 
+Not all have been run due to the webserver crashing and dependencies for a local install no longer being available.
+
 ```
 A4 - conservative
 The number of proteins scoring positive for being GPI anchored is:
-576
+2,206
 
 A4 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-829
+2,529
 
 Bc16 - conservative
 The number of proteins scoring positive for being GPI anchored is:
-647
+1,997
 
 Bc16 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-925
+1,683
 
 Bc1 - conservative
 The number of proteins scoring positive for being GPI anchored is:
-570
+1,223
 
 Bc1 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-827
+1,924
 
 Bc23 - conservative
 The number of proteins scoring positive for being GPI anchored is:
-581
+823
 
 Bc23 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-839
+2,492
 
 Nov27 - conservative
 The number of proteins scoring positive for being GPI anchored is:
-561
+545
 
 Nov27 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-813
+1,979
 
 Nov5 - conservative
 The number of proteins scoring positive for being GPI anchored is:
-574
+715
 
 Nov5 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-827
-
-Nov71 - conservative
-The number of proteins scoring positive for being GPI anchored is:
-579
+2,509
 
 Nov71 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-832
-
-Nov77 - conservative
-The number of proteins scoring positive for being GPI anchored is:
-565
+870
 
 Nov77 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-816
-
-Nov9 - conservative
-The number of proteins scoring positive for being GPI anchored is:
-569
+2,546
 
 Nov9 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-829
-
-ONT3 - conservative
-The number of proteins scoring positive for being GPI anchored is:
-649
+2,525
 
 ONT3 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-915
-
-SCRP245_v2 - conservative
-The number of proteins scoring positive for being GPI anchored is:
-585
+1,798
 
 SCRP245_v2 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-841
+1,319
 ```
 
 Further downstream analysis done in Whole_Genome_Orthology.md, RNA-Seq_analysis.md and SNP_analysis.md
