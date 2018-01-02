@@ -42,6 +42,7 @@ ap.add_argument('--RxLR_EER_total_ORF',required=True,type=str,help='fasta file o
 #ap.add_argument('--CRN_LFLAK',required=True,type=str,help='fasta file of genes testing positive for LFLAK domains using an hmm model')
 #ap.add_argument('--CRN_DWL',required=True,type=str,help='fasta file of genes testing positive for DWL domains using an hmm model')
 ap.add_argument('--CRN_total',required=True,type=str,help='fasta file of all transcripts considered CRNs')
+ap.add_argument('--ApoP_total',required=True,type=str,help='fasta file of all transcripts considered Apoplastic effectors')
 ap.add_argument('--ortho_name',required=True,type=str,help='the name used for the organism during orthology analysis')
 ap.add_argument('--ortho_file',required=True,type=str,help='txt file of ortholog groups')
 ap.add_argument('--DEG_files',required=True,nargs='+',type=str,help='space spererated list of files containing DEG information')
