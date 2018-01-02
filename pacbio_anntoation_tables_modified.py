@@ -122,6 +122,9 @@ with open(conf.RxLR_EER_total_ORF) as f:
 with open(conf.CRN_total) as f:
     CRN_total_lines = f.readlines()
 
+with open(conf.ApoP_total) as f:
+    ApoP_total_lines = f.readlines()
+
 with open(conf.ortho_file) as f:
    ortho_lines = f.readlines()
 
