@@ -658,6 +658,7 @@ write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt",
 ```bash
 RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
 CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+ApoP_Names_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
 for File in $(ls alignment/star/P.fragariae/Bc16/DeSeq/Bc16*.txt)
 do
     Assessment=$(basename $File | sed "s/.txt//g")
@@ -674,6 +675,11 @@ do
     cat $File | head -n 1 > $CRN_File
     cat $File | grep -w -f $CRN_Names_Bc16 >> $CRN_File
     cat $CRN_File | tail -n +2 | wc -l
+    echo "Total number of Apoplastic effectors in dataset:"
+    ApoP_File=$(echo $File | sed "s/.txt/_ApoP.txt/g")
+    cat $File | head -n 1 > $ApoP_File
+    cat $File | grep -w -f $ApoP_Names_Bc16 >> $ApoP_File
+    cat $ApoP_File | tail -n +2 | wc -l
 done
 ```
 
