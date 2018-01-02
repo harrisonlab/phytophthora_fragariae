@@ -5621,6 +5621,10 @@ do
     OutDir=split_files/P.fragariae/$Strain
     mkdir -p $OutDir
     awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%39000==0){file=sprintf("greedy%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < $file
+    for output in $(ls *.fa | grep -v 'expression')
+    do
+    cp $output $OutDir/.
+    done
 done
 
 #Conservative
@@ -5628,6 +5632,10 @@ for file in $(ls gene_pred/annotation/P.fragariae/*/*conservative.pep.fasta)
 do
     Strain=$(echo $file | rev | cut -f2 -d "/" | rev)
     awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%39000==0){file=sprintf("conservative%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < $file
+    for output in $(ls *.fa | grep -v 'expression')
+    do
+    cp $output $OutDir/.
+    done
 done
 
 #Greedy_noApoP
@@ -5635,6 +5643,10 @@ for file in $(ls gene_pred/annotation/P.fragariae/*/*effectors_noApoP.pep.fasta)
 do
     Strain=$(echo $file | rev | cut -f2 -d "/" | rev)
     awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%39000==0){file=sprintf("greedy_noApoP%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < $file
+    for output in $(ls *.fa | grep -v 'expression')
+    do
+    cp $output $OutDir/.
+    done
 done
 
 #Conservative_noApoP
@@ -5642,6 +5654,10 @@ for file in $(ls gene_pred/annotation/P.fragariae/*/*conservative_noApoP.pep.fas
 do
     Strain=$(echo $file | rev | cut -f2 -d "/" | rev)
     awk 'BEGIN {n_seq=0;} /^>/ {if(n_seq%39000==0){file=sprintf("conservative_noApoP%d.fa",n_seq);} print >> file; n_seq++; next;} { print >> file; }' < $file
+    for output in $(ls *.fa | grep -v 'expression')
+    do
+    cp $output $OutDir/.
+    done
 done
 ```
 
