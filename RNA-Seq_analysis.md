@@ -1091,7 +1091,7 @@ do
         Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
         OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
         ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/sub_star.sh $Assembly $FileF $FileR $OutDir
+        qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
     done
 done
 
@@ -1119,7 +1119,7 @@ do
         Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
         OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
         ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/sub_star.sh $Assembly $FileF $FileR $OutDir
+        qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
     done
 done
 ```
@@ -1242,49 +1242,6 @@ do
     OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
     ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
     qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
-done
-```
-
-##Align mycelial reads
-
-```bash
-for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
-do
-    Organism=P.fragariae
-    echo "$Organism - $Strain"
-    for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/Bc16/mycelium/F/*_trim.fq.gz)
-    do
-        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-        while [ $Jobs -gt 1 ]
-        do
-            sleep 1m
-            printf "."
-            Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-        done
-        printf "\n"
-        FileR=$(echo $FileF | sed 's&/F/&/R/&g'| sed 's/_1/_2/g')
-        echo $FileF
-        echo $FileR
-        if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
-        then
-            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-            echo $Assembly
-        elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
-        then
-            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-            echo $Assembly
-        else
-            Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-            echo $Assembly
-        fi
-        Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
-        echo "$Timepoint"
-        Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
-        OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
-        mkdir -p $OutDir
-        ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
-        qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
-    done
 done
 ```
 
