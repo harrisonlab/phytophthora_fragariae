@@ -1369,9 +1369,9 @@ done
 
 ```
 The number of orthogroups unique to Race 3 are:
-15
+20
 The following number genes are contained in these orthogroups:
-73
+89
 ```
 
 #Race 3 unique RxLR families
