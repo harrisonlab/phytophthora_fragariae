@@ -2257,23 +2257,26 @@ done
 ##Analysis of DEGs vs all genes
 
 ```bash
-OutDir=analysis/enrichment/P.fragariae/Bc16/Whole_Genome
-mkdir -p $OutDir
-InterProTSV=gene_pred/interproscan/P.fragariae/Bc16/Bc16_interproscan.tsv
-ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
-$ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.tsv
+for Strain in Bc1 Nov9
+do
+    OutDir=analysis/enrichment/P.fragariae/$Strain/Whole_Genome
+    mkdir -p $OutDir
+    InterProTSV=gene_pred/interproscan/P.fragariae/$Strain/"$Strain"_interproscan.tsv
+    ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
+    $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/"$Strain"_gene_GO_annots.tsv
 
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
-DEGs=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs_names.txt
-AllGenes=$OutDir/Bc16_all_genes.txt
-cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
-Set1Genes=$OutDir/Bc16_DEGs.txt
-Set2Genes=$OutDir/Bc16_all_genes2.txt
-AllGenes=$OutDir/Bc16_all_genes.txt
-cat $DEGs | sed -e 's/$/\t0.001/g' > $Set1Genes
-cat $AnnotTable | tail -n+2 | cut -f1 | grep -v $Set1Genes | sed -e 's/$/\t1.00/g' > $Set2Genes
-cat $Set1Genes $Set2Genes > $AllGenes
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    AnnotTable=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_gene_table_incl_exp.tsv
+    DEGs=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs_names.txt
+    AllGenes=$OutDir/"$Strain"_all_genes.txt
+    cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
+    Set1Genes=$OutDir/"$Strain"_DEGs.txt
+    Set2Genes=$OutDir/"$Strain"_all_genes2.txt
+    AllGenes=$OutDir/"$Strain"_all_genes.txt
+    cat $DEGs | sed -e 's/$/\t0.001/g' > $Set1Genes
+    cat $AnnotTable | tail -n+2 | cut -f1 | grep -v $Set1Genes | sed -e 's/$/\t1.00/g' > $Set2Genes
+    cat $Set1Genes $Set2Genes > $AllGenes
 
-$ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Bc16_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
+    $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/"$Strain"_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
+done
 ```
