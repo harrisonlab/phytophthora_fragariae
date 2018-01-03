@@ -271,49 +271,49 @@ done
 
 ```
 The total number of orthogroups is:
-23,072
+24,041
 The total number of genes in orthogroups is:
-479,549
+455,838
 The number of orthogroups common to P. rubi is:
-1,365
+1,370
 This represents the following number of genes:
-4,296
+4,360
 The number of orthogroups common to P. fragariae is:
-1,013
+1,028
 This represents the following number of genes:
-12,177
+12,447
 The number of orthogroups common to UK1 isolates is:
-8
-This represents the following number of genes:
-16
-The number of orthogroups common to UK2 isolates is:
-20
-This represents the following number of genes:
-40
-The number of orthogroups common to UK3 isolates is:
 7
 This represents the following number of genes:
-21
+14
+The number of orthogroups common to UK2 isolates is:
+12
+This represents the following number of genes:
+25
+The number of orthogroups common to UK3 isolates is:
+5
+This represents the following number of genes:
+15
 The number of orthogroups common to CA4 isolates is:
-225
+228
 This represents the following number of genes:
-548
+538
 The number of orthogroups common to CA5 isolates is:
-8
+19
 This represents the following number of genes:
-16
+38
 The number of orthogroups common to Unknown race isolates is:
-180
+189
 This represents the following number of genes:
-480
+501
 The number of orthogroups with only seven highly conserved target isolates is:
-30
+26
 This represents the following number of genes:
-209
+180
 The number of orthogroups containing all seven highly conserved target isolates is:
-15,355
+15,275
 This represents the following number of genes:
-438,816
+407,593
 ```
 
 Identification of orthogroups of closely related isolates for further analysis
