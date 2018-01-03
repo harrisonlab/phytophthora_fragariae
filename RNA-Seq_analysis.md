@@ -1691,6 +1691,235 @@ colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"alignment/star/P.fragariae/Bc1/DeSeq/fpkm_counts.txt",sep="\t",na="",quote=F)
 ```
 
+NOV-9
+
+```R
+#install.packages("pheatmap", Sys.getenv("R_LIBS_USER"), repos = "http://cran.case.edu" )
+
+#install and load libraries
+require("pheatmap")             
+require("data.table")
+
+#load tables into a "list of lists"
+qq <- lapply(list.files("alignment/star/P.fragariae/Nov9/DeSeq","*featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
+
+# ensure the samples column is the same name as the treament you want to use:
+qq[7]
+
+#mm <- qq%>%Reduce(function(dtf1,dtf2) inner_join(dtf1,dtf2,by=c("Geneid","Chr","Start","End","Strand","Length")), .)
+
+#merge the "list of lists" into a single table
+m <- Reduce(function(...) merge(..., all = T,by=c("Geneid","Chr","Start","End","Strand","Length")), qq)
+
+#convert data.table to data.frame for use with DESeq2
+countData <- data.frame(m[,c(1,7:(ncol(m))),with=F])
+rownames(countData) <- countData[,1]
+countData <- countData[,-1]
+
+#indexes <- unique(gsub("(.*)_L00.*", "\\1", colnames(countData)))
+indexes <- c("TA.07", "TA.08", "TA.09", "TA.12", "TA.13", "TA.14", "TA.18", "TA.19", "TA.20", "TA.32", "TA.34", "TA.35")
+
+countData <- round(countData,0)
+countDataSubset <- subset(countData, select = -c(1:3) )
+
+#output countData
+write.table(countDataSubset,"alignment/star/P.fragariae/Nov9/DeSeq/No_Mock_countData.txt",sep="\t",na="",quote=F)
+
+#output gene details
+write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Nov9/DeSeq/No_Mock_genes.txt",sep="\t",quote=F,row.names=F)
+# colnames(countData) <- sub("X","",colnames(countData)) countData <- countData[,colData$Sample]
+
+#Running DeSeq2
+
+#source("http://bioconductor.org/biocLite.R")
+#biocLite("DESeq2")
+require("DESeq2")
+
+unorderedColData <- read.table("alignment/star/P.fragariae/Nov9/DeSeq/P.frag_Nov9_RNAseq_design.txt",header=T,sep="\t")
+rownames(unorderedColData) <- unorderedColData$Sample.name
+unorderedColDataSubset <- unorderedColData[indexes,]
+
+colData <- data.frame(unorderedColDataSubset[ order(unorderedColDataSubset$Sample.name),])
+unorderedData <- read.table("alignment/star/P.fragariae/Nov9/DeSeq/No_Mock_countData.txt",header=T,sep="\t")
+countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
+colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
+countData <- round(countData,0)
+
+design <- ~Group
+#design <- colData$Group
+
+dds <-     DESeqDataSetFromMatrix(countData,colData,design)
+#sizeFactors(dds) <- sizeFactors(estimateSizeFactors(dds, type = c("iterate")))
+sizeFactors(dds) <- sizeFactors(estimateSizeFactors(dds, type = c("ratio")))
+dds <- DESeq(dds, fitType="local")
+
+
+#  #Run DESeq2 removing an outlier
+#
+#  library(DESeq2)
+#  colData <- read.table("colData",header=T,sep="\t")
+#  countData <- read.table("countData2",header=T,sep="\t")
+#
+#  colData$Group <- paste0(colData$Strain,colData$Light,colData$Time)
+#  #Eliminate Frq08_DD24_rep3 sample from colData and countData
+#  colData <- colData[!(colData$Sample=="Frq08_DD24_rep3"),]      
+#  countData <- subset(countData, select=-Frq08_DD24_rep3)
+#
+#  design <- ~Group
+#  dds <-  DESeqDataSetFromMatrix(countData,colData,design)
+#  sizeFactors(dds) <- sizeFactors(estimateSizeFactors(dds))
+#  dds <- DESeq(dds, fitType="local")
+#
+#Sample Distances
+
+library("RColorBrewer")
+install.packages("gplots")
+library("gplots", Sys.getenv("R_LIBS_USER"))
+library("ggplot2")
+install.packages("ggrepel", Sys.getenv("R_LIBS_USER"), repos = "http://cran.case.edu")
+library("ggrepel")
+
+vst<-varianceStabilizingTransformation(dds)
+
+pdf("alignment/star/P.fragariae/Bc1/DeSeq/heatmap_vst.pdf", width=12,height=12)
+sampleDists<-dist(t(assay(vst)))
+
+sampleDistMatrix <- as.matrix(sampleDists)
+rownames(sampleDistMatrix) <- paste(vst$Group)
+colnames(sampleDistMatrix) <- paste(vst$Group)
+colours <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
+heatmap( sampleDistMatrix,
+  trace="none",  # turns off trace lines inside the heat map
+  col=colours, # use on color palette defined earlier
+  margins=c(12,12), # widens margins around plot
+  srtCol=45,
+  srtCol=45)
+dev.off()
+
+# Sample distances measured with rlog transformation:
+
+rld <- rlog( dds )
+
+pdf("alignment/star/P.fragariae/Nov9/DeSeq/heatmap_rld.pdf")
+sampleDists <- dist( t( assay(rld) ) )
+library("RColorBrewer")
+sampleDistMatrix <- as.matrix( sampleDists )
+rownames(sampleDistMatrix) <- paste(rld$Group)
+colnames(sampleDistMatrix) <- paste(rld$Group)
+colours = colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
+heatmap( sampleDistMatrix, trace="none", col=colours, margins=c(12,12),srtCol=45)
+
+#PCA plots
+
+#vst<-varianceStabilizingTransformation(dds)
+pdf("alignment/star/P.fragariae/Nov9/DeSeq/PCA_vst.pdf")
+plotPCA(vst,intgroup=c("Isolate", "Timepoint"))
+dev.off()
+
+#Plot using rlog transformation:
+pdf("alignment/star/P.fragariae/Nov9/DeSeq/PCA_rld.pdf")
+plotPCA(rld,intgroup=c("Isolate", "Timepoint"))
+dev.off()
+
+pdf("alignment/star/P.fragariae/Nov9/DeSeq/PCA_additional.pdf")
+
+dev.off()
+
+#Plot using rlog transformation, showing sample names:
+
+data <- plotPCA(rld, intgroup="Group", returnData=TRUE)
+percentVar <- round(100 * attr(data, "percentVar"))
+
+pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
+ geom_point(size=3) +
+ xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+ ylab(paste0("PC2: ",percentVar[2],"% variance")) + geom_text_repel(aes(label=colnames(rld)))
+ coord_fixed()
+
+ggsave("alignment/star/P.fragariae/Nov9/DeSeq/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
+
+#Analysis of gene expression
+
+#24hr vs mycelium
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Nov9_24hr","Nov9_mycelium"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
+#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+# No threshold
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_24hr_vs_Nov9_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_24hr_vs_Nov9_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_24hr_vs_Nov9_mycelium_down.txt",sep="\t",na="",quote=F)
+
+#48hr vs mycelium
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Nov9_48hr","Nov9_mycelium"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
+#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+# No threshold
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_48hr_vs_Nov9_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_48hr_vs_Nov9_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_48hr_vs_Nov9_mycelium_down.txt",sep="\t",na="",quote=F)
+
+#96hr vs mycelium
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Nov9_96hr","Nov9_mycelium"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
+#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+# No threshold
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_96hr_vs_Nov9_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_96hr_vs_Nov9_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_96hr_vs_Nov9_mycelium_down.txt",sep="\t",na="",quote=F)
+
+#Make a table of raw counts, normalised counts and fpkm values:
+
+raw_counts <- data.frame(counts(dds, normalized=FALSE))
+colnames(raw_counts) <- paste(colData$Group)
+write.table(raw_counts,"alignment/star/P.fragariae/Nov9/DeSeq/raw_counts.txt",sep="\t",na="",quote=F)
+norm_counts <- data.frame(counts(dds, normalized=TRUE))
+colnames(norm_counts) <- paste(colData$Group)
+write.table(norm_counts,"alignment/star/P.fragariae/Nov9/DeSeq/normalised_counts.txt",sep="\t",na="",quote=F)
+
+library(Biostrings)
+library(naturalsort)
+mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.cdna.fasta")
+t1 <- counts(dds)
+t1 <- mygenes[rownames(t1)]
+rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
+
+
+# robust may be better set at fasle to normalise based on total counts rather than 'library normalisation factors'
+fpkm_counts <- data.frame(fpkm(dds, robust = TRUE))
+colnames(fpkm_counts) <- paste(colData$Group)
+write.table(fpkm_counts,"alignment/star/P.fragariae/Nov9/DeSeq/fpkm_norm_counts.txt",sep="\t",na="",quote=F)
+fpkm_counts <- data.frame(fpkm(dds, robust = FALSE))
+colnames(fpkm_counts) <- paste(colData$Group)
+write.table(fpkm_counts,"alignment/star/P.fragariae/Nov9/DeSeq/fpkm_counts.txt",sep="\t",na="",quote=F)
+```
+
 #Inital analysis of tables of DEGs
 
 ```bash
