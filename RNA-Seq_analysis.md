@@ -2113,11 +2113,14 @@ done
 ###Venn diagrams
 
 ```bash
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-WorkDir=alignment/star/P.fragariae/Bc16/DeSeq
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_all_RxLRs_DEGs.tsv --out $WorkDir/Bc16_all_RxLRs_DEGs.pdf
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_RxLRs_DEGs.tsv --out $WorkDir/Bc16_up_RxLRs_DEGs.pdf
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_RxLRs_DEGs.tsv --out $WorkDir/Bc16_down_RxLRs_DEGs.pdf
+for Strain in Bc1 Nov9
+do
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    WorkDir=alignment/star/P.fragariae/$Strain/DeSeq
+    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_all_RxLRs_DEGs.tsv --out $WorkDir/"$Strain"_all_RxLRs_DEGs.pdf
+    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_up_RxLRs_DEGs.tsv --out $WorkDir/"$Strain"_up_RxLRs_DEGs.pdf
+    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_down_RxLRs_DEGs.tsv --out $WorkDir/"$Strain"_down_RxLRs_DEGs.pdf
+done
 ```
 
 ##CRNs
