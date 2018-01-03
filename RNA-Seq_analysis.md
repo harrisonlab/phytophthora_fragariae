@@ -1114,7 +1114,7 @@ do
     Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
     echo "$Timepoint"
     Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
-    OutDir=alignment/star/vesca_alignment/$Timepoint/$Sample_Name
+    OutDir=alignment/star/vesca_alignment/set2/$Timepoint/$Sample_Name
     ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
     Assembly=/home/sobczm/popgen/rnaseq/fvesca_v1.1_all.fa
     GFF=/home/sobczm/popgen/rnaseq/Fragaria_vesca_v1.1.a2.gff3
@@ -1140,9 +1140,9 @@ This star script had the following options added to the sub_star.sh script in th
 
 
 ```bash
-for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+for Strain in Bc1 Nov9
 do
-    for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
+    for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/* | grep -v )
     do
         Organism=P.fragariae
         echo "$Organism - $Strain"
