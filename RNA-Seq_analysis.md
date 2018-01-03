@@ -1064,7 +1064,7 @@ done
 ```
 ```
 
-#Align mycelium reads to FALCON assembly with STAR
+#Align mycelium reads to BC-1 & NOV-9 assemblies with STAR
 
 ```bash
 for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
