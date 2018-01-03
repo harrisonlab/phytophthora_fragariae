@@ -1142,7 +1142,7 @@ This star script had the following options added to the sub_star.sh script in th
 ```bash
 for Strain in Bc1 Nov9
 do
-    for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/* | grep -v )
+    for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/set2/*/*)
     do
         Organism=P.fragariae
         echo "$Organism - $Strain"
