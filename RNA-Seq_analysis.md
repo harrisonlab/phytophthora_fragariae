@@ -2227,11 +2227,14 @@ done
 ###Venn diagrams
 
 ```bash
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-WorkDir=alignment/star/P.fragariae/Bc16/DeSeq
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_all_ApoP_DEGs.tsv --out $WorkDir/Bc16_all_ApoP_DEGs.pdf
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_ApoP_DEGs.tsv --out $WorkDir/Bc16_up_ApoP_DEGs.pdf
-$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_ApoP_DEGs.tsv --out $WorkDir/Bc16_down_ApoP_DEGs.pdf
+for Strain in Bc1 Nov9
+do
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    WorkDir=alignment/star/P.fragariae/$Strain/DeSeq
+    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_all_ApoP_DEGs.tsv --out $WorkDir/"$Strain"_all_ApoP_DEGs.pdf
+    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_up_ApoP_DEGs.tsv --out $WorkDir/"$Strain"_up_ApoP_DEGs.pdf
+    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_down_ApoP_DEGs.tsv --out $WorkDir/"$Strain"_down_ApoP_DEGs.pdf
+done
 ```
 
 #Extract fasta file of all DEGs for BLAST analysis
