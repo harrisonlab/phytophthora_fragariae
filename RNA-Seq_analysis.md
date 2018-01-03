@@ -1062,7 +1062,6 @@ done
 ```
 
 ```
-Looks okay, AT rich at early timepoints as expected from a plant genome, rising to higher GC contents at later timepoints
 ```
 
 #Align mycelium reads to FALCON assembly with STAR
