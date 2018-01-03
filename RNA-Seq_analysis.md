@@ -1067,12 +1067,12 @@ done
 #Align mycelium reads to BC-1 & NOV-9 assemblies with STAR
 
 ```bash
-for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
+for Assembly in $(ls repeat_masked/P.fragariae/*/ncbi_edits_repmask/*_contigs_unmasked.fa | grep -e "Bc1" -e "Nov9")
 do
-    Strain=Bc16
-    Organism=P.fragariae
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
     echo "$Organism - $Strain"
-    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc16/mycelium/F/*_trim.fq.gz)
+    for FileF in $(ls qc_rna/novogene/P.fragariae/*/mycelium/F/*_trim.fq.gz | grep -e "Bc1" -e "Nov9")
     do
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
         while [ $Jobs -gt 1 ]
