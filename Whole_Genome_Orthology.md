@@ -819,7 +819,7 @@ do
     cat $ApoP_Orthogroup_UK2 | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $ApoP_UK2_uniq_groups
     cat $ApoP_UK2_uniq_groups | wc -l
     echo "The following apoplastic effectors were found in P.fragariae unique orthogroups:"
-    ApoP_Pf_uniq_groups=$CRN_Dir/Pf_ApoP_Orthogroups_hits.txt
+    ApoP_Pf_uniq_groups=$ApoP_Dir/Pf_ApoP_Orthogroups_hits.txt
     cat $ApoP_Orthogroup_UK2 > $ApoP_Pf_uniq_groups
     cat $ApoP_Pf_uniq_groups | wc -l
     echo "These orthogroups contain the following number of apoplastic effectors:"
@@ -1317,6 +1317,116 @@ do
     OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK1_CRN/Pf_CRN_Orthogroups_hits.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK1_CRN/orthogroups_fasta_Pf_CRN
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+##Race 1 unique Apoplastic effector families
+
+#Race 1 Apoplastic effectors were parsed to the same format as the gene names used in the analysis:
+
+```bash
+for num in 1
+do
+    ApoP_Names_Bc1=analysis/ApoplastP/P.fragariae/Bc1/Bc1_Total_ApoplastP.txt
+    ApoP_Names_Nov5=analysis/ApoplastP/P.fragariae/Nov5/Nov5_Total_ApoplastP.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    ApoP_Dir=$WorkDir/UK1_ApoP
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    ApoP_ID_UK1=$ApoP_Dir/UK1_ApoP_IDs.txt
+    mkdir -p $ApoP_Dir
+    cat $ApoP_Names_Bc1 | sed -r 's/^/Bc1|/g' > $ApoP_ID_UK1
+    cat $ApoP_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $ApoP_ID_UK1
+done
+```
+
+#Ortholog groups containing apoplastic effectors were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of apoplastic effectors searched for is:"
+    cat $ApoP_ID_UK1 | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    ApoP_Orthogroup_hits_UK1=$ApoP_Dir/UK1_ApoP_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $ApoP_ID_UK1 > $ApoP_Orthogroup_hits_UK1
+    cat $ApoP_Orthogroup_hits_UK1 | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    ApoP_Orthogroup_UK1=$ApoP_Dir/UK1_ApoP_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $ApoP_ID_UK1 > $ApoP_Orthogroup_UK1
+    cat $ApoP_Orthogroup_UK1 | wc -l
+    echo "The following apoplastic effectors were found in Race 1 unique orthogroups:"
+    ApoP_UK1_uniq_groups=$ApoP_Dir/UK1_uniq_ApoP_Orthogroups_hits.txt
+    cat $ApoP_Orthogroup_UK1 | grep -v -e 'Bc16|' -e 'Nov27|' -e 'Nov71|' -e 'A4|' -e 'Nov9|' | grep -e 'Bc1|' | grep -e 'Nov5|' > $ApoP_UK1_uniq_groups
+    cat $ApoP_UK1_uniq_groups | wc -l
+    echo "The following apoplastic effectors were found in P.fragariae unique orthogroups:"
+    ApoP_Pf_uniq_groups=$ApoP_Dir/Pf_ApoP_Orthogroups_hits.txt
+    cat $ApoP_Orthogroup_UK1 > $ApoP_Pf_uniq_groups
+    cat $ApoP_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of apoplastic effectors:"
+    cat $ApoP_Pf_uniq_groups | grep -w -o -f $ApoP_ID_UK1 | wc -l
+done
+```
+
+```
+```
+
+
+#The Race 1 apoplastic effectors not found in orthogroups were identified:
+
+```bash
+for num in 1
+do
+    ApoP_UK1_uniq=$ApoP_Dir/UK1_unique_ApoP.txt
+    cat $ApoP_ID_UK1 | grep -v -w -f $ApoP_Orthogroup_hits_UK1 > $ApoP_UK1_uniq
+    echo "The number of UK1 unique apoplastic effectors are:"
+    cat $ApoP_UK1_uniq | wc -l
+    ApoP_Seq_Bc1=analysis/ApoplastP/P.fragariae/Bc1/Bc1_final_ApoplastP.fa
+    ApoP_Seq_Nov5=analysis/ApoplastP/P.fragariae/Nov5/Nov5_final_ApoplastP.fa
+    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
+    Bc1_ApoP_UK1_uniq_fa=$ApoP_Dir/Bc1_UK1_unique_ApoP.fa
+    Nov5_ApoP_UK1_uniq_fa=$ApoP_Dir/Nov5_UK1_unique_ApoP.fa
+    Bc1_to_extract=$ApoP_Dir/Bc1_to_extract.txt
+    Nov5_to_extract=$ApoP_Dir/Nov5_to_extract.txt
+    cat $ApoP_UK1_uniq | grep 'Bc1|' | cut -f2 -d "|" > $Bc1_to_extract
+    cat $ApoP_UK1_uniq | grep 'Nov5|' | cut -f2 -d "|" > $Nov5_to_extract
+    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $ApoP_UK1_uniq | grep -E -v '^--' > $Bc1_ApoP_UK1_uniq_fa
+    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $ApoP_UK1_uniq | grep -E -v '^--' > $Nov5_ApoP_UK1_uniq_fa
+    echo "The number of BC-1 genes extracted is:"
+    cat $Bc1_ApoP_UK1_uniq_fa | grep '>' | wc -l
+    echo "The number of Nov5 genes extracted is:"
+    cat $Nov5_ApoP_UK1_uniq_fa | grep '>' | wc -l
+done
+```
+
+```
+```
+
+##Extracting fasta files for orthogroups containing Race 1 putative apoplastic effectors
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK1_ApoP/UK1_ApoP_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK1_ApoP/orthogroups_fasta_UK1_ApoP
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+##Extracting fasta files for P. fragariae orthogroups containing Race 1 putative apoplastic effectors
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK1_ApoP/Pf_ApoP_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK1_ApoP/orthogroups_fasta_Pf_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
