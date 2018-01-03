@@ -2042,12 +2042,15 @@ done
 ###Downregulated DEGs
 
 ```bash
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_down.txt
-inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_down.txt
-inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_down.txt
-OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs.tsv
-$ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+for Strain in Bc1 Nov9
+do
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_down.txt
+    inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_down.txt
+    inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_down.txt
+    OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs.tsv
+    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+done
 ```
 
 ###Venn diagrams
