@@ -1273,9 +1273,10 @@ done
 ##A file was created with columns referring to experimental treatments
 
 ```bash
-OutDir=alignment/star/P.fragariae/Bc16/DeSeq
+#BC-1
+OutDir=alignment/star/P.fragariae/Bc1/DeSeq
 mkdir -p $OutDir
-printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_Bc16_RNAseq_design.txt
+printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_Bc1_RNAseq_design.txt
 # for File in $(ls alignment/star/P.cactorum/10300/Sample_*/Sample_*_featurecounts.txt); do
 # Sample=$(echo $File | rev | cut -f2 -d '/' | rev)
 # i=$(echo $Sample | sed 's/Sample_//g')
@@ -1301,7 +1302,7 @@ do
     then
         Infection='mock'
     else
-        Infection='Bc16'
+        Infection='Bc1'
     fi
     if [ $i == '1' ]
     then
@@ -1349,12 +1350,105 @@ do
     then
         printf "TA.35\t$Timepoint\t$Infection\n"
     fi
-done >> $OutDir/P.frag_Bc16_RNAseq_design.txt
+done >> $OutDir/P.frag_Bc1_RNAseq_design.txt
 
 # Edit header lines of feature counts files to ensure they have the treatment name rather than file name
-OutDir=alignment/star/P.fragariae/Bc16/DeSeq
+OutDir=alignment/star/P.fragariae/Bc1/DeSeq
 mkdir -p $OutDir
-for File in $(ls alignment/star/P.fragariae/Bc16/*/*/*_featurecounts.txt)
+for File in $(ls alignment/star/P.fragariae/Bc1/*/*/*_featurecounts.txt)
+do
+    echo $File
+    cp $File $OutDir/.
+done
+for File in $(ls $OutDir/*_featurecounts.txt)
+do
+    Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
+    sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
+done
+
+#NOV-9
+OutDir=alignment/star/P.fragariae/Nov9/DeSeq
+mkdir -p $OutDir
+printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_Nov9_RNAseq_design.txt
+# for File in $(ls alignment/star/P.cactorum/10300/Sample_*/Sample_*_featurecounts.txt); do
+# Sample=$(echo $File | rev | cut -f2 -d '/' | rev)
+# i=$(echo $Sample | sed 's/Sample_//g')
+for i in $(seq 1 15)
+do
+    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
+    then
+        Timepoint='0hr'
+    elif [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ]
+    then
+        Timepoint='24hr'
+    elif [ $i == '7' ] || [ $i == '8' ] || [ $i == '9' ]
+    then
+        Timepoint='48hr'
+    elif [ $i == '10' ] || [ $i == '11' ] || [ $i == '12' ]
+    then
+        Timepoint='96hr'
+    elif [ $i == '13' ] || [ $i == '14' ] || [ $i == '15' ]
+    then
+        Timepoint='mycelium'
+    fi
+    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
+    then
+        Infection='mock'
+    else
+        Infection='Nov9'
+    fi
+    if [ $i == '1' ]
+    then
+        printf "TA.01\t$Timepoint\t$Infection\n"
+    elif [ $i == '2' ]
+    then
+        printf "TA.02\t$Timepoint\t$Infection\n"
+    elif [ $i == '3' ]
+    then
+        printf "TA.03\t$Timepoint\t$Infection\n"
+    elif [ $i == '4' ]
+    then
+        printf "TA.07\t$Timepoint\t$Infection\n"
+    elif [ $i == '5' ]
+    then
+        printf "TA.08\t$Timepoint\t$Infection\n"
+    elif [ $i == '6' ]
+    then
+        printf "TA.09\t$Timepoint\t$Infection\n"
+    elif [ $i == '7' ]
+    then
+        printf "TA.12\t$Timepoint\t$Infection\n"
+    elif [ $i == '8' ]
+    then
+        printf "TA.13\t$Timepoint\t$Infection\n"
+    elif [ $i == '9' ]
+    then
+        printf "TA.14\t$Timepoint\t$Infection\n"
+    elif [ $i == '10' ]
+    then
+        printf "TA.18\t$Timepoint\t$Infection\n"
+    elif [ $i == '11' ]
+    then
+        printf "TA.19\t$Timepoint\t$Infection\n"
+    elif [ $i == '12' ]
+    then
+        printf "TA.20\t$Timepoint\t$Infection\n"
+    elif [ $i == '13' ]
+    then
+        printf "TA.32\t$Timepoint\t$Infection\n"
+    elif [ $i == '14' ]
+    then
+        printf "TA.34\t$Timepoint\t$Infection\n"
+    elif [ $i == '15' ]
+    then
+        printf "TA.35\t$Timepoint\t$Infection\n"
+    fi
+done >> $OutDir/P.frag_Nov9_RNAseq_design.txt
+
+# Edit header lines of feature counts files to ensure they have the treatment name rather than file name
+OutDir=alignment/star/P.fragariae/Nov9/DeSeq
+mkdir -p $OutDir
+for File in $(ls alignment/star/P.fragariae/Nov9/*/*/*_featurecounts.txt)
 do
     echo $File
     cp $File $OutDir/.
