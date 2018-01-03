@@ -1248,22 +1248,25 @@ done
 #Quantification of gene models
 
 ```bash
-Gff=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3
-for BamFile in $(ls alignment/star/P.fragariae/Bc16/*/*/star_aligmentAligned.sortedByCoord.out.bam)
+for Strain in Bc1 Nov9
 do
-    OutDir=$(dirname $BamFile)
-    Prefix=$(echo $BamFile | rev | cut -f2 -d '/' | rev)
-    Jobs=$(qstat | grep 'sub_fea' | wc -l)
-    while [ $Jobs -gt 5 ]
+    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam)
     do
-        sleep 1m
-        printf "."
+        Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors.gff3
+        OutDir=$(dirname $BamFile)
+        Prefix=$(echo $BamFile | rev | cut -f2 -d '/' | rev)
         Jobs=$(qstat | grep 'sub_fea' | wc -l)
+        while [ $Jobs -gt 5 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_fea' | wc -l)
+        done
+        printf "\n"
+        echo $Prefix
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/sub_featureCounts.sh $BamFile $Gff $OutDir $Prefix
     done
-    printf "\n"
-    echo $Prefix
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-    qsub $ProgDir/sub_featureCounts.sh $BamFile $Gff $OutDir $Prefix
 done
 ```
 
