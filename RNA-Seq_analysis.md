@@ -1053,7 +1053,7 @@ New data arrived on BC-1 & NOV-9, download & re-run analyses for each isolate
 Only submit three jobs at a time, copying 30 files is too much!
 
 ```bash
-for RawData in $(ls qc_rna/novogene/P.fragariae/Bc16/*/*/*)
+for RawData in $(ls qc_rna/novogene/P.fragariae/*/*/*/* | grep -v 'Bc16')
 do
     echo $RawData
     ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
