@@ -1700,13 +1700,13 @@ done
 
 ```
 The number of UK3 unique RxLRs are:
-112
+115
 The number of NOV-27 genes extracted is:
-35
+45
 The number of NOV-71 genes extracted is:
-38
+47
 The number of NOV-9 genes extracted is:
-39
+48
 ```
 
 ##Extracting fasta files for orthogroups containing Race 3 putative RxLRs
