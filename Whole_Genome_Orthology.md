@@ -616,11 +616,11 @@ done
 
 ```
 The number of UK2 unique RxLRs are:
-97
+96
 The number of BC-16 genes extracted is:
-59
+69
 The number of A4 genes extracted is:
-38
+48
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative RxLRs
