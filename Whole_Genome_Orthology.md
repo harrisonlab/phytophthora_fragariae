@@ -1404,8 +1404,8 @@ do
     Nov5_to_extract=$ApoP_Dir/Nov5_to_extract.txt
     cat $ApoP_UK1_uniq | grep 'Bc1|' | cut -f2 -d "|" > $Bc1_to_extract
     cat $ApoP_UK1_uniq | grep 'Nov5|' | cut -f2 -d "|" > $Nov5_to_extract
-    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $ApoP_UK1_uniq | grep -E -v '^--' > $Bc1_ApoP_UK1_uniq_fa
-    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $ApoP_UK1_uniq | grep -E -v '^--' > $Nov5_ApoP_UK1_uniq_fa
+    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Bc1_to_extract | grep -E -v '^--' > $Bc1_ApoP_UK1_uniq_fa
+    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov5_to_extract | grep -E -v '^--' > $Nov5_ApoP_UK1_uniq_fa
     echo "The number of BC-1 genes extracted is:"
     cat $Bc1_ApoP_UK1_uniq_fa | grep '>' | wc -l
     echo "The number of Nov5 genes extracted is:"
