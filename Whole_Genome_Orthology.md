@@ -1874,6 +1874,126 @@ do
 done
 ```
 
+##Race 3 unique Apoplastic effector families
+
+#Race 3 Apoplastic effectors were parsed to the same format as the gene names used in the analysis:
+
+```bash
+for num in 1
+do
+    ApoP_Names_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_Total_ApoplastP.txt
+    ApoP_Names_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_Total_ApoplastP.txt
+    ApoP_Names_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_Total_ApoplastP.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    ApoP_Dir=$WorkDir/UK3_ApoP
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    ApoP_ID_UK3=$ApoP_Dir/UK3_ApoP_IDs.txt
+    mkdir -p $ApoP_Dir
+    cat $ApoP_Names_Nov27 | sed -r 's/^/Nov27|/g' > $ApoP_ID_UK3
+    cat $ApoP_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $ApoP_ID_UK3
+    cat $ApoP_Names_Nov9 | sed -r 's/^/Nov9|/g' >> $ApoP_ID_UK3
+done
+```
+
+#Ortholog groups containing apoplastic effectors were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of apoplastic effectors searched for is:"
+    cat $ApoP_ID_UK3 | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    ApoP_Orthogroup_hits_UK3=$ApoP_Dir/UK3_ApoP_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $ApoP_ID_UK3 > $ApoP_Orthogroup_hits_UK3
+    cat $ApoP_Orthogroup_hits_UK3 | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    ApoP_Orthogroup_UK3=$ApoP_Dir/UK3_ApoP_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $ApoP_ID_UK3 > $ApoP_Orthogroup_UK3
+    cat $ApoP_Orthogroup_UK3 | wc -l
+    echo "The following apoplastic effectors were found in Race 3 unique orthogroups:"
+    ApoP_UK3_uniq_groups=$ApoP_Dir/UK3_uniq_ApoP_Orthogroups_hits.txt
+    cat $ApoP_Orthogroup_UK3 | grep -v -e 'Nov5|' -e 'A4|' -e 'Bc16|' -e 'Bc1|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' > $ApoP_UK3_uniq_groups
+    cat $ApoP_UK3_uniq_groups | wc -l
+    echo "The following apoplastic effectors were found in P.fragariae unique orthogroups:"
+    ApoP_Pf_uniq_groups=$ApoP_Dir/Pf_ApoP_Orthogroups_hits.txt
+    cat $ApoP_Orthogroup_UK3 > $ApoP_Pf_uniq_groups
+    cat $ApoP_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of apoplastic effectors:"
+    cat $ApoP_Pf_uniq_groups | grep -w -o -f $ApoP_ID_UK3 | wc -l
+done
+```
+
+```
+```
+
+
+#The Race 3 apoplastic effectors not found in orthogroups were identified:
+
+```bash
+for num in 1
+do
+    ApoP_UK3_uniq=$ApoP_Dir/UK3_unique_ApoP.txt
+    cat $ApoP_ID_UK3 | grep -v -w -f $ApoP_Orthogroup_hits_UK3 > $ApoP_UK3_uniq
+    echo "The number of UK3 unique apoplastic effectors are:"
+    cat $ApoP_UK3_uniq | wc -l
+    ApoP_Seq_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_final_ApoplastP.fa
+    ApoP_Seq_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_final_ApoplastP.fa
+    ApoP_Seq_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_final_ApoplastP.fa
+    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+    Nov27_ApoP_UK3_uniq_fa=$ApoP_Dir/Nov27_UK3_unique_ApoP.fa
+    Nov71_ApoP_UK3_uniq_fa=$ApoP_Dir/Nov71_UK3_unique_ApoP.fa
+    Nov9_ApoP_UK3_uniq_fa=$ApoP_Dir/Nov9_UK3_unique_ApoP.fa
+    Nov27_to_extract=$ApoP_Dir/Nov27_to_extract.txt
+    Nov71_to_extract=$ApoP_Dir/Nov71_to_extract.txt
+    Nov9_to_extract=$ApoP_Dir/Nov9_to_extract.txt
+    cat $ApoP_UK3_uniq | grep 'Nov27|' | cut -f2 -d "|" > $Nov27_to_extract
+    cat $ApoP_UK3_uniq | grep 'Nov71|' | cut -f2 -d "|" > $Nov71_to_extract
+    cat $ApoP_UK3_uniq | grep 'Nov9|' | cut -f2 -d "|" > $Nov9_to_extract
+    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $ApoP_UK3_uniq | grep -E -v '^--' > $Nov27_ApoP_UK3_uniq_fa
+    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $ApoP_UK3_uniq | grep -E -v '^--' > $Nov71_ApoP_UK3_uniq_fa
+    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $ApoP_UK3_uniq | grep -E -v '^--' > $Nov9_ApoP_UK3_uniq_fa
+    echo "The number of NOV-27 genes extracted is:"
+    cat $Nov27_ApoP_UK3_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-71 genes extracted is:"
+    cat $Nov71_ApoP_UK3_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-9 genes extracted is:"
+    cat $Nov9_ApoP_UK3_uniq_fa | grep '>' | wc -l
+done
+```
+
+```
+```
+
+##Extracting fasta files for orthogroups containing Race 3 putative apoplastic effectors
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK3_ApoP/UK3_ApoP_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK3_ApoP/orthogroups_fasta_UK3_ApoP
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+##Extracting fasta files for P. fragariae orthogroups containing Race 3 putative apoplastic effectors
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK3_ApoP/Pf_ApoP_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK3_ApoP/orthogroups_fasta_Pf_ApoP
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
 #Race 3 unique secreted proteins
 
 #Race 3 secreted protein genes were parsed to the same format as the gene names used in the analysis:
