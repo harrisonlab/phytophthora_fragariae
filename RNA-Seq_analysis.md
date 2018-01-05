@@ -1075,14 +1075,14 @@ mv C101HW17030405/raw_data/TA_NO_P2_1.fq.gz P.fragariae/Nov9/72hr/F/.
 mv C101HW17030405/raw_data/TA_NO_P3_1.fq.gz P.fragariae/Nov9/72hr/F/.
 mv C101HW17030405/raw_data/TA_NO_M1_1.fq.gz P.fragariae/Nov9/mycelium/F/.
 mv C101HW17030405/raw_data/TA_NO_M2_1.fq.gz P.fragariae/Nov9/mycelium/F/.
-mv C101HW17030405/raw_data/TA_NO_M3_1.fq.gz P.fragariae/Nov9/mycelium/F/.
+mv C101HW17030405/raw_data/TA_NO_M5_1.fq.gz P.fragariae/Nov9/mycelium/F/.
 mv C101HW17030405/raw_data/TA_NO_P1_2.fq.gz P.fragariae/Nov9/72hr/R/.
 mv C101HW17030405/raw_data/TA_NO_P2_2.fq.gz P.fragariae/Nov9/72hr/R/.
 mv C101HW17030405/raw_data/TA_NO_P3_2.fq.gz P.fragariae/Nov9/72hr/R/.
 mv C101HW17030405/raw_data/TA_NO_M1_2.fq.gz P.fragariae/Nov9/mycelium/R/.
 mv C101HW17030405/raw_data/TA_NO_M2_2.fq.gz P.fragariae/Nov9/mycelium/R/.
-mv C101HW17030405/raw_data/TA_NO_M3_2.fq.gz P.fragariae/Nov9/mycelium/R/.
-mv C101HW17030405/MD5.txt .
+mv C101HW17030405/raw_data/TA_NO_M5_2.fq.gz P.fragariae/Nov9/mycelium/R/.
+mv C101HW17030405/raw_data/MD5.txt .
 ```
 
 ##Perform qc on RNA-Seq timecourse and mycelium data
