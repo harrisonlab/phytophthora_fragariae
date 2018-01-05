@@ -1551,8 +1551,10 @@ do
     cat $Sec_UK1_uniq | wc -l
     Sec_Seq_Bc1=gene_pred/combined_sigP_CQ/P.fragariae/Bc1/Bc1_all_secreted.fa
     Sec_Seq_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_all_secreted.fa
-    Final_genes_Bc1=gene_pred/codingquary/P.fragariae/Bc1/final/final_genes_combined.pep.fasta
-    Final_genes_Nov5=gene_pred/codingquary/P.fragariae/Nov5/final/final_genes_combined.pep.fasta
+    Sec_Seq_Bc1_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Bc1/Bc1_all_secreted.fa
+    Sec_Seq_Nov5_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Nov5/Nov5_all_secreted.fa
+    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
     Sec_UK1_uniq_fa=$Sec_Dir/UK1_unique_Sec.fa
     cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK1_uniq | grep -E -v '^--' > $Sec_UK1_uniq_fa
     cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK1_uniq | grep -E -v '^--' >> $Sec_UK1_uniq_fa
