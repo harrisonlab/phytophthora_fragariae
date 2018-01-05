@@ -1047,9 +1047,112 @@ wget https://s3-eu-west-1.amazonaws.com/novogene-europe/HW/project/C101HW1703040
 tar -xf /home/scratch/adamst/rna_seq/05012018/C101HW17030405_20180102_5_Yvad6z.tar
 ```
 
+##Reorganise raw data
+
+```bash
+mkdir -p P.fragariae/Bc1/48hr/F/
+mkdir -p P.fragariae/Bc1/mycelium/F/
+mkdir -p P.fragariae/Bc1/48hr/R/
+mkdir -p P.fragariae/Bc1/mycelium/R/
+mkdir -p P.fragariae/Nov9/72hr/F/
+mkdir -p P.fragariae/Nov9/mycelium/F/
+mkdir -p P.fragariae/Nov9/72hr/R/
+mkdir -p P.fragariae/Nov9/mycelium/R/
+mv C101HW17030405/TA_B_P1_1.fq.gz P.fragariae/Bc1/48hr/F/.
+mv C101HW17030405/TA_B_P2_1.fq.gz P.fragariae/Bc1/48hr/F/.
+mv C101HW17030405/TA_B_P3_1.fq.gz P.fragariae/Bc1/48hr/F/.
+mv C101HW17030405/TA_B_M1_1.fq.gz P.fragariae/Bc1/mycelium/F/.
+mv C101HW17030405/TA_B_M2_1.fq.gz P.fragariae/Bc1/mycelium/F/.
+mv C101HW17030405/TA_B_M3_1.fq.gz P.fragariae/Bc1/mycelium/F/.
+mv C101HW17030405/TA_B_P1_2.fq.gz P.fragariae/Bc1/48hr/R/.
+mv C101HW17030405/TA_B_P2_2.fq.gz P.fragariae/Bc1/48hr/R/.
+mv C101HW17030405/TA_B_P3_2.fq.gz P.fragariae/Bc1/48hr/R/.
+mv C101HW17030405/TA_B_M1_2.fq.gz P.fragariae/Bc1/mycelium/R/.
+mv C101HW17030405/TA_B_M2_2.fq.gz P.fragariae/Bc1/mycelium/R/.
+mv C101HW17030405/TA_B_M3_2.fq.gz P.fragariae/Bc1/mycelium/R/.
+mv C101HW17030405/TA_NO_P1_1.fq.gz P.fragariae/Nov9/48hr/F/.
+mv C101HW17030405/TA_NO_P2_1.fq.gz P.fragariae/Nov9/48hr/F/.
+mv C101HW17030405/TA_NO_P3_1.fq.gz P.fragariae/Nov9/48hr/F/.
+mv C101HW17030405/TA_NO_M1_1.fq.gz P.fragariae/Nov9/mycelium/F/.
+mv C101HW17030405/TA_NO_M2_1.fq.gz P.fragariae/Nov9/mycelium/F/.
+mv C101HW17030405/TA_NO_M3_1.fq.gz P.fragariae/Nov9/mycelium/F/.
+mv C101HW17030405/TA_NO_P1_2.fq.gz P.fragariae/Nov9/48hr/R/.
+mv C101HW17030405/TA_NO_P2_2.fq.gz P.fragariae/Nov9/48hr/R/.
+mv C101HW17030405/TA_NO_P3_2.fq.gz P.fragariae/Nov9/48hr/R/.
+mv C101HW17030405/TA_NO_M1_2.fq.gz P.fragariae/Nov9/mycelium/R/.
+mv C101HW17030405/TA_NO_M2_2.fq.gz P.fragariae/Nov9/mycelium/R/.
+mv C101HW17030405/TA_NO_M3_2.fq.gz P.fragariae/Nov9/mycelium/R/.
+mv C101HW17030405/MD5.txt .
+```
+
 ##Perform qc on RNA-Seq timecourse and mycelium data
 
 ```bash
+for FilePath in $(ls -d /home/scratch/adamst/rna_seq/05012018/C101HW17030405/raw_data/* | grep -v 'MD5.txt')
+do
+    echo $FilePath
+    FileNum=$(ls $FilePath/F/*.gz | wc -l)
+    for num in $(seq 1 $FileNum)
+    do
+        FileF=$(ls $FilePath/F/*.gz | head -n $num | tail -n1)
+        FileR=$(ls $FilePath/R/*.gz | head -n $num | tail -n1)
+        echo $FileF
+        echo $FileR
+        Jobs=$(qstat -u "*" | grep 'rna_qc' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 16 ]
+        do
+            sleep 5m
+            printf "."
+            Jobs=$(qstat | grep 'rna_qc' | grep 'qw' | wc -l)
+        done		
+        printf "\n"
+        IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+        qsub -h $ProgDir/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
+        JobID=$(qstat | grep 'rna' | tail -n 1 | cut -d ' ' -f1)
+        Queue_Status=$(qstat | grep 'rna' | grep 'hqw' | wc -l)
+        while (($Queue_Status > 0))
+        do
+            Queue_Status=$(qstat | grep 'rna' | grep 'hqw' | wc -l)
+            load02=$(qstat -u "*" | grep 'blacklace02'| grep 'rna' | wc -l)
+            load05=$(qstat -u "*" | grep 'blacklace05'| grep 'rna' | wc -l)
+            load06=$(qstat -u "*" | grep 'blacklace06'| grep 'rna' | wc -l)
+            load10=$(qstat -u "*" | grep 'blacklace10'| grep 'rna' | wc -l)
+            if (($load02 < 3))
+            then
+                qalter $JobID -l h=blacklace02.blacklace
+                sleep 5s
+                qalter $JobID -h U
+                sleep 5s
+                echo "Submitted to node 2"
+            elif (($load05 < 3))
+            then
+                qalter $JobID -l h=blacklace05.blacklace
+                sleep 5s
+                qalter $JobID -h U
+                sleep 5s
+                echo "Submitted to node 5"
+            elif (($load06 < 3))
+            then
+                qalter $JobID -l h=blacklace06.blacklace
+                sleep 5s
+                qalter $JobID -h U
+                sleep 5s
+                echo "Submitted to node 6"
+            elif (($load10 < 3))
+            then
+                qalter $JobID -l h=blacklace10.blacklace
+                sleep 5s
+                qalter $JobID -h U
+                sleep 5s
+                echo "Submitted to node 10"
+            else
+                echo "all nodes full, waiting ten minutes"
+                sleep 10m
+            fi
+        done    
+    done
+done
 ```
 
 ###Visualise data quality using fastqc
