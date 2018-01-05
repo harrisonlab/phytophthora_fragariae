@@ -2142,19 +2142,27 @@ do
     cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits > $Sec_UK3_uniq
     echo "The number of UK3 unique secreted proteins are:"
     cat $Sec_UK3_uniq | wc -l
-    Sec_Seq_Nov9=gene_pred/combined_sigP_CQ/P.fragariae/Nov9/Nov9_all_secreted.fa
-    Sec_Seq_Nov27=gene_pred/combined_sigP_CQ/P.fragariae/Nov27/Nov27_all_secreted.fa
-    Sec_Seq_Nov71=gene_pred/combined_sigP_CQ/P.fragariae/Nov71/Nov71_all_secreted.fa
-    Sec_Seq_Nov9_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Nov9/Nov9_all_secreted_merged.aa
-    Sec_Seq_Nov27_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Nov27/Nov27_all_secreted_merged.aa
-    Sec_Seq_Nov71_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Nov71/Nov71_all_secreted_merged.aa
-    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
     Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
     Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
-    Sec_UK3_uniq_fa=$Sec_Dir/UK3_unique_Sec.fa
-    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' > $Sec_UK3_uniq_fa
-    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' >> $Sec_UK3_uniq_fa
-    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK3_uniq | grep -E -v '^--' >> $Sec_UK3_uniq_fa
+    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+    Nov27_Sec_UK3_uniq_fa=$Sec_Dir/Nov27_UK3_unique_Secs.fa
+    Nov71_Sec_UK3_uniq_fa=$Sec_Dir/Nov71_UK3_unique_Secs.fa
+    Nov9_Sec_UK3_uniq_fa=$Sec_Dir/Nov9_UK3_unique_Secs.fa
+    Nov27_to_extract=$Sec_Dir/Nov27_to_extract.txt
+    Nov71_to_extract=$Sec_Dir/Nov71_to_extract.txt
+    Nov9_to_extract=$Sec_Dir/Nov9_to_extract.txt
+    cat $Sec_UK3_uniq | grep 'Nov27|' | cut -f2 -d "|" > $Nov27_to_extract
+    cat $Sec_UK3_uniq | grep 'Nov71|' | cut -f2 -d "|" > $Nov71_to_extract
+    cat $Sec_UK3_uniq | grep 'Nov9|' | cut -f2 -d "|" > $Nov9_to_extract
+    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov27_to_extract | grep -E -v '^--' > $Nov27_Sec_UK3_uniq_fa
+    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov71_to_extract | grep -E -v '^--' > $Nov71_Sec_UK3_uniq_fa
+    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov9_to_extract | grep -E -v '^--' > $Nov9_Sec_UK3_uniq_fa
+    echo "The number of NOV-27 genes extracted is:"
+    cat $Nov27_Sec_UK3_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-71 genes extracted is:"
+    cat $Nov71_Sec_UK3_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-9 genes extracted is:"
+    cat $Nov9_Sec_UK3_uniq_fa | grep '>' | wc -l
 done
 ```
 
