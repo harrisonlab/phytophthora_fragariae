@@ -1041,6 +1041,10 @@ New data arrived on BC-1 & NOV-9, download & re-run analyses for each isolate
 ##RNA-Seq data was downloaded from novogenes servers with the following commands
 
 ```bash
+mkdir -p /home/scratch/adamst/rna_seq/05012018
+cd /home/scratch/adamst/rna_seq/05012018
+wget https://s3-eu-west-1.amazonaws.com/novogene-europe/HW/project/C101HW17030405_20180102_5_Yvad6z.tar
+tar -C /home/scratch/adamst/rna_seq/05012018/. -xvf /home/groups/harrisonlab/raw_data/raw_seq/P.frag/raw_rna/05012018/C101HW17030405_20180102_5_Yvad6z.tar
 ```
 
 ##Perform qc on RNA-Seq timecourse and mycelium data
@@ -1064,7 +1068,7 @@ done
 ```
 ```
 
-#Align mycelium reads to BC-1 & NOV-9 assemblies with STAR
+#Aign mycelium reads to BC-1 & NOV-9 assemblies with STAR
 
 ```bash
 #BC-1
