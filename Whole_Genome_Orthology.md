@@ -2014,6 +2014,14 @@ done
 ```
 
 ```
+The number of UK3 unique apoplastic effectors are:
+28,079
+The number of NOV-27 genes extracted is:
+0
+The number of NOV-71 genes extracted is:
+0
+The number of NOV-9 genes extracted is:
+0
 ```
 
 ##Extracting fasta files for orthogroups containing Race 3 putative apoplastic effectors
