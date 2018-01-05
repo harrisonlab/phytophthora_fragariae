@@ -1546,18 +1546,23 @@ These orthogroups contain the following number of Secreted proteins:
 for num in 1
 do
     Sec_UK1_uniq=$Sec_Dir/UK1_unique_Sec.txt
-    cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits | tr -d 'Bc1|' | tr -d 'Nov5|' > $Sec_UK1_uniq
+    cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits > $Sec_UK1_uniq
     echo "The number of UK1 unique secreted proteins are:"
     cat $Sec_UK1_uniq | wc -l
-    Sec_Seq_Bc1=gene_pred/combined_sigP_CQ/P.fragariae/Bc1/Bc1_all_secreted.fa
-    Sec_Seq_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_all_secreted.fa
-    Sec_Seq_Bc1_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Bc1/Bc1_all_secreted.fa
-    Sec_Seq_Nov5_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Nov5/Nov5_all_secreted.fa
     Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
     Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
-    Sec_UK1_uniq_fa=$Sec_Dir/UK1_unique_Sec.fa
-    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK1_uniq | grep -E -v '^--' > $Sec_UK1_uniq_fa
-    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Sec_UK1_uniq | grep -E -v '^--' >> $Sec_UK1_uniq_fa
+    Bc1_Sec_UK1_uniq_fa=$Sec_Dir/Bc1_UK1_unique_Secs.fa
+    Nov5_Sec_UK1_uniq_fa=$Sec_Dir/Nov5_UK1_unique_Secs.fa
+    Bc1_to_extract=$Sec_Dir/Bc1_to_extract.txt
+    Nov5_to_extract=$Sec_Dir/Nov5_to_extract.txt
+    cat $Sec_UK1_uniq | grep 'Bc1|' | cut -f2 -d "|" > $Bc1_to_extract
+    cat $Sec_UK1_uniq | grep 'Nov5|' | cut -f2 -d "|" > $Nov5_to_extract
+    cat $Final_genes_Bc1 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Bc1_to_extract | grep -E -v '^--' > $Bc1_Sec_UK1_uniq_fa
+    cat $Final_genes_Nov5 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov5_to_extract | grep -E -v '^--' > $Nov5_Sec_UK1_uniq_fa
+    echo "The number of BC-1 genes extracted is:"
+    cat $Bc1_Sec_UK1_uniq_fa | grep '>' | wc -l
+    echo "The number of Nov5 genes extracted is:"
+    cat $Nov5_Sec_UK1_uniq_fa | grep '>' | wc -l
 done
 ```
 
