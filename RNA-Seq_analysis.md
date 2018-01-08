@@ -1108,49 +1108,7 @@ do
         printf "\n"
         IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
         ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
-        qsub -h $ProgDir/rna_qc_fastq-mcf_2.sh $FileF $FileR $IlluminaAdapters RNA
-        JobID=$(qstat | grep 'rna' | tail -n 1 | cut -d ' ' -f1)
-        Queue_Status=$(qstat | grep 'rna' | grep 'hqw' | wc -l)
-        while (($Queue_Status > 0))
-        do
-            Queue_Status=$(qstat | grep 'rna' | grep 'hqw' | wc -l)
-            load02=$(qstat -u "*" | grep 'blacklace02'| grep 'rna' | wc -l)
-            load05=$(qstat -u "*" | grep 'blacklace05'| grep 'rna' | wc -l)
-            load06=$(qstat -u "*" | grep 'blacklace06'| grep 'rna' | wc -l)
-            load10=$(qstat -u "*" | grep 'blacklace10'| grep 'rna' | wc -l)
-            if (($load02 < 3))
-            then
-                qalter $JobID -l h=blacklace02.blacklace
-                sleep 5s
-                qalter $JobID -h U
-                sleep 5s
-                echo "Submitted to node 2"
-            elif (($load05 < 3))
-            then
-                qalter $JobID -l h=blacklace05.blacklace
-                sleep 5s
-                qalter $JobID -h U
-                sleep 5s
-                echo "Submitted to node 5"
-            elif (($load06 < 3))
-            then
-                qalter $JobID -l h=blacklace06.blacklace
-                sleep 5s
-                qalter $JobID -h U
-                sleep 5s
-                echo "Submitted to node 6"
-            elif (($load10 < 3))
-            then
-                qalter $JobID -l h=blacklace10.blacklace
-                sleep 5s
-                qalter $JobID -h U
-                sleep 5s
-                echo "Submitted to node 10"
-            else
-                echo "all nodes full, waiting ten minutes"
-                sleep 10m
-            fi
-        done    
+        qsub $ProgDir/rna_qc_fastq-mcf_2.sh $FileF $FileR $IlluminaAdapters RNA
     done
 done
 ```
