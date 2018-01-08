@@ -1108,7 +1108,7 @@ do
         printf "\n"
         IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
         ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
-        qsub -h $ProgDir/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
+        qsub -h $ProgDir/rna_qc_fastq-mcf_2.sh $FileF $FileR $IlluminaAdapters RNA
         JobID=$(qstat | grep 'rna' | tail -n 1 | cut -d ' ' -f1)
         Queue_Status=$(qstat | grep 'rna' | grep 'hqw' | wc -l)
         while (($Queue_Status > 0))
