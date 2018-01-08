@@ -1121,6 +1121,13 @@ Only submit three jobs at a time, copying 30 files is too much!
 for RawData in $(ls qc_rna/novogene/P.fragariae/*/*/*/* | grep -v 'Bc16')
 do
     echo $RawData
+    Jobs=$(qstat -u "*" | grep 'run_fastqc' | wc -l)
+    while [ $Jobs -gt 3 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat -u "*" | grep 'run_fastqc' | wc -l)
+    done
     ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
     qsub $ProgDir/run_fastqc.sh $RawData
 done
