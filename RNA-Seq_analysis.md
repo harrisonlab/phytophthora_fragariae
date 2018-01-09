@@ -1144,12 +1144,12 @@ All seem okay to me
 
 ```bash
 #BC-1
-for Assembly in $(ls repeat_masked/P.fragariae/Bc1/ncbi_edits_repmask/*_contigs_unmasked.fa)
+for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc1/ncbi_edits_repmask/*_contigs_unmasked.fa)
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
     echo "$Organism - $Strain"
-    for FileF in $(ls qc_rna/novogene/P.fragariae/Bc1/mycelium/F/*_trim.fq.gz)
+    for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/Bc1/mycelium/F/*_trim.fq.gz)
     do
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
         while [ $Jobs -gt 1 ]
@@ -1165,7 +1165,7 @@ do
         Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
         echo "$Timepoint"
         Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
-        OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
+        OutDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
         ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
         qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
     done
