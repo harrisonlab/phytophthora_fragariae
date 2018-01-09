@@ -154,3 +154,6 @@ do
     $scripts/nj_tree.sh $vcf 2
 done
 ```
+
+This script isn't happy with the low levels of variation I have.
+TODO: Investigate other tree methods - Michelle mentioned some possibilities
