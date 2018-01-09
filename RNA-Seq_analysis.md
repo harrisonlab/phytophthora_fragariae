@@ -1111,6 +1111,9 @@ do
         qsub $ProgDir/rna_qc_fastq-mcf_2.sh $FileF $FileR $IlluminaAdapters RNA
     done
 done
+
+mv qc_rna/Bc1/ qc_rna/novogene/P.fragariae/.
+mv qc_rna/Nov9/ qc_rna/novogene/P.fragariae/.
 ```
 
 ###Visualise data quality using fastqc
