@@ -1137,6 +1137,7 @@ done
 ```
 
 ```
+All seem okay to me
 ```
 
 #Aign mycelium reads to BC-1 & NOV-9 assemblies with STAR
