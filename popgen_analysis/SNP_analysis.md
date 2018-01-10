@@ -116,8 +116,8 @@ do
     echo $a
     filename=$(basename "$a")
     java -Xmx4g -jar $snpeff/snpEff.jar -v -ud 0 Bc16v1.0 $a > ${filename%.vcf}_annotated.vcf
-    mv snpEff_genes.txt snpEff_genes_${filename%.vcf}.txt
-    mv snpEff_summary.html  snpEff_summary__${filename%.vcf}.html
+    mv snpEff_genes.txt SNP_calling/snpEff_genes_${filename%.vcf}.txt
+    mv snpEff_summary.html  SNP_calling/snpEff_summary__${filename%.vcf}.html
 done
 ```
 
