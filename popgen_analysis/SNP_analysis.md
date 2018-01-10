@@ -80,8 +80,6 @@ nano $snpeff/snpEff.config
 #---
 # EMR Databases
 #----
-# Fus2 genome
-Fus2v1.0.genome : Fus2
 # Bc16 genome
 Bc16v1.0.genome: BC-16
 ```
