@@ -70,7 +70,7 @@ done
 #Create custom SnpEff genome database
 
 ```bash
-snpeff=/home/sobczm/bin/snpEff
+snpeff=/home/adamst/prog/snpEff
 nano $snpeff/snpEff.config
 ```
 
