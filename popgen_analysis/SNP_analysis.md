@@ -27,6 +27,8 @@ do
 done
 ```
 
+Only one of these can be run at a time!
+
 #General VCF stats (remember that vcftools needs to have the PERL library exported)
 
 ```bash
