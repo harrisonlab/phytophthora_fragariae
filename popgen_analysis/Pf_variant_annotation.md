@@ -46,7 +46,7 @@ do
 done
 ```
 
-Sometimes this script needs to be run in a qlogin session, it's unclear why
+Can only be run one at a time
 
 ##Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
 
