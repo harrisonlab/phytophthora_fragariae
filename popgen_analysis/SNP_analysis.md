@@ -32,6 +32,7 @@ Only one of these can be run at a time!
 #General VCF stats (remember that vcftools needs to have the PERL library exported)
 
 ```bash
+cd ../
 perl /home/sobczm/bin/vcftools/bin/vcf-stats \
 SNP_calling/polished_contigs_unmasked.vcf > SNP_calling/polished_contigs_unmasked.stat
 perl /home/sobczm/bin/vcftools/bin/vcf-stats \
