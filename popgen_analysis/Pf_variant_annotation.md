@@ -4,7 +4,7 @@
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
-snpeff=/home/sobczm/bin/snpEff
+snpeff=/home/adamst/prog/snpEff
 scripts=/home/adamst/git_repos/scripts/popgen
 ```
 
