@@ -1203,7 +1203,7 @@ done
 ##Align all timepoints to *Fragaria vesca* genome v1.1
 
 ```bash
-for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/*/*/F/*_trim.fq.gz | grep -e "Bc1" -e "Nov9" | grep -v "Bc16")
+for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/*/*/F/*_trim.fq.gz | grep -e "Bc1" -e "Nov9" | grep -v "Bc16" | grep -v "mycelium")
 do
     Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
     while [ $Jobs -gt 1 ]
