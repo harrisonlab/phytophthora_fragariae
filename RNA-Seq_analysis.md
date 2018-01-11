@@ -1326,7 +1326,7 @@ done
 ```bash
 for Strain in Bc1 Nov9
 do
-    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam)
+    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam | grep -v "TA-")
     do
         Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors.gff3
         OutDir=$(dirname $BamFile)
