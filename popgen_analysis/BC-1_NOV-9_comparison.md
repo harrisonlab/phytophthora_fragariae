@@ -100,7 +100,7 @@ java -jar $snpeff/snpEff.jar build -gff3 -v Bc16v1.0
 #Annotate VCF files
 
 ```bash
-snpeff=/home/sobczm/bin/snpEff
+snpeff=/home/adamst/prog/snpEff
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling
 cd $input
 for a in *recode.vcf
