@@ -1487,7 +1487,7 @@ indexes <- c("TA_B_P1", "TA_B_P2", "TA_B_P3", "TA_B_M1", "TA_B_M2", "TA_B_M3")
 countData <- round(countData,0)
 
 #output countData
-write.table(countDataSubset,"alignment/star/P.fragariae/Bc1/DeSeq/No_Mock_countData.txt",sep="\t",na="",quote=F)
+write.table(countData,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_countData.txt",sep="\t",na="",quote=F)
 
 #output gene details
 write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Bc1/DeSeq/No_Mock_genes.txt",sep="\t",quote=F,row.names=F)
