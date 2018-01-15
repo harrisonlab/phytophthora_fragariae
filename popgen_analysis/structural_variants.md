@@ -5,6 +5,51 @@
 
 ####Copy files and concatenate multiple reads into forward and reverse files
 
+```bash
+mkdir sv_calling
+cd sv_calling
+
+#Copy single library *P. fragariae* isolates
+for Strain in A4 Bc23 Nov27 Nov5 Nov77 ONT3 SCRP245_v2
+do
+    Output_name=$(echo $Strain | sed 's/_*//g')
+    mkdir -p $Output_name/F
+    mkdir -p $Output_name/R
+    cp ../qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz $Output_name/F/.
+    cp ../qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz $Output_name/R/.
+done
+
+#Copy single library *P. rubi* isolates
+for Strain in SCRP249 SCRP324 SCRP333
+do
+    mkdir -p $Strain/F
+    mkdir -p $Strain/R
+    cp ../../phytophthora_rubi/qc_dna/P.rubi/$Strain/F/*.fq.gz $Strain/F/.
+    cp ../../phytophthora_rubi/qc_dna/P.rubi/$Strain/R/*.fq.gz $Strain/R/.
+done
+
+#Concatenate and copy *P.fragariae* isolates with multiple libraries
+for Strain in Bc1 Bc16 Nov71 Nov9
+do
+    mkdir -p $Strain/F
+    mkdir -p $Strain/R
+    gunzip ../qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz
+    for File in $(ls ../qc_dna/paired/P.fragariae/$Strain/F/*.fq)
+    do
+        cat $File >> ../qc_dna/paired/P.fragariae/$Strain/F/"$Strain"_concatenated_F.fq
+    done
+    gzip ../qc_dna/paired/P.fragariae/$Strain/F/*.fq
+    gunzip ../qc_dna/paired/P.fragariae/$Strain/R/*.fq.gz
+    for File in $(ls ../qc_dna/paired/P.fragariae/$Strain/R/*.fq)
+    do
+        cat $File >> ../qc_dna/paired/P.fragariae/$Strain/R/"$Strain"_concatenated_R.fq
+    done
+    gzip ../qc_dna/paired/P.fragariae/$Strain/R/*.fq
+    mv ../qc_dna/paired/P.fragariae/$Strain/F/*_concatenated* $Strain/F/.
+    mv ../qc_dna/paired/P.fragariae/$Strain/R/*_concatenated* $Strain/R/.
+done
+```
+
 ####UK2 focused analysis
 
 ```bash
