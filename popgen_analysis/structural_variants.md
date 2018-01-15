@@ -148,3 +148,8 @@ No variants found
 This allows a quicker evaluation of population structure in diploid organisms (and is less problematic to run than lumpy)
 
 ###Set up initial variables
+
+```bash
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
+scripts=/home/sobczm/bin/popgen/snp
+```
