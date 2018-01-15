@@ -98,3 +98,14 @@ cp ../SNP_calling/polished_contigs_unmasked_filtered.vcf .
 input_file=polished_contigs_unmasked_filtered.vcf
 plink --allow-extra-chr --const-fid 0 --vcf $input_file --recode --make-bed --out ${input_file%.vcf} > ${input_file%.vcf}.log
 ```
+
+###Run fastSTRUCTURE
+
+```bash
+s=1
+f=5
+for i in $(seq $s $f)
+do
+    qsub $scripts/sub_fast_structure.sh ${input_file%.vcf} $i
+done
+```
