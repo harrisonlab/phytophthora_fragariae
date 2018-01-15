@@ -1605,7 +1605,7 @@ ggsave("alignment/star/P.fragariae/Bc1/DeSeq/PCA_sample_names.pdf", pca_plot, dp
 #24hr vs mycelium
 
 alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","Bc1_24hr","Bc1_mycelium"))
+res= results(dds, alpha=alpha,contrast=c("Group","Bc1_48hr","Bc1_mycelium"))
 sig.res <- subset(res,padj<=alpha)
 sig.res <- sig.res[order(sig.res$padj),]
 #Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
