@@ -145,3 +145,4 @@ No variants found
 ```
 
 ##fastSTRUCTURE analysis - potentially a better caller than lumpy
+This allows a quicker evaluation of population structure in diploid organisms (and is less problematic to run than lumpy)
