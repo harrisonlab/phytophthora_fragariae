@@ -101,6 +101,8 @@ plink --allow-extra-chr --const-fid 0 --vcf $input_file --recode --make-bed --ou
 
 ###Run fastSTRUCTURE
 
+####Test various K values (K represents model complexity)
+
 ```bash
 s=1
 f=5
