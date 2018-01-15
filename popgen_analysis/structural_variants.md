@@ -3,6 +3,8 @@
 
 ###First, run BWA-mem to align reads to FALCON assembly before SV calling
 
+####Copy files and concatenate multiple reads into forward and reverse files
+
 ####UK2 focused analysis
 
 ```bash
