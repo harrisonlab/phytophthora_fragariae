@@ -1680,7 +1680,7 @@ countData <- round(countData,0)
 write.table(countData,"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_countData.txt",sep="\t",na="",quote=F)
 
 #output gene details
-write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Nov9/DeSeq/No_Mock_genes.txt",sep="\t",quote=F,row.names=F)
+write.table(m[,1:6,with=F],"alignment/star/P.fragariae/Nov9/DeSeq/Nov9_genes.txt",sep="\t",quote=F,row.names=F)
 # colnames(countData) <- sub("X","",colnames(countData)) countData <- countData[,colData$Sample]
 
 #Running DeSeq2
