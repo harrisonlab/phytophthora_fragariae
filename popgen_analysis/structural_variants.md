@@ -1,6 +1,8 @@
 #Looks for structural variations between the genomes
 ##Structural variants can include: duplications, deletions, inversions & translocations. Uses read-pair configuration, split-reads & read-depth
 
+###First, run BWA-mem to align reads to FALCON assembly before SV calling
+
 ####UK2 focused analysis
 
 ```bash
