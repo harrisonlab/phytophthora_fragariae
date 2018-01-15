@@ -1727,10 +1727,8 @@ dds <- DESeq(dds, fitType="local")
 #Sample Distances
 
 library("RColorBrewer")
-install.packages("gplots")
 library("gplots", Sys.getenv("R_LIBS_USER"))
 library("ggplot2")
-install.packages("ggrepel", Sys.getenv("R_LIBS_USER"), repos = "http://cran.case.edu")
 library("ggrepel")
 
 vst<-varianceStabilizingTransformation(dds)
