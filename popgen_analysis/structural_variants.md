@@ -91,3 +91,10 @@ scripts=/home/sobczm/bin/popgen/snp
 ```
 
 ###Convert from VCF to Plink's PED format
+
+```bash
+cd sv_calling
+cp ../SNP_calling/polished_contigs_unmasked_filtered.vcf .
+input_file=polished_contigs_unmasked_filtered.vcf
+plink --allow-extra-chr --const-fid 0 --vcf $input_file --recode --make-bed --out ${input_file%.vcf} > ${input_file%.vcf}.log
+```
