@@ -1482,7 +1482,7 @@ rownames(countData) <- countData[,1]
 countData <- countData[,-1]
 
 #indexes <- unique(gsub("(.*)_L00.*", "\\1", colnames(countData)))
-indexes <- c("TA.07", "TA.08", "TA.09", "TA.12", "TA.13", "TA.14", "TA.18", "TA.19", "TA.20", "TA.32", "TA.34", "TA.35")
+indexes <- c("TA_B_P1", "TA_B_P2", "TA_B_P3", "TA_B_M1", "TA_B_M2", "TA_B_M3")
 
 countData <- round(countData,0)
 countDataSubset <- subset(countData, select = -c(1:3) )
