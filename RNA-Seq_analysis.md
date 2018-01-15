@@ -1366,7 +1366,6 @@ do
         Timepoint='mycelium'
     fi
     Infection=Bc1
-    fi
     if [ $i == '1' ]
     then
         printf "TA_B_P1\t$Timepoint\t$Infection\n"
