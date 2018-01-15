@@ -1468,7 +1468,7 @@ require("data.table")
 #load tables into a "list of lists"
 qq <- lapply(list.files("alignment/star/P.fragariae/Bc1/DeSeq","*featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
 
-# ensure the samples column is the same name as the treament you want to use:
+# ensure the samples column is the same name as the treatment you want to use:
 qq[7]
 
 #mm <- qq%>%Reduce(function(dtf1,dtf2) inner_join(dtf1,dtf2,by=c("Geneid","Chr","Start","End","Strand","Length")), .)
