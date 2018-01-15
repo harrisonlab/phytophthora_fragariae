@@ -18,7 +18,7 @@ cp -r analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/formatted $in
 
 ```bash
 screen -a
-qlogin -pe smp 16
+qlogin -pe smp 24
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
 scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 cd $input
