@@ -24,8 +24,8 @@ for Strain in SCRP249 SCRP324 SCRP333
 do
     mkdir -p $Strain/F
     mkdir -p $Strain/R
-    cp ../../phytophthora_rubi/qc_dna/P.rubi/$Strain/F/*.fq.gz $Strain/F/.
-    cp ../../phytophthora_rubi/qc_dna/P.rubi/$Strain/R/*.fq.gz $Strain/R/.
+    cp ../../phytophthora_rubi/qc_dna/paired/P.rubi/$Strain/F/*.fq.gz $Strain/F/.
+    cp ../../phytophthora_rubi/qc_dna/paired/P.rubi/$Strain/R/*.fq.gz $Strain/R/.
 done
 
 #Concatenate and copy *P.fragariae* isolates with multiple libraries
