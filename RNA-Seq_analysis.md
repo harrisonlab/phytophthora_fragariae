@@ -1504,7 +1504,7 @@ rownames(unorderedColData) <- unorderedColData$Sample.name
 unorderedColDataSubset <- unorderedColData[indexes,]
 
 colData <- data.frame(unorderedColDataSubset[ order(unorderedColDataSubset$Sample.name),])
-unorderedData <- read.table("alignment/star/P.fragariae/Bc1/DeSeq/No_Mock_countData.txt",header=T,sep="\t")
+unorderedData <- read.table("alignment/star/P.fragariae/Bc1/DeSeq/Bc1_countData.txt",header=T,sep="\t")
 countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
 colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
 countData <- round(countData,0)
