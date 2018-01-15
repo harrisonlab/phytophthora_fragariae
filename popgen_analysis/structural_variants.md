@@ -87,7 +87,7 @@ This allows a quicker evaluation of population structure in diploid organisms (a
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
-scripts=/home/sobczm/bin/popgen/snp
+scripts=/home/adamst/git_repos/scripts/popgen/snp
 ```
 
 ###Convert from VCF to Plink's PED format
