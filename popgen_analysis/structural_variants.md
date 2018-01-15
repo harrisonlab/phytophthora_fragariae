@@ -143,3 +143,5 @@ python $scripts/vcf_find_difference_pop.py --vcf pfrag_struc_variants_plus_pr_fi
 ```
 No variants found
 ```
+
+##fastSTRUCTURE analysis - potentially a better caller than lumpy
