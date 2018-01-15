@@ -1356,75 +1356,35 @@ printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_Bc1_RNAseq_design.tx
 # for File in $(ls alignment/star/P.cactorum/10300/Sample_*/Sample_*_featurecounts.txt); do
 # Sample=$(echo $File | rev | cut -f2 -d '/' | rev)
 # i=$(echo $Sample | sed 's/Sample_//g')
-for i in $(seq 1 15)
+for i in $(seq 1 6)
 do
     if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
     then
-        Timepoint='0hr'
-    elif [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ]
-    then
-        Timepoint='24hr'
-    elif [ $i == '7' ] || [ $i == '8' ] || [ $i == '9' ]
-    then
         Timepoint='48hr'
-    elif [ $i == '10' ] || [ $i == '11' ] || [ $i == '12' ]
-    then
-        Timepoint='96hr'
-    elif [ $i == '13' ] || [ $i == '14' ] || [ $i == '15' ]
+    elif [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ]
     then
         Timepoint='mycelium'
     fi
-    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
-    then
-        Infection='mock'
-    else
-        Infection='Bc1'
+    Infection=Bc1
     fi
     if [ $i == '1' ]
     then
-        printf "TA.01\t$Timepoint\t$Infection\n"
+        printf "TA_B_P1\t$Timepoint\t$Infection\n"
     elif [ $i == '2' ]
     then
-        printf "TA.02\t$Timepoint\t$Infection\n"
+        printf "TA_B_P2\t$Timepoint\t$Infection\n"
     elif [ $i == '3' ]
     then
-        printf "TA.03\t$Timepoint\t$Infection\n"
+        printf "TA_B_P3\t$Timepoint\t$Infection\n"
     elif [ $i == '4' ]
     then
-        printf "TA.07\t$Timepoint\t$Infection\n"
+        printf "TA_B_M1\t$Timepoint\t$Infection\n"
     elif [ $i == '5' ]
     then
-        printf "TA.08\t$Timepoint\t$Infection\n"
+        printf "TA_B_M2\t$Timepoint\t$Infection\n"
     elif [ $i == '6' ]
     then
-        printf "TA.09\t$Timepoint\t$Infection\n"
-    elif [ $i == '7' ]
-    then
-        printf "TA.12\t$Timepoint\t$Infection\n"
-    elif [ $i == '8' ]
-    then
-        printf "TA.13\t$Timepoint\t$Infection\n"
-    elif [ $i == '9' ]
-    then
-        printf "TA.14\t$Timepoint\t$Infection\n"
-    elif [ $i == '10' ]
-    then
-        printf "TA.18\t$Timepoint\t$Infection\n"
-    elif [ $i == '11' ]
-    then
-        printf "TA.19\t$Timepoint\t$Infection\n"
-    elif [ $i == '12' ]
-    then
-        printf "TA.20\t$Timepoint\t$Infection\n"
-    elif [ $i == '13' ]
-    then
-        printf "TA.32\t$Timepoint\t$Infection\n"
-    elif [ $i == '14' ]
-    then
-        printf "TA.34\t$Timepoint\t$Infection\n"
-    elif [ $i == '15' ]
-    then
-        printf "TA.35\t$Timepoint\t$Infection\n"
+        printf "TA_B_M3\t$Timepoint\t$Infection\n"
     fi
 done >> $OutDir/P.frag_Bc1_RNAseq_design.txt
 
