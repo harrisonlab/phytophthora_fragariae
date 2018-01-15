@@ -111,3 +111,10 @@ do
     qsub $scripts/sub_fast_structure.sh ${input_file%.vcf} $i
 done
 ```
+
+####Choosing model complexity (K) among all the K values tested
+
+```bash
+structure=/home/sobczm/bin/fastStructure
+python $structure/chooseK.py --input=${input_file%.vcf} > ${input_file%.vcf}_K_choice
+```
