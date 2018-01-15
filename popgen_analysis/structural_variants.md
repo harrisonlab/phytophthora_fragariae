@@ -62,7 +62,7 @@ do
     RRead=$Strain/R/*.fq.gz
     OutDir=alignment
     mkdir -p $OutDir
-    ProgDir=/home/adamst/tools/seq_tools/genome_alignment/bwa
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/bwa
     qsub $ProgDir/sub_bwa.sh $Strain $Reference $FRead $RRead $OutDir
 done
 ```
