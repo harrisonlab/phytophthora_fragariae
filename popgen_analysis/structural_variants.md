@@ -12,7 +12,7 @@ cd sv_calling
 #Copy single library *P. fragariae* isolates
 for Strain in A4 Bc23 Nov27 Nov5 Nov77 ONT3 SCRP245_v2
 do
-    Output_name=$(echo $Strain | sed 's/_*//g')
+    Output_name=$(echo $Strain | sed 's/_.*//g')
     mkdir -p $Output_name/F
     mkdir -p $Output_name/R
     cp ../qc_dna/paired/P.fragariae/$Strain/F/*.fq.gz $Output_name/F/.
@@ -47,6 +47,23 @@ do
     gzip ../qc_dna/paired/P.fragariae/$Strain/R/*.fq
     mv ../qc_dna/paired/P.fragariae/$Strain/F/*_concatenated* $Strain/F/.
     mv ../qc_dna/paired/P.fragariae/$Strain/R/*_concatenated* $Strain/R/.
+done
+```
+
+####Run BWA-mem
+
+```bash
+Reference=../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+for Strain in $(ls -d */ | sed 's/[/]//g')
+do
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    FRead=$Strain/F/*.fq.gz
+    RRead=$Strain/R/*.fq.gz
+    OutDir=alignment
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/tools/seq_tools/genome_alignment/bwa
+    qsub $ProgDir/sub_bwa.sh $Strain $Reference $FRead $RRead $OutDir
 done
 ```
 
@@ -125,7 +142,7 @@ python $structure/chooseK.py --input=${input_file%.vcf} > ${input_file%.vcf}_K_c
 #Generate sample lables
 cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 
-#Draw output
+#Draw output - errors here
 for i in $(seq $s $f)
 do
     python $structure/distruct_mod.py -K $i --input=${input_file%.vcf} --output=${input_file%.vcf}_${i}.svg --title K$i --popfile=${input_file%.vcf}.lab
