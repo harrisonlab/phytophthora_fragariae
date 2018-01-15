@@ -153,3 +153,5 @@ This allows a quicker evaluation of population structure in diploid organisms (a
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 scripts=/home/sobczm/bin/popgen/snp
 ```
+
+###Convert from VCF to Plink's PED format
