@@ -1602,24 +1602,6 @@ ggsave("alignment/star/P.fragariae/Bc1/DeSeq/PCA_sample_names.pdf", pca_plot, dp
 
 #Analysis of gene expression
 
-#24hr vs mycelium
-
-alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","Bc1_48hr","Bc1_mycelium"))
-sig.res <- subset(res,padj<=alpha)
-sig.res <- sig.res[order(sig.res$padj),]
-#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
-#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
-sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
-sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
-# No threshold
-sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
-sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
-
-write.table(sig.res,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_24hr_vs_Bc1_mycelium.txt",sep="\t",na="",quote=F)
-write.table(sig.res.upregulated,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_24hr_vs_Bc1_mycelium_up.txt",sep="\t",na="",quote=F)
-write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_24hr_vs_Bc1_mycelium_down.txt",sep="\t",na="",quote=F)
-
 #48hr vs mycelium
 
 alpha <- 0.05
@@ -1637,24 +1619,6 @@ sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
 write.table(sig.res,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_48hr_vs_Bc1_mycelium.txt",sep="\t",na="",quote=F)
 write.table(sig.res.upregulated,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_48hr_vs_Bc1_mycelium_up.txt",sep="\t",na="",quote=F)
 write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_48hr_vs_Bc1_mycelium_down.txt",sep="\t",na="",quote=F)
-
-#96hr vs mycelium
-
-alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","Bc1_96hr","Bc1_mycelium"))
-sig.res <- subset(res,padj<=alpha)
-sig.res <- sig.res[order(sig.res$padj),]
-#Settings used: upregulated: min. 2x fold change, ie. log2foldchange min 1.
-#               downregulated: min. 0.5x fold change, ie. log2foldchange max -1.
-sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
-sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
-# No threshold
-sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
-sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
-
-write.table(sig.res,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_96hr_vs_Bc1_mycelium.txt",sep="\t",na="",quote=F)
-write.table(sig.res.upregulated,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_96hr_vs_Bc1_mycelium_up.txt",sep="\t",na="",quote=F)
-write.table(sig.res.downregulated,"alignment/star/P.fragariae/Bc1/DeSeq/Bc1_96hr_vs_Bc1_mycelium_down.txt",sep="\t",na="",quote=F)
 
 #Make a table of raw counts, normalised counts and fpkm values:
 
