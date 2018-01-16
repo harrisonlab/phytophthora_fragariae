@@ -11,6 +11,11 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--input',required=True,type=str,help='tsv file of binary presence table of DEGs')
 ap.add_argument('--output',required=True,type=str,help='Output text file of gene names')
 
+#-----------------------------------------------------
+# Step 1
+# Load .tsv file into a dictionary
+#-----------------------------------------------------
+
 DEG_dict = defaultdict(list)
 with open(conf.input) as f:
     DEG_lines = f.readlines()
