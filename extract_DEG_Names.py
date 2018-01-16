@@ -41,3 +41,8 @@ for x in gene_list:
     positive_hits=[]
     if 1 in inp1_dict[x]
     positive_hits.append(x)
+
+#-----------------------------------------------------
+# Step 3
+# Write list of positive hits to text file
+#-----------------------------------------------------
