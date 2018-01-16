@@ -13,10 +13,11 @@ ap.add_argument('--output',required=True,type=str,help='Output text file of gene
 
 #-----------------------------------------------------
 # Step 1
-# Load .tsv file into a dictionary
+# Load .tsv file into a dictionary and create gene list to iterate over
 #-----------------------------------------------------
 
 DEG_dict = defaultdict(list)
+gene_list=[]
 with open(conf.input) as f:
     DEG_lines = f.readlines()
     for line in DEG_lines:
@@ -25,6 +26,7 @@ with open(conf.input) as f:
         else:
             split_line = line.split()
             gene_name = split_line[0]
+            gene_list.append(gene_name)
             time_a = split_line[1]
             time_b = split_line[2]
             time_c = split_line[3]
