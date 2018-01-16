@@ -32,6 +32,11 @@ with open(conf.input) as f:
             time_c = split_line[3]
             DEG_dict[gene_name].extend([time_a, time_b, time_c])
 
+#-----------------------------------------------------
+# Step 2
+# Test for presence of a '1' in the dictionary entry for each gene, denotating it's above the threshold value
+#-----------------------------------------------------
+
 for x in gene_list:
     positive_hits=[]
     if 1 in inp1_dict[x]
