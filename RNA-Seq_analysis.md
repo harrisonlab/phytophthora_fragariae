@@ -2614,10 +2614,10 @@ write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq_Nov9/fpkm_counts.
 ```bash
 for Strain in Bc1 Nov9
 do
-    RxLR_Names=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
-    CRN_Names=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
-    ApoP_Names=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
-    for File in $(ls alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"*.txt)
+    RxLR_Names=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+    CRN_Names=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+    ApoP_Names=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+    for File in $(ls alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/"$Strain"*.txt | grep -v "genes" | grep -v "countData")
     do
         Assessment=$(basename $File | sed "s/.txt//g")
         echo $Assessment
