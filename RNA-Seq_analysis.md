@@ -2057,19 +2057,8 @@ do
         sleep 1m
         printf "."
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
-    done
-    if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
-    then
-        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-        echo $Assembly
-    elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
-    then
-        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-        echo $Assembly
-    else
-        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-        echo $Assembly
-    fi
+    Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+    echo $Assembly
     OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
     ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
     qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
@@ -2096,18 +2085,8 @@ do
         printf "."
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
     done
-    if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
-    then
-        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-        echo $Assembly
-    elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
-    then
-        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-        echo $Assembly
-    else
-        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
-        echo $Assembly
-    fi
+    Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+    echo $Assembly
     OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
     ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
     qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
