@@ -1003,10 +1003,11 @@ $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_ApoP_DEGs.tsv --out
 ```bash
 DEGFile=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.tsv
 DEGNames=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs_names.txt
-ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cds.fasta
 DEGFasta=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.fa
-cat $DEGFile | cut -f1 | tail -n +2 > $DEGNames
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 ```
 
