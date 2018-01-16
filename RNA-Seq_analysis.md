@@ -2200,7 +2200,7 @@ done
 
 Method 2
 
-#Aign mycelium reads to BC-1 & NOV-9 assemblies with STAR
+#Align mycelium reads to BC-16 assemblies with STAR
 
 ```bash
 #BC-1
