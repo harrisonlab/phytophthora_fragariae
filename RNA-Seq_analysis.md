@@ -2204,7 +2204,7 @@ Method 2
 
 ```bash
 #BC-16
-for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
+for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
 do
     Strain=Bc16
     Organism=P.fragariae
