@@ -1037,6 +1037,7 @@ $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Bc16_gen
 ```
 
 New data arrived on BC-1 & NOV-9, download & re-run analyses for each isolate
+Method 1
 
 ##RNA-Seq data was downloaded from novogenes servers with the following commands
 
@@ -2196,3 +2197,5 @@ do
     $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/"$Strain"_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
 done
 ```
+
+Method 2
