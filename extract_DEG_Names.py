@@ -46,3 +46,9 @@ for x in gene_list:
 # Step 3
 # Write list of positive hits to text file
 #-----------------------------------------------------
+
+positive_hits=map(lambda x:x+'\n', positive_hits)
+outfile=str(conf.output)
+with open(outfile, "w") as o:
+    o.writelines(positive_hits)
+    o.close()
