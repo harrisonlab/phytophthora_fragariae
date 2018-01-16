@@ -2232,10 +2232,10 @@ do
 done
 
 #NOV-9
-for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Nov9/ncbi_edits_repmask/*_contigs_unmasked.fa)
+for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
 do
-    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    Strain=Bc16
+    Organism=P.fragariae
     echo "$Organism - $Strain"
     for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/Nov9/mycelium/F/*_trim.fq.gz)
     do
