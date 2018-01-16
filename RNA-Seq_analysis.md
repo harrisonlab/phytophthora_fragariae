@@ -2719,9 +2719,9 @@ done
 for Strain in Bc1 Nov9
 do
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    inp1=alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/*_24hr_vs_*up.txt
+    inp1=alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/*_vs_*up.txt
     OutDir=alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/"$Strain"_up_DEGs.tsv
-    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --out_dir $OutDir
+    $ProgDir/parse_RNA-Seq_1_input.py --input_1 $inp1 --out_dir $OutDir
 done
 ```
 
@@ -2731,11 +2731,9 @@ done
 for Strain in Bc1 Nov9
 do
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    inp1=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_24hr_vs_"$Strain"_mycelium_down.txt
-    inp2=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_48hr_vs_"$Strain"_mycelium_down.txt
-    inp3=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_96hr_vs_"$Strain"_mycelium_down.txt
-    OutDir=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_down_DEGs.tsv
-    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+    inp1=alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/*_vs_*down.txt
+    OutDir=alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/"$Strain"_down_DEGs.tsv
+    $ProgDir/parse_RNA-Seq_1_input.py --input_1 $inp1 --out_dir $OutDir
 done
 ```
 
