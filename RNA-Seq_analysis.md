@@ -2057,6 +2057,7 @@ do
         sleep 1m
         printf "."
         Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+    done
     Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
     echo $Assembly
     OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
@@ -2098,7 +2099,7 @@ done
 ```bash
 for Strain in Bc16
 do
-    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam | grep -v "TA-")
+    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam | grep -v "TA-" | grep -v "countData" | grep -v "genes")
     do
         Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors.gff3
         OutDir=$(dirname $BamFile)
