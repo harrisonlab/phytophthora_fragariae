@@ -2163,7 +2163,7 @@ done >> $OutDir/P.frag_Bc1_RNAseq_design.txt
 # Edit header lines of feature counts files to ensure they have the treatment name rather than file name
 OutDir=alignment/star/P.fragariae/Bc16/DeSeq_Bc1
 mkdir -p $OutDir
-for File in $(ls alignment/star/P.fragariae/Bc16/*/*/*_featurecounts.txt | grep -v 'TA-')
+for File in $(ls alignment/star/P.fragariae/Bc16/DeSeq_Bc1/*/*_featurecounts.txt | grep -v 'TA-')
 do
     echo $File
     cp $File $OutDir/.
@@ -2213,9 +2213,9 @@ do
 done >> $OutDir/P.frag_Nov9_RNAseq_design.txt
 
 # Edit header lines of feature counts files to ensure they have the treatment name rather than file name
-OutDir=alignment/star/P.fragariae/Nov9/DeSeq
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_Nov9
 mkdir -p $OutDir
-for File in $(ls alignment/star/P.fragariae/Nov9/*/*/*_featurecounts.txt)
+for File in $(ls alignment/star/P.fragariae/Bc16/DeSeq_Nov9/*/*_featurecounts.txt | grep -v "TA-")
 do
     echo $File
     cp $File $OutDir/.
