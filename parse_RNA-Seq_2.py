@@ -18,9 +18,9 @@ import csv
 #-----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--input_1',required=True,type=str,help='text file of genes from BC-16 data')
-ap.add_argument('--input_2',required=True,type=str,help='text file of genes from BC-1 data')
-ap.add_argument('--input_3',required=True,type=str,help='text file of genes from NOV-9 data')
+ap.add_argument('--input_1',required=True,type=str,help='text file of DEGs from BC-16 data')
+ap.add_argument('--input_2',required=True,type=str,help='text file of statistics from BC-1 data')
+ap.add_argument('--input_3',required=True,type=str,help='text file of statistics from NOV-9 data')
 ap.add_argument('--out_dir',required=True,type=str,help='the tsv file where the count table is output to')
 conf = ap.parse_args()
 
