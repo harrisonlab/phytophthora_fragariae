@@ -23,5 +23,5 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/ort
 scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 cd $input
 IsolateAbrv=All_Strains_plus_rubi_no_removal
-orthofinder -f formatted -t 16
+orthofinder -f formatted -t 24
 ```
