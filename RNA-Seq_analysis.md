@@ -1932,10 +1932,11 @@ for Strain in Bc1 Nov9
 do
     DEGFile=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs.tsv
     DEGNames=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs_names.txt
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
     Genes=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.cds.fasta
     DEGFasta=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs.fa
-    cat $DEGFile | cut -f1 | tail -n +2 > $DEGNames
+    $ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 done
 ```
