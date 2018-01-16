@@ -2175,7 +2175,7 @@ do
 done
 
 #NOV-9
-OutDir=alignment/star/P.fragariae/Nov9/DeSeq
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_Nov9
 mkdir -p $OutDir
 printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_Nov9_RNAseq_design.txt
 # for File in $(ls alignment/star/P.cactorum/10300/Sample_*/Sample_*_featurecounts.txt); do
