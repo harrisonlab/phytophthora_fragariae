@@ -40,7 +40,7 @@ with open(conf.input) as f:
 
 positive_hits=[]
 for x in gene_list:
-    if 1 in DEG_dict[x]:
+    if '1' in DEG_dict[x]:
         positive_hits.append(x)
 
 #-----------------------------------------------------
