@@ -2373,7 +2373,7 @@ done
 
 ```bash
 #BC-1
-OutDir=alignment/star/P.fragariae/Bc1/DeSeq
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_Bc1
 mkdir -p $OutDir
 printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_Bc1_RNAseq_design.txt
 # for File in $(ls alignment/star/P.cactorum/10300/Sample_*/Sample_*_featurecounts.txt); do
@@ -2411,9 +2411,9 @@ do
 done >> $OutDir/P.frag_Bc1_RNAseq_design.txt
 
 # Edit header lines of feature counts files to ensure they have the treatment name rather than file name
-OutDir=alignment/star/P.fragariae/Bc1/DeSeq
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_Bc1
 mkdir -p $OutDir
-for File in $(ls alignment/star/P.fragariae/Bc1/*/*/*_featurecounts.txt)
+for File in $(ls alignment/star/P.fragariae/Bc16/*/*/*_featurecounts.txt | grep -v 'TA-')
 do
     echo $File
     cp $File $OutDir/.
