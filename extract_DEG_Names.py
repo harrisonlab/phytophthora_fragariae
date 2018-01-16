@@ -9,4 +9,4 @@ from collections import defaultdict
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--input',required=True,type=str,help='tsv file of binary presence table of DEGs')
-ap.add_argument('--output',reuqired=True,type=str,help='Output text file of gene names')
+ap.add_argument('--output',required=True,type=str,help='Output text file of gene names')
