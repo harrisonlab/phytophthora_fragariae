@@ -2203,11 +2203,11 @@ Method 2
 #Align mycelium reads to BC-16 assemblies with STAR
 
 ```bash
-#BC-1
-for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/P.fragariae/Bc1/ncbi_edits_repmask/*_contigs_unmasked.fa)
+#BC-16
+for Assembly in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
 do
-    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    Strain=Bc16
+    Organism=P.fragariae
     echo "$Organism - $Strain"
     for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/Bc1/mycelium/F/*_trim.fq.gz)
     do
