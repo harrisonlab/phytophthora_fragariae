@@ -38,8 +38,8 @@ with open(conf.input) as f:
 # Test for presence of a '1' in the dictionary entry for each gene, denotating it's above the threshold value
 #-----------------------------------------------------
 
+positive_hits=[]
 for x in gene_list:
-    positive_hits=[]
     if 1 in DEG_dict[x]:
         positive_hits.append(x)
 
