@@ -2347,7 +2347,7 @@ done
 #Quantification of gene models
 
 ```bash
-for Strain in Bc1 Nov9
+for Strain in Bc16
 do
     for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam | grep -v "TA-")
     do
