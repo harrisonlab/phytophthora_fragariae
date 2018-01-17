@@ -59,7 +59,7 @@ for x in genes:
     a = numpy.append(a, to_add, axis=0)
 
 z = len(genes) + 1
-a = numpy.reshape(a, (z, 4))
+a = numpy.reshape(a, (z, 2))
 
 outfile = str(conf.out_dir)
 with open(outfile, "w") as o:
