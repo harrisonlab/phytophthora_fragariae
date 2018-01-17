@@ -23,7 +23,7 @@ ap.add_argument('--out_dir',required=True,type=str,help='the tsv file where the 
 conf = ap.parse_args()
 
 inp1_dict = defaultdict(list)
-with open(conf.input_1) as f1:
+with open(conf.input) as f1:
     inp1_lines = f1.readlines()[1:]
     genes_list = []
     inp1 = []
