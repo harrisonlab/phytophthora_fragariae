@@ -56,28 +56,6 @@ for x in genes:
                 to_add.append('1')
             else:
                 to_add.append('0')
-    try:
-        c = inp2.index(x)
-    except ValueError:
-        to_add.append('0')
-    else:
-        for y in inp2_dict[x]:
-            test = abs(y)
-            if test > 1:
-                to_add.append('1')
-            else:
-                to_add.append('0')
-    try:
-        d = inp3.index(x)
-    except ValueError:
-        to_add.append('0')
-    else:
-        for y in inp3_dict[x]:
-            test = abs(y)
-            if test > 1:
-                to_add.append('1')
-            else:
-                to_add.append('0')
     a = numpy.append(a, to_add, axis=0)
 
 z = len(genes) + 1
