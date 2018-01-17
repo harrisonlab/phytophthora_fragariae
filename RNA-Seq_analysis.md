@@ -2798,10 +2798,10 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_CRNs_D
 
 ```bash
 WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
-CNRs=analysis/CRN_effectors/hmmer_CRN/P.fragarie/Bc16/Bc16_final_CRN.txt
-cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_all_DEGs_CRNs.tsv
-cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_up_DEGs_CRNs.tsv
-cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_down_DEGs_CRNs.tsv
+ApoP=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $ApoP > $WorkDir/method_2_all_DEGs_ApoP.tsv
+cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $ApoP > $WorkDir/method_2_up_DEGs_ApoP.tsv
+cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $ApoP > $WorkDir/method_2_down_DEGs_ApoP.tsv
 ```
 
 ###Venn diagrams
