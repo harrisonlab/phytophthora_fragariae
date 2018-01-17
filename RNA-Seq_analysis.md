@@ -2007,7 +2007,7 @@ for Strain in Bc1 Nov9
 do
     OutDir=analysis/enrichment/P.fragariae/$Strain/Whole_Genome
     mkdir -p $OutDir
-    InterProTSV=gene_pred/interproscan/P.fragariae/$Strain/"$Strain"_interproscan.tsv
+    InterProTSV=gene_pred/interproscan/P.fragariae/$Strain/greedy/"$Strain"_interproscan.tsv
     ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
     $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/"$Strain"_gene_GO_annots.tsv
 
