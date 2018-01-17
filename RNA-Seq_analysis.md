@@ -1018,7 +1018,7 @@ $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 ```bash
 OutDir=analysis/enrichment/P.fragariae/Bc16/Whole_Genome
 mkdir -p $OutDir
-InterProTSV=gene_pred/interproscan/P.fragariae/Bc16/Bc16_interproscan.tsv
+InterProTSV=gene_pred/interproscan/P.fragariae/Bc16/greedy/Bc16_interproscan.tsv
 ProgDir=/home/adamst/git_repos/scripts/fusarium/analysis/gene_enrichment
 $ProgDir/GO_prep_table.py --interpro $InterProTSV > $OutDir/Bc16_gene_GO_annots.tsv
 
