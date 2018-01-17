@@ -42,7 +42,7 @@ with open(conf.input) as f1:
 
 a = numpy.array(["Gene_Name", "Fold_Change"])
 
-for x in genes:
+for x in genes_list:
     to_add = []
     to_add.append(x)
     try:
@@ -58,7 +58,7 @@ for x in genes:
                 to_add.append('0')
     a = numpy.append(a, to_add, axis=0)
 
-z = len(genes) + 1
+z = len(genes_list) + 1
 a = numpy.reshape(a, (z, 2))
 
 outfile = str(conf.out_dir)
