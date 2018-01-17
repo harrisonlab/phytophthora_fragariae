@@ -2776,10 +2776,10 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_RxLRs_
 
 ```bash
 WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
-RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragarie/Bc16/Bc16_Total_RxLR_motif_hmm.txt
-cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_all_DEGs_RxLRs.tsv
-cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_up_DEGs_RxLRs.tsv
-cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_down_DEGs_RxLRs.tsv
+CNRs=analysis/CRN_effectors/hmmer_CRN/P.fragarie/Bc16/Bc16_final_CRN.txt
+cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_all_DEGs_CRNs.tsv
+cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_up_DEGs_CRNs.tsv
+cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_down_DEGs_CRNs.tsv
 ```
 
 ###Venn diagrams
