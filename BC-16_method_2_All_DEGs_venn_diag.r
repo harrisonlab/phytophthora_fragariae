@@ -45,9 +45,9 @@ TP3=subset(DEGs, DEGs[,"XBC-16"] == 0 & DEGs[,"XBC-1"] == 0 & DEGs[,"XNOV-9"] ==
 # label3 <- paste('FoL', ' (', area3, ')', sep="" )
 
 # Set up labels
-label1 <- paste("24hr", sep="" )
-label2 <- paste("48hr", sep="" )
-label3 <- paste("96hr", sep="" )
+label1 <- paste("BC-16", sep="" )
+label2 <- paste("BC-1", sep="" )
+label3 <- paste("NOV-9", sep="" )
 
 n123=nrow(subset(DEGs, DEGs[,"X24hr"] == 1 & DEGs[,"X48hr"] == 1 & DEGs[,"X96hr"] == 1))
 n12=n123 + nrow(subset(DEGs, DEGs[,"X24hr"] == 1 & DEGs[,"X48hr"] == 1 & DEGs[,"X96hr"] == 0))
