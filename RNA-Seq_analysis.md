@@ -1992,7 +1992,7 @@ do
     DEGNames=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs_names.txt
     Genes=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.cds.fasta
     DEGFasta=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs.fa
-    $ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
+    $ProgDir/extract_DEG_Names_1_timepoint.py --input $DEGFile --output $DEGNames
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 done
