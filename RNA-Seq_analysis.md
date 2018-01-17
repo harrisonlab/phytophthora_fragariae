@@ -2808,7 +2808,7 @@ cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $ApoP > $WorkDir/method_2_down_
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-WorkDir=alignment/star/P.fragariae/$Strain/DeSeq_method_2
+WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
 $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_all_ApoP_DEGs.tsv --out $WorkDir/method_2_all_ApoP_DEGs.pdf
 $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_ApoP_DEGs.tsv --out $WorkDir/method_2_up_ApoP_DEGs.pdf
 $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_ApoP_DEGs.tsv --out $WorkDir/method_2_down_ApoP_DEGs.pdf
@@ -2817,16 +2817,14 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_ApoP_D
 #Extract fasta file of all DEGs for BLAST analysis
 
 ```bash
-for Strain in Bc1 Nov9
-do
-    DEGFile=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs.tsv
-    DEGNames=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs_names.txt
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-    Genes=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.cds.fasta
-    DEGFasta=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs.fa
-    cat $DEGFile | cut -f1 | tail -n +2 > $DEGNames
-    $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
-done
+DEGFile=alignment/star/P.fragariae/Bc16/DeSeq_method_2/method_2_all_DEGs.tsv
+DEGNames=alignment/star/P.fragariae/Bc16/DeSeq_method_2/method_2_all_DEGs_names.txt
+Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cds.fasta
+DEGFasta=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs.fa
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+$ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 ```
 
 #Investigate enriched functional annotations in DEGs vs all genes
