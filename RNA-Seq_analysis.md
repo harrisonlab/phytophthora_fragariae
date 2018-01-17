@@ -2794,59 +2794,24 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_CRNs_D
 
 ##Apoplastic effectors
 
-###All DEGs
+###Create cut down tables of DEGs just containing CRNs
 
 ```bash
-for Strain in Bc1 Nov9
-do
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    inp1=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_24hr_vs_"$Strain"_mycelium_ApoP.txt
-    inp2=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_48hr_vs_"$Strain"_mycelium_ApoP.txt
-    inp3=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_96hr_vs_"$Strain"_mycelium_ApoP.txt
-    OutDir=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_ApoP_DEGs.tsv
-    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
-done
-```
-
-###Upregulated DEGs
-
-```bash
-for Strain in Bc1 Nov9
-do
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    inp1=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_24hr_vs_"$Strain"_mycelium_up_ApoP.txt
-    inp2=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_48hr_vs_"$Strain"_mycelium_up_ApoP.txt
-    inp3=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_96hr_vs_"$Strain"_mycelium_up_ApoP.txt
-    OutDir=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_up_ApoP_DEGs.tsv
-    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
-done
-```
-
-###Downregulated DEGs
-
-```bash
-for Strain in Bc1 Nov9
-do
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    inp1=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_24hr_vs_"$Strain"_mycelium_down_ApoP.txt
-    inp2=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_48hr_vs_"$Strain"_mycelium_down_ApoP.txt
-    inp3=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_96hr_vs_"$Strain"_mycelium_down_ApoP.txt
-    OutDir=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_down_ApoP_DEGs.tsv
-    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
-done
+WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
+CNRs=analysis/CRN_effectors/hmmer_CRN/P.fragarie/Bc16/Bc16_final_CRN.txt
+cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_all_DEGs_CRNs.tsv
+cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_up_DEGs_CRNs.tsv
+cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_down_DEGs_CRNs.tsv
 ```
 
 ###Venn diagrams
 
 ```bash
-for Strain in Bc1 Nov9
-do
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    WorkDir=alignment/star/P.fragariae/$Strain/DeSeq
-    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_all_ApoP_DEGs.tsv --out $WorkDir/"$Strain"_all_ApoP_DEGs.pdf
-    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_up_ApoP_DEGs.tsv --out $WorkDir/"$Strain"_up_ApoP_DEGs.pdf
-    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_down_ApoP_DEGs.tsv --out $WorkDir/"$Strain"_down_ApoP_DEGs.pdf
-done
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+WorkDir=alignment/star/P.fragariae/$Strain/DeSeq_method_2
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_all_CRNs_DEGs.tsv --out $WorkDir/method_2_all_CRNs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_CRNs_DEGs.tsv --out $WorkDir/method_2_up_CRNs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_CRNs_DEGs.tsv --out $WorkDir/method_2_down_CRNs_DEGs.pdf
 ```
 
 #Extract fasta file of all DEGs for BLAST analysis
