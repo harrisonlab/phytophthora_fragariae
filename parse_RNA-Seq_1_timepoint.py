@@ -40,7 +40,7 @@ with open(conf.input_1) as f1:
 # If doing with a different number of files, change the number in the numpy.reshape() command
 #-----------------------------------------------------
 
-a = numpy.array(["Gene_Name", "24hr", "48hr", "96hr"])
+a = numpy.array(["Gene_Name", "Fold_Change"])
 
 for x in genes:
     to_add = []
