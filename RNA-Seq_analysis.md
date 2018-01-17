@@ -2729,13 +2729,13 @@ $ProgDir/parse_RNA-Seq_2.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --ou
 ###Downregulated DEGs
 
 ```bash
-for Strain in Bc1 Nov9
-do
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    inp1=alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/*_vs_*down.txt
-    OutDir=alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/"$Strain"_down_DEGs.tsv
-    $ProgDir/parse_RNA-Seq_1_input.py --input_1 $inp1 --out_dir $OutDir
-done
+cat alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs.tsv | cut -f1 > alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs_names.txt
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs_names.txt
+inp2=alignment/star/P.fragariae/Bc16/DeSeq_Bc1/*_vs_*mycelium_down.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq_Nov9/*_vs_*mycelium_down.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2/method_2_down_DEGs.tsv
+$ProgDir/parse_RNA-Seq_2.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
 ###Venn diagrams
