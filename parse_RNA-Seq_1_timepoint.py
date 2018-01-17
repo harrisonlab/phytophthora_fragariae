@@ -18,9 +18,7 @@ import csv
 #-----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--input_1',required=True,type=str,help='text file of genes at 24hrs')
-ap.add_argument('--input_2',required=True,type=str,help='text file of genes at 48hrs')
-ap.add_argument('--input_3',required=True,type=str,help='text file of genes at 96hrs')
+ap.add_argument('--input',required=True,type=str,help='text file of genes with fold change information')
 ap.add_argument('--out_dir',required=True,type=str,help='the tsv file where the count table is output to')
 conf = ap.parse_args()
 
