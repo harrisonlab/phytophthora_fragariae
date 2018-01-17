@@ -26,15 +26,14 @@ conf = ap.parse_args()
 
 inp1_dict = defaultdict(list)
 with open(conf.input_1) as f1:
-    inp1_lines = f1.readlines()[1:]
+    inp1_lines = f1.readlines()
     genes_list = []
     inp1 = []
     for x in inp1_lines:
-        genes_list.append(x.split('\t')[0])
-        inp1.append(x.split('\t')[0])
-        gene_name = x.split('\t')[0]
-        value = float(x.split('\t')[2])
-        inp1_dict[gene_name].append(value)
+        genes_list.append(x)
+        inp1.append(x)
+        gene_name = x
+        inp1_dict[gene_name].append('1')
 
 inp2_dict = defaultdict(list)
 with open(conf.input_2) as f2:
