@@ -13,7 +13,7 @@ import csv
 
 #-----------------------------------------------------
 # Step 1
-# Import variables, load input files & create set of genes
+# Import variables, load input files & create list of genes
 # If using a different number of files, arguments & appending to list of genes will need to be changed
 #-----------------------------------------------------
 
