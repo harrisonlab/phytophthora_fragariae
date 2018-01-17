@@ -32,8 +32,6 @@ with open(conf.input_1) as f1:
     for x in inp1_lines:
         genes_list.append(x)
         inp1.append(x)
-        gene_name = x
-        inp1_dict[gene_name].append('1')
 
 inp2_dict = defaultdict(list)
 with open(conf.input_2) as f2:
