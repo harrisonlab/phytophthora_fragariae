@@ -2762,34 +2762,6 @@ cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_up_DEG
 cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_down_DEGs_RxLRs.tsv
 ```
 
-###Upregulated DEGs
-
-```bash
-for Strain in Bc1 Nov9
-do
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    inp1=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_24hr_vs_"$Strain"_mycelium_up_RxLRs.txt
-    inp2=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_48hr_vs_"$Strain"_mycelium_up_RxLRs.txt
-    inp3=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_96hr_vs_"$Strain"_mycelium_up_RxLRs.txt
-    OutDir=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_up_RxLRs_DEGs.tsv
-    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
-done
-```
-
-###Downregulated DEGs
-
-```bash
-for Strain in Bc1 Nov9
-do
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    inp1=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_24hr_vs_"$Strain"_mycelium_down_RxLRs.txt
-    inp2=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_48hr_vs_"$Strain"_mycelium_down_RxLRs.txt
-    inp3=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_96hr_vs_"$Strain"_mycelium_down_RxLRs.txt
-    OutDir=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_down_RxLRs_DEGs.tsv
-    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
-done
-```
-
 ###Venn diagrams
 
 ```bash
