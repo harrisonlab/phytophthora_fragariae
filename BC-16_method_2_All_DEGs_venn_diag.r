@@ -25,9 +25,9 @@ o = opt$out
 DEGs <-data.frame()
 DEGs <- read.table(f, header = TRUE)
 
-TP1=subset(DEGs, DEGs[,"X24hr"] == 1 & DEGs[,"X48hr"] == 0 & DEGs[,"X96hr"] == 0)
-TP2=subset(DEGs, DEGs[,"X24hr"] == 0 & DEGs[,"X48hr"] == 1 & DEGs[,"X96hr"] == 0)
-TP3=subset(DEGs, DEGs[,"X24hr"] == 0 & DEGs[,"X48hr"] == 0 & DEGs[,"X96hr"] == 1)
+TP1=subset(DEGs, DEGs[,"XBC-16"] == 1 & DEGs[,"XBC-1"] == 0 & DEGs[,"XNOV-9"] == 0)
+TP2=subset(DEGs, DEGs[,"XBC-16"] == 0 & DEGs[,"XBC-1"] == 1 & DEGs[,"XNOV-9"] == 0)
+TP3=subset(DEGs, DEGs[,"XBC-16"] == 0 & DEGs[,"XBC-1"] == 0 & DEGs[,"XNOV-9"] == 1)
 # orthologs=subset(df1, df1[,"A28"] == 1 & df1[,"CB3"] == 1 & df1[,"PG"] == 1 & df1[,"fo47"] == 1 & df1[,"A1_2"] == 1 & df1[,"Fus2"] == 1 & df1[,"125"] == 1 & df1[,"A23"] == 1 & df1[,"4287"] == 1)
 
 # area1=(nrow(nonpath) + nrow(orthologs))
