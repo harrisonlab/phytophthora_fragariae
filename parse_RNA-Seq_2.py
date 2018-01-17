@@ -67,17 +67,7 @@ a = numpy.array(["Gene_Name", "BC-16", "BC-1", "NOV-9"])
 for x in genes:
     to_add = []
     to_add.append(x)
-    try:
-        b = inp1.index(x)
-    except ValueError:
-        to_add.append('0')
-    else:
-        for y in inp1_dict[x]:
-            test = abs(y)
-            if test > 1:
-                to_add.append('1')
-            else:
-                to_add.append('0')
+    to_add.append('1')
     try:
         c = inp2.index(x)
     except ValueError:
