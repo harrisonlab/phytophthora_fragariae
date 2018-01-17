@@ -1985,9 +1985,11 @@ done
 ```bash
 for Strain in Bc1 Nov9
 do
+    input=alignment/star/P.fragariae/$Strain/DeSeq/*_vs_*mycelium.txt
     DEGFile=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs.tsv
-    DEGNames=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs_names.txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    $ProgDir/parse_RNA-Seq_1_timepoint.py --input $input --out_dir $DEGFile
+    DEGNames=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs_names.txt
     Genes=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.cds.fasta
     DEGFasta=alignment/star/P.fragariae/$Strain/DeSeq/"$Strain"_all_DEGs.fa
     $ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
