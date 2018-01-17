@@ -29,9 +29,7 @@ with open(conf.input) as f:
             gene_name = split_line[0]
             gene_list.append(gene_name)
             time_a = split_line[1]
-            time_b = split_line[2]
-            time_c = split_line[3]
-            DEG_dict[gene_name].extend([time_a, time_b, time_c])
+            DEG_dict[gene_name].extend([time_a])
 
 #-----------------------------------------------------
 # Step 2
