@@ -34,8 +34,6 @@ with open(conf.input_1) as f1:
         value = float(x.split('\t')[2])
         inp1_dict[gene_name].append(value)
 
-genes = set(genes_list)
-
 #-----------------------------------------------------
 # Step 2
 # Load gene names to a numpy array and create new columns
