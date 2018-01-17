@@ -2752,6 +2752,16 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_DEGs.t
 
 ###All DEGs
 
+Create cut down tables of DEGs just containing RxLRs
+
+```bash
+WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
+RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragarie/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_all_DEGs_RxLRs.tsv
+cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_up_DEGs_RxLRs.tsv
+cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_down_DEGs_RxLRs.tsv
+```
+
 ```bash
 for Strain in Bc1 Nov9
 do
