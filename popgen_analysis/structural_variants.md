@@ -66,3 +66,14 @@ do
     qsub $ProgDir/sub_bwa.sh $Strain $Reference $FRead $RRead $OutDir
 done
 ```
+
+####Run svaba
+
+```bash
+Prefix=Pfrag_svaba
+Reference=../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+AlignDir=alignment
+OutDir=./
+ProgDir=/home/adamst/git_repos/scripts/phytophthora/Pcac_popgen
+qsub $ProgDir/sub_svaba.sh $Prefix $Reference $AlignDir $OutDir
+```
