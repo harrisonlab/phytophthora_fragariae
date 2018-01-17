@@ -2750,8 +2750,6 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_DEGs.t
 
 ##RxLRs
 
-###All DEGs
-
 Create cut down tables of DEGs just containing RxLRs
 
 ```bash
