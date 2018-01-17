@@ -2765,14 +2765,11 @@ cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_down
 ###Venn diagrams
 
 ```bash
-for Strain in Bc1 Nov9
-do
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    WorkDir=alignment/star/P.fragariae/$Strain/DeSeq
-    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_all_RxLRs_DEGs.tsv --out $WorkDir/"$Strain"_all_RxLRs_DEGs.pdf
-    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_up_RxLRs_DEGs.tsv --out $WorkDir/"$Strain"_up_RxLRs_DEGs.pdf
-    $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/"$Strain"_down_RxLRs_DEGs.tsv --out $WorkDir/"$Strain"_down_RxLRs_DEGs.pdf
-done
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+WorkDir=alignment/star/P.fragariae/$Strain/DeSeq_method_2
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_all_RxLRs_DEGs.tsv --out $WorkDir/method_2_all_RxLRs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_RxLRs_DEGs.tsv --out $WorkDir/method_2_up_RxLRs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_RxLRs_DEGs.tsv --out $WorkDir/method_2_down_RxLRs_DEGs.pdf
 ```
 
 ##CRNs
