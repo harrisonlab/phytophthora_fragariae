@@ -41,5 +41,14 @@ OrthoFinder assigned 469036 genes (97.9% of total) to 38179 orthogroups. Fifty p
 OrthoFinder produces a set of statistics, generate what of these I can for orthoMCL
 
 ```bash
-
+echo "Number of genes:"
+GoodProts=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+cat $GoodProts | grep '>' | wc -l
+echo "Number of genes in orthogroups:"
+OrthoGroups=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/All_Strains_plus_rubi_no_removal_orthogroups.txt
+fgrep -o '|' $OrthoGroups | wc -l
+echo "Number of orthogroups:"
+fgrep -o ':' $OrthoGroups | wc -l
+echo "Median orthogroup size:"
+python calc_orthogroup_median.py $OrthoGroups
 ```
