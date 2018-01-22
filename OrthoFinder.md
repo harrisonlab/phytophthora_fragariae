@@ -38,7 +38,7 @@ OrthoFinder assigned 469036 genes (97.9% of total) to 38179 orthogroups. Fifty p
 
 ##Compare OrthoFinder with orthoMCL
 
-OrthoFinder produces a set of statistics, generate what of these I can for orthoMCL
+OrthoFinder produces a set of statistics, generate what of these I can for orthoMCL, some others will be calculated manually
 
 ```bash
 echo "Number of genes:"
