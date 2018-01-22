@@ -14,5 +14,13 @@ with open(conf.orthogroups) as f:
         size=line.count('|')
         sizes.append(size)
 
-median=statistics.median(sizes)
-print "median"
+def median(sizes):
+    sorted_list = sorted(sizes)
+    length = len(sorted_list)
+    centre = length // 2
+    if length == 1:
+        return sorted_list[0]
+    elif length % 2 == 0:
+        return sum(sorted_line[centre - 1: centre + 1]) / 2.0
+    else:
+        return sorted_list[centre]
