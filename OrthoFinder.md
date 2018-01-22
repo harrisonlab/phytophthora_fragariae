@@ -56,3 +56,23 @@ do
     python $ProgDir/calc_orthogroup_median.py --orthogroups $OrthoGroups
 done
 ```
+
+```
+OrthoMCL:
+Number of genes input: 478,997
+Number of genes in orthogroups: 455,838
+Number of unassigned genes: 23,159
+Percentage of unassigned genes: 4.8%
+Number of orthogroups: 24,041
+Mean orthogroup size: 19.0
+Median orthogroup size: 14
+
+OrthoFinder:
+Number of genes input: 479,008
+Number of genes in orthogroups: 469,036
+Number of unassigned genes: 9,972
+Percentage of unassigned genes: 2.1%
+Number of orthogroups: 38,179
+Mean orthogroup size: 12.3
+Median orthogroup size: 12
+```
