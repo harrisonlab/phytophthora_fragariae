@@ -18,8 +18,8 @@ def median(sizes):
     length = len(sorted_list)
     centre = length // 2
     if length == 1:
-        print sorted_list[0]
+        print "sorted_list[0]"
     elif length % 2 == 0:
-        print sum(sorted_line[centre - 1: centre + 1]) / 2.0
+        print "sum(sorted_line[centre - 1: centre + 1]) / 2.0"
     else:
-        print sorted_list[centre]
+        print "sorted_list[centre]"
