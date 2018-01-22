@@ -13,6 +13,7 @@ with open(conf.orthogroups) as f:
         size=line.count('|')
         sizes.append(size)
 
+sorted_list=[]
 def median(sizes):
     sorted_list = sorted(sizes)
     length = len(sorted_list)
