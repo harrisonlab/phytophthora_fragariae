@@ -50,5 +50,5 @@ fgrep -o '|' $OrthoGroups | wc -l
 echo "Number of orthogroups:"
 fgrep -o ':' $OrthoGroups | wc -l
 echo "Median orthogroup size:"
-python calc_orthogroup_median.py $OrthoGroups
+python calc_orthogroup_median.py --orthogroups $OrthoGroups
 ```
