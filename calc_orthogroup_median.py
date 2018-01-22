@@ -24,3 +24,5 @@ def median(sizes):
         print sum(sorted_line[centre - 1: centre + 1]) / 2.0
     else:
         print sorted_list[centre]
+
+print median(sizes)
