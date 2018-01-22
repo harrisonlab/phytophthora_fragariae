@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import sys,argparse
-import statistics
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--orthogroups',required=True,type=str,help='orthoMCL output file')
