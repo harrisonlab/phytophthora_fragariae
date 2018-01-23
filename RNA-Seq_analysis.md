@@ -2968,7 +2968,7 @@ $ProgDir/parse_RNA-Seq_2.py --input_1 $DEGNames --input_2 $inp2 --input_3 $inp3 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_als_RxLRl_DEGs.tsv --out $WorkDir/method_2_all_RxLRs_DEGs.pdf
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_RxLRs_DEGs.tsv --out $WorkDir/method_2_up_RxLRs_DEGs.pdf
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_RxLRs_DEGs.tsv --out $WorkDir/method_2_down_RxLRs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_als_CRNs_DEGs.tsv --out $WorkDir/method_2_all_CRNs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_CRNs_DEGs.tsv --out $WorkDir/method_2_up_CRNs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_CRNs_DEGs.tsv --out $WorkDir/method_2_down_CRNs_DEGs.pdf
 ```
