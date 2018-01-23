@@ -2919,46 +2919,56 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_RxLRs_DE
 $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_RxLRs_DEGs.tsv --out $WorkDir/method_2_down_RxLRs_DEGs.pdf
 ```
 
-##CRNs
+###Create cut down tables of DEGs just containing RxLRs
 
-###Create cut down tables of DEGs just containing CRNs
+####All RxLRs
 
 ```bash
-WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
-CNRs=analysis/CRN_effectors/hmmer_CRN/P.fragarie/Bc16/Bc16_final_CRN.txt
-cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_all_DEGs_CRNs.tsv
-cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_up_DEGs_CRNs.tsv
-cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $CRNs > $WorkDir/method_2_down_DEGs_CRNs.tsv
+DEGFile=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_RxLRs_DEGs.tsv
+DEGNames=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_RxLRs_DEGs_names.txt
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp2=alignment/star/P.fragariae/Bc16/DeSeq_Bc1/Bc1_48hr_vs_Bc1_mycelium_RxLRs.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq_Nov9/Nov9_72hr_vs_Nov9_mycelium_RxLRs.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2/method_2_all_RxLRs_DEGs.tsv
+$ProgDir/parse_RNA-Seq_2.py --input_1 $DEGNames --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
+
+####Up RxLRs
+
+```bash
+DEGFile=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_RxLRs_DEGs.tsv
+DEGNames=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_RxLRs_DEGs_names.txt
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp2=alignment/star/P.fragariae/Bc16/DeSeq_Bc1/Bc1_48hr_vs_Bc1_mycelium_up_RxLRs.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq_Nov9/Nov9_72hr_vs_Nov9_mycelium_up_RxLRs.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2/method_2_up_RxLRs_DEGs.tsv
+$ProgDir/parse_RNA-Seq_2.py --input_1 $DEGNames --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
+
+####Down RxLRs
+
+```bash
+DEGFile=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_RxLRs_DEGs.tsv
+DEGNames=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_RxLRs_DEGs_names.txt
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp2=alignment/star/P.fragariae/Bc16/DeSeq_Bc1/Bc1_48hr_vs_Bc1_mycelium_down_RxLRs.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq_Nov9/Nov9_72hr_vs_Nov9_mycelium_down_RxLRs.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2/method_2_down_RxLRs_DEGs.tsv
+$ProgDir/parse_RNA-Seq_2.py --input_1 $DEGNames --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
 ###Venn diagrams
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-WorkDir=alignment/star/P.fragariae/$Strain/DeSeq_method_2
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_all_CRNs_DEGs.tsv --out $WorkDir/method_2_all_CRNs_DEGs.pdf
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_CRNs_DEGs.tsv --out $WorkDir/method_2_up_CRNs_DEGs.pdf
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_CRNs_DEGs.tsv --out $WorkDir/method_2_down_CRNs_DEGs.pdf
-```
-
-##Apoplastic effectors
-
-###Create cut down tables of DEGs just containing CRNs
-
-```bash
 WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
-ApoP=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
-cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $ApoP > $WorkDir/method_2_all_DEGs_ApoP.tsv
-cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $ApoP > $WorkDir/method_2_up_DEGs_ApoP.tsv
-cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $ApoP > $WorkDir/method_2_down_DEGs_ApoP.tsv
-```
-
-###Venn diagrams
-
-```bash
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_all_ApoP_DEGs.tsv --out $WorkDir/method_2_all_ApoP_DEGs.pdf
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_ApoP_DEGs.tsv --out $WorkDir/method_2_up_ApoP_DEGs.pdf
-$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_ApoP_DEGs.tsv --out $WorkDir/method_2_down_ApoP_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_als_RxLRl_DEGs.tsv --out $WorkDir/method_2_all_RxLRs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_up_RxLRs_DEGs.tsv --out $WorkDir/method_2_up_RxLRs_DEGs.pdf
+$ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_RxLRs_DEGs.tsv --out $WorkDir/method_2_down_RxLRs_DEGs.pdf
 ```
