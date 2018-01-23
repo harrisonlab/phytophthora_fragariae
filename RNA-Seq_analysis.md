@@ -2712,7 +2712,7 @@ do
     for GeneGff in $(ls gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.gff3)
     do
         Organism=$(echo $GeneGff | rev | cut -f3 -d '/' | rev)
-        Assembly=$(ls repeat_masked/P.fragariae/$Strain/ncbi_edits_repmask/*_contigs_unmasked.fa)
+        Assembly=$(ls repeat_masked/quiver_results/polished/*/polished_contigs_unmasked.fa)
         InterPro=$(ls gene_pred/interproscan/$Organism/$Strain/greedy/*_interproscan.tsv)
         SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/greedy/swissprot_vJul2016_tophit_parsed.tbl)
         OutDir=gene_pred/annotation/$Organism/$Strain
