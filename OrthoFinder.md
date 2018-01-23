@@ -134,49 +134,49 @@ done
 
 ```
 The total number of orthogroups is:
-24,041
+48,151
 The total number of genes in orthogroups is:
-455,838
+479,008
 The number of orthogroups common to P. rubi is:
-1,370
+2,531
 This represents the following number of genes:
-4,360
+7,985
 The number of orthogroups common to P. fragariae is:
-1,028
+1,845
 This represents the following number of genes:
-12,447
+21,663
 The number of orthogroups common to UK1 isolates is:
-7
+13
 This represents the following number of genes:
-14
-The number of orthogroups common to UK2 isolates is:
-12
-This represents the following number of genes:
-25
-The number of orthogroups common to UK3 isolates is:
-5
-This represents the following number of genes:
-15
-The number of orthogroups common to CA4 isolates is:
-228
-This represents the following number of genes:
-538
-The number of orthogroups common to CA5 isolates is:
-19
-This represents the following number of genes:
-38
-The number of orthogroups common to Unknown race isolates is:
-189
-This represents the following number of genes:
-501
-The number of orthogroups with only seven highly conserved target isolates is:
 26
+The number of orthogroups common to UK2 isolates is:
+24
 This represents the following number of genes:
-180
+57
+The number of orthogroups common to UK3 isolates is:
+2
+This represents the following number of genes:
+6
+The number of orthogroups common to CA4 isolates is:
+2,199
+This represents the following number of genes:
+2,202
+The number of orthogroups common to CA5 isolates is:
+25
+This represents the following number of genes:
+51
+The number of orthogroups common to Unknown race isolates is:
+2,559
+This represents the following number of genes:
+2,560
+The number of orthogroups with only seven highly conserved target isolates is:
+42
+This represents the following number of genes:
+293
 The number of orthogroups containing all seven highly conserved target isolates is:
-15,275
+22,824
 This represents the following number of genes:
-407,593
+367,953
 ```
 
 Identification of orthogroups of closely related isolates for further analysis
