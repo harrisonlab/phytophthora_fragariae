@@ -5,6 +5,7 @@
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
 scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
+WorkDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Jan16
 ```
 
 ##Copy files of all protein sequences to one directory
@@ -85,7 +86,7 @@ Unclear where there are 11 more genes fed into OrthoFinder, but there are 2.7 pe
 for num in 1
 do
     echo "The total number of orthogroups is:"
-    cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | wc -l
+    cat $input/formatted/"$IsolateAbrv"_orthogroups.txt | wc -l
     echo "The total number of genes in orthogroups is:"
     cat $WorkDir/"$IsolateAbrv"_orthogroups.txt | grep -o '|' | wc -l
     echo "The number of orthogroups common to P. rubi is:"
