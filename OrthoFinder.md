@@ -75,4 +75,6 @@ Percentage of unassigned genes: 2.1%
 Number of orthogroups: 38,179
 Mean orthogroup size: 12.3
 Median orthogroup size: 12
+
+Unclear where there are 11 more genes fed into OrthoFinder, but there are 2.7 percentage points fewer genes in unassigned groups, with 14,138 more orthogroups, with a 6.7 smaller mean orthogroup size and a 2 smaller median orthogroup size. So, OrthoFinder seems better than OrthoMCL for my requirements.
 ```
