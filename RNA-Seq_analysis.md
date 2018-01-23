@@ -2702,6 +2702,60 @@ done
 ```
 
 ```
+Bc1_48hr_vs_Bc1_mycelium_down
+Total number of genes in dataset:
+2,872
+Total number of RxLRs in dataset:
+110
+Total number of CRNs in dataset:
+17
+Total number of Apoplastic effectors in dataset:
+372
+Bc1_48hr_vs_Bc1_mycelium
+Total number of genes in dataset:
+8,062
+Total number of RxLRs in dataset:
+292
+Total number of CRNs in dataset:
+28
+Total number of Apoplastic effectors in dataset:
+981
+Bc1_48hr_vs_Bc1_mycelium_up
+Total number of genes in dataset:
+2,732
+Total number of RxLRs in dataset:
+142
+Total number of CRNs in dataset:
+1
+Total number of Apoplastic effectors in dataset:
+534
+Nov9_72hr_vs_Nov9_mycelium_down
+Total number of genes in dataset:
+1,776
+Total number of RxLRs in dataset:
+74
+Total number of CRNs in dataset:
+7
+Total number of Apoplastic effectors in dataset:
+252
+Nov9_72hr_vs_Nov9_mycelium
+Total number of genes in dataset:
+5,665
+Total number of RxLRs in dataset:
+232
+Total number of CRNs in dataset:
+20
+Total number of Apoplastic effectors in dataset:
+785
+Nov9_72hr_vs_Nov9_mycelium_up
+Total number of genes in dataset:
+2,916
+Total number of RxLRs in dataset:
+142
+Total number of CRNs in dataset:
+9
+Total number of Apoplastic effectors in dataset:
+495
 ```
 
 ##Produce a more detailed table of analyses
