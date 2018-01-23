@@ -2868,11 +2868,15 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_DEGs.t
 ###Create cut down tables of DEGs just containing RxLRs
 
 ```bash
-WorkDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2
-RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
-cat $WorkDir/method_2_all_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_all_DEGs_RxLRs.tsv
-cat $WorkDir/method_2_up_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_up_DEGs_RxLRs.tsv
-cat $WorkDir/method_2_down_DEGs.tsv | grep -w -f $RxLRs > $WorkDir/method_2_down_DEGs_RxLRs.tsv
+DEGFile=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_RxLRs_DEGs.tsv
+DEGNames=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_RxLRs_DEGs_names.txt
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp2=alignment/star/P.fragariae/Bc16/DeSeq_Bc1/Bc1_48hr_vs_Bc1_mycelium_RxLRs.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq_Nov9/Nov9_72hr_vs_Nov9_mycelium_RxLRs.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2/method_2_all_RxLRs_DEGs.tsv
+$ProgDir/parse_RNA-Seq.py --input_1 $DEGNames --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
 ###Venn diagrams
