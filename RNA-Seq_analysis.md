@@ -2876,7 +2876,7 @@ ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 inp2=alignment/star/P.fragariae/Bc16/DeSeq_Bc1/Bc1_48hr_vs_Bc1_mycelium_RxLRs.txt
 inp3=alignment/star/P.fragariae/Bc16/DeSeq_Nov9/Nov9_72hr_vs_Nov9_mycelium_RxLRs.txt
 OutDir=alignment/star/P.fragariae/Bc16/DeSeq_method_2/method_2_all_RxLRs_DEGs.tsv
-$ProgDir/parse_RNA-Seq.py --input_1 $DEGNames --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+$ProgDir/parse_RNA-Seq_2.py --input_1 $DEGNames --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
 ###Venn diagrams
