@@ -2745,11 +2745,11 @@ do
             #	OrthoName=Pcac
             #	OrthoFile=$(ls analysis/orthology/orthomcl/Pcac_Pinf_Ppar_Pcap_Psoj/Pcac_Pinf_Ppar_Pcap_Psoj_orthogroups.txt)
             ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-            DEG_Files=$(ls alignment/star/P.fragariae/$Strain/DeSeq_"$Strain"/*_vs_*.txt  | grep -v -e 'up' -e 'down' -e "CRN" -e "RxLR" | sed -e "s/$/ /g" | tr -d "\n")
+            DEG_Files=$(ls alignment/star/P.fragariae/$Strain/DeSeq_"$Isolate"/*_vs_*.txt  | grep -v -e 'up' -e 'down' -e "CRN" -e "RxLR" | sed -e "s/$/ /g" | tr -d "\n")
             # $ProgDir/pacbio_anntoation_tables.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP4 $SigP4 --phobius $PhobiusTxt --RxLR_motif $RxLR_Motif --RxLR_Hmm $RxLR_Hmm --RxLR_WY $RxLR_WY --RxLR_total $RxLR_total --CRN_LFLAK $CRN_LFLAK --CRN_DWL $CRN_DWL --CRN_total $CRN_total --DEG_files $DEG_Files  > $OutDir/414_v2_gene_table_incl_exp.tsv
             # NormCount=$(ls alignment/star/P.cactorum/414_v2/DeSeq/normalised_counts.txt)
-            RawCount=$(ls alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/raw_counts.txt)
-            FPKM=$(ls alignment/star/P.fragariae/Bc16/DeSeq_"$Strain"/fpkm_counts.txt)
+            RawCount=$(ls alignment/star/P.fragariae/Bc16/DeSeq_"$Isolate"/raw_counts.txt)
+            FPKM=$(ls alignment/star/P.fragariae/Bc16/DeSeq_"$Isolate"/fpkm_counts.txt)
             OrthoName=$Strain
             Assessment=$(echo $RawCount | rev | cut -f2 -d "/" | rev | sed 's/.*_//g')
             OrthoFile=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
