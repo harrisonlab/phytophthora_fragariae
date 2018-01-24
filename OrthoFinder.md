@@ -529,9 +529,9 @@ for num in 1
 do
     CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
     CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
     CRN_Dir=$WorkDir/UK2_CRN
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    Orthogroups=$WorkDir/Orthogroups.txt
     CRN_ID_UK2=$CRN_Dir/UK2_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
     cat $CRN_Names_Bc16 | sed -r 's/^/Bc16|/g' > $CRN_ID_UK2
