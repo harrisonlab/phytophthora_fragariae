@@ -1349,10 +1349,10 @@ do
     Sec_Names_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_secreted.txt
     Sec_Names_Bc1_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc1/Bc1_all_secreted_merged.txt
     Sec_Names_Nov5_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov5/Nov5_all_secreted_merged.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
-    Sec_Dir=$WorkDir/UKR1_Secreted
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
-    Sec_ID=$Sec_Dir/UKR1_aug_Sec_IDs.txt
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
+    Sec_Dir=$WorkDir/UK1_Secreted
+    Orthogroups=$WorkDir/Orthogroups.txt
+    Sec_ID=$Sec_Dir/UK1_aug_Sec_IDs.txt
     mkdir -p $Sec_Dir
     cat $Sec_Names_Bc1 | sed -r 's/^/Bc1|/g' > $Sec_ID
     cat $Sec_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $Sec_ID
