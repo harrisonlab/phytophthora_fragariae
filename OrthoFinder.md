@@ -789,10 +789,10 @@ do
     Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted.txt
     Sec_Names_Bc16_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
     Sec_Names_A4_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/A4/A4_all_secreted_merged.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
-    Sec_Dir=$WorkDir/UKR2_Secreted
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
+    Sec_Dir=$WorkDir/UK2_Secreted
     Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
-    Sec_ID=$Sec_Dir/UKR2_aug_Sec_IDs.txt
+    Sec_ID=$Sec_Dir/UK2_aug_Sec_IDs.txt
     mkdir -p $Sec_Dir
     cat $Sec_Names_Bc16 | sed -r 's/^/Bc16|/g' > $Sec_ID
     cat $Sec_Names_A4 | sed -r 's/^/A4|/g' >> $Sec_ID
