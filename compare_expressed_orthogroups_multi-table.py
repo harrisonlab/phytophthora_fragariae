@@ -7,3 +7,8 @@ This script takes three gene tables produced by pacbio_anntoation_tables_modifie
 from sets import Set
 import sys,argparse
 from collections import defaultdict
+
+#-----------------------------------------------------
+# Step 1
+# Import variables, load input files and create sets of orthogroup names
+#-----------------------------------------------------
