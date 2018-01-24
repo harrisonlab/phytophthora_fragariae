@@ -1665,9 +1665,9 @@ do
     CRN_Names_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN.txt
     CRN_Names_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN.txt
     CRN_Names_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
     CRN_Dir=$WorkDir/UK3_CRN
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    Orthogroups=$WorkDir/Orthogroups.txt
     CRN_ID_UK3=$CRN_Dir/UK3_CRN_hmmer_IDs.txt
     mkdir -p $CRN_Dir
     cat $CRN_Names_Nov27 | sed 's/^/Nov27|/g' > $CRN_ID_UK3
