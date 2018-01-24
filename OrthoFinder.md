@@ -2122,7 +2122,7 @@ do
     New_File="$Start"_modified.txt
     while IFS=' ' read -r line
     do
-        grep -w "$line" All_Strains_plus_rubi_no_removal_orthogroups.txt >> $New_File
+        grep -w "$line" Orthogroups.txt >> $New_File
     done < tmp.txt
     rm tmp.txt
 done
