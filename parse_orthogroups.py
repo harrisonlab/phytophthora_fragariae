@@ -35,6 +35,7 @@ ortho_dict = defaultdict(list)
 for line in ortho_lines:
     line = line.rstrip()
     split_line = line.split()
+    orthogroup = split_line[0]
     orthogroup = orthogroup.replace(':', '')
     for gene in split_line[1:]:
         ortho_dict[orthogroup].append(gene)
