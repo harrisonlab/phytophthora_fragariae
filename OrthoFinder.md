@@ -626,7 +626,7 @@ The number of A4 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK2_CRN/UK2Pf_CRN_Orthogroups_hits.txt
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK2_CRN/UK2_CRN_Orthogroups_hits.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK2_CRN/orthogroups_fasta_UK2_CRN
     mkdir -p $OutDir
