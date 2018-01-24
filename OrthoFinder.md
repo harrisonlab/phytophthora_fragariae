@@ -2097,9 +2097,9 @@ done
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-OrthoMCL_output=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+OrthoFinder_output=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
 OutName=analysis/orthology/OrthoFinder/formatted/Results_Jan16/count_table.tsv
-$ProgDir/parse_orthogroups.py --orthogroups $OrthoMCL_output --out_dir $OutName
+$ProgDir/parse_orthogroups.py --orthogroups $OrthoFinder_output --out_dir $OutName
 ```
 
 ##Analyse this count table for expanded groups and write orthogroups to a text file 'UKX_expanded.txt'
