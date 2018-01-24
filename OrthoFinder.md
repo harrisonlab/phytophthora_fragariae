@@ -286,33 +286,33 @@ The total number of singleton genes not in the venn diagram:  0
 
 ```
 A4
-The total number of orthogroups and singleton genes in this isolate:  19,050
-The total number of orthogroups and singleton genes not in the venn diagram:  1,648
-The total number of singleton genes not in the venn diagram:  1,319
+The total number of orthogroups and singleton genes in this isolate:  28,179
+The total number of orthogroups and singleton genes not in the venn diagram:  3,783
+The total number of singleton genes not in the venn diagram:  0
 NOV-5
-The total number of orthogroups and singleton genes in this isolate:  19,063
-The total number of orthogroups and singleton genes not in the venn diagram:  2,992
-The total number of singleton genes not in the venn diagram:  1,317
+The total number of orthogroups and singleton genes in this isolate:  28,226
+The total number of orthogroups and singleton genes not in the venn diagram:  3,841
+The total number of singleton genes not in the venn diagram:  0
 NOV-27
-The total number of orthogroups and singleton genes in this isolate:  19,072
-The total number of orthogroups and singleton genes not in the venn diagram:  3,001
-The total number of singleton genes not in the venn diagram:  1,218
+The total number of orthogroups and singleton genes in this isolate:  28,243
+The total number of orthogroups and singleton genes not in the venn diagram:  3,858
+The total number of singleton genes not in the venn diagram:  0
 NOV-71
-The total number of orthogroups and singleton genes in this isolate:  18,945
-The total number of orthogroups and singleton genes not in the venn diagram:  2,874
-The total number of singleton genes not in the venn diagram:  1,288
+The total number of orthogroups and singleton genes in this isolate:  28,012
+The total number of orthogroups and singleton genes not in the venn diagram:  3,627
+The total number of singleton genes not in the venn diagram:  0
 BC-16
-The total number of orthogroups and singleton genes in this isolate:  20,096
-The total number of orthogroups and singleton genes not in the venn diagram:  1,722
-The total number of singleton genes not in the venn diagram:  2,593
+The total number of orthogroups and singleton genes in this isolate:  28,908
+The total number of orthogroups and singleton genes not in the venn diagram:  3,806
+The total number of singleton genes not in the venn diagram:  0
 NOV-9
-The total number of orthogroups and singleton genes in this isolate:  18,942
-The total number of orthogroups and singleton genes not in the venn diagram:  2,871
-The total number of singleton genes not in the venn diagram:  1,231
+The total number of orthogroups and singleton genes in this isolate:  28,025
+The total number of orthogroups and singleton genes not in the venn diagram:  3,640
+The total number of singleton genes not in the venn diagram:  0
 BC-1
-The total number of orthogroups and singleton genes in this isolate:  19,004
-The total number of orthogroups and singleton genes not in the venn diagram:  2,871
-The total number of singleton genes not in the venn diagram:  1,228
+The total number of orthogroups and singleton genes in this isolate:  28,162
+The total number of orthogroups and singleton genes not in the venn diagram:  3,640
+The total number of singleton genes not in the venn diagram:  0
 ```
 
 ###UK race 3 focused analysis
