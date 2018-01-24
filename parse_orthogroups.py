@@ -51,7 +51,7 @@ sorted_keys = []
 keys = ortho_dict.keys()
 a = numpy.array(["Orthogroup", "A4", "Bc1", "Bc16", "Bc23", "Nov27", "Nov5", "Nov71", "Nov77", "Nov9", "ONT3", "SCRP245_v2"], dtype='a10')
 
-keys.sort(key=int)
+keys.sort()
 ortho_list = []
 for group_name in keys:
     print ("orthogroup" + str(group_name))
