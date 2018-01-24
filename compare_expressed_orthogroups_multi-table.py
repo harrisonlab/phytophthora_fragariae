@@ -12,3 +12,11 @@ from collections import defaultdict
 # Step 1
 # Import variables, load input files and create sets of orthogroup names
 #-----------------------------------------------------
+
+ap = argparse.ArgumentParser()
+ap.add_argument('--input_1',required=True,type=str,help='gene table for isolate #1')
+ap.add_argument('--input_2',required=True,type=str,help='gene table for isolate #2')
+ap.add_argument('--input_3',required=True,type=str,help='gene table for isolate #3')
+ap.add_argument('--output_1',required=True,type=str,help='text file for output of isolate #1 candidates')
+ap.add_argument('--output_2',required=True,type=str,help='text file for output of isolate #2 candidates')
+ap.add_argument('--output_3',required=True,type=str,help='text file for output of isolate #3 candidates')
