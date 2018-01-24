@@ -2116,7 +2116,7 @@ for file in $(ls UK*_expanded.txt)
 do
     while IFS=' ' read -r line
     do
-        echo $line | sed 's/O/o/g' | sed 's/ //g' >> tmp.txt
+        echo $line | sed 's/ //g' >> tmp.txt
     done < "$file"
     Start=$(basename "$file" .txt)
     New_File="$Start"_modified.txt
