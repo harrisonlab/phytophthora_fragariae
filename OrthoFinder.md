@@ -2122,7 +2122,7 @@ do
     New_File="$Start"_modified.txt
     while IFS=' ' read -r line
     do
-        cat Orthogroups.txt | grep '$line' >> $New_File
+        cat Orthogroups.txt | grep "$line" >> $New_File
     done < tmp.txt
     rm tmp.txt
 done
