@@ -791,7 +791,7 @@ do
     Sec_Names_A4_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/A4/A4_all_secreted_merged.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
     Sec_Dir=$WorkDir/UK2_Secreted
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    Orthogroups=$WorkDir/Orthogroups.txt
     Sec_ID=$Sec_Dir/UK2_aug_Sec_IDs.txt
     mkdir -p $Sec_Dir
     cat $Sec_Names_Bc16 | sed -r 's/^/Bc16|/g' > $Sec_ID
