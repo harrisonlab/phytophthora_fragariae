@@ -1314,9 +1314,9 @@ The number of Nov5 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK1_ApoP/UK1_ApoP_Orthogroups.txt
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK1_ApoP/UK1_ApoP_Orthogroups.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK1_ApoP/orthogroups_fasta_UK1_ApoP
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK1_ApoP/orthogroups_fasta_UK1_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
