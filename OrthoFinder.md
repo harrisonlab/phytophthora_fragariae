@@ -1944,10 +1944,10 @@ do
     Sec_Names_Nov27_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov27/Nov27_all_secreted_merged.txt
     Sec_Names_Nov71_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov71/Nov71_all_secreted_merged.txt
     Sec_Names_Nov9_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov9/Nov9_all_secreted_merged.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
-    Sec_Dir=$WorkDir/UKR3_Secreted
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
-    Sec_ID=$Sec_Dir/UKR3_aug_Sec_IDs.txt
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
+    Sec_Dir=$WorkDir/UK3_Secreted
+    Orthogroups=$WorkDir/Orthogroups.txt
+    Sec_ID=$Sec_Dir/UK3_aug_Sec_IDs.txt
     mkdir -p $Sec_Dir
     cat $Sec_Names_Nov27 | sed -r 's/^/Nov27|/g' > $Sec_ID
     cat $Sec_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $Sec_ID
