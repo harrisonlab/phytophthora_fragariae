@@ -20,3 +20,4 @@ ap.add_argument('--input_3',required=True,type=str,help='gene table for isolate 
 ap.add_argument('--output_1',required=True,type=str,help='text file for output of isolate #1 candidates')
 ap.add_argument('--output_2',required=True,type=str,help='text file for output of isolate #2 candidates')
 ap.add_argument('--output_3',required=True,type=str,help='text file for output of isolate #3 candidates')
+conf = ap.parse_args()
