@@ -1219,9 +1219,9 @@ for num in 1
 do
     ApoP_Names_Bc1=analysis/ApoplastP/P.fragariae/Bc1/Bc1_Total_ApoplastP.txt
     ApoP_Names_Nov5=analysis/ApoplastP/P.fragariae/Nov5/Nov5_Total_ApoplastP.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
     ApoP_Dir=$WorkDir/UK1_ApoP
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    Orthogroups=$WorkDir/Orthogroups.txt
     ApoP_ID_UK1=$ApoP_Dir/UK1_ApoP_IDs.txt
     mkdir -p $ApoP_Dir
     cat $ApoP_Names_Bc1 | sed -r 's/^/Bc1|/g' > $ApoP_ID_UK1
