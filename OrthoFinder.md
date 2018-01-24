@@ -2097,9 +2097,8 @@ done
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-Taxon_code=All_Strains_plus_rubi_no_removal
-OrthoMCL_output=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_orthogroups.txt
-OutName=analysis/orthology/orthomcl/$Taxon_code/"$Taxon_code"_count_table.tsv
+OrthoMCL_output=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+OutName=analysis/orthology/OrthoFinder/formatted/Results_Jan16/count_table.tsv
 $ProgDir/parse_orthogroups.py --orthogroups $OrthoMCL_output --out_dir $OutName
 ```
 
