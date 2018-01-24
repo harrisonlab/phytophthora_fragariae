@@ -1801,9 +1801,9 @@ do
     ApoP_Names_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_Total_ApoplastP.txt
     ApoP_Names_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_Total_ApoplastP.txt
     ApoP_Names_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_Total_ApoplastP.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
     ApoP_Dir=$WorkDir/UK3_ApoP
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    Orthogroups=$WorkDir/Orthogroups.txt
     ApoP_ID_UK3=$ApoP_Dir/UK3_ApoP_IDs.txt
     mkdir -p $ApoP_Dir
     cat $ApoP_Names_Nov27 | sed -r 's/^/Nov27|/g' > $ApoP_ID_UK3
