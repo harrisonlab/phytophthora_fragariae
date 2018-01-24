@@ -54,7 +54,7 @@ a = numpy.array(["Orthogroup", "A4", "Bc1", "Bc16", "Bc23", "Nov27", "Nov5", "No
 keys.sort()
 ortho_list = []
 for group_name in keys:
-    print ("orthogroup" + str(group_name))
+    print (str(group_name))
     print ("Counting genes in orthogroup: " + str(group_name))
     A4 = str(ortho_dict[group_name]).count("A4|")
     Bc1 = str(ortho_dict[group_name]).count("Bc1|")
