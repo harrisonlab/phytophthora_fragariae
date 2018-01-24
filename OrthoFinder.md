@@ -355,10 +355,9 @@ The total number of singleton genes not in the venn diagram:  0
 ##First variables were set:
 
 ```bash
-WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
 UK2UniqDir=$WorkDir/UK2_unique
-Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
-GoodProts=$WorkDir/goodProteins/goodProteins.fasta
+Orthogroups=$WorkDir/Orthogroups.txt
 Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
 Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
 Uniq_UK2_groups=$UK2UniqDir/UK2_uniq_orthogroups.txt
