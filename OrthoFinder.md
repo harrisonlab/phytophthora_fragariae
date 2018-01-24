@@ -1478,9 +1478,9 @@ done
 ##First variables were set:
 
 ```bash
-WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
 UK3UniqDir=$WorkDir/UK3_unique
-Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+Orthogroups=$WorkDir/Orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
 Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
 Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
