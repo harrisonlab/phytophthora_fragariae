@@ -960,9 +960,9 @@ for num in 1
 do
     RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_motif_hmm.txt
     RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_motif_hmm.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
     RxLR_Dir=$WorkDir/UK1_RxLR
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    Orthogroups=$WorkDir/Orthogroups.txt
     RxLR_ID=$RxLR_Dir/UK1_aug_RxLR_IDs.txt
     mkdir -p $RxLR_Dir
     cat $RxLR_Names_Bc1 | sed -r 's/^/Bc1|/g' > $RxLR_ID
