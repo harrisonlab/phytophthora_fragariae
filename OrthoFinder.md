@@ -350,6 +350,8 @@ The total number of singleton genes not in the venn diagram:  0
 
 #Analysis of orthogroups unique to UK race 2 (Strains BC-16 & A4)
 
+These values will contain singletons
+
 ##The genes unique to Race 2 were identified within the orthology analysis
 
 ##First variables were set:
@@ -381,9 +383,9 @@ done
 
 ```
 The number of orthogroups unique to Race 2 are:
-43
+104
 The following number genes are contained in these orthogroups:
-201
+503
 ```
 
 #Race 2 unique RxLR families
