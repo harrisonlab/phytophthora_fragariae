@@ -397,10 +397,10 @@ for num in 1
 do
     RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
     RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_motif_hmm.txt
-    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
-    RxLR_Dir=$WorkDir/UKR2_RxLR
-    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
-    RxLR_ID=$RxLR_Dir/UKR2_aug_RxLR_EER_IDs.txt
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
+    RxLR_Dir=$WorkDir/UK2_RxLR
+    Orthogroups=$WorkDir/Orthogroups.txt
+    RxLR_ID=$RxLR_Dir/UK2_aug_RxLR_EER_IDs.txt
     mkdir -p $RxLR_Dir
     cat $RxLR_Names_Bc16 | sed -r 's/^/Bc16|/g' > $RxLR_ID
     cat $RxLR_Names_A4 | sed -r 's/^/A4|/g' >> $RxLR_ID
