@@ -699,15 +699,15 @@ done
 The number of apoplastic effectors searched for is:
 23,464
 Of these, the following number were found in orthogroups:
-2,952
+3,201
 These were distributed through the following number of Orthogroups:
-1,181
+1,667
 The following apoplastic effectors were found in Race 2 unique orthogroups:
 5
 The following apoplastic effectors were found in P.fragariae unique orthogroups:
-1,181
+1,667
 These orthogroups contain the following number of apoplastic effectors:
-2,952
+3,201
 ```
 
 
