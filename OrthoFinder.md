@@ -1047,11 +1047,11 @@ done
 
 ```
 The number of UK1 unique RxLRs are:
-84
+0
 The number of BC-1 genes extracted is:
-53
+0
 The number of NOV-5 genes extracted is:
-49
+0
 ```
 
 ##Extracting fasta files for orthogroups containing Race 1 putative RxLRs
