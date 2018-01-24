@@ -234,9 +234,9 @@ The total number of genes in UK3 orthogroups is:
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-$ProgDir/UK1_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/"$IsolateAbrv"_UK1_orthogroups.pdf
-$ProgDir/UK2_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/"$IsolateAbrv"_UK2_orthogroups.pdf
-$ProgDir/UK3_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/"$IsolateAbrv"_UK3_orthogroups.pdf
+$ProgDir/UK1_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/UK1_orthogroups.pdf
+$ProgDir/UK2_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/UK2_orthogroups.pdf
+$ProgDir/UK3_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/UK3_orthogroups.pdf
 ```
 
 Output was a pdf file of the venn diagram.
