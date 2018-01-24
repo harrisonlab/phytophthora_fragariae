@@ -2081,11 +2081,11 @@ done
 #Extract fasta files for all unique orthogroups, including non-effector groups
 
 ```bash
-for OrthogroupTxt in $(ls analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK*_unique/*)
+for OrthogroupTxt in $(ls analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK*_unique/*)
 do
     Race=$(echo $OrthogroupTxt | rev | cut -f2 -d '/' | rev)
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/group_fastas/$Race
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16/group_fastas/$Race
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     echo $Race
