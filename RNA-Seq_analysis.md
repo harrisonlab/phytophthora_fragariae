@@ -2986,6 +2986,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/de-novo_candidates
 Bc16_output=$OutDir/Bc16_candidate_genes.txt
 Bc1_output=$OutDir/Bc1_candidate_genes.txt
 Nov9_output=$OutDir/Nov9_candidate_genes.txt
+mkdir -p $OutDir
 $ProgDir/compare_expressed_orthogroups_multi-table.py --input_1 $Bc16_gene_table --input_2 $Bc1_gene_table --input_3 $Nov9_gene_table --output_1 $Bc16_output --output_2 $Bc1_output --output_3 $Nov9_output
 ```
 
@@ -3000,5 +3001,6 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/reference_guided_candidates
 Bc16_output=$OutDir/Bc16_candidate_genes.txt
 Bc1_output=$OutDir/Bc1_candidate_genes.txt
 Nov9_output=$OutDir/Nov9_candidate_genes.txt
+mkdir -p $OutDir
 $ProgDir/compare_expressed_orthogroups_reference_based.py --input_1 $Bc16_gene_table --input_2 $Bc1_gene_table --input_3 $Nov9_gene_table --output_1 $Bc16_output --output_2 $Bc1_output --output_3 $Nov9_output
 ```
