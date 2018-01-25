@@ -1461,9 +1461,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UKR1_Secreted/Pf_Sec_Orthogroups_hits.txt
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK1_Secreted/Pf_Sec_Orthogroups_hits.txt
     GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UKR1_Secreted/orthogroups_fasta_Pf_Sec
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK1_Secreted/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
