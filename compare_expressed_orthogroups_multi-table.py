@@ -33,16 +33,28 @@ with open(conf.input_1) as f1:
         FPKM_Mycelium = float(x.split('\t')[24])
         if x.split('\t')[25] != '.':
             LFC_24 = float(x.split('\t')[25])
+        else:
+            break
         if x.split('\t')[27] != '.':
             LFC_48 = float(x.split('\t')[27])
+        else:
+            break
         if x.split('\t')[29] != '.':
             LFC_96 = float(x.split('\t')[29])
+        else:
+            break
         if x.split('\t')[26] != '.':
             P_val_24 = float(x.split('\t')[26])
+        else:
+            break
         if x.split('\t')[28] != '.':
             P_val_48 = float(x.split('\t')[28])
+        else:
+            break
         if x.split('\t')[30] != '.':
             P_val_96 = float(x.split('\t')[30])
+        else:
+            break
         if FPKM_24 >= 5 or FPKM_48 >= 5 or FPKM_96 >= 5 or FPKM_Mycelium >= 5:
             if (LFC_24 >= 1 and P_val_24 <= 0.05) or (LFC_48 >= 1 and P_val_48 <= 0.05) or (LFC_96 >= 1 and P_val_96 <=0.05):
                 gene_ID = x.split('\t')[0]
