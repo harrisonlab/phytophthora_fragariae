@@ -93,3 +93,16 @@ for x in inp3_list:
 # Step 3
 # Writes list of genes to text file
 #-----------------------------------------------------
+
+Output1 = open(conf.output_1, 'w')
+Output2 = open(conf.output_2, 'w')
+Output3 = open(conf.output_3, 'w')
+
+for x in inp1_uniq_genes:
+    print>>Output1, x
+
+for x in inp2_uniq_genes:
+    print>>Output2, x
+
+for x in inp3_uniq_genes:
+    print>>Output3, x
