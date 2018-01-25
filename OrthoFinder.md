@@ -874,11 +874,11 @@ done
 
 ```
 The number of UK2 unique secreted proteins are:
-61,185
+60,647
 The number of BC-16 genes extracted is:
-10,579
+10,198
 The number of A4 genes extracted is:
-8,775
+8,597
 ```
 
 ##Extracting fasta files for orthogroups containing Race 2 putative secreted proteins
