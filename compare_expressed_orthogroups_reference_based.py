@@ -22,7 +22,7 @@ conf = ap.parse_args()
 
 with open(conf.input_1) as f1:
     inp1_lines = f1.readlines()[1:]
-    inp1_list=[]
+    inp1_list = []
     for x in inp1_lines:
         FPKM_24 = float(x.split('\t')[21])
         FPKM_48 = float(x.split('\t')[22])
@@ -38,3 +38,29 @@ with open(conf.input_1) as f1:
             if (LFC_24 >= 1 and P_val_24 <= 0.05) or (LFC_48 >= 1 and P_val_48 <= 0.05) or (LFC_96 >= 1 and P_val_96 <=0.05):
                 gene_ID = x.split('\t')[0]
                 inp1_list.append(gene_ID)
+
+with open(conf.input_2) as f2:
+    inp2_lines = f2.readlines()[1:]
+    inp2_list = []
+    for x in inp2_lines:
+        FPKM_Plant = float(x.split('\t')[19])
+        FPKM_Mycelium = float(x.split('\t')[20])
+        LFC = float(x.split('\t')[21])
+        P_val = float(x.split('\t')[22])
+        if FPKM_Plant >= 5 or FPKM_Mycelium >= 5:
+            if LFC >= 1 and P_val <= 0.05:
+                gene_ID = x.split('\t')[0]
+                inp2_list.append(gene_ID)
+
+with open(conf.input_3) as f3:
+    inp3_lines = f3.readlines()[1:]
+    inp3_list = []
+    for x in inp3_lines:
+        FPKM_Plant = float(x.split('\t')[19])
+        FPKM_Mycelium = float(x.split('\t')[20])
+        LFC = float(x.split('\t')[21])
+        P_val = float(x.split('\t')[22])
+        if FPKM_Plant >= 5 or FPKM_Mycelium >= 5:
+            if LFC >= 1 and P_val <= 0.05:
+                gene_ID = x.split('\t')[0]
+                inp3_list.append(gene_ID)
