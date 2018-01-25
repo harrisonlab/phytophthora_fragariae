@@ -43,3 +43,19 @@ with open(conf.input_1) as f1:
                 orthogroup_ID = x.split('\t')[16]
                 inp1_orthogroups.append(orthogroup_ID)
                 inp1_dict[orthogroup_ID].append(gene_ID)
+
+inp2_dict = defaultdict(list)
+with open(conf.input_1) as f2:
+    inp2_lines = f2.readlines()[1:]
+    inp2_orthogroups = []
+    for x in inp2_lines:
+        FPKM_Plant = float(x.split('\t')[19])
+        FPKM_Mycelium = float(x.split('\t')[20])
+        LFC = float(x.split('\t')[21])
+        P_val = float(x.split('\t')[22])
+        if FPKM_Plant >= 5 or FPKM_Mycelium >= 5:
+            if LFC >= 1 and P_val <= 0.05:
+                gene_ID = x.split('\t')[0]
+                orthogroup_ID = x.split('\t')[16]
+                inp2_orthogroups.append(orthogroup_ID)
+                inp2_dict[orthogroup_ID].append(gene_ID)
