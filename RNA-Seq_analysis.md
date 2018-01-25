@@ -2975,6 +2975,8 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_CRNs_D
 
 #Generate text files of candidates from both methods
 
+##*De-novo* method
+
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 Bc16_gene_table=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
