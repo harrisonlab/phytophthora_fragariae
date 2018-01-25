@@ -2974,3 +2974,15 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_CRNs_D
 ```
 
 #Generate text files of candidates from both methods
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+Bc16_gene_table=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
+Bc1_gene_table=gene_pred/annotation/P.fragariae/Bc1/Bc1_gene_table_incl_exp.tsv
+Nov9_gene_table=gene_pred/annotation/P.fragariae/Nov9/Nov9_gene_table_incl_exp.tsv
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq/de-novo_candidates
+Bc16_output=$OutDir/Bc16_candidate_genes.txt
+Bc1_output=$OutDir/Bc1_candidate_genes.txt
+Nov9_output=$OutDir/Nov9_candidate_genes.txt
+$ProgDir/compare_expressed_orthogroups_multi-table.py --input_1 $Bc16_gene_table --input_2 $Bc1_gene_table --input_3 $Nov9_gene_table --output_1 $Bc16_output --output_2 $Bc1_output --output_3 $Nov9_output
+```
