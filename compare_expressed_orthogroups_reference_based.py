@@ -69,3 +69,22 @@ with open(conf.input_3) as f3:
 # Step 2
 # Create lists of genes only upregulated in one isolate
 #-----------------------------------------------------
+
+inp1_uniq_genes = []
+inp2_uniq_genes = []
+inp3_uniq_genes = []
+
+for x in inp1_list:
+    if not x in inp2_list:
+        if not x in inp3_list:
+            inp1_uniq_genes.append(x)
+
+for x in inp2_list:
+    if not x in inp1_list:
+        if not x in inp3_list:
+            inp2_uniq_genes.append(x)
+
+for x in inp3_list:
+    if not x in inp1_list:
+        if not x in inp2_list:
+            inp3_uniq_genes.append(x)
