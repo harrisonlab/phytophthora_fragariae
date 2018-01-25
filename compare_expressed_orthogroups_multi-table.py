@@ -80,3 +80,26 @@ with open(conf.input_3) as f3:
 # Step 2
 # Remove duplicate orthogroup IDs from list and create lists of orthogroups present in only one list
 #-----------------------------------------------------
+
+inp1_set = set(inp1_orthogroups)
+inp2_set = set(inp2_orthogroups)
+inp3_set = set(inp3_orthogroups)
+
+inp1_uniq_groups = []
+inp2_uniq_groups = []
+inp3_uniq_groups = []
+
+for x in inp1_set:
+    if not x in inp2_set:
+        if not x in inp3_set:
+            inp1_uniq_groups.append(x)
+
+for x in inp2_set:
+    if not x in inp1_set:
+        if not x in inp3_set:
+            inp2_uniq_groups.append(x)
+
+for x in inp3_set:
+    if not x in inp1_set:
+        if not x in inp2_set:
+            inp3_uniq_groups.append(x)            
