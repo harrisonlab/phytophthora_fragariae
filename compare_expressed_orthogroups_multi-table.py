@@ -102,4 +102,9 @@ for x in inp2_set:
 for x in inp3_set:
     if not x in inp1_set:
         if not x in inp2_set:
-            inp3_uniq_groups.append(x)            
+            inp3_uniq_groups.append(x)
+
+#-----------------------------------------------------
+# Step 3
+# Create list of genes in the unique orthogroups and print to a text file
+#-----------------------------------------------------
