@@ -1892,7 +1892,7 @@ done
 
 ```
 The number of UK3 unique apoplastic effectors are:
-28,079
+27,880
 The number of NOV-27 genes extracted is:
 0
 The number of NOV-71 genes extracted is:
