@@ -2988,3 +2988,5 @@ Bc1_output=$OutDir/Bc1_candidate_genes.txt
 Nov9_output=$OutDir/Nov9_candidate_genes.txt
 $ProgDir/compare_expressed_orthogroups_multi-table.py --input_1 $Bc16_gene_table --input_2 $Bc1_gene_table --input_3 $Nov9_gene_table --output_1 $Bc16_output --output_2 $Bc1_output --output_3 $Nov9_output
 ```
+
+##Reference guided method
