@@ -19,3 +19,22 @@ ap.add_argument('--output_1',required=True,type=str,help='Text file for output o
 ap.add_argument('--output_2',required=True,type=str,help='Text file for output of non-reference isolate #1')
 ap.add_argument('--output_3',required=True,type=str,help='Text file for output of non-reference isolate #2')
 conf = ap.parse_args()
+
+with open(conf.input_1) as f1:
+    inp1_lines = f1.readlines()[1:]
+    inp1_list=[]
+    for x in inp1_lines:
+        FPKM_24 = float(x.split('\t')[21])
+        FPKM_48 = float(x.split('\t')[22])
+        FPKM_96 = float(x.split('\t')[23])
+        FPKM_Mycelium = float(x.split('\t')[24])
+        LFC_24 = float(x.split('\t')[25])
+        LFC_48 = float(x.split('\t')[27])
+        LFC_96 = float(x.split('\t')[29])
+        P_val_24 = float(x.split('\t')[26])
+        P_val_48 = float(x.split('\t')[28])
+        P_val_96 = float(x.split('\t')[30])
+        if FPKM_24 >= 5 or FPKM_48 >= 5 or FPKM_96 >= 5 or FPKM_Mycelium >= 5:
+            if (LFC_24 >= 1 and P_val_24 <= 0.05) or (LFC_48 >= 1 and P_val_48 <= 0.05) or (LFC_96 >= 1 and P_val_96 <=0.05):
+                gene_ID = x.split('\t')[0]
+                inp1_list.append(gene_ID)
