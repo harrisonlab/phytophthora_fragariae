@@ -108,3 +108,32 @@ for x in inp3_set:
 # Step 3
 # Create list of genes in the unique orthogroups and print to a text file
 #-----------------------------------------------------
+
+inp1_uniq_genes = []
+inp2_uniq_genes = []
+inp3_uniq_genes = []
+
+for x in inp1_uniq_groups:
+    for y in inp1_dict[x]:
+        inp1_uniq_genes.append(y)
+
+for x in inp2_uniq_groups:
+    for y in inp2_dict[x]:
+        inp2_uniq_genes.append(y)
+
+for x in inp3_uniq_groups:
+    for y in inp3_dict[x]:
+        inp3_uniq_genes.append(y)
+
+Output1 = open(conf.output_1)
+Output2 = open(conf.output_2)
+Output3 = open(conf.output_3)
+
+for x in inp1_uniq_genes:
+    print>>Output1, x
+
+for x in inp2_uniq_genes:
+    print>>Output2, x
+
+for x in inp3_uniq_genes:
+    print>>Output3, x
