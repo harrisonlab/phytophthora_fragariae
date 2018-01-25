@@ -712,8 +712,8 @@ for line in transcript_lines:
             DEG_out.append(DEG_dict[entryname][0])
             DEG_out.append(DEG_dict[entryname][1])
         else:
-            DEG_out.append('.')
-            DEG_out.append('.')
+            DEG_out.append('0')
+            DEG_out.append('0')
 
     # # Add in read count data:
     mean_count_cols = []
