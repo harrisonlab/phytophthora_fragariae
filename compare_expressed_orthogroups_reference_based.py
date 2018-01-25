@@ -5,3 +5,8 @@ This script takes three gene tables produced by pacbio_anntoation_tables_modifie
 '''
 
 import sys,argparse
+
+#-----------------------------------------------------
+# Step 1
+# Import variables, load input files and create lists of gene names
+#-----------------------------------------------------
