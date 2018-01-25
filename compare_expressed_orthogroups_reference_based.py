@@ -88,3 +88,8 @@ for x in inp3_list:
     if not x in inp1_list:
         if not x in inp2_list:
             inp3_uniq_genes.append(x)
+
+#-----------------------------------------------------
+# Step 3
+# Writes list of genes to text file
+#-----------------------------------------------------
