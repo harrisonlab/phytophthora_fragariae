@@ -64,3 +64,8 @@ with open(conf.input_3) as f3:
             if LFC >= 1 and P_val <= 0.05:
                 gene_ID = x.split('\t')[0]
                 inp3_list.append(gene_ID)
+
+#-----------------------------------------------------
+# Step 2
+# Create lists of genes only upregulated in one isolate
+#-----------------------------------------------------
