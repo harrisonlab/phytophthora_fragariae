@@ -35,7 +35,7 @@ with open(conf.input_1) as f1:
         P_val_48 = float(x.split('\t')[28])
         P_val_96 = float(x.split('\t')[30])
         if FPKM_24 >= 5 or FPKM_48 >= 5 or FPKM_96 >= 5 or FPKM_Mycelium >= 5:
-            if (LFC_24 >= 1 and P_val_24 <= 0.05) or (LFC_48 >= 1 and P_val_48 <= 0.05) or (LFC_96 >= 1 and P_val_96 <=0.05):
+            if (abs(LFC_24) >= 1 and P_val_24 <= 0.05) or (abs(LFC_48) >= 1 and P_val_48 <= 0.05) or (abs(LFC_96) >= 1 and P_val_96 <=0.05):
                 gene_ID = x.split('\t')[0]
                 inp1_list.append(gene_ID)
 
@@ -48,7 +48,7 @@ with open(conf.input_2) as f2:
         LFC = float(x.split('\t')[21])
         P_val = float(x.split('\t')[22])
         if FPKM_Plant >= 5 or FPKM_Mycelium >= 5:
-            if LFC >= 1 and P_val <= 0.05:
+            if abs(LFC) >= 1 and P_val <= 0.05:
                 gene_ID = x.split('\t')[0]
                 inp2_list.append(gene_ID)
 
@@ -61,7 +61,7 @@ with open(conf.input_3) as f3:
         LFC = float(x.split('\t')[21])
         P_val = float(x.split('\t')[22])
         if FPKM_Plant >= 5 or FPKM_Mycelium >= 5:
-            if LFC >= 1 and P_val <= 0.05:
+            if abs(LFC) >= 1 and P_val <= 0.05:
                 gene_ID = x.split('\t')[0]
                 inp3_list.append(gene_ID)
 
