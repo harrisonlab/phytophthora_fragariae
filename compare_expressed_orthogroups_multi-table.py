@@ -75,3 +75,8 @@ with open(conf.input_3) as f3:
                 orthogroup_ID = x.split('\t')[16]
                 inp3_orthogroups.append(orthogroup_ID)
                 inp3_dict[orthogroup_ID].append(gene_ID)
+
+#-----------------------------------------------------
+# Step 2
+# Remove duplicate orthogroup IDs from list and create lists of orthogroups present in only one list
+#-----------------------------------------------------
