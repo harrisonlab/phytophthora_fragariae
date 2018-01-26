@@ -1227,3 +1227,54 @@ do
     cat $AlignDir/star_aligmentUnmapped.out.mate2 | gzip -cf > $AlignDir/star_aligmentUnmapped.out.mate2.fq.gz
 done
 ```
+
+##Align compressed files of unmapped reads from aligning to vesca
+
+This star script had the following options added to the sub_star.sh script in the ProgDir specified in the below commands:
+--winAnchorMultimapNmax 200
+--seedSearchStartLmax 30
+
+BC-16 RNA-Seq data
+
+```bash
+for Strain in Bc1 Nov9
+do
+    if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    fi
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*hr/*)
+    do
+        Organism=P.fragariae
+        echo "$Organism - $Strain"
+        printf "\n"
+        File1=$AlignDir/star_aligmentUnmapped.out.mate1.fq.gz
+        File2=$AlignDir/star_aligmentUnmapped.out.mate2.fq.gz
+        echo $File1
+        echo $File2
+        Timepoint=$(echo $AlignDir | rev | cut -d '/' -f2 | rev)
+        echo "$Timepoint"
+        Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_sta' | grep 'qw' | wc -l)
+        done
+        OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
+        ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
+        qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
+    done
+done
+```
