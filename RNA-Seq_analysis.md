@@ -2977,3 +2977,28 @@ $ProgDir/compare_expressed_orthogroups_reference_based.py --input_1 $Bc16_gene_t
 ``` -->
 
 These scripts actually attempt to call differently differentially expressed genes, but overcomplicate the issue and as such go wrong
+
+#Quantification of gene models
+
+```bash
+for Strain in Bc16
+do
+    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam | grep -v "TA-" | grep -v "countData" | grep -v "genes")
+    do
+        Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors.gff3
+        OutDir=$(dirname $BamFile)
+        Prefix=$(echo $BamFile | rev | cut -f2 -d '/' | rev)
+        Jobs=$(qstat | grep 'sub_fea' | wc -l)
+        while [ $Jobs -gt 5 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_fea' | wc -l)
+        done
+        printf "\n"
+        echo $Prefix
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/sub_featureCounts.sh $BamFile $Gff $OutDir $Prefix
+    done
+done
+```
