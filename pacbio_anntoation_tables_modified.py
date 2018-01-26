@@ -717,7 +717,7 @@ for line in transcript_lines:
 
     # # Add in read count data:
     mean_count_cols = []
-    for treatment in set(count_treatment_list):
+    for treatment in sorted(set(count_treatment_list)):
         dict_key = "_".join([transcript_id, treatment])
         expression_values = raw_read_count_dict[dict_key]
         # print expression_values
@@ -726,7 +726,7 @@ for line in transcript_lines:
         mean_count_cols.append(mean_count.astype(str))
     # print mean_count_cols
     mean_fpkm_cols = []
-    for treatment in set(fpkm_treatment_list):
+    for treatment in sorted(set(fpkm_treatment_list)):
         dict_key = "_".join([transcript_id, treatment])
         # print dict_key
         expression_values = fpkm_dict[dict_key]
