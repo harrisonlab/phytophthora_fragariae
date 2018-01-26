@@ -1148,3 +1148,45 @@ done
 ```
 All seem okay to me
 ```
+
+#Align mycelial reads to assemblies
+
+```bash
+for Strain in Bc1 Nov9 Bc16
+do
+    if [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    elif [ -f /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    fi
+    Organism=P.fragariae
+    echo "$Organism - $Strain"
+    for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/*/mycelium/F/*_trim.fq.gz | grep -e 'Nov9' -e 'Bc1' | grep -v 'Bc16')
+    do
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_sta' | grep 'qw' | wc -l)
+        done
+        printf "\n"
+        FileR=$(echo $FileF | sed 's&/F/&/R/&g' | sed 's/_1/_2/g')
+        echo $FileF
+        echo $FileR
+        Timepoint=$(echo $FileF | rev | cut -d '/' -f3 | rev)
+        echo "$Timepoint"
+        Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
+        OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
+        ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
+        qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
+    done
+done
+```
