@@ -2038,13 +2038,13 @@ done
 
 ```
 The number of UK3 unique secreted proteins are:
-84,171
+83,666
 The number of NOV-27 genes extracted is:
-8,707
+8,539
 The number of NOV-71 genes extracted is:
-8,752
+8,570
 The number of NOV-9 genes extracted is:
-8,893
+8,713
 ```
 
 ##Extracting fasta files for orthogroups containing Race 3 putative secreted proteins
