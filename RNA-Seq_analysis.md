@@ -2515,3 +2515,218 @@ write.table(fpkm_counts,"analysis/DeSeq/Method_1/Nov9/fpkm_counts.txt",sep="\t",
 ```
 
 ##Method 2
+
+```R
+#install and load libraries
+require("pheatmap")
+require("data.table")
+
+#load tables into a "list of lists"
+qq <- lapply(list.files("analysis/DeSeq/Method_2","*featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
+
+# ensure the samples column is the same name as the treatment you want to use:
+qq[7]
+
+#merge the "list of lists" into a single table
+m <- Reduce(function(...) merge(..., all = T,by=c("Geneid","Chr","Start","End","Strand","Length")), qq)
+
+#convert data.table to data.frame for use with DESeq2
+countData <- data.frame(m[,c(1,7:(ncol(m))),with=F])
+rownames(countData) <- countData[,1]
+countData <- countData[,-1]
+
+#indexes <- unique(gsub("(.*)_L00.*", "\\1", colnames(countData)))
+indexes <- c("TA-07", "TA-08", "TA-09", "TA-12", "TA-13", "TA-14", "TA_B_P1", "TA_B_P2", "TA_B_P3", "TA_NO_P1", "TA_NO_P2", "TA_NO_P3", "TA-18", "TA-19", "TA-20", "TA-32", "TA-34", "TA-35", "TA_B_M1", "TA_B_M2", "TA_B_M3", "TA_NO_M1", "TA_NO_M2", "TA_NO_M5")
+
+countData <- round(countData,0)
+
+#output countData
+write.table(countData,"analysis/DeSeq/Method_2/Method_2_countData.txt",sep="\t",na="",quote=F)
+
+#output gene details
+write.table(m[,1:6,with=F],"analysis/DeSeq/Method_2/Method_2_genes.txt",sep="\t",quote=F,row.names=F)
+
+#Running DeSeq2
+
+require("DESeq2")
+
+unorderedColData <- read.table("analysis/DeSeq/Method_2/P.frag_method2_RNAseq_design.txt",header=T,sep="\t")
+rownames(unorderedColData) <- unorderedColData$Sample.name
+unorderedColDataSubset <- unorderedColData[indexes,]
+
+colData <- data.frame(unorderedColDataSubset[ order(unorderedColDataSubset$Sample.name),])
+unorderedData <- read.table("analysis/DeSeq/Method_2/Method_2_countData.txt",header=T,sep="\t")
+countData <- data.frame(unorderedData[ , order(colnames(unorderedData))])
+colData$Group <- paste0(colData$Isolate,'_', colData$Timepoint)
+countData <- round(countData,0)
+
+design <- ~Group
+
+dds <-     DESeqDataSetFromMatrix(countData,colData,design)
+sizeFactors(dds) <- sizeFactors(estimateSizeFactors(dds, type = c("ratio")))
+dds <- DESeq(dds, fitType="local")
+
+library("RColorBrewer")
+library("gplots", Sys.getenv("R_LIBS_USER"))
+library("ggplot2")
+library("ggrepel")
+
+vst<-varianceStabilizingTransformation(dds)
+
+pdf("analysis/DeSeq/Method_2/heatmap_vst.pdf", width=12,height=12)
+sampleDists<-dist(t(assay(vst)))
+
+sampleDistMatrix <- as.matrix(sampleDists)
+rownames(sampleDistMatrix) <- paste(vst$Group)
+colnames(sampleDistMatrix) <- paste(vst$Group)
+colours <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
+heatmap( sampleDistMatrix,
+  trace="none",  # turns off trace lines inside the heat map
+  col=colours, # use on color palette defined earlier
+  margins=c(12,12), # widens margins around plot
+  srtCol=45,
+  srtCol=45)
+dev.off()
+
+# Sample distances measured with rlog transformation:
+
+rld <- rlog( dds )
+
+pdf("analysis/DeSeq/Method_2/heatmap_rld.pdf")
+sampleDists <- dist( t( assay(rld) ) )
+library("RColorBrewer")
+sampleDistMatrix <- as.matrix( sampleDists )
+rownames(sampleDistMatrix) <- paste(rld$Group)
+colnames(sampleDistMatrix) <- paste(rld$Group)
+colours = colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
+heatmap( sampleDistMatrix, trace="none", col=colours, margins=c(12,12),srtCol=45)
+
+#PCA plots
+
+pdf("analysis/DeSeq/Method_2/PCA_vst.pdf")
+plotPCA(vst,intgroup=c("Isolate", "Timepoint"))
+dev.off()
+
+#Plot using rlog transformation:
+pdf("analysis/DeSeq/Method_2/PCA_rld.pdf")
+plotPCA(rld,intgroup=c("Isolate", "Timepoint"))
+dev.off()
+
+pdf("analysis/DeSeq/Method_2/PCA_additional.pdf")
+
+dev.off()
+
+#Plot using rlog transformation, showing sample names:
+
+data <- plotPCA(rld, intgroup="Group", returnData=TRUE)
+percentVar <- round(100 * attr(data, "percentVar"))
+
+pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
+ geom_point(size=3) +
+ xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+ ylab(paste0("PC2: ",percentVar[2],"% variance")) + geom_text_repel(aes(label=colnames(rld)))
+ coord_fixed()
+
+ggsave("analysis/DeSeq/Method_2/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
+
+#Analysis of gene expression
+
+#BC-16_24hrs vs BC-16_mycelium
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_24hr","Bc16_mycelium"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_2/Bc16_24hr_vs_Bc16_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_2/Bc16_24hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Bc16_24hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
+
+#BC-16_48hrs vs BC-16_mycelium
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_48hr","Bc16_mycelium"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_2/Bc16_48hr_vs_Bc16_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_2/Bc16_48hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Bc16_48hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
+
+#BC-16_96hrs vs BC-16_mycelium
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_96hr","Bc16_mycelium"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_2/Bc16_96hr_vs_Bc16_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_2/Bc16_96hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Bc16_96hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
+
+#BC-16_24hrs vs NOV-9
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc1_48hr","Bc1_mycelium"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_2/Bc1_48hr_vs_Bc1_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_2/Bc1_48hr_vs_Bc1_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Bc1_48hr_vs_Bc1_mycelium_down.txt",sep="\t",na="",quote=F)
+
+#NOV-9_72hr vs NOV-9_mycelium
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Nov9_72hrs","Nov9_mycelium"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_2/Nov9_72hr_vs_Nov9_mycelium.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_2/Nov9_72hr_vs_Nov9_mycelium_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Nov9_72hr_vs_Nov9_mycelium_down.txt",sep="\t",na="",quote=F)
+
+#Make a table of raw counts, normalised counts and fpkm values:
+
+raw_counts <- data.frame(counts(dds, normalized=FALSE))
+colnames(raw_counts) <- paste(colData$Group)
+write.table(raw_counts,"analysis/DeSeq/Method_2/raw_counts.txt",sep="\t",na="",quote=F)
+norm_counts <- data.frame(counts(dds, normalized=TRUE))
+colnames(norm_counts) <- paste(colData$Group)
+write.table(norm_counts,"analysis/DeSeq/Method_2/normalised_counts.txt",sep="\t",na="",quote=F)
+
+library(Biostrings)
+library(naturalsort)
+mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cdna.fasta")
+t1 <- counts(dds)
+t1 <- mygenes[rownames(t1)]
+rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
+
+# robust may be better set at fasle to normalise based on total counts rather than 'library normalisation factors'
+fpkm_counts <- data.frame(fpkm(dds, robust = TRUE))
+colnames(fpkm_counts) <- paste(colData$Group)
+write.table(fpkm_counts,"analysis/DeSeq/Method_2/fpkm_norm_counts.txt",sep="\t",na="",quote=F)
+fpkm_counts <- data.frame(fpkm(dds, robust = FALSE))
+colnames(fpkm_counts) <- paste(colData$Group)
+write.table(fpkm_counts,"analysis/DeSeq/Method_2/fpkm_counts.txt",sep="\t",na="",quote=F)
+```
