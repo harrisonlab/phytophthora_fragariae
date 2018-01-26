@@ -1762,3 +1762,5 @@ do
     sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
 done
 ```
+
+#DeSeq commands
