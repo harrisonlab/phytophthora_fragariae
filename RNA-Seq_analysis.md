@@ -1036,3 +1036,13 @@ cat $Set1Genes $Set2Genes > $AllGenes
 
 $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Bc16_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
 ```
+
+New data arrived on BC-1 & NOV-9, three different methods will be used to analyse expression differences by three different methods.
+
+Method #1: Differential expression between isolates - Align all RNA-Seq to a single genome, then use DeSeq2 to call DEGs and pull out gene IDs from the text file. Do this on genomes of BC-16, BC-1 & NOV-9.
+
+Method #2: For different differential expression by gene ID - Align RNA-Seq data to the BC-16 reference genome, then call DEGs using mycelial reads from the same isolate.
+
+Method #3: For different differential expression by orthogroup ID - Align RNA-Seq to the genome of the isolate it was sourced from, call DEGs using DeSeq2, then pull out orthogroups that are unique, then pull out gene IDs from these orthogroups.
+
+Method #1 will give candidates for avirulence genes, whereas #2 and #3 will provide differently differentially expressed genes.
