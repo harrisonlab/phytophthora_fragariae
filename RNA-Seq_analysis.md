@@ -1429,14 +1429,18 @@ do
 done >> $OutDir/P.frag_method1_RNAseq_design.txt
 
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
-OutDir=analysis/DeSeq/Method_1
-mkdir -p $OutDir
+OutDir1=analysis/DeSeq/Method_1/Bc16
+OutDir2=analysis/DeSeq/Method_2/Bc1
+OutDir3=analysis/DeSeq/Method_3/Nov9
+mkdir -p $OutDir1 $OutDir2 $OutDir3
 for Strain in Bc1 Bc16 Nov9
 do
     for File in $(ls alignment/star/P.fragariae/$Strain/*/*/*_featurecounts.txt | grep -v '0hr' | grep -v 'mycelium')
     do
         echo $File
-        cp $File $OutDir/.
+        cp $File $OutDir1/.
+        cp $File $OutDir2/.
+        cp $File $OutDir3/.
     done
 done
 for File in $(ls $OutDir/*_featurecounts.txt)
@@ -1763,6 +1767,19 @@ do
 done
 ```
 
+--need some cp commands here, will write when I have files to copy to make it easier--
+
 #DeSeq commands
 
 ##Method 1
+
+BC-16
+
+```R
+#install and load libraries
+require("pheatmap")
+require("data.table")
+
+#load tables into a "list of lists"
+qq <- lapply(list.files("analysis/DeSeq/method1/Bc16","*featurecounts.txt$",full.names=T,recursive=T),function(x) fread(x))
+```
