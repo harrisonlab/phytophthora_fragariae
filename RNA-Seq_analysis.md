@@ -2089,6 +2089,41 @@ do
 done
 ```
 
+##Align compressed files of unmapped reads from aligning to vesca
+
+This star script had the following options added to the sub_star.sh script in the ProgDir specified in the below commands:
+--winAnchorMultimapNmax 200
+--seedSearchStartLmax 30
+
+```bash
+for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/set2/*/*)
+do
+    Organism=P.fragariae
+    Strain=Bc16
+    echo "$Organism - $Strain"
+    printf "\n"
+    File1=$AlignDir/star_aligmentUnmapped.out.mate1.fq.gz
+    File2=$AlignDir/star_aligmentUnmapped.out.mate2.fq.gz
+    echo $File1
+    echo $File2
+    Timepoint=$(echo $AlignDir | rev | cut -d '/' -f2 | rev)
+    echo "$Timepoint"
+    Sample_Name=$(echo $AlignDir | rev | cut -d '/' -f1 | rev)
+    Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_sta' | grep 'qw'| wc -l)
+    done
+    Assembly=$(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+    echo $Assembly
+    OutDir=alignment/star/P.fragariae/$Strain/$Timepoint/$Sample_Name
+    ProgDir=/home/adamst/git_repos/scripts/popgen/rnaseq
+    qsub $ProgDir/sub_star_TA.sh $Assembly $File1 $File2 $OutDir
+done
+```
+
 #Quantification of gene models
 
 ```bash
