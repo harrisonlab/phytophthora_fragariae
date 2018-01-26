@@ -2513,3 +2513,5 @@ fpkm_counts <- data.frame(fpkm(dds, robust = FALSE))
 colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"analysis/DeSeq/Method_1/Nov9/fpkm_counts.txt",sep="\t",na="",quote=F)
 ```
+
+##Method 2
