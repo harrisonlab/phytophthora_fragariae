@@ -1325,3 +1325,27 @@ done
 ```
 
 #Quantification of gene models
+
+```bash
+for Strain in Bc16 Bc1 Nov9
+do
+    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam | grep -v "0hr")
+    do
+        Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors.gff3
+        OutDir=analysis/DeSeq
+        mkdir -p $OutDir
+        Prefix=$(echo $BamFile | rev | cut -f2 -d '/' | rev)
+        Jobs=$(qstat | grep 'sub_fea' | wc -l)
+        while [ $Jobs -gt 5 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_fea' | wc -l)
+        done
+        printf "\n"
+        echo $Prefix
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
+        qsub $ProgDir/sub_featureCounts.sh $BamFile $Gff $OutDir $Prefix
+    done
+done
+```
