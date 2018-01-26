@@ -1334,7 +1334,7 @@ do
         Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors.gff3
         OutDir=analysis/DeSeq
         mkdir -p $OutDir
-        Prefix=$(echo $BamFile | rev | cut -f2 -d '/' | rev)
+        Prefix="$Strain"_"$(echo $BamFile | rev | cut -f2 -d '/' | rev)"
         Jobs=$(qstat | grep 'sub_fea' | wc -l)
         while [ $Jobs -gt 5 ]
         do
