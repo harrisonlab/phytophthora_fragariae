@@ -1093,3 +1093,58 @@ mv C101HW17030405/raw_data/TA_NO_M2_2.fq.gz P.fragariae/Nov9/mycelium/R/.
 mv C101HW17030405/raw_data/TA_NO_M5_2.fq.gz P.fragariae/Nov9/mycelium/R/.
 mv C101HW17030405/raw_data/MD5.txt .
 ```
+
+##Perform qc on RNA-Seq timecourse and mycelium data
+
+```bash
+for FilePath in $(ls -d /home/scratch/adamst/rna_seq/05012018/P.fragariae/*/*/)
+do
+    echo $FilePath
+    FileNum=$(ls $FilePath/F/*.gz | wc -l)
+    for num in $(seq 1 $FileNum)
+    do
+        FileF=$(ls $FilePath/F/*.gz | head -n $num | tail -n1)
+        FileR=$(ls $FilePath/R/*.gz | head -n $num | tail -n1)
+        echo $FileF
+        echo $FileR
+        Jobs=$(qstat -u "*" | grep 'rna_qc' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 16 ]
+        do
+            sleep 5m
+            printf "."
+            Jobs=$(qstat | grep 'rna_qc' | grep 'qw' | wc -l)
+        done
+        printf "\n"
+        IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
+        qsub $ProgDir/rna_qc_fastq-mcf_2.sh $FileF $FileR $IlluminaAdapters RNA
+    done
+done
+
+mv qc_rna/Bc1/ qc_rna/novogene/P.fragariae/.
+mv qc_rna/Nov9/ qc_rna/novogene/P.fragariae/.
+```
+
+###Visualise data quality using fastqc
+
+Only submit three jobs at a time, copying 30 files is too much!
+
+```bash
+for RawData in $(ls qc_rna/novogene/P.fragariae/*/*/*/* | grep -v 'Bc16')
+do
+    echo $RawData
+    Jobs=$(qstat -u "*" | grep 'run_fastqc' | wc -l)
+    while [ $Jobs -gt 3 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat -u "*" | grep 'run_fastqc' | wc -l)
+    done
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
+    qsub $ProgDir/run_fastqc.sh $RawData
+done
+```
+
+```
+All seem okay to me
+```
