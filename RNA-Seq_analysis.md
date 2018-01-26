@@ -2975,7 +2975,7 @@ $ProgDir/BC-16_method_2_All_DEGs_venn_diag.r --inp $WorkDir/method_2_down_CRNs_D
 
 #Generate text files of candidates from both methods
 
-##*De-novo* method
+<!-- ##*De-novo* method
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -3003,4 +3003,6 @@ Bc1_output=$OutDir/Bc1_candidate_genes.txt
 Nov9_output=$OutDir/Nov9_candidate_genes.txt
 mkdir -p $OutDir
 $ProgDir/compare_expressed_orthogroups_reference_based.py --input_1 $Bc16_gene_table --input_2 $Bc1_gene_table --input_3 $Nov9_gene_table --output_1 $Bc16_output --output_2 $Bc1_output --output_3 $Nov9_output
-```
+``` -->
+
+These scripts actually attempt to call differently differentially expressed genes, but overcomplicate the issue and as such go wrong
