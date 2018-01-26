@@ -1655,3 +1655,56 @@ do
     Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
     sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
 done
+
+#BC-16
+OutDir=analysis/DeSeq/Method_3
+mkdir -p $OutDir
+printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_method3_Bc1_RNAseq_design.txt
+for i in $(seq 1 6)
+do
+    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
+    then
+        Timepoint='48hr'
+        Infection='Bc1'
+    elif [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ]
+    then
+        Timepoint='mycelium'
+        Infection='Bc1'
+    fi
+    if [ $i == '1' ]
+    then
+        printf "TA_B_P1\t$Timepoint\t$Infection\n"
+    elif [ $i == '2' ]
+    then
+        printf "TA_B_P2\t$Timepoint\t$Infection\n"
+    elif [ $i == '3' ]
+    then
+        printf "TA_B_P3\t$Timepoint\t$Infection\n"
+    elif [ $i == '4' ]
+    then
+        printf "TA_B_M1\t$Timepoint\t$Infection\n"
+    elif [ $i == '5' ]
+    then
+        printf "TA_B_M2\t$Timepoint\t$Infection\n"
+    elif [ $i == '6' ]
+    then
+        printf "TA_B_M3\t$Timepoint\t$Infection\n"
+    fi
+done >> $OutDir/P.frag_method3_Bc1_RNAseq_design.txt
+
+#Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
+OutDir=analysis/DeSeq/Method_3
+mkdir -p $OutDir
+for Strain in Bc1
+do
+    for File in $(ls alignment/star/P.fragariae/$Strain/*/*/*_featurecounts.txt | grep -e 'TA_')
+    do
+        echo $File
+        cp $File $OutDir/.
+    done
+done
+for File in $(ls $OutDir/*_featurecounts.txt)
+do
+    Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
+    sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
+done
