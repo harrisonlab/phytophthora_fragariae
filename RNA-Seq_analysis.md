@@ -1764,3 +1764,5 @@ done
 ```
 
 #DeSeq commands
+
+##Method 1
