@@ -1905,6 +1905,96 @@ write.table(sig.res,"analysis/DeSeq/Method_1/Bc16/Bc16_24hr_vs_Bc1_48hr.txt",sep
 write.table(sig.res.upregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_24hr_vs_Bc1_48hr_up.txt",sep="\t",na="",quote=F)
 write.table(sig.res.downregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_24hr_vs_Bc1_48hr_down.txt",sep="\t",na="",quote=F)
 
+#BC-16_48hrs vs BC-1
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_48hr","Bc1_48hr"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_1/Bc16/Bc16_48hr_vs_Bc1_48hr.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_48hr_vs_Bc1_48hr_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_48hr_vs_Bc1_48hr_down.txt",sep="\t",na="",quote=F)
+
+#BC-16_96hrs vs BC-1
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_96hr","Bc1_48hr"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_1/Bc16/Bc16_96hr_vs_Bc1_48hr.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_96hr_vs_Bc1_48hr_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_96hr_vs_Bc1_48hr_down.txt",sep="\t",na="",quote=F)
+
+#BC-16_24hrs vs NOV-9
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_24hr","Nov9_72hr"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_1/Bc16/Bc16_24hr_vs_Nov9_72hr.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_24hr_vs_Nov9_72hr_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_24hr_vs_Nov9_72hr_down.txt",sep="\t",na="",quote=F)
+
+#BC-16_48hrs vs NOV-9
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_48hr","Nov9_72hr"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_1/Bc16/Bc16_48hr_vs_Nov9_72hr.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_48hr_vs_Nov9_72hr_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_48hr_vs_Nov9_72hr_down.txt",sep="\t",na="",quote=F)
+
+#BC-16_96hrs vs NOV-9
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc16_96hr","Nov9_72hr"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_1/Bc16/Bc16_96hr_vs_Nov9_72hr.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_96hr_vs_Nov9_72hr_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_1/Bc16/Bc16_96hr_vs_Nov9_72hr_down.txt",sep="\t",na="",quote=F)
+
+#BC-1 vs NOV-9
+
+alpha <- 0.05
+res= results(dds, alpha=alpha,contrast=c("Group","Bc1_48hr","Nov9_72hr"))
+sig.res <- subset(res,padj<=alpha)
+sig.res <- sig.res[order(sig.res$padj),]
+sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
+sig.res.downregulated <- sig.res[sig.res$log2FoldChange <=-1, ]
+sig.res.upregulated2 <- sig.res[sig.res$log2FoldChange >0, ]
+sig.res.downregulated2 <- sig.res[sig.res$log2FoldChange <0, ]
+
+write.table(sig.res,"analysis/DeSeq/Method_1/Bc16/Bc1_48hr_vs_Nov9_72hr.txt",sep="\t",na="",quote=F)
+write.table(sig.res.upregulated,"analysis/DeSeq/Method_1/Bc16/Bc1_48hr_vs_Nov9_72hr_up.txt",sep="\t",na="",quote=F)
+write.table(sig.res.downregulated,"analysis/DeSeq/Method_1/Bc16/Bc1_48hr_vs_Nov9_72hr_down.txt",sep="\t",na="",quote=F)
+
 #Make a table of raw counts, normalised counts and fpkm values:
 
 raw_counts <- data.frame(counts(dds, normalized=FALSE))
