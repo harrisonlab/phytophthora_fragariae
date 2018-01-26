@@ -2125,7 +2125,7 @@ do
 done
 
 #NOV-9
-for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/set2/72hr/*)
+for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/set2/*/*)
 do
     Organism=P.fragariae
     Strain=Bc16
