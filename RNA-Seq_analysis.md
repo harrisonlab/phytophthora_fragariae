@@ -1046,3 +1046,50 @@ Method #2: For different differential expression by gene ID - Align RNA-Seq data
 Method #3: For different differential expression by orthogroup ID - Align RNA-Seq to the genome of the isolate it was sourced from, call DEGs using DeSeq2, then pull out orthogroups that are unique, then pull out gene IDs from these orthogroups.
 
 Method #1 will give candidates for avirulence genes, whereas #2 and #3 will provide differently differentially expressed genes.
+
+#RNA-Seq data was downloaded from novogenes servers with the following commands
+
+```bash
+mkdir -p /home/scratch/adamst/rna_seq/05012018
+cd /home/scratch/adamst/rna_seq/05012018
+wget https://s3-eu-west-1.amazonaws.com/novogene-europe/HW/project/C101HW17030405_20180102_5_Yvad6z.tar
+tar -xf /home/scratch/adamst/rna_seq/05012018/C101HW17030405_20180102_5_Yvad6z.tar
+```
+
+##Reorganise raw data
+
+```bash
+mkdir -p P.fragariae/Bc1/48hr/F/
+mkdir -p P.fragariae/Bc1/mycelium/F/
+mkdir -p P.fragariae/Bc1/48hr/R/
+mkdir -p P.fragariae/Bc1/mycelium/R/
+mkdir -p P.fragariae/Nov9/72hr/F/
+mkdir -p P.fragariae/Nov9/mycelium/F/
+mkdir -p P.fragariae/Nov9/72hr/R/
+mkdir -p P.fragariae/Nov9/mycelium/R/
+mv C101HW17030405/raw_data/TA_B_P1_1.fq.gz P.fragariae/Bc1/48hr/F/.
+mv C101HW17030405/raw_data/TA_B_P2_1.fq.gz P.fragariae/Bc1/48hr/F/.
+mv C101HW17030405/raw_data/TA_B_P3_1.fq.gz P.fragariae/Bc1/48hr/F/.
+mv C101HW17030405/raw_data/TA_B_M1_1.fq.gz P.fragariae/Bc1/mycelium/F/.
+mv C101HW17030405/raw_data/TA_B_M2_1.fq.gz P.fragariae/Bc1/mycelium/F/.
+mv C101HW17030405/raw_data/TA_B_M3_1.fq.gz P.fragariae/Bc1/mycelium/F/.
+mv C101HW17030405/raw_data/TA_B_P1_2.fq.gz P.fragariae/Bc1/48hr/R/.
+mv C101HW17030405/raw_data/TA_B_P2_2.fq.gz P.fragariae/Bc1/48hr/R/.
+mv C101HW17030405/raw_data/TA_B_P3_2.fq.gz P.fragariae/Bc1/48hr/R/.
+mv C101HW17030405/raw_data/TA_B_M1_2.fq.gz P.fragariae/Bc1/mycelium/R/.
+mv C101HW17030405/raw_data/TA_B_M2_2.fq.gz P.fragariae/Bc1/mycelium/R/.
+mv C101HW17030405/raw_data/TA_B_M3_2.fq.gz P.fragariae/Bc1/mycelium/R/.
+mv C101HW17030405/raw_data/TA_NO_P1_1.fq.gz P.fragariae/Nov9/72hr/F/.
+mv C101HW17030405/raw_data/TA_NO_P2_1.fq.gz P.fragariae/Nov9/72hr/F/.
+mv C101HW17030405/raw_data/TA_NO_P3_1.fq.gz P.fragariae/Nov9/72hr/F/.
+mv C101HW17030405/raw_data/TA_NO_M1_1.fq.gz P.fragariae/Nov9/mycelium/F/.
+mv C101HW17030405/raw_data/TA_NO_M2_1.fq.gz P.fragariae/Nov9/mycelium/F/.
+mv C101HW17030405/raw_data/TA_NO_M5_1.fq.gz P.fragariae/Nov9/mycelium/F/.
+mv C101HW17030405/raw_data/TA_NO_P1_2.fq.gz P.fragariae/Nov9/72hr/R/.
+mv C101HW17030405/raw_data/TA_NO_P2_2.fq.gz P.fragariae/Nov9/72hr/R/.
+mv C101HW17030405/raw_data/TA_NO_P3_2.fq.gz P.fragariae/Nov9/72hr/R/.
+mv C101HW17030405/raw_data/TA_NO_M1_2.fq.gz P.fragariae/Nov9/mycelium/R/.
+mv C101HW17030405/raw_data/TA_NO_M2_2.fq.gz P.fragariae/Nov9/mycelium/R/.
+mv C101HW17030405/raw_data/TA_NO_M5_2.fq.gz P.fragariae/Nov9/mycelium/R/.
+mv C101HW17030405/raw_data/MD5.txt .
+```
