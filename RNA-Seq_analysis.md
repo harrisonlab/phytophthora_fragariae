@@ -1642,7 +1642,7 @@ OutDir=analysis/DeSeq/Method_3
 mkdir -p $OutDir
 for Strain in Bc16
 do
-    for File in $(ls alignment/star/P.fragariae/$Strain/*/*/*_featurecounts.txt | grep -v '0hr')
+    for File in $(ls analysis/DeSeq/"$Strain"_*_featurecounts.txt)
     do
         echo $File
         cp $File $OutDir/.
