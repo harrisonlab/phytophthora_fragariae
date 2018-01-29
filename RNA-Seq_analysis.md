@@ -2732,3 +2732,5 @@ write.table(fpkm_counts,"analysis/DeSeq/Method_2/fpkm_counts.txt",sep="\t",na=""
 ```
 
 ##Method 3
+
+BC-1
