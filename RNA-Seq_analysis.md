@@ -1655,7 +1655,7 @@ do
 done
 
 #BC-1
-OutDir=analysis/DeSeq/Method_3
+OutDir=analysis/DeSeq/Method_3/Bc1
 mkdir -p $OutDir
 printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_method3_Bc1_RNAseq_design.txt
 for i in $(seq 1 6)
@@ -1691,15 +1691,12 @@ do
 done >> $OutDir/P.frag_method3_Bc1_RNAseq_design.txt
 
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
-OutDir=analysis/DeSeq/Method_3
+OutDir=analysis/DeSeq/Method_3/Bc1
 mkdir -p $OutDir
-for Strain in Bc1
+for File in $(ls analysis/DeSeq/"$Strain"_*_featurecounts.txt)
 do
-    for File in $(ls alignment/star/P.fragariae/$Strain/*/*/*_featurecounts.txt | grep -e 'TA_')
-    do
-        echo $File
-        cp $File $OutDir/.
-    done
+    echo $File
+    cp $File $OutDir/.
 done
 for File in $(ls $OutDir/*_featurecounts.txt)
 do
