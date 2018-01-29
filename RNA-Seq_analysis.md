@@ -1576,7 +1576,7 @@ done
 
 #Method 3
 #BC-16
-OutDir=analysis/DeSeq/Method_3
+OutDir=analysis/DeSeq/Method_3/Bc16
 mkdir -p $OutDir
 printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_method3_Bc16_RNAseq_design.txt
 for i in $(seq 1 12)
@@ -1638,7 +1638,7 @@ do
 done >> $OutDir/P.frag_method3_Bc16_RNAseq_design.txt
 
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
-OutDir=analysis/DeSeq/Method_3
+OutDir=analysis/DeSeq/Method_3/Bc16
 mkdir -p $OutDir
 for Strain in Bc16
 do
