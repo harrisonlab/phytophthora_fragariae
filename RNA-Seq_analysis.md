@@ -1563,13 +1563,10 @@ done >> $OutDir/P.frag_method2_RNAseq_design.txt
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
 OutDir=analysis/DeSeq/Method_2
 mkdir -p $OutDir
-for Strain in Bc1 Bc16 Nov9
+for File in $(ls analysis/DeSeq/*_featurecounts.txt)
 do
-    for File in $(ls alignment/star/P.fragariae/$Strain/*/*/*_featurecounts.txt | grep -v '0hr')
-    do
-        echo $File
-        cp $File $OutDir/.
-    done
+    echo $File
+    cp $File $OutDir/.
 done
 for File in $(ls $OutDir/*_featurecounts.txt)
 do
