@@ -1439,11 +1439,11 @@ do
         echo $File
         cp $File $OutDir/$Strain/.
     done
-done
-for File in $(ls $OutDir/$Strain/*_featurecounts.txt)
-do
-    Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
-    sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
+    for File in $(ls $OutDir/$Strain/*_featurecounts.txt)
+    do
+        Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
+        sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
+    done
 done
 
 #Method 2
