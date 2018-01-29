@@ -1642,7 +1642,7 @@ OutDir=analysis/DeSeq/Method_3/Bc16
 mkdir -p $OutDir
 for Strain in Bc16
 do
-    for File in $(ls analysis/DeSeq/"$Strain"_*_featurecounts.txt)
+    for File in $(ls analysis/DeSeq/"$Strain"_*_featurecounts.txt | grep -v "TA_")
     do
         echo $File
         cp $File $OutDir/.
