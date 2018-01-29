@@ -1431,11 +1431,7 @@ do
 done
 
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
-OutDir1=analysis/DeSeq/Method_1/Bc16
-OutDir2=analysis/DeSeq/Method_1/Bc1
-OutDir3=analysis/DeSeq/Method_1/Nov9
 OutDir=analysis/DeSeq/Method_1
-mkdir -p $OutDir1 $OutDir2 $OutDir3
 for Strain in Bc1 Bc16 Nov9
 do
     for File in $(ls analysis/DeSeq/"$Strain"_*_featurecounts.txt | grep -v "_M" | grep -v "TA-3")
