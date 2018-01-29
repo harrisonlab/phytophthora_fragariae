@@ -1430,8 +1430,9 @@ done >> $OutDir/P.frag_method1_RNAseq_design.txt
 
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
 OutDir1=analysis/DeSeq/Method_1/Bc16
-OutDir2=analysis/DeSeq/Method_2/Bc1
-OutDir3=analysis/DeSeq/Method_3/Nov9
+OutDir2=analysis/DeSeq/Method_1/Bc1
+OutDir3=analysis/DeSeq/Method_1/Nov9
+OutDir=analysis/DeSeq/Method_1
 mkdir -p $OutDir1 $OutDir2 $OutDir3
 for Strain in Bc1 Bc16 Nov9
 do
@@ -1443,7 +1444,7 @@ do
         cp $File $OutDir3/.
     done
 done
-for File in $(ls $OutDir/*_featurecounts.txt)
+for File in $(ls $OutDir/$Strain/*_featurecounts.txt)
 do
     Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
     sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
