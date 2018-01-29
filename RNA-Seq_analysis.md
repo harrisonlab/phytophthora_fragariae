@@ -1705,7 +1705,7 @@ do
 done
 
 #NOV-9
-OutDir=analysis/DeSeq/Method_3
+OutDir=analysis/DeSeq/Method_3/Nov9
 mkdir -p $OutDir
 printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_method3_Nov9_RNAseq_design.txt
 for i in $(seq 1 6)
@@ -1741,11 +1741,11 @@ do
 done >> $OutDir/P.frag_method3_Nov9_RNAseq_design.txt
 
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
-OutDir=analysis/DeSeq/Method_3
+OutDir=analysis/DeSeq/Method_3/Nov9
 mkdir -p $OutDir
 for Strain in Nov9
 do
-    for File in $(ls alignment/star/P.fragariae/$Strain/*/*/*_featurecounts.txt | grep -e 'TA_')
+    for File in $(ls analysis/DeSeq/"$Strain"_*_featurecounts.txt | grep -v "TA-" | grep -v "B")
     do
         echo $File
         cp $File $OutDir/.
@@ -1757,8 +1757,6 @@ do
     sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
 done
 ```
-
---need some cp commands here, will write when I have files to copy to make it easier--
 
 #DeSeq commands
 
