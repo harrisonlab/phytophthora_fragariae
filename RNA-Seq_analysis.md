@@ -2353,7 +2353,13 @@ sampleDistMatrix <- as.matrix( sampleDists )
 rownames(sampleDistMatrix) <- paste(rld$Group)
 colnames(sampleDistMatrix) <- paste(rld$Group)
 colours = colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
-heatmap( sampleDistMatrix, trace="none", col=colours, margins=c(12,12),srtCol=45)
+heatmap( sampleDistMatrix,
+  trace="none",  # turns off trace lines inside the heat map
+  col=colours, # use on color palette defined earlier
+  margins=c(12,12), # widens margins around plot
+  srtCol=45,
+  srtCol=45)
+dev.off()
 
 #PCA plots
 
