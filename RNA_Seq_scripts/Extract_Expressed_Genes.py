@@ -32,3 +32,7 @@ with open(conf.Orthogroup_in) as f:
 # Step 2
 # Build dictonaries of count data and of orthogroups
 #-----------------------------------------------------
+
+Isolate1_dict = deafultdict(list)
+Isolate2_dict = deafultdict(list)
+Isolate3_dict = deafultdict(list)
