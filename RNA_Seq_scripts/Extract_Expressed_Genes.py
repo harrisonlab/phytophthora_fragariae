@@ -27,3 +27,8 @@ with open(conf.FPKM_in) as f:
 
 with open(conf.Orthogroup_in) as f:
     Ortho_lines=f.readlines()
+
+#-----------------------------------------------------
+# Step 2
+# Build dictonaries of count data and of orthogroups
+#-----------------------------------------------------
