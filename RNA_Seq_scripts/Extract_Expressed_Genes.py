@@ -21,3 +21,6 @@ conf = ap.parse_args()
 # Step 1
 # Load input files, create sets and dictionaries
 #-----------------------------------------------------
+
+with open(conf.FPKM_in) as f:
+    fpkm_lines=f.readlines()
