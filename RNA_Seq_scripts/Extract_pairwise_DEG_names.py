@@ -72,3 +72,8 @@ Organisms = set(Organisms)
 Organism1 = list(Organisms)[0]
 Organism2 = list(Organisms)[1]
 Organism3 = list(Organisms)[2]
+
+#-----------------------------------------------------
+# Step 3
+# Write output files
+#-----------------------------------------------------
