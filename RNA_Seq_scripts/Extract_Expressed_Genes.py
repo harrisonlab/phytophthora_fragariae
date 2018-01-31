@@ -8,6 +8,7 @@ import sys,argparse
 from sets import Set
 from collections import defaultdict
 import numpy as np
+import json
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--FPKM_in',required=True,type=str,help='text output file from DeSeq2 commands of non-normalised FPKM values')
@@ -112,3 +113,12 @@ for transcript, fpkm in Isolate3_dict.items():
 # Step 4
 # Print text files of expressed genes using dictionaries
 #-----------------------------------------------------
+
+with open(conf.Output_1, 'w') as o:
+    o.write(json.dumps(Isolate1_candidates))
+
+with open(conf.Output_2, 'w') as o:
+    o.write(json.dumps(Isolate2_candidates))
+
+with open(conf.Output_3, 'w') as o:
+    o.write(json.dumps(Isolate3_candidates))
