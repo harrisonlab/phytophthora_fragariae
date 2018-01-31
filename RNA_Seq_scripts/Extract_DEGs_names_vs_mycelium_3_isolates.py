@@ -123,3 +123,12 @@ for transcript in Org3_set:
 # Step 4
 # Write output files
 #-----------------------------------------------------
+
+with open(Organism1".txt") as f:
+    o.write(json.dumps(Org1_dict))
+
+with open(Organism2".txt") as f:
+    o.write(json.dumps(Org2_dict))
+
+with open(Organism3".txt") as f:
+    o.write(json.dumps(Org3_dict))
