@@ -1570,7 +1570,7 @@ do
     for File in $(ls analysis/DeSeq/"$Strain"_*_featurecounts.txt)
     do
         echo $File
-        cp $File $OutDir/$Strain/.
+        cp $File $OutDir/.
     done
     for File in $(ls $OutDir/$Strain/*_featurecounts.txt)
     do
