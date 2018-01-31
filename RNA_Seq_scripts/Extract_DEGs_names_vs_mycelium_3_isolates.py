@@ -59,3 +59,15 @@ for line in Ortho_lines:
 # Step 2
 # Create organism variables
 #-----------------------------------------------------
+
+Organisms = []
+for DEG_file in DEG_files:
+    Organism_A = DEG_file.split('/')[-1].split('_')[0]
+    Organisms.append(Organism_A)
+    Organism_B = DEG_file.split('/')[-1].split('_')[3]
+    Organisms.append(Organism_B)
+
+Organisms = set(Organisms)
+Organism1 = list(Organisms)[0]
+Organism2 = list(Organisms)[1]
+Organism3 = list(Organisms)[2]
