@@ -99,11 +99,11 @@ for transcript, fpkm in Isolate1_dict.items():
         Isolate1_candidates[transcript].extend(orthogroup)
 
 for transcript, fpkm in Isolate2_dict.items():
-    if value > 5 for value in fpkm:
+    if fpkm > 5:
         orthogroup = ortho_dict[transcript]
         Isolate2_candidates[transcript].extend(orthogroup)
 
 for transcript, fpkm in Isolate3_dict.items():
-    if value > 5 for value in fpkm:
+    if fpkm > 5:
         orthogroup = ortho_dict[transcript]
         Isolate3_candidates[transcript].extend(orthogroup)
