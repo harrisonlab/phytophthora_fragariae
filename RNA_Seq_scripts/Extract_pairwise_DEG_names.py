@@ -38,8 +38,9 @@ for DEG_file in DEG_files:
                 gene_name = split_line[0]
                 log_change = split_line[2]
                 P_val = split_line[6]
-                entryname = "_".join([filename, gene_name])
-                DEG_dict[entryname].extend([log_change, P_val])
+                if log_change >= 1 and P_val <= 0.05:
+                    entryname = "_".join([filename, gene_name])
+                    DEG_dict[entryname].extend([log_change, P_val])
 
 organism_name = conf.Organism_name
 ortho_dict = defaultdict(list)
