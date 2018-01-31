@@ -2940,7 +2940,7 @@ write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Bc1/Bc1_48hr_vs_Bc1_m
 #NOV-9_72hr vs NOV-9_mycelium
 
 alpha <- 0.05
-res= results(dds, alpha=alpha,contrast=c("Group","Nov9_72hrs","Nov9_mycelium"))
+res= results(dds, alpha=alpha,contrast=c("Group","Nov9_72hr","Nov9_mycelium"))
 sig.res <- subset(res,padj<=alpha)
 sig.res <- sig.res[order(sig.res$padj),]
 sig.res.upregulated <- sig.res[sig.res$log2FoldChange >=1, ]
