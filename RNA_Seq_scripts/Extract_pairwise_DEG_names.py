@@ -179,3 +179,8 @@ Org3_vs_Org2_dict = defaultdict(str)
 for transcript in Org3_vs_Org2_set:
     orthogroup = ortho_dict[transcript]
     Org3_vs_Org2_dict[transcript].extend(orthogroup)
+
+#-----------------------------------------------------
+# Step 4
+# Write output files
+#-----------------------------------------------------
