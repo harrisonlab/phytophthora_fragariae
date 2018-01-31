@@ -2699,7 +2699,7 @@ write.table(sig.res,"analysis/DeSeq/Method_2/Bc16/Bc16_96hr_vs_Bc16_mycelium.txt
 write.table(sig.res.upregulated,"analysis/DeSeq/Method_2/Bc16/Bc16_96hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
 write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Bc16/Bc16_96hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
 
-#BC-16_24hrs vs NOV-9
+#BC-1_48hrs vs BC-1_mycelium
 
 alpha <- 0.05
 res= results(dds, alpha=alpha,contrast=c("Group","Bc1_48hr","Bc1_mycelium"))
@@ -2922,7 +2922,7 @@ write.table(sig.res,"analysis/DeSeq/Method_2/Bc1/Bc16_96hr_vs_Bc16_mycelium.txt"
 write.table(sig.res.upregulated,"analysis/DeSeq/Method_2/Bc1/Bc16_96hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
 write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Bc1/Bc16_96hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
 
-#BC-16_24hrs vs NOV-9
+#BC-1_48hrs vs BC-1_mycelium
 
 alpha <- 0.05
 res= results(dds, alpha=alpha,contrast=c("Group","Bc1_48hr","Bc1_mycelium"))
@@ -3145,7 +3145,7 @@ write.table(sig.res,"analysis/DeSeq/Method_2/Nov9/Bc16_96hr_vs_Bc16_mycelium.txt
 write.table(sig.res.upregulated,"analysis/DeSeq/Method_2/Nov9/Bc16_96hr_vs_Bc16_mycelium_up.txt",sep="\t",na="",quote=F)
 write.table(sig.res.downregulated,"analysis/DeSeq/Method_2/Nov9/Bc16_96hr_vs_Bc16_mycelium_down.txt",sep="\t",na="",quote=F)
 
-#BC-16_24hrs vs NOV-9
+#BC-1_48hrs vs BC-1_mycelium
 
 alpha <- 0.05
 res= results(dds, alpha=alpha,contrast=c("Group","Bc1_48hr","Bc1_mycelium"))
