@@ -184,3 +184,21 @@ for transcript in Org3_vs_Org2_set:
 # Step 4
 # Write output files
 #-----------------------------------------------------
+
+with open(Organism1"_vs_"Organism2".txt") as f:
+    o.write(json.dumps(Org1_vs_Org2_dict))
+
+with open(Organism1"_vs_"Organism3".txt") as f:
+    o.write(json.dumps(Org1_vs_Org3_dict))
+
+with open(Organism2"_vs_"Organism1".txt") as f:
+    o.write(json.dumps(Org2_vs_Org1_dict))
+
+with open(Organism2"_vs_"Organism3".txt") as f:
+    o.write(json.dumps(Org2_vs_Org3_dict))
+
+with open(Organism3"_vs_"Organism1".txt") as f:
+    o.write(json.dumps(Org3_vs_Org1_dict))
+
+with open(Organism3"_vs_"Organism2".txt") as f:
+    o.write(json.dumps(Org3_vs_Org2_dict))
