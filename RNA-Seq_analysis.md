@@ -1448,8 +1448,6 @@ done
 
 #Method 2
 
-#BC-16
-
 for OutDir in analysis/DeSeq/Method_2/Bc16 analysis/DeSeq/Method_2/Bc1 analysis/DeSeq/Method_2/Nov9
 do
     mkdir -p $OutDir
