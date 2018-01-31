@@ -27,7 +27,7 @@ LFC = conf.Min_LFC
 Sig_Level = conf.Sig_Level
 
 DEG_files = conf.DEG_files
-DEG_dict = defaultdict(list)
+DEG_list = []
 for DEG_file in DEG_files:
     with open(DEG_file) as f:
         filename = DEG_file
@@ -42,7 +42,7 @@ for DEG_file in DEG_files:
                 P_val = split_line[6]
                 if abs(log_change) >= LFC and P_val <= Sig_Level:
                     entryname = "_".join([filename, gene_name])
-                    DEG_dict[entryname].extend([log_change, P_val])
+                    DEG_list.append(entryname)
 
 reference_name = conf.Reference_name
 ortho_dict = defaultdict(list)
