@@ -1564,17 +1564,19 @@ do
 done
 
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
-OutDir=analysis/DeSeq/Method_2
-mkdir -p $OutDir
-for File in $(ls analysis/DeSeq/*_featurecounts.txt)
+for Strain in Bc1 Bc16 Nov9
 do
-    echo $File
-    cp $File $OutDir/.
-done
-for File in $(ls $OutDir/*_featurecounts.txt)
-do
-    Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
-    sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
+    OutDir=analysis/DeSeq/Method_2/$Strain
+    for File in $(ls analysis/DeSeq/"$Strain"_*_featurecounts.txt)
+    do
+        echo $File
+        cp $File $OutDir/$Strain/.
+    done
+    for File in $(ls $OutDir/$Strain/*_featurecounts.txt)
+    do
+        Prefix=$(echo $File | rev | cut -f1 -d '/' | rev | sed 's/_featurecounts.txt//g')
+        sed -ie "s/star_aligmentAligned.sortedByCoord.out.bam/$Prefix/g" $File
+    done
 done
 
 #Method 3
