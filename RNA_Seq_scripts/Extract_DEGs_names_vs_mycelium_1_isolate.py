@@ -60,17 +60,14 @@ for line in Ortho_lines:
 # Create organism variables
 #-----------------------------------------------------
 
-Organisms = []
+Organism = []
 for DEG_file in DEG_files:
-    Organism_A = DEG_file.split('/')[-1].split('_')[0]
-    Organisms.append(Organism_A)
-    Organism_B = DEG_file.split('/')[-1].split('_')[3]
-    Organisms.append(Organism_B)
+    Organism_ID = DEG_file.split('/')[-1].split('_')[0]
+    Organisms.append(Organism_ID)
 
-Organisms = set(Organisms)
-Organism1 = list(Organisms)[0]
-Organism2 = list(Organisms)[1]
-Organism3 = list(Organisms)[2]
+
+Organism = set(Organism)
+Organism1 = list(Organism)[0]
 
 #-----------------------------------------------------
 # Step 3
@@ -91,34 +88,6 @@ for transcript in Org1_set:
     orthogroup = ortho_dict[transcript]
     Org1_dict[transcript].extend(orthogroup)
 
-#Organism2
-Org2 = []
-for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Organism2:
-        transcript_id = item.split('/').split('_')[6]
-        Org2.append(transcript_id)
-
-Org2_set = set(Org2)
-Org2_dict = defaultdict(str)
-
-for transcript in Org2_set:
-    orthogroup = ortho_dict[transcript]
-    Org2_dict[transcript].extend(orthogroup)
-
-#Organism3
-Org3 = []
-for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Organism3:
-        transcript_id = item.split('/').split('_')[6]
-        Org3.append(transcript_id)
-
-Org3_set = set(Org3)
-Org3_dict = defaultdict(str)
-
-for transcript in Org3_set:
-    orthogroup = ortho_dict[transcript]
-    Org3_dict[transcript].extend(orthogroup)
-
 #-----------------------------------------------------
 # Step 4
 # Write output files
@@ -126,9 +95,3 @@ for transcript in Org3_set:
 
 with open(Organism1".txt") as f:
     o.write(json.dumps(Org1_dict))
-
-with open(Organism2".txt") as f:
-    o.write(json.dumps(Org2_dict))
-
-with open(Organism3".txt") as f:
-    o.write(json.dumps(Org3_dict))
