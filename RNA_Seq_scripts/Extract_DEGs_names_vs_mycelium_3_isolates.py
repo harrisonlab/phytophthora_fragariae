@@ -54,3 +54,8 @@ for line in Ortho_lines:
     for gene in genes_in_group:
         gene = gene.replace(reference_name, '').replace('|', '')
         ortho_dict[gene] = orthogroup
+
+#-----------------------------------------------------
+# Step 2
+# Create organism variables
+#-----------------------------------------------------
