@@ -34,9 +34,9 @@ with open(conf.Orthogroup_in) as f:
 # Build dictonaries of count data and of orthogroups
 #-----------------------------------------------------
 
-Isolate1_dict = deafultdict(list)
-Isolate2_dict = deafultdict(float)
-Isolate3_dict = deafultdict(float)
+Isolate1_dict = defaultdict(list)
+Isolate2_dict = defaultdict(float)
+Isolate3_dict = defaultdict(float)
 transcript_list = []
 
 for line in fpkm_lines:
