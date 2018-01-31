@@ -37,10 +37,12 @@ with open(conf.Orthogroup_in) as f:
 Isolate1_dict = deafultdict(list)
 Isolate2_dict = deafultdict(float)
 Isolate3_dict = deafultdict(float)
+transcript_list = []
 
 for line in fpkm_lines:
     split_lines = line.split()
     transcript_id = split_lines[0]
+    transcript_list.append(transcript_id)
     time_a_list = []
     time_a_list.append(split_lines[1])
     time_a_list.append(split_lines[2])
