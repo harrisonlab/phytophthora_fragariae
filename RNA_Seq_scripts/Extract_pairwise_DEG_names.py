@@ -77,3 +77,5 @@ Organism3 = list(Organisms)[2]
 # Step 3
 # Write output files
 #-----------------------------------------------------
+
+#BC-16 vs BC-1
