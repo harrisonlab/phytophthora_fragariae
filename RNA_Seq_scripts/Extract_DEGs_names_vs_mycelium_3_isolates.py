@@ -21,3 +21,36 @@ conf = ap.parse_args()
 # Step 1
 # Load input files
 #-----------------------------------------------------
+
+LFC = conf.Min_LFC
+Sig_Level = conf.Sig_Level
+
+DEG_files = conf.DEG_files
+DEG_list = []
+for DEG_file in DEG_files:
+    with open(DEG_file) as f:
+        filename = DEG_file
+        DEG_lines = f.readlines()
+        for line in DEG_lines:
+            if line.startswith('baseMean'):
+                continue
+            else:
+                split_line = line.split()
+                gene_name = split_line[0]
+                log_change = split_line[2]
+                P_val = split_line[6]
+                if abs(log_change) >= LFC and P_val <= Sig_Level:
+                    entryname = "_".join([filename, gene_name])
+                    DEG_list.append(entryname)
+
+reference_name = conf.Reference_name
+ortho_dict = defaultdict(list)
+for line in Ortho_lines:
+    line = line.rstrip()
+    split_line = line.split()
+    orthogroup = split_line[0]
+    orthogroup = orthogroup.replace(":", "")
+    genes_in_group = [ x for x in split_line if reference_name in x ]
+    for gene in genes_in_group:
+        gene = gene.replace(reference_name, '').replace('|', '')
+        ortho_dict[gene] = orthogroup
