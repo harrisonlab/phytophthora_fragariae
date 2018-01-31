@@ -69,3 +69,15 @@ for line in fpkm_lines:
     time_e_list.append(split_lines[15])
     time_e = np.mean(time_e_list)
     Isolate3_dict[transcript_id].extend(time_e)
+
+organism_name = conf.Organism_name
+ortho_dict = defaultdict(list)
+for line in Ortho_lines:
+    line = line.rstrip()
+    split_line = line.split()
+    orthogroup = split_line[0]
+    orthogroup = orthogroup.replace(":", "")
+    genes_in_group = [ x for x in split_line if organism_name in x ]
+    for gene in genes_in_group:
+        gene = gene.replace(organism_name, '').replace('|', '')
+        ortho_dict[gene] = orthogroup
