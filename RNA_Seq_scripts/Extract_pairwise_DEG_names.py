@@ -58,3 +58,8 @@ for line in Ortho_lines:
     for gene in genes_in_group:
         gene = gene.replace(organism_name, '').replace('|', '')
         ortho_dict[gene] = orthogroup
+
+#-----------------------------------------------------
+# Step 2
+# Print DEG names and Orthogroup IDs to text files
+#-----------------------------------------------------
