@@ -76,3 +76,45 @@ Organism3 = list(Organisms)[2]
 # Step 3
 # Create dictionaries for output
 #-----------------------------------------------------
+
+#Organism1
+Org1 = []
+for item in DEG_list:
+    if item.split('/')[-1].split('_')[0] == Organism1:
+        transcript_id = item.split('/').split('_')[6]
+        Org1.append(transcript_id)
+
+Org1_set = set(Org1)
+Org1_dict = defaultdict(str)
+
+for transcript in Org1_set:
+    orthogroup = ortho_dict[transcript]
+    Org1_dict[transcript].extend(orthogroup)
+
+#Organism2
+Org2 = []
+for item in DEG_list:
+    if item.split('/')[-1].split('_')[0] == Organism2:
+        transcript_id = item.split('/').split('_')[6]
+        Org2.append(transcript_id)
+
+Org2_set = set(Org2)
+Org2_dict = defaultdict(str)
+
+for transcript in Org2_set:
+    orthogroup = ortho_dict[transcript]
+    Org2_dict[transcript].extend(orthogroup)
+
+#Organism3
+Org3 = []
+for item in DEG_list:
+    if item.split('/')[-1].split('_')[0] == Organism3:
+        transcript_id = item.split('/').split('_')[6]
+        Org3.append(transcript_id)
+
+Org3_set = set(Org3)
+Org3_dict = defaultdict(str)
+
+for transcript in Org3_set:
+    orthogroup = ortho_dict[transcript]
+    Org3_dict[transcript].extend(orthogroup)
