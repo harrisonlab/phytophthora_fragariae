@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 '''
-This script uses the output of DeSeq2 to produce a list of genes that are differntially expressed only in a single isolate and add orthogroup ID for each gene
+This script uses the output of DeSeq2 to produce a list of genes that are differntially expressed only in a single isolate and add orthogroup ID for each gene. Only works for three isolates.
 '''
 
 import sys,argparse
@@ -16,9 +16,6 @@ ap.add_argument('--Orthogroup_in',required=True,type=str,help='text output file 
 ap.add_argument('--Reference_name',required=True,type=str,help='Name of organism gene IDs are from in FPKM input file')
 ap.add_argument('--Min_LFC',required=True,type=float,help='Minimum log fold change for a gene to be called a DEG')
 ap.add_argument('--Sig_Level',required=True,type=float,help='Minimum p-value for a DEG to be considered significant')
-ap.add_argument('--Output_1',required=True,type=str,help='Output text file for isolate 1, three timepoints')
-ap.add_argument('--Output_2',required=True,type=str,help='Output text file for isolate 2, one timepoint')
-ap.add_argument('--Output_3',required=True,type=str,help='Output text file for isolate 3, one timepoint')
 conf = ap.parse_args()
 
 #-----------------------------------------------------
@@ -61,5 +58,17 @@ for line in Ortho_lines:
 
 #-----------------------------------------------------
 # Step 2
-# Print DEG names and Orthogroup IDs to text files
+# Create organism variables
 #-----------------------------------------------------
+
+Organisms = []
+for DEG_file in DEG_files:
+    Organism_A = DEG_file.split('/')[-1].split('_')[0]
+    Organisms.append(Organism_A)
+    Organism_B = DEG_file.split('/')[-1].split('_')[3]
+    Organisms.append(Organism_B)
+
+Organisms = set(Organisms)
+Organism1 = list(Organisms)[0]
+Organism2 = list(Organisms)[1]
+Organism3 = list(Organisms)[2]
