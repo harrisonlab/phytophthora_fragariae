@@ -16,3 +16,8 @@ ap.add_argument('--Reference_name',required=True,type=str,help='Name of organism
 ap.add_argument('--Min_LFC',required=True,type=float,help='Minimum log fold change for a gene to be called a DEG')
 ap.add_argument('--Sig_Level',required=True,type=float,help='Minimum p-value for a DEG to be considered significant')
 conf = ap.parse_args()
+
+#-----------------------------------------------------
+# Step 1
+# Load input files
+#-----------------------------------------------------
