@@ -118,3 +118,8 @@ Org3_dict = defaultdict(str)
 for transcript in Org3_set:
     orthogroup = ortho_dict[transcript]
     Org3_dict[transcript].extend(orthogroup)
+
+#-----------------------------------------------------
+# Step 4
+# Write output files
+#-----------------------------------------------------
