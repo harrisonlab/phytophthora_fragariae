@@ -78,4 +78,19 @@ Organism3 = list(Organisms)[2]
 # Write output files
 #-----------------------------------------------------
 
-#BC-16 vs BC-1
+#Organism1 vs Organism2
+Org1_vs_Org2 = []
+for item in DEG_list:
+    if item.split('/')[-1].split('_')[0] == Organism1 and item.split('/')[-1].split('_')[5] == "up":
+        transcript_id = item.split('/').split('_')[6]
+        Org1_vs_Org2.append(transcript_id)
+    elif item.split('/')[-1].split('_')[3] == Organism1 and item.split('/')[-1].split('_')[5] == "down":
+        transcript_id = item.split('/').split('_')[6]
+        Org1_vs_Org2.append(transcript_id)
+
+Org1_vs_Org2_set = set(Org1_vs_Org2)
+Org1_vs_Org2_dict = defaultdict(str)
+
+for transcript in Org1_vs_Org2_set:
+    orthogroup = ortho_dict[transcript]
+    Org1_vs_Org2_dict[transcript].extend(orthogroup)
