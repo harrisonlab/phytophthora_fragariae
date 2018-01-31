@@ -1447,118 +1447,123 @@ do
 done
 
 #Method 2
-OutDir=analysis/DeSeq/Method_2
-mkdir -p $OutDir
-printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_method2_RNAseq_design.txt
-for i in $(seq 1 24)
+
+#BC-16
+
+for OutDir in analysis/DeSeq/Method_2/Bc16 analysis/DeSeq/Method_2/Bc1 analysis/DeSeq/Method_2/Nov9
 do
-    if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
-    then
-        Timepoint='24hr'
-        Infection='Bc16'
-    elif [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ]
-    then
-        Timepoint='48hr'
-        Infection='Bc16'
-    elif [ $i == '7' ] || [ $i == '8' ] || [ $i == '9' ]
-    then
-        Timepoint='48hr'
-        Infection='Bc1'
-    elif [ $i == '10' ] || [ $i == '11' ] || [ $i == '12' ]
-    then
-        Timepoint='72hr'
-        Infection='Nov9'
-    elif [ $i == '13' ] || [ $i == '14' ] || [ $i == '15' ]
-    then
-        Timepoint='96hr'
-        Infection='Bc16'
-    elif [ $i == '16' ] || [ $i == '17' ] || [ $i == '18' ]
-    then
-        Timepoint='mycelium'
-        Infection='Bc16'
-    elif [ $i == '19' ] || [ $i == '20' ] || [ $i == '21' ]
-    then
-        Timepoint='mycelium'
-        Infection='Bc1'
-    elif [ $i == '22' ] || [ $i == '23' ] || [ $i == '24' ]
-    then
-        Timepoint='mycelium'
-        Infection='Nov9'
-    fi
-    if [ $i == '1' ]
-    then
-        printf "TA-07\t$Timepoint\t$Infection\n"
-    elif [ $i == '2' ]
-    then
-        printf "TA-08\t$Timepoint\t$Infection\n"
-    elif [ $i == '3' ]
-    then
-        printf "TA-09\t$Timepoint\t$Infection\n"
-    elif [ $i == '4' ]
-    then
-        printf "TA-12\t$Timepoint\t$Infection\n"
-    elif [ $i == '5' ]
-    then
-        printf "TA-13\t$Timepoint\t$Infection\n"
-    elif [ $i == '6' ]
-    then
-        printf "TA-14\t$Timepoint\t$Infection\n"
-    elif [ $i == '7' ]
-    then
-        printf "TA_B_P1\t$Timepoint\t$Infection\n"
-    elif [ $i == '8' ]
-    then
-        printf "TA_B_P2\t$Timepoint\t$Infection\n"
-    elif [ $i == '9' ]
-    then
-        printf "TA_B_P3\t$Timepoint\t$Infection\n"
-    elif [ $i == '10' ]
-    then
-        printf "TA_NO_P1\t$Timepoint\t$Infection\n"
-    elif [ $i == '11' ]
-    then
-        printf "TA_NO_P2\t$Timepoint\t$Infection\n"
-    elif [ $i == '12' ]
-    then
-        printf "TA_NO_P3\t$Timepoint\t$Infection\n"
-    elif [ $i == '13' ]
-    then
-        printf "TA-18\t$Timepoint\t$Infection\n"
-    elif [ $i == '14' ]
-    then
-        printf "TA-19\t$Timepoint\t$Infection\n"
-    elif [ $i == '15' ]
-    then
-        printf "TA-20\t$Timepoint\t$Infection\n"
-    elif [ $i == '16' ]
-    then
-        printf "TA-32\t$Timepoint\t$Infection\n"
-    elif [ $i == '17' ]
-    then
-        printf "TA-34\t$Timepoint\t$Infection\n"
-    elif [ $i == '18' ]
-    then
-        printf "TA-35\t$Timepoint\t$Infection\n"
-    elif [ $i == '19' ]
-    then
-        printf "TA_B_M1\t$Timepoint\t$Infection\n"
-    elif [ $i == '20' ]
-    then
-        printf "TA_B_M2\t$Timepoint\t$Infection\n"
-    elif [ $i == '21' ]
-    then
-        printf "TA_B_M3\t$Timepoint\t$Infection\n"
-    elif [ $i == '22' ]
-    then
-        printf "TA_NO_M1\t$Timepoint\t$Infection\n"
-    elif [ $i == '23' ]
-    then
-        printf "TA_NO_M2\t$Timepoint\t$Infection\n"
-    elif [ $i == '24' ]
-    then
-        printf "TA_NO_M5\t$Timepoint\t$Infection\n"
-    fi
-done >> $OutDir/P.frag_method2_RNAseq_design.txt
+    mkdir -p $OutDir
+    printf "Sample.name\tTimepoint\tIsolate\n" > $OutDir/P.frag_method2_RNAseq_design.txt
+    for i in $(seq 1 24)
+    do
+        if [ $i == '1' ] || [ $i == '2' ] || [ $i == '3' ]
+        then
+            Timepoint='24hr'
+            Infection='Bc16'
+        elif [ $i == '4' ] || [ $i == '5' ] || [ $i == '6' ]
+        then
+            Timepoint='48hr'
+            Infection='Bc16'
+        elif [ $i == '7' ] || [ $i == '8' ] || [ $i == '9' ]
+        then
+            Timepoint='48hr'
+            Infection='Bc1'
+        elif [ $i == '10' ] || [ $i == '11' ] || [ $i == '12' ]
+        then
+            Timepoint='72hr'
+            Infection='Nov9'
+        elif [ $i == '13' ] || [ $i == '14' ] || [ $i == '15' ]
+        then
+            Timepoint='96hr'
+            Infection='Bc16'
+        elif [ $i == '16' ] || [ $i == '17' ] || [ $i == '18' ]
+        then
+            Timepoint='mycelium'
+            Infection='Bc16'
+        elif [ $i == '19' ] || [ $i == '20' ] || [ $i == '21' ]
+        then
+            Timepoint='mycelium'
+            Infection='Bc1'
+        elif [ $i == '22' ] || [ $i == '23' ] || [ $i == '24' ]
+        then
+            Timepoint='mycelium'
+            Infection='Nov9'
+        fi
+        if [ $i == '1' ]
+        then
+            printf "TA-07\t$Timepoint\t$Infection\n"
+        elif [ $i == '2' ]
+        then
+            printf "TA-08\t$Timepoint\t$Infection\n"
+        elif [ $i == '3' ]
+        then
+            printf "TA-09\t$Timepoint\t$Infection\n"
+        elif [ $i == '4' ]
+        then
+            printf "TA-12\t$Timepoint\t$Infection\n"
+        elif [ $i == '5' ]
+        then
+            printf "TA-13\t$Timepoint\t$Infection\n"
+        elif [ $i == '6' ]
+        then
+            printf "TA-14\t$Timepoint\t$Infection\n"
+        elif [ $i == '7' ]
+        then
+            printf "TA_B_P1\t$Timepoint\t$Infection\n"
+        elif [ $i == '8' ]
+        then
+            printf "TA_B_P2\t$Timepoint\t$Infection\n"
+        elif [ $i == '9' ]
+        then
+            printf "TA_B_P3\t$Timepoint\t$Infection\n"
+        elif [ $i == '10' ]
+        then
+            printf "TA_NO_P1\t$Timepoint\t$Infection\n"
+        elif [ $i == '11' ]
+        then
+            printf "TA_NO_P2\t$Timepoint\t$Infection\n"
+        elif [ $i == '12' ]
+        then
+            printf "TA_NO_P3\t$Timepoint\t$Infection\n"
+        elif [ $i == '13' ]
+        then
+            printf "TA-18\t$Timepoint\t$Infection\n"
+        elif [ $i == '14' ]
+        then
+            printf "TA-19\t$Timepoint\t$Infection\n"
+        elif [ $i == '15' ]
+        then
+            printf "TA-20\t$Timepoint\t$Infection\n"
+        elif [ $i == '16' ]
+        then
+            printf "TA-32\t$Timepoint\t$Infection\n"
+        elif [ $i == '17' ]
+        then
+            printf "TA-34\t$Timepoint\t$Infection\n"
+        elif [ $i == '18' ]
+        then
+            printf "TA-35\t$Timepoint\t$Infection\n"
+        elif [ $i == '19' ]
+        then
+            printf "TA_B_M1\t$Timepoint\t$Infection\n"
+        elif [ $i == '20' ]
+        then
+            printf "TA_B_M2\t$Timepoint\t$Infection\n"
+        elif [ $i == '21' ]
+        then
+            printf "TA_B_M3\t$Timepoint\t$Infection\n"
+        elif [ $i == '22' ]
+        then
+            printf "TA_NO_M1\t$Timepoint\t$Infection\n"
+        elif [ $i == '23' ]
+        then
+            printf "TA_NO_M2\t$Timepoint\t$Infection\n"
+        elif [ $i == '24' ]
+        then
+            printf "TA_NO_M5\t$Timepoint\t$Infection\n"
+        fi
+    done >> $OutDir/P.frag_method2_RNAseq_design.txt
+done
 
 #Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
 OutDir=analysis/DeSeq/Method_2
