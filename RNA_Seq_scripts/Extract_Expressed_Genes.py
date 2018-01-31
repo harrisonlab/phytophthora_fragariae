@@ -107,3 +107,8 @@ for transcript, fpkm in Isolate3_dict.items():
     if fpkm > 5:
         orthogroup = ortho_dict[transcript]
         Isolate3_candidates[transcript].extend(orthogroup)
+
+#-----------------------------------------------------
+# Step 4
+# Print text files of expressed genes using dictionaries
+#-----------------------------------------------------
