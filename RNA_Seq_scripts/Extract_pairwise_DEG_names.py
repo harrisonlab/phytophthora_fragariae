@@ -75,7 +75,7 @@ Organism3 = list(Organisms)[2]
 
 #-----------------------------------------------------
 # Step 3
-# Write output files
+# Create dictionaries for output
 #-----------------------------------------------------
 
 #Organism1 vs Organism2
