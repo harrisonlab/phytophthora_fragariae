@@ -112,6 +112,23 @@ for transcript in Org1_vs_Org3_set:
     orthogroup = ortho_dict[transcript]
     Org1_vs_Org3_dict[transcript].extend(orthogroup)
 
+#Organism2 vs Organism1
+Org2_vs_Org1 = []
+for item in DEG_list:
+    if item.split('/')[-1].split('_')[0] == Organism2 and item.split('/')[-1].split('_')[5] == "up":
+        transcript_id = item.split('/').split('_')[6]
+        Org2_vs_Org1.append(transcript_id)
+    elif item.split('/')[-1].split('_')[3] == Organism2 and item.split('/')[-1].split('_')[5] == "down":
+        transcript_id = item.split('/').split('_')[6]
+        Org2_vs_Org1.append(transcript_id)
+
+Org2_vs_Org1_set = set(Org2_vs_Org1)
+Org2_vs_Org1_dict = defaultdict(str)
+
+for transcript in Org2_vs_Org1_set:
+    orthogroup = ortho_dict[transcript]
+    Org2_vs_Org1_dict[transcript].extend(orthogroup)
+
 #Organism2 vs Organism3
 Org2_vs_Org3 = []
 for item in DEG_list:
