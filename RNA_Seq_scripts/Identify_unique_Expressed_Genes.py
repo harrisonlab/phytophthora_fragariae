@@ -138,7 +138,11 @@ print("Expressed genes identified")
 # Print text files of expressed genes using dictionaries
 #-----------------------------------------------------
 
-with open(Reference_name"_"Org1"_expressed.txt", 'w') as o:
+Org1_out = "_".join([Reference_name, Org1, "expressed.txt"])
+Org2_out = "_".join([Reference_name, Org2, "expressed.txt"])
+Org3_out = "_".join([Reference_name, Org3, "expressed.txt"])
+
+with open(Org1_out, 'w') as o:
     keys = Isolate1_candidates.keys()
     for item in keys:
         orthogroup = Isolate1_candidates[item]
@@ -146,7 +150,7 @@ with open(Reference_name"_"Org1"_expressed.txt", 'w') as o:
         o.write(output)
         o.write("\n")
 
-with open(Reference_name"_"Org2"_expressed.txt", 'w') as o:
+with open(Org2_out, 'w') as o:
     keys = Isolate2_candidates.keys()
     for item in keys:
         orthogroup = Isolate2_candidates[item]
@@ -154,7 +158,7 @@ with open(Reference_name"_"Org2"_expressed.txt", 'w') as o:
         o.write(output)
         o.write("\n")
 
-with open(Reference_name"_"Org3"_expressed.txt", 'w') as o:
+with open(Org3_out, 'w') as o:
     keys = Isolate3_candidates.keys()
     for item in keys:
         orthogroup = Isolate3_candidates[item]
@@ -202,21 +206,29 @@ print("Unique lists created")
 # Print all uniquely expressed genes to text file
 #-----------------------------------------------------
 
-with open("all_genes/"Reference_name"_"Org1"_expressed_unique.txt", 'w') as o:
+Org1_file = "_".join([Reference_name, Org1, "expressed_unique.txt"])
+Org2_file = "_".join([Reference_name, Org2, "expressed_unique.txt"])
+Org3_file = "_".join([Reference_name, Org3, "expressed_unique.txt"])
+
+Org1_out = "/".join(["all_genes", Org1_file])
+Org2_out = "/".join(["all_genes", Org2_file])
+Org3_out = "/".join(["all_genes", Org3_file])
+
+with open(Org1_out, 'w') as o:
     for item in Isolate1_uniq:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("all_genes/"Reference_name"_"Org2"_expressed_unique.txt", 'w') as o:
+with open(Org2_out, 'w') as o:
     for item in Isolate2_uniq:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("all_genes/"Reference_name"_"Org3"_expressed_unique.txt", 'w') as o:
+with open(Org2_out, 'w') as o:
     for item in Isolate3_uniq:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
@@ -260,21 +272,29 @@ print("Unqiuely expressed RxLRs identified")
 # Print all uniquely expressed RxLRs to text file
 #-----------------------------------------------------
 
-with open("RxLRs/"Reference_name"_"Org1"_expressed_unique_RxLRs.txt", 'w') as o:
+Org1_file = "_".join([Reference_name, Org1, "expressed_unique_RxLRs.txt"])
+Org2_file = "_".join([Reference_name, Org2, "expressed_unique_RxLRs.txt"])
+Org3_file = "_".join([Reference_name, Org3, "expressed_unique_RxLRs.txt"])
+
+Org1_out = "/".join(["RxLRs", Org1_file])
+Org2_out = "/".join(["RxLRs", Org2_file])
+Org3_out = "/".join(["RxLRs", Org3_file])
+
+with open(Org1_out, 'w') as o:
     for item in Isolate1_RxLR:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("RxLRs/"Reference_name"_"Org2"_expressed_unique_RxLRs.txt", 'w') as o:
+with open(Org2_out, 'w') as o:
     for item in Isolate2_RxLR:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("RxLRs/"Reference_name"_"Org3"_expressed_unique_RxLRs.txt", 'w') as o:
+with open(Org3_out, 'w') as o:
     for item in Isolate3_RxLR:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
@@ -318,21 +338,29 @@ print("Unqiuely expressed CRNs identified")
 # Print all uniquely expressed CRNs to text file
 #-----------------------------------------------------
 
-with open("CRNs/"Reference_name"_"Org1"_expressed_unique_CRNs.txt", 'w') as o:
+Org1_file = "_".join([Reference_name, Org1, "expressed_unique_CRNs.txt"])
+Org2_file = "_".join([Reference_name, Org2, "expressed_unique_CRNs.txt"])
+Org3_file = "_".join([Reference_name, Org3, "expressed_unique_CRNs.txt"])
+
+Org1_out = "/".join(["CRNs", Org1_file])
+Org2_out = "/".join(["CRNs", Org2_file])
+Org3_out = "/".join(["CRNs", Org3_file])
+
+with open(Org1_out, 'w') as o:
     for item in Isolate1_CRN:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("CRNs/"Reference_name"_"Org2"_expressed_unique_CRNs.txt", 'w') as o:
+with open(Org2_out, 'w') as o:
     for item in Isolate2_CRN:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("CRNs/"Reference_name"_"Org3"_expressed_unique_CRNs.txt", 'w') as o:
+with open(Org3_out, 'w') as o:
     for item in Isolate3_CRN:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
@@ -376,21 +404,29 @@ print("Unqiuely expressed apoplastic effectors identified")
 # Print all uniquely expressed apoplastic effectors to text file
 #-----------------------------------------------------
 
-with open("ApoP/"Reference_name"_"Org1"_expressed_unique_ApoP.txt", 'w') as o:
+Org1_file = "_".join([Reference_name, Org1, "expressed_unique_ApoP.txt"])
+Org2_file = "_".join([Reference_name, Org2, "expressed_unique_ApoP.txt"])
+Org3_file = "_".join([Reference_name, Org3, "expressed_unique_ApoP.txt"])
+
+Org1_out = "/".join(["ApoP", Org1_file])
+Org2_out = "/".join(["ApoP", Org2_file])
+Org3_out = "/".join(["ApoP", Org3_file])
+
+with open(Org1_out, 'w') as o:
     for item in Isolate1_ApoP:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("ApoP/"Reference_name"_"Org2"_expressed_unique_ApoP.txt", 'w') as o:
+with open(Org2_out, 'w') as o:
     for item in Isolate2_ApoP:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("ApoP/"Reference_name"_"Org3"_expressed_unique_ApoP.txt", 'w') as o:
+with open(Org3_out, 'w') as o:
     for item in Isolate3_ApoP:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
@@ -458,21 +494,29 @@ print("Unqiuely expressed secreted proteins identified")
 # Print all uniquely expressed Secreted proteins to text file
 #-----------------------------------------------------
 
-with open("Secreted/"Reference_name"_"Org1"_expressed_unique_Secreted.txt", 'w') as o:
+Org1_file = "_".join([Reference_name, Org1, "expressed_unique_secreted.txt"])
+Org2_file = "_".join([Reference_name, Org2, "expressed_unique_secreted.txt"])
+Org3_file = "_".join([Reference_name, Org3, "expressed_unique_secreted.txt"])
+
+Org1_out = "/".join(["Secreted", Org1_file])
+Org2_out = "/".join(["Secreted", Org2_file])
+Org3_out = "/".join(["Secreted", Org3_file])
+
+with open(Org1_out, 'w') as o:
     for item in Isolate1_Secreted:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("Secreted/"Reference_name"_"Org2"_expressed_unique_Secreted.txt", 'w') as o:
+with open(Org2_out, 'w') as o:
     for item in Isolate2_Secreted:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
-with open("Secreted/"Reference_name"_"Org3"_expressed_unique_Secreted.txt", 'w') as o:
+with open(Org3_out, 'w') as o:
     for item in Isolate3_Secreted:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
