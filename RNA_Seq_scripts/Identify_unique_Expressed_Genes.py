@@ -149,8 +149,8 @@ Org2_file = "_".join([Reference_name, Org2, "expressed.txt"])
 Org3_file = "_".join([Reference_name, Org3, "expressed.txt"])
 
 Org1_out = "/".join([cwd, OutDir, Org1_file])
-Org2_out = "/".join([cwd, OutDir, Org1_file])
-Org3_out = "/".join([cwd, OutDir, Org1_file])
+Org2_out = "/".join([cwd, OutDir, Org2_file])
+Org3_out = "/".join([cwd, OutDir, Org3_file])
 
 with open(Org1_out, 'w') as o:
     keys = Isolate1_candidates.keys()
@@ -238,7 +238,7 @@ with open(Org2_out, 'w') as o:
         o.write(output)
         o.write("\n")
 
-with open(Org2_out, 'w') as o:
+with open(Org3_out, 'w') as o:
     for item in Isolate3_uniq:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
