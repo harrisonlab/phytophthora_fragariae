@@ -35,8 +35,8 @@ with open(conf.Orthogroup_in) as f:
 #-----------------------------------------------------
 
 Isolate1_dict = defaultdict(list)
-Isolate2_dict = defaultdict(float)
-Isolate3_dict = defaultdict(float)
+Isolate2_dict = defaultdict(list)
+Isolate3_dict = defaultdict(list)
 transcript_list = []
 
 for line in fpkm_lines:
@@ -44,31 +44,31 @@ for line in fpkm_lines:
     transcript_id = split_lines[0]
     transcript_list.append(transcript_id)
     time_a_list = []
-    time_a_list.append(split_lines[1])
-    time_a_list.append(split_lines[2])
-    time_a_list.append(split_lines[3])
+    time_a_list.append(float(split_lines[1]))
+    time_a_list.append(float(split_lines[2]))
+    time_a_list.append(float(split_lines[3]))
     time_a = np.mean(time_a_list)
     time_b_list = []
-    time_b_list.append(split_lines[4])
-    time_b_list.append(split_lines[5])
-    time_b_list.append(split_lines[6])
+    time_b_list.append(float(split_lines[4]))
+    time_b_list.append(float(split_lines[5]))
+    time_b_list.append(float(split_lines[6]))
     time_b = np.mean(time_b_list)
     time_c_list = []
-    time_c_list.append(split_lines[7])
-    time_c_list.append(split_lines[8])
-    time_c_list.append(split_lines[9])
+    time_c_list.append(float(split_lines[7]))
+    time_c_list.append(float(split_lines[8]))
+    time_c_list.append(float(split_lines[9]))
     time_c = np.mean(time_c_list)
     Isolate1_dict[transcript_id].extend([time_a, time_b, time_c])
     time_d_list = []
-    time_d_list.append(split_lines[10])
-    time_d_list.append(split_lines[11])
-    time_d_list.append(split_lines[12])
+    time_d_list.append(float(split_lines[10]))
+    time_d_list.append(float(split_lines[11]))
+    time_d_list.append(float(split_lines[12]))
     time_d = np.mean(time_d_list)
     Isolate2_dict[transcript_id].extend(time_d)
     time_e_list = []
-    time_e_list.append(split_lines[13])
-    time_e_list.append(split_lines[14])
-    time_e_list.append(split_lines[15])
+    time_e_list.append(float(split_lines[13]))
+    time_e_list.append(float(split_lines[14]))
+    time_e_list.append(float(split_lines[15]))
     time_e = np.mean(time_e_list)
     Isolate3_dict[transcript_id].extend(time_e)
 
