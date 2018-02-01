@@ -3774,7 +3774,7 @@ for Strain in Bc16 Bc1 Nov9
 do
     OutDir=analysis/DeSeq/Method_1/expression_results
     echo "Analysis using $Strain as the reference genome"
-    echo "\n"
+    printf "\n"
     Uniq_Bc16=$OutDir/all_genes/"$Strain"_Bc16_expressed_unique.txt
     Uniq_Bc1=$OutDir/all_genes/"$Strain"_Bc1_expressed_unique.txt
     Uniq_Nov9=$OutDir/all_genes/"$Strain"_Nov9_expressed_unique.txt
@@ -3820,6 +3820,6 @@ do
     cat $Uniq_Sec_Bc1 | wc -l
     echo "The number of NOV-9 uniquely expressed secreted proteins is:"
     cat $Uniq_Sec_Nov9 | wc -l
-    echo "\n"
+    printf "\n"
 done
 ```
