@@ -138,7 +138,7 @@ print("Expressed genes identified")
 # Print text files of expressed genes using dictionaries
 #-----------------------------------------------------
 
-with open("all_genes/"Org1, 'w') as o:
+with open("all_genes/"Reference_name"_"Org1"_expressed.txt", 'w') as o:
     keys = Isolate1_candidates.keys()
     for item in keys:
         orthogroup = Isolate1_candidates[item]
@@ -146,7 +146,7 @@ with open("all_genes/"Org1, 'w') as o:
         o.write(output)
         o.write("\n")
 
-with open("all_genes/"Org2, 'w') as o:
+with open("all_genes/"Reference_name"_"Org2"_expressed.txt", 'w') as o:
     keys = Isolate2_candidates.keys()
     for item in keys:
         orthogroup = Isolate2_candidates[item]
@@ -154,7 +154,7 @@ with open("all_genes/"Org2, 'w') as o:
         o.write(output)
         o.write("\n")
 
-with open("all_genes/"Org3, 'w') as o:
+with open("all_genes/"Reference_name"_"Org3"_expressed.txt", 'w') as o:
     keys = Isolate3_candidates.keys()
     for item in keys:
         orthogroup = Isolate3_candidates[item]
@@ -168,3 +168,7 @@ print("Initial output files created for all genes")
 # Step 5
 # Identify genes that are uniquely expressed
 #-----------------------------------------------------
+
+Isolate1_set = set(Isolate1_candidates.keys())
+Isolate2_set = set(Isolate2_candidates.keys())
+Isolate3_set = set(Isolate3_candidates.keys())
