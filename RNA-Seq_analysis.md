@@ -3738,7 +3738,7 @@ do
     Output2=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc1_expressed.txt
     Output3=analysis/DeSeq/Method_1/expression_results/"$Strain"_Nov9_expressed.txt
     Scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-    python $Scripts/Extract_Expressed_Genes.py --FPKM_in $FPKM --Orthogroup_in $Orthogroups --Organism_name $Strain --Output_1 $Output1 --Output_2 $Output2 --Output_3 $Output3
+    python $Scripts/Extract_Expressed_Genes.py --FPKM_in $FPKM --Orthogroup_in $Orthogroups --Organism_name $Strain --Output_1 $Output1 --Output_2 $Output2 --Output_3 $Output3 --FPKM_min 5
     echo "$Strain done"
 done
 ```
