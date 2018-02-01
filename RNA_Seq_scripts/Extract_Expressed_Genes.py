@@ -15,6 +15,7 @@ ap.add_argument('--Organism_name',required=True,type=str,help='Name of organism 
 ap.add_argument('--Output_1',required=True,type=str,help='Output text file for isolate 1, three timepoints')
 ap.add_argument('--Output_2',required=True,type=str,help='Output text file for isolate 2, one timepoint')
 ap.add_argument('--Output_3',required=True,type=str,help='Output text file for isolate 3, one timepoint')
+ap.add_argument('--FPKM_min',required=True,type=float,help='Minimum FPKM value to accept as evidence of expression')
 conf = ap.parse_args()
 
 #-----------------------------------------------------
@@ -91,9 +92,10 @@ for line in Ortho_lines:
 Isolate1_candidates = defaultdict(list)
 Isolate2_candidates = defaultdict(list)
 Isolate3_candidates = defaultdict(list)
+FPKM = conf.FPKM_min
 
 for transcript, fpkm in Isolate1_dict.items():
-    if any(value >= 5 for value in fpkm):
+    if any(value >= FPKM for value in fpkm):
         if transcript in ortho_dict.keys():
             orthogroup = ortho_dict[transcript]
             Isolate1_candidates[transcript] = orthogroup
@@ -101,7 +103,7 @@ for transcript, fpkm in Isolate1_dict.items():
             Isolate1_candidates[transcript] = "None"
 
 for transcript, fpkm in Isolate2_dict.items():
-    if fpkm >= 5:
+    if fpkm >= FPKM:
         if transcript in ortho_dict.keys():
             orthogroup = ortho_dict[transcript]
             Isolate1_candidates[transcript] = orthogroup
@@ -109,7 +111,7 @@ for transcript, fpkm in Isolate2_dict.items():
             Isolate1_candidates[transcript] = "None"
 
 for transcript, fpkm in Isolate3_dict.items():
-    if fpkm >= 5:
+    if fpkm >= FPKM:
         if transcript in ortho_dict.keys():
             orthogroup = ortho_dict[transcript]
             Isolate1_candidates[transcript] = orthogroup
