@@ -265,15 +265,15 @@ Isolate3_RxLRs = []
 
 for transcript in Isolate1_uniq_set:
     if transcript in RxLR_set:
-        Isolate1_RxLR.append(transcript)
+        Isolate1_RxLRs.append(transcript)
 
 for transcript in Isolate2_uniq_set:
     if transcript in RxLR_set:
-        Isolate2_RxLR.append(transcript)
+        Isolate2_RxLRs.append(transcript)
 
 for transcript in Isolate3_uniq_set:
     if transcript in RxLR_set:
-        Isolate3_RxLR.append(transcript)
+        Isolate3_RxLRs.append(transcript)
 
 print("Unqiuely expressed RxLRs identified")
 
@@ -331,15 +331,15 @@ Isolate3_CRNs = []
 
 for transcript in Isolate1_uniq_set:
     if transcript in CRN_set:
-        Isolate1_CRN.append(transcript)
+        Isolate1_CRNs.append(transcript)
 
 for transcript in Isolate2_uniq_set:
     if transcript in CRN_set:
-        Isolate2_CRN.append(transcript)
+        Isolate2_CRNs.append(transcript)
 
 for transcript in Isolate3_uniq_set:
     if transcript in CRN_set:
-        Isolate3_CRN.append(transcript)
+        Isolate3_CRNs.append(transcript)
 
 print("Unqiuely expressed CRNs identified")
 
