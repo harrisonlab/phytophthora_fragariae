@@ -7,6 +7,7 @@ This script uses the output of DeSeq2 to produce a list of genes that are expres
 import sys,argparse
 from collections import defaultdict
 import numpy as np
+import os
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--FPKM_in',required=True,type=str,help='text output file from DeSeq2 commands of non-normalised FPKM values')
@@ -28,6 +29,8 @@ conf = ap.parse_args()
 # Step 1
 # Load input files
 #-----------------------------------------------------
+
+cwd = os.getcwd()
 
 with open(conf.FPKM_in) as f:
     fpkm_lines = f.readlines()[1:]
@@ -145,9 +148,9 @@ Org1_file = "_".join([Reference_name, Org1, "expressed.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed.txt"])
 Org3_file = "_".join([Reference_name, Org3, "expressed.txt"])
 
-Org1_out = "/".join([OutDir, Org1_file])
-Org2_out = "/".join([OutDir, Org1_file])
-Org3_out = "/".join([OutDir, Org1_file])
+Org1_out = "/".join([cwd, OutDir, Org1_file])
+Org2_out = "/".join([cwd, OutDir, Org1_file])
+Org3_out = "/".join([cwd, OutDir, Org1_file])
 
 with open(Org1_out, 'w') as o:
     keys = Isolate1_candidates.keys()
@@ -217,9 +220,9 @@ Org1_file = "_".join([Reference_name, Org1, "expressed_unique.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique.txt"])
 Org3_file = "_".join([Reference_name, Org3, "expressed_unique.txt"])
 
-Org1_out = "/".join([OutDir, "all_genes", Org1_file])
-Org2_out = "/".join([OutDir, "all_genes", Org2_file])
-Org3_out = "/".join([OutDir, "all_genes", Org3_file])
+Org1_out = "/".join([cwd, OutDir, "all_genes", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "all_genes", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "all_genes", Org3_file])
 
 with open(Org1_out, 'w') as o:
     for item in Isolate1_uniq:
@@ -283,9 +286,9 @@ Org1_file = "_".join([Reference_name, Org1, "expressed_unique_RxLRs.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique_RxLRs.txt"])
 Org3_file = "_".join([Reference_name, Org3, "expressed_unique_RxLRs.txt"])
 
-Org1_out = "/".join([OutDir, "RxLRs", Org1_file])
-Org2_out = "/".join([OutDir, "RxLRs", Org2_file])
-Org3_out = "/".join([OutDir, "RxLRs", Org3_file])
+Org1_out = "/".join([cwd, OutDir, "RxLRs", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "RxLRs", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "RxLRs", Org3_file])
 
 with open(Org1_out, 'w') as o:
     for item in Isolate1_RxLR:
@@ -349,9 +352,9 @@ Org1_file = "_".join([Reference_name, Org1, "expressed_unique_CRNs.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique_CRNs.txt"])
 Org3_file = "_".join([Reference_name, Org3, "expressed_unique_CRNs.txt"])
 
-Org1_out = "/".join([OutDir, "CRNs", Org1_file])
-Org2_out = "/".join([OutDir, "CRNs", Org2_file])
-Org3_out = "/".join([OutDir, "CRNs", Org3_file])
+Org1_out = "/".join([cwd, OutDir, "CRNs", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "CRNs", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "CRNs", Org3_file])
 
 with open(Org1_out, 'w') as o:
     for item in Isolate1_CRN:
@@ -415,9 +418,9 @@ Org1_file = "_".join([Reference_name, Org1, "expressed_unique_ApoP.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique_ApoP.txt"])
 Org3_file = "_".join([Reference_name, Org3, "expressed_unique_ApoP.txt"])
 
-Org1_out = "/".join([OutDir, "ApoP", Org1_file])
-Org2_out = "/".join([OutDir, "ApoP", Org2_file])
-Org3_out = "/".join([OutDir, "ApoP", Org3_file])
+Org1_out = "/".join([cwd, OutDir, "ApoP", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "ApoP", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "ApoP", Org3_file])
 
 with open(Org1_out, 'w') as o:
     for item in Isolate1_ApoP:
@@ -505,9 +508,9 @@ Org1_file = "_".join([Reference_name, Org1, "expressed_unique_secreted.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique_secreted.txt"])
 Org3_file = "_".join([Reference_name, Org3, "expressed_unique_secreted.txt"])
 
-Org1_out = "/".join([OutDir, "Secreted", Org1_file])
-Org2_out = "/".join([OutDir, "Secreted", Org2_file])
-Org3_out = "/".join([OutDir, "Secreted", Org3_file])
+Org1_out = "/".join([cwd, OutDir, "Secreted", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "Secreted", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "Secreted", Org3_file])
 
 with open(Org1_out, 'w') as o:
     for item in Isolate1_Secreted:
