@@ -89,9 +89,9 @@ for line in Ortho_lines:
 # Iterate over dictionaries to keep only those with FPKM > 5
 #-----------------------------------------------------
 
-Isolate1_candidates = defaultdict(str)
-Isolate2_candidates = defaultdict(str)
-Isolate3_candidates = defaultdict(str)
+Isolate1_candidates = defaultdict(list)
+Isolate2_candidates = defaultdict(list)
+Isolate3_candidates = defaultdict(list)
 
 for transcript, fpkm in Isolate1_dict.items():
     if any(value >= 5 for value in fpkm):
