@@ -312,3 +312,31 @@ for transcript in Isolate3_uniq_set:
         Isolate3_CRN.append(transcript)
 
 print("Unqiuely expressed CRNs identified")
+
+#-----------------------------------------------------
+# Step 10
+# Print all uniquely expressed CRNs to text file
+#-----------------------------------------------------
+
+with open("CRNs/"Reference_name"_"Org1"_expressed_unique_CRNs.txt", 'w') as o:
+    for item in Isolate1_CRN:
+        orthogroup = Isolate1_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+with open("CRNs/"Reference_name"_"Org2"_expressed_unique_CRNs.txt", 'w') as o:
+    for item in Isolate2_CRN:
+        orthogroup = Isolate2_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+with open("CRNs/"Reference_name"_"Org3"_expressed_unique_CRNs.txt", 'w') as o:
+    for item in Isolate3_CRN:
+        orthogroup = Isolate3_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+print("Output files created for all uniquely expressed CRNs")
