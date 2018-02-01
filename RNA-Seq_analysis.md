@@ -3717,3 +3717,5 @@ fpkm_counts <- data.frame(fpkm(dds, robust = FALSE))
 colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"analysis/DeSeq/Method_3/Nov9/fpkm_counts.txt",sep="\t",na="",quote=F)
 ```
+
+#Use custom python scripts to create lists of genes in orthogroups for each of the comparison mechanisms
