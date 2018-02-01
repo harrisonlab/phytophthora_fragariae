@@ -3741,6 +3741,12 @@ mkdir -p analysis/DeSeq/Method_1/expression_results/Secreted
 Now generate results
 
 ```bash
+screen -
+
+qlogin
+
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+
 for Strain in Bc1 Bc16 Nov9
 do
     FPKM=analysis/DeSeq/Method_1/$Strain/fpkm_counts.txt
