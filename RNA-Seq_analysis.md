@@ -3726,3 +3726,18 @@ mkdir -p analysis/DeSeq/Method_1/DEG_results
 mkdir -p analysis/DeSeq/Method_2/results
 mkdir -p analysis/DeSeq/Method_3/results
 ```
+
+##Method 1, extracting names of only genes that are expressed
+
+```bash
+for Strain in Bc1 Bc16 Nov9
+do
+    FPKM=analysis/DeSeq/Method_1/$Strain/fpkm_counts.txt
+    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+    Output1=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc16_expressed.txt
+    Output2=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc1_expressed.txt
+    Output3=analysis/DeSeq/Method_1/expression_results/"$Strain"_Nov9_expressed.txt
+    Scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    python $Scripts/Extract_Expressed_Genes.py --FPKM_in $FPKM --Orthogroup_in $Orthogroups --Organism_name $Strain --Output_1 $Output1 --Output_2 $Output2 --Output_3 $Output3
+done
+```
