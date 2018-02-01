@@ -3744,3 +3744,18 @@ done
 ```
 
 ###Identify genes that are only expressed in one race for each alignment
+
+```bash
+for Strain in Bc1 Bc16 Nov9
+do
+    Bc1_genes=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc1_expressed.txt
+    Bc16_genes=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc16_expressed.txt
+    Nov9_genes=analysis/DeSeq/Method_1/expression_results/"$Strain"_Nov9_expressed.txt
+    Bc1_unique=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc1_expressed_unique.txt
+    Bc16_unique=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc16_expressed_unique.txt
+    Nov9_unique=analysis/DeSeq/Method_1/expression_results/"$Strain"_Nov9_expressed_unique.txt
+    cat $Bc1_genes | grep -vf $Bc16_genes | grep -vf $Nov9_genes > $Bc1_unique
+    cat $Bc16_genes | grep -vf $Bc1_genes | grep -vf $Nov9_genes > $Bc16_unique
+    cat $Nov9_genes | grep -vf $Bc16_genes | grep -vf $Bc1_genes > $Nov9_unique
+done
+```
