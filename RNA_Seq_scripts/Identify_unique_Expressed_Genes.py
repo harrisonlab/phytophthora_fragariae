@@ -34,6 +34,10 @@ with open(conf.FPKM_in) as f:
 with open(conf.Orthogroup_in) as f:
     Ortho_lines = f.readlines()
 
+Org1 = conf.Organism_1
+Org2 = conf.Organism_2
+Org3 = conf.Organism_3
+
 #-----------------------------------------------------
 # Step 2
 # Build dictonaries of count data and of orthogroups
@@ -77,16 +81,16 @@ for line in fpkm_lines:
     time_e = np.mean(time_e_list)
     Isolate3_dict[transcript_id] = float(time_e)
 
-organism_name = conf.Organism_name
+Reference_name = conf.Reference_name
 ortho_dict = defaultdict(list)
 for line in Ortho_lines:
     line = line.rstrip()
     split_line = line.split()
     orthogroup = split_line[0]
     orthogroup = orthogroup.replace(":", "")
-    genes_in_group = [ x for x in split_line if organism_name in x ]
+    genes_in_group = [ x for x in split_line if Reference_name in x ]
     for gene in genes_in_group:
-        gene = gene.replace(organism_name, '').replace('|', '')
+        gene = gene.replace(Reference_name, '').replace('|', '')
         ortho_dict[gene] = orthogroup
 
 #-----------------------------------------------------
