@@ -482,7 +482,8 @@ with open(conf.Secreted_ORF) as f:
     Secreted_ORF_lines = f.readlines()
     for line in Secreted_ORF_lines:
         ID = line.rstrip()
-        Secreted_ORF.append(ID)
+        ID_modified = ".".join([ID, "t1"])
+        Secreted_ORF.append(ID_modified)
 
 Secreted_ORF_set = set(Secreted_ORF)
 
