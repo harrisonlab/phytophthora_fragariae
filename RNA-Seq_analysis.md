@@ -3737,25 +3737,13 @@ do
     Output1=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc16_expressed.txt
     Output2=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc1_expressed.txt
     Output3=analysis/DeSeq/Method_1/expression_results/"$Strain"_Nov9_expressed.txt
+    RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
+    CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
+    ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
+    Secreted_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
+    Secreted_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
     Scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-    python $Scripts/Extract_Expressed_Genes.py --FPKM_in $FPKM --Orthogroup_in $Orthogroups --Organism_name $Strain --Output_1 $Output1 --Output_2 $Output2 --Output_3 $Output3 --FPKM_min 5
+    python $Scripts/Identify_unique_Expressed_Genes.py --FPKM_in $FPKM --Orthogroup_in $Orthogroups --Reference_name $Strain --Organism_1 Bc16 --Organism_2 Bc1 --Organism_3 Nov9 --FPKM_min 5 --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Secreted_CQ --Secreted_ORF $Secreted_ORF
     echo "$Strain done"
-done
-```
-
-###Identify genes that are only expressed in one race for each alignment
-
-```bash
-for Strain in Bc1 Bc16 Nov9
-do
-    Bc1_genes=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc1_expressed.txt
-    Bc16_genes=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc16_expressed.txt
-    Nov9_genes=analysis/DeSeq/Method_1/expression_results/"$Strain"_Nov9_expressed.txt
-    Bc1_unique=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc1_expressed_unique.txt
-    Bc16_unique=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc16_expressed_unique.txt
-    Nov9_unique=analysis/DeSeq/Method_1/expression_results/"$Strain"_Nov9_expressed_unique.txt
-    cat $Bc1_genes | grep -vf $Bc16_genes | grep -vf $Nov9_genes > $Bc1_unique
-    cat $Bc16_genes | grep -vf $Bc1_genes | grep -vf $Nov9_genes > $Bc16_unique
-    cat $Nov9_genes | grep -vf $Bc16_genes | grep -vf $Bc1_genes > $Nov9_unique
 done
 ```
