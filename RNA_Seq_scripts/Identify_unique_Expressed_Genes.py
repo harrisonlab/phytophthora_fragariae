@@ -190,3 +190,8 @@ for transcript in Isolate3_set:
     if transcript not in Isolate2_set:
         if transcript not in Isolate1_set:
             Isolate3_uniq.append(transcript)
+
+#-----------------------------------------------------
+# Step 6
+# Print all uniquely expressed genes to text file
+#-----------------------------------------------------
