@@ -3721,7 +3721,6 @@ write.table(fpkm_counts,"analysis/DeSeq/Method_3/Nov9/fpkm_counts.txt",sep="\t",
 #Use custom python scripts to create lists of genes in orthogroups for each of the comparison mechanisms
 
 ```bash
-mkdir -p analysis/DeSeq/Method_1/expression_results
 mkdir -p analysis/DeSeq/Method_1/DEG_results
 mkdir -p analysis/DeSeq/Method_2/results
 mkdir -p analysis/DeSeq/Method_3/results
@@ -3729,21 +3728,34 @@ mkdir -p analysis/DeSeq/Method_3/results
 
 ##Method 1, extracting names of only genes that are expressed
 
+Create directories for results
+
+```bash
+mkdir -p analysis/DeSeq/Method_1/expression_results/all_genes
+mkdir -p analysis/DeSeq/Method_1/expression_results/RxLRs
+mkdir -p analysis/DeSeq/Method_1/expression_results/CRNs
+mkdir -p analysis/DeSeq/Method_1/expression_results/ApoP
+mkdir -p analysis/DeSeq/Method_1/expression_results/Secreted
+```
+
+Now generate results
+
 ```bash
 for Strain in Bc1 Bc16 Nov9
 do
     FPKM=analysis/DeSeq/Method_1/$Strain/fpkm_counts.txt
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
-    Output1=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc16_expressed.txt
-    Output2=analysis/DeSeq/Method_1/expression_results/"$Strain"_Bc1_expressed.txt
-    Output3=analysis/DeSeq/Method_1/expression_results/"$Strain"_Nov9_expressed.txt
+    Org1=Bc16
+    Org2=Bc1
+    Org3=Nov9
+    FPKM_min=5
     RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
     CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
     ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
     Secreted_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
     Secreted_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
     Scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-    python $Scripts/Identify_unique_Expressed_Genes.py --FPKM_in $FPKM --Orthogroup_in $Orthogroups --Reference_name $Strain --Organism_1 Bc16 --Organism_2 Bc1 --Organism_3 Nov9 --FPKM_min 5 --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Secreted_CQ --Secreted_ORF $Secreted_ORF
+    python $Scripts/Identify_unique_Expressed_Genes.py --FPKM_in $FPKM --Orthogroup_in $Orthogroups --Reference_name $Strain --Organism_1 $Org1 --Organism_2 $Org2 --Organism_3 $Org3 --FPKM_min $FPKM_min --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Secreted_CQ --Secreted_ORF $Secreted_ORF
     echo "$Strain done"
 done
 ```
