@@ -261,21 +261,21 @@ print("Unqiuely expressed RxLRs identified")
 #-----------------------------------------------------
 
 with open("RxLRs/"Reference_name"_"Org1"_expressed_unique_RxLRs.txt", 'w') as o:
-    for item in Isolate1_uniq:
+    for item in Isolate1_RxLR:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
 with open("RxLRs/"Reference_name"_"Org2"_expressed_unique_RxLRs.txt", 'w') as o:
-    for item in Isolate2_uniq:
+    for item in Isolate2_RxLR:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
 with open("RxLRs/"Reference_name"_"Org3"_expressed_unique_RxLRs.txt", 'w') as o:
-    for item in Isolate3_uniq:
+    for item in Isolate3_RxLR:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
