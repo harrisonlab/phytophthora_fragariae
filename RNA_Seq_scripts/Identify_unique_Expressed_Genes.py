@@ -203,7 +203,6 @@ print("Unique lists created")
 #-----------------------------------------------------
 
 with open("all_genes/"Reference_name"_"Org1"_expressed_unique.txt", 'w') as o:
-    keys = Isolate1_candidates.keys()
     for item in Isolate1_uniq:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
@@ -211,7 +210,6 @@ with open("all_genes/"Reference_name"_"Org1"_expressed_unique.txt", 'w') as o:
         o.write("\n")
 
 with open("all_genes/"Reference_name"_"Org2"_expressed_unique.txt", 'w') as o:
-    keys = Isolate2_candidates.keys()
     for item in Isolate2_uniq:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
@@ -219,7 +217,6 @@ with open("all_genes/"Reference_name"_"Org2"_expressed_unique.txt", 'w') as o:
         o.write("\n")
 
 with open("all_genes/"Reference_name"_"Org3"_expressed_unique.txt", 'w') as o:
-    keys = Isolate3_candidates.keys()
     for item in Isolate3_uniq:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
@@ -257,3 +254,31 @@ for transcript in Isolate3_uniq_set:
         Isolate3_RxLR.append(transcript)
 
 print("Unqiuely expressed RxLRs identified")
+
+#-----------------------------------------------------
+# Step 8
+# Print all uniquely expressed RxLRs to text file
+#-----------------------------------------------------
+
+with open("RxLRs/"Reference_name"_"Org1"_expressed_unique_RxLRs.txt", 'w') as o:
+    for item in Isolate1_uniq:
+        orthogroup = Isolate1_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+with open("RxLRs/"Reference_name"_"Org2"_expressed_unique_RxLRs.txt", 'w') as o:
+    for item in Isolate2_uniq:
+        orthogroup = Isolate2_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+with open("RxLRs/"Reference_name"_"Org3"_expressed_unique_RxLRs.txt", 'w') as o:
+    for item in Isolate3_uniq:
+        orthogroup = Isolate3_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+print("Output files created for all uniquely expressed RxLRs")
