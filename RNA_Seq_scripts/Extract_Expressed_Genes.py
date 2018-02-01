@@ -117,16 +117,25 @@ with open(conf.Output_1, 'w') as o:
     keys = Isolate1_candidates.keys()
     for item in keys:
         orthogroup = Isolate1_candidates[item]
-        o.write(item"\t"orthogroup"\n")
+        o.write(item)
+        o.write("\t")
+        o.write(orthogroup)
+        o.write("\n")
 
 with open(conf.Output_2, 'w') as o:
     keys = Isolate2_candidates.keys()
     for item in keys:
         orthogroup = Isolate2_candidates[item]
-        o.write(item"\t"orthogroup"\n")
+        o.write(item)
+        o.write("\t")
+        o.write(orthogroup)
+        o.write("\n")
 
 with open(conf.Output_3, 'w') as o:
     keys = Isolate3_candidates.keys()
     for item in keys:
         orthogroup = Isolate3_candidates[item]
-        o.write(item"\t"orthogroup"\n")
+        o.write(item)
+        o.write("\t")
+        o.write(orthogroup)
+        o.write("\n")
