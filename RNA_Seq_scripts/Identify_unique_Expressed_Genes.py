@@ -256,7 +256,8 @@ with open(conf.RxLRs) as f:
     RxLRs = []
     RxLR_lines = f.readlines()
     for line in RxLR_lines:
-        RxLRs.append(line)
+        ID = line.rstrip()
+        RxLRs.append(ID)
 
 RxLR_set = set(RxLRs)
 Isolate1_RxLRs = []
@@ -322,7 +323,8 @@ with open(conf.CRNs) as f:
     CRNs = []
     CRN_lines = f.readlines()
     for line in CRN_lines:
-        CRNs.append(line)
+        ID = line.rstrip()
+        CRNs.append(ID)
 
 CRN_set = set(CRNs)
 Isolate1_CRNs = []
@@ -388,7 +390,8 @@ with open(conf.ApoP) as f:
     ApoP = []
     ApoP_lines = f.readlines()
     for line in ApoP_lines:
-        ApoP.append(line)
+        ID = line.rstrip()
+        ApoP.append(ID)
 
 ApoP_set = set(ApoP)
 Isolate1_ApoP = []
@@ -454,7 +457,8 @@ with open(conf.Secreted_CQ) as f:
     Secreted_CQ = []
     Secreted_CQ_lines = f.readlines()
     for line in Secreted_CQ_lines:
-        Secreted_CQ.append(line)
+        ID = line.rstrip()
+        Secreted_CQ.append(ID)
 
 Secreted_CQ_set = set(Secreted_CQ)
 Isolate1_Secreted = []
@@ -477,7 +481,8 @@ with open(conf.Secreted_ORF) as f:
     Secreted_ORF = []
     Secreted_ORF_lines = f.readlines()
     for line in Secreted_ORF_lines:
-        Secreted_ORF.append(line)
+        ID = line.rstrip()
+        Secreted_ORF.append(ID)
 
 Secreted_ORF_set = set(Secreted_ORF)
 Isolate1_Secreted = []
