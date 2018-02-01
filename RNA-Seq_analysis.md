@@ -3773,7 +3773,7 @@ Now enumerate numbers of genes that are uniquely expressed
 for Strain in Bc16 Bc1 Nov9
 do
     OutDir=analysis/DeSeq/Method_1/expression_results
-    echo "Analysis using $Strain as the reference genome"
+    echo "Analysis using $Strain as the reference genome:"
     printf "\n"
     Uniq_Bc16=$OutDir/all_genes/"$Strain"_Bc16_expressed_unique.txt
     Uniq_Bc1=$OutDir/all_genes/"$Strain"_Bc1_expressed_unique.txt
@@ -3822,4 +3822,105 @@ do
     cat $Uniq_Sec_Nov9 | wc -l
     printf "\n"
 done
+```
+
+```
+Analysis using Bc16 as the reference genome:
+
+The number of BC-16 uniquely expressed genes is:
+1,630
+The number of BC-1 uniquely expressed genes is:
+90
+The number of NOV-9 uniquely expressed genes is:
+482
+The number of BC-16 uniquely expressed RxLRs is:
+0
+The number of BC-1 uniquely expressed RxLRs is:
+0
+The number of NOV-9 uniquely expressed RxLRs is:
+0
+The number of BC-16 uniquely expressed CRNs is:
+0
+The number of BC-1 uniquely expressed CRNs is:
+0
+The number of NOV-9 uniquely expressed CRNs is:
+0
+The number of BC-16 uniquely expressed apoplastic effectors is:
+0
+The number of BC-1 uniquely expressed apoplastic effectors is:
+0
+The number of NOV-9 uniquely expressed apoplastic effectors is:
+0
+The number of BC-16 uniquely expressed secreted proteins is:
+0
+The number of BC-1 uniquely expressed secreted proteins is:
+0
+The number of NOV-9 uniquely expressed secreted proteins is:
+0
+
+Analysis using Bc1 as the reference genome:
+
+The number of BC-16 uniquely expressed genes is:
+2,125
+The number of BC-1 uniquely expressed genes is:
+175
+The number of NOV-9 uniquely expressed genes is:
+869
+The number of BC-16 uniquely expressed RxLRs is:
+0
+The number of BC-1 uniquely expressed RxLRs is:
+0
+The number of NOV-9 uniquely expressed RxLRs is:
+0
+The number of BC-16 uniquely expressed CRNs is:
+0
+The number of BC-1 uniquely expressed CRNs is:
+0
+The number of NOV-9 uniquely expressed CRNs is:
+0
+The number of BC-16 uniquely expressed apoplastic effectors is:
+0
+The number of BC-1 uniquely expressed apoplastic effectors is:
+0
+The number of NOV-9 uniquely expressed apoplastic effectors is:
+0
+The number of BC-16 uniquely expressed secreted proteins is:
+0
+The number of BC-1 uniquely expressed secreted proteins is:
+0
+The number of NOV-9 uniquely expressed secreted proteins is:
+0
+
+Analysis using Nov9 as the reference genome:
+
+The number of BC-16 uniquely expressed genes is:
+2,117
+The number of BC-1 uniquely expressed genes is:
+883
+The number of NOV-9 uniquely expressed genes is:
+502
+The number of BC-16 uniquely expressed RxLRs is:
+0
+The number of BC-1 uniquely expressed RxLRs is:
+0
+The number of NOV-9 uniquely expressed RxLRs is:
+0
+The number of BC-16 uniquely expressed CRNs is:
+0
+The number of BC-1 uniquely expressed CRNs is:
+0
+The number of NOV-9 uniquely expressed CRNs is:
+0
+The number of BC-16 uniquely expressed apoplastic effectors is:
+0
+The number of BC-1 uniquely expressed apoplastic effectors is:
+0
+The number of NOV-9 uniquely expressed apoplastic effectors is:
+0
+The number of BC-16 uniquely expressed secreted proteins is:
+0
+The number of BC-1 uniquely expressed secreted proteins is:
+0
+The number of NOV-9 uniquely expressed secreted proteins is:
+0
 ```
