@@ -282,3 +282,33 @@ with open("RxLRs/"Reference_name"_"Org3"_expressed_unique_RxLRs.txt", 'w') as o:
         o.write("\n")
 
 print("Output files created for all uniquely expressed RxLRs")
+
+#-----------------------------------------------------
+# Step 9
+# Identify genes that are uniquely expressed
+#-----------------------------------------------------
+
+with open(conf.CRNs) as f:
+    CRNs = []
+    CRN_lines = f.readlines()
+    for line in CRN_lines:
+        CRNs.append(line)
+
+CRN_set = set(CRNs)
+Isolate1_CRNs = []
+Isolate2_CRNs = []
+Isolate3_CRNs = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in CRN_set:
+        Isolate1_CRN.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in CRN_set:
+        Isolate2_CRN.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in CRN_set:
+        Isolate3_CRN.append(transcript)
+
+print("Unqiuely expressed CRNs identified")
