@@ -132,7 +132,7 @@ for transcript, fpkm in Isolate3_dict.items():
 # Print text files of expressed genes using dictionaries
 #-----------------------------------------------------
 
-with open(conf.Output_1, 'w') as o:
+with open("all_genes/"Org1, 'w') as o:
     keys = Isolate1_candidates.keys()
     for item in keys:
         orthogroup = Isolate1_candidates[item]
@@ -140,7 +140,7 @@ with open(conf.Output_1, 'w') as o:
         o.write(output)
         o.write("\n")
 
-with open(conf.Output_2, 'w') as o:
+with open("all_genes/"Org2, 'w') as o:
     keys = Isolate2_candidates.keys()
     for item in keys:
         orthogroup = Isolate2_candidates[item]
@@ -148,7 +148,7 @@ with open(conf.Output_2, 'w') as o:
         o.write(output)
         o.write("\n")
 
-with open(conf.Output_3, 'w') as o:
+with open("all_genes/"Org3, 'w') as o:
     keys = Isolate3_candidates.keys()
     for item in keys:
         orthogroup = Isolate3_candidates[item]
