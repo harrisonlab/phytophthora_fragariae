@@ -38,6 +38,8 @@ Org1 = conf.Organism_1
 Org2 = conf.Organism_2
 Org3 = conf.Organism_3
 
+print("Input files loaded")
+
 #-----------------------------------------------------
 # Step 2
 # Build dictonaries of count data and of orthogroups
@@ -93,6 +95,8 @@ for line in Ortho_lines:
         gene = gene.replace(Reference_name, '').replace('|', '')
         ortho_dict[gene] = orthogroup
 
+print("FPKM & Orthogroup libraries built")
+
 #-----------------------------------------------------
 # Step 3
 # Iterate over dictionaries to keep only those with FPKM > 5
@@ -127,6 +131,8 @@ for transcript, fpkm in Isolate3_dict.items():
         else:
             Isolate3_candidates[transcript] = "None"
 
+print("Expressed genes identified")
+
 #-----------------------------------------------------
 # Step 4
 # Print text files of expressed genes using dictionaries
@@ -155,3 +161,10 @@ with open("all_genes/"Org3, 'w') as o:
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
+
+print("Initial output files created for all genes")
+
+#-----------------------------------------------------
+# Step 5
+# Identify genes that are uniquely expressed
+#-----------------------------------------------------
