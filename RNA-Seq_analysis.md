@@ -3742,3 +3742,5 @@ do
     echo "$Strain done"
 done
 ```
+
+###Identify genes that are only expressed in one race for each alignment
