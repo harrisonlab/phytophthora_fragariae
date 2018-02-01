@@ -370,3 +370,31 @@ for transcript in Isolate3_uniq_set:
         Isolate3_ApoP.append(transcript)
 
 print("Unqiuely expressed apoplastic effectors identified")
+
+#-----------------------------------------------------
+# Step 12
+# Print all uniquely expressed apoplastic effectors to text file
+#-----------------------------------------------------
+
+with open("ApoP/"Reference_name"_"Org1"_expressed_unique_ApoP.txt", 'w') as o:
+    for item in Isolate1_ApoP:
+        orthogroup = Isolate1_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+with open("ApoP/"Reference_name"_"Org2"_expressed_unique_ApoP.txt", 'w') as o:
+    for item in Isolate2_ApoP:
+        orthogroup = Isolate2_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+with open("ApoP/"Reference_name"_"Org3"_expressed_unique_ApoP.txt", 'w') as o:
+    for item in Isolate3_ApoP:
+        orthogroup = Isolate3_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+print("Output files created for all uniquely expressed Apoplastic effectors")
