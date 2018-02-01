@@ -191,6 +191,10 @@ for transcript in Isolate3_set:
         if transcript not in Isolate1_set:
             Isolate3_uniq.append(transcript)
 
+Isolate1_uniq_set = set(Isolate1_uniq)
+Isolate2_uniq_set = set(Isolate2_uniq)
+Isolate3_uniq_set = set(Isolate3_uniq)
+
 print("Unique lists created")
 
 #-----------------------------------------------------
@@ -223,3 +227,33 @@ with open("all_genes/"Reference_name"_"Org3"_expressed_unique.txt", 'w') as o:
         o.write("\n")
 
 print("Output files created for all uniquely expressed genes")
+
+#-----------------------------------------------------
+# Step 7
+# Identify genes that are uniquely expressed
+#-----------------------------------------------------
+
+with open(conf.RxLRs) as f:
+    RxLRs = []
+    RxLR_lines = f.readlines()
+    for line in RxLR_lines:
+        RxLRs.append(line)
+
+RxLR_set = set(RxLRs)
+Isolate1_RxLRs = []
+Isolate2_RxLRs = []
+Isolate3_RxLRs = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in RxLR_set:
+        Isolate1_RxLR.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in RxLR_set:
+        Isolate2_RxLR.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in RxLR_set:
+        Isolate3_RxLR.append(transcript)
+
+print("Unqiuely expressed RxLRs identified")
