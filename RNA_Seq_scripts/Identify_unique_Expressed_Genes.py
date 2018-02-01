@@ -340,3 +340,33 @@ with open("CRNs/"Reference_name"_"Org3"_expressed_unique_CRNs.txt", 'w') as o:
         o.write("\n")
 
 print("Output files created for all uniquely expressed CRNs")
+
+#-----------------------------------------------------
+# Step 11
+# Identify apoplastic effectors that are uniquely expressed
+#-----------------------------------------------------
+
+with open(conf.ApoP) as f:
+    ApoP = []
+    ApoP_lines = f.readlines()
+    for line in ApoP_lines:
+        ApoP.append(line)
+
+ApoP_set = set(ApoP)
+Isolate1_ApoP = []
+Isolate2_ApoP = []
+Isolate3_ApoP = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in ApoP_set:
+        Isolate1_ApoP.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in ApoP_set:
+        Isolate2_ApoP.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in ApoP_set:
+        Isolate3_ApoP.append(transcript)
+
+print("Unqiuely expressed apoplastic effectors identified")
