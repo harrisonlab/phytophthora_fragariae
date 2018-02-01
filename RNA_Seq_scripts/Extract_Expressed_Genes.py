@@ -106,17 +106,17 @@ for transcript, fpkm in Isolate2_dict.items():
     if fpkm >= FPKM:
         if transcript in ortho_dict.keys():
             orthogroup = ortho_dict[transcript]
-            Isolate1_candidates[transcript] = orthogroup
+            Isolate2_candidates[transcript] = orthogroup
         else:
-            Isolate1_candidates[transcript] = "None"
+            Isolate2_candidates[transcript] = "None"
 
 for transcript, fpkm in Isolate3_dict.items():
     if fpkm >= FPKM:
         if transcript in ortho_dict.keys():
             orthogroup = ortho_dict[transcript]
-            Isolate1_candidates[transcript] = orthogroup
+            Isolate3_candidates[transcript] = orthogroup
         else:
-            Isolate1_candidates[transcript] = "None"
+            Isolate3_candidates[transcript] = "None"
 
 #-----------------------------------------------------
 # Step 4
