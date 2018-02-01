@@ -227,7 +227,7 @@ print("Output files created for all uniquely expressed genes")
 
 #-----------------------------------------------------
 # Step 7
-# Identify genes that are uniquely expressed
+# Identify RxLRs that are uniquely expressed
 #-----------------------------------------------------
 
 with open(conf.RxLRs) as f:
@@ -285,7 +285,7 @@ print("Output files created for all uniquely expressed RxLRs")
 
 #-----------------------------------------------------
 # Step 9
-# Identify genes that are uniquely expressed
+# Identify CRNs that are uniquely expressed
 #-----------------------------------------------------
 
 with open(conf.CRNs) as f:
