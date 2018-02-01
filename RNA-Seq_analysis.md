@@ -3834,29 +3834,29 @@ The number of BC-1 uniquely expressed genes is:
 The number of NOV-9 uniquely expressed genes is:
 482
 The number of BC-16 uniquely expressed RxLRs is:
-0
+25
 The number of BC-1 uniquely expressed RxLRs is:
-0
+3
 The number of NOV-9 uniquely expressed RxLRs is:
-0
+3
 The number of BC-16 uniquely expressed CRNs is:
-0
+3
 The number of BC-1 uniquely expressed CRNs is:
 0
 The number of NOV-9 uniquely expressed CRNs is:
-0
+4
 The number of BC-16 uniquely expressed apoplastic effectors is:
-0
+98
 The number of BC-1 uniquely expressed apoplastic effectors is:
-0
+3
 The number of NOV-9 uniquely expressed apoplastic effectors is:
-0
+14
 The number of BC-16 uniquely expressed secreted proteins is:
-0
+380
 The number of BC-1 uniquely expressed secreted proteins is:
-0
+21
 The number of NOV-9 uniquely expressed secreted proteins is:
-0
+96
 
 Analysis using Bc1 as the reference genome:
 
@@ -3867,29 +3867,29 @@ The number of BC-1 uniquely expressed genes is:
 The number of NOV-9 uniquely expressed genes is:
 869
 The number of BC-16 uniquely expressed RxLRs is:
-0
+33
 The number of BC-1 uniquely expressed RxLRs is:
-0
+2
 The number of NOV-9 uniquely expressed RxLRs is:
-0
+4
 The number of BC-16 uniquely expressed CRNs is:
-0
+2
 The number of BC-1 uniquely expressed CRNs is:
 0
 The number of NOV-9 uniquely expressed CRNs is:
-0
+4
 The number of BC-16 uniquely expressed apoplastic effectors is:
-0
+106
 The number of BC-1 uniquely expressed apoplastic effectors is:
-0
+4
 The number of NOV-9 uniquely expressed apoplastic effectors is:
-0
+13
 The number of BC-16 uniquely expressed secreted proteins is:
-0
+477
 The number of BC-1 uniquely expressed secreted proteins is:
-0
+38
 The number of NOV-9 uniquely expressed secreted proteins is:
-0
+231
 
 Analysis using Nov9 as the reference genome:
 
@@ -3900,27 +3900,27 @@ The number of BC-1 uniquely expressed genes is:
 The number of NOV-9 uniquely expressed genes is:
 502
 The number of BC-16 uniquely expressed RxLRs is:
-0
+38
 The number of BC-1 uniquely expressed RxLRs is:
-0
+9
 The number of NOV-9 uniquely expressed RxLRs is:
-0
+5
 The number of BC-16 uniquely expressed CRNs is:
 0
 The number of BC-1 uniquely expressed CRNs is:
-0
+1
 The number of NOV-9 uniquely expressed CRNs is:
-0
+1
 The number of BC-16 uniquely expressed apoplastic effectors is:
-0
+148
 The number of BC-1 uniquely expressed apoplastic effectors is:
-0
+14
 The number of NOV-9 uniquely expressed apoplastic effectors is:
-0
+18
 The number of BC-16 uniquely expressed secreted proteins is:
-0
+512
 The number of BC-1 uniquely expressed secreted proteins is:
-0
+233
 The number of NOV-9 uniquely expressed secreted proteins is:
-0
+112
 ```
