@@ -291,21 +291,21 @@ Org2_out = "/".join([cwd, OutDir, "RxLRs", Org2_file])
 Org3_out = "/".join([cwd, OutDir, "RxLRs", Org3_file])
 
 with open(Org1_out, 'w') as o:
-    for item in Isolate1_RxLR:
+    for item in Isolate1_RxLRs:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
 with open(Org2_out, 'w') as o:
-    for item in Isolate2_RxLR:
+    for item in Isolate2_RxLRs:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
 with open(Org3_out, 'w') as o:
-    for item in Isolate3_RxLR:
+    for item in Isolate3_RxLRs:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
@@ -357,21 +357,21 @@ Org2_out = "/".join([cwd, OutDir, "CRNs", Org2_file])
 Org3_out = "/".join([cwd, OutDir, "CRNs", Org3_file])
 
 with open(Org1_out, 'w') as o:
-    for item in Isolate1_CRN:
+    for item in Isolate1_CRNs:
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
 with open(Org2_out, 'w') as o:
-    for item in Isolate2_CRN:
+    for item in Isolate2_CRNs:
         orthogroup = Isolate2_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
         o.write("\n")
 
 with open(Org3_out, 'w') as o:
-    for item in Isolate3_CRN:
+    for item in Isolate3_CRNs:
         orthogroup = Isolate3_candidates[item]
         output = "\t".join([item, orthogroup])
         o.write(output)
