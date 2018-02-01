@@ -64,13 +64,13 @@ for line in fpkm_lines:
     time_d_list.append(float(split_lines[11]))
     time_d_list.append(float(split_lines[12]))
     time_d = np.mean(time_d_list)
-    Isolate2_dict[transcript_id].extend(time_d)
+    Isolate2_dict[transcript_id].extend([time_d])
     time_e_list = []
     time_e_list.append(float(split_lines[13]))
     time_e_list.append(float(split_lines[14]))
     time_e_list.append(float(split_lines[15]))
     time_e = np.mean(time_e_list)
-    Isolate3_dict[transcript_id].extend(time_e)
+    Isolate3_dict[transcript_id].extend([time_e])
 
 organism_name = conf.Organism_name
 ortho_dict = defaultdict(list)
