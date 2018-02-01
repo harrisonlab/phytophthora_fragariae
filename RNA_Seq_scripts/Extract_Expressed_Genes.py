@@ -82,7 +82,7 @@ for line in Ortho_lines:
     genes_in_group = [ x for x in split_line if organism_name in x ]
     for gene in genes_in_group:
         gene = gene.replace(organism_name, '').replace('|', '')
-        ortho_dict[gene] = orthogroup
+        ortho_dict[gene].extend(orthogroup)
 
 #-----------------------------------------------------
 # Step 3
