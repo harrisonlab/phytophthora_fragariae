@@ -114,10 +114,19 @@ for transcript, fpkm in Isolate3_dict.items():
 #-----------------------------------------------------
 
 with open(conf.Output_1, 'w') as o:
-    o.write(json.dumps(Isolate1_candidates))
+    keys = Isolate1_candidates.keys()
+    for item in keys:
+        orthogroup = Isolate1_candidates[item]
+        o.write(item"\t"orthogroup"\n")
 
 with open(conf.Output_2, 'w') as o:
-    o.write(json.dumps(Isolate2_candidates))
+    keys = Isolate2_candidates.keys()
+    for item in keys:
+        orthogroup = Isolate2_candidates[item]
+        o.write(item"\t"orthogroup"\n")
 
 with open(conf.Output_3, 'w') as o:
-    o.write(json.dumps(Isolate3_candidates))
+    keys = Isolate3_candidates.keys()
+    for item in keys:
+        orthogroup = Isolate3_candidates[item]
+        o.write(item"\t"orthogroup"\n")
