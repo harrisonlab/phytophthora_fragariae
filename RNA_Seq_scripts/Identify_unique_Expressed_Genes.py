@@ -485,9 +485,6 @@ with open(conf.Secreted_ORF) as f:
         Secreted_ORF.append(ID)
 
 Secreted_ORF_set = set(Secreted_ORF)
-Isolate1_Secreted = []
-Isolate2_Secreted = []
-Isolate3_Secreted = []
 
 for transcript in Isolate1_uniq_set:
     if transcript in Secreted_ORF_set:
