@@ -400,7 +400,7 @@ with open("ApoP/"Reference_name"_"Org3"_expressed_unique_ApoP.txt", 'w') as o:
 print("Output files created for all uniquely expressed Apoplastic effectors")
 
 #-----------------------------------------------------
-# Step 11
+# Step 13
 # Identify secreted proteins that are uniquely expressed
 #-----------------------------------------------------
 
@@ -452,3 +452,31 @@ for transcript in Isolate3_uniq_set:
 
 
 print("Unqiuely expressed secreted proteins identified")
+
+#-----------------------------------------------------
+# Step 14
+# Print all uniquely expressed Secreted proteins to text file
+#-----------------------------------------------------
+
+with open("Secreted/"Reference_name"_"Org1"_expressed_unique_Secreted.txt", 'w') as o:
+    for item in Isolate1_Secreted:
+        orthogroup = Isolate1_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+with open("Secreted/"Reference_name"_"Org2"_expressed_unique_Secreted.txt", 'w') as o:
+    for item in Isolate2_Secreted:
+        orthogroup = Isolate2_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+with open("Secreted/"Reference_name"_"Org3"_expressed_unique_Secreted.txt", 'w') as o:
+    for item in Isolate3_Secreted:
+        orthogroup = Isolate3_candidates[item]
+        output = "\t".join([item, orthogroup])
+        o.write(output)
+        o.write("\n")
+
+print("Output files created for all uniquely expressed Secreted proteins")
