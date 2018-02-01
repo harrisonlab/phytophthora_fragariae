@@ -95,18 +95,27 @@ Isolate3_candidates = defaultdict(list)
 
 for transcript, fpkm in Isolate1_dict.items():
     if any(value >= 5 for value in fpkm):
-        orthogroup = ortho_dict[transcript]
-        Isolate1_candidates[transcript] = orthogroup
+        if transcript in ortho_dict.keys():
+            orthogroup = ortho_dict[transcript]
+            Isolate1_candidates[transcript] = orthogroup
+        else:
+            Isolate1_candidates[transcript] = "None"
 
 for transcript, fpkm in Isolate2_dict.items():
     if fpkm >= 5:
-        orthogroup = ortho_dict[transcript]
-        Isolate2_candidates[transcript] = orthogroup
+        if transcript in ortho_dict.keys():
+            orthogroup = ortho_dict[transcript]
+            Isolate1_candidates[transcript] = orthogroup
+        else:
+            Isolate1_candidates[transcript] = "None"
 
 for transcript, fpkm in Isolate3_dict.items():
     if fpkm >= 5:
-        orthogroup = ortho_dict[transcript]
-        Isolate3_candidates[transcript] = orthogroup
+        if transcript in ortho_dict.keys():
+            orthogroup = ortho_dict[transcript]
+            Isolate1_candidates[transcript] = orthogroup
+        else:
+            Isolate1_candidates[transcript] = "None"
 
 #-----------------------------------------------------
 # Step 4
