@@ -24,7 +24,7 @@ conf = ap.parse_args()
 #-----------------------------------------------------
 
 with open(conf.FPKM_in) as f:
-    fpkm_lines=f.readlines(1:)
+    fpkm_lines=f.readlines()[1:]
 
 with open(conf.Orthogroup_in) as f:
     Ortho_lines=f.readlines()
