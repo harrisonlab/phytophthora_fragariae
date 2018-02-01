@@ -398,3 +398,57 @@ with open("ApoP/"Reference_name"_"Org3"_expressed_unique_ApoP.txt", 'w') as o:
         o.write("\n")
 
 print("Output files created for all uniquely expressed Apoplastic effectors")
+
+#-----------------------------------------------------
+# Step 11
+# Identify secreted proteins that are uniquely expressed
+#-----------------------------------------------------
+
+with open(conf.Secreted_CQ) as f:
+    Secreted_CQ = []
+    Secreted_CQ_lines = f.readlines()
+    for line in Secreted_CQ_lines:
+        Secreted_CQ.append(line)
+
+Secreted_CQ_set = set(Secreted_CQ)
+Isolate1_Secreted = []
+Isolate2_Secreted = []
+Isolate3_Secreted = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in Secreted_CQ_set:
+        Isolate1_Secreted.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in Secreted_CQ_set:
+        Isolate2_Secreted.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in Secreted_CQ_set:
+        Isolate3_Secreted.append(transcript)
+
+with open(conf.Secreted_ORF) as f:
+    Secreted_ORF = []
+    Secreted_ORF_lines = f.readlines()
+    for line in Secreted_ORF_lines:
+        Secreted_ORF.append(line)
+
+Secreted_ORF_set = set(Secreted_ORF)
+Isolate1_Secreted = []
+Isolate2_Secreted = []
+Isolate3_Secreted = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in Secreted_ORF_set:
+        Isolate1_Secreted.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in Secreted_ORF_set:
+        Isolate2_Secreted.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in Secreted_ORF_set:
+        Isolate3_Secreted.append(transcript)
+
+
+print("Unqiuely expressed secreted proteins identified")
