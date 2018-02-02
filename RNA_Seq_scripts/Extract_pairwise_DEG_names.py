@@ -65,6 +65,8 @@ Org3 = conf.Organism_3
 
 OutDir = conf.OutDir
 
+cwd = os.getcwd()
+
 print("Input files loaded")
 
 #-----------------------------------------------------
