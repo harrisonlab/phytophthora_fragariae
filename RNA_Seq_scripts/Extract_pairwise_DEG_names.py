@@ -237,7 +237,9 @@ PV1 = "_".join(["P-value", "adjusted", Org1])
 PV2 = "_".join(["P-value", "adjusted", Org2])
 PV3 = "_".join(["P-value", "adjusted", Org3])
 
-Header = "\t".join(["Gene_ID", "Orthogroup", LFC2, PV2, LFC3, PV3])
+Header_Org1 = "\t".join(["Gene_ID", "Orthogroup", LFC2, PV2, LFC3, PV3])
+Header_Org2 = "\t".join(["Gene_ID", "Orthogroup", LFC1, PV1, LFC3, PV3])
+Header_Org3 = "\t".join(["Gene_ID", "Orthogroup", LFC1, PV1, LFC2, PV2])
 
 with open(Org1_out, 'w') as o:
     o.write(Header)
