@@ -19,6 +19,11 @@ ap.add_argument('--Organism_1',required=True,type=str,help='Name of isolate 1, t
 ap.add_argument('--Organism_2',required=True,type=str,help='Name of isolate 2, one timepoint')
 ap.add_argument('--Organism_3',required=True,type=str,help='Name of isolate 3, one timepoint')
 ap.add_argument('--OutDir',required=True,type=str,help='Directory to write output files to')
+ap.add_argument('--RxLRs',required=True,type=str,help='File of all RxLR names for aligned genome')
+ap.add_argument('--CRNs',required=True,type=str,help='File of all CRN names for aligned genome')
+ap.add_argument('--ApoP',required=True,type=str,help='File of all hits from ApoplastP')
+ap.add_argument('--Secreted_CQ',required=True,type=str,help='File of all secreted gene models')
+ap.add_argument('--Secreted_ORF',required=True,type=str,help='File of all secreted ORF fragments')
 conf = ap.parse_args()
 
 #-----------------------------------------------------
@@ -195,7 +200,7 @@ Org3_vs_Org2_set = set(Org3_vs_Org2)
 print("Sets of pairwise comparisons created")
 
 #-----------------------------------------------------
-# Step 4
+# Step 3
 # Create unique sets for DEGs of each isolate
 #-----------------------------------------------------
 
@@ -222,7 +227,7 @@ Org3_uniq_set = set(Org3_uniq)
 print("Unique sets for each organism created")
 
 #-----------------------------------------------------
-# Step 5
+# Step 4
 # Write out text files for all genes that are uniquely differentially expressed
 #-----------------------------------------------------
 
@@ -285,3 +290,8 @@ with open(Org3_out, 'w') as o:
         o.write("\n")
 
 print("Output files for all genes written")
+
+#-----------------------------------------------------
+# Step 5
+# Identify RxLRs that are uniquely differentially expressed
+#-----------------------------------------------------
