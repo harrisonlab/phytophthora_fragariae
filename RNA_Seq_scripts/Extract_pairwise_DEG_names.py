@@ -31,6 +31,8 @@ Sig_Level = conf.Sig_Level
 
 DEG_files = conf.DEG_files
 DEG_list = []
+LFC_values = defaultdict(float)
+P_values = defaultdict(float)
 for DEG_file in DEG_files:
     with open(DEG_file) as f:
         filename = DEG_file
@@ -46,6 +48,8 @@ for DEG_file in DEG_files:
                 if abs(log_change) >= LFC and P_val <= Sig_Level:
                     entryname = "_".join([filename, gene_name])
                     DEG_list.append(entryname)
+                    LFC_values[gene_name] = log_change
+                    P_values[gene_name] = P_val
 
 reference_name = conf.Reference_name
 ortho_dict = defaultdict(list)
@@ -175,3 +179,19 @@ Org3_uniq_set = set(Org3_uniq)
 # Step 5
 # Write out text files for all genes that are uniquely differentially expressed
 #-----------------------------------------------------
+
+Org1_file = "_".join([reference_name, Org1, "all_unique_DEGs.txt"])
+Org2_file = "_".join([reference_name, Org2, "all_unique_DEGs.txt"])
+Org3_file = "_".join([reference_name, Org3, "all_unique_DEGs.txt"])
+
+Org1_out = "/".join([cwd, OutDir, Org1_file])
+Org2_out = "/".join([cwd, OutDir, Org2_file])
+Org3_out = "/".join([cwd, OutDir, Org3_file])
+
+Header = "\t".join(["Gene_ID", "Orthogroup", "Log2 fold change", "P-value adjusted"])
+
+with open(Org1_out, 'w') as o:
+    o.write(Header)
+    o.write("\n")
+    for transcript in Org1_uniq_set:
+        orthogroup = ortho_dict[transcript]
