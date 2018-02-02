@@ -15,6 +15,10 @@ ap.add_argument('--Orthogroup_in',required=True,type=str,help='text output file 
 ap.add_argument('--Reference_name',required=True,type=str,help='Name of organism gene IDs are from in DEG input file')
 ap.add_argument('--Min_LFC',required=True,type=float,help='Minimum log fold change for a gene to be called a DEG')
 ap.add_argument('--Sig_Level',required=True,type=float,help='Minimum p-value for a DEG to be considered significant')
+ap.add_argument('--Organism_1',required=True,type=str,help='Name of isolate 1, three timepoints')
+ap.add_argument('--Organism_2',required=True,type=str,help='Name of isolate 2, one timepoint')
+ap.add_argument('--Organism_3',required=True,type=str,help='Name of isolate 3, one timepoint')
+ap.add_argument('--OutDir',required=True,type=str,help='Directory to write output files to')
 conf = ap.parse_args()
 
 #-----------------------------------------------------
