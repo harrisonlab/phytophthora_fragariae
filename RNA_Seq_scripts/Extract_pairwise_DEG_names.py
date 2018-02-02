@@ -406,3 +406,57 @@ for transcript in Isolate3_uniq_set:
         Isolate3_CRNs.append(transcript)
 
 print("Uniquely differentially expressed CRNs identified")
+
+#-----------------------------------------------------
+# Step 8
+# Write all uniquely differentially expressed RxLRs to text file
+#-----------------------------------------------------
+
+Org1_file = "_".join([Reference_name, Org1, "unique_DEGs_CRNs.txt"])
+Org2_file = "_".join([Reference_name, Org2, "unique_DEGs_CRNs.txt"])
+Org3_file = "_".join([Reference_name, Org3, "unique_DEGs_CRNs.txt"])
+
+Org1_out = "/".join([cwd, OutDir, "CRNs", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "CRNs", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "CRNs", Org3_file])
+
+with open(Org1_out, 'w') as o:
+    o.write(Header_Org1)
+    o.write("\n")
+    for transcript in Isolate1_CRNs:
+        orthogroup = ortho_dict[transcript]
+        LFC2 = Org1_vs_Org2_LFC[transcript]
+        PV2 = Org1_vs_Org2_Pval[transcript]
+        LFC3 = Org1_vs_Org3_LFC[transcript]
+        PV3 = Org1_vs_Org3_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC2, PV2, LFC3, PV3])
+        o.write(output)
+        o.write("\n")
+
+with open(Org2_out, 'w') as o:
+    o.write(Header_Org2)
+    o.write("\n")
+    for transcript in Isolate2_CRNs:
+        orthogroup = ortho_dict[transcript]
+        LFC1 = Org2_vs_Org1_LFC[transcript]
+        PV1 = Org2_vs_Org1_Pval[transcript]
+        LFC3 = Org2_vs_Org3_LFC[transcript]
+        PV3 = Org2_vs_Org3_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC3, PV3])
+        o.write(output)
+        o.write("\n")
+
+with open(Org3_out, 'w') as o:
+    o.write(Header_Org3)
+    o.write("\n")
+    for transcript in Isolate3_CRNs:
+        orthogroup = ortho_dict[transcript]
+        LFC2 = Or3_vs_Org2_LFC[transcript]
+        PV2 = Org3_vs_Org2_Pval[transcript]
+        LFC1 = Org3_vs_Org1_LFC[transcript]
+        PV1 = Org3_vs_Org1_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC2, PV2])
+        o.write(output)
+        o.write("\n")
+
+print("Uniquely differentially expressed CRNs written to text file")
