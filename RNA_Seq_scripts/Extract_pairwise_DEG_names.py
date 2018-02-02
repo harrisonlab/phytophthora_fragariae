@@ -230,7 +230,14 @@ Org1_out = "/".join([cwd, OutDir, Org1_file])
 Org2_out = "/".join([cwd, OutDir, Org2_file])
 Org3_out = "/".join([cwd, OutDir, Org3_file])
 
-Header = "\t".join(["Gene_ID", "Orthogroup", "Log2 fold change", "P-value adjusted"])
+LFC1 = "_".join(["LFC", Org1])
+LFC2 = "_".join(["LFC", Org2])
+LFC3 = "_".join(["LFC", Org3])
+PV1 = "_".join(["P-value", "adjusted", Org1])
+PV2 = "_".join(["P-value", "adjusted", Org2])
+PV3 = "_".join(["P-value", "adjusted", Org3])
+
+Header = "\t".join(["Gene_ID", "Orthogroup", LFC2, PV2, LFC3, PV3])
 
 with open(Org1_out, 'w') as o:
     o.write(Header)
