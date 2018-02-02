@@ -375,3 +375,34 @@ with open(Org3_out, 'w') as o:
         o.write("\n")
 
 print("Uniquely differentially expressed RxLRs written to text file")
+
+#-----------------------------------------------------
+# Step 7
+# Identify CRNs that are uniquely differentially expressed
+#-----------------------------------------------------
+
+with open(conf.CRNs) as f:
+    CRNs = []
+    CRN_lines = f.readlines()
+    for line in CRN_lines:
+        ID = line.rstrip()
+        CRNs.append(ID)
+
+CRN_set = set(CRNs)
+Isolate1_CRNs = []
+Isolate2_CRNs = []
+Isolate3_CRNs = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in CRN_set:
+        Isolate1_CRNs.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in CRN_set:
+        Isolate2_CRNs.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in CRN_set:
+        Isolate3_CRNs.append(transcript)
+
+print("Uniquely differentially expressed CRNs identified")
