@@ -242,7 +242,14 @@ Header_Org2 = "\t".join(["Gene_ID", "Orthogroup", LFC1, PV1, LFC3, PV3])
 Header_Org3 = "\t".join(["Gene_ID", "Orthogroup", LFC1, PV1, LFC2, PV2])
 
 with open(Org1_out, 'w') as o:
-    o.write(Header)
+    o.write(Header_Org1)
     o.write("\n")
     for transcript in Org1_uniq_set:
         orthogroup = ortho_dict[transcript]
+        LFC2 = Org1_vs_Org2_LFC[transcript]
+        PV2 = Org1_vs_Org2_Pval[transcript]
+        LFC3 = Org1_vs_Org3_LFC[transcript]
+        PV3 = Org1_vs_Org3_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC2, PV2, LFC3, PV3])
+        o.write(output)
+        o.write("\n")
