@@ -87,7 +87,7 @@ Org1_vs_Org2_dict = defaultdict(list)
 
 for transcript in Org1_vs_Org2_set:
     orthogroup = ortho_dict[transcript]
-    Org1_vs_Org2_dict[transcript].extend(orthogroup)
+    Org1_vs_Org2_dict[transcript] = (orthogroup)
 
 #Organism1 vs Organism3
 Org1_vs_Org3 = []
