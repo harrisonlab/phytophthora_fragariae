@@ -150,3 +150,23 @@ Org3_vs_Org2_set = set(Org3_vs_Org2)
 # Step 4
 # Create unique sets for DEGs of each isolate
 #-----------------------------------------------------
+
+Org1_uniq = []
+Org2_uniq = []
+Org3_uniq = []
+
+for transcript in Org1_vs_Org2_set:
+    if transcript in Org1_vs_Org3_set:
+        Org1_uniq.append(transcript)
+
+for transcript in Org2_vs_Org1_set:
+    if transcript in Org2_vs_Org3_set:
+        Org2_uniq.append(transcript)
+
+for transcript in Org3_vs_Org1_set:
+    if transcript in Org3_vs_Org2_set:
+        Org3_uniq.append(transcript)
+
+Org1_uniq_set = set(Org1_uniq)
+Org2_uniq_set = set(Org2_uniq)
+Org3_uniq_set = set(Org3_uniq)
