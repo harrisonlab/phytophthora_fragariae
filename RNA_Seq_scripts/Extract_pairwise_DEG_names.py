@@ -6,8 +6,8 @@ This script uses the output of DeSeq2 to produce a list of genes that are differ
 
 import sys,argparse
 from collections import defaultdict
-import json
 from sets import Set
+import os
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--DEG_files',required=True,nargs='+',type=str,help='space spererated list of files containing DEG information')
