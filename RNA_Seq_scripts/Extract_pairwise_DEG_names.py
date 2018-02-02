@@ -83,7 +83,7 @@ for item in DEG_list:
         Org1_vs_Org2.append(transcript_id)
 
 Org1_vs_Org2_set = set(Org1_vs_Org2)
-Org1_vs_Org2_dict = defaultdict(str)
+Org1_vs_Org2_dict = defaultdict(list)
 
 for transcript in Org1_vs_Org2_set:
     orthogroup = ortho_dict[transcript]
