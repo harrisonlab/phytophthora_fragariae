@@ -170,3 +170,8 @@ for transcript in Org3_vs_Org1_set:
 Org1_uniq_set = set(Org1_uniq)
 Org2_uniq_set = set(Org2_uniq)
 Org3_uniq_set = set(Org3_uniq)
+
+#-----------------------------------------------------
+# Step 5
+# Write out text files for all genes that are uniquely differentially expressed
+#-----------------------------------------------------
