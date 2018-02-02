@@ -59,22 +59,13 @@ for line in Ortho_lines:
         gene = gene.replace(reference_name, '').replace('|', '')
         ortho_dict[gene] = orthogroup
 
-#-----------------------------------------------------
-# Step 2
-# Create organism variables
-#-----------------------------------------------------
+Org1 = conf.Organism_1
+Org2 = conf.Organism_2
+Org3 = conf.Organism_3
 
-Organisms = []
-for DEG_file in DEG_files:
-    Organism_A = DEG_file.split('/')[-1].split('_')[0]
-    Organisms.append(Organism_A)
-    Organism_B = DEG_file.split('/')[-1].split('_')[3]
-    Organisms.append(Organism_B)
+OutDir = conf.OutDir
 
-Organisms = set(Organisms)
-Organism1 = list(Organisms)[0]
-Organism2 = list(Organisms)[1]
-Organism3 = list(Organisms)[2]
+print("Input files loaded")
 
 #-----------------------------------------------------
 # Step 3
