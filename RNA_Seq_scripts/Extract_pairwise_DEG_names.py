@@ -148,5 +148,5 @@ Org3_vs_Org2_set = set(Org3_vs_Org2)
 
 #-----------------------------------------------------
 # Step 4
-# Write output files of all DEGs
+# Create unique sets for DEGs of each isolate
 #-----------------------------------------------------
