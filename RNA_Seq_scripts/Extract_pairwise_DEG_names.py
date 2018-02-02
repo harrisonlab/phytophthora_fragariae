@@ -74,8 +74,8 @@ cwd = os.getcwd()
 print("Input files loaded")
 
 #-----------------------------------------------------
-# Step 3
-# Create dictionaries for output
+# Step 2
+# Create sets for pairwise comaprisons
 #-----------------------------------------------------
 
 #Organism1 vs Organism2
@@ -192,6 +192,8 @@ for item in DEG_list:
 
 Org3_vs_Org2_set = set(Org3_vs_Org2)
 
+print("Sets of pairwise comparisons created")
+
 #-----------------------------------------------------
 # Step 4
 # Create unique sets for DEGs of each isolate
@@ -216,6 +218,8 @@ for transcript in Org3_vs_Org1_set:
 Org1_uniq_set = set(Org1_uniq)
 Org2_uniq_set = set(Org2_uniq)
 Org3_uniq_set = set(Org3_uniq)
+
+print("Unique sets for each organism created")
 
 #-----------------------------------------------------
 # Step 5
@@ -279,3 +283,5 @@ with open(Org3_out, 'w') as o:
         output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC2, PV2])
         o.write(output)
         o.write("\n")
+
+print("Output files for all genes written")
