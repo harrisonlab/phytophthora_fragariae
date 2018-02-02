@@ -231,9 +231,9 @@ print("Unique sets for each organism created")
 # Write out text files for all genes that are uniquely differentially expressed
 #-----------------------------------------------------
 
-Org1_file = "_".join([reference_name, Org1, "all_unique_DEGs.txt"])
-Org2_file = "_".join([reference_name, Org2, "all_unique_DEGs.txt"])
-Org3_file = "_".join([reference_name, Org3, "all_unique_DEGs.txt"])
+Org1_file = "_".join([reference_name, Org1, "unique_DEGs.txt"])
+Org2_file = "_".join([reference_name, Org2, "unique_DEGs.txt"])
+Org3_file = "_".join([reference_name, Org3, "unique_DEGs.txt"])
 
 Org1_out = "/".join([cwd, OutDir, Org1_file])
 Org2_out = "/".join([cwd, OutDir, Org2_file])
@@ -326,3 +326,52 @@ print("Uniquely differentially expressed RxLRs identified")
 # Step 6
 # Write all uniquely differentially expressed RxLRs to text file
 #-----------------------------------------------------
+
+Org1_file = "_".join([Reference_name, Org1, "unique_DEGs_RxLRs.txt"])
+Org2_file = "_".join([Reference_name, Org2, "unique_DEGs_RxLRs.txt"])
+Org3_file = "_".join([Reference_name, Org3, "unique_DEGs_RxLRs.txt"])
+
+Org1_out = "/".join([cwd, OutDir, "RxLRs", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "RxLRs", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "RxLRs", Org3_file])
+
+with open(Org1_out, 'w') as o:
+    o.write(Header_Org1)
+    o.write("\n")
+    for transcript in Isolate1_RxLRs:
+        orthogroup = ortho_dict[transcript]
+        LFC2 = Org1_vs_Org2_LFC[transcript]
+        PV2 = Org1_vs_Org2_Pval[transcript]
+        LFC3 = Org1_vs_Org3_LFC[transcript]
+        PV3 = Org1_vs_Org3_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC2, PV2, LFC3, PV3])
+        o.write(output)
+        o.write("\n")
+
+with open(Org2_out, 'w') as o:
+    o.write(Header_Org2)
+    o.write("\n")
+    for transcript in Isolate2_RxLRs:
+        orthogroup = ortho_dict[transcript]
+        LFC1 = Org2_vs_Org1_LFC[transcript]
+        PV1 = Org2_vs_Org1_Pval[transcript]
+        LFC3 = Org2_vs_Org3_LFC[transcript]
+        PV3 = Org2_vs_Org3_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC3, PV3])
+        o.write(output)
+        o.write("\n")
+
+with open(Org3_out, 'w') as o:
+    o.write(Header_Org3)
+    o.write("\n")
+    for transcript in Isolate3_RxLRs:
+        orthogroup = ortho_dict[transcript]
+        LFC2 = Or3_vs_Org2_LFC[transcript]
+        PV2 = Org3_vs_Org2_Pval[transcript]
+        LFC1 = Org3_vs_Org1_LFC[transcript]
+        PV1 = Org3_vs_Org1_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC2, PV2])
+        o.write(output)
+        o.write("\n")
+
+print("Uniquely differentially expressed RxLRs written to text file")
