@@ -253,3 +253,29 @@ with open(Org1_out, 'w') as o:
         output = "\t".join([transcript, orthogroup, LFC2, PV2, LFC3, PV3])
         o.write(output)
         o.write("\n")
+
+with open(Org2_out, 'w') as o:
+    o.write(Header_Org2)
+    o.write("\n")
+    for transcript in Org2_uniq_set:
+        orthogroup = ortho_dict[transcript]
+        LFC1 = Org2_vs_Org1_LFC[transcript]
+        PV1 = Org2_vs_Org1_Pval[transcript]
+        LFC3 = Org2_vs_Org3_LFC[transcript]
+        PV3 = Org2_vs_Org3_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC3, PV3])
+        o.write(output)
+        o.write("\n")
+
+with open(Org3_out, 'w') as o:
+    o.write(Header_Org3)
+    o.write("\n")
+    for transcript in Org3_uniq_set:
+        orthogroup = ortho_dict[transcript]
+        LFC2 = Or3_vs_Org2_LFC[transcript]
+        PV2 = Org3_vs_Org2_Pval[transcript]
+        LFC1 = Org3_vs_Org1_LFC[transcript]
+        PV1 = Org3_vs_Org1_Pval[transcript]
+        output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC2, PV2])
+        o.write(output)
+        o.write("\n")
