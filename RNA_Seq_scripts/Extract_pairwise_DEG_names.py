@@ -545,3 +545,8 @@ with open(Org3_out, 'w') as o:
         o.write("\n")
 
 print("Uniquely differentially expressed Apoplastic effectors written to text file")
+
+#-----------------------------------------------------
+# Step 9
+# Identify Secreted proteins that are uniquely differentially expressed
+#-----------------------------------------------------
