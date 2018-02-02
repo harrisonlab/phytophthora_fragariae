@@ -160,6 +160,8 @@ with open(Org1_out, 'w') as o:
     keys = Isolate1_candidates.keys()
     for item in keys:
         FPKM = str(Isolate1_dict[item])
+        FPKM = FPKM.replace('[','')
+        FPKM = FPKM.replace(']','')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -240,6 +242,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_uniq:
         FPKM = str(Isolate1_dict[item])
+        FPKM = FPKM.replace('[','')
+        FPKM = FPKM.replace(']','')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -316,6 +320,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_RxLRs:
         FPKM = str(Isolate1_dict[item])
+        FPKM = FPKM.replace('[','')
+        FPKM = FPKM.replace(']','')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -392,6 +398,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_CRNs:
         FPKM = str(Isolate1_dict[item])
+        FPKM = FPKM.replace('[','')
+        FPKM = FPKM.replace(']','')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -468,6 +476,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_ApoP:
         FPKM = str(Isolate1_dict[item])
+        FPKM = FPKM.replace('[','')
+        FPKM = FPKM.replace(']','')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -567,6 +577,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_Secreted:
         FPKM = str(Isolate1_dict[item])
+        FPKM = FPKM.replace('[','')
+        FPKM = FPKM.replace(']','')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
