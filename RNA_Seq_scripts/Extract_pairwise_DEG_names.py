@@ -295,3 +295,29 @@ print("Output files for all genes written")
 # Step 5
 # Identify RxLRs that are uniquely differentially expressed
 #-----------------------------------------------------
+
+with open(conf.RxLRs) as f:
+    RxLRs = []
+    RxLR_lines = f.readlines()
+    for line in RxLR_lines:
+        ID = line.rstrip()
+        RxLRs.append(ID)
+
+RxLR_set = set(RxLRs)
+Isolate1_RxLRs = []
+Isolate2_RxLRs = []
+Isolate3_RxLRs = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in RxLR_set:
+        Isolate1_RxLRs.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in RxLR_set:
+        Isolate2_RxLRs.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in RxLR_set:
+        Isolate3_RxLRs.append(transcript)
+
+print("Uniquely differentially expressed RxLRs identified")
