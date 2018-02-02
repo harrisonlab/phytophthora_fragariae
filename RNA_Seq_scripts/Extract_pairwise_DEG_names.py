@@ -48,11 +48,11 @@ for DEG_file in DEG_files:
                 if abs(log_change) >= LFC and P_val <= Sig_Level:
                     entryname = "_".join([filename, gene_name])
                     DEG_list.append(entryname)
-                    LFC_values[gene_name] = log_change
-                    P_values[gene_name] = P_val
+                    LFC_values[entryname] = log_change
+                    P_values[entryname] = P_val
 
 reference_name = conf.Reference_name
-ortho_dict = defaultdict(list)
+ortho_dict = defaultdict(str)
 for line in Ortho_lines:
     line = line.rstrip()
     split_line = line.split()
