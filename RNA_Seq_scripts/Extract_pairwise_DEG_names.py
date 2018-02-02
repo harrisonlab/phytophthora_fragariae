@@ -460,3 +460,34 @@ with open(Org3_out, 'w') as o:
         o.write("\n")
 
 print("Uniquely differentially expressed CRNs written to text file")
+
+#-----------------------------------------------------
+# Step 9
+# Identify Apoplastic effectors that are uniquely differentially expressed
+#-----------------------------------------------------
+
+with open(conf.ApoP) as f:
+    ApoP = []
+    ApoP_lines = f.readlines()
+    for line in ApoP_lines:
+        ID = line.rstrip()
+        ApoP.append(ID)
+
+ApoP_set = set(ApoP)
+Isolate1_ApoP = []
+Isolate2_ApoP = []
+Isolate3_ApoP = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in ApoP_set:
+        Isolate1_ApoP.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in ApoP_set:
+        Isolate2_ApoP.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in ApoP_set:
+        Isolate3_ApoP.append(transcript)
+
+print("Uniquely differentially expressed Apoplastic effectors identified")
