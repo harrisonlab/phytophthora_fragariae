@@ -41,8 +41,8 @@ for DEG_file in DEG_files:
             else:
                 split_line = line.split()
                 gene_name = split_line[0]
-                log_change = split_line[2]
-                P_val = split_line[6]
+                log_change = float(split_line[2])
+                P_val = float(split_line[6])
                 if abs(log_change) >= LFC and P_val <= Sig_Level:
                     entryname = "_".join([filename, gene_name])
                     DEG_list.append(entryname)
