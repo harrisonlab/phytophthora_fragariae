@@ -80,73 +80,115 @@ print("Input files loaded")
 
 #Organism1 vs Organism2
 Org1_vs_Org2 = []
+Org1_vs_Org2_LFC = defaultdict(float)
+Org1_vs_Org2_Pval = defaultdict(float)
+
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Organism1 and item.split('/')[-1].split('_')[5] == "up":
+    if item.split('/')[-1].split('_')[0] == Organism1 and item.split('/')[-1].split('_')[3] == Organism2 and item.split('/')[-1].split('_')[5] == "up":
         transcript_id = item.split('/').split('_')[6]
         Org1_vs_Org2.append(transcript_id)
-    elif item.split('/')[-1].split('_')[3] == Organism1 and item.split('/')[-1].split('_')[5] == "down":
+        Org1_vs_Org2_LFC[transcript_id] = LFC_values[item]
+        Org1_vs_Org2_Pval[transcript_id] = P_values[item]
+    elif item.split('/')[-1].split('_')[0] == Organism2 and item.split('/')[-1].split('_')[3] == Organism1 and item.split('/')[-1].split('_')[5] == "down":
         transcript_id = item.split('/').split('_')[6]
         Org1_vs_Org2.append(transcript_id)
+        Org1_vs_Org2_LFC[transcript_id] = LFC_values[item]
+        Org1_vs_Org2_Pval[transcript_id] = P_values[item]
 
 Org1_vs_Org2_set = set(Org1_vs_Org2)
 
 #Organism1 vs Organism3
 Org1_vs_Org3 = []
+Org1_vs_Org3_LFC = defaultdict(float)
+Org1_vs_Org3_Pval = defaultdict(float)
+
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Organism1 and item.split('/')[-1].split('_')[5] == "up":
+    if item.split('/')[-1].split('_')[0] == Organism1 and item.split('/')[-1].split('_')[3] == Organism3 and item.split('/')[-1].split('_')[5] == "up":
         transcript_id = item.split('/').split('_')[6]
         Org1_vs_Org3.append(transcript_id)
-    elif item.split('/')[-1].split('_')[3] == Organism1 and item.split('/')[-1].split('_')[5] == "down":
+        Org1_vs_Org3_LFC[transcript_id] = LFC_values[item]
+        Org1_vs_Org3_Pval[transcript_id] = P_values[item]
+    elif item.split('/')[-1].split('_')[0] == Organism3 and item.split('/')[-1].split('_')[3] == Organism1 and item.split('/')[-1].split('_')[5] == "down":
         transcript_id = item.split('/').split('_')[6]
         Org1_vs_Org3.append(transcript_id)
+        Org1_vs_Org3_LFC[transcript_id] = LFC_values[item]
+        Org1_vs_Org3_Pval[transcript_id] = P_values[item]
 
 Org1_vs_Org3_set = set(Org1_vs_Org3)
 
 #Organism2 vs Organism1
 Org2_vs_Org1 = []
+Org2_vs_Org1_LFC = defaultdict(float)
+Org2_vs_Org1_Pval = defaultdict(float)
+
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Organism2 and item.split('/')[-1].split('_')[5] == "up":
+    if item.split('/')[-1].split('_')[0] == Organism2 and item.split('/')[-1].split('_')[3] == Organism1 and item.split('/')[-1].split('_')[5] == "up":
         transcript_id = item.split('/').split('_')[6]
         Org2_vs_Org1.append(transcript_id)
-    elif item.split('/')[-1].split('_')[3] == Organism2 and item.split('/')[-1].split('_')[5] == "down":
+        Org2_vs_Org1_LFC[transcript_id] = LFC_values[item]
+        Org2_vs_Org1_Pval[transcript_id] = P_values[item]
+    elif item.split('/')[-1].split('_')[0] == Organism1 and item.split('/')[-1].split('_')[3] == Organism2 and item.split('/')[-1].split('_')[5] == "down":
         transcript_id = item.split('/').split('_')[6]
         Org2_vs_Org1.append(transcript_id)
+        Org2_vs_Org1_LFC[transcript_id] = LFC_values[item]
+        Org2_vs_Org1_Pval[transcript_id] = P_values[item]
 
 Org2_vs_Org1_set = set(Org2_vs_Org1)
 
 #Organism2 vs Organism3
 Org2_vs_Org3 = []
+Org2_vs_Org3_LFC = defaultdict(float)
+Org2_vs_Org3_Pval = defaultdict(float)
+
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Organism2 and item.split('/')[-1].split('_')[5] == "up":
+    if item.split('/')[-1].split('_')[0] == Organism2 and item.split('/')[-1].split('_')[3] == Organism3 and item.split('/')[-1].split('_')[5] == "up":
         transcript_id = item.split('/').split('_')[6]
         Org2_vs_Org3.append(transcript_id)
-    elif item.split('/')[-1].split('_')[3] == Organism2 and item.split('/')[-1].split('_')[5] == "down":
+        Org2_vs_Org3_LFC[transcript_id] = LFC_values[item]
+        Org2_vs_Org3_Pval[transcript_id] = P_values[item]
+    elif item.split('/')[-1].split('_')[0] == Organism3 and item.split('/')[-1].split('_')[3] == Organism2 and item.split('/')[-1].split('_')[5] == "down":
         transcript_id = item.split('/').split('_')[6]
         Org2_vs_Org3.append(transcript_id)
+        Org2_vs_Org3_LFC[transcript_id] = LFC_values[item]
+        Org2_vs_Org3_Pval[transcript_id] = P_values[item]
 
 Org2_vs_Org3_set = set(Org2_vs_Org3)
 
 #Organism3 vs Organism1
 Org3_vs_Org1 = []
+Org3_vs_Org1_LFC = defaultdict(float)
+Org3_vs_Org1_Pval = defaultdict(float)
+
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Organism3 and item.split('/')[-1].split('_')[5] == "up":
+    if item.split('/')[-1].split('_')[0] == Organism3 and item.split('/')[-1].split('_')[3] == Organism1 and item.split('/')[-1].split('_')[5] == "up":
         transcript_id = item.split('/').split('_')[6]
         Org3_vs_Org1.append(transcript_id)
-    elif item.split('/')[-1].split('_')[3] == Organism3 and item.split('/')[-1].split('_')[5] == "down":
+        Org3_vs_Org1_LFC[transcript_id] = LFC_values[item]
+        Org3_vs_Org1_Pval[transcript_id] = P_values[item]
+    elif item.split('/')[-1].split('_')[0] == Organism1 and item.split('/')[-1].split('_')[3] == Organism3 and item.split('/')[-1].split('_')[5] == "down":
         transcript_id = item.split('/').split('_')[6]
         Org3_vs_Org1.append(transcript_id)
+        Org3_vs_Org1_LFC[transcript_id] = LFC_values[item]
+        Org3_vs_Org1_Pval[transcript_id] = P_values[item]
 
 Org3_vs_Org1_set = set(Org3_vs_Org1)
 
 #Organism3 vs Organism2
 Org3_vs_Org2 = []
+Org3_vs_Org2_LFC = defaultdict(float)
+Org3_vs_Org2_Pval = defaultdict(float)
+
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Organism3 and item.split('/')[-1].split('_')[5] == "up":
+    if item.split('/')[-1].split('_')[0] == Organism3 and item.split('/')[-1].split('_')[3] == Organism2 and item.split('/')[-1].split('_')[5] == "up":
         transcript_id = item.split('/').split('_')[6]
         Org3_vs_Org2.append(transcript_id)
-    elif item.split('/')[-1].split('_')[3] == Organism3 and item.split('/')[-1].split('_')[5] == "down":
+        Org3_vs_Org2_LFC[transcript_id] = LFC_values[item]
+        Org3_vs_Org2_Pval[transcript_id] = P_values[item]
+    elif item.split('/')[-1].split('_')[0] == Organism2 and item.split('/')[-1].split('_')[3] == Organism3 and item.split('/')[-1].split('_')[5] == "down":
         transcript_id = item.split('/').split('_')[6]
         Org3_vs_Org2.append(transcript_id)
+        Org3_vs_Org2_LFC[transcript_id] = LFC_values[item]
+        Org3_vs_Org2_Pval[transcript_id] = P_values[item]
 
 Org3_vs_Org2_set = set(Org3_vs_Org2)
 
