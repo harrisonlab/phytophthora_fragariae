@@ -156,6 +156,7 @@ Header = "\t".join(["Gene_ID", "Orthogroup", "FPKM"])
 
 with open(Org1_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     keys = Isolate1_candidates.keys()
     for item in keys:
         FPKM = str(Isolate1_dict[item])
@@ -166,6 +167,7 @@ with open(Org1_out, 'w') as o:
 
 with open(Org2_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     keys = Isolate2_candidates.keys()
     for item in keys:
         FPKM = str(Isolate2_dict[item])
@@ -176,6 +178,7 @@ with open(Org2_out, 'w') as o:
 
 with open(Org3_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     keys = Isolate3_candidates.keys()
     for item in keys:
         FPKM = str(Isolate3_dict[item])
@@ -234,6 +237,7 @@ Org3_out = "/".join([cwd, OutDir, "all_genes", Org3_file])
 
 with open(Org1_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate1_uniq:
         FPKM = str(Isolate1_dict[item])
         orthogroup = Isolate1_candidates[item]
@@ -243,6 +247,7 @@ with open(Org1_out, 'w') as o:
 
 with open(Org2_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate2_uniq:
         FPKM = str(Isolate2_dict[item])
         orthogroup = Isolate2_candidates[item]
@@ -252,6 +257,7 @@ with open(Org2_out, 'w') as o:
 
 with open(Org3_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate3_uniq:
         FPKM = str(Isolate3_dict[item])
         orthogroup = Isolate3_candidates[item]
@@ -307,6 +313,7 @@ Org3_out = "/".join([cwd, OutDir, "RxLRs", Org3_file])
 
 with open(Org1_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate1_RxLRs:
         FPKM = str(Isolate1_dict[item])
         orthogroup = Isolate1_candidates[item]
@@ -316,6 +323,7 @@ with open(Org1_out, 'w') as o:
 
 with open(Org2_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate2_RxLRs:
         FPKM = str(Isolate2_dict[item])
         orthogroup = Isolate2_candidates[item]
@@ -325,6 +333,7 @@ with open(Org2_out, 'w') as o:
 
 with open(Org3_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate3_RxLRs:
         FPKM = str(Isolate3_dict[item])
         orthogroup = Isolate3_candidates[item]
@@ -380,6 +389,7 @@ Org3_out = "/".join([cwd, OutDir, "CRNs", Org3_file])
 
 with open(Org1_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate1_CRNs:
         FPKM = str(Isolate1_dict[item])
         orthogroup = Isolate1_candidates[item]
@@ -389,6 +399,7 @@ with open(Org1_out, 'w') as o:
 
 with open(Org2_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate2_CRNs:
         FPKM = str(Isolate2_dict[item])
         orthogroup = Isolate2_candidates[item]
@@ -398,6 +409,7 @@ with open(Org2_out, 'w') as o:
 
 with open(Org3_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate3_CRNs:
         FPKM = str(Isolate3_dict[item])
         orthogroup = Isolate3_candidates[item]
@@ -453,6 +465,7 @@ Org3_out = "/".join([cwd, OutDir, "ApoP", Org3_file])
 
 with open(Org1_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate1_ApoP:
         FPKM = str(Isolate1_dict[item])
         orthogroup = Isolate1_candidates[item]
@@ -462,6 +475,7 @@ with open(Org1_out, 'w') as o:
 
 with open(Org2_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate2_ApoP:
         FPKM = str(Isolate2_dict[item])
         orthogroup = Isolate2_candidates[item]
@@ -471,6 +485,7 @@ with open(Org2_out, 'w') as o:
 
 with open(Org3_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate3_ApoP:
         FPKM = str(Isolate3_dict[item])
         orthogroup = Isolate3_candidates[item]
@@ -549,6 +564,7 @@ Org3_out = "/".join([cwd, OutDir, "Secreted", Org3_file])
 
 with open(Org1_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate1_Secreted:
         FPKM = str(Isolate1_dict[item])
         orthogroup = Isolate1_candidates[item]
@@ -558,6 +574,7 @@ with open(Org1_out, 'w') as o:
 
 with open(Org2_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate2_Secreted:
         FPKM = str(Isolate2_dict[item])
         orthogroup = Isolate2_candidates[item]
@@ -567,6 +584,7 @@ with open(Org2_out, 'w') as o:
 
 with open(Org3_out, 'w') as o:
     o.write(Header)
+    o.write("\n")
     for item in Isolate3_Secreted:
         FPKM = str(Isolate3_dict[item])
         orthogroup = Isolate3_candidates[item]
