@@ -83,11 +83,6 @@ for item in DEG_list:
         Org1_vs_Org2.append(transcript_id)
 
 Org1_vs_Org2_set = set(Org1_vs_Org2)
-Org1_vs_Org2_dict = defaultdict(list)
-
-for transcript in Org1_vs_Org2_set:
-    orthogroup = ortho_dict[transcript]
-    Org1_vs_Org2_dict[transcript] = orthogroup
 
 #Organism1 vs Organism3
 Org1_vs_Org3 = []
@@ -100,11 +95,6 @@ for item in DEG_list:
         Org1_vs_Org3.append(transcript_id)
 
 Org1_vs_Org3_set = set(Org1_vs_Org3)
-Org1_vs_Org3_dict = defaultdict(str)
-
-for transcript in Org1_vs_Org3_set:
-    orthogroup = ortho_dict[transcript]
-    Org1_vs_Org3_dict[transcript].extend(orthogroup)
 
 #Organism2 vs Organism1
 Org2_vs_Org1 = []
@@ -117,11 +107,6 @@ for item in DEG_list:
         Org2_vs_Org1.append(transcript_id)
 
 Org2_vs_Org1_set = set(Org2_vs_Org1)
-Org2_vs_Org1_dict = defaultdict(str)
-
-for transcript in Org2_vs_Org1_set:
-    orthogroup = ortho_dict[transcript]
-    Org2_vs_Org1_dict[transcript].extend(orthogroup)
 
 #Organism2 vs Organism3
 Org2_vs_Org3 = []
@@ -134,11 +119,6 @@ for item in DEG_list:
         Org2_vs_Org3.append(transcript_id)
 
 Org2_vs_Org3_set = set(Org2_vs_Org3)
-Org2_vs_Org3_dict = defaultdict(str)
-
-for transcript in Org2_vs_Org3_set:
-    orthogroup = ortho_dict[transcript]
-    Org2_vs_Org3_dict[transcript].extend(orthogroup)
 
 #Organism3 vs Organism1
 Org3_vs_Org1 = []
@@ -151,11 +131,6 @@ for item in DEG_list:
         Org3_vs_Org1.append(transcript_id)
 
 Org3_vs_Org1_set = set(Org3_vs_Org1)
-Org3_vs_Org1_dict = defaultdict(str)
-
-for transcript in Org3_vs_Org1_set:
-    orthogroup = ortho_dict[transcript]
-    Org3_vs_Org1_dict[transcript].extend(orthogroup)
 
 #Organism3 vs Organism2
 Org3_vs_Org2 = []
@@ -168,11 +143,6 @@ for item in DEG_list:
         Org3_vs_Org2.append(transcript_id)
 
 Org3_vs_Org2_set = set(Org3_vs_Org2)
-Org3_vs_Org2_dict = defaultdict(str)
-
-for transcript in Org3_vs_Org2_set:
-    orthogroup = ortho_dict[transcript]
-    Org3_vs_Org2_dict[transcript].extend(orthogroup)
 
 #-----------------------------------------------------
 # Step 4
