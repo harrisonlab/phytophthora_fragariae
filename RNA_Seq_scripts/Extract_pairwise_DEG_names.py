@@ -321,3 +321,8 @@ for transcript in Isolate3_uniq_set:
         Isolate3_RxLRs.append(transcript)
 
 print("Uniquely differentially expressed RxLRs identified")
+
+#-----------------------------------------------------
+# Step 6
+# Write all uniquely differentially expressed RxLRs to text file
+#-----------------------------------------------------
