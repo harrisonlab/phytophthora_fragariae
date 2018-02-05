@@ -92,12 +92,12 @@ Org1_vs_Org2_LFC = defaultdict(float)
 Org1_vs_Org2_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org1_vs_Org2.append(transcript_id)
         Org1_vs_Org2_LFC[transcript_id] = LFC_values[item]
         Org1_vs_Org2_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5] == "down.txt":
+    elif item.split('/')[-1].split('_')[0].split('-')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org1_vs_Org2.append(transcript_id)
         Org1_vs_Org2_LFC[transcript_id] = LFC_values[item]
@@ -111,12 +111,12 @@ Org1_vs_Org3_LFC = defaultdict(float)
 Org1_vs_Org3_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org1_vs_Org3.append(transcript_id)
         Org1_vs_Org3_LFC[transcript_id] = LFC_values[item]
         Org1_vs_Org3_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5] == "down.txt":
+    elif item.split('/')[-1].split('_')[0].split('-')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org1_vs_Org3.append(transcript_id)
         Org1_vs_Org3_LFC[transcript_id] = LFC_values[item]
@@ -130,12 +130,12 @@ Org2_vs_Org1_LFC = defaultdict(float)
 Org2_vs_Org1_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org2_vs_Org1.append(transcript_id)
         Org2_vs_Org1_LFC[transcript_id] = LFC_values[item]
         Org2_vs_Org1_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5] == "down.txt":
+    elif item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org2_vs_Org1.append(transcript_id)
         Org2_vs_Org1_LFC[transcript_id] = LFC_values[item]
@@ -149,12 +149,12 @@ Org2_vs_Org3_LFC = defaultdict(float)
 Org2_vs_Org3_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org2_vs_Org3.append(transcript_id)
         Org2_vs_Org3_LFC[transcript_id] = LFC_values[item]
         Org2_vs_Org3_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5] == "down.txt":
+    elif item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org2_vs_Org3.append(transcript_id)
         Org2_vs_Org3_LFC[transcript_id] = LFC_values[item]
@@ -168,12 +168,12 @@ Org3_vs_Org1_LFC = defaultdict(float)
 Org3_vs_Org1_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org3_vs_Org1.append(transcript_id)
         Org3_vs_Org1_LFC[transcript_id] = LFC_values[item]
         Org3_vs_Org1_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5] == "down.txt":
+    elif item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org3_vs_Org1.append(transcript_id)
         Org3_vs_Org1_LFC[transcript_id] = LFC_values[item]
@@ -187,12 +187,12 @@ Org3_vs_Org2_LFC = defaultdict(float)
 Org3_vs_Org2_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org3_vs_Org2.append(transcript_id)
         Org3_vs_Org2_LFC[transcript_id] = LFC_values[item]
         Org3_vs_Org2_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5] == "down.txt":
+    elif item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org3_vs_Org2.append(transcript_id)
         Org3_vs_Org2_LFC[transcript_id] = LFC_values[item]
