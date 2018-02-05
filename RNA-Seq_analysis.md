@@ -4017,3 +4017,102 @@ do
     printf "\n"
 done
 ```
+
+```
+The number of BC-16 differently differentially expressed genes is:
+1,385
+The number of BC-1 differently differentially expressed genes is:
+207
+The number of NOV-9 differently differentially expressed genes is:
+1,441
+The number of BC-16 differently differentially expressed RxLRs is:
+19
+The number of BC-1 differently differentially expressed RxLRs is:
+10
+The number of NOV-9 differently differentially expressed RxLRs is:
+18
+The number of BC-16 differently differentially expressed CRNs is:
+2
+The number of BC-1 differently differentially expressed CRNs is:
+0
+The number of NOV-9 differently differentially expressed CRNs is:
+6
+The number of BC-16 differently differentially expressed apoplastic effectors is:
+116
+The number of BC-1 differently differentially expressed apoplastic effectors is:
+30
+The number of NOV-9 differently differentially expressed apoplastic effectors is:
+39
+The number of BC-16 differently differentially expressed secreted proteins is:
+171
+The number of BC-1 differently differentially expressed secreted proteins is:
+36
+The number of NOV-9 differently differentially expressed secreted proteins is:
+212
+
+Analysis using Bc1 as the reference genome:
+
+The number of BC-16 differently differentially expressed genes is:
+2,277
+The number of BC-1 differently differentially expressed genes is:
+2,431
+The number of NOV-9 differently differentially expressed genes is:
+1,053
+The number of BC-16 differently differentially expressed RxLRs is:
+31
+The number of BC-1 differently differentially expressed RxLRs is:
+56
+The number of NOV-9 differently differentially expressed RxLRs is:
+6
+The number of BC-16 differently differentially expressed CRNs is:
+3
+The number of BC-1 differently differentially expressed CRNs is:
+1
+The number of NOV-9 differently differentially expressed CRNs is:
+3
+The number of BC-16 differently differentially expressed apoplastic effectors is:
+140
+The number of BC-1 differently differentially expressed apoplastic effectors is:
+120
+The number of NOV-9 differently differentially expressed apoplastic effectors is:
+22
+The number of BC-16 differently differentially expressed secreted proteins is:
+343
+The number of BC-1 differently differentially expressed secreted proteins is:
+340
+The number of NOV-9 differently differentially expressed secreted proteins is:
+259
+
+Analysis using Nov9 as the reference genome:
+
+The number of BC-16 differently differentially expressed genes is:
+2,419
+The number of BC-1 differently differentially expressed genes is:
+943
+The number of NOV-9 differently differentially expressed genes is:
+3,755
+The number of BC-16 differently differentially expressed RxLRs is:
+53
+The number of BC-1 differently differentially expressed RxLRs is:
+9
+The number of NOV-9 differently differentially expressed RxLRs is:
+50
+The number of BC-16 differently differentially expressed CRNs is:
+2
+The number of BC-1 differently differentially expressed CRNs is:
+1
+The number of NOV-9 differently differentially expressed CRNs is:
+7
+The number of BC-16 differently differentially expressed apoplastic effectors is:
+228
+The number of BC-1 differently differentially expressed apoplastic effectors is:
+11
+The number of NOV-9 differently differentially expressed apoplastic effectors is:
+122
+The number of BC-16 differently differentially expressed secreted proteins is:
+361
+The number of BC-1 differently differentially expressed secreted proteins is:
+237
+The number of NOV-9 differently differentially expressed secreted proteins is:
+543
+```
