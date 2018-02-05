@@ -3978,47 +3978,47 @@ do
     Uniq_Bc16=$OutDir/all_genes/"$Strain"_Bc16_unique_DEGs.txt
     Uniq_Bc1=$OutDir/all_genes/"$Strain"_Bc1_unique_DEGs.txt
     Uniq_Nov9=$OutDir/all_genes/"$Strain"_Nov9_unique_DEGs.txt
-    echo "The number of BC-16 uniquely expressed genes is:"
+    echo "The number of BC-16 differently differentially expressed genes is:"
     cat $Uniq_Bc16 | tail -n +2 | wc -l
-    echo "The number of BC-1 uniquely expressed genes is:"
+    echo "The number of BC-1 differently differentially expressed genes is:"
     cat $Uniq_Bc1 | tail -n +2 | wc -l
-    echo "The number of NOV-9 uniquely expressed genes is:"
+    echo "The number of NOV-9 differently differentially expressed genes is:"
     cat $Uniq_Nov9 | tail -n +2 | wc -l
-    Uniq_RxLRs_Bc16=$OutDir/RxLRs/"$Strain"_Bc16_expressed_unique_DEGs_RxLRs.txt
-    Uniq_RxLRs_Bc1=$OutDir/RxLRs/"$Strain"_Bc1_expressed_unique_DEGs_RxLRs.txt
-    Uniq_RxLRs_Nov9=$OutDir/RxLRs/"$Strain"_Nov9_expressed_unique_DEGs_RxLRs.txt
-    echo "The number of BC-16 uniquely expressed RxLRs is:"
+    Uniq_RxLRs_Bc16=$OutDir/RxLRs/"$Strain"_Bc16_unique_DEGs_RxLRs.txt
+    Uniq_RxLRs_Bc1=$OutDir/RxLRs/"$Strain"_Bc1_unique_DEGs_RxLRs.txt
+    Uniq_RxLRs_Nov9=$OutDir/RxLRs/"$Strain"_Nov9_unique_DEGs_RxLRs.txt
+    echo "The number of BC-16 differently differentially expressed RxLRs is:"
     cat $Uniq_RxLRs_Bc16 | tail -n +2 | wc -l
-    echo "The number of BC-1 uniquely expressed RxLRs is:"
+    echo "The number of BC-1 differently differentially expressed RxLRs is:"
     cat $Uniq_RxLRs_Bc1 | tail -n +2 | wc -l
-    echo "The number of NOV-9 uniquely expressed RxLRs is:"
+    echo "The number of NOV-9 differently differentially expressed RxLRs is:"
     cat $Uniq_RxLRs_Nov9 | tail -n +2 | wc -l
-    Uniq_CRNs_Bc16=$OutDir/CRNs/"$Strain"_Bc16_expressed_unique_DEGs_CRNs.txt
-    Uniq_CRNs_Bc1=$OutDir/CRNs/"$Strain"_Bc1_expressed_unique_DEGs_CRNs.txt
-    Uniq_CRNs_Nov9=$OutDir/CRNs/"$Strain"_Nov9_expressed_unique_DEGs_CRNs.txt
-    echo "The number of BC-16 uniquely expressed CRNs is:"
+    Uniq_CRNs_Bc16=$OutDir/CRNs/"$Strain"_Bc16_unique_DEGs_CRNs.txt
+    Uniq_CRNs_Bc1=$OutDir/CRNs/"$Strain"_Bc1_unique_DEGs_CRNs.txt
+    Uniq_CRNs_Nov9=$OutDir/CRNs/"$Strain"_Nov9_unique_DEGs_CRNs.txt
+    echo "The number of BC-16 differently differentially expressed CRNs is:"
     cat $Uniq_CRNs_Bc16 | tail -n +2 | wc -l
-    echo "The number of BC-1 uniquely expressed CRNs is:"
+    echo "The number of BC-1 differently differentially expressed CRNs is:"
     cat $Uniq_CRNs_Bc1 | tail -n +2 | wc -l
-    echo "The number of NOV-9 uniquely expressed CRNs is:"
+    echo "The number of NOV-9 differently differentially expressed CRNs is:"
     cat $Uniq_CRNs_Nov9 | tail -n +2 | wc -l
-    Uniq_ApoP_Bc16=$OutDir/ApoP/"$Strain"_Bc16_expressed_unique_DEGs_ApoP.txt
-    Uniq_ApoP_Bc1=$OutDir/ApoP/"$Strain"_Bc1_expressed_unique_DEGs_ApoP.txt
-    Uniq_ApoP_Nov9=$OutDir/ApoP/"$Strain"_Nov9_expressed_unique_DEGs_ApoP.txt
-    echo "The number of BC-16 uniquely expressed apoplastic effectors is:"
+    Uniq_ApoP_Bc16=$OutDir/ApoP/"$Strain"_Bc16_unique_DEGs_ApoP.txt
+    Uniq_ApoP_Bc1=$OutDir/ApoP/"$Strain"_Bc1_unique_DEGs_ApoP.txt
+    Uniq_ApoP_Nov9=$OutDir/ApoP/"$Strain"_Nov9_unique_DEGs_ApoP.txt
+    echo "The number of BC-16 differently differentially expressed apoplastic effectors is:"
     cat $Uniq_ApoP_Bc16 | tail -n +2 | wc -l
-    echo "The number of BC-1 uniquely expressed apoplastic effectors is:"
+    echo "The number of BC-1 differently differentially expressed apoplastic effectors is:"
     cat $Uniq_ApoP_Bc1 | tail -n +2 | wc -l
-    echo "The number of NOV-9 uniquely expressed apoplastic effectors is:"
+    echo "The number of NOV-9 differently differentially expressed apoplastic effectors is:"
     cat $Uniq_ApoP_Nov9 | tail -n +2 | wc -l
-    Uniq_Sec_Bc16=$OutDir/Secreted/"$Strain"_Bc16_expressed_unique_DEGs_secreted.txt
-    Uniq_Sec_Bc1=$OutDir/Secreted/"$Strain"_Bc1_expressed_unique_DEGs_secreted.txt
-    Uniq_Sec_Nov9=$OutDir/Secreted/"$Strain"_Nov9_expressed_unique_DEGs_secreted.txt
-    echo "The number of BC-16 uniquely expressed secreted proteins is:"
+    Uniq_Sec_Bc16=$OutDir/Secreted/"$Strain"_Bc16_unique_DEGs_secreted.txt
+    Uniq_Sec_Bc1=$OutDir/Secreted/"$Strain"_Bc1_unique_DEGs_secreted.txt
+    Uniq_Sec_Nov9=$OutDir/Secreted/"$Strain"_Nov9_unique_DEGs_secreted.txt
+    echo "The number of BC-16 differently differentially expressed secreted proteins is:"
     cat $Uniq_Sec_Bc16 | tail -n +2 | wc -l
-    echo "The number of BC-1 uniquely expressed secreted proteins is:"
+    echo "The number of BC-1 differently differentially expressed secreted proteins is:"
     cat $Uniq_Sec_Bc1 | tail -n +2 | wc -l
-    echo "The number of NOV-9 uniquely expressed secreted proteins is:"
+    echo "The number of NOV-9 differently differentially expressed secreted proteins is:"
     cat $Uniq_Sec_Nov9 | tail -n +2 | wc -l
     printf "\n"
 done
