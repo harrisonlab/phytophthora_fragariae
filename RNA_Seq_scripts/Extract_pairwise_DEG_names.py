@@ -311,15 +311,15 @@ Isolate1_RxLRs = []
 Isolate2_RxLRs = []
 Isolate3_RxLRs = []
 
-for transcript in Isolate1_uniq_set:
+for transcript in Org1_uniq_set:
     if transcript in RxLR_set:
         Isolate1_RxLRs.append(transcript)
 
-for transcript in Isolate2_uniq_set:
+for transcript in Org2_uniq_set:
     if transcript in RxLR_set:
         Isolate2_RxLRs.append(transcript)
 
-for transcript in Isolate3_uniq_set:
+for transcript in Org3_uniq_set:
     if transcript in RxLR_set:
         Isolate3_RxLRs.append(transcript)
 
@@ -396,15 +396,15 @@ Isolate1_CRNs = []
 Isolate2_CRNs = []
 Isolate3_CRNs = []
 
-for transcript in Isolate1_uniq_set:
+for transcript in Org1_uniq_set:
     if transcript in CRN_set:
         Isolate1_CRNs.append(transcript)
 
-for transcript in Isolate2_uniq_set:
+for transcript in Org2_uniq_set:
     if transcript in CRN_set:
         Isolate2_CRNs.append(transcript)
 
-for transcript in Isolate3_uniq_set:
+for transcript in Org3_uniq_set:
     if transcript in CRN_set:
         Isolate3_CRNs.append(transcript)
 
@@ -481,15 +481,15 @@ Isolate1_ApoP = []
 Isolate2_ApoP = []
 Isolate3_ApoP = []
 
-for transcript in Isolate1_uniq_set:
+for transcript in Org1_uniq_set:
     if transcript in ApoP_set:
         Isolate1_ApoP.append(transcript)
 
-for transcript in Isolate2_uniq_set:
+for transcript in Org2_uniq_set:
     if transcript in ApoP_set:
         Isolate2_ApoP.append(transcript)
 
-for transcript in Isolate3_uniq_set:
+for transcript in Org3_uniq_set:
     if transcript in ApoP_set:
         Isolate3_ApoP.append(transcript)
 
@@ -566,15 +566,15 @@ Isolate1_Secreted = []
 Isolate2_Secreted = []
 Isolate3_Secreted = []
 
-for transcript in Isolate1_uniq_set:
+for transcript in Org1_uniq_set:
     if transcript in Secreted_CQ_set:
         Isolate1_Secreted.append(transcript)
 
-for transcript in Isolate2_uniq_set:
+for transcript in Org2_uniq_set:
     if transcript in Secreted_CQ_set:
         Isolate2_Secreted.append(transcript)
 
-for transcript in Isolate3_uniq_set:
+for transcript in Org3_uniq_set:
     if transcript in Secreted_CQ_set:
         Isolate3_Secreted.append(transcript)
 
@@ -591,15 +591,15 @@ Isolate1_Secreted = []
 Isolate2_Secreted = []
 Isolate3_Secreted = []
 
-for transcript in Isolate1_uniq_set:
+for transcript in Org1_uniq_set:
     if transcript in Secreted_ORF_set:
         Isolate1_Secreted.append(transcript)
 
-for transcript in Isolate2_uniq_set:
+for transcript in Org2_uniq_set:
     if transcript in Secreted_ORF_set:
         Isolate2_Secreted.append(transcript)
 
-for transcript in Isolate3_uniq_set:
+for transcript in Org3_uniq_set:
     if transcript in Secreted_ORF_set:
         Isolate3_Secreted.append(transcript)
 
