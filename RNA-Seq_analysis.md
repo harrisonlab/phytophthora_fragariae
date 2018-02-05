@@ -3726,7 +3726,7 @@ mkdir -p analysis/DeSeq/Method_2/results
 mkdir -p analysis/DeSeq/Method_3/results
 ```
 
-##Method 1, extracting names of only genes that are expressed
+##Method 1, extracting names of only genes that are uniquely expressed
 
 Create directories for results
 
@@ -3923,4 +3923,103 @@ The number of BC-1 uniquely expressed secreted proteins is:
 233
 The number of NOV-9 uniquely expressed secreted proteins is:
 112
+```
+
+##Method 1, extracting names of only genes that are uniquely differentially expressed
+
+Create directories for results
+
+```bash
+mkdir -p analysis/DeSeq/Method_1/DEG_results/all_genes
+mkdir -p analysis/DeSeq/Method_1/DEG_results/RxLRs
+mkdir -p analysis/DeSeq/Method_1/DEG_results/CRNs
+mkdir -p analysis/DeSeq/Method_1/DEG_results/ApoP
+mkdir -p analysis/DeSeq/Method_1/DEG_results/Secreted
+```
+
+Now generate results
+
+```bash
+screen -
+
+qlogin
+
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+
+for Strain in Bc1 Bc16 Nov9
+do
+    DEG_files=$(ls analysis/DeSeq/Method_1/$Strain/*.txt | grep -e "up" -e "down")
+    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+    Min_LFC=1
+    Min_Pval=0.05
+    Org1=Bc16
+    Org2=Bc1
+    Org3=Nov9
+    OutDir=analysis/DeSeq/Method_1/DEG_results
+    RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
+    CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
+    ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
+    Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted.txt
+    Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    python $ProgDir/Extract_pairwise_DEG_names.py --DEG_files $DEG_files --Orthogroup_in $Orthogroups --Reference_name $Strain --Min_LFC $Min_LFC --Sig_Level $Min_Pval --Organism_1 $Org1 --Organism_2 $Org2 --Organism_3 $Org3 --OutDir $OutDir --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF
+    echo "$Strain done"
+done
+```
+
+Now enumerate numbers of genes that are uniquely expressed
+
+```bash
+for Strain in Bc16 Bc1 Nov9
+do
+    OutDir=analysis/DeSeq/Method_1/expression_results
+    echo "Analysis using $Strain as the reference genome:"
+    printf "\n"
+    Uniq_Bc16=$OutDir/all_genes/"$Strain"_Bc16_expressed_unique.txt
+    Uniq_Bc1=$OutDir/all_genes/"$Strain"_Bc1_expressed_unique.txt
+    Uniq_Nov9=$OutDir/all_genes/"$Strain"_Nov9_expressed_unique.txt
+    echo "The number of BC-16 uniquely expressed genes is:"
+    cat $Uniq_Bc16 | tail -n +2 | wc -l
+    echo "The number of BC-1 uniquely expressed genes is:"
+    cat $Uniq_Bc1 | tail -n +2 | wc -l
+    echo "The number of NOV-9 uniquely expressed genes is:"
+    cat $Uniq_Nov9 | tail -n +2 | wc -l
+    Uniq_RxLRs_Bc16=$OutDir/RxLRs/"$Strain"_Bc16_expressed_unique_RxLRs.txt
+    Uniq_RxLRs_Bc1=$OutDir/RxLRs/"$Strain"_Bc1_expressed_unique_RxLRs.txt
+    Uniq_RxLRs_Nov9=$OutDir/RxLRs/"$Strain"_Nov9_expressed_unique_RxLRs.txt
+    echo "The number of BC-16 uniquely expressed RxLRs is:"
+    cat $Uniq_RxLRs_Bc16 | tail -n +2 | wc -l
+    echo "The number of BC-1 uniquely expressed RxLRs is:"
+    cat $Uniq_RxLRs_Bc1 | tail -n +2 | wc -l
+    echo "The number of NOV-9 uniquely expressed RxLRs is:"
+    cat $Uniq_RxLRs_Nov9 | tail -n +2 | wc -l
+    Uniq_CRNs_Bc16=$OutDir/CRNs/"$Strain"_Bc16_expressed_unique_CRNs.txt
+    Uniq_CRNs_Bc1=$OutDir/CRNs/"$Strain"_Bc1_expressed_unique_CRNs.txt
+    Uniq_CRNs_Nov9=$OutDir/CRNs/"$Strain"_Nov9_expressed_unique_CRNs.txt
+    echo "The number of BC-16 uniquely expressed CRNs is:"
+    cat $Uniq_CRNs_Bc16 | tail -n +2 | wc -l
+    echo "The number of BC-1 uniquely expressed CRNs is:"
+    cat $Uniq_CRNs_Bc1 | tail -n +2 | wc -l
+    echo "The number of NOV-9 uniquely expressed CRNs is:"
+    cat $Uniq_CRNs_Nov9 | tail -n +2 | wc -l
+    Uniq_ApoP_Bc16=$OutDir/ApoP/"$Strain"_Bc16_expressed_unique_ApoP.txt
+    Uniq_ApoP_Bc1=$OutDir/ApoP/"$Strain"_Bc1_expressed_unique_ApoP.txt
+    Uniq_ApoP_Nov9=$OutDir/ApoP/"$Strain"_Nov9_expressed_unique_ApoP.txt
+    echo "The number of BC-16 uniquely expressed apoplastic effectors is:"
+    cat $Uniq_ApoP_Bc16 | tail -n +2 | wc -l
+    echo "The number of BC-1 uniquely expressed apoplastic effectors is:"
+    cat $Uniq_ApoP_Bc1 | tail -n +2 | wc -l
+    echo "The number of NOV-9 uniquely expressed apoplastic effectors is:"
+    cat $Uniq_ApoP_Nov9 | tail -n +2 | wc -l
+    Uniq_Sec_Bc16=$OutDir/Secreted/"$Strain"_Bc16_expressed_unique_secreted.txt
+    Uniq_Sec_Bc1=$OutDir/Secreted/"$Strain"_Bc1_expressed_unique_secreted.txt
+    Uniq_Sec_Nov9=$OutDir/Secreted/"$Strain"_Nov9_expressed_unique_secreted.txt
+    echo "The number of BC-16 uniquely expressed secreted proteins is:"
+    cat $Uniq_Sec_Bc16 | tail -n +2 | wc -l
+    echo "The number of BC-1 uniquely expressed secreted proteins is:"
+    cat $Uniq_Sec_Bc1 | tail -n +2 | wc -l
+    echo "The number of NOV-9 uniquely expressed secreted proteins is:"
+    cat $Uniq_Sec_Nov9 | tail -n +2 | wc -l
+    printf "\n"
+done
 ```
