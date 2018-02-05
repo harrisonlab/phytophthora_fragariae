@@ -601,3 +601,8 @@ for transcript in Isolate3_uniq_set:
         Isolate3_Secreted.append(transcript)
 
 print("Uniquely differentially expressed secreted proteins identified")
+
+#-----------------------------------------------------
+# Step 14
+# Print all uniquely expressed Secreted proteins to text file
+#-----------------------------------------------------
