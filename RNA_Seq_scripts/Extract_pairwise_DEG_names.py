@@ -56,6 +56,9 @@ for DEG_file in DEG_files:
                     LFC_values[entryname] = log_change
                     P_values[entryname] = P_val
 
+with open(conf.Orthogroup_in) as f:
+    Ortho_lines = f.readlines()
+
 reference_name = conf.Reference_name
 ortho_dict = defaultdict(str)
 for line in Ortho_lines:
