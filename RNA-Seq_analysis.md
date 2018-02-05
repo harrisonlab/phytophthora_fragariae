@@ -3720,12 +3720,6 @@ write.table(fpkm_counts,"analysis/DeSeq/Method_3/Nov9/fpkm_counts.txt",sep="\t",
 
 #Use custom python scripts to create lists of genes in orthogroups for each of the comparison mechanisms
 
-```bash
-mkdir -p analysis/DeSeq/Method_1/DEG_results
-mkdir -p analysis/DeSeq/Method_2/results
-mkdir -p analysis/DeSeq/Method_3/results
-```
-
 ##Method 1, extracting names of only genes that are uniquely expressed
 
 Create directories for results
