@@ -4011,9 +4011,9 @@ do
     cat $Uniq_ApoP_Bc1 | tail -n +2 | wc -l
     echo "The number of NOV-9 differently differentially expressed apoplastic effectors is:"
     cat $Uniq_ApoP_Nov9 | tail -n +2 | wc -l
-    Uniq_Sec_Bc16=$OutDir/Secreted/"$Strain"_Bc16_unique_DEGs_secreted.txt
-    Uniq_Sec_Bc1=$OutDir/Secreted/"$Strain"_Bc1_unique_DEGs_secreted.txt
-    Uniq_Sec_Nov9=$OutDir/Secreted/"$Strain"_Nov9_unique_DEGs_secreted.txt
+    Uniq_Sec_Bc16=$OutDir/Secreted/"$Strain"_Bc16_unique_DEGs_Secreted.txt
+    Uniq_Sec_Bc1=$OutDir/Secreted/"$Strain"_Bc1_unique_DEGs_Secreted.txt
+    Uniq_Sec_Nov9=$OutDir/Secreted/"$Strain"_Nov9_unique_DEGs_Secreted.txt
     echo "The number of BC-16 differently differentially expressed secreted proteins is:"
     cat $Uniq_Sec_Bc16 | tail -n +2 | wc -l
     echo "The number of BC-1 differently differentially expressed secreted proteins is:"
