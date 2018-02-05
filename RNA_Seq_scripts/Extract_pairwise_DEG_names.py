@@ -284,7 +284,7 @@ with open(Org3_out, 'w') as o:
     o.write("\n")
     for transcript in Org3_uniq_set:
         orthogroup = ortho_dict[transcript]
-        LFC2 = str(Or3_vs_Org2_LFC[transcript])
+        LFC2 = str(Org3_vs_Org2_LFC[transcript])
         PV2 = str(Org3_vs_Org2_Pval[transcript])
         LFC1 = str(Org3_vs_Org1_LFC[transcript])
         PV1 = str(Org3_vs_Org1_Pval[transcript])
