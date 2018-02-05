@@ -238,9 +238,9 @@ Org1_file = "_".join([reference_name, Org1, "unique_DEGs.txt"])
 Org2_file = "_".join([reference_name, Org2, "unique_DEGs.txt"])
 Org3_file = "_".join([reference_name, Org3, "unique_DEGs.txt"])
 
-Org1_out = "/".join([cwd, OutDir, Org1_file])
-Org2_out = "/".join([cwd, OutDir, Org2_file])
-Org3_out = "/".join([cwd, OutDir, Org3_file])
+Org1_out = "/".join([cwd, OutDir, "all_genes", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "all_genes", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "all_genes", Org3_file])
 
 LFC1 = "_".join(["LFC", Org1])
 LFC2 = "_".join(["LFC", Org2])
