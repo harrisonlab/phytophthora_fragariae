@@ -550,3 +550,54 @@ print("Uniquely differentially expressed Apoplastic effectors written to text fi
 # Step 9
 # Identify Secreted proteins that are uniquely differentially expressed
 #-----------------------------------------------------
+
+with open(conf.Secreted_CQ) as f:
+    Secreted_CQ = []
+    Secreted_CQ_lines = f.readlines()
+    for line in Secreted_CQ_lines:
+        ID = line.rstrip()
+        Secreted_CQ.append(ID)
+
+Secreted_CQ_set = set(Secreted_CQ)
+Isolate1_Secreted = []
+Isolate2_Secreted = []
+Isolate3_Secreted = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in Secreted_CQ_set:
+        Isolate1_Secreted.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in Secreted_CQ_set:
+        Isolate2_Secreted.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in Secreted_CQ_set:
+        Isolate3_Secreted.append(transcript)
+
+with open(conf.Secreted_ORF) as f:
+    Secreted_ORF = []
+    Secreted_ORF_lines = f.readlines()
+    for line in Secreted_ORF_lines:
+        ID = line.rstrip()
+        ID_modified = ".".join([ID, "t1"])
+        Secreted_ORF.append(ID_modified)
+
+Secreted_ORF_set = set(Secreted_ORF)
+Isolate1_Secreted = []
+Isolate2_Secreted = []
+Isolate3_Secreted = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in Secreted_ORF_set:
+        Isolate1_Secreted.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in Secreted_ORF_set:
+        Isolate2_Secreted.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in Secreted_ORF_set:
+        Isolate3_Secreted.append(transcript)
+
+print("Uniquely differentially expressed secreted proteins identified")
