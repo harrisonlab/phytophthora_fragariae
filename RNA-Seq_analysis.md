@@ -3967,12 +3967,12 @@ do
 done
 ```
 
-Now enumerate numbers of genes that are uniquely expressed
+Now enumerate numbers of genes that are differently differentially expressed
 
 ```bash
 for Strain in Bc16 Bc1 Nov9
 do
-    OutDir=analysis/DeSeq/Method_1/expression_results
+    OutDir=analysis/DeSeq/Method_ 1/DEG_results
     echo "Analysis using $Strain as the reference genome:"
     printf "\n"
     Uniq_Bc16=$OutDir/all_genes/"$Strain"_Bc16_expressed_unique.txt
