@@ -330,9 +330,9 @@ print("Uniquely differentially expressed RxLRs identified")
 # Write all uniquely differentially expressed RxLRs to text file
 #-----------------------------------------------------
 
-Org1_file = "_".join([Reference_name, Org1, "unique_DEGs_RxLRs.txt"])
-Org2_file = "_".join([Reference_name, Org2, "unique_DEGs_RxLRs.txt"])
-Org3_file = "_".join([Reference_name, Org3, "unique_DEGs_RxLRs.txt"])
+Org1_file = "_".join([reference_name, Org1, "unique_DEGs_RxLRs.txt"])
+Org2_file = "_".join([reference_name, Org2, "unique_DEGs_RxLRs.txt"])
+Org3_file = "_".join([reference_name, Org3, "unique_DEGs_RxLRs.txt"])
 
 Org1_out = "/".join([cwd, OutDir, "RxLRs", Org1_file])
 Org2_out = "/".join([cwd, OutDir, "RxLRs", Org2_file])
@@ -415,9 +415,9 @@ print("Uniquely differentially expressed CRNs identified")
 # Write all uniquely differentially expressed CRNs to text file
 #-----------------------------------------------------
 
-Org1_file = "_".join([Reference_name, Org1, "unique_DEGs_CRNs.txt"])
-Org2_file = "_".join([Reference_name, Org2, "unique_DEGs_CRNs.txt"])
-Org3_file = "_".join([Reference_name, Org3, "unique_DEGs_CRNs.txt"])
+Org1_file = "_".join([reference_name, Org1, "unique_DEGs_CRNs.txt"])
+Org2_file = "_".join([reference_name, Org2, "unique_DEGs_CRNs.txt"])
+Org3_file = "_".join([reference_name, Org3, "unique_DEGs_CRNs.txt"])
 
 Org1_out = "/".join([cwd, OutDir, "CRNs", Org1_file])
 Org2_out = "/".join([cwd, OutDir, "CRNs", Org2_file])
@@ -500,9 +500,9 @@ print("Uniquely differentially expressed Apoplastic effectors identified")
 # Write all uniquely differentially expressed Apoplastic effectors to text file
 #-----------------------------------------------------
 
-Org1_file = "_".join([Reference_name, Org1, "unique_DEGs_ApoP.txt"])
-Org2_file = "_".join([Reference_name, Org2, "unique_DEGs_ApoP.txt"])
-Org3_file = "_".join([Reference_name, Org3, "unique_DEGs_ApoP.txt"])
+Org1_file = "_".join([reference_name, Org1, "unique_DEGs_ApoP.txt"])
+Org2_file = "_".join([reference_name, Org2, "unique_DEGs_ApoP.txt"])
+Org3_file = "_".join([reference_name, Org3, "unique_DEGs_ApoP.txt"])
 
 Org1_out = "/".join([cwd, OutDir, "ApoP", Org1_file])
 Org2_out = "/".join([cwd, OutDir, "ApoP", Org2_file])
@@ -610,9 +610,9 @@ print("Uniquely differentially expressed secreted proteins identified")
 # Print all uniquely expressed Secreted proteins to text file
 #-----------------------------------------------------
 
-Org1_file = "_".join([Reference_name, Org1, "unique_DEGs_Secreted.txt"])
-Org2_file = "_".join([Reference_name, Org2, "unique_DEGs_Secreted.txt"])
-Org3_file = "_".join([Reference_name, Org3, "unique_DEGs_Secreted.txt"])
+Org1_file = "_".join([reference_name, Org1, "unique_DEGs_Secreted.txt"])
+Org2_file = "_".join([reference_name, Org2, "unique_DEGs_Secreted.txt"])
+Org3_file = "_".join([reference_name, Org3, "unique_DEGs_Secreted.txt"])
 
 Org1_out = "/".join([cwd, OutDir, "Secreted", Org1_file])
 Org2_out = "/".join([cwd, OutDir, "Secreted", Org2_file])
