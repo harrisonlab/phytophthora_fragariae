@@ -142,3 +142,8 @@ RxLR_set = set(RxLRs)
 CRN_set = set(CRNs)
 ApoP_set = set(ApoPs)
 Sec_set = set(Sec)
+
+#-----------------------------------------------------
+# Step 2
+# Create dictionaries listing gene IDs in each expressed set as keys with orthogroup ID as values
+#-----------------------------------------------------
