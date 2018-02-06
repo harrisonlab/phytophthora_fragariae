@@ -28,3 +28,29 @@ conf = ap.parse_args()
 # Step 1
 # Load input files
 #-----------------------------------------------------
+
+Uniq_Exp_Files = conf.Unique_Expression_Files
+gene_IDs = []
+Org1_Uniq_Exp = []
+Org2_Uniq_Exp = []
+Org3_Uniq_Exp = []
+for Uniq_Exp_File in Uniq_Exp_Files:
+    with open(Uniq_Exp_File) as f:
+        if Uniq_Exp_File.split('/')[-1].split('_')[0] == Org1:
+            gene_lines = f.readlines()[1:]
+            transcript_ID = gene_lines.split('\t')[0]
+            Org1_Uniq_Exp.append(transcipt_ID)
+        elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Org2:
+            gene_lines = f.readlines()[1:]
+            transcript_ID = gene_lines.split('\t')[0]
+            Org2_Uniq_Exp.append(transcipt_ID)
+        elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Org3:
+            gene_lines = f.readlines()[1:]
+            transcript_ID = gene_lines.split('\t')[0]
+            Org3_Uniq_Exp.append(transcipt_ID)
+        else:
+            sys.exit("Error, incorrect expression files provided")
+
+Org1_Uniq_Exp_set = set(Org1_Uniq_Exp)
+Org2_Uniq_Exp_set = set(Org2_Uniq_Exp)
+Org3_Uniq_Exp_set = set(Org3_Uniq_Exp)
