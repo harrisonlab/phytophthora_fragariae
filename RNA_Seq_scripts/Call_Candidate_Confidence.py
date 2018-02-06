@@ -101,6 +101,8 @@ with open(conf.Orthogroup_in) as f:
         genes_in_group = [ x for x in split_line ]
         ortho_dict[orthogroup] = genes_in_group
 
+ortho_set = set(ortho_dict.keys())
+
 RxLRs = []
 with open(conf.RxLRs) as f:
     RxLR_lines = f.readlines()
@@ -135,3 +137,8 @@ with open(conf.Secreted_ORF) as f:
         ID = line.rstrip()
         ID_modified = ".".join([ID, "t1"])
         Sec.append(ID_modified)
+
+RxLR_set = set(RxLRs)
+CRN_set = set(CRNs)
+ApoP_set = set(ApoPs)
+Sec_set = set(Sec)
