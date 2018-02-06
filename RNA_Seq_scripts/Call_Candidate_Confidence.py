@@ -22,3 +22,9 @@ ap.add_argument('--ApoP',required=True,type=str,help='File of all hits from Apop
 ap.add_argument('--Secreted_CQ',required=True,type=str,help='File of all secreted gene models')
 ap.add_argument('--Secreted_ORF',required=True,type=str,help='File of all secreted ORF fragments')
 ap.add_argument('--OutDir',required=True,type=str,help='Directory to write output files to')
+conf = ap.parse_args()
+
+#-----------------------------------------------------
+# Step 1
+# Load input files
+#-----------------------------------------------------
