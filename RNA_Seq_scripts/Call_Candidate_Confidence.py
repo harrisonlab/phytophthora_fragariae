@@ -16,6 +16,7 @@ ap.add_argument('--Orthogroup_in',required=True,type=str,help='Text output file 
 ap.add_argument('--Organism_1',required=True,type=str,help='ID of organism 1')
 ap.add_argument('--Organism_2',required=True,type=str,help='ID of organism 2')
 ap.add_argument('--Organism_3',required=True,type=str,help='ID of organism 3')
+ap.add_argument('--Race_isolates',required=True,nargs='+',type=str,help='Space separated list of isolates of the race of interest')
 ap.add_argument('--Reference_name',required=True,type=str,help='ID of isolate to score candidates of')
 ap.add_argument('--RxLRs',required=True,type=str,help='File of all RxLR names for aligned genome')
 ap.add_argument('--CRNs',required=True,type=str,help='File of all CRN names for aligned genome')
@@ -98,7 +99,7 @@ with open(conf.Orthogroup_in) as f:
         split_line = line.split()
         orthogroup = split_line[0]
         orthogroup = orthogroup.replace(":", "")
-        genes_in_group = [ x for x in split_line ]
+        genes_in_group = [ x for x in split_line if not 'OG' in x ]
         ortho_dict[orthogroup] = genes_in_group
 
 ortho_set = set(ortho_dict.keys())
@@ -145,5 +146,24 @@ Sec_set = set(Sec)
 
 #-----------------------------------------------------
 # Step 2
-# Create dictionaries listing gene IDs in each expressed set as keys with orthogroup ID as values
+# Create dictionaries listing gene IDs in each expressed set as values with orthogroup ID as keys
 #-----------------------------------------------------
+
+Race_list = conf.Race_isolates
+
+Org1_Exp_dict = defaultdict(list)
+Org2_Exp_dict = defaultdict(list)
+Org3_Exp_dict = defaultdict(list)
+
+Org1_OGs = []
+
+for transcript_ID in Org1_Uniq_Exp_set:
+    for x in split_line if Org1 in x:
+        Isolates_in_OG = []
+        orthogroup = split_line[0]
+        for item in split_line:
+            Isolate = item.split('|')[0]
+            Isolates_in_OG.append(Isolate)
+        if set(Race_list).issubset(set(Isolates_in_OG)):
+            Org1_Exp_dict[transcript_ID] = orthogroup
+            Org1_OGs.append(orthogroup)
