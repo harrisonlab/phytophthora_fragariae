@@ -4122,6 +4122,12 @@ Now call candidate confidence for each isolate
 BC-16, UK2
 
 ```bash
+screen -
+
+qlogin
+
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+
 for num in 1
 do
     Strain=Bc16
@@ -4145,6 +4151,13 @@ done
 BC-1, UK1
 
 ```bash
+screen -
+
+qlogin
+
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+
+
 Strain=Bc1
 Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/"$Strain"*expressed.txt)
 Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/"$Strain"*unique_DEGs.txt)
@@ -4165,6 +4178,13 @@ python $ProgDir/Call_Candidate_Confidence.py --Unique_Expression_Files $Uniq_Exp
 NOV-9, UK3
 
 ```bash
+screen -
+
+qlogin
+
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+
+
 Strain=Nov9
 Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/"$Strain"*expressed.txt)
 Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/"$Strain"*unique_DEGs.txt)
