@@ -4178,3 +4178,85 @@ OutDir=analysis/DeSeq/Method_1/candidates
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 python $ProgDir/Call_Candidate_Confidence.py --Unique_Expression_Files $Uniq_Exp_files --Differently_DEG_File $Uniq_DEG_files --Orthogroup_in $Orthogroups --Organism_1 $Strain --Organism_2 $Org2 --Organism_3 $Org3 --Race_isolates $Race_isolates --Reference_name $Strain --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF --OutDir $OutDir
 ```
+
+Then enumerate the numbers of each gene and each type of effector
+
+```bash
+for Strain in Bc16 Bc1 Nov9
+do
+    echo "Analysis of $Strain"
+    printf "\n"
+    echo "The number of candidates regardless of confidence is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | wc -l
+    echo "The number of genes of confidence level 6 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | wc -l
+    echo "The number of genes of RxLRs of confidence level 6 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | cut -f11 | grep 'Yes' | wc -l
+    echo "The number of genes of CRNs of confidence level 6 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | cut -f12 | grep 'Yes' | wc -l
+    echo "The number of genes of apoplastic effectors of confidence level 6 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | cut -f13 | grep 'Yes' | wc -l
+    echo "The number of genes of secreted proteins of confidence level 6 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of genes of confidence level 5 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | wc -l
+    echo "The number of genes of RxLRs of confidence level 5 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | cut -f11 | grep 'Yes' | wc -l
+    echo "The number of genes of CRNs of confidence level 5 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | cut -f12 | grep 'Yes' | wc -l
+    echo "The number of genes of apoplastic effectors of confidence level 5 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | cut -f13 | grep 'Yes' | wc -l
+    echo "The number of genes of secreted proteins of confidence level 5 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of genes of confidence level 4 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | wc -l
+    echo "The number of genes of RxLRs of confidence level 4 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | cut -f11 | grep 'Yes' | wc -l
+    echo "The number of genes of CRNs of confidence level 4 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | cut -f12 | grep 'Yes' | wc -l
+    echo "The number of genes of apoplastic effectors of confidence level 4 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | cut -f13 | grep 'Yes' | wc -l
+    echo "The number of genes of secreted proteins of confidence level 4 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of genes of confidence level 3 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | wc -l
+    echo "The number of genes of RxLRs of confidence level 3 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | cut -f11 | grep 'Yes' | wc -l
+    echo "The number of genes of CRNs of confidence level 3 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | cut -f12 | grep 'Yes' | wc -l
+    echo "The number of genes of apoplastic effectors of confidence level 3 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | cut -f13 | grep 'Yes' | wc -l
+    echo "The number of genes of secreted proteins of confidence level 3 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of genes of confidence level 2 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | wc -l
+    echo "The number of genes of RxLRs of confidence level 2 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | cut -f11 | grep 'Yes' | wc -l
+    echo "The number of genes of CRNs of confidence level 2 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | cut -f12 | grep 'Yes' | wc -l
+    echo "The number of genes of apoplastic effectors of confidence level 2 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | cut -f13 | grep 'Yes' | wc -l
+    echo "The number of genes of secreted proteins of confidence level 2 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of genes of confidence level 1 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | wc -l
+    echo "The number of genes of RxLRs of confidence level 1 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | cut -f11 | grep 'Yes' | wc -l
+    echo "The number of genes of CRNs of confidence level 1 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | cut -f12 | grep 'Yes' | wc -l
+    echo "The number of genes of apoplastic effectors of confidence level 1 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | cut -f13 | grep 'Yes' | wc -l
+    echo "The number of genes of secreted proteins of confidence level 1 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of genes of confidence level 0 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | wc -l
+    echo "The number of genes of RxLRs of confidence level 0 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | cut -f11 | grep 'Yes' | wc -l
+    echo "The number of genes of CRNs of confidence level 0 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | cut -f12 | grep 'Yes' | wc -l
+    echo "The number of genes of apoplastic effectors of confidence level 0 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | cut -f13 | grep 'Yes' | wc -l
+    echo "The number of genes of secreted proteins of confidence level 0 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | cut -f14 | grep 'Yes' | wc -l
+    printf "\n"
+```
