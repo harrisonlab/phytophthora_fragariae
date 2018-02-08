@@ -104,8 +104,6 @@ with open(conf.Orthogroup_in) as f:
         genes_in_group = [ x for x in split_line if not 'OG' in x ]
         ortho_dict[orthogroup] = genes_in_group
 
-ortho_set = set(ortho_dict.keys())
-
 RxLRs = []
 with open(conf.RxLRs) as f:
     RxLR_lines = f.readlines()
