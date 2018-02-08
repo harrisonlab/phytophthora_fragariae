@@ -191,3 +191,8 @@ for transcript_ID in Org3_Uniq_Exp_set:
         if set(Race_list).issubset(set(Isolates_in_OG)):
             Org3_Exp_dict[transcript_ID] = orthogroup
             Org3_OGs.append(orthogroup)
+
+#-----------------------------------------------------
+# Step 3
+# Loop through genes from isolate of interest, ID genes from other reference genomes in same OG and pull out relevant features
+#-----------------------------------------------------
