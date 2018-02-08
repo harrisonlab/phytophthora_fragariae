@@ -4026,17 +4026,17 @@ The number of BC-1 differently differentially expressed genes is:
 The number of NOV-9 differently differentially expressed genes is:
 1,441
 The number of BC-16 differently differentially expressed RxLRs is:
-19
+33
 The number of BC-1 differently differentially expressed RxLRs is:
-10
+12
 The number of NOV-9 differently differentially expressed RxLRs is:
-18
+31
 The number of BC-16 differently differentially expressed CRNs is:
 2
 The number of BC-1 differently differentially expressed CRNs is:
 0
 The number of NOV-9 differently differentially expressed CRNs is:
-6
+10
 The number of BC-16 differently differentially expressed apoplastic effectors is:
 116
 The number of BC-1 differently differentially expressed apoplastic effectors is:
@@ -4059,17 +4059,17 @@ The number of BC-1 differently differentially expressed genes is:
 The number of NOV-9 differently differentially expressed genes is:
 1,053
 The number of BC-16 differently differentially expressed RxLRs is:
-31
+49
 The number of BC-1 differently differentially expressed RxLRs is:
-56
+72
 The number of NOV-9 differently differentially expressed RxLRs is:
-6
+34
 The number of BC-16 differently differentially expressed CRNs is:
 3
 The number of BC-1 differently differentially expressed CRNs is:
-1
-The number of NOV-9 differently differentially expressed CRNs is:
 3
+The number of NOV-9 differently differentially expressed CRNs is:
+6
 The number of BC-16 differently differentially expressed apoplastic effectors is:
 140
 The number of BC-1 differently differentially expressed apoplastic effectors is:
@@ -4092,17 +4092,17 @@ The number of BC-1 differently differentially expressed genes is:
 The number of NOV-9 differently differentially expressed genes is:
 3,755
 The number of BC-16 differently differentially expressed RxLRs is:
-53
+77
 The number of BC-1 differently differentially expressed RxLRs is:
-9
+44
 The number of NOV-9 differently differentially expressed RxLRs is:
-50
+86
 The number of BC-16 differently differentially expressed CRNs is:
-2
+3
 The number of BC-1 differently differentially expressed CRNs is:
-1
+4
 The number of NOV-9 differently differentially expressed CRNs is:
-7
+18
 The number of BC-16 differently differentially expressed apoplastic effectors is:
 228
 The number of BC-1 differently differentially expressed apoplastic effectors is:
