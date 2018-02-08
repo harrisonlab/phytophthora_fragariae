@@ -251,3 +251,69 @@ for transcript_ID in Org1_ID_dict.keys():
 # Step 5
 # Write out file
 #-----------------------------------------------------
+
+OutDir = conf.OutDir
+cwd = os.getcwd()
+
+OutFile = "_".join([Ref_Name, "candidate", "avrs.tsv"])
+Output = "/".join([cwd, OutDir, OutFile])
+
+Org1_gene_Head = "_".join([Org1, "transcript", "ID"])
+Org2_gene_Head = "_".join([Org2, "transcript", "ID"])
+Org3_gene_Head = "_".join([Org3, "transcript", "ID"])
+Org1_DEG_Head = "_".join([Org1, "different", "DEG"])
+Org2_DEG_Head = "_".join([Org2, "different", "DEG"])
+Org3_DEG_Head = "_".join([Org3, "different", "DEG"])
+Org1_exp_Head = "_".join([Org1, "uniquely", "expressed"])
+Org2_exp_Head = "_".join([Org2, "uniquely", "expressed"])
+Org3_exp_Head = "_".join([Org3, "uniquely", "expressed"])
+
+Header = "\t".join([Org1_gene_Head, Org2_gene_Head, Org3_gene_Head, Org1_DEG_Head, Org2_DEG_Head, Org3_DEG_Head, Org1_exp_Head, Org2_exp_Head, Org3_exp_Head, "RxLR", "CRN", "ApoplastP", "Secreted", "Score"])
+
+with open(Output, 'w') as o:
+    o.write(Header)
+    o.write("\n")
+    for transcript_ID in Org1_ID_dict.keys():
+        if transcript_ID in Org1_Exp_to_print:
+            Org1_Exp = "Yes"
+        else:
+            Org1_Exp = ""
+        if transcript_ID in Org2_Exp_to_print:
+            Org2_Exp = "Yes"
+        else:
+            Org2_Exp = ""
+        if transcript_ID in Org3_Exp_to_print:
+            Org3_Exp = "Yes"
+        else:
+            Org3_Exp = ""
+        if transcript_ID in Org1_DEG_to_print:
+            Org1_DEG = "Yes"
+        else:
+            Org1_DEG = ""
+        if transcript_ID in Org2_DEG_to_print:
+            Org2_DEG = "Yes"
+        else:
+            Org2_DEG = ""
+        if transcript_ID in Org3_DEG_to_print:
+            Org3_DEG = "Yes"
+        else:
+            Org3_DEG = ""
+        if transcript_ID in RxLR_to_print:
+            RxLR = "Yes"
+        else:
+            RxLR = ""
+        if transcript_ID in CRN_to_print:
+            CRN = "Yes"
+        else:
+            CRN = ""
+        if transcript_ID in ApoP_to_print:
+            ApoP = "Yes"
+        else:
+            ApoP = ""
+        if transcript_ID in Sec_to_print:
+            Sec = "Yes"
+        else:
+            Sec = ""
+        To_Write = "\t".join([transcript_ID, Org1_Org2_dict[transcript_ID], Org1_Org3_dict[transcript_ID], Org1_ID_dict[transcript_ID], Org1_Exp, Org2_Exp, Org3_Exp, Org1_DEG, Org2_DEG, Org3_DEG, RxLR, CRN, ApoP, Sec, Score_dict[transcript_ID]])
+        o.write(To_Write)
+        o.write("\n")
