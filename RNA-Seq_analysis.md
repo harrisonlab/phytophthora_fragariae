@@ -4125,8 +4125,8 @@ BC-16, UK2
 for num in 1
 do
     Strain=Bc16
-    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/"$Strain"*expressed.txt)
-    Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/"$Strain"*unique_DEGs.txt)
+    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/*_"$Strain"*expressed.txt)
+    Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/*_"$Strain"*unique_DEGs.txt)
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
     Org2=Bc1
     Org3=Nov9
