@@ -159,7 +159,11 @@ print("Files loaded and prepared")
 # Create dictionaries listing gene IDs in each expressed set as keys with orthogroup ID as values
 #-----------------------------------------------------
 
-Race_list = conf.Race_isolates
+Race_IDs = conf.Race_isolates
+Race_list = []
+for Race in Race_IDs:
+    Race_list.append(Race)
+
 
 Org1_ID_dict = defaultdict(list)
 
