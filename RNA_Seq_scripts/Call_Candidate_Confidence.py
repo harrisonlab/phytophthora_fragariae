@@ -40,6 +40,8 @@ Uniq_Exp_Files = conf.Unique_Expression_Files
 Org1_Uniq_Exp = []
 Org2_Uniq_Exp = []
 Org3_Uniq_Exp = []
+transcript_ID = []
+
 for Uniq_Exp_File in Uniq_Exp_Files:
     with open(Uniq_Exp_File) as f:
         if Uniq_Exp_File.split('/')[-1].split('_')[0] == Org1 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
