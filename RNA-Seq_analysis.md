@@ -4136,7 +4136,7 @@ do
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
     Org2=Bc1
     Org3=Nov9
-    Race_isolates="Bc16 A4"
+    Race_isolates=Bc16 A4
     RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
     CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
     ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
@@ -4166,7 +4166,7 @@ do
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
     Org2=Bc16
     Org3=Nov9
-    Race_isolates="Bc1 Nov5"
+    Race_isolates=Bc1 Nov5
     RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
     CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
     ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
@@ -4196,7 +4196,7 @@ do
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
     Org2=Bc16
     Org3=Bc1
-    Race_isolates="Nov9 Nov27 Nov71"
+    Race_isolates=Nov9 Nov27 Nov71
     RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
     CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
     ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
