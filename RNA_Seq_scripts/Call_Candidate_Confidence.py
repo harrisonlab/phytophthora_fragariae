@@ -246,3 +246,8 @@ for transcript_ID in Org1_ID_dict.keys():
         Score_dict[transcript_ID] = Score
     else:
         Score_dict[transcript_ID] = float('0')
+
+#-----------------------------------------------------
+# Step 5
+# Write out file
+#-----------------------------------------------------
