@@ -4119,7 +4119,7 @@ The number of NOV-9 differently differentially expressed secreted proteins is:
 
 Now call candidate confidence for each isolate
 
-BC-16
+BC-16, UK2
 
 ```bash
 Strain=Bc16
@@ -4129,6 +4129,46 @@ Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.t
 Org2=Bc1
 Org3=Nov9
 Race_isolates="Bc16 A4"
+RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
+CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
+ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
+Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
+Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+OutDir=analysis/DeSeq/Method_1/candidates
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+python $ProgDir/Call_Candidate_Confidence.py --Unique_Expression_Files $Uniq_Exp_files --Differently_DEG_File $Uniq_DEG_files --Orthogroup_in $Orthogroups --Organism_1 $Strain --Organism_2 $Org2 --Organism_3 $Org3 --Race_isolates $Race_isolates --Reference_name $Strain --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF --OutDir $OutDir
+```
+
+BC-1, UK1
+
+```bash
+Strain=Bc1
+Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/"$Strain"*expressed.txt)
+Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/"$Strain"*unique_DEGs.txt)
+Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+Org2=Bc16
+Org3=Nov9
+Race_isolates="Bc1 Nov5"
+RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
+CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
+ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
+Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
+Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+OutDir=analysis/DeSeq/Method_1/candidates
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+python $ProgDir/Call_Candidate_Confidence.py --Unique_Expression_Files $Uniq_Exp_files --Differently_DEG_File $Uniq_DEG_files --Orthogroup_in $Orthogroups --Organism_1 $Strain --Organism_2 $Org2 --Organism_3 $Org3 --Race_isolates $Race_isolates --Reference_name $Strain --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF --OutDir $OutDir
+```
+
+NOV-9, UK3
+
+```bash
+Strain=Nov9
+Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/"$Strain"*expressed.txt)
+Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/"$Strain"*unique_DEGs.txt)
+Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+Org2=Bc16
+Org3=Bc1
+Race_isolates="Nov9 Nov27 Nov71"
 RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
 CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
 ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
