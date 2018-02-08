@@ -281,6 +281,8 @@ with open(conf.RxLRs) as f:
     RxLR_lines = f.readlines()
     for line in RxLR_lines:
         ID = line.rstrip()
+        if "contig" in ID:
+            ID = ".".join([ID, "t1"])
         RxLRs.append(ID)
 
 RxLR_set = set(RxLRs)
@@ -359,6 +361,8 @@ with open(conf.CRNs) as f:
     CRN_lines = f.readlines()
     for line in CRN_lines:
         ID = line.rstrip()
+        if "contig" in ID:
+            ID = ".".join([ID, "t1"])
         CRNs.append(ID)
 
 CRN_set = set(CRNs)
@@ -437,6 +441,8 @@ with open(conf.ApoP) as f:
     ApoP_lines = f.readlines()
     for line in ApoP_lines:
         ID = line.rstrip()
+        if "contig" in ID:
+            ID = ".".join([ID, "t1"])
         ApoP.append(ID)
 
 ApoP_set = set(ApoP)
