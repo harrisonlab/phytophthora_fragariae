@@ -151,7 +151,7 @@ Sec_set = set(Sec)
 
 Race_list = conf.Race_isolates
 
-Org1_Exp_dict = defaultdict(list)
+Org1_ID_dict = defaultdict(list)
 
 for transcript_ID in Org1_Uniq_Exp_set:
     Isolates_in_OG = []
@@ -161,7 +161,7 @@ for transcript_ID in Org1_Uniq_Exp_set:
         Isolate = item.split('|')[0]
         Isolates_in_OG.append(Isolate)
         if set(Race_list).issubset(set(Isolates_in_OG)):
-            Org1_Exp_dict[transcript_ID] = orthogroup
+            Org1_ID_dict[transcript_ID] = orthogroup
 
 #-----------------------------------------------------
 # Step 3
@@ -171,11 +171,58 @@ for transcript_ID in Org1_Uniq_Exp_set:
 Org1_Org2_dict = defaultdict(list)
 Org1_Org3_dict = defaultdict(list)
 
-for transcript_ID in Org1_Exp_dict.keys():
-    orthogroup = Org1_Exp_dict[transcript_ID]
+for transcript_ID in Org1_ID_dict.keys():
+    orthogroup = Org1_ID_dict[transcript_ID]
     OG_genes = ortho_dict[orthogroup]
     for gene_ID in OG_genes:
         if gene_ID.split('|')[0] == Org2:
             Org1_Org2_dict[transcript_ID].append(gene_ID)
         elif gene_ID.split('|')[0] == Org3:
             Org1_Org3_dict[transcript_ID].append(gene_ID)
+
+#-----------------------------------------------------
+# Step 4
+# Loop through each ID to be written to table and create dictionaries for writing to each field of the table
+#-----------------------------------------------------
+
+Org1_Exp_to_print = []
+Org2_Exp_to_print = []
+Org3_Exp_to_print = []
+Org1_DEG_to_print = []
+Org2_DEG_to_print = []
+Org3_DEG_to_print = []
+RxLR_to_print = []
+CRN_to_print = []
+ApoP_to_print = []
+Sec_to_print = []
+Score_dict = defaultdict(float)
+
+for transcript_ID in Org1_Exp_dict.keys():
+    if transcript_ID in Org1_Uniq_Exp_set:
+        Org1_Exp_to_print.append(transcript_ID)
+    for gene_list in Org1_Org2_dict[transcript_ID]:
+        for gene in gene_list:
+            if gene in Org2_Uniq_Exp_set:
+                Org2_Exp_to_print.append(transcript_ID)
+    for gene_list in Org1_Org3_dict[transcript_ID]:
+        for gene in gene_list:
+            if gene in Org3_Uniq_Exp_set:
+                Org3_Exp_to_print.append(transcript_ID)
+    if transcript_ID in Org1_Uniq_DEG_set:
+        Org1_DEG_to_print.append(transcript_ID)
+    for gene_list in Org1_Org2_dict[transcript_ID]:
+        for gene in gene_list:
+            if gene in Org2_Uniq_DEG_set:
+                Org2_DEG_to_print.append(transcript_ID)
+    for gene_list in Org1_Org3_dict[transcript_ID]:
+        for gene in gene_list:
+            if gene in Org3_Uniq_DEG_set:
+                Org3_DEG_to_print.append(transcript_ID)
+    if transcript_ID in RxLR_set:
+        RxLR_to_print.append(transcript_ID)
+    if transcript_ID in CRN_set:
+        CRN_to_print.append(transcript_ID)
+    if transcript_ID in ApoP_set:
+        ApoP_to_print.append(transcript_ID)
+    if transcript_ID in Sec_set:
+        Sec_to_print.append(transcript_ID)    
