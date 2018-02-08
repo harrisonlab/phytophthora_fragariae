@@ -156,6 +156,8 @@ Org2_Exp_dict = defaultdict(list)
 Org3_Exp_dict = defaultdict(list)
 
 Org1_OGs = []
+Org2_OGs = []
+Org3_OGs = []
 
 for transcript_ID in Org1_Uniq_Exp_set:
     for x in split_line if Org1 in x:
@@ -167,3 +169,25 @@ for transcript_ID in Org1_Uniq_Exp_set:
         if set(Race_list).issubset(set(Isolates_in_OG)):
             Org1_Exp_dict[transcript_ID] = orthogroup
             Org1_OGs.append(orthogroup)
+
+for transcript_ID in Org2_Uniq_Exp_set:
+    for x in split_line if Org2 in x:
+        Isolates_in_OG = []
+        orthogroup = split_line[0]
+        for item in split_line:
+            Isolate = item.split('|')[0]
+            Isolates_in_OG.append(Isolate)
+        if set(Race_list).issubset(set(Isolates_in_OG)):
+            Org2_Exp_dict[transcript_ID] = orthogroup
+            Org2_OGs.append(orthogroup)
+
+for transcript_ID in Org3_Uniq_Exp_set:
+    for x in split_line if Org3 in x:
+        Isolates_in_OG = []
+        orthogroup = split_line[0]
+        for item in split_line:
+            Isolate = item.split('|')[0]
+            Isolates_in_OG.append(Isolate)
+        if set(Race_list).issubset(set(Isolates_in_OG)):
+            Org3_Exp_dict[transcript_ID] = orthogroup
+            Org3_OGs.append(orthogroup)
