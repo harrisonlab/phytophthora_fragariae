@@ -150,6 +150,8 @@ CRN_set = set(CRNs)
 ApoP_set = set(ApoPs)
 Sec_set = set(Sec)
 
+print("Files loaded and prepared")
+
 #-----------------------------------------------------
 # Step 2
 # Create dictionaries listing gene IDs in each expressed set as keys with orthogroup ID as values
@@ -169,9 +171,11 @@ for transcript_ID in Org1_Uniq_Exp_set:
         if set(Race_list).issubset(set(Isolates_in_OG)):
             Org1_ID_dict[transcript_ID] = orthogroup
 
+print("Dictionary of orthogroups created")
+
 #-----------------------------------------------------
 # Step 3
-# Loop through genes from isolate of interest, ID genes from other reference genomes in same OG and pull out relevant features
+# Loop through genes from isolate of interest, ID genes from other reference genomes in same OG
 #-----------------------------------------------------
 
 Org1_Org2_dict = defaultdict(list)
@@ -185,6 +189,8 @@ for transcript_ID in Org1_ID_dict.keys():
             Org1_Org2_dict[transcript_ID].append(gene_ID)
         elif gene_ID.split('|')[0] == Org3:
             Org1_Org3_dict[transcript_ID].append(gene_ID)
+
+print("Genes in the same orthogroup as candidates identified")
 
 #-----------------------------------------------------
 # Step 4
@@ -252,6 +258,8 @@ for transcript_ID in Org1_ID_dict.keys():
         Score_dict[transcript_ID] = Score
     else:
         Score_dict[transcript_ID] = float('0')
+
+print("Features identified")
 
 #-----------------------------------------------------
 # Step 5
@@ -323,3 +331,5 @@ with open(Output, 'w') as o:
         To_Write = "\t".join([transcript_ID, Org1_Org2_dict[transcript_ID], Org1_Org3_dict[transcript_ID], Org1_ID_dict[transcript_ID], Org1_Exp, Org2_Exp, Org3_Exp, Org1_DEG, Org2_DEG, Org3_DEG, RxLR, CRN, ApoP, Sec, Score_dict[transcript_ID]])
         o.write(To_Write)
         o.write("\n")
+
+print("Output written to file")
