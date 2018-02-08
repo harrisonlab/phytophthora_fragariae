@@ -197,7 +197,7 @@ ApoP_to_print = []
 Sec_to_print = []
 Score_dict = defaultdict(float)
 
-for transcript_ID in Org1_Exp_dict.keys():
+for transcript_ID in Org1_ID_dict.keys():
     if transcript_ID in Org1_Uniq_Exp_set:
         Org1_Exp_to_print.append(transcript_ID)
     for gene_list in Org1_Org2_dict[transcript_ID]:
@@ -225,4 +225,24 @@ for transcript_ID in Org1_Exp_dict.keys():
     if transcript_ID in ApoP_set:
         ApoP_to_print.append(transcript_ID)
     if transcript_ID in Sec_set:
-        Sec_to_print.append(transcript_ID)    
+        Sec_to_print.append(transcript_ID)
+
+for transcript_ID in Org1_ID_dict.keys():
+    if transcript_ID in RxLR_to_print or transcript_ID in CRN_to_print or transcript_ID in ApoP_to_print or transcript_ID in Sec_to_print:
+        feat_list = []
+        if transcript_ID in Org1_Exp_to_print:
+            feat_list.append('O1E')
+        if transcript_ID in Org2_Exp_to_print:
+            feat_list.append('O2E')
+        if transcript_ID in Org3_Exp_to_print:
+            feat_list.append('O3E')
+        if transcript_ID in Org1_DEG_to_print:
+            feat_list.append('O1D')
+        if transcript_ID in Org2_DEG_to_print:
+            feat_list.append('O2D')
+        if transcript_ID in Org3_DEG_to_print:
+            feat_list.append('O3D')
+        Score = len(feat_list)
+        Score_dict[transcript_ID] = Score
+    else:
+        Score_dict[transcript_ID] = float('0')
