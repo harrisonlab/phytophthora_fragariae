@@ -146,7 +146,7 @@ Sec_set = set(Sec)
 
 #-----------------------------------------------------
 # Step 2
-# Create dictionaries listing gene IDs in each expressed set as values with orthogroup ID as keys
+# Create dictionaries listing gene IDs in each expressed set as keys with orthogroup ID as values
 #-----------------------------------------------------
 
 Race_list = conf.Race_isolates
