@@ -4161,8 +4161,8 @@ cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 for num in 1
 do
     Strain=Bc1
-    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/"$Strain"*expressed.txt)
-    Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/"$Strain"*unique_DEGs.txt)
+    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/*_"$Strain"*expressed.txt)
+    Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/*_"$Strain"*unique_DEGs.txt)
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
     Org2=Bc16
     Org3=Nov9
@@ -4191,8 +4191,8 @@ cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 for num in 1
 do
     Strain=Nov9
-    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/"$Strain"*expressed.txt)
-    Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/"$Strain"*unique_DEGs.txt)
+    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/*_"$Strain"*expressed.txt)
+    Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/*_"$Strain"*unique_DEGs.txt)
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
     Org2=Bc16
     Org3=Bc1
