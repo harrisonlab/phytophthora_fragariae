@@ -166,7 +166,7 @@ Org1_ID_dict = defaultdict(list)
 for transcript_ID in Org1_Uniq_Exp_set:
     Isolates_in_OG = []
     ID_to_search = "|".join([Org1, transcript_ID])
-    orthogroup = [ OG for OG, genes in ortho_dict.items() if ID_to_search in genes ]
+    orthogroup = str([ OG for OG, genes in ortho_dict.items() if ID_to_search in genes ])
     for item in ortho_dict[orthogroup]:
         Isolate = item.split('|')[0]
         Isolates_in_OG.append(Isolate)
