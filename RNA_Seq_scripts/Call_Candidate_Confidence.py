@@ -40,7 +40,6 @@ Uniq_Exp_Files = conf.Unique_Expression_Files
 Org1_Uniq_Exp = []
 Org2_Uniq_Exp = []
 Org3_Uniq_Exp = []
-transcript_ID = []
 
 for Uniq_Exp_File in Uniq_Exp_Files:
     with open(Uniq_Exp_File) as f:
@@ -48,17 +47,17 @@ for Uniq_Exp_File in Uniq_Exp_Files:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
-                Org1_Uniq_Exp.append(transcipt_ID)
+                Org1_Uniq_Exp.append(transcript_ID)
         elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Org2 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
-                Org2_Uniq_Exp.append(transcipt_ID)
+                Org2_Uniq_Exp.append(transcript_ID)
         elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Org3 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
-                Org3_Uniq_Exp.append(transcipt_ID)
+                Org3_Uniq_Exp.append(transcript_ID)
         else:
             sys.exit("Error, incorrect expression files provided")
 
@@ -76,17 +75,17 @@ for Uniq_DEG_File in Uniq_DEG_Files:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
-                Org1_Uniq_DEG.append(transcipt_ID)
+                Org1_Uniq_DEG.append(transcript_ID)
         elif Uniq_DEG_File.split('/')[-1].split('_')[0] == Org2 and Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
-                Org2_Uniq_DEG.append(transcipt_ID)
+                Org2_Uniq_DEG.append(transcript_ID)
         elif Uniq_DEG_File.split('/')[-1].split('_')[0] == Org3 and Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
-                Org3_Uniq_DEG.append(transcipt_ID)
+                Org3_Uniq_DEG.append(transcript_ID)
         else:
             sys.exit("Error, incorrect DEG files provided")
 
