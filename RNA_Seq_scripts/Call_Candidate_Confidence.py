@@ -152,47 +152,31 @@ Sec_set = set(Sec)
 Race_list = conf.Race_isolates
 
 Org1_Exp_dict = defaultdict(list)
-Org2_Exp_dict = defaultdict(list)
-Org3_Exp_dict = defaultdict(list)
-
-Org1_OGs = []
-Org2_OGs = []
-Org3_OGs = []
 
 for transcript_ID in Org1_Uniq_Exp_set:
-    for x in split_line if Org1 in x:
-        Isolates_in_OG = []
-        orthogroup = split_line[0]
-        for item in split_line:
-            Isolate = item.split('|')[0]
-            Isolates_in_OG.append(Isolate)
-        if set(Race_list).issubset(set(Isolates_in_OG)):
-            Org1_Exp_dict[transcript_ID] = orthogroup
-            Org1_OGs.append(orthogroup)
-
-for transcript_ID in Org2_Uniq_Exp_set:
-    for x in split_line if Org2 in x:
-        Isolates_in_OG = []
-        orthogroup = split_line[0]
-        for item in split_line:
-            Isolate = item.split('|')[0]
-            Isolates_in_OG.append(Isolate)
-        if set(Race_list).issubset(set(Isolates_in_OG)):
-            Org2_Exp_dict[transcript_ID] = orthogroup
-            Org2_OGs.append(orthogroup)
-
-for transcript_ID in Org3_Uniq_Exp_set:
-    for x in split_line if Org3 in x:
-        Isolates_in_OG = []
-        orthogroup = split_line[0]
-        for item in split_line:
-            Isolate = item.split('|')[0]
-            Isolates_in_OG.append(Isolate)
-        if set(Race_list).issubset(set(Isolates_in_OG)):
-            Org3_Exp_dict[transcript_ID] = orthogroup
-            Org3_OGs.append(orthogroup)
+    Isolates_in_OG = []
+    ID_to_search = "|".join([Org1, transcript_ID])
+    for OG in ortho_dict.keys():
+        if ID_to_search in ortho_dict[OG]:
+            for item in ortho_dict[OG]:
+                Isolate = item.split('|')[0]
+                Isolates_in_OG.append(Isolate)
+                if set(Race_list).issubset(set(Isolates_in_OG)):
+                    Org1_Exp_dict[transcript_ID] = orthogroup
 
 #-----------------------------------------------------
 # Step 3
 # Loop through genes from isolate of interest, ID genes from other reference genomes in same OG and pull out relevant features
 #-----------------------------------------------------
+
+Org1_Org2_dict = defaultdict(list)
+Org1_Org3_dict = defaultdict(list)
+
+for transcript_ID in Org1_Exp_dict.keys():
+    orthogroup = Org1_Exp_dict[transcript_ID]
+    OG_genes = ortho_dict[orthogroup]
+    for gene_ID in OG_genes:
+        if gene_ID.split('|')[0] == Org2:
+            Org1_Org2_dict[transcript_ID].append(gene_ID)
+        elif gene_ID.split('|')[0] == Org3:
+            Org1_Org3_dict[transcript_ID].append(gene_ID)
