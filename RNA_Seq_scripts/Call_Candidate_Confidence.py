@@ -43,17 +43,17 @@ Org3_Uniq_Exp = []
 
 for Uniq_Exp_File in Uniq_Exp_Files:
     with open(Uniq_Exp_File) as f:
-        if Uniq_Exp_File.split('/')[-1].split('_')[0] == Ref_Name and Uniq_Exp_File.split('/')[-1].split('_')[1] == Org1:
+        if Uniq_Exp_File.split('/')[-1].split('_')[0] == Org1 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
                 Org1_Uniq_Exp.append(transcript_ID)
-        elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Ref_Name and Uniq_Exp_File.split('/')[-1].split('_')[1] == Org2:
+        elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Org2 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
                 Org2_Uniq_Exp.append(transcript_ID)
-        elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Ref_Name and Uniq_Exp_File.split('/')[-1].split('_')[1] == Org3:
+        elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Org3 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
@@ -71,17 +71,17 @@ Org2_Uniq_DEG = []
 Org3_Uniq_DEG = []
 for Uniq_DEG_File in Uniq_DEG_Files:
     with open(Uniq_DEG_File) as f:
-        if Uniq_DEG_File.split('/')[-1].split('_')[0] == Ref_Name and Uniq_DEG_File.split('/')[-1].split('_')[1] == Org1:
+        if Uniq_DEG_File.split('/')[-1].split('_')[0] == Org1 and Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
                 Org1_Uniq_DEG.append(transcript_ID)
-        elif Uniq_DEG_File.split('/')[-1].split('_')[0] == Ref_Name and Uniq_DEG_File.split('/')[-1].split('_')[1] == Org2:
+        elif Uniq_DEG_File.split('/')[-1].split('_')[0] == Org2 and Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
                 Org2_Uniq_DEG.append(transcript_ID)
-        elif Uniq_DEG_File.split('/')[-1].split('_')[0] == Ref_Name and Uniq_DEG_File.split('/')[-1].split('_')[1] == Org3:
+        elif Uniq_DEG_File.split('/')[-1].split('_')[0] == Org3 and Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name:
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
