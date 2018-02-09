@@ -4126,7 +4126,7 @@ BC-16, UK2
 ```bash
 screen -
 
-qlogin
+qlogin -l h=blacklace11.blacklace
 
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
@@ -4156,14 +4156,14 @@ BC-1, UK1
 ```bash
 screen -
 
-qlogin
+qlogin -l h=blacklace11.blacklace
 
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
 for num in 1
 do
     Strain=Bc1
-    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/*_"$Strain"_*expressed.txt)
+    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/all_genes/*_"$Strain"_*expressed_unique.txt)
     Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/*_"$Strain"_*unique_DEGs.txt)
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
     Org2=Bc16
@@ -4186,14 +4186,14 @@ NOV-9, UK3
 ```bash
 screen -
 
-qlogin
+qlogin -l h=blacklace11.blacklace
 
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
 for num in 1
 do
     Strain=Nov9
-    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/*_"$Strain"_*expressed.txt)
+    Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/all_genes/*_"$Strain"_*expressed_unique.txt)
     Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/*_"$Strain"_*unique_DEGs.txt)
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
     Org2=Bc16
