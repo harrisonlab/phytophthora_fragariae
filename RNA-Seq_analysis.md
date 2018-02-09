@@ -4291,3 +4291,230 @@ do
     printf "\n"
 done
 ```
+
+```
+Analysis of Bc16
+
+The number of candidate genes regardless of confidence is:
+11266
+The number of genes of confidence level 6 is:
+1965
+The number of RxLRs of confidence level 6 is:
+262
+The number of CRNs of confidence level 6 is:
+21
+The number of apoplastic effectors of confidence level 6 is:
+490
+The number of secreted proteins of confidence level 6 is:
+1936
+The number of genes of confidence level 5 is:
+0
+The number of RxLRs of confidence level 5 is:
+0
+The number of CRNs of confidence level 5 is:
+0
+The number of apoplastic effectors of confidence level 5 is:
+0
+The number of secreted proteins of confidence level 5 is:
+0
+The number of genes of confidence level 4 is:
+100
+The number of RxLRs of confidence level 4 is:
+23
+The number of CRNs of confidence level 4 is:
+1
+The number of apoplastic effectors of confidence level 4 is:
+40
+The number of secreted proteins of confidence level 4 is:
+95
+The number of genes of confidence level 3 is:
+0
+The number of RxLRs of confidence level 3 is:
+0
+The number of CRNs of confidence level 3 is:
+0
+The number of apoplastic effectors of confidence level 3 is:
+0
+The number of secreted proteins of confidence level 3 is:
+0
+The number of genes of confidence level 2 is:
+65
+The number of RxLRs of confidence level 2 is:
+13
+The number of CRNs of confidence level 2 is:
+1
+The number of apoplastic effectors of confidence level 2 is:
+22
+The number of secreted proteins of confidence level 2 is:
+63
+The number of genes of confidence level 1 is:
+0
+The number of RxLRs of confidence level 1 is:
+0
+The number of CRNs of confidence level 1 is:
+0
+The number of apoplastic effectors of confidence level 1 is:
+0
+The number of secreted proteins of confidence level 1 is:
+0
+The number of genes of confidence level 0 is:
+9136
+The number of RxLRs of confidence level 0 is:
+0
+The number of CRNs of confidence level 0 is:
+0
+The number of apoplastic effectors of confidence level 0 is:
+0
+The number of secreted proteins of confidence level 0 is:
+0
+
+Analysis of Bc1
+
+The number of candidate genes regardless of confidence is:
+9430
+The number of genes of confidence level 6 is:
+76
+The number of RxLRs of confidence level 6 is:
+9
+The number of CRNs of confidence level 6 is:
+0
+The number of apoplastic effectors of confidence level 6 is:
+12
+The number of secreted proteins of confidence level 6 is:
+76
+The number of genes of confidence level 5 is:
+0
+The number of RxLRs of confidence level 5 is:
+0
+The number of CRNs of confidence level 5 is:
+0
+The number of apoplastic effectors of confidence level 5 is:
+0
+The number of secreted proteins of confidence level 5 is:
+0
+The number of genes of confidence level 4 is:
+1486
+The number of RxLRs of confidence level 4 is:
+199
+The number of CRNs of confidence level 4 is:
+14
+The number of apoplastic effectors of confidence level 4 is:
+354
+The number of secreted proteins of confidence level 4 is:
+1463
+The number of genes of confidence level 3 is:
+0
+The number of RxLRs of confidence level 3 is:
+0
+The number of CRNs of confidence level 3 is:
+0
+The number of apoplastic effectors of confidence level 3 is:
+0
+The number of secreted proteins of confidence level 3 is:
+0
+The number of genes of confidence level 2 is:
+129
+The number of RxLRs of confidence level 2 is:
+21
+The number of CRNs of confidence level 2 is:
+2
+The number of apoplastic effectors of confidence level 2 is:
+45
+The number of secreted proteins of confidence level 2 is:
+126
+The number of genes of confidence level 1 is:
+0
+The number of RxLRs of confidence level 1 is:
+0
+The number of CRNs of confidence level 1 is:
+0
+The number of apoplastic effectors of confidence level 1 is:
+0
+The number of secreted proteins of confidence level 1 is:
+0
+The number of genes of confidence level 0 is:
+7739
+The number of RxLRs of confidence level 0 is:
+0
+The number of CRNs of confidence level 0 is:
+0
+The number of apoplastic effectors of confidence level 0 is:
+0
+The number of secreted proteins of confidence level 0 is:
+0
+
+Analysis of Nov9
+
+The number of candidate genes regardless of confidence is:
+9640
+The number of genes of confidence level 6 is:
+92
+The number of RxLRs of confidence level 6 is:
+7
+The number of CRNs of confidence level 6 is:
+1
+The number of apoplastic effectors of confidence level 6 is:
+14
+The number of secreted proteins of confidence level 6 is:
+90
+The number of genes of confidence level 5 is:
+0
+The number of RxLRs of confidence level 5 is:
+0
+The number of CRNs of confidence level 5 is:
+0
+The number of apoplastic effectors of confidence level 5 is:
+0
+The number of secreted proteins of confidence level 5 is:
+0
+The number of genes of confidence level 4 is:
+1495
+The number of RxLRs of confidence level 4 is:
+206
+The number of CRNs of confidence level 4 is:
+19
+The number of apoplastic effectors of confidence level 4 is:
+324
+The number of secreted proteins of confidence level 4 is:
+1468
+The number of genes of confidence level 3 is:
+0
+The number of RxLRs of confidence level 3 is:
+0
+The number of CRNs of confidence level 3 is:
+0
+The number of apoplastic effectors of confidence level 3 is:
+0
+The number of secreted proteins of confidence level 3 is:
+0
+The number of genes of confidence level 2 is:
+138
+The number of RxLRs of confidence level 2 is:
+25
+The number of CRNs of confidence level 2 is:
+3
+The number of apoplastic effectors of confidence level 2 is:
+56
+The number of secreted proteins of confidence level 2 is:
+135
+The number of genes of confidence level 1 is:
+0
+The number of RxLRs of confidence level 1 is:
+0
+The number of CRNs of confidence level 1 is:
+0
+The number of apoplastic effectors of confidence level 1 is:
+0
+The number of secreted proteins of confidence level 1 is:
+0
+The number of genes of confidence level 0 is:
+7915
+The number of RxLRs of confidence level 0 is:
+0
+The number of CRNs of confidence level 0 is:
+0
+The number of apoplastic effectors of confidence level 0 is:
+0
+The number of secreted proteins of confidence level 0 is:
+0
+```
