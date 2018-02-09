@@ -4019,6 +4019,8 @@ done
 ```
 
 ```
+Analysis using Bc16 as the reference genome:
+
 The number of BC-16 differently differentially expressed genes is:
 1,385
 The number of BC-1 differently differentially expressed genes is:
