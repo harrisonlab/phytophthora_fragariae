@@ -4289,4 +4289,5 @@ do
     echo "The number of genes of secreted proteins of confidence level 0 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | cut -f14 | grep 'Yes' | wc -l
     printf "\n"
+done
 ```
