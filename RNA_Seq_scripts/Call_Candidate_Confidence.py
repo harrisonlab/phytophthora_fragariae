@@ -191,9 +191,9 @@ for transcript_ID in Org1_ID_dict.keys():
     OG_genes = ortho_dict[orthogroup]
     for gene_ID in OG_genes:
         if gene_ID.split('|')[0] == Org2:
-            Org1_Org2_dict[transcript_ID].append(gene_ID)
+            Org1_Org2_dict[transcript_ID].append(gene_ID.split('|')[1])
         elif gene_ID.split('|')[0] == Org3:
-            Org1_Org3_dict[transcript_ID].append(gene_ID)
+            Org1_Org3_dict[transcript_ID].append(gene_ID.split('|')[1])
 
 print("Genes in the same orthogroup as candidates identified")
 
