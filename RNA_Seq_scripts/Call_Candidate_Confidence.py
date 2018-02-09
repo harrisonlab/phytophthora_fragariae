@@ -333,7 +333,11 @@ with open(Output, 'w') as o:
             Sec = "Yes"
         else:
             Sec = ""
-        To_Write = "\t".join([transcript_ID, Org1_Org2_dict[transcript_ID], Org1_Org3_dict[transcript_ID], Org1_ID_dict[transcript_ID], Org1_Exp, Org2_Exp, Org3_Exp, Org1_DEG, Org2_DEG, Org3_DEG, RxLR, CRN, ApoP, Sec, Score_dict[transcript_ID]])
+        Org2_IDs = ",".join(str(ID) for ID in Org1_Org2_dict[transcript_ID])
+        Org3_IDs = ",".join(str(ID) for ID in Org1_Org3_dict[transcript_ID])
+        Orthogroup = str(Org1_ID_dict[transcript_ID])
+        Score = str(Score_dict[transcript_ID])
+        To_Write = "\t".join([transcript_ID, Org2_IDs, Org3_IDs, Orthogroup, Org1_Exp, Org2_Exp, Org3_Exp, Org1_DEG, Org2_DEG, Org3_DEG, RxLR, CRN, ApoP, Sec, Score])
         o.write(To_Write)
         o.write("\n")
 
