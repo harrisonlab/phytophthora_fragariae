@@ -104,51 +104,113 @@ with open(conf.Orthogroup_in) as f:
         genes_in_group = [ x for x in split_line if not 'OG' in x ]
         ortho_dict[orthogroup] = genes_in_group
 
-RxLRs = []
-with open(conf.RxLRs) as f:
-    RxLR_lines = f.readlines()
-    for line in RxLR_lines:
-        ID = line.rstrip()
-        if "contig" in ID:
-            ID = ".".join([ID, "t1"])
-        RxLRs.append(ID)
+Org1_RxLRs = []
+Org2_RxLRs = []
+Org3_RxLRs = []
 
-CRNs = []
-with open(conf.CRNs) as f:
-    CRN_lines = f.readlines()
-    for line in CRN_lines:
-        ID = line.rstrip()
-        if "contig" in ID:
-            ID = ".".join([ID, "t1"])
-        CRNs.append(ID)
+RxLR_files = conf.RxLR_files
+for RxLR_file in RxLR_files:
+    with open(RxLR_file) as f:
+        filename = RxLR_file
+        RxLR_lines = f.readlines()
+        for line in RxLR_lines:
+            ID = line.rstrip()
+            if "contig" in ID:
+                ID = ".".join([ID, "t1"])
+            if filename.split('/')[-2] == Org1:
+                Org1_RxLRs.append(ID)
+            if filename.split('/')[-2] == Org2:
+                Org2_RxLRs.append(ID)
+            if filename.split('/')[-2] == Org3:
+                Org3_RxLRs.append(ID)
 
-ApoPs = []
-with open(conf.ApoP) as f:
-    ApoP_lines = f.readlines()
-    for line in ApoP_lines:
-        ID = line.rstrip()
-        if "contig" in ID:
-            ID = ".".join([ID, "t1"])
-        ApoPs.append(ID)
+Org1_CRNs = []
+Org2_CRNs = []
+Org3_CRNs = []
 
-Sec = []
-with open(conf.Secreted_CQ) as f:
-    Sec_CQ_lines = f.readlines()
-    for line in Sec_CQ_lines:
-        ID = line.rstrip()
-        Sec.append(ID)
+CRN_files = conf.CRN_files
+for CRN_file in CRN_files:
+    with open(CRN_file) as f:
+        filename = CRN_file
+        CRN_lines = f.readlines()
+        for line in CRN_lines:
+            ID = line.rstrip()
+            if "contig" in ID:
+                ID = ".".join([ID, "t1"])
+            if filename.split('/')[-2] == Org1:
+                Org1_CRNs.append(ID)
+            if filename.split('/')[-2] == Org2:
+                Org2_CRNs.append(ID)
+            if filename.split('/')[-2] == Org3:
+                Org3_CRNs.append(ID)
 
-with open(conf.Secreted_ORF) as f:
-    Sec_ORF_lines = f.readlines()
-    for line in Sec_ORF_lines:
-        ID = line.rstrip()
-        ID_modified = ".".join([ID, "t1"])
-        Sec.append(ID_modified)
+Org1_ApoPs = []
+Org2_ApoPs = []
+Org3_ApoPs = []
 
-RxLR_set = set(RxLRs)
-CRN_set = set(CRNs)
-ApoP_set = set(ApoPs)
-Sec_set = set(Sec)
+ApoP_files = conf.ApoP_files
+for ApoP_file in ApoP_files:
+    with open(ApoP_file) as f:
+        filename = ApoP_file
+        ApoP_lines = f.readlines()
+        for line in ApoP_lines:
+            ID = line.rstrip()
+            if "contig" in ID:
+                ID = ".".join([ID, "t1"])
+            if filename.split('/')[-2] == Org1:
+                Org1_ApoPs.append(ID)
+            if filename.split('/')[-2] == Org2:
+                Org2_ApoPs.append(ID)
+            if filename.split('/')[-2] == Org3:
+                Org3_ApoPs.append(ID)
+
+Org1_Sec = []
+Org2_Sec = []
+Org3_Sec = []
+
+Sec_CQ_files = conf.Secreted_CQ_files
+for Sec_CQ_file in Sec_CQ_files:
+    with open(Sec_CQ_file) as f:
+        filename = Sec_CQ_file
+        Sec_CQ_lines = f.readlines()
+        for line in Sec_CQ_lines:
+            ID = line.rstrip()
+            if filename.split('/')[-2] == Org1:
+                Org1_Sec.append(ID)
+            if filename.split('/')[-2] == Org2:
+                Org2_Sec.append(ID)
+            if filename.split('/')[-2] == Org3:
+                Org3_Sec.append(ID)
+
+Sec_ORF_files = conf.Secreted_ORF_files
+for Sec_ORF_file in Sec_ORF_files:
+    with open(Sec_ORF_file) as f:
+        filename = Sec_ORF_file
+        Sec_ORF_lines = f.readlines()
+        for line in Sec_ORF_lines:
+            ID = line.rstrip()
+            if "contig" in ID:
+                ID = ".".join([ID, "t1"])
+            if filename.split('/')[-2] == Org1:
+                Org1_Sec.append(ID)
+            if filename.split('/')[-2] == Org2:
+                Org2_Sec.append(ID)
+            if filename.split('/')[-2] == Org3:
+                Org3_Sec.append(ID)
+
+
+Org1_RxLR_set = set(Org1_RxLRs)
+Org2_RxLR_set = set(Org2_RxLRs)
+Org3_RxLR_set = set(Org3_RxLRs)
+Org1_CRN_set = set(Org1_CRNs)
+Org2_CRN_set = set(Org2_CRNs)
+Org3_CRN_set = set(Org3_CRNs)
+Org1_ApoP_set = set(Org1_ApoP)
+Org2_ApoP_set = set(Org2_ApoP)
+Org3_ApoP_set = set(Org3_ApoP)
+Org1_Sec_set = set(Org1_Sec)
+Org2_Sec_set = set(Org2_Sec)
+Org3_Sec_set = set(Org3_Sec)
 
 print("Files loaded and prepared")
 
