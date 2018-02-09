@@ -227,11 +227,11 @@ for transcript_ID in Org1_ID_dict.keys():
             Org3_Exp_to_print.append(transcript_ID)
     if transcript_ID in Org1_Uniq_DEG_set:
         Org1_DEG_to_print.append(transcript_ID)
-    gene_list = Org1_Org2_dict[transcript_ID]:
+    gene_list = Org1_Org2_dict[transcript_ID]
     for gene in gene_list:
         if gene in Org2_Uniq_DEG_set:
             Org2_DEG_to_print.append(transcript_ID)
-    gene_list = Org1_Org3_dict[transcript_ID]:
+    gene_list = Org1_Org3_dict[transcript_ID]
     for gene in gene_list:
         if gene in Org3_Uniq_DEG_set:
             Org3_DEG_to_print.append(transcript_ID)
