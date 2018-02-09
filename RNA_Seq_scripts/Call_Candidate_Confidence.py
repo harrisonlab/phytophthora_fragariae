@@ -154,7 +154,7 @@ print("Files loaded and prepared")
 
 #-----------------------------------------------------
 # Step 2
-# Create dictionaries listing gene IDs in each expressed set as keys with orthogroup ID as values
+# Create dictionaries listing gene IDs in each expressed set as keys with orthogroup ID as values -- slow step
 #-----------------------------------------------------
 
 Race_IDs = conf.Race_isolates
@@ -168,12 +168,13 @@ Org1_ID_dict = defaultdict(list)
 for transcript_ID in Org1_Uniq_Exp_set:
     Isolates_in_OG = []
     ID_to_search = "|".join([Org1, transcript_ID])
-    orthogroup = str([ OG for OG, genes in ortho_dict.items() if ID_to_search in genes ])
-    for item in ortho_dict[orthogroup]:
-        Isolate = item.split('|')[0]
-        Isolates_in_OG.append(Isolate)
-        if set(Race_list).issubset(set(Isolates_in_OG)):
-            Org1_ID_dict[transcript_ID] = orthogroup
+    orthogroups = [ OG for OG, genes in ortho_dict.items() if ID_to_search in genes ]
+    for orthogroup in orthogroups:
+        for item in ortho_dict[orthogroup]:
+            Isolate = item.split('|')[0]
+            Isolates_in_OG.append(Isolate)
+            if set(Race_list).issubset(set(Isolates_in_OG)):
+                Org1_ID_dict[transcript_ID] = orthogroup
 
 print("Dictionary of orthogroups created")
 
