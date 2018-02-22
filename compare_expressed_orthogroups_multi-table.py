@@ -1,25 +1,32 @@
 #!/usr/bin/python
 
 '''
-This script takes three gene tables produced by pacbio_anntoation_tables_modified.py as input and outputs text files with a list of uniquely differentially expressed genes, based on orthogroup.
+This script takes three gene tables produced by
+pacbio_anntoation_tables_modified.py as input and outputs text files with a
+list of uniquely differentially expressed genes, based on orthogroup.
 '''
 
-from sets import Set
-import sys,argparse
+import argparse
 from collections import defaultdict
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Import variables, load input files and create sets of orthogroup names
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--input_1',required=True,type=str,help='gene table for isolate #1')
-ap.add_argument('--input_2',required=True,type=str,help='gene table for isolate #2')
-ap.add_argument('--input_3',required=True,type=str,help='gene table for isolate #3')
-ap.add_argument('--output_1',required=True,type=str,help='text file for output of isolate #1 candidates')
-ap.add_argument('--output_2',required=True,type=str,help='text file for output of isolate #2 candidates')
-ap.add_argument('--output_3',required=True,type=str,help='text file for output of isolate #3 candidates')
+inp1_help = 'gene table for isolate #1'
+inp2_help = 'gene table for isolate #2'
+inp3_help = 'gene table for isolate #3'
+out1_help = 'text file for output of isolate #1 candidates'
+out2_help = 'text file for output of isolate #2 candidates'
+out3_help = 'text file for output of isolate #3 candidates'
+ap.add_argument('--input_1', required=True, type=str, help=inp1_help)
+ap.add_argument('--input_2', required=True, type=str, help=inp2_help)
+ap.add_argument('--input_3', required=True, type=str, help=inp3_help)
+ap.add_argument('--output_1', required=True, type=str, help=out1_help)
+ap.add_argument('--output_2', required=True, type=str, help=out2_help)
+ap.add_argument('--output_3', required=True, type=str, help=out3_help)
 conf = ap.parse_args()
 
 inp1_dict = defaultdict(list)
@@ -38,7 +45,9 @@ with open(conf.input_1) as f1:
         P_val_48 = float(x.split('\t')[28])
         P_val_96 = float(x.split('\t')[30])
         if FPKM_24 >= 5 or FPKM_48 >= 5 or FPKM_96 >= 5 or FPKM_Mycelium >= 5:
-            if (abs(LFC_24) >= 1 and P_val_24 <= 0.05) or (abs(LFC_48) >= 1 and P_val_48 <= 0.05) or (abs(LFC_96) >= 1 and P_val_96 <=0.05):
+            if ((abs(LFC_24) >= 1 and P_val_24 <= 0.05) or
+               (abs(LFC_48) >= 1 and P_val_48 <= 0.05) or
+               (abs(LFC_96) >= 1 and P_val_96 <= 0.05)):
                 gene_ID = x.split('\t')[0]
                 orthogroup_ID = x.split('\t')[16]
                 inp1_orthogroups.append(orthogroup_ID)
@@ -76,10 +85,11 @@ with open(conf.input_3) as f3:
                 inp3_orthogroups.append(orthogroup_ID)
                 inp3_dict[orthogroup_ID].append(gene_ID)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 2
-# Remove duplicate orthogroup IDs from list and create lists of orthogroups present in only one list
-#-----------------------------------------------------
+# Remove duplicate orthogroup IDs from list and create lists of orthogroups
+# present in only one list
+# -----------------------------------------------------
 
 inp1_set = set(inp1_orthogroups)
 inp2_set = set(inp2_orthogroups)
@@ -90,24 +100,24 @@ inp2_uniq_groups = []
 inp3_uniq_groups = []
 
 for x in inp1_set:
-    if not x in inp2_set:
-        if not x in inp3_set:
+    if x not in inp2_set:
+        if x not in inp3_set:
             inp1_uniq_groups.append(x)
 
 for x in inp2_set:
-    if not x in inp1_set:
-        if not x in inp3_set:
+    if x not in inp1_set:
+        if x not in inp3_set:
             inp2_uniq_groups.append(x)
 
 for x in inp3_set:
-    if not x in inp1_set:
-        if not x in inp2_set:
+    if x not in inp1_set:
+        if x not in inp2_set:
             inp3_uniq_groups.append(x)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 3
 # Create list of genes in the unique orthogroups and print to a text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 inp1_uniq_genes = []
 inp2_uniq_genes = []
