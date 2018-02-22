@@ -14,18 +14,18 @@ import argparse
 # -----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-inp1_help = 'Gene table for reference isolate transcripts'
-inp2_help = 'Gene table for transcripts of non-reference isolate #1'
-inp3_help = 'Gene table for transcripts of non-reference isolate #2'
-out1_help = 'Text file for output of reference isolate candidates'
-out2_help = 'Text file for output of non-reference isolate #1'
-out3_help = 'Text file for output of non-reference isolate #2'
-ap.add_argument('--input_1', required=True, type=str, help=inp1_help)
-ap.add_argument('--input_2', required=True, type=str, help=inp2_help)
-ap.add_argument('--input_3', required=True, type=str, help=inp3_help)
-ap.add_argument('--output_1', required=True, type=str, help=out1_help)
-ap.add_argument('--output_2', required=True, type=str, help=out2_help)
-ap.add_argument('--output_3', required=True, type=str, help=out3_help)
+ap.add_argument('--input_1', required=True, type=str,
+                help='Gene table for reference isolate transcripts')
+ap.add_argument('--input_2', required=True, type=str,
+                help='Gene table for transcripts of non-reference isolate #1')
+ap.add_argument('--input_3', required=True, type=str,
+                help='Gene table for transcripts of non-reference isolate #2')
+ap.add_argument('--output_1', required=True, type=str,
+                help='Text file for output of reference isolate candidates')
+ap.add_argument('--output_2', required=True, type=str,
+                help='Text file for output of non-reference isolate #1')
+ap.add_argument('--output_3', required=True, type=str,
+                help='Text file for output of non-reference isolate #2')
 conf = ap.parse_args()
 
 with open(conf.input_1) as f1:
