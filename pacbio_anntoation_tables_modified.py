@@ -1,59 +1,110 @@
 #!/usr/bin/python
 
 '''
-This program parses information from fasta files and gff files for the location,
+This script parses information from fasta files and gff files for the location,
 sequence and functional information for annotated gene models and RxLRs.
 '''
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Import variables & load input files
-#-----------------------------------------------------
+# -----------------------------------------------------
 
-import sys
 import argparse
-import re
 from sets import Set
 from collections import defaultdict
 from operator import itemgetter
 import numpy as np
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--gff_format',required=True,type=str,choices=['gff3', 'gtf'],help='Gff file format')
-ap.add_argument('--gene_gff',required=True,type=str,help='Gff file of predicyted gene models')
-ap.add_argument('--gene_fasta',required=True,type=str,help='amino acid sequence of predicted proteins')
-ap.add_argument('--SigP2',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP2.0')
-ap.add_argument('--SigP2_ORF',required=True,type=str,help='fasta file of ORF fragments testing positive for signal peptide using SigP2.0')
-ap.add_argument('--SigP3',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP3.0')
-ap.add_argument('--SigP3_ORF',required=True,type=str,help='fasta file of ORF fragments testing positive for signal peptide using SigP3.0')
-ap.add_argument('--SigP4',required=True,type=str,help='fasta file of genes testing positive for signal peptide using SigP4.1')
-ap.add_argument('--SigP4_ORF',required=True,type=str,help='fasta file of ORF fragments testing positive for signal peptide using SigP4.1')
-ap.add_argument('--phobius',required=True,type=str,help='fasta file of gene testing positive for signal peptide using phobius')
-ap.add_argument('--phobius_ORF',required=True,type=str,help='fasta file of ORF fragments testing positive for signal peptide using phobius')
-ap.add_argument('--trans_mem',required=True,type=str,help='txt file of headers from gene testing positive for tranmembrane proteins by TMHMM')
-ap.add_argument('--GPI_anchor',required=True,type=str,help='txt file of headers from gene testing positive for GPI anchors as identified by GPI-SOM')
-#ap.add_argument('--RxLR_motif',required=True,type=str,help='fasta file of genes testing positive for RxLR-EER motifs')
-#ap.add_argument('--RxLR_Hmm',required=True,type=str,help='fasta file of genes testing positive for RxLR-EER domains using an hmm model')
-#ap.add_argument('--RxLR_WY',required=True,type=str,help='fasta file of genes testing positive for WY domains using an hmm model')
-ap.add_argument('--RxLR_total',required=True,type=str,help='fasta file of all transcripts considered low confidence RxLRs')
-ap.add_argument('--RxLR_total_ORF',required=True,type=str,help='fasta file of all transcripts considered low confidence RxLRs from ORFs')
-ap.add_argument('--RxLR_EER_total',required=True,type=str,help='fasta file of all transcripts considered high confidence RxLRs')
-ap.add_argument('--RxLR_EER_total_ORF',required=True,type=str,help='fasta file of all transcripts considered high confidence RxLRs from ORFs')
-#ap.add_argument('--CRN_LFLAK',required=True,type=str,help='fasta file of genes testing positive for LFLAK domains using an hmm model')
-#ap.add_argument('--CRN_DWL',required=True,type=str,help='fasta file of genes testing positive for DWL domains using an hmm model')
-ap.add_argument('--CRN_total',required=True,type=str,help='fasta file of all transcripts considered CRNs')
-ap.add_argument('--ApoP_total',required=True,type=str,help='fasta file of all transcripts considered Apoplastic effectors')
-ap.add_argument('--ortho_name',required=True,type=str,help='the name used for the organism during orthology analysis')
-ap.add_argument('--ortho_file',required=True,type=str,help='txt file of ortholog groups')
-ap.add_argument('--DEG_files',required=True,nargs='+',type=str,help='space spererated list of files containing DEG information')
-ap.add_argument('--raw_counts',required=True,type=str,help='raw count data as output from DESeq')
-ap.add_argument('--fpkm',required=True,type=str,help='normalised fpkm count data as output from DESeq')
-ap.add_argument('--InterPro',required=True,type=str,help='The Interproscan functional annotation .tsv file')
-ap.add_argument('--Swissprot',required=True,type=str,help='A parsed table of BLAST results against the Swissprot database. Note - must have been parsed with swissprot_parser.py')
+ap.add_argument('--gff_format', required=True, type=str,
+                choices=['gff3', 'gtf'], help='Gff file format')
+ap.add_argument('--gene_gff', required=True, type=str,
+                help='Gff file of predicyted gene models')
+ap.add_argument('--gene_fasta', required=True, type=str,
+                help='amino acid sequence of predicted proteins')
+ap.add_argument('--SigP2', required=True, type=str,
+                help='fasta file of genes testing positive for \
+                signal peptide using SigP2.0')
+ap.add_argument('--SigP2_ORF', required=True, type=str,
+                help='fasta file of ORF fragments testing positive for signal \
+                peptide using SigP2.0')
+ap.add_argument('--SigP3', required=True, type=str,
+                help='fasta file of genes testing positive for signal peptide \
+                using SigP3.0')
+ap.add_argument('--SigP3_ORF', required=True, type=str,
+                help='fasta file of ORF fragments testing positive for signal \
+                peptide using SigP3.0')
+ap.add_argument('--SigP4', required=True, type=str,
+                help='fasta file of genes testing positive for signal peptide \
+                using SigP4.1')
+ap.add_argument('--SigP4_ORF', required=True, type=str,
+                help='fasta file of ORF fragments testing positive for signal \
+                peptide using SigP4.1')
+ap.add_argument('--phobius', required=True, type=str,
+                help='fasta file of gene testing positive for signal peptide \
+                using phobius')
+ap.add_argument('--phobius_ORF', required=True, type=str,
+                help='fasta file of ORF fragments testing positive for signal \
+                peptide using phobius')
+ap.add_argument('--trans_mem', required=True, type=str,
+                help='txt file of headers from gene testing positive for \
+                transmembrane proteins by TMHMM')
+ap.add_argument('--GPI_anchor', required=True, type=str,
+                help='txt file of headers from gene testing positive for GPI \
+                anchors as identified by GPI-SOM')
+# ap.add_argument('--RxLR_motif',required=True,type=str,help='fasta file of \
+#                 genes testing positive for RxLR-EER motifs')
+# ap.add_argument('--RxLR_Hmm', required=True, type=str,
+#                 help='fasta file of genes testing positive for RxLR-EER \
+#                 domains using an hmm model')
+# ap.add_argument('--RxLR_WY', required=True, type=str,
+#                 help='fasta file of genes testing positive for WY domains \
+#                 using an hmm model')
+ap.add_argument('--RxLR_total', required=True, type=str,
+                help='fasta file of all transcripts considered low confidence \
+                RxLRs')
+ap.add_argument('--RxLR_total_ORF', required=True, type=str,
+                help='fasta file of all transcripts considered low \
+                confidence RxLRs from ORFs')
+ap.add_argument('--RxLR_EER_total', required=True, type=str,
+                help='fasta file of all transcripts considered high \
+                confidence RxLRs')
+ap.add_argument('--RxLR_EER_total_ORF', required=True, type=str,
+                help='fasta file of all transcripts considered high \
+                confidence RxLRs from ORFs')
+# ap.add_argument('--CRN_LFLAK', required=True, type=str,
+#                 help='fasta file of genes testing positive for LFLAK \
+#                 domains using an hmm model')
+# ap.add_argument('--CRN_DWL', required=True, type=str,
+#                 help='fasta file of genes testing positive for DWL domains \
+#                 using an hmm model')
+ap.add_argument('--CRN_total', required=True, type=str,
+                help='fasta file of all transcripts considered CRNs')
+ap.add_argument('--ApoP_total', required=True, type=str,
+                help='fasta file of all transcripts considered Apoplastic \
+                effectors')
+ap.add_argument('--ortho_name', required=True, type=str,
+                help='the name used for the organism during orthology \
+                analysis')
+ap.add_argument('--ortho_file', required=True, type=str,
+                help='txt file of ortholog groups')
+ap.add_argument('--DEG_files', required=True, nargs='+', type=str,
+                help='space seperated list of files \
+                containing DEG information')
+ap.add_argument('--raw_counts', required=True, type=str,
+                help='raw count data as output from DESeq')
+ap.add_argument('--fpkm', required=True, type=str,
+                help='normalised fpkm count data as output from DESeq')
+ap.add_argument('--InterPro', required=True, type=str,
+                help='The Interproscan functional annotation .tsv file')
+ap.add_argument('--Swissprot', required=True, type=str,
+                help='A parsed table of BLAST results against the Swissprot \
+                database. Note - must have been parsed with \
+                swissprot_parser.py')
 
 
 conf = ap.parse_args()
-
 
 
 with open(conf.gene_gff) as f:
@@ -126,7 +177,7 @@ with open(conf.ApoP_total) as f:
     ApoP_total_lines = f.readlines()
 
 with open(conf.ortho_file) as f:
-   ortho_lines = f.readlines()
+    ortho_lines = f.readlines()
 
 DEG_files = conf.DEG_files
 DEG_dict = defaultdict(list)
@@ -157,9 +208,9 @@ with open(conf.InterPro) as f:
 with open(conf.Swissprot) as f:
     swissprot_lines = f.readlines()
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load protein sequence data into a dictionary
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 prot_dict = defaultdict(list)
 for line in prot_lines:
@@ -169,9 +220,9 @@ for line in prot_lines:
     else:
         prot_dict[header] += line
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load signalP2.0 files into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 SigP2_set = Set()
 for line in sigP2_lines:
@@ -181,9 +232,9 @@ for line in sigP2_lines:
         header = split_line[0].replace('>', '')
         SigP2_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load signalP2.0_ORF files into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 SigP2_ORF_set = Set()
 for line in sigp2_orf_lines:
@@ -194,9 +245,9 @@ for line in sigp2_orf_lines:
         header = header + ".t1"
         SigP2_ORF_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load signalP3.0 files into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 SigP3_set = Set()
 for line in sigP3_lines:
@@ -206,9 +257,9 @@ for line in sigP3_lines:
         header = split_line[0].replace('>', '')
         SigP3_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load signalP3.0_ORF files into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 SigP3_ORF_set = Set()
 for line in sigp3_orf_lines:
@@ -219,9 +270,9 @@ for line in sigp3_orf_lines:
         header = header + ".t1"
         SigP3_ORF_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load signalP4.1 files into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 SigP4_set = Set()
 for line in sigP4_lines:
@@ -231,9 +282,9 @@ for line in sigP4_lines:
         header = split_line[0].replace('>', '')
         SigP4_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load signalP4.1_ORF files into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 SigP4_ORF_set = Set()
 for line in sigp4_orf_lines:
@@ -244,9 +295,9 @@ for line in sigp4_orf_lines:
         header = header + ".t1"
         SigP4_ORF_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load phobius files into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 phobius_set = Set()
 for line in phobius_lines:
@@ -256,9 +307,9 @@ for line in phobius_lines:
         header = split_line[0].replace('>', '')
         phobius_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load phobius_ORF files into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 phobius_ORF_set = Set()
 for line in phobius_orf_lines:
@@ -269,27 +320,27 @@ for line in phobius_orf_lines:
         header = header + ".t1"
         phobius_ORF_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load TMHMM headers into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 trans_mem_set = Set()
 for line in trans_mem_lines:
     header = line.rstrip()
     trans_mem_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load GPI-anchored proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 gpi_set = Set()
 for line in gpi_lines:
     header = line.rstrip()
     gpi_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load RxLR motif +ve proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 # RxLR_motif_set = Set()
 # for line in RxLR_motif_lines:
@@ -299,9 +350,9 @@ for line in gpi_lines:
 #         header = split_line[0].replace('>', '')
 #         RxLR_motif_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load RxLR hmm +ve proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 # RxLR_hmm_set = Set()
 # for line in RxLR_hmm_lines:
@@ -311,9 +362,9 @@ for line in gpi_lines:
 #         header = split_line[0].replace('>', '')
 #         RxLR_hmm_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load RxLR hmm +ve proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 # RxLR_WY_set = Set()
 # for line in RxLR_WY_lines:
@@ -323,9 +374,9 @@ for line in gpi_lines:
 #         header = split_line[0].replace('>', '')
 #         RxLR_WY_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load RxLR total +ve proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 RxLR_total_set = Set()
 for line in RxLR_total_lines:
@@ -337,9 +388,9 @@ for line in RxLR_total_lines:
     #     header = split_line[0].replace('>', '')
     #     RxLR_total_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load RxLR total +ve ORF proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 RxLR_ORF_total_set = Set()
 for line in RxLR_orf_total_lines:
@@ -353,9 +404,9 @@ for line in RxLR_orf_total_lines:
     #     header = split_line[0].replace('>', '')
     #     RxLR_total_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load RxLR_EER total +ve proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 RxLR_EER_total_set = Set()
 for line in RxLR_EER_total_lines:
@@ -367,9 +418,9 @@ for line in RxLR_EER_total_lines:
     #     header = split_line[0].replace('>', '')
     #     RxLR_EER_total_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load RxLR_EER total +ve ORFs into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 RxLR_EER_ORF_total_set = Set()
 for line in RxLR_EER_orf_total_lines:
@@ -383,9 +434,9 @@ for line in RxLR_EER_orf_total_lines:
     #     header = split_line[0].replace('>', '')
     #     RxLR_EER_total_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load CRN LFLAK hmm +ve proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 # CRN_LFLAK_set = Set()
 # for line in CRN_LFLAK_lines:
@@ -395,9 +446,9 @@ for line in RxLR_EER_orf_total_lines:
 #         header = split_line[0].replace('>', '')
 #         CRN_LFLAK_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load CRN DWL hmm +ve proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 # CRN_DWL_set = Set()
 # for line in CRN_DWL_lines:
@@ -407,9 +458,9 @@ for line in RxLR_EER_orf_total_lines:
 #         header = split_line[0].replace('>', '')
 #         CRN_DWL_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load CRN total proteins into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 CRN_total_set = Set()
 for line in CRN_total_lines:
@@ -423,9 +474,9 @@ for line in CRN_total_lines:
     #     header = split_line[0].replace('>', '')
     #     CRN_total_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Load ApoplastP hits into a set
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 ApoP_total_set = Set()
 for line in ApoP_total_lines:
@@ -434,9 +485,9 @@ for line in ApoP_total_lines:
         header = header + '.t1'
     ApoP_total_set.add(header)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Store genes and their ortholog groups in a dictionary
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 organism_name = conf.ortho_name
 ortho_dict = defaultdict(list)
@@ -445,17 +496,17 @@ for line in ortho_lines:
     split_line = line.split()
     orthogroup = split_line[0]
     orthogroup = orthogroup.replace(":", "")
-    genes_in_group = [ x for x in split_line if organism_name in x ]
+    genes_in_group = [x for x in split_line if organism_name in x]
     for gene in genes_in_group:
         gene = gene.replace(organism_name, '').replace('|', '')
         # print gene
         ortho_dict[gene] = orthogroup
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 #
 # Build a dictionary of raw count data
 #
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 raw_read_count_dict = defaultdict(list)
 
@@ -480,11 +531,11 @@ for line in raw_count_lines:
         dict_key = "_".join([transcript_id, treatment])
         raw_read_count_dict[dict_key].append(raw_read_count)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 #
 # Build a dictionary of normalised fpkm data
 #
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 fpkm_dict = defaultdict(list)
 
@@ -502,15 +553,15 @@ for line in fpkm_lines:
         dict_key = "_".join([transcript_id, treatment])
         fpkm_dict[dict_key].append(fpkm)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 #
 # Build a dictionary of interproscan annotations
 # Annotations first need to be filtered to remove
 # redundancy. This is done by first loading anntoations
 # into a set.
-#-----------------------------------------------------
+# -----------------------------------------------------
 
-interpro_set =  Set([])
+interpro_set = set([])
 interpro_dict = defaultdict(list)
 
 for line in InterPro_lines:
@@ -529,9 +580,9 @@ for line in InterPro_lines:
     interpro_set.add(set_line)
 
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Build a dictionary of Swissprot annotations
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 swissprot_dict = defaultdict(list)
 
@@ -543,19 +594,21 @@ for line in swissprot_lines:
 
     swissprot_dict[gene_id].extend(swissprot_columns)
 
-
-
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 3
 # Iterate through genes in file, identifying if
 # they have associated information
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 # Print header line:
 header_line = ['transcript_id']
 header_line.extend(['contig', 'start', 'stop', 'strand'])
-#header_line.extend(['sigP2', 'sigP4', 'phobius', 'RxLR_motif', 'RxLR_hmm', 'WY_hmm', 'RxLR_total', 'CRN_LFLAK', 'CRN_DWL', 'CRN_total', 'orthogroup'])
-header_line.extend(['sigP2', 'sigP3', 'sigP4', 'phobius', 'TMHMM', 'GPI', 'secreted', 'RxLR_total', 'RxLR_EER_total', 'CRN_total', 'ApoplastP_total', 'orthogroup'])
+# header_line.extend(['sigP2', 'sigP4', 'phobius', 'RxLR_motif', 'RxLR_hmm',
+#                     'WY_hmm', 'RxLR_total', 'CRN_LFLAK', 'CRN_DWL',
+#                     'CRN_total', 'orthogroup'])
+header_line.extend(['sigP2', 'sigP3', 'sigP4', 'phobius', 'TMHMM', 'GPI',
+                    'secreted', 'RxLR_total', 'RxLR_EER_total', 'CRN_total',
+                    'ApoplastP_total', 'orthogroup'])
 for treatment in sorted(set(count_treatment_list)):
     treatment = "raw_count_" + treatment
     header_line.append(treatment)
@@ -595,9 +648,11 @@ if conf.gff_format == 'gtf':
             transcript_id = split_line[8]
             split_col9 = split_line[8].split(';')
             # print split_col9
-            transcript_id = "".join([ x for x in split_col9 if 'transcript_id' in x ])
+            transcript_id = "".join([x for x in split_col9 if
+                                    'transcript_id' in x])
             # print transcript_id
-            transcript_id = transcript_id.replace(' ','').replace('transcript_id', '').replace('"', '')
+            transcript_id = transcript_id.replace(' ', '') \
+                .replace('transcript_id', '').replace('"', '')
             # print transcript_id
             if transcript_id != prev_id:
                 # if prev_id == 'first':
@@ -651,7 +706,7 @@ for line in transcript_lines:
     # Identify gene id
     if 'ID' in split_line[8]:
         split_col9 = split_line[8].split(';')
-        transcript_id = "".join([ x for x in split_col9 if 'ID' in x ])
+        transcript_id = "".join([x for x in split_col9 if 'ID' in x])
         transcript_id = transcript_id.replace('ID=', '')
     else:
         transcript_id = split_line[8]
@@ -676,7 +731,8 @@ for line in transcript_lines:
         trans_mem = 'Yes'
     if transcript_id in gpi_set:
         gpi = 'Yes'
-    if any([sigP2 == 'Yes', sigP3 == 'Yes', sigP4 == 'Yes', phobius == 'Yes']) and all([trans_mem == '']):
+    if any([sigP2 == 'Yes', sigP3 == 'Yes', sigP4 == 'Yes',
+            phobius == 'Yes']) and all([trans_mem == '']):
         secreted = 'Yes'
     else:
         secreted = ''
@@ -741,7 +797,7 @@ for line in transcript_lines:
     if swissprot_dict[transcript_id]:
         swissprot_cols = swissprot_dict[transcript_id]
     else:
-        swissprot_cols = ['.','.','.']
+        swissprot_cols = ['.', '.', '.']
     # # Add in interproscan info
     if interpro_dict[transcript_id]:
         interpro_col = "|".join(interpro_dict[transcript_id])
@@ -749,10 +805,13 @@ for line in transcript_lines:
         interpro_col = '.'
 
     prot_seq = "".join(prot_dict[transcript_id])
-    # outline = [transcript_id, sigP2, phobius ,RxLR_motif, RxLR_hmm, WY_hmm, CRN_LFLAK, CRN_DWL, orthogroup]
+    # outline = [transcript_id, sigP2, phobius, RxLR_motif, RxLR_hmm,
+    #            WY_hmm, CRN_LFLAK, CRN_DWL, orthogroup]
     outline = [transcript_id]
     outline.extend(useful_cols)
-    # outline.extend([sigP2, sigP4, phobius, RxLR_motif, RxLR_hmm, WY_hmm, RxLR_total, CRN_LFLAK, CRN_DWL, CRN_total, orthogroup])
+    # outline.extend([sigP2, sigP4, phobius, RxLR_motif, RxLR_hmm,
+    #                 WY_hmm, RxLR_total, CRN_LFLAK, CRN_DWL, CRN_total,
+    #                 orthogroup])
     outline.extend([sigP2, sigP3, sigP4, phobius])
     outline.extend([trans_mem, gpi, secreted])
     outline.extend([RxLR_total, RxLR_EER_total, CRN_total, ApoP_total])
