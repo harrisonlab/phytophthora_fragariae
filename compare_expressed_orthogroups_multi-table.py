@@ -15,18 +15,18 @@ from collections import defaultdict
 # -----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-inp1_help = 'gene table for isolate #1'
-inp2_help = 'gene table for isolate #2'
-inp3_help = 'gene table for isolate #3'
-out1_help = 'text file for output of isolate #1 candidates'
-out2_help = 'text file for output of isolate #2 candidates'
-out3_help = 'text file for output of isolate #3 candidates'
-ap.add_argument('--input_1', required=True, type=str, help=inp1_help)
-ap.add_argument('--input_2', required=True, type=str, help=inp2_help)
-ap.add_argument('--input_3', required=True, type=str, help=inp3_help)
-ap.add_argument('--output_1', required=True, type=str, help=out1_help)
-ap.add_argument('--output_2', required=True, type=str, help=out2_help)
-ap.add_argument('--output_3', required=True, type=str, help=out3_help)
+ap.add_argument('--input_1', required=True, type=str,
+                help='gene table for isolate #1')
+ap.add_argument('--input_2', required=True, type=str,
+                help='gene table for isolate #2')
+ap.add_argument('--input_3', required=True, type=str,
+                help='gene table for isolate #3')
+ap.add_argument('--output_1', required=True, type=str,
+                help='text file for output of isolate #1 candidates')
+ap.add_argument('--output_2', required=True, type=str,
+                help='text file for output of isolate #2 candidates')
+ap.add_argument('--output_3', required=True, type=str,
+                help='text file for output of isolate #3 candidates')
 conf = ap.parse_args()
 
 inp1_dict = defaultdict(list)
