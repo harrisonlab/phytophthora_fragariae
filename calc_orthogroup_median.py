@@ -3,8 +3,8 @@
 import argparse
 
 ap = argparse.ArgumentParser()
-ortho_help = 'orthoMCL output file'
-ap.add_argument('--orthogroups', required=True, type=str, help=ortho_help)
+ap.add_argument('--orthogroups', required=True, type=str,
+                help='orthoMCL output file')
 conf = ap.parse_args()
 
 sizes = []
