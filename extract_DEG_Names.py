@@ -1,24 +1,27 @@
 #!/usr/bin/python
 
 '''
-This script uses the tsv file produced by parsing RNA-Seq with a previous python script to extract only DEGs above a certain threshold
+This script uses the tsv file produced by parsing RNA-Seq with a previous
+python script to extract only DEGs above a certain threshold
 '''
 
-import sys,argparse
+import argparse
 from collections import defaultdict
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--input',required=True,type=str,help='tsv file of binary presence table of DEGs')
-ap.add_argument('--output',required=True,type=str,help='Output text file of gene names')
+inp_help = 'tsv file of binary presence table of DEGs'
+out_help = 'Output text file of gene names'
+ap.add_argument('--input', required=True, type=str, help=inp_help)
+ap.add_argument('--output', required=True, type=str, help=out_help)
 conf = ap.parse_args()
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Load .tsv file into a dictionary and create gene list to iterate over
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 DEG_dict = defaultdict(list)
-gene_list=[]
+gene_list = []
 with open(conf.input) as f:
     DEG_lines = f.readlines()
     for line in DEG_lines:
@@ -33,23 +36,24 @@ with open(conf.input) as f:
             time_c = split_line[3]
             DEG_dict[gene_name].extend([time_a, time_b, time_c])
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 2
-# Test for presence of a '1' in the dictionary entry for each gene, denotating it's above the threshold value
-#-----------------------------------------------------
+# Test for presence of a '1' in the dictionary entry for each gene,
+# denotating it's above the threshold value
+# -----------------------------------------------------
 
-positive_hits=[]
+positive_hits = []
 for x in gene_list:
     if '1' in DEG_dict[x]:
         positive_hits.append(x)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 3
 # Write list of positive hits to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
-positive_hits=map(lambda x:x+'\n', positive_hits)
-outfile=str(conf.output)
+positive_hits = map(lambda x: x+'\n', positive_hits)
+outfile = str(conf.output)
 with open(outfile, "w") as o:
     o.writelines(positive_hits)
     o.close()
