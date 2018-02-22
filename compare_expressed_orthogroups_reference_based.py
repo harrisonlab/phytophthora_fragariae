@@ -1,23 +1,31 @@
 #!/usr/bin/python
 
 '''
-This script takes three gene tables produced by pacbio_anntoation_tables_modified.py as input and outputs text files with a list of uniquely differentially expressed genes, based on gene ID in BC-16.
+This script takes three gene tables produced by
+pacbio_anntoation_tables_modified.py as input and outputs text files with a
+list of uniquely differentially expressed genes, based on gene ID in BC-16.
 '''
 
-import sys,argparse
+import argparse
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Import variables, load input files and create lists of gene names
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--input_1',required=True,type=str,help='Gene table for reference isolate transcripts')
-ap.add_argument('--input_2',required=True,type=str,help='Gene table for transcripts of non-reference isolate #1')
-ap.add_argument('--input_3',required=True,type=str,help='Gene table for transcripts of non-reference isolate #2')
-ap.add_argument('--output_1',required=True,type=str,help='Text file for output of reference isolate candidates')
-ap.add_argument('--output_2',required=True,type=str,help='Text file for output of non-reference isolate #1')
-ap.add_argument('--output_3',required=True,type=str,help='Text file for output of non-reference isolate #2')
+inp1_help = 'Gene table for reference isolate transcripts'
+inp2_help = 'Gene table for transcripts of non-reference isolate #1'
+inp3_help = 'Gene table for transcripts of non-reference isolate #2'
+out1_help = 'Text file for output of reference isolate candidates'
+out2_help = 'Text file for output of non-reference isolate #1'
+out3_help = 'Text file for output of non-reference isolate #2'
+ap.add_argument('--input_1', required=True, type=str, help=inp1_help)
+ap.add_argument('--input_2', required=True, type=str, help=inp2_help)
+ap.add_argument('--input_3', required=True, type=str, help=inp3_help)
+ap.add_argument('--output_1', required=True, type=str, help=out1_help)
+ap.add_argument('--output_2', required=True, type=str, help=out2_help)
+ap.add_argument('--output_3', required=True, type=str, help=out3_help)
 conf = ap.parse_args()
 
 with open(conf.input_1) as f1:
@@ -35,7 +43,9 @@ with open(conf.input_1) as f1:
         P_val_48 = float(x.split('\t')[28])
         P_val_96 = float(x.split('\t')[30])
         if FPKM_24 >= 5 or FPKM_48 >= 5 or FPKM_96 >= 5 or FPKM_Mycelium >= 5:
-            if (abs(LFC_24) >= 1 and P_val_24 <= 0.05) or (abs(LFC_48) >= 1 and P_val_48 <= 0.05) or (abs(LFC_96) >= 1 and P_val_96 <=0.05):
+            if ((abs(LFC_24) >= 1 and P_val_24 <= 0.05) or
+               (abs(LFC_48) >= 1 and P_val_48 <= 0.05) or
+               (abs(LFC_96) >= 1 and P_val_96 <= 0.05)):
                 gene_ID = x.split('\t')[0]
                 inp1_list.append(gene_ID)
 
@@ -65,34 +75,34 @@ with open(conf.input_3) as f3:
                 gene_ID = x.split('\t')[0]
                 inp3_list.append(gene_ID)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 2
 # Create lists of genes only upregulated in one isolate
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 inp1_uniq_genes = []
 inp2_uniq_genes = []
 inp3_uniq_genes = []
 
 for x in inp1_list:
-    if not x in inp2_list:
-        if not x in inp3_list:
+    if x not in inp2_list:
+        if x not in inp3_list:
             inp1_uniq_genes.append(x)
 
 for x in inp2_list:
-    if not x in inp1_list:
-        if not x in inp3_list:
+    if x not in inp1_list:
+        if x not in inp3_list:
             inp2_uniq_genes.append(x)
 
 for x in inp3_list:
-    if not x in inp1_list:
-        if not x in inp2_list:
+    if x not in inp1_list:
+        if x not in inp2_list:
             inp3_uniq_genes.append(x)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 3
 # Writes list of genes to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Output1 = open(conf.output_1, 'w')
 Output2 = open(conf.output_2, 'w')
