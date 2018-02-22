@@ -4,8 +4,8 @@ import numpy
 
 # Import tsv into numpy
 
-name = "count_table.tsv"
-Ortho_tbl = numpy.loadtxt(fname=name, dtype=object, delimiter='\t', skiprows=1)
+Ortho_tbl = numpy.loadtxt(fname="count_table.tsv", dtype=object,
+                          delimiter='\t', skiprows=1)
 
 # Run calculations for UK1
 
