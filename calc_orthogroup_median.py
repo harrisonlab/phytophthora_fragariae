@@ -1,19 +1,22 @@
 #!/usr/bin/python
 
-import sys,argparse
+import argparse
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--orthogroups',required=True,type=str,help='orthoMCL output file')
+ortho_help = 'orthoMCL output file'
+ap.add_argument('--orthogroups', required=True, type=str, help=ortho_help)
 conf = ap.parse_args()
 
-sizes=[]
+sizes = []
 with open(conf.orthogroups) as f:
     ortho_lines = f.readlines()
     for line in ortho_lines:
-        size=line.count('|')
+        size = line.count('|')
         sizes.append(size)
 
-sorted_list=[]
+sorted_list = []
+
+
 def median(sizes):
     sorted_list = sorted(sizes)
     length = len(sorted_list)
@@ -21,8 +24,9 @@ def median(sizes):
     if length == 1:
         print sorted_list[0]
     elif length % 2 == 0:
-        print sum(sorted_line[centre - 1: centre + 1]) / 2.0
+        print sum(sorted_list[centre - 1: centre + 1]) / 2.0
     else:
         print sorted_list[centre]
+
 
 print median(sizes)
