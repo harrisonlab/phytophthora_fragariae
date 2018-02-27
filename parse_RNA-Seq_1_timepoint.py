@@ -19,9 +19,9 @@ import csv
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--input', required=True, type=str, help='text file of genes \
-                with fold change information')
+with fold change information')
 ap.add_argument('--out_dir', required=True, type=str, help='the tsv file where \
-                the count table is output to')
+the count table is output to')
 conf = ap.parse_args()
 
 inp1_dict = defaultdict(list)
