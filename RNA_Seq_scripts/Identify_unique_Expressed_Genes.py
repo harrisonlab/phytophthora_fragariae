@@ -1,34 +1,50 @@
 #!/usr/bin/python
 
 '''
-This script uses the output of DeSeq2 to produce a list of genes that are expressed only in a single isolate and add orthogroup ID for each gene, also identifies and classifies unique genes
+This script uses the output of DeSeq2 to produce a list of genes that are
+expressed only in a single isolate and add orthogroup ID for each gene,
+also identifies and classifies unique genes
 '''
 
-import sys,argparse
+import argparse
 from collections import defaultdict
 import numpy as np
 import os
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--FPKM_in',required=True,type=str,help='text output file from DeSeq2 commands of non-normalised FPKM values')
-ap.add_argument('--Orthogroup_in',required=True,type=str,help='text output file of Orthogroups from OrthoFinder')
-ap.add_argument('--Reference_name',required=True,type=str,help='Name of organism gene IDs are from in FPKM input file')
-ap.add_argument('--Organism_1',required=True,type=str,help='Name of isolate 1, three timepoints')
-ap.add_argument('--Organism_2',required=True,type=str,help='Name of isolate 2, one timepoint')
-ap.add_argument('--Organism_3',required=True,type=str,help='Name of isolate 3, one timepoint')
-ap.add_argument('--FPKM_min',required=True,type=float,help='Minimum FPKM value to accept as evidence of expression')
-ap.add_argument('--RxLRs',required=True,type=str,help='File of all RxLR names for aligned genome')
-ap.add_argument('--CRNs',required=True,type=str,help='File of all CRN names for aligned genome')
-ap.add_argument('--ApoP',required=True,type=str,help='File of all hits from ApoplastP')
-ap.add_argument('--Secreted_CQ',required=True,type=str,help='File of all secreted gene models')
-ap.add_argument('--Secreted_ORF',required=True,type=str,help='File of all secreted ORF fragments')
-ap.add_argument('--OutDir',required=True,type=str,help='Directory to write output files to')
+ap.add_argument('--FPKM_in', required=True, type=str,
+                help='text output file from DeSeq2 commands of non-normalised \
+                FPKM values')
+ap.add_argument('--Orthogroup_in', required=True, type=str,
+                help='text output file of Orthogroups from OrthoFinder')
+ap.add_argument('--Reference_name', required=True, type=str,
+                help='Name of organism gene IDs are from in FPKM input file')
+ap.add_argument('--Organism_1', required=True, type=str,
+                help='Name of isolate 1, must have only three timepoints')
+ap.add_argument('--Organism_2', required=True, type=str,
+                help='Name of isolate 2, must have only one timepoint')
+ap.add_argument('--Organism_3', required=True, type=str,
+                help='Name of isolate 3, must have only one timepoint')
+ap.add_argument('--FPKM_min', required=True, type=float,
+                help='Minimum FPKM value to accept as evidence of expression')
+ap.add_argument('--RxLRs', required=True, type=str,
+                help='File of all RxLR names for aligned genome')
+ap.add_argument('--CRNs', required=True, type=str,
+                help='File of all CRN names for aligned genome')
+ap.add_argument('--ApoP', required=True, type=str,
+                help='File of all hits from ApoplastP')
+ap.add_argument('--Secreted_CQ', required=True, type=str,
+                help='File of all secreted gene models')
+ap.add_argument('--Secreted_ORF', required=True, type=str,
+                help='File of all secreted ORF fragments')
+ap.add_argument('--OutDir', required=True, type=str,
+                help='Directory to write output files to')
 conf = ap.parse_args()
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Load input files
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 cwd = os.getcwd()
 
@@ -46,10 +62,10 @@ OutDir = conf.OutDir
 
 print("Input files loaded")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 2
 # Build dictonaries of count data and of orthogroups
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Isolate1_dict = defaultdict(list)
 Isolate2_dict = defaultdict(list)
@@ -75,7 +91,8 @@ for line in fpkm_lines:
     time_c_list.append(float(split_lines[8]))
     time_c_list.append(float(split_lines[9]))
     time_c = np.mean(time_c_list)
-    Isolate1_dict[transcript_id] = [float(time_a), float(time_b), float(time_c)]
+    Isolate1_dict[transcript_id] = [float(time_a), float(time_b),
+                                    float(time_c)]
     time_d_list = []
     time_d_list.append(float(split_lines[10]))
     time_d_list.append(float(split_lines[11]))
@@ -96,17 +113,17 @@ for line in Ortho_lines:
     split_line = line.split()
     orthogroup = split_line[0]
     orthogroup = orthogroup.replace(":", "")
-    genes_in_group = [ x for x in split_line if Reference_name in x ]
+    genes_in_group = [x for x in split_line if Reference_name in x]
     for gene in genes_in_group:
         gene = gene.replace(Reference_name, '').replace('|', '')
         ortho_dict[gene] = orthogroup
 
 print("FPKM & Orthogroup libraries built")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 3
 # Iterate over dictionaries to keep only those with FPKM > 5
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Isolate1_candidates = defaultdict(list)
 Isolate2_candidates = defaultdict(list)
@@ -139,10 +156,10 @@ for transcript, fpkm in Isolate3_dict.items():
 
 print("Expressed genes identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 4
 # Print text files of expressed genes using dictionaries
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([Reference_name, Org1, "expressed.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed.txt"])
@@ -160,8 +177,8 @@ with open(Org1_out, 'w') as o:
     keys = Isolate1_candidates.keys()
     for item in keys:
         FPKM = str(Isolate1_dict[item])
-        FPKM = FPKM.replace('[','')
-        FPKM = FPKM.replace(']','')
+        FPKM = FPKM.replace('[', '')
+        FPKM = FPKM.replace(']', '')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -191,10 +208,10 @@ with open(Org3_out, 'w') as o:
 
 print("Initial output files created for all genes")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 5
 # Identify genes that are uniquely expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Isolate1_set = set(Isolate1_candidates.keys())
 Isolate1_uniq = []
@@ -224,10 +241,10 @@ Isolate3_uniq_set = set(Isolate3_uniq)
 
 print("Unique lists created")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 6
 # Print all uniquely expressed genes to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([Reference_name, Org1, "expressed_unique.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique.txt"])
@@ -242,8 +259,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_uniq:
         FPKM = str(Isolate1_dict[item])
-        FPKM = FPKM.replace('[','')
-        FPKM = FPKM.replace(']','')
+        FPKM = FPKM.replace('[', '')
+        FPKM = FPKM.replace(']', '')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -271,10 +288,10 @@ with open(Org3_out, 'w') as o:
 
 print("Output files created for all uniquely expressed genes")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 7
 # Identify RxLRs that are uniquely expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 with open(conf.RxLRs) as f:
     RxLRs = []
@@ -304,10 +321,10 @@ for transcript in Isolate3_uniq_set:
 
 print("Unqiuely expressed RxLRs identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 8
 # Print all uniquely expressed RxLRs to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([Reference_name, Org1, "expressed_unique_RxLRs.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique_RxLRs.txt"])
@@ -322,8 +339,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_RxLRs:
         FPKM = str(Isolate1_dict[item])
-        FPKM = FPKM.replace('[','')
-        FPKM = FPKM.replace(']','')
+        FPKM = FPKM.replace('[', '')
+        FPKM = FPKM.replace(']', '')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -351,10 +368,10 @@ with open(Org3_out, 'w') as o:
 
 print("Output files created for all uniquely expressed RxLRs")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 9
 # Identify CRNs that are uniquely expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 with open(conf.CRNs) as f:
     CRNs = []
@@ -384,10 +401,10 @@ for transcript in Isolate3_uniq_set:
 
 print("Unqiuely expressed CRNs identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 10
 # Print all uniquely expressed CRNs to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([Reference_name, Org1, "expressed_unique_CRNs.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique_CRNs.txt"])
@@ -402,8 +419,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_CRNs:
         FPKM = str(Isolate1_dict[item])
-        FPKM = FPKM.replace('[','')
-        FPKM = FPKM.replace(']','')
+        FPKM = FPKM.replace('[', '')
+        FPKM = FPKM.replace(']', '')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -431,10 +448,10 @@ with open(Org3_out, 'w') as o:
 
 print("Output files created for all uniquely expressed CRNs")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 11
 # Identify apoplastic effectors that are uniquely expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 with open(conf.ApoP) as f:
     ApoP = []
@@ -464,10 +481,10 @@ for transcript in Isolate3_uniq_set:
 
 print("Unqiuely expressed apoplastic effectors identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 12
 # Print all uniquely expressed apoplastic effectors to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([Reference_name, Org1, "expressed_unique_ApoP.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique_ApoP.txt"])
@@ -482,8 +499,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_ApoP:
         FPKM = str(Isolate1_dict[item])
-        FPKM = FPKM.replace('[','')
-        FPKM = FPKM.replace(']','')
+        FPKM = FPKM.replace('[', '')
+        FPKM = FPKM.replace(']', '')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
@@ -511,10 +528,10 @@ with open(Org3_out, 'w') as o:
 
 print("Output files created for all uniquely expressed Apoplastic effectors")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 13
 # Identify secreted proteins that are uniquely expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 with open(conf.Secreted_CQ) as f:
     Secreted_CQ = []
@@ -565,10 +582,10 @@ for transcript in Isolate3_uniq_set:
 
 print("Unqiuely expressed secreted proteins identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 14
 # Print all uniquely expressed Secreted proteins to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([Reference_name, Org1, "expressed_unique_secreted.txt"])
 Org2_file = "_".join([Reference_name, Org2, "expressed_unique_secreted.txt"])
@@ -583,8 +600,8 @@ with open(Org1_out, 'w') as o:
     o.write("\n")
     for item in Isolate1_Secreted:
         FPKM = str(Isolate1_dict[item])
-        FPKM = FPKM.replace('[','')
-        FPKM = FPKM.replace(']','')
+        FPKM = FPKM.replace('[', '')
+        FPKM = FPKM.replace(']', '')
         orthogroup = Isolate1_candidates[item]
         output = "\t".join([item, orthogroup, FPKM])
         o.write(output)
