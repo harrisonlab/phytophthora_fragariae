@@ -1,35 +1,53 @@
 #!/usr/bin/python
 
 '''
-This script takes outputs from Expression presence/absence and differently DEGs to create a sorted table of candidates with a score of 0-6, 6 being best
+This script takes outputs from Expression presence/absence and differently DEGs
+to create a sorted table of candidates with a score of 0-6, 6 being best
 '''
 
-import sys,argparse
+import sys
+import argparse
 from collections import defaultdict
-from sets import Set
 import os
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--Unique_Expression_Files',required=True,nargs='+',type=str,help='Space separated list of files containing uniquely expressed genes')
-ap.add_argument('--Differently_DEG_File',required=True,nargs='+',type=str,help='Space separated list of files containing unique differently differentially expressed genes')
-ap.add_argument('--Orthogroup_in',required=True,type=str,help='Text output file of Orthogroups from OrthoFinder')
-ap.add_argument('--Organism_1',required=True,type=str,help='ID of organism 1')
-ap.add_argument('--Organism_2',required=True,type=str,help='ID of organism 2')
-ap.add_argument('--Organism_3',required=True,type=str,help='ID of organism 3')
-ap.add_argument('--Race_isolates',required=True,nargs='+',type=str,help='Space separated list of isolates of the race of interest')
-ap.add_argument('--Reference_name',required=True,type=str,help='ID of isolate to score candidates of')
-ap.add_argument('--RxLRs',required=True,type=str,help='File of all RxLR names for aligned genome')
-ap.add_argument('--CRNs',required=True,type=str,help='File of all CRN names for aligned genome')
-ap.add_argument('--ApoP',required=True,type=str,help='File of all hits from ApoplastP')
-ap.add_argument('--Secreted_CQ',required=True,type=str,help='File of all secreted gene models')
-ap.add_argument('--Secreted_ORF',required=True,type=str,help='File of all secreted ORF fragments')
-ap.add_argument('--OutDir',required=True,type=str,help='Directory to write output files to')
+ap.add_argument('--Unique_Expression_Files', required=True, nargs='+',
+                type=str, help='Space separated list of files containing \
+                uniquely expressed genes')
+ap.add_argument('--Differently_DEG_File', required=True, nargs='+', type=str,
+                help='Space separated list of files containing unique \
+                differently differentially expressed genes')
+ap.add_argument('--Orthogroup_in', required=True, type=str, help='Text output \
+file of Orthogroups from OrthoFinder')
+ap.add_argument('--Organism_1', required=True, type=str, help='ID of organism \
+1')
+ap.add_argument('--Organism_2', required=True, type=str, help='ID of organism \
+2')
+ap.add_argument('--Organism_3', required=True, type=str, help='ID of organism \
+3')
+ap.add_argument('--Race_isolates', required=True, nargs='+', type=str,
+                help='Space separated list of isolates of the race of interest\
+                ')
+ap.add_argument('--Reference_name', required=True, type=str, help='ID of \
+isolate to score candidates of')
+ap.add_argument('--RxLRs', required=True, type=str, help='File of all RxLR \
+names for aligned genome')
+ap.add_argument('--CRNs', required=True, type=str, help='File of all CRN names \
+for aligned genome')
+ap.add_argument('--ApoP', required=True, type=str, help='File of all hits from \
+ApoplastP')
+ap.add_argument('--Secreted_CQ', required=True, type=str, help='File of all \
+secreted gene models')
+ap.add_argument('--Secreted_ORF', required=True, type=str, help='File of all \
+secreted ORF fragments')
+ap.add_argument('--OutDir', required=True, type=str, help='Directory to write \
+output files to')
 conf = ap.parse_args()
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Load input files
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1 = conf.Organism_1
 Org2 = conf.Organism_2
@@ -43,17 +61,20 @@ Org3_Uniq_Exp = []
 
 for Uniq_Exp_File in Uniq_Exp_Files:
     with open(Uniq_Exp_File) as f:
-        if Uniq_Exp_File.split('/')[-1].split('_')[0] == Org1 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
+        if (Uniq_Exp_File.split('/')[-1].split('_')[0] == Org1 and
+           Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name):
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
                 Org1_Uniq_Exp.append(transcript_ID)
-        elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Org2 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
+        elif (Uniq_Exp_File.split('/')[-1].split('_')[0] == Org2 and
+              Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name):
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
                 Org2_Uniq_Exp.append(transcript_ID)
-        elif Uniq_Exp_File.split('/')[-1].split('_')[0] == Org3 and Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name:
+        elif (Uniq_Exp_File.split('/')[-1].split('_')[0] == Org3 and
+              Uniq_Exp_File.split('/')[-1].split('_')[1] == Ref_Name):
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
@@ -71,17 +92,20 @@ Org2_Uniq_DEG = []
 Org3_Uniq_DEG = []
 for Uniq_DEG_File in Uniq_DEG_Files:
     with open(Uniq_DEG_File) as f:
-        if Uniq_DEG_File.split('/')[-1].split('_')[0] == Org1 and Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name:
+        if (Uniq_DEG_File.split('/')[-1].split('_')[0] == Org1 and
+           Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name):
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
                 Org1_Uniq_DEG.append(transcript_ID)
-        elif Uniq_DEG_File.split('/')[-1].split('_')[0] == Org2 and Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name:
+        elif (Uniq_DEG_File.split('/')[-1].split('_')[0] == Org2 and
+              Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name):
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
                 Org2_Uniq_DEG.append(transcript_ID)
-        elif Uniq_DEG_File.split('/')[-1].split('_')[0] == Org3 and Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name:
+        elif (Uniq_DEG_File.split('/')[-1].split('_')[0] == Org3 and
+              Uniq_DEG_File.split('/')[-1].split('_')[1] == Ref_Name):
             gene_lines = f.readlines()[1:]
             for gene in gene_lines:
                 transcript_ID = gene.split('\t')[0]
@@ -101,7 +125,7 @@ with open(conf.Orthogroup_in) as f:
         split_line = line.split()
         orthogroup = split_line[0]
         orthogroup = orthogroup.replace(":", "")
-        genes_in_group = [ x for x in split_line if not 'OG' in x ]
+        genes_in_group = [x for x in split_line if 'OG' not in x]
         ortho_dict[orthogroup] = genes_in_group
 
 RxLRs = []
@@ -152,10 +176,11 @@ Sec_set = set(Sec)
 
 print("Files loaded and prepared")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 2
-# Create dictionaries listing gene IDs in each expressed set as keys with orthogroup ID as values -- slow step
-#-----------------------------------------------------
+# Create dictionaries listing gene IDs in each expressed set as keys with
+# orthogroup ID as values -- slow step
+# -----------------------------------------------------
 
 Race_IDs = conf.Race_isolates
 Race_list = []
@@ -168,7 +193,8 @@ Org1_ID_dict = defaultdict(list)
 for transcript_ID in Org1_Uniq_Exp_set:
     Isolates_in_OG = []
     ID_to_search = "|".join([Org1, transcript_ID])
-    orthogroups = [ OG for OG, genes in ortho_dict.items() if ID_to_search in genes ]
+    orthogroups = [OG for OG, genes in ortho_dict.items() if ID_to_search in
+                   genes]
     for orthogroup in orthogroups:
         for item in ortho_dict[orthogroup]:
             Isolate = item.split('|')[0]
@@ -178,10 +204,11 @@ for transcript_ID in Org1_Uniq_Exp_set:
 
 print("Dictionary of orthogroups created")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 3
-# Loop through genes from isolate of interest, ID genes from other reference genomes in same OG
-#-----------------------------------------------------
+# Loop through genes from isolate of interest
+# ID genes from other reference genomes in same OG
+# -----------------------------------------------------
 
 Org1_Org2_dict = defaultdict(list)
 Org1_Org3_dict = defaultdict(list)
@@ -197,10 +224,11 @@ for transcript_ID in Org1_ID_dict.keys():
 
 print("Genes in the same orthogroup as candidates identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 4
-# Loop through each ID to be written to table and create dictionaries for writing to each field of the table
-#-----------------------------------------------------
+# Loop through each ID to be written to table and create dictionaries for
+# writing to each field of the table
+# -----------------------------------------------------
 
 Org1_Exp_to_print = []
 Org2_Exp_to_print = []
@@ -245,7 +273,8 @@ for transcript_ID in Org1_ID_dict.keys():
         Sec_to_print.append(transcript_ID)
 
 for transcript_ID in Org1_ID_dict.keys():
-    if transcript_ID in RxLR_to_print or transcript_ID in CRN_to_print or transcript_ID in ApoP_to_print or transcript_ID in Sec_to_print:
+    if (transcript_ID in RxLR_to_print or transcript_ID in CRN_to_print or
+       transcript_ID in ApoP_to_print or transcript_ID in Sec_to_print):
         feat_list = []
         if transcript_ID in Org1_Exp_to_print:
             feat_list.append('O1E')
@@ -266,10 +295,10 @@ for transcript_ID in Org1_ID_dict.keys():
 
 print("Features identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 5
 # Write out file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 OutDir = conf.OutDir
 cwd = os.getcwd()
@@ -287,7 +316,10 @@ Org1_exp_Head = "_".join([Org1, "uniquely", "expressed"])
 Org2_exp_Head = "_".join([Org2, "uniquely", "expressed"])
 Org3_exp_Head = "_".join([Org3, "uniquely", "expressed"])
 
-Header = "\t".join([Org1_gene_Head, Org2_gene_Head, Org3_gene_Head, "Orthogroup", Org1_DEG_Head, Org2_DEG_Head, Org3_DEG_Head, Org1_exp_Head, Org2_exp_Head, Org3_exp_Head, "RxLR", "CRN", "ApoplastP", "Secreted", "Score"])
+Header = "\t".join([Org1_gene_Head, Org2_gene_Head, Org3_gene_Head,
+                    "Orthogroup", Org1_DEG_Head, Org2_DEG_Head, Org3_DEG_Head,
+                    Org1_exp_Head, Org2_exp_Head, Org3_exp_Head, "RxLR", "CRN",
+                    "ApoplastP", "Secreted", "Score"])
 
 with open(Output, 'w') as o:
     o.write(Header)
@@ -337,7 +369,9 @@ with open(Output, 'w') as o:
         Org3_IDs = ",".join(str(ID) for ID in Org1_Org3_dict[transcript_ID])
         Orthogroup = str(Org1_ID_dict[transcript_ID])
         Score = str(Score_dict[transcript_ID])
-        To_Write = "\t".join([transcript_ID, Org2_IDs, Org3_IDs, Orthogroup, Org1_Exp, Org2_Exp, Org3_Exp, Org1_DEG, Org2_DEG, Org3_DEG, RxLR, CRN, ApoP, Sec, Score])
+        To_Write = "\t".join([transcript_ID, Org2_IDs, Org3_IDs, Orthogroup,
+                             Org1_Exp, Org2_Exp, Org3_Exp, Org1_DEG, Org2_DEG,
+                             Org3_DEG, RxLR, CRN, ApoP, Sec, Score])
         o.write(To_Write)
         o.write("\n")
 
