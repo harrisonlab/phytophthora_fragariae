@@ -18,9 +18,9 @@ import csv
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--orthogroups', required=True, type=str, help='text file output \
-                of OrthoMCL orthogroups')
+of OrthoMCL orthogroups')
 ap.add_argument('--out_dir', required=True, type=str, help='the tsv file where \
-                the count table is output to')
+the count table is output to')
 conf = ap.parse_args()
 
 with open(conf.orthogroups) as f:
