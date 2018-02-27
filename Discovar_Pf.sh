@@ -11,7 +11,7 @@ Strain=Nov77
 OUTDIR=discovar/P.fragariae/$Strain
 FRAC=1
 
-READS=/home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_dna/paired/P.fragariae/$Strain/*/*.fastq.gz
+READS="/home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_dna/paired/P.fragariae/$Strain/*/*.fastq.gz"
 
 mkdir -p ${OUTDIR}
 
