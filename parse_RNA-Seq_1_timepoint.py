@@ -1,25 +1,27 @@
 #!/usr/bin/python
 
 '''
-This script uses text files of upregulated genes to create a count table for which genes are upregulated above a set threshold
+This script uses text files of upregulated genes to create a count table for
+which genes are upregulated above a set threshold
 '''
 
-from sets import Set
-import sys,argparse
+import argparse
 from collections import defaultdict
-import re
 import numpy
 import csv
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Import variables, load input files & create list of genes
-# If using a different number of files, arguments & appending to list of genes will need to be changed
-#-----------------------------------------------------
+# If using a different number of files
+# arguments & appending to list of genes will need to be changed
+# -----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--input',required=True,type=str,help='text file of genes with fold change information')
-ap.add_argument('--out_dir',required=True,type=str,help='the tsv file where the count table is output to')
+ap.add_argument('--input', required=True, type=str, help='text file of genes \
+                with fold change information')
+ap.add_argument('--out_dir', required=True, type=str, help='the tsv file where \
+                the count table is output to')
 conf = ap.parse_args()
 
 inp1_dict = defaultdict(list)
@@ -34,11 +36,12 @@ with open(conf.input) as f1:
         value = float(x.split('\t')[2])
         inp1_dict[gene_name].append(value)
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 2
 # Load gene names to a numpy array and create new columns
-# If doing with a different number of files, change the number in the numpy.reshape() command
-#-----------------------------------------------------
+# If doing with a different number of files
+# change the number in the numpy.reshape() command
+# -----------------------------------------------------
 
 a = numpy.array(["Gene_Name", "Fold_Change"])
 
