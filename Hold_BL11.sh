@@ -1,3 +1,4 @@
+#!/bin/bash
 #$ -S /bin/bash
 #$ -l h_vmem=376.0G
 ###$ -l mem_free=1.0G
