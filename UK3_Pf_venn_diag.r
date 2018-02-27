@@ -9,65 +9,106 @@
 
 # This script requires the optparse R package. This can be downloaded by opening
 # R and running the following command:
-# install.packages("optparse",repos="http://cran.uk.r-project.org")
 # When given the option, install this package to a local library.
 
 #get config options
-library(optparse)
-library(colorspace)
-library(VennDiagram, lib.loc="/home/armita/R-packages/")
-opt_list = list(
-    make_option("--inp", type="character", help="tab seperated file containing matrix of presence of orthogroups"),
-    make_option("--out", type="character", help="output venn diagram in pdf format")
-#    make_option("--maxrf", type="double", default=0.2, help="max rf to consider as linked"),
-#    make_option("--minlod", type="double", default=20.0, help="min LOD to consider as linked")
+library("optparse")
+library("colorspace")
+library("VennDiagram")
+opt_list <- list(
+    make_option("--inp", type = "character",
+    help = "tab seperated file containing matrix of presence of orthogroups"),
+    make_option("--out", type = "character",
+    help = "output venn diagram in pdf format")
 )
-opt = parse_args(OptionParser(option_list=opt_list))
-f = opt$inp
-o = opt$out
 
-orthotabs <-data.frame()
+opt <- parse_args(OptionParser(option_list = opt_list))
+f <- opt$inp
+o <- opt$out
+
+orthotabs <- data.frame()
 orthotabs <- read.table(f)
 df1 <- t(orthotabs)
 summary(df1)
 
-# print(area1, area2, area3, area4)
-
-# colname1 <- paste(colnames(df1)[1])
-# colname2 <- paste(colnames(df1)[2])
-# colname3 <- paste(colnames(df1)[3])
-# colname4 <- paste(colnames(df1)[4])
-
-label1 <- paste("NOV-27 (UK3)", sep="" )
-label2 <- paste("NOV-71 (UK3)", sep="" )
-label3 <- paste("NOV-9 (UK3)", sep="" )
+label1 <- paste("NOV-27 (UK3)", sep = "" )
+label2 <- paste("NOV-71 (UK3)", sep = "" )
+label3 <- paste("NOV-9 (UK3)", sep = "" )
 label4 <- paste("A4 (UK2), NOV-5 (UK1)
-BC-16 (UK2) & BC-1 (UK1)", sep="" )
+BC-16 (UK2) & BC-1 (UK1)", sep = "" )
 
-NOV27=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
-NOV71=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0)
-NOV9=subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0)
-Others=subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0)
+NOV27 <- subset(df1, df1[, "A4"] == 0 & df1[, "Nov5"] == 0 &
+df1[, "Nov27"] == 1 & df1[, "Nov71"] == 0 & df1[, "Bc16"] == 0 &
+df1[, "Nov9"] == 0 & df1[, "Bc1"] == 0)
+NOV71 <- subset(df1, df1[, "A4"] == 0 & df1[, "Nov5"] == 0 &
+df1[, "Nov27"] == 0 & df1[, "Nov71"] == 1 & df1[, "Bc16"] == 0 &
+df1[, "Nov9"] == 0 & df1[, "Bc1"] == 0)
+NOV9 <- subset(df1, df1[, "A4"] == 0 & df1[, "Nov5"] == 0 &
+df1[, "Nov27"] == 0 & df1[, "Nov71"] == 0 & df1[, "Bc16"] == 0 &
+df1[, "Nov9"] == 1 & df1[, "Bc1"] == 0)
+Others <- subset(df1, df1[, "A4"] != 0 & df1[, "Nov5"] != 0 &
+df1[, "Nov27"] == 0 & df1[, "Nov71"] == 0 & df1[, "Bc16"] != 0 &
+df1[, "Nov9"] == 0 & df1[, "Bc1"] != 0)
 
-n1234=nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
-n123=n1234 + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
-n124=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
-n134=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
-n234=n1234 + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
-n12=n1234 + (n123 - n1234) + (n124 - n1234) + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] == 0))
-n13=n1234 + (n123 - n1234) + (n134 - n1234) + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
-n14=n1234 + (n124 - n1234) + (n134 - n1234) + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 1 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
-n23=n1234 + (n123 - n1234) + (n234 - n1234) + nrow(subset(df1, df1[,"A4"] == 0 & df1[,"Nov5"] == 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] == 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] == 0))
-n24=n1234 + (n124 - n1234) + (n234 - n1234) + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 1 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 0 & df1[,"Bc1"] != 0))
-n34=n1234 + (n134 - n1234) + (n234 - n1234) + nrow(subset(df1, df1[,"A4"] != 0 & df1[,"Nov5"] != 0 & df1[,"Nov27"] == 0 & df1[,"Nov71"] == 0 & df1[,"Bc16"] != 0 & df1[,"Nov9"] == 1 & df1[,"Bc1"] != 0))
+n1234 <- nrow(subset(df1, df1[, "A4"] != 0 & df1[, "Nov5"] != 0 &
+df1[, "Nov27"] == 1 & df1[, "Nov71"] == 1 & df1[, "Bc16"] != 0 &
+df1[, "Nov9"] == 1 & df1[, "Bc1"] != 0))
+n123 <- n1234 + nrow(subset(df1, df1[, "A4"] == 0 & df1[, "Nov5"] == 0 &
+df1[, "Nov27"] == 1 & df1[, "Nov71"] == 1 & df1[, "Bc16"] == 0 &
+df1[, "Nov9"] == 1 & df1[, "Bc1"] == 0))
+n124 <- n1234 + nrow(subset(df1, df1[, "A4"] != 0 & df1[, "Nov5"] != 0 &
+df1[, "Nov27"] == 1 & df1[, "Nov71"] == 1 & df1[, "Bc16"] != 0 &
+df1[, "Nov9"] == 0 & df1[, "Bc1"] != 0))
+n134 <- n1234 + nrow(subset(df1, df1[, "A4"] != 0 & df1[, "Nov5"] != 0 &
+df1[, "Nov27"] == 1 & df1[, "Nov71"] == 0 & df1[, "Bc16"] != 0 &
+df1[, "Nov9"] == 1 & df1[, "Bc1"] != 0))
+n234 <- n1234 + nrow(subset(df1, df1[, "A4"] != 0 & df1[, "Nov5"] != 0 &
+df1[, "Nov27"] == 0 & df1[, "Nov71"] == 1 & df1[, "Bc16"] != 0 &
+df1[, "Nov9"] == 1 & df1[, "Bc1"] != 0))
+n12 <- n1234 + (n123 - n1234) + (n124 - n1234) + nrow(subset(df1,
+    df1[, "A4"] == 0 & df1[, "Nov5"] == 0 & df1[, "Nov27"] == 1 &
+    df1[, "Nov71"] == 1 & df1[, "Bc16"] == 0 & df1[, "Nov9"] == 0 &
+    df1[, "Bc1"] == 0))
+n13 <- n1234 + (n123 - n1234) + (n134 - n1234) + nrow(subset(df1,
+    df1[, "A4"] == 0 & df1[, "Nov5"] == 0 & df1[, "Nov27"] == 1 &
+    df1[, "Nov71"] == 0 & df1[, "Bc16"] == 0 & df1[, "Nov9"] == 1 &
+    df1[, "Bc1"] == 0))
+n14 <- n1234 + (n124 - n1234) + (n134 - n1234) + nrow(subset(df1,
+    df1[, "A4"] != 0 & df1[, "Nov5"] != 0 & df1[, "Nov27"] == 1 &
+    df1[, "Nov71"] == 0 & df1[, "Bc16"] != 0 & df1[, "Nov9"] == 0 &
+    df1[, "Bc1"] != 0))
+n23 <- n1234 + (n123 - n1234) + (n234 - n1234) + nrow(subset(df1,
+    df1[, "A4"] == 0 & df1[, "Nov5"] == 0 & df1[, "Nov27"] == 0 &
+    df1[, "Nov71"] == 1 & df1[, "Bc16"] == 0 & df1[, "Nov9"] == 1 &
+    df1[, "Bc1"] == 0))
+n24 <- n1234 + (n124 - n1234) + (n234 - n1234) + nrow(subset(df1,
+    df1[, "A4"] != 0 & df1[, "Nov5"] != 0 & df1[, "Nov27"] == 0 &
+    df1[, "Nov71"] == 1 & df1[, "Bc16"] != 0 & df1[, "Nov9"] == 0 &
+    df1[, "Bc1"] != 0))
+n34 <- n1234 + (n134 - n1234) + (n234 - n1234) + nrow(subset(df1,
+    df1[, "A4"] != 0 & df1[, "Nov5"] != 0 & df1[, "Nov27"] == 0 &
+    df1[, "Nov71"] == 0 & df1[, "Bc16"] != 0 & df1[, "Nov9"] == 1 &
+    df1[, "Bc1"] != 0))
 summary(n12)
 summary(n123)
 summary(n1234)
 
-area1=(nrow(NOV27) + n1234 + (n123 - n1234) + (n124 - n1234) + (n134 - n1234) + (n12 - (n123 - n1234) - (n124 - n1234) - n1234) + (n13 - (n123 - n1234) - (n134 - n1234) - n1234) + (n14 - (n124 - n1234) - (n134 - n1234) - n1234))
-area2=(nrow(NOV71) + n1234 + (n123 - n1234) + (n124 - n1234) + (n234 - n1234) + (n12 - (n123 - n1234) - (n124 - n1234) - n1234) + (n23 - (n123 - n1234) - (n234 - n1234) - n1234) + (n24 - (n124 - n1234) - (n234 - n1234) - n1234))
-area3=(nrow(NOV9) + n1234 + (n123 - n1234) + (n134 - n1234) + (n234 - n1234) + (n13 - (n123 - n1234) - (n134 - n1234) - n1234) + (n23 - (n123 - n1234) - (n234 - n1234) - n1234) + (n34 - (n134 - n1234) - (n234 - n1234) - n1234))
-area4=(nrow(Others) + n1234 + (n124 - n1234) + (n134 - n1234) + (n234 - n1234) + (n14 - (n124 - n1234) - (n134 - n1234) - n1234) + (n24 - (n124 - n1234) - (n234 - n1234) - n1234) + (n34 - (n134 - n1234) - (n234 - n1234) - n1234))
+area1 <- (nrow(NOV27) + n1234 + (n123 - n1234) + (n124 - n1234) +
+(n134 - n1234) + (n12 - (n123 - n1234) - (n124 - n1234) - n1234) +
+(n13 - (n123 - n1234) - (n134 - n1234) - n1234) + (n14 - (n124 - n1234) -
+(n134 - n1234) - n1234))
+area2 <- (nrow(NOV71) + n1234 + (n123 - n1234) + (n124 - n1234) +
+(n234 - n1234) + (n12 - (n123 - n1234) - (n124 - n1234) - n1234) +
+(n23 - (n123 - n1234) - (n234 - n1234) - n1234) + (n24 - (n124 - n1234) -
+(n234 - n1234) - n1234))
+area3 <- (nrow(NOV9) + n1234 + (n123 - n1234) + (n134 - n1234) +
+(n234 - n1234) + (n13 - (n123 - n1234) - (n134 - n1234) - n1234) +
+(n23 - (n123 - n1234) - (n234 - n1234) - n1234) + (n34 - (n134 - n1234) -
+(n234 - n1234) - n1234))
+area4 <- (nrow(Others) + n1234 + (n124 - n1234) + (n134 - n1234) +
+(n234 - n1234) + (n14 - (n124 - n1234) - (n134 - n1234) - n1234) +
+(n24 - (n124 - n1234) - (n234 - n1234) - n1234) + (n34 - (n134 - n1234) -
+(n234 - n1234) - n1234))
 
 pdf(o)
 draw.quad.venn(area1, area2, area3, area4,
@@ -78,7 +119,8 @@ draw.quad.venn(area1, area2, area3, area4,
 #    rep("", 4),
     lwd = rep(2, 4), lty = rep("solid", 4),
     col = rep("black", 4), fill = c(rainbow_hcl(4)), alpha = rep(0.5, 4),
-    label.col = rep("black", 15), cex = rep(1.2, 15), fontface = rep("plain", 15),
+    label.col = rep("black", 15), cex = rep(1.2, 15),
+    fontface = rep("plain", 15),
     fontfamily = rep("sans", 15), cat.pos = c(-15, 15, 0, 0),
     cat.dist = c(0.22, 0.22, 0.11, 0.11), cat.col = rep("black", 4),
     cat.cex = rep(1, 4), cat.fontface = rep("plain", 4),
