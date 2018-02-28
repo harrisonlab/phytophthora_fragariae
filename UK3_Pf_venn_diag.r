@@ -129,73 +129,70 @@ draw.quad.venn(area1, area2, area3, area4,
     )
 dev.off()
 
-singles = df1[grepl("single*", rownames(df1)), ]
+singles <- df1[grepl("single*", rownames(df1)), ]
 print("A4")
-total_1 = nrow(subset (df1, df1[,"A4"] == 1))
-missing_1 = (total_1 - area4)
-uniq_1=sum(singles[, "A4"])
-paste('The total number of orthogroups and singleton genes in this isolate: ', total_1)
-paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_1)
-paste('The total number of singleton genes not in the venn diagram: ', uniq_1)
+total_1 <- nrow(subset (df1, df1[, "A4"] == 1))
+missing_1 <- (total_1 - area4)
+uniq_1 <- sum(singles[, "A4"])
+paste("The total number of orthogroups and singleton genes in this isolate: ",
+total_1)
+paste("The total number of orthogroups and singleton genes not in the
+venn diagram: ", missing_1)
+paste("The total number of singleton genes not in the venn diagram: ", uniq_1)
 print("NOV-5")
-total_2 = nrow(subset (df1, df1[,"Nov5"] == 1))
-missing_2 = (total_2 - area4)
-uniq_2=sum(singles[, "Nov5"])
-paste('The total number of orthogroups and singleton genes in this isolate: ', total_2)
-paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_2)
-paste('The total number of singleton genes not in the venn diagram: ', uniq_2)
+total_2 <- nrow(subset (df1, df1[, "Nov5"] == 1))
+missing_2 <- (total_2 - area4)
+uniq_2 <- sum(singles[, "Nov5"])
+paste("The total number of orthogroups and singleton genes in this isolate: ",
+total_2)
+paste("The total number of orthogroups and singleton genes not in the
+venn diagram: ", missing_2)
+paste("The total number of singleton genes not in the venn diagram: ", uniq_2)
 print("NOV-27")
-total_3 = nrow(subset (df1, df1[,"Nov27"] == 1))
-missing_3 = (total_3 - area1)
-uniq_3=sum(singles[, "Nov27"])
-paste('The total number of orthogroups and singleton genes in this isolate: ', total_3)
-paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_3)
-paste('The total number of singleton genes not in the venn diagram: ', uniq_3)
+total_3 <- nrow(subset (df1, df1[, "Nov27"] == 1))
+missing_3 <- (total_3 - area1)
+uniq_3 <- sum(singles[, "Nov27"])
+paste("The total number of orthogroups and singleton genes in this isolate: ",
+total_3)
+paste("The total number of orthogroups and singleton genes not in the
+venn diagram: ", missing_3)
+paste("The total number of singleton genes not in the venn diagram: ", uniq_3)
 print("NOV-71")
-total_4 = nrow(subset (df1, df1[,"Nov71"] == 1))
-missing_4 = (total_4 - area2)
-uniq_4=sum(singles[, "Nov71"])
-paste('The total number of orthogroups and singleton genes in this isolate: ', total_4)
-paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_4)
-paste('The total number of singleton genes not in the venn diagram: ', uniq_4)
+total_4 <- nrow(subset (df1, df1[, "Nov71"] == 1))
+missing_4 <- (total_4 - area2)
+uniq_4 <- sum(singles[, "Nov71"])
+paste("The total number of orthogroups and singleton genes in this isolate: ",
+total_4)
+paste("The total number of orthogroups and singleton genes not in the
+venn diagram: ", missing_4)
+paste("The total number of singleton genes not in the venn diagram: ", uniq_4)
 print("BC-16")
-total_5 = nrow(subset (df1, df1[,"Bc16"] == 1))
-missing_5 = (total_5 - area4)
-uniq_5=sum(singles[, "Bc16"])
-paste('The total number of orthogroups and singleton genes in this isolate: ', total_5)
-paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_5)
-paste('The total number of singleton genes not in the venn diagram: ', uniq_5)
+total_5 <- nrow(subset (df1, df1[, "Bc16"] == 1))
+missing_5 <- (total_5 - area4)
+uniq_5 <- sum(singles[, "Bc16"])
+paste("The total number of orthogroups and singleton genes in this isolate: ",
+total_5)
+paste("The total number of orthogroups and singleton genes not in the
+venn diagram: ", missing_5)
+paste("The total number of singleton genes not in the venn diagram: ", uniq_5)
 print("NOV-9")
-total_6 = nrow(subset (df1, df1[,"Nov9"] == 1))
-missing_6 = (total_6 - area3)
-uniq_6=sum(singles[, "Nov9"])
-paste('The total number of orthogroups and singleton genes in this isolate: ', total_6)
-paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_6)
-paste('The total number of singleton genes not in the venn diagram: ', uniq_6)
+total_6 <- nrow(subset (df1, df1[, "Nov9"] == 1))
+missing_6 <- (total_6 - area3)
+uniq_6 <- sum(singles[, "Nov9"])
+paste("The total number of orthogroups and singleton genes in this isolate: ",
+total_6)
+paste("The total number of orthogroups and singleton genes not in the
+venn diagram: ", missing_6)
+paste("The total number of singleton genes not in the venn diagram: ", uniq_6)
 print("BC-1")
-total_7 = nrow(subset (df1, df1[,"Bc1"] == 1))
-missing_7 = (total_6 - area4)
-uniq_7=sum(singles[, "Bc1"])
-paste('The total number of orthogroups and singleton genes in this isolate: ', total_7)
-paste('The total number of orthogroups and singleton genes not in the venn diagram: ', missing_7)
-paste('The total number of singleton genes not in the venn diagram: ', uniq_7)
-
-# inpara_1 = sum(orthogroups[,1] == 1 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 0)
-# inpara_2 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 1 & orthogroups[,3] == 0 & orthogroups[,4] == 0)
-# inpara_3 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 1 & orthogroups[,4] == 0)
-# inpara_4 = sum(orthogroups[,1] == 0 & orthogroups[,2] == 0 & orthogroups[,3] == 0 & orthogroups[,4] == 1)
-# label1
-# uniq_1
-# inpara_1
-# label2
-# uniq_2
-# inpara_2
-# label3
-# uniq_3
-# inpara_3
-# label4
-# uniq_4
-# inpara_4
+total_7 <- nrow(subset (df1, df1[, "Bc1"] == 1))
+missing_7 <- (total_6 - area4)
+uniq_7 <- sum(singles[, "Bc1"])
+paste("The total number of orthogroups and singleton genes in this isolate: ",
+total_7)
+paste("The total number of orthogroups and singleton genes not in the
+venn diagram: ", missing_7)
+paste("The total number of singleton genes not in the venn diagram: ", uniq_7)
 
 warnings()
 q()
