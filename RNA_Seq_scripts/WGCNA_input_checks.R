@@ -14,3 +14,6 @@ opt <- parse_args(OptionParser(option_list = opt_list))
 inp <- opt$gene_table
 
 Exp_Data <- read.table(inp, header = FALSE, sep = "\t", stringsAsFactors = TRUE)
+
+datexpr0 <- as.data.frame(t(inp[, -c(1:25)]))
+datexpr1 <- as.data.frame(t(datexpr0[, -c(34:48)]))
