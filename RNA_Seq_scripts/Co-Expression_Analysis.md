@@ -7,4 +7,4 @@ A) Building a coexpression network and export it
 B) Counting kmers in the 3kb upstream region of all genes in the coexpressed set
 C) Test these kmers for enrichment
 
-## 1. Building a coexpression network
+## A) Building a coexpression network
