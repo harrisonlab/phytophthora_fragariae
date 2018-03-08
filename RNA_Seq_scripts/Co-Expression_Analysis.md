@@ -19,3 +19,10 @@ ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 gene_table=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
 $ProgDir/WGCNA_input_clean.R --gene_table $gene_table --out_dir $OutDir
 ```
+
+```
+40,675 genes were removed due to too many missing samples or zero variance.
+Listed in analysis/coexpression/removed_genes.txt
+The candidate Avr is not in this list, so it is not too strict about genes
+with low expression in some samples
+```
