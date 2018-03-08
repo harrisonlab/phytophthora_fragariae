@@ -45,3 +45,12 @@ if (!gsg$allOK){
     # Remove items that fail QC
     datexpr0 <- datexpr0[gsg$goodSamples, gsg$goodGenes]
 }
+
+# Cluster samples to check for outliers
+
+sampletree <- hclust(dist(datexpr0), method = "average")
+pdf("analysis/coexpression/sample_clustering.pdf", width = 12, height = 9)
+par(cex = 0.6)
+par(mar = c(0, 4, 2, 0))
+plot(sampletree, main = "Sample clustering to detect outliers", sub = "",
+xlab = "", cex.lab = 1.5, cex.axis = 1.5, cex.main = 2)
