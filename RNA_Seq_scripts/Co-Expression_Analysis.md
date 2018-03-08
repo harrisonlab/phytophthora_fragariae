@@ -9,6 +9,9 @@ C) Test these kmers for enrichment
 
 ## A) Building a coexpression network
 
+The threshold for samples depends on the dataset,
+make sure to sanity check with the output graph
+
 ```bash
 OutDir=analysis/coexpression
 mkdir -p $OutDir
