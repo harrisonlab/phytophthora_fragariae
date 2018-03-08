@@ -11,11 +11,14 @@ options(stringsAsFactors = FALSE)
 
 opt_list <- list(
   make_option("--gene_table", type = "character",
-  help = "Input file of RNA-Seq data")
+  help = "Input file of RNA-Seq data"),
+  make_option("--out_dir", type = "character",
+  help = "Directory for plots to be written to")
   )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 inp <- opt$gene_table
+outdir <- opt$out_dir
 
 # Load input file
 
@@ -49,7 +52,7 @@ if (!gsg$allOK){
 # Cluster samples to check for outliers
 
 sampletree <- hclust(dist(datexpr0), method = "average")
-pdf("analysis/coexpression/sample_clustering.pdf", width = 12, height = 9)
+pdf(outdir"/sample_clustering.pdf", width = 12, height = 9)
 par(cex = 0.6)
 par(mar = c(0, 4, 2, 0))
 plot(sampletree, main = "Sample clustering to detect outliers", sub = "",
