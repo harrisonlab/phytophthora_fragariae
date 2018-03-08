@@ -27,3 +27,5 @@ outdir <- opt$out_dir
 
 lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 lnames <- load(file = lfile)
+
+# Step-by-step construction of the network & module ID
