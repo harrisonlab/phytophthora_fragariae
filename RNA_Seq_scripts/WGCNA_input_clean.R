@@ -72,7 +72,7 @@ xlab = "", cex.lab = 1.5, cex.axis = 1.5, cex.main = 2)
 abline(h = 30000, col = "red")
 clust <- cutreeStatic(sampletree, cutHeight = 30000, minSize = 10)
 table(clust)
-keepsamples <- (clust == 1)
+keepsamples <- (clust == 8)
 datexpr <- datexpr0[keepsamples, ]
 ngenes <- ncol(datexpr)
 nsamples <- nrow(datexpr)
