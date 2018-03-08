@@ -622,6 +622,10 @@ for DEG_file in DEG_files:
     header_line.append("LFC_" + file_name)
     header_line.append("P-val_" + file_name)
 header_line.append('prot_seq')
+header_line.append('swissprot_org')
+header_line.append('swissprot_gene')
+header_line.append('swissprot_function')
+header_line.append('interproscan')
 print ("\t".join(header_line))
 
 transcript_lines = []
