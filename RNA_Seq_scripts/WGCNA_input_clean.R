@@ -64,7 +64,7 @@ xlab = "", cex.lab = 1.5, cex.axis = 1.5, cex.main = 2)
 # Remove outlier samples, the height may need changing so be sure to check
 
 abline(h = 15, col = "red")
-clust <- cuttreeStatic(sampletree, cutHeight = 15, minSize = 10)
+clust <- cutreeStatic(sampletree, cutHeight = 15, minSize = 10)
 table(clust)
 keepsamples <- (clust == 1)
 datexpr <- datexpr0[keepsamples, ]
