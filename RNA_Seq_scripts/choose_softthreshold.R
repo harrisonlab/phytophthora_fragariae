@@ -16,7 +16,7 @@ enableWGCNAThreads()
 # Parse arguments
 
 opt_list <- list(
-make_option("--out_dir", type = "character",
+  make_option("--out_dir", type = "character",
   help = "Directory for plots to be written to")
   )
 
