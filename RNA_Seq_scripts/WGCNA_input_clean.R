@@ -44,13 +44,13 @@ if (!gsg$allOK){
     if (sum(!gsg$goodGenes) > 0)
         genes_to_remove <- (paste("Removing genes:", paste(names(datexpr0)[
         !gsg$goodGenes], collapse = ", ")))
+        gfile <- paste(outdir, "removed_genes.txt", sep = "/")
+        write(genes_to_remove, file = gfile)
     if (sum(!gsg$goodSamples) > 0)
         samples_to_remove <- (paste("Removing samples:",
         paste(rownames(datexpr0)[!gsg$goodSamples], collapse = ", ")))
-    gfile <- paste(outdir, "removed_genes.txt", sep = "/")
-    sfile <- paste(outdir, "removed_samples.txt", sep = "/")
-    write(genes_to_remove, file = gfile)
-    write(samples_to_remove, file = sfile)
+        sfile <- paste(outdir, "removed_samples.txt", sep = "/")
+        write(samples_to_remove, file = sfile)
     # Remove items that fail QC
     datexpr0 <- datexpr0[gsg$goodSamples, gsg$goodGenes]
 }
