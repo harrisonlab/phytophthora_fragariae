@@ -69,13 +69,14 @@ xlab = "", cex.lab = 1.5, cex.axis = 1.5, cex.main = 2)
 
 # Remove outlier samples, the height may need changing so be sure to check
 
-abline(h = 15, col = "red")
-clust <- cutreeStatic(sampletree, cutHeight = 15, minSize = 10)
+abline(h = 30000, col = "red")
+clust <- cutreeStatic(sampletree, cutHeight = 30000, minSize = 10)
 table(clust)
 keepsamples <- (clust == 1)
 datexpr <- datexpr0[keepsamples, ]
 ngenes <- ncol(datexpr)
 nsamples <- nrow(datexpr)
+dev.off()
 
 Rfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 save(datexpr, file = Rfile)
