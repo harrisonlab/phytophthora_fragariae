@@ -54,3 +54,13 @@ par(cex = 0.6)
 par(mar = c(0, 4, 2, 0))
 plot(sampletree, main = "Sample clustering to detect outliers", sub = "",
 xlab = "", cex.lab = 1.5, cex.axis = 1.5, cex.main = 2)
+
+# Remove outlier samples, the height may need changing so be sure to check
+
+abline(h = 15, col = "red")
+clust <- cuttreeStatic(sampletree, cutHeight = 15, minSize = 10)
+table(clust)
+keepsamples <- (clust == 1)
+datexpr <- datexpr0[keepsamples, ]
+ngenes <- ncol(datexpr)
+nsamples <- nrow(datexpr)
