@@ -17,7 +17,9 @@ enableWGCNAThreads()
 
 opt_list <- list(
     makeoption("--out_dir", type = "character",
-    help = "Directory for output to be written to")
+    help = "Directory for output to be written to"),
+    makeoption("--sft", type = "integer",
+    help = "Value of sft identified from choose_softthreshold.R")
     )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
