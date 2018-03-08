@@ -76,3 +76,6 @@ keepsamples <- (clust == 1)
 datexpr <- datexpr0[keepsamples, ]
 ngenes <- ncol(datexpr)
 nsamples <- nrow(datexpr)
+
+Rfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
+save(datexpr, file = Rfile)
