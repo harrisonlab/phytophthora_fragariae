@@ -26,3 +26,22 @@ exp_data <- read.tsv(inp, sep = "\t")
 datexpr0 <- as.data.frame(t(exp_data[, c(26:33)]))
 names(datexpr0) <- exp_data$transcript_id
 rownames(datexpr0) <- names(exp_data)[c(26:33)]
+
+# Check for excessive missing values and ID outliers
+
+gsg <- goodSamplesGenes(datexpr0, verbose = 3)
+gsg$allOK
+
+# Remove any genes and samples that do not pass the cut
+
+if (!gsg$allOK){
+    # Print items removed
+    if (sum(!gsg$goodGenes) > 0)
+        printFlush(paste("Removing genes:", paste(names(datexpr0)[
+        !gsg$goodGenes], collapse = ", ")))
+    if (sum(!gsg$goodSamples) > 0)
+        printFlush(paste("Removing samples:", paste(rownames(datexpr0)[
+        !gsg$goodSamples], collapse = ", ")))
+    # Remove items that fail QC
+    datexpr0 <- datexpr0[gsg$goodSamples, gsg$goodGenes]
+}
