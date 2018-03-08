@@ -24,7 +24,7 @@ outdir <- opt$out_dir
 
 # Load input file
 
-exp_data <- read.tsv(inp, sep = "\t")
+exp_data <- read.csv(inp, sep = "\t")
 
 # Parse data as WGCNA tutorial recommends
 
