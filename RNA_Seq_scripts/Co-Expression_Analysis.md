@@ -28,7 +28,7 @@ The candidate Avr is not in this list, so it is not too strict about genes
 with low expression in some samples
 ```
 
-Test various alues of soft thresholding for building the network
+Test various values of soft thresholding for building the network
 
 ```bash
 OutDir=analysis/coexpression
