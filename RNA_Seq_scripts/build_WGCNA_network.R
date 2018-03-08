@@ -8,3 +8,7 @@ library("optparse")
 # Important option recommended in WGCNA documentation
 
 options(stringsAsFactors = FALSE)
+
+# Allow multi-threading
+
+enableWGCNAThreads()
