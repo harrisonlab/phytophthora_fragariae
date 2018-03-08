@@ -52,7 +52,8 @@ if (!gsg$allOK){
 # Cluster samples to check for outliers
 
 sampletree <- hclust(dist(datexpr0), method = "average")
-pdf(outdir"/sample_clustering.pdf", width = 12, height = 9)
+file <- paste(outdir, "sample_clustering.pdf", sep = "/")
+pdf(file, width = 12, height = 9)
 par(cex = 0.6)
 par(mar = c(0, 4, 2, 0))
 plot(sampletree, main = "Sample clustering to detect outliers", sub = "",
