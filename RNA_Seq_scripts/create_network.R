@@ -12,3 +12,10 @@ options(stringsAsFactors = FALSE)
 # Allow multi-threading
 
 enableWGCNAThreads()
+
+# Parse arguments
+
+opt_list <- list(
+    makeoption("--out_dir", type = "character",
+    help = "Directory for output to be written to")
+    )
