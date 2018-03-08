@@ -27,3 +27,11 @@ Listed in analysis/coexpression/removed_genes.txt
 The candidate Avr is not in this list, so it is not too strict about genes
 with low expression in some samples
 ```
+
+Test various alues of soft thresholding for building the network
+
+```bash
+OutDir=analysis/coexpression
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+qsub $ProgDir/choosesoftthreshold.R --out_dir $OutDir
+```
