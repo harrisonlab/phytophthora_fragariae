@@ -42,11 +42,15 @@ gsg$allOK
 if (!gsg$allOK){
     # Print items removed
     if (sum(!gsg$goodGenes) > 0)
-        printFlush(paste("Removing genes:", paste(names(datexpr0)[
+        genes_to_remove <- (paste("Removing genes:", paste(names(datexpr0)[
         !gsg$goodGenes], collapse = ", ")))
     if (sum(!gsg$goodSamples) > 0)
-        printFlush(paste("Removing samples:", paste(rownames(datexpr0)[
-        !gsg$goodSamples], collapse = ", ")))
+        samples_to_remove <- (paste("Removing samples:",
+        paste(rownames(datexpr0)[!gsg$goodSamples], collapse = ", ")))
+    gfile <- paste(outdir, "removed_genes.txt", sep = "/")
+    sfile <- paste(outdir, "removed_samples.txt", sep = "/")
+    write(genes_to_remove, file = gfile)
+    write(samples_to_remove, file = sfile)
     # Remove items that fail QC
     datexpr0 <- datexpr0[gsg$goodSamples, gsg$goodGenes]
 }
