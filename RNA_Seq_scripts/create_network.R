@@ -19,3 +19,6 @@ opt_list <- list(
     makeoption("--out_dir", type = "character",
     help = "Directory for output to be written to")
     )
+
+opt <- parse_args(OptionParser(option_list = opt_list))
+outdir <- opt$out_dir
