@@ -37,3 +37,18 @@ powers <- c(c(1:10), seq(from = 12, to = 20, by = 2))
 sft <- pickSoftThreshold(datexpr, powerVector = powers, verbose = 5)
 
 # Draw a plot to allow manual picking of sft value
+
+file <- paste(outdir, "sft_testing.pdf", sep = "/")
+pdf(file, height = 9, width = 12)
+plot(sft$fitIndices[, 1], -sign(sft$fitIndices[, 3]) * sft$fitIndices[, 2],
+xlab = "Soft Threshold (power)",
+ylab = "Scale Free Topology Model Fit, signed R^2", type = "n",
+main = paste("Scale independence"))
+text(sft$fitIndices[, 1], -sign(sft$fitIndices[, 3]) * sft$fitIndices[, 2],
+labels = powers, cex = cex1, col = "red")
+abline(h = 0.90, col = "red")
+plot(sft$fitIndices[, 1], sft$fitIndices[, 5], xlab = "Soft Threshold (power)",
+ylab = "Mean Connectivity", type = "n", main = paste("Mean connectivity"))
+text(sft$fitIndices[, 1], sft$fitIndices[, 5], labels = powers, cex = cex1,
+col = "red")
+dev.off()
