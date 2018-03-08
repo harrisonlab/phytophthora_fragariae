@@ -13,7 +13,8 @@ opt_list <- list(
 opt <- parse_args(OptionParser(option_list = opt_list))
 inp <- opt$gene_table
 
-Exp_Data <- read.table(inp, header = FALSE, sep = "\t", stringsAsFactors = TRUE)
+exp_data <- read.tsv(inp, sep = "\t")
 
-datexpr0 <- as.data.frame(t(inp[, -c(1:25)]))
-datexpr1 <- as.data.frame(t(datexpr0[, -c(34:48)]))
+datexpr0 <- as.data.frame(t(exp_data[, c(26:33)]))
+names(datexpr0) <- exp_data$transcript_id
+rownames(datexpr0) <- names(exp_data)[c(26:33)]
