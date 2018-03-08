@@ -22,3 +22,8 @@ make_option("--out_dir", type = "character",
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
+
+# Load previous scripts output
+
+lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
+lnames <- load(file = lfile)
