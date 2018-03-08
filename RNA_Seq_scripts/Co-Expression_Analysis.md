@@ -11,6 +11,7 @@ C) Test these kmers for enrichment
 
 The threshold for samples depends on the dataset,
 make sure to sanity check with the output graph
+cluster to keep may also need to be modified
 
 ```bash
 OutDir=analysis/coexpression
