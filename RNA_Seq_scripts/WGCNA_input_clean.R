@@ -1,3 +1,6 @@
+#!/usr/bin/Rscript
+
+
 # Load WGCNA package
 
 library("WGCNA")
