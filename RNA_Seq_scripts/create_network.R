@@ -42,6 +42,9 @@ disstom <- 1 - tom
 
 genetree <- hclust(as.dist(disstom), method = "average")
 
+file <- paste(outdir, "clustering_tree.pdf", sep = "/")
+pdf(file, height = 9, width = 12)
 sizeGrWindow(12, 9)
 plot(genetree, xlab = "", sub = "", main = "Gene clustering on TOM-based
 dissimilarity", labels = FALSE, hang = 0.04)
+dev.off()
