@@ -7,4 +7,6 @@
 
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 
+export ALLOW_WGCA_THREADS=4
+
 /home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/choose_softthreshold.R --out_dir $1 --thread_limit 4
