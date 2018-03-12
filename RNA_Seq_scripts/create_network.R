@@ -29,4 +29,11 @@ softpower <- opt$sft
 lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 lnames <- load(file = lfile)
 
+# Calculate adjacency
+
 adjacency <- adjacency(datexpr, power = softpower)
+
+# Topological Overlap Matrix (TOM)
+
+tom <- TOMsimilarity(adjacency)
+disstom <- 1 - tom
