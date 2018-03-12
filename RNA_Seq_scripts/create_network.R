@@ -51,3 +51,9 @@ sizeGrWindow(12, 9)
 plot(genetree, xlab = "", sub = "", main = "Gene clustering on TOM-based
 dissimilarity", labels = FALSE, hang = 0.04)
 dev.off()
+
+# Cut clustering tree into several modules
+
+dynamicmods <- cutreeDynamic(dendro = genetree, distM = disstom, deepSplit = 2,
+pamRespectsDendro = FALSE, minClusterSize = min_mod_size)
+table(dynamicmods)
