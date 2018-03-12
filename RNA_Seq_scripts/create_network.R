@@ -37,3 +37,11 @@ adjacency <- adjacency(datexpr, power = softpower)
 
 tom <- TOMsimilarity(adjacency)
 disstom <- 1 - tom
+
+# Clustering using TOM
+
+genetree <- hclust(as.dist(disstom), method = "average")
+
+sizeGrWindow(12, 9)
+plot(genetree, xlab = "", sub = "", main = "Gene clustering on TOM-based
+dissimilarity", labels = FALSE, hang = 0.04)
