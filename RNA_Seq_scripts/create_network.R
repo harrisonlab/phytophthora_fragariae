@@ -19,12 +19,15 @@ opt_list <- list(
     makeoption("--out_dir", type = "character",
     help = "Directory for output to be written to"),
     makeoption("--sft", type = "integer",
-    help = "Value of sft identified from choose_softthreshold.R")
+    help = "Value of sft identified from choose_softthreshold.R"),
+    makeoption("--min_module_size", type = "character",
+    help = "Minimum module size for cutting clustered tree")
     )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
 softpower <- opt$sft
+min_mod_size <- opt$min_module_size
 
 lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 lnames <- load(file = lfile)
