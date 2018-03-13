@@ -100,3 +100,12 @@ plotDendroAndColors(genetree, cbind(dynamiccolours, mergedcolours),
 c("Dynamic Tree Cut", "Merged dynamic"), dendroLabels = FALSE, hang = 0.03,
 addGuide = TRUE, guideHang = 0.05)
 dev.off()
+
+# Save output for further analyses
+
+modulecolours <- mergedcolours
+colourorder <- c("grey", standardColors(50))
+modulelabels <- match(modulecolours, colourorder) - 1
+mes <- mergedmes
+Rfile <- paste(outdir, "modules.RData", sep = "/")
+save(mes, modulelabels, modulecolours, genetree, file = Rfile)
