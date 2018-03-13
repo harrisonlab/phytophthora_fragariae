@@ -8,3 +8,5 @@
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 
 export ALLOW_WGCA_THREADS=4
+
+/home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/create_network.R --out_dir $1 --sft $2 --min_module_size $3 --merging_threshold $4
