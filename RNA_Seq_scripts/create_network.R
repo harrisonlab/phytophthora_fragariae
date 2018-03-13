@@ -21,13 +21,17 @@ opt_list <- list(
     makeoption("--sft", type = "integer",
     help = "Value of sft identified from choose_softthreshold.R"),
     makeoption("--min_module_size", type = "character",
-    help = "Minimum module size for cutting clustered tree")
+    help = "Minimum module size for cutting clustered tree"),
+    makeoption("--merging_threshold", type = "character",
+    help = "Threshold to merge modules with correlation of 1 minus
+    specified value")
     )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
 softpower <- opt$sft
 min_mod_size <- opt$min_module_size
+medissthres <- opt$merging_threshold
 
 lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 lnames <- load(file = lfile)
@@ -64,6 +68,19 @@ file <- paste(outdir, "clustering_tree_with_modules.pdf", sep = "/")
 pdf(file, height = 9, width = 12)
 dynamiccolours <- labels2colors(dynamicmods)
 table(dynamiccolours)
+sizeGrWindow(8, 6)
 plotDendroAndColors(genetree, dynamiccolours, "Dynamic Tree Cut",
 dendroLabels = FALSE, hang = 0.03, addGuide = TRUE, guideHang = 0.05,
 main = "Gene dendrogram and module colours")
+dev.off()
+
+# Merging modules with similar expression patterns
+
+file <- paste(outdir, "clustering_tree_with_merged_modules.pdf", sep = "/")
+pdf(file, height = 9, width = 12)
+melist <- moduleEigengenes(datexpr, colors = dynamiccolours)
+mes <- melist$eigengenes
+mediss <- 1 - cor(mes)
+metree <- hclust(as.dist(mediss), method = "average")
+sizeGrWindow(7, 6)
+plot(metree, main = "Clustering of module eigengenes", xlab = "", sub = "")
