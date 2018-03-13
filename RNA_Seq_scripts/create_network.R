@@ -57,3 +57,13 @@ dev.off()
 dynamicmods <- cutreeDynamic(dendro = genetree, distM = disstom, deepSplit = 2,
 pamRespectsDendro = FALSE, minClusterSize = min_mod_size)
 table(dynamicmods)
+
+# Plot modules on clustering tree, allows sanity check of min_mod_size value
+
+file <- paste(outdir, "clustering_tree_with_modules.pdf", sep = "/")
+pdf(file, height = 9, width = 12)
+dynamiccolours <- labels2colors(dynamicmods)
+table(dynamiccolours)
+plotDendroAndColors(genetree, dynamiccolours, "Dynamic Tree Cut",
+dendroLabels = FALSE, hang = 0.03, addGuide = TRUE, guideHang = 0.05,
+main = "Gene dendrogram and module colours")
