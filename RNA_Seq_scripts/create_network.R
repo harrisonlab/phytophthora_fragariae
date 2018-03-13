@@ -84,3 +84,9 @@ mediss <- 1 - cor(mes)
 metree <- hclust(as.dist(mediss), method = "average")
 sizeGrWindow(7, 6)
 plot(metree, main = "Clustering of module eigengenes", xlab = "", sub = "")
+abline(h = medissthres, col = "red")
+merge <- mergeCloseModules(datexpr, dynamiccolours, cutHeight = medissthres,
+verbose = 3)
+mergedcolours <- merge$colors
+mergedmes <- merge$newMEs
+dev.off()
