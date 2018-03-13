@@ -90,3 +90,13 @@ verbose = 3)
 mergedcolours <- merge$colors
 mergedmes <- merge$newMEs
 dev.off()
+
+# Plot a comparison of merged and unmerged modules
+
+sizeGrWindow(12, 9)
+file <- paste(outdir, "clustering_tree_compare_modules.pdf", sep = "/")
+pdf(file, height = 9, width = 12)
+plotDendroAndColors(genetree, cbind(dynamiccolours, mergedcolours),
+c("Dynamic Tree Cut", "Merged dynamic"), dendroLabels = FALSE, hang = 0.03,
+addGuide = TRUE, guideHang = 0.05)
+dev.off()
