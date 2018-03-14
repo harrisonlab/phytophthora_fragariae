@@ -16,13 +16,13 @@ enableWGCNAThreads()
 # Parse arguments
 
 opt_list <- list(
-    makeoption("--out_dir", type = "character",
+    make_option("--out_dir", type = "character",
     help = "Directory for output to be written to"),
-    makeoption("--sft", type = "integer",
+    make_option("--sft", type = "integer",
     help = "Value of sft identified from choose_softthreshold.R"),
-    makeoption("--min_module_size", type = "character",
+    make_option("--min_module_size", type = "character",
     help = "Minimum module size for cutting clustered tree"),
-    makeoption("--merging_threshold", type = "character",
+    make_option("--merging_threshold", type = "character",
     help = "Threshold to merge modules with correlation of 1 minus
     specified value")
     )
