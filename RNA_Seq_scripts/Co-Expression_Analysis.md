@@ -59,4 +59,5 @@ ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 qsub $ProgDir/Export_Gene_Lists.sh $OutDir
 ```
 
-Export network for external visualisation
+Export network for external visualisation with Cytoscape
+<http://www.cytoscape.org/?gclid=CjwKCAjws6jVBRBZEiwAkIfZ2lpzRXx8WFD-1wk-tD4KOHW6ZIafetKcptpSIfnyc82PDbFt83h9HBoCtjEQAvD_BwE>
