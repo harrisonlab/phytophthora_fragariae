@@ -59,3 +59,5 @@ mkdir -p $OutDir
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 $ProgDir/Export_Gene_Lists.R --out_dir $OutDir
 ```
+
+Export network for external visualisation
