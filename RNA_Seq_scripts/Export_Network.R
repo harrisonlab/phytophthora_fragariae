@@ -30,3 +30,8 @@ modules <- names(modulecolours)
 transcripts <- names(datexpr)
 inmodule <- is.finite(match(modulecolours, modules))
 modtranscripts <- transcripts[inmodule]
+
+# Select corresponding TOM value
+
+modtom <- tom[inmodule, inmodule]
+dimnames(modtom) <- list(modtranscripts, modtranscripts)
