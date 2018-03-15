@@ -4,3 +4,7 @@
 
 library("WGCNA")
 library("optparse")
+
+# Import option recommended in WGCNA documentation
+
+options(stringsAsFactors = FALSE)
