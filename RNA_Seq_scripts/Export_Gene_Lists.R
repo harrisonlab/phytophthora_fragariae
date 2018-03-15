@@ -27,3 +27,10 @@ lnames2 <- load(file = lfile2)
 # Load list of transcript IDs
 
 transcripts <- names(datexpr)
+for (module in modulecolours){
+    modgenes <- (modulecolours == module)
+    filename <- paste("Genes_in_", module, ".txt", sep = "")
+    file <- paste(outdir, filename, sep = "/")
+    write.table(as.data.frame(modgenes), file = file, row.names = FALSE,
+    col.names = FALSE)
+}
