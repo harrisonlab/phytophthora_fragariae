@@ -52,3 +52,10 @@ qsub $ProgDir/sub_create_network.sh $OutDir 15 30 0.25
 ```
 
 Export gene lists
+
+```bash
+OutDir=analysis/coexpression/module_contents
+mkdir -p $OutDir
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+$ProgDir/Export_Gene_Lists.R --out_dir $OutDir
+```
