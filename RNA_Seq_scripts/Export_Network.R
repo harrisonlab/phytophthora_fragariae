@@ -35,3 +35,12 @@ modtranscripts <- transcripts[inmodule]
 
 modtom <- tom[inmodule, inmodule]
 dimnames(modtom) <- list(modtranscripts, modtranscripts)
+
+# Export the network into edge & node list files for Cytoscape
+
+cyt <- exportNetworkToCytoscape(modtom,
+    edgeFile = paste("Cytoscape_Input_Edges", paste(modules, collapse = "-"),
+    ".txt", sep = ""), nodeFile = paste("Cytoscape_Input_Nodes",
+    paste(modules, collapse = "-"), ".txt", sep = ""), weighted = TRUE,
+    threshold = 0.02, nodeNames = modtranscripts,
+    altNodeNames = modtranscripts, nodeAttr = modulecolours[inmodule])
