@@ -18,3 +18,8 @@ opt_list <- list(
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
+
+lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
+lnames <- load(file = lfile)
+lfile2 <- paste(outdir, "modules.RData", sep = "/")
+lnames2 <- load(file = lfile2)
