@@ -33,7 +33,7 @@ Test various values of soft thresholding for building the network
 ```bash
 OutDir=analysis/coexpression
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-qsub $ProgDir/sub_sft.sh $OutDir
+qsub $ProgDir/sub_choose_softthreshold.sh $OutDir
 ```
 
 ```
@@ -56,7 +56,7 @@ Export gene lists
 ```bash
 OutDir=analysis/coexpression
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-qsub $ProgDir/Export_Gene_Lists.sh $OutDir
+qsub $ProgDir/sub_Export_Gene_Lists.sh $OutDir
 ```
 
 Export network for external visualisation with Cytoscape
