@@ -22,7 +22,7 @@ opt_list <- list(
     help = "Value of sft identified from choose_softthreshold.R"),
     make_option("--min_module_size", type = "integer",
     help = "Minimum module size for cutting clustered tree"),
-    make_option("--merging_threshold", type = "integer",
+    make_option("--merging_threshold", type = "double",
     help = "Threshold to merge modules with correlation of 1 minus
     specified value.")
     )
