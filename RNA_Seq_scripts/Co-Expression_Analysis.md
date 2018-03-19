@@ -48,7 +48,7 @@ Merging threshold value may need tweaking
 ```bash
 OutDir=analysis/coexpression
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-qsub $ProgDir/sub_create_network.sh $OutDir 15 30 25
+qsub $ProgDir/sub_create_network.sh $OutDir 15 30 0.25
 ```
 
 Export gene lists
