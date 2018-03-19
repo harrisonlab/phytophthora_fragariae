@@ -9,6 +9,10 @@ library("optparse")
 
 options(stringsAsFactors = FALSE)
 
+# Allow multi-threading
+
+allowWGCNAThreads(nThreads = 4)
+
 # Parse arguments
 
 opt_list <- list(
