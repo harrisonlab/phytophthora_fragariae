@@ -22,16 +22,19 @@ opt_list <- list(
     help = "Value of sft identified from choose_softthreshold.R"),
     make_option("--min_module_size", type = "integer",
     help = "Minimum module size for cutting clustered tree"),
-    make_option("--merging_threshold", type = "double",
+    make_option("--merging_threshold", type = "integer",
     help = "Threshold to merge modules with correlation of 1 minus
-    specified value")
+    specified value divided by 100. eg. for a threshold of 0.75,
+    provide 25.")
     )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
 softpower <- opt$sft
 min_mod_size <- opt$min_module_size
-medissthres <- opt$merging_threshold
+merg_thresh <- opt$merging_threshold
+
+medissthres <- merg_thresh / 100
 
 lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 lnames <- load(file = lfile)
