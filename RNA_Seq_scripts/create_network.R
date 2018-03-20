@@ -68,7 +68,6 @@ file <- paste(outdir, "clustering_tree_with_modules.pdf", sep = "/")
 pdf(file, height = 9, width = 12)
 dynamiccolours <- labels2colors(dynamicmods)
 table(dynamiccolours)
-sizeGrWindow(8, 6)
 plotDendroAndColors(genetree, dynamiccolours, "Dynamic Tree Cut",
 dendroLabels = FALSE, hang = 0.03, addGuide = TRUE, guideHang = 0.05,
 main = "Gene dendrogram and module colours")
@@ -76,24 +75,22 @@ dev.off()
 
 # Merging modules with similar expression patterns
 
-file <- paste(outdir, "clustering_tree_with_merged_modules.pdf", sep = "/")
-pdf(file, height = 9, width = 12)
 melist <- moduleEigengenes(datexpr, colors = dynamiccolours)
 mes <- melist$eigengenes
 mediss <- 1 - cor(mes)
 metree <- hclust(as.dist(mediss), method = "average")
-sizeGrWindow(7, 6)
+file <- paste(outdir, "clustering_tree_with_merged_modules.pdf", sep = "/")
+pdf(file, height = 9, width = 12)
 plot(metree, main = "Clustering of module eigengenes", xlab = "", sub = "")
 abline(h = medissthres, col = "red")
+dev.off()
 merge <- mergeCloseModules(datexpr, dynamiccolours, cutHeight = medissthres,
 verbose = 3)
 mergedcolours <- merge$colors
 mergedmes <- merge$newMEs
-dev.off()
 
 # Plot a comparison of merged and unmerged modules
 
-sizeGrWindow(12, 9)
 file <- paste(outdir, "clustering_tree_compare_modules.pdf", sep = "/")
 pdf(file, height = 9, width = 12)
 plotDendroAndColors(genetree, cbind(dynamiccolours, mergedcolours),
