@@ -1,4 +1,5 @@
-#Aligns P. rubi reads to the BC-16 PacBio sequenced genome for downstream phylogenetic analysis
+
+# Aligns P. rubi reads to the BC-16 PacBio genome for phylogenetic analysis
 
 ```bash
 cp -r /home/groups/harrisonlab/project_files/phytophthora_rubi/qc_dna rubi_reads
@@ -18,13 +19,13 @@ do
 done
 ```
 
-##After jobs are completed remove rubi reads
+## After jobs are completed remove rubi reads
 
 ```bash
 rm -r rubi_reads
 ```
 
-#Also align BC-16 MiSeq reads back to PacBio assembled genome
+# Also align BC-16 MiSeq reads back to PacBio assembled genome
 
 ```bash
 Reference=repeat_masked/P.fragariae/Bc16/filtered_contigs_repmask/95m_contigs_unmasked.fa
@@ -43,6 +44,7 @@ do
     echo $R_Read2
     OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_unmasked_max1200_SNP
     ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
-    qsub $ProgDir/bowtie/sub_bowtie_2lib.sh $Reference $F_Read1 $R_Read1 $F_Read2 $R_Read2 $OutDir $Strain
+    qsub $ProgDir/bowtie/sub_bowtie_2lib.sh $Reference $F_Read1 \
+    $R_Read1 $F_Read2 $R_Read2 $OutDir $Strain
 done
 ```
