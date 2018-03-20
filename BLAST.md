@@ -1,4 +1,4 @@
-#BLAST for discovar reads of Fragaria x ananassa against the target Rpf2 region in F. vesca
+# BLAST for discovar reads of strawberry against the target Rpf2 region in vesca
 
 ```bash
 qlogin -pe smp 8
@@ -11,11 +11,13 @@ Genome=discovar.fasta
 makeblastdb -in $Region -input_type fasta -dbtype nucl -out candidate_region.db
 OutDir=genome_vs_region
 mkdir -p $OutDir
-blastn -db candidate_region.db -query $Genome -out $OutDir/genome_vs_region_hits.tbl -evalue 1e-10 -outfmt 6 -num_threads 8 -num_alignments 1
+blastn -db candidate_region.db -query $Genome -out \
+$OutDir/genome_vs_region_hits.tbl -evalue 1e-10 -outfmt 6 -num_threads 8 \
+-num_alignments 1
 cp $OutDir/genome_vs_region_hits.tbl /home/adamst/blast_output/.
 ```
 
-#BLAST done both ways around to make sure we get the correct hits out
+## BLAST done both ways around to make sure we get the correct hits out
 
 ```bash
 qlogin -pe smp 8
@@ -28,13 +30,15 @@ Genome=discovar.fasta
 makeblastdb -in $Region -input_type fasta -dbtype nucl -out candidate_region.db
 OutDir=genome_vs_region
 mkdir -p $OutDir
-blastn -db candidate_region.db -query $Genome -out $OutDir/genome_vs_region_hits.tbl -evalue 1e-10 -outfmt 6 -num_threads 8 -num_alignments 1
+blastn -db candidate_region.db -query $Genome \
+-out $OutDir/genome_vs_region_hits.tbl -evalue 1e-10 \
+-outfmt 6 -num_threads 8 -num_alignments 1
 cp $OutDir/region_vs_genome_hits.tbl /home/adamst/blast_output/.
 ```
 
-#Use a previously written Perl script to produce a .csv file as an output that can be parsed into a .gff file for visualisation by eg. Geneious
+## Use Perl script to produce .csv file to parse to .gff
 
-#On blacklace03
+## On blacklace03
 
 ```bash
 qlogin
@@ -53,7 +57,7 @@ cd /tmp
 rm -r blast_fragaria
 ```
 
-#Use tab separated output (option 6) for BLAST with specifiers
+## Use tab separated output (option 6) for BLAST with specifiers
 
 ```bash
 qlogin -pe smp 8
@@ -66,25 +70,28 @@ Genome=discovar.fasta
 makeblastdb -in $Region -input_type fasta -dbtype nucl -out candidate_region.db
 OutDir=genome_vs_region
 mkdir -p $OutDir
-blastn -db candidate_region.db -query $Genome -out $OutDir/genome_vs_region_hits.tbl -evalue 1e-10 -outfmt '6 qseqid qseq sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore gaps qlen' -num_threads 8 -num_alignments 1
+blastn -db candidate_region.db -query $Genome \
+-out $OutDir/genome_vs_region_hits.tbl -evalue 1e-10 \
+-outfmt '6 qseqid qseq sseqid pident length mismatch gapopen qstart \
+qend sstart send evalue bitscore gaps qlen' -num_threads 8 -num_alignments 1
 cp $OutDir/genome_vs_region_hits.tbl /home/adamst/blast_output/.
 cd /tmp/
 rm -r blast_fragaria
 ```
 
-#Filter BLAST using a python script
+## Filter BLAST using a python script
 
-##Be sure to edit the python script as it is NOT written for general usage
+### Be sure to edit the python script as it is NOT written for general usage
 
 ```bash
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/filter_BLAST_hits.py
 ```
 
-#Create annotation file
+## Create annotation file
 
-##Due to gaps in the sequences Geneious rejects contigs, so create an annotation file as a work around
+### Due to gaps in sequences Geneious rejects contigs, create annotation file
 
-##Check awk arguments, number is column number so may not be general
+#### Check awk arguments, number is column number so may not be general
 
 ```bash
 cat genome_vs_region_hits.tbl | awk '{ print $1,$8,$9 }' > genome_vs_region_hits.bed
