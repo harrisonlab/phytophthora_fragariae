@@ -42,7 +42,9 @@ for (module in unique(modulecolours)){
     modgenes <- (modulecolours == module)
     modtranscripts <- transcripts[modgenes]
     filename <- paste("Genes_in_", module, ".txt", sep = "")
-    file <- paste(outdir, "merged_modules", filename, sep = "/")
+    mergedir <- paste(outdir, "merged_modules", sep = "/")
+    file <- paste(mergedir, filename, sep = "/")
+    dir.create(mergedir)
     write.table(as.data.frame(modtranscripts), file = file, row.names = FALSE,
     col.names = FALSE)
 }
@@ -54,7 +56,9 @@ if (unmerge == "Y"){
         modgenes <- (dynamiccolours == module)
         modtranscripts <- transcripts[modgenes]
         filename <- paste("Genes_in_", module, ".txt", sep = "")
-        file <- paste(outdir, "unmerged_modules", filename, sep = "/")
+        unmergedir <- paste(outdir, "unmerged_modules", sep = "/")
+        file <- paste(unmergedir, filename, sep = "/")
+        dir.create(unmergedir)
         write.table(as.data.frame(modtranscripts), file = file,
         row.names = FALSE, col.names = FALSE)
     }
