@@ -29,8 +29,9 @@ lnames2 <- load(file = lfile2)
 transcripts <- names(datexpr)
 for (module in unique(modulecolours)){
     modgenes <- (modulecolours == module)
+    modtranscripts <- transcripts[modgenes]
     filename <- paste("Genes_in_", module, ".txt", sep = "")
     file <- paste(outdir, filename, sep = "/")
-    write.table(as.data.frame(modgenes), file = file, row.names = FALSE,
+    write.table(as.data.frame(modtranscripts), file = file, row.names = FALSE,
     col.names = FALSE)
 }
