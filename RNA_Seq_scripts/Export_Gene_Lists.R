@@ -13,11 +13,14 @@ options(stringsAsFactors = FALSE)
 
 opt_list <- list(
     make_option("--out_dir", type = "character",
-    help = "Directory for output to be written to")
+    help = "Directory for output to be written to"),
+    make_option("--unmerge", type = "character",
+    help = "Y or N, Y exports unmerged modules, N does not")
     )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
+unmerge <- opt$unmerge
 
 lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 lnames <- load(file = lfile)
