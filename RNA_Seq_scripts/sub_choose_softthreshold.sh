@@ -8,5 +8,3 @@
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 
 /home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/choose_softthreshold.R --out_dir $1
-
-rm Rplots.pdf
