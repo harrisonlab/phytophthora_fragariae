@@ -105,4 +105,4 @@ colourorder <- c("grey", standardColors(50))
 modulelabels <- match(modulecolours, colourorder) - 1
 mes <- mergedmes
 Rfile <- paste(outdir, "modules.RData", sep = "/")
-save(mes, modulelabels, modulecolours, genetree, file = Rfile)
+save(mes, modulelabels, modulecolours, dynamiccolours, genetree, file = Rfile)
