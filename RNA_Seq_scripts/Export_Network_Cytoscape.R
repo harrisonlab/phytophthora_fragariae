@@ -23,3 +23,12 @@ lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 lnames <- load(file = lfile)
 lfile2 <- paste(outdir, "modules.RData", sep = "/")
 lnames2 <- load(file = lfile2)
+
+# Set variables for writing out files for cytoscape
+
+transcripts <- names(datexpr)
+modules <- unique(modulecolours)
+inmodule <- is.finite(match(modulecolours, modules))
+modtranscripts <- transcripts[inmodule]
+modtom <- tom[inmodule, inmodule]
+dimnames(modtom) <- list(modtranscripts, modtranscripts)
