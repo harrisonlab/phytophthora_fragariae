@@ -1,45 +1,47 @@
-#It was suggested that I trial discovar to assemble my pathogen genomes on three strong data sets to see if there is any difference in the final results
+# Trial discovar on three strong data sets
 
-#Strains chosen: A4, SCRP245_v2, Nov77
+## Strains chosen: A4, SCRP245_v2, Nov77
 
-#Running DISCOVAR
+### Running DISCOVAR
 
-#Two files created: Hold_BL11.sh holds blacklace11.blacklace for running discovar on, Discovar_Pf.sh runs DISCOVAR and needs to be edited for each strain
-
-#Hold blacklace11, run on head node
+#### Hold blacklace11, run on head node
 
 ```bash
 qsub /home/adamst/git_repos/scripts/phytophthora_fragariae/Hold_BL11.sh
 ```
 
-#Open screen session and ssh into blacklace11 to run DISCOVAR
+#### Open screen session and ssh into blacklace11 to run DISCOVAR
 
 ```bash
 cd assembly
 /home/adamst/git_repos/scripts/phytophthora_fragariae/Discovar_Pf.sh
 ```
 
-#Quast
+## Quast
 
 ```bash
-for Strain in A4 SCRP245_v2 Nov77; do
+for Strain in A4 SCRP245_v2 Nov77
+do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
     OutDir=$(ls -d assembly/discovar/*/$Strain/a.final)
     AssFiltered=$OutDir/a.lines.fasta
     AssRenamed=$OutDir/a.lines_renamed.fasta
     echo $AssFiltered
     printf '.\t.\t.\t.\n' > editfile.tab
-    $ProgDir/remove_contaminants.py --inp $AssFiltered --out $AssRenamed --coord_file editfile.tab
+    $ProgDir/remove_contaminants.py --inp $AssFiltered --out $AssRenamed \
+    --coord_file editfile.tab
     rm editfile.tab
 done
 ```
 
-#QUAST used to summarise assembly statistics
+## QUAST used to summarise assembly statistics
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-for Strain in A4 SCRP245_v2 Nov77; do
-    for Assembly in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for Assembly in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta)
+    do
         Strain=$(echo $Assembly | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $Assembly | rev | cut -d '/' -f4 | rev)
         OutDir=assembly/discovar/$Organism/$Strain/a.final
@@ -48,26 +50,30 @@ for Strain in A4 SCRP245_v2 Nov77; do
 done
 ```
 
-**N50:
+```
+N50:
 A4: 20401
 SCRP245_v2: 21699
-NOV-77: 21377**
+NOV-77: 21377
 
-**L50:
+L50:
 A4:1105
 SCRP245_v2: 996
-NOV-77: 1064**
+NOV-77: 1064
+```
 
--->
-# Repeat masking
+## Repeat masking
+
 Repeat masking was performed and used the following programs: Repeatmasker Repeatmodeler
 
 The best assembly was used to perform repeatmasking
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-for Strain in A4 SCRP245_v2 Nov77; do
-    for BestAss in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for BestAss in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta)
+    do
         echo $BestAss
         qsub $ProgDir/rep_modeling.sh $BestAss
     done
@@ -76,70 +82,86 @@ done
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
-for Strain in A4 SCRP245_v2 Nov77; do
-    for BestAss in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for BestAss in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta)
+    do
         echo $BestAss
         qsub $ProgDir/transposonPSI.sh $BestAss
     done
 done
  ```
 
-**% bases masked by repeatmasker:
+```
+% bases masked by repeatmasker:
 A4: 46.85%
 Nov77: 46.46%
-SCRP245_v2: 42.37%**
+SCRP245_v2: 42.37%
+```
 
 Summary for transposonPSI output:
 
 ```bash
 Organism=P.fragariae
-for Strain in A4 SCRP245_v2 Nov77; do
+for Strain in A4 SCRP245_v2 Nov77
+do
     RepDir=repeat_masked/$Organism/$Strain/a.final_repmask
     TransPSIGff=$(ls $RepDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
     echo $Strain
     printf "The number of bases masked by TransposonPSI:\t"
     sortBed -i $TransPSIGff > $RepDir/TPSI_sorted.bed
-    bedtools merge -i $RepDir/TPSI_sorted.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+    bedtools merge -i $RepDir/TPSI_sorted.bed | \
+    awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
     rm $RepDir/TPSI_sorted.bed
 done
 ```
 
+```
 Estimate of genome size = 93,000,000 bp
-** % bases masked by transposon psi:
+% bases masked by transposon psi:
 A4: 9.42%
 Nov77: 9.51%
-SCRP245_v2: 9.39%**
+SCRP245_v2: 9.39%
+```
 
+## Gene Prediction
 
-# Gene Prediction
 Gene prediction followed two steps:
-Pre-gene prediction - Quality of genome assemblies were assessed using Cegma to see how many core eukaryotic genes can be identified.
-Gene models were used to predict genes in the P. fragariae genomes. This used results from CEGMA as hints for gene models.
+Pre-gene prediction:
+Quality of genome assemblies were assessed using Cegma
+to see how many core eukaryotic genes can be identified.
+Gene models were used to predict genes in the P. fragariae genomes.
+This used results from CEGMA as hints for gene models.
 
-# Pre-gene prediction
+## Pre-gene prediction
+
 Quality of genome assemblies was assessed by looking for the gene space in the assemblies.
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/cegma
-for Strain in A4 SCRP245_v2 Nov77; do
-    for BestAss in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for BestAss in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta)
+    do
         echo $BestAss
         qsub $ProgDir/sub_cegma.sh $BestAss dna
     done
 done
 ```
 
-**Number of cegma genes present and complete:
+```
+Number of cegma genes present and complete:
 A4: 92.74%
 Nov77: 93.95%
-SCRP245_v2: 96.37%**
+SCRP245_v2: 96.37%
 
-**Number of cegma genes present and partial:
+Number of cegma genes present and partial:
 A4: 95.56%
 Nov77: 96.37%
-SCRP245_v2: 97.98%**
+SCRP245_v2: 97.98%
+```
 
-#Gene prediction
+## Gene prediction
 
 Copy over RNA seq data for P. cactorum 10300
 
@@ -152,26 +174,33 @@ cp $RawDatDir/SRR1206032.fastq $ProjectDir/raw_rna/genbank/P.cactorum/10300/F
 cp $RawDatDir/SRR1206033.fastq $ProjectDir/raw_rna/genbank/P.cactorum/10300/R
 ```
 
-#1) QC
+## 1) QC
 
-Perform qc of RNAseq timecourse data. These reads are not actually paired reads but this is irrelevant for processing using fast-mcf
+Perform qc of RNAseq timecourse data.
+These reads are not actually paired reads but this is irrelevant
+for processing using fast-mcf
 
 ```bash
 FileF=raw_rna/genbank/P.cactorum/10300/F/SRR1206032.fastq
 FileR=raw_rna/genbank/P.cactorum/10300/R/SRR1206033.fastq
 IlluminaAdapters=/home/armita/git_repos/emr_repos/tools/seq_tools/ncbi_adapters.fa
-qsub /home/armita/git_repos/emr_repos/tools/seq_tools/rna_qc/rna_qc_fastq-mcf.sh $FileF $FileR $IlluminaAdapters RNA
+qsub \
+/home/armita/git_repos/emr_repos/tools/seq_tools/rna_qc/rna_qc_fastq-mcf.sh \
+$FileF $FileR $IlluminaAdapters RNA
 ```
 
-#2) Align reads vs. genome
+## 2) Align reads vs. genome
+
 Aligments of RNAseq reads were made against assemblies from each strain using tophat:
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
 FileF=qc_rna/genbank/P.cactorum/10300/F/SRR1206032_trim.fq.gz
 FileR=qc_rna/genbank/P.cactorum/10300/R/SRR1206033_trim.fq.gz
-for Strain in A4 SCRP245_v2 Nov77; do
-    for Genome in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for Genome in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta)
+    do
         Strain=$(echo $Genome | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
         OutDir=alignment/discovar_assemblies/$Organism/$Strain
@@ -181,9 +210,12 @@ for Strain in A4 SCRP245_v2 Nov77; do
 done
 ```
 
-Alignment files were merged into a single file so as to be passed to a gene prediction program to indicate the location of aligned RNAseq data against a particular genome.
+Alignment files were merged into a single file so as to be passed
+to a gene prediction program to indicate the location of aligned RNAseq
+data against a particular genome.
 
 <!--
+
 ```bash
 for StrainDir in $(ls -d alignment/*/*); do
     Strain=$(echo $StrainDir | rev | cut -d '/' -f1 | rev)
@@ -192,9 +224,10 @@ for StrainDir in $(ls -d alignment/*/*); do
     bamtools merge -list bamlist.txt -out $StrainDir/merged
 done
 ```
+
  -->
 
-#3) Run Braker1
+## 3) Run Braker1
 
 As this is the first time I have run Braker I need to copy the licence key for genemarkET
 to my user directory
@@ -205,8 +238,10 @@ cp /home/armita/.gm_key ~/.gm_key
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/braker1
-for Strain in A4 SCRP245_v2 Nov77; do
-    for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa); do
+    for Strain in A4 SCRP245_v2 Nov77
+    do
+    for Genome in $(ls repeat_masked/*/$Strain/filtered_contigs_repmask/*_contigs_unmasked.fa)
+    do
         Organism=$(echo $Genome | rev | cut -d '/' -f4 | rev)
         OutDir=gene_pred/braker_discovar/$Organism/$Strain
         AcceptedHits=alignment/$Organism/$Strain/accepted_hits.bam
@@ -219,11 +254,13 @@ for Strain in A4 SCRP245_v2 Nov77; do
 done
 ```
 
-#4) Extract gff and amino acid sequences
+## 4) Extract gff and amino acid sequences
 
 ```bash
-for Strain in A4 SCRP245_v2 Nov77; do
-    for File in $(ls gene_pred/braker_discovar/*/$Strain/*_braker_2/augustus.gff); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for File in $(ls gene_pred/braker_discovar/*/$Strain/*_braker_2/augustus.gff)
+    do
         getAnnoFasta.pl $File
         OutDir=$(dirname $File)
         echo "##gff-version 3" > $OutDir/augustus_extracted.gff
@@ -232,24 +269,30 @@ for Strain in A4 SCRP245_v2 Nov77; do
 done
 ```
 
-#Use atg.pl to predict all ORFs
+## Use atg.pl to predict all ORFs
 
-This uses the atg.pl script to identify all ORFs in the genome. These can then be used to look for RxLRs and signal peptides.
+This uses the atg.pl script to identify all ORFs in the genome.
+These can then be used to look for RxLRs and signal peptides.
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-for Strain in A4 SCRP245_v2 Nov77; do
-    for Genome in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for Genome in $(ls assembly/discovar/*/$Strain/a.final/*.lines_renamed.fasta)
+    do
         qsub $ProgDir/run_ORF_finder_2.sh $Genome
     done
 done
 ```
 
-The Gff files from the ORF finder are not in true Gff3 format. These were corrected using the following commands:
+The Gff files from the ORF finder are not in true Gff3 format.
+These were corrected using the following commands:
 
 ```bash
-for Strain in A4 SCRP245_v2 Nov77; do
-    for ORF_Gff in $(ls gene_pred/ORF_finder_discovar/P.*/*/*_ORF.gff | grep -v '_atg_'); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for ORF_Gff in $(ls gene_pred/ORF_finder_discovar/P.*/*/*_ORF.gff | grep -v '_atg_')
+    do
         Strain=$(echo $ORF_Gff | rev | cut -f2 -d '/' | rev)
         Organism=$(echo $ORF_Gff | rev | cut -f3 -d '/' | rev)
         ProgDir=~/git_repos/tools/seq_tools/feature_annotation
@@ -259,22 +302,23 @@ for Strain in A4 SCRP245_v2 Nov77; do
 done
 ```
 
-#Functional annotation
+## Functional annotation
 
 A)Interproscan
 Interproscan was used to give gene models functional annotations.
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Strain in A4 SCRP245_v2 Nov77; do
+for Strain in A4 SCRP245_v2 Nov77
+do
     Genes=gene_pred/braker_discovar/P.fragariae/$Strain/P.*/augustus.aa
     $ProgDir/sub_interproscan.sh $Genes
 done
 ```
 
-#Genomic analysis
+## Genomic analysis
 
-#RxLR genes
+### RxLR genes
 
 A) From Braker1 gene models - signal peptide and RxLR motif
 
@@ -283,12 +327,14 @@ Required programs:
 SigP
 biopython
 
-Proteins that were predicted to contain signal peptides were identified using the following commands:
-
+Proteins that were predicted to contain signal peptides
+were identified using the following commands:
 
 ```bash
-for Strain in A4 SCRP245_v2 Nov77; do
-    for Proteome in $(ls gene_pred/braker_discovar/*/$Strain/*/augustus.aa); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for Proteome in $(ls gene_pred/braker_discovar/*/$Strain/*/augustus.aa)
+    do
         echo "$Proteome"
         SplitfileDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
         ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/signal_peptides
@@ -296,10 +342,13 @@ for Strain in A4 SCRP245_v2 Nov77; do
         SplitDir=gene_pred/braker_split_discovar/$Organism/$Strain
         mkdir -p $SplitDir
         BaseName="$Organism""_$Strain"_braker_preds
-        $SplitfileDir/splitfile_500.py --inp_fasta $Proteome --out_dir $SplitDir --out_base $BaseName
-        for File in $(ls $SplitDir/*_braker_preds_*); do
+        $SplitfileDir/splitfile_500.py --inp_fasta $Proteome \
+        --out_dir $SplitDir --out_base $BaseName
+        for File in $(ls $SplitDir/*_braker_preds_*)
+        do
             Jobs=$(qstat | grep 'pred_sigP' | wc -l)
-            while [ $Jobs -ge 32 ]; do
+            while [ $Jobs -ge 32 ]
+            do
                 sleep 10
                 printf "."
                 Jobs=$(qstat | grep 'pred_sigP' | wc -l)
@@ -312,21 +361,30 @@ for Strain in A4 SCRP245_v2 Nov77; do
     done
 done
 ```
-This produces batch files. They need to be combined into a single file for each strain using the following commands:
+
+This produces batch files.
+They need to be combined into a single file for each strain using
+the following commands:
 
 ```bash
-for Strain in A4 SCRP245_v2 Nov77; do
-    for SplitDir in $(ls -d gene_pred/braker_split_discovar/P.*/$Strain); do
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for SplitDir in $(ls -d gene_pred/braker_split_discovar/P.*/$Strain)
+    do
         Organism=$(echo $SplitDir | rev | cut -d '/' -f2 | rev)
         InStringAA=''
         InStringNeg=''
         InStringTab=''
         InStringTxt=''
-        for GRP in $(ls -l $SplitDir/*_braker_preds_*.fa | rev | cut -d '_' -f1 | rev | sort -n); do  
-            InStringAA="$InStringAA gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.aa";  
-            InStringNeg="$InStringNeg gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp_neg.aa";  
-            InStringTab="$InStringTab gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.tab";
-            InStringTxt="$InStringTxt gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.txt";
+        for GRP in $(ls -l $SplitDir/*_braker_preds_*.fa | \
+        rev | cut -d '_' -f1 | rev | sort -n)
+        do
+            InStringAA="$InStringAA \
+            gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.aa"
+            InStringNeg="$InStringNeg \
+            gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp_neg.aa"
+            InStringTab="$InStringTab gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.tab"
+            InStringTxt="$InStringTxt gene_pred/braker_sigP/$Organism/$Strain/split/"$Organism"_"$Strain"_braker_preds_$GRP""_sp.txt"
         done
         cat $InStringAA > gene_pred/braker_discovar_sigP/$Organism/$Strain/"$Strain"_braker_sp.aa
         cat $InStringNeg > gene_pred/braker_discovar_sigP/$Organism/$Strain/"$Strain"_braker_neg_sp.aa
@@ -335,31 +393,41 @@ for Strain in A4 SCRP245_v2 Nov77; do
     done
 done
 ```
-The RxLR_EER_regex_finder.py script was used to search for this regular expression R.LR.{,40}[ED][ED][KR] and annotate the EER domain where present. Done separate for each strain.
+
+The RxLR_EER_regex_finder.py script was used to search for this
+regular expression R.LR.{,40}[ED][ED][KR] and annotate the EER domain
+where present. Done separate for each strain.
 
 ```bash
-for Strain in A4 SCRP245_v2 Nov77; do
-    for Secretome in $(ls gene_pred/braker_discovar_sigP/*/$Strain/*braker_sp.aa); do
-        ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors;
-        Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev) ;
-        OutDir=analysis/RxLR_effectors_discovar/RxLR_EER_regex_finder/"$Organism"/"$Strain";
-        mkdir -p $OutDir;
-        printf "\nstrain: $Strain\tspecies: $Organism\n";
-        printf "the number of SigP gene is:\t";
-        cat $Secretome | grep '>' | wc -l;
-        printf "the number of SigP-RxLR genes are:\t";
-        $ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_braker_RxLR_regex.fa;
-        cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_regex.txt
+for Strain in A4 SCRP245_v2 Nov77
+do
+    for Secretome in $(ls gene_pred/braker_discovar_sigP/*/$Strain/*braker_sp.aa)
+    do
+        ProgDir=/home/adamst/git_repos/tools/pathogen/RxLR_effectors
+        Organism=$(echo $Secretome | rev |  cut -d '/' -f3 | rev)
+        OutDir=analysis/RxLR_effectors_discovar/RxLR_EER_regex_finder/"$Organism"/"$Strain"
+        mkdir -p $OutDir
+        printf "\nstrain: $Strain\tspecies: $Organism\n"
+        printf "the number of SigP gene is:\t"
+        cat $Secretome | grep '>' | wc -l
+        printf "the number of SigP-RxLR genes are:\t"
+        $ProgDir/RxLR_EER_regex_finder.py $Secretome > $OutDir/"$Strain"_braker_RxLR_regex.fa
+        cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | cut -f1 | \
+        tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_regex.txt
         cat $OutDir/"$Strain"_braker_RxLR_regex.txt | wc -l
         printf "the number of SigP-RxLR-EER genes are:\t";
-        cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_EER_regex.txt
+        cat $OutDir/"$Strain"_braker_RxLR_regex.fa | grep '>' | \
+        grep 'EER_motif_start' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' > $OutDir/"$Strain"_braker_RxLR_EER_regex.txt
         cat $OutDir/"$Strain"_braker_RxLR_EER_regex.txt | wc -l
         printf "\n"
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-        # $ProgDir/extract_from_fasta.py --fasta $OutDir/"$Strain"_pub_RxLR_regex.fa --headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
+        # $ProgDir/extract_from_fasta.py \
+        #--fasta $OutDir/"$Strain"_pub_RxLR_regex.fa \
+        #--headers $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.fa
         # GeneModels=$(ls assembly/external_group/P.*/$Strain/pep/*.gff*)
         # cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_regex.txt > $OutDir/"$Strain"_pub_RxLR_regex.gff3
-        # cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt > $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
+        # cat $GeneModels | grep -w -f $OutDir/"$Strain"_pub_RxLR_EER_regex.txt \
+        #> $OutDir/"$Strain"_pub_RxLR_EER_regex.gff3
     done
 done
 ```
