@@ -38,9 +38,7 @@ sft <- pickSoftThreshold(datexpr, powerVector = powers, verbose = 5)
 
 # Draw a plot to allow manual picking of sft value
 
-par(mfrow = c(1, 2))
 cex1 <- 0.9
-
 file <- paste(outdir, "sft_testing.pdf", sep = "/")
 pdf(file, height = 9, width = 12)
 plot(sft$fitIndices[, 1], -sign(sft$fitIndices[, 3]) * sft$fitIndices[, 2],
