@@ -52,7 +52,8 @@ qsub $ProgDir/sub_create_network.sh $OutDir 15 30 0.25
 ```
 
 ```
-30 modules were created
+ modules were created before merging
+30 modules were created after merging
 ```
 
 Export gene lists
