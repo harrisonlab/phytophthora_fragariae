@@ -41,11 +41,19 @@ for (module in unique(modulecolours)){
 
 # Write out unmerged modules
 
-for (module in unique(dynamiccolours)){
-    modgenes <- (dynamiccolours == module)
-    modtranscripts <- transcripts[modgenes]
-    filename <- paste("Genes_in_", module, ".txt", sep = "")
-    file <- paste(outdir, "unmerged_modules", filename, sep = "/")
-    write.table(as.data.frame(modtranscripts), file = file, row.names = FALSE,
-    col.names = FALSE)
+if (unmerge == "Y"){
+    for (module in unique(dynamiccolours)){
+        modgenes <- (dynamiccolours == module)
+        modtranscripts <- transcripts[modgenes]
+        filename <- paste("Genes_in_", module, ".txt", sep = "")
+        file <- paste(outdir, "unmerged_modules", filename, sep = "/")
+        write.table(as.data.frame(modtranscripts), file = file,
+        row.names = FALSE, col.names = FALSE)
+    }
+} else if (unmerge == "N"){
+    print("Unmerged modules not saved.")
+} else {
+    print("Error: Only Y or N are accepted values for the unmerge option,
+    please specify.")
+    quit(save = "no", status = 1, runLast = FALSE)
 }
