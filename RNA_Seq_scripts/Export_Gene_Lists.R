@@ -22,6 +22,12 @@ opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
 unmerge <- opt$unmerge
 
+if (unmerge != "Y" | 'N'){
+    print("Error: Only Y or N are accepted values for the unmerge option,
+    please specify.")
+    quit(save = "no", status = 1, runLast = FALSE)
+}
+
 lfile <- paste(outdir, "Cleaned_data.RData", sep = "/")
 lnames <- load(file = lfile)
 lfile2 <- paste(outdir, "modules.RData", sep = "/")
@@ -52,8 +58,4 @@ if (unmerge == "Y"){
     }
 } else if (unmerge == "N"){
     print("Unmerged modules not saved.")
-} else {
-    print("Error: Only Y or N are accepted values for the unmerge option,
-    please specify.")
-    quit(save = "no", status = 1, runLast = FALSE)
 }
