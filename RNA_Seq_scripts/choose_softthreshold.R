@@ -38,7 +38,6 @@ sft <- pickSoftThreshold(datexpr, powerVector = powers, verbose = 5)
 
 # Draw a plot to allow manual picking of sft value
 
-sizeGrWindow(9, 5)
 par(mfrow = c(1, 2))
 cex1 <- 0.9
 
