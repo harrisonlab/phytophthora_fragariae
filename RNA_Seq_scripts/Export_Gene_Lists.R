@@ -22,7 +22,9 @@ opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
 unmerge <- opt$unmerge
 
-if (unmerge != "Y" | 'N'){
+if (unmerge == "Y"){
+} else if (unmerge == "N"){
+} else {
     print("Error: Only Y or N are accepted values for the unmerge option,
     please specify.")
     quit(save = "no", status = 1, runLast = FALSE)
