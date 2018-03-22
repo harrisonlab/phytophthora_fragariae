@@ -67,7 +67,8 @@ qsub $ProgDir/sub_Export_Gene_Lists.sh $OutDir Y
 ```
 
 ```
-g24882.t1 is in the darkolivegreen network, with 953 other genes
+Before merging, g24882.t1 is in the steelblue network, with 212 other genes
+After merging, g24882.t1 is in the darkolivegreen network, with 953 other genes
 ```
 
 Export network for external visualisation with Cytoscape
