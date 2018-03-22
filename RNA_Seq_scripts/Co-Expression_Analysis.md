@@ -58,10 +58,12 @@ qsub $ProgDir/sub_create_network.sh $OutDir 15 30 0.25
 
 Export gene lists
 
+Y or N denotes whether unmerged modules will be exported too
+
 ```bash
 OutDir=analysis/coexpression
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-qsub $ProgDir/sub_Export_Gene_Lists.sh $OutDir
+qsub $ProgDir/sub_Export_Gene_Lists.sh $OutDir Y
 ```
 
 ```
