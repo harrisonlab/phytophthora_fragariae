@@ -24,14 +24,25 @@ lnames <- load(file = lfile)
 lfile2 <- paste(outdir, "modules.RData", sep = "/")
 lnames2 <- load(file = lfile2)
 
-# Load list of transcript IDs
+# Load list of transcript IDs and write out merged modules
 
 transcripts <- names(datexpr)
 for (module in unique(modulecolours)){
     modgenes <- (modulecolours == module)
     modtranscripts <- transcripts[modgenes]
     filename <- paste("Genes_in_", module, ".txt", sep = "")
-    file <- paste(outdir, filename, sep = "/")
+    file <- paste(outdir, "merged_modules", filename, sep = "/")
+    write.table(as.data.frame(modtranscripts), file = file, row.names = FALSE,
+    col.names = FALSE)
+}
+
+# Write out unmerged modules
+
+for (module in unique(dynamiccolours)){
+    modgenes <- (dynamiccolours == module)
+    modtranscripts <- transcripts[modgenes]
+    filename <- paste("Genes_in_", module, ".txt", sep = "")
+    file <- paste(outdir, "unmerged_modules", filename, sep = "/")
     write.table(as.data.frame(modtranscripts), file = file, row.names = FALSE,
     col.names = FALSE)
 }
