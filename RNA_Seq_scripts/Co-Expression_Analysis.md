@@ -65,7 +65,7 @@ qsub $ProgDir/sub_Export_Gene_Lists.sh $OutDir
 ```
 
 ```
-g24882.t1 is in the darkolivegreen network
+g24882.t1 is in the darkolivegreen network, with 953 other genes
 ```
 
 Export network for external visualisation with Cytoscape
