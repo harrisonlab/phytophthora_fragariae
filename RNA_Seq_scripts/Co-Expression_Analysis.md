@@ -53,7 +53,9 @@ qsub $ProgDir/sub_create_network.sh $OutDir 15 30 0.25
 
 ```
 103 modules were created before merging
-30 modules were created after merging
+101 modules were created after merging with a threshold of 0.05
+54 modules were created after merging with a threshold of 0.15
+30 modules were created after merging with a threshold of 0.25
 ```
 
 Export gene lists
@@ -68,7 +70,12 @@ qsub $ProgDir/sub_Export_Gene_Lists.sh $OutDir Y
 
 ```
 Before merging, g24882.t1 is in the steelblue network, with 212 other genes
-After merging, g24882.t1 is in the darkolivegreen network, with 953 other genes
+After merging with a threshold of 0.05:
+g24882.t1 is in the steelblue network, with 212 other genes
+After merging with a threshold of 0.15:
+g24882.t1 is in the steelblue network, with 212 other genes
+After merging with a threshold of 0.25:
+g24882.t1 is in the darkolivegreen network, with 953 other genes
 ```
 
 Export network for external visualisation with Cytoscape
