@@ -636,6 +636,7 @@ for DEG_file in DEG_files:
     file_name = DEG_file.split('/')[-1]
     header_line.append("LFC_" + file_name)
     header_line.append("P-val_" + file_name)
+header_line.append("coexpression_module")
 header_line.append('prot_seq')
 header_line.append('swissprot_org')
 header_line.append('swissprot_gene')
