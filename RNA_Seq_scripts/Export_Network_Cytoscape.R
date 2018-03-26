@@ -5,10 +5,6 @@
 library("WGCNA")
 library("optparse")
 
-# Specify amount of memory allowed
-
-memory.limit(6000)
-
 # Import option recommended in WGCNA documentation
 
 options(stringsAsFactors = FALSE)
