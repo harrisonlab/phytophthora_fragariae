@@ -3747,6 +3747,7 @@ Investigations of differently differentially expressed genes
 ##Produce a more detailed table of analyses
 
 Includes coexpression modules, creation detailed in RNA_Seq_scripts/Co-Expression_Analysis.md
+This is only for BC-16, BC-1 and NOV-9 need to be done separate
 
 ```bash
 for Strain in Bc16 Bc1 Nov9
