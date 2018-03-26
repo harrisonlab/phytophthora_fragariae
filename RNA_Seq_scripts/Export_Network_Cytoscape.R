@@ -39,4 +39,4 @@ cyt <- exportNetworkToCytoscape(modtom,
 edgeFile = paste(outdir, "cyt_inp_edges_all_modules.txt", sep = "/"),
 nodeFile = paste(outdir, "cyt_inp_nodes_all_modules.txt", sep = "/"),
 weighted = TRUE, threshold = 0.02, nodeNames = modtranscripts,
-altNodeNames = modtranscripts, nodeAttr = modulescolours[inmodule])
+altNodeNames = modtranscripts, nodeAttr = modulecolours[inmodule])
