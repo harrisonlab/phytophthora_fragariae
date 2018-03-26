@@ -30,16 +30,20 @@ lnames2 <- load(file = lfile2)
 # Set variables for writing out files for Cytoscape
 
 transcripts <- names(datexpr)
-modules <- unique(modulecolours)
-inmodule <- is.finite(match(modulecolours, modules))
+inmodule <- is.finite(match(modulecolours, module))
 modtranscripts <- transcripts[inmodule]
 modtom <- tom[inmodule, inmodule]
 dimnames(modtom) <- list(modtranscripts, modtranscripts)
 
 # Write out files for Cytoscape
 
+edgename_start <- paste("cyt_inp_edges", module, sep = "_")
+edgename <- paste(edgename_start, "txt", sep = ".")
+nodename_start <- paste("cyt_inp_nodes", module, sep = "_")
+nodename <- paste(nodename_start, "txt", sep = ".")
+
 cyt <- exportNetworkToCytoscape(modtom,
-edgeFile = paste(outdir, "cyt_inp_edges_all_modules.txt", sep = "/"),
-nodeFile = paste(outdir, "cyt_inp_nodes_all_modules.txt", sep = "/"),
+edgeFile = paste(outdir, edgename, sep = "/"),
+nodeFile = paste(outdir, nodename, sep = "/"),
 weighted = TRUE, threshold = 0.02, nodeNames = modtranscripts,
 altNodeNames = modtranscripts, nodeAttr = modulecolours[inmodule])
