@@ -221,6 +221,7 @@ for module_file in module_files:
         module_lines = f.readlines()
         for line in module_lines:
             gene_id = line.replace('"', "")
+            gene_id = gene_id.replace('\n', "")
             module_dict[gene_id] = module_ID
 
 # -----------------------------------------------------
