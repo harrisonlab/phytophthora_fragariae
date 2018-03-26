@@ -102,7 +102,9 @@ ap.add_argument('--Swissprot', required=True, type=str,
                 help='A parsed table of BLAST results against the Swissprot \
                 database. Note - must have been parsed with \
                 swissprot_parser.py')
-
+ap.add_argument('--modules', required=True, nargs='+', type=str,
+                help='Space separated list of files containing genes in \
+                modules')
 
 conf = ap.parse_args()
 
