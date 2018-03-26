@@ -79,6 +79,8 @@ After merging with a threshold of 0.15:
 g24882.t1 is in the steelblue network, with 212 other genes
 After merging with a threshold of 0.25:
 g24882.t1 is in the darkolivegreen network, with 953 other genes
+
+0.10 seems the most appropriate as a threshold
 ```
 
 Export network for external visualisation with Cytoscape
