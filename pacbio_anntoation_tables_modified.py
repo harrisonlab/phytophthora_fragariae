@@ -210,6 +210,19 @@ with open(conf.InterPro) as f:
 with open(conf.Swissprot) as f:
     swissprot_lines = f.readlines()
 
+module_files = conf.modules
+module_dict = defaultdict(str)
+for module_file in module_files:
+    with open(module_file) as f:
+        filename = module_file
+        module_ID = filename.split("/")[3]
+        module_ID = module_ID.split("_")[2]
+        module_ID = module_ID.split(".")[0]
+        module_lines = f.readlines()
+        for line in module_lines:
+            gene_id = line.replace('"', "")
+            module_dict[gene_id] = module_ID
+
 # -----------------------------------------------------
 # Load protein sequence data into a dictionary
 # -----------------------------------------------------
