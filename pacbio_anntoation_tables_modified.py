@@ -816,7 +816,7 @@ for line in transcript_lines:
 
     # Create output list for modules
     module_out = []
-    if module_dict[transcript_id]:
+    if transcript_id in module_dict.keys():
         module_out.append(module_dict[transcript_id])
     else:
         module_out.append('None')
