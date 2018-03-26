@@ -819,7 +819,7 @@ for line in transcript_lines:
     if module_dict[transcript_id]:
         module_out.append(module_dict[transcript_id])
     else:
-        module_out.append('0')
+        module_out.append('None')
 
     # # Add in Swissprot info
     if swissprot_dict[transcript_id]:
@@ -847,6 +847,7 @@ for line in transcript_lines:
     outline.extend(mean_count_cols)
     outline.extend(mean_fpkm_cols)
     outline.extend(DEG_out)
+    outline.extend(module_out)
     outline.append(prot_seq)
     outline.extend(swissprot_cols)
     outline.append(interpro_col)
