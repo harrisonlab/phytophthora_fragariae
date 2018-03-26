@@ -13,7 +13,9 @@ options(stringsAsFactors = FALSE)
 
 opt_list <- list(
     make_option("--out_dir", type = "character",
-    help = "Directory for output to be written to")
+    help = "Directory for output to be written to"),
+    make_option("--module", type = "character",
+    help = "module to export for visualisation in Cytoscape")
     )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
