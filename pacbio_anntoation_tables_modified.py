@@ -720,6 +720,7 @@ for line in transcript_lines:
     CRN_total = ''
     ApoP_total = ''
     orthogroup = ''
+    module = ''
     prot_seq = ''
     swissprot_cols = []
     interpro_col = []
