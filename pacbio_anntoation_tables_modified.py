@@ -814,6 +814,13 @@ for line in transcript_lines:
         mean_fpkm_cols.append(mean_fpkm.astype(str))
         # print mean_fpkm_cols
 
+    # Create output list for modules
+    module_out = []
+    if module_dict[transcript_id]:
+        module_out.append(module_dict[transcript_id])
+    else:
+        module_out.append('0')
+
     # # Add in Swissprot info
     if swissprot_dict[transcript_id]:
         swissprot_cols = swissprot_dict[transcript_id]
