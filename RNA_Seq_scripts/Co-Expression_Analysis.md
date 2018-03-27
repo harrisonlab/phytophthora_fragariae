@@ -110,3 +110,14 @@ Genes from the module were visually inspected for promotor hunting
 This gave 15 high confidence genes and 27 lower confidence genes
 
 Extract the 3000 bases upstream of these genes
+
+```bash
+for Headers in $(ls promotor_id/*genes.txt)
+do
+    Sequences=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    OutDir=promotor_id
+    File_ID=$(echo $Headers | cut -f2 -d '/' | cut -f1 -d '_')
+    $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_upstream3000.fa
+done
+```
