@@ -73,7 +73,8 @@ qsub $ProgDir/sub_Export_Gene_Lists.sh $OutDir Y
 
 ```
 Reducing the minimum module size to 5, with a merging threshold of 0.1:
-Target in lightcoral, with 205 genes, or palevioletred3 before merging, with 115 genes.
+Target in lightcoral, with 205 genes
+Target in palevioletred3 before merging, with 115 genes
 Before merging, g24882.t1 is in the steelblue network, with 212 other genes
 After merging with a threshold of 0.05:
 g24882.t1 is in the steelblue network, with 212 other genes
