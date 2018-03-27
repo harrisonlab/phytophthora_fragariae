@@ -105,3 +105,6 @@ ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 Module=palevioletred3
 qsub $ProgDir/sub_export_network_cytoscape.sh $OutDir $Module
 ```
+
+Genes from the module were visually inspected for promotor hunting
+This gave 15 high confidence genes and 27 lower confidence genes
