@@ -121,3 +121,6 @@ do
     $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_upstream3000.fa
 done
 ```
+
+Create a file for the upstream regions of non-target genes
+These are used as the control when testing for significant enrichment
