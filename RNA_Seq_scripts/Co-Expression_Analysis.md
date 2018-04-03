@@ -144,3 +144,7 @@ do
     cat $TotalSet | grep -v -f $File > "$OutDir"/"$Output"
 done
 ```
+
+50,270 genes were in the total gene set
+50,228 genes were in the all comparison set
+50,255 genes were in the high confidence comparison set
