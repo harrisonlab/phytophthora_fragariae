@@ -161,3 +161,8 @@ do
     $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"comparison_set_upstream3000.fa
 done
 ```
+
+50,698 genes are in the initial gene set
+50,655 genes are in the all comparison set
+50,682 genes are in the high confidence comparison set
+1 gene is listed twice, explaining the discrepancy
