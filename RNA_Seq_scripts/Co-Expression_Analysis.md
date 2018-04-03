@@ -132,4 +132,15 @@ Create lists of genes to extract
 
 File=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
 cat $File | grep '>' | sed 's/>//g' | tr -d '>' | tr -d ' ' > promotor_id/Total_Gene_Set.txt
+
+# Create lists of genes to use as comparison set
+
+for File in $(ls promotor_id/*_genes.txt)
+do
+    Prefix=$(echo $File | cut -f2 -d '/' | cut -f1 -d '_')
+    OutDir=promotor_id
+    Output="$Prefix"_comparison_set.txt
+    TotalSet=promotor_id/Total_Gene_Set.txt
+    cat $TotalSet | grep -v -f $File > "$OutDir"/"$Output"
+done
 ```
