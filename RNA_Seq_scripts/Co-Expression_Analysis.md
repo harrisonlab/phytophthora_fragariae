@@ -148,3 +148,16 @@ done
 50,270 genes were in the total gene set
 50,228 genes were in the all comparison set
 50,255 genes were in the high confidence comparison set
+
+Extract fastas of gene sets
+
+```bash
+for Headers in $(ls promotor_id/*comparison_set.txt)
+do
+    Sequences=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    OutDir=promotor_id
+    File_ID=$(echo $Headers | cut -f2 -d '/' | cut -f1 -d '_')
+    $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"comparison_set_upstream3000.fa
+done
+```
