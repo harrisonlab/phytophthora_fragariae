@@ -124,3 +124,12 @@ done
 
 Create a file for the upstream regions of non-target genes
 These are used as the control when testing for significant enrichment
+
+Create lists of genes to extract
+
+```bash
+# Create list of all IDs to search against
+
+File=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
+cat $File | grep '>' | sed 's/>//g' | tr -d '>' | tr -d ' ' > promotor_id/Total_Gene_Set.txt
+```
