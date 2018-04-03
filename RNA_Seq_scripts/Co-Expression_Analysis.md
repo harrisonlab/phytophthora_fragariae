@@ -131,7 +131,7 @@ Create lists of genes to extract
 # Create list of all IDs to search against
 
 File=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
-cat $File | grep '>' | sed 's/>//g' | tr -d '>' | tr -d ' ' > promotor_id/Total_Gene_Set.txt
+cat $File | grep '>' | sed 's/>//g' | tr -d '>' | tr -d ' ' | sort | uniq > promotor_id/Total_Gene_Set.txt
 
 # Create lists of genes to use as comparison set
 
