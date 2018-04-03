@@ -172,7 +172,7 @@ done
 ### B.1) Pre-processing of fasta files
 
 ```bash
-for File in $(ls promotor_id/*.fasta)
+for File in $(ls promotor_id/*.fa)
 do
     OutDir=promotor_id
     ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
