@@ -169,6 +169,12 @@ done
 
 ## B) Counting kmers with dsm-framework
 
+Before running add the following line to your profile:
+
+```bash
+export DSM_FRAMEWORK_PATH=/home/adamst/prog/dsm-framework
+```
+
 ### B.1) Pre-processing of fasta files
 
 ```bash
