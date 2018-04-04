@@ -174,9 +174,8 @@ done
 ```bash
 for File in $(ls promotor_id/*.fa)
 do
-    OutDir=promotor_id
     ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
     File_ID=$(echo $File | cut -f2 -d "/")
-    qsub $ProgDir/sub_dsm_preprocessing.sh $File $OutDir
+    qsub $ProgDir/sub_dsm_preprocessing.sh $File
 done
 ```
