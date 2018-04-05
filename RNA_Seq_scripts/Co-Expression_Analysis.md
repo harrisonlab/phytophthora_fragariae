@@ -185,3 +185,7 @@ do
     qsub $ProgDir/sub_dsm_preprocessing.sh $File
 done
 ```
+
+### B.2) Initialise server
+
+Create text file containing the names of input files
