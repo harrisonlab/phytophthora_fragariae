@@ -205,3 +205,5 @@ do
     echo $Comparison_Name >> $WorkDir/$Txt_File
 done
 ```
+
+Now initialise the server-side processes
