@@ -150,6 +150,7 @@ done
 50,270 genes were in the total gene set
 50,228 genes were in the all comparison set
 50,255 genes were in the high confidence comparison set
+50,247 genes were in the highly expressed comparison set
 
 Extract fastas of gene sets
 
