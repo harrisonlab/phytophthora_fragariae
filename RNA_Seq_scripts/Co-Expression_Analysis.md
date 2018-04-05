@@ -193,3 +193,15 @@ done
 ### B.2) Initialise server
 
 Create text file containing the names of input files
+
+```bash
+for Set in all highconfidence highexpressed
+do
+    Name="$Set"_upstream3000
+    Comparison_Name="$Set"_comparison_set_upstream3000
+    Txt_File=sample-names.txt
+    WorkDir=promotor_id
+    echo $Name >> $WorkDir/$Txt_File
+    echo $Comparison_Name >> $WorkDir/$Txt_File
+done
+```
