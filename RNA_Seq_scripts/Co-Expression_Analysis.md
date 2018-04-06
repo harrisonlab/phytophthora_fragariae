@@ -199,11 +199,23 @@ for Set in all highconfidence highexpressed
 do
     Name="$Set"_upstream3000
     Comparison_Name="$Set"_comparison_set_upstream3000
-    Txt_File=sample-names.txt
+    Txt_File=sample-names_"$Set".txt
     WorkDir=promotor_id
-    echo $Name >> $WorkDir/$Txt_File
+    echo $Name > $WorkDir/$Txt_File
     echo $Comparison_Name >> $WorkDir/$Txt_File
 done
 ```
 
 Now initialise the server-side processes
+
+```bash
+for Set in all highconfidence highexpressed
+do
+    WorkDir=promotor_id
+    tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
+    mkdir -p $tmp_dir
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+    sample_IDs=$WorkDir/sample-names_"$Set".txt
+    $ProgDir/server_set_up.sh $sample_IDs $tmp_dir
+done
+```
