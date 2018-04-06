@@ -219,3 +219,5 @@ do
     $ProgDir/server_set_up.sh $sample_IDs $tmp_dir
 done
 ```
+
+Now run the client side processes
