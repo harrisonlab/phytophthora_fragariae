@@ -221,3 +221,5 @@ done
 ```
 
 Now run the client side processes
+
+IMPORTANT: Ensure all the server side processes are started first
