@@ -219,7 +219,7 @@ do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
     sample_IDs=$WorkDir/sample-names_"$Set".txt
     Parallel_processes=4
-    $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes
+    $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 done
 ```
 
