@@ -208,6 +208,8 @@ done
 
 Now initialise the server-side processes
 
+Parallel processes can be set at 4, 16 or 64
+
 ```bash
 for Set in all highconfidence highexpressed
 do
@@ -216,7 +218,8 @@ do
     mkdir -p $tmp_dir
     ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
     sample_IDs=$WorkDir/sample-names_"$Set".txt
-    $ProgDir/server_set_up.sh $sample_IDs $tmp_dir
+    Parallel_processes=4
+    $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes
 done
 ```
 
