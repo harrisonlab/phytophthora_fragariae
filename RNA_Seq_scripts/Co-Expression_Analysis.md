@@ -233,6 +233,7 @@ do
     Sample_Names=promotor_id/sample-names_"$Set".txt
     ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
     tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
-    qsub $ScriptDir/client_execution.sh $Sample_Names $tmp_dir
+    WorkDir=promotor_id
+    qsub $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 done
 ```
