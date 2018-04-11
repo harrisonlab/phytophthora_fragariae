@@ -20,7 +20,7 @@ input <- read.csv("cAvr.csv")
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
-res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
+res.aov2 <- aov(Expression ~ Isolate * Timepoint, data = input)
 ANOVA <- summary(res.aov2)
 capture.output(ANOVA, file = "cAvr_ANOVA_reults.txt")
 
@@ -39,7 +39,7 @@ input <- read.csv("Early_RxLR.csv")
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
-res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
+res.aov2 <- aov(Expression ~ Isolate * Timepoint, data = input)
 ANOVA <- summary(res.aov2)
 capture.output(ANOVA, file = "Early_RxLR_ANOVA_reults.txt")
 
@@ -58,7 +58,7 @@ input <- read.csv("Middle_RxLR.csv")
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
-res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
+res.aov2 <- aov(Expression ~ Isolate * Timepoint, data = input)
 ANOVA <- summary(res.aov2)
 capture.output(ANOVA, file = "Middle_RxLR_ANOVA_reults.txt")
 
