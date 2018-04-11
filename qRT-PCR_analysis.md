@@ -4,13 +4,17 @@ Run on Mac rather than cluster
 
 Each gene analysed is on a separate csv file
 
+```bash
+cd /Users/adamst/Documents/qPCR/Statistical_Analysis
+```
+
 ## Run ANOVAs
 
 ### Candidate _Avr_ (g24882.t1)
 
 ```R
 # Read in csv file
-input <- read.csv("/Users/adamst/Documents/qPCR/Statistical_Analysis/cAvr.csv")
+input <- read.csv("cAvr.csv")
 
 # Generate frequency tables
 table(input$Timepoint, input$Isolate)
@@ -27,7 +31,7 @@ TukeyHSD(res.avo2)
 
 ```R
 # Read in csv file
-input <- read.csv("/Users/adamst/Documents/qPCR/Statistical_Analysis/Early_RxLR.csv")
+input <- read.csv("Early_RxLR.csv")
 
 # Generate frequency tables
 table(input$Timepoint, input$Isolate)
@@ -44,7 +48,7 @@ TukeyHSD(res.avo2)
 
 ```R
 # Read in csv file
-input <- read.csv("/Users/adamst/Documents/qPCR/Statistical_Analysis/Middle_RxLR.csv")
+input <- read.csv("Middle_RxLR.csv")
 
 # Generate frequency tables
 table(input$Timepoint, input$Isolate)
