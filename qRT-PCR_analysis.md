@@ -22,13 +22,11 @@ table(input$Timepoint, input$Isolate)
 # Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
 ANOVA <- summary(res.aov2)
+capture.output(ANOVA, file = "cAvr_ANOVA_reults.txt")
 
 # Tukey multiple pairwise-comparisons
 Tukey <- TukeyHSD(res.aov2)
-
-# Merge data frames and write to csv file
-Results <- rbind(ANOVA, Tukey)
-write.csv(Results, file = "cAvr_results.csv")
+capture.output(Tukey, file = "cAvr_Tukey_results.txt")
 ```
 
 ### Early RxLR (g32018.t1)
@@ -43,13 +41,11 @@ table(input$Timepoint, input$Isolate)
 # Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
 ANOVA <- summary(res.aov2)
+capture.output(ANOVA, file = "Early_RxLR_ANOVA_reults.txt")
 
 # Tukey multiple pairwise-comparisons
 Tukey <- TukeyHSD(res.aov2)
-
-# Merge data frames and write to csv file
-Results <- rbind(ANOVA, Tukey)
-write.csv(Results, file = "Early_RxLR_results.csv")
+capture.output(Tukey, file = "Early_RxLR_Tukey_results.txt")
 ```
 
 ### Middle RxLR (g23965.t1)
@@ -64,11 +60,9 @@ table(input$Timepoint, input$Isolate)
 # Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
 ANOVA <- summary(res.aov2)
+capture.output(ANOVA, file = "Middle_RxLR_ANOVA_reults.txt")
 
 # Tukey multiple pairwise-comparisons
 Tukey <- TukeyHSD(res.aov2)
-
-# Merge data frames and write to csv file
-Results <- rbind(ANOVA, Tukey)
-write.csv(Results, file = "Middle_RxLR_results.csv")
+capture.output(Tukey, file = "Middle_RxLR_Tukey_results.txt")
 ```
