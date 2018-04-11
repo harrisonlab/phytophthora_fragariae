@@ -19,7 +19,7 @@ input <- read.csv("cAvr.csv")
 # Generate frequency tables, sanity check, prints to screen
 table(input$Timepoint, input$Isolate)
 
-# Perform ANOVA, prints to screen
+# Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
 summary(res.aov2)
 
@@ -36,7 +36,7 @@ input <- read.csv("Early_RxLR.csv")
 # Generate frequency tables, sanity check, prints to screen
 table(input$Timepoint, input$Isolate)
 
-# Perform ANOVA, prints to screen
+# Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
 summary(res.aov2)
 
@@ -53,7 +53,7 @@ input <- read.csv("Middle_RxLR.csv")
 # Generate frequency tables, sanity check, prints to screen
 table(input$Timepoint, input$Isolate)
 
-# Perform ANOVA, prints to screen
+# Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
 summary(res.aov2)
 
