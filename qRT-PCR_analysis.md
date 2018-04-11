@@ -37,3 +37,20 @@ summary(res.avo2)
 # Tukey multiple pairwise-comparisons
 TukeyHSD(res.avo2)
 ```
+
+## Middle RxLR (g23965.t1)
+
+```R
+# Read in csv file
+input <- read.csv("/Users/adamst/Documents/qPCR/Statistical_Analysis/Middle_RxLR.csv")
+
+# Generate frequency tables
+table(input$Timepoint, input$Isolate)
+
+# Perform ANOVA
+res.avo2 <- avo(Expression ~ Timepoint * Isolate, data = input)
+summary(res.avo2)
+
+# Tukey multiple pairwise-comparisons
+TukeyHSD(res.avo2)
+```
