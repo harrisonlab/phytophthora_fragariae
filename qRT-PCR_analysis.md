@@ -20,11 +20,11 @@ input <- read.csv("cAvr.csv")
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
-res.avo2 <- avo(Expression ~ Timepoint * Isolate, data = input)
-summary(res.avo2)
+res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
+summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
-TukeyHSD(res.avo2)
+TukeyHSD(res.aov2)
 ```
 
 ### Early RxLR (g32018.t1)
@@ -37,11 +37,11 @@ input <- read.csv("Early_RxLR.csv")
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
-res.avo2 <- avo(Expression ~ Timepoint * Isolate, data = input)
-summary(res.avo2)
+res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
+summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
-TukeyHSD(res.avo2)
+TukeyHSD(res.aov2)
 ```
 
 ### Middle RxLR (g23965.t1)
@@ -54,9 +54,9 @@ input <- read.csv("Middle_RxLR.csv")
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
-res.avo2 <- avo(Expression ~ Timepoint * Isolate, data = input)
-summary(res.avo2)
+res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
+summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
-TukeyHSD(res.avo2)
+TukeyHSD(res.aov2)
 ```
