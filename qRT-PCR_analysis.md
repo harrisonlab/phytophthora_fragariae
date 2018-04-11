@@ -66,3 +66,20 @@ capture.output(ANOVA, file = "Middle_RxLR_ANOVA_results.txt")
 Tukey <- TukeyHSD(res.aov2)
 capture.output(Tukey, file = "Middle_RxLR_Tukey_results.txt")
 ```
+
+## Draw graphs
+
+### Candidate _Avr_ (g24882.t1)
+
+```R
+# Read in csv file
+input <- read.csv("cAvr_plus_SEM.csv")
+
+# Draw graph
+library(ggplot2)
+ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
+    colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
+        ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
+        scale_color_brewer(palette = "Paired") + theme_minimal()
+ggsave(cAvr.pf, plot = last_plot())
+```
