@@ -25,6 +25,10 @@ ANOVA <- summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
 Tukey <- TukeyHSD(res.aov2)
+
+# Merge data frames and write to csv file
+Results <- rbind(ANOVA, Tukey)
+write.csv(Results, file = "cAvr_results.csv")
 ```
 
 ### Early RxLR (g32018.t1)
@@ -42,6 +46,10 @@ ANOVA <- summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
 Tukey <- TukeyHSD(res.aov2)
+
+# Merge data frames and write to csv file
+Results <- rbind(ANOVA, Tukey)
+write.csv(Results, file = "Early_RxLR_results.csv")
 ```
 
 ### Middle RxLR (g23965.t1)
@@ -59,4 +67,8 @@ ANOVA <- summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
 Tukey <- TukeyHSD(res.aov2)
+
+# Merge data frames and write to csv file
+Results <- rbind(ANOVA, Tukey)
+write.csv(Results, file = "Middle_RxLR_results.csv")
 ```
