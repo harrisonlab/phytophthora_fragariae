@@ -21,10 +21,10 @@ table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
-summary(res.aov2)
+ANOVA <- summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
-TukeyHSD(res.aov2)
+Tukey <- TukeyHSD(res.aov2)
 ```
 
 ### Early RxLR (g32018.t1)
@@ -38,10 +38,10 @@ table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
-summary(res.aov2)
+ANOVA <- summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
-TukeyHSD(res.aov2)
+Tukey <- TukeyHSD(res.aov2)
 ```
 
 ### Middle RxLR (g23965.t1)
@@ -55,8 +55,8 @@ table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
 res.aov2 <- aov(Expression ~ Timepoint * Isolate, data = input)
-summary(res.aov2)
+ANOVA <- summary(res.aov2)
 
 # Tukey multiple pairwise-comparisons
-TukeyHSD(res.aov2)
+Tukey <- TukeyHSD(res.aov2)
 ```
