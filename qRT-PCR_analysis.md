@@ -4,7 +4,9 @@ Run on Mac rather than cluster
 
 Each gene analysed is on a separate csv file
 
-## Candidate _Avr_ (g24882.t1)
+## Run ANOVAs
+
+### Candidate _Avr_ (g24882.t1)
 
 ```R
 # Read in csv file
@@ -21,7 +23,7 @@ summary(res.avo2)
 TukeyHSD(res.avo2)
 ```
 
-## Early RxLR (g32018.t1)
+### Early RxLR (g32018.t1)
 
 ```R
 # Read in csv file
@@ -38,7 +40,7 @@ summary(res.avo2)
 TukeyHSD(res.avo2)
 ```
 
-## Middle RxLR (g23965.t1)
+### Middle RxLR (g23965.t1)
 
 ```R
 # Read in csv file
