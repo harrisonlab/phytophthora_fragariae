@@ -77,9 +77,9 @@ input <- read.csv("cAvr_plus_SEM.csv")
 
 # Draw graph
 library(ggplot2)
-ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
+plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
         scale_color_brewer(palette = "Paired") + theme_minimal()
-ggsave(cAvr.pf, plot = last_plot())
+ggsave("cAvr.pdf", plot = plot)
 ```
