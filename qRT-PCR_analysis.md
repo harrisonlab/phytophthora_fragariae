@@ -16,4 +16,6 @@ table(input$Timepoint, input$Isolate)
 # Perform ANOVA
 res.avo2 <- avo(Expression ~ Timepoint * Isolate, data = input)
 summary(res.avo2)
+
+# Tukey multiple pairwise-comparisons
 ```
