@@ -20,3 +20,20 @@ summary(res.avo2)
 # Tukey multiple pairwise-comparisons
 TukeyHSD(res.avo2)
 ```
+
+## Early RxLR (g32018.t1)
+
+```R
+# Read in csv file
+input <- read.csv("/Users/adamst/Documents/qPCR/Statistical_Analysis/Early_RxLR.csv")
+
+# Generate frequency tables
+table(input$Timepoint, input$Isolate)
+
+# Perform ANOVA
+res.avo2 <- avo(Expression ~ Timepoint * Isolate, data = input)
+summary(res.avo2)
+
+# Tukey multiple pairwise-comparisons
+TukeyHSD(res.avo2)
+```
