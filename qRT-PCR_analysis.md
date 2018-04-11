@@ -18,4 +18,5 @@ res.avo2 <- avo(Expression ~ Timepoint * Isolate, data = input)
 summary(res.avo2)
 
 # Tukey multiple pairwise-comparisons
+TukeyHSD(res.avo2)
 ```
