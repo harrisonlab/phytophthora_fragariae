@@ -16,7 +16,7 @@ cd /Users/adamst/Documents/qPCR/Statistical_Analysis
 # Read in csv file
 input <- read.csv("cAvr.csv")
 
-# Generate frequency tables
+# Generate frequency tables, sanity check, prints to screen
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
@@ -33,7 +33,7 @@ TukeyHSD(res.avo2)
 # Read in csv file
 input <- read.csv("Early_RxLR.csv")
 
-# Generate frequency tables
+# Generate frequency tables, sanity check, prints to screen
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
@@ -50,7 +50,7 @@ TukeyHSD(res.avo2)
 # Read in csv file
 input <- read.csv("Middle_RxLR.csv")
 
-# Generate frequency tables
+# Generate frequency tables, sanity check, prints to screen
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
