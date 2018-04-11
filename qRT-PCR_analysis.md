@@ -98,3 +98,18 @@ plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
         scale_color_brewer(palette = "Paired") + theme_minimal()
 ggsave("Early_RxLR.pdf", plot = plot)
 ```
+
+### Middle RxLR (g23965.t1)
+
+```R
+# Read in csv file
+input <- read.csv("Middle_RxLR_plus_SEM.csv")
+
+# Draw graph
+library(ggplot2)
+plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
+    colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
+        ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
+        scale_color_brewer(palette = "Paired") + theme_minimal()
+ggsave("Middle_RxLR.pdf", plot = plot)
+```
