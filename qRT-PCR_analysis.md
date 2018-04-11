@@ -14,6 +14,6 @@ input <- read.csv("/Users/adamst/Documents/qPCR/Statistical_Analysis/cAvr.csv")
 table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
-res.avo2 <- avo(len ~ Timepoint + Isolate, data = input)
+res.avo2 <- avo(Expression ~ Timepoint * Isolate, data = input)
 summary(res.avo2)
 ```
