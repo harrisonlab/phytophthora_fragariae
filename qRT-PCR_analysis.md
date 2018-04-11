@@ -9,4 +9,10 @@ Each gene analysed is on a separate csv file
 ```R
 # Read in csv file
 input <- read.csv("/Users/adamst/Documents/qPCR/Statistical_Analysis/cAvr.csv")
+
+# Generate frequency tables
+table(input$Timepoint, input$Isolate)
+
+# Perform ANOVA
+res.avo2 <- avo(len ~ Timepoint + Isolate, data = input)
 ```
