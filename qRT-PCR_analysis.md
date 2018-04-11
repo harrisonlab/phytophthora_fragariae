@@ -15,4 +15,5 @@ table(input$Timepoint, input$Isolate)
 
 # Perform ANOVA
 res.avo2 <- avo(len ~ Timepoint + Isolate, data = input)
+summary(res.avo2)
 ```
