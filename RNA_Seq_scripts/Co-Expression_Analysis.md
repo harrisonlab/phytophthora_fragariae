@@ -226,7 +226,6 @@ $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 Now run the client side processes
 
 IMPORTANT: Ensure all the server side processes are finished first
-the stdout log file will say when they are finished
 
 ```bash
 Set=all
@@ -234,7 +233,7 @@ Sample_Names=promotor_id/sample-names_"$Set".txt
 ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
 WorkDir=promotor_id
-qsub $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
+$ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 ```
 
 #### Set "highconfidence"
@@ -253,7 +252,6 @@ $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 Now run the client side processes
 
 IMPORTANT: Ensure all the server side processes are finished first
-the stdout log file will say when they are finished
 
 ```bash
 Set=highconfidence
@@ -261,7 +259,7 @@ Sample_Names=promotor_id/sample-names_"$Set".txt
 ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
 WorkDir=promotor_id
-qsub $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
+$ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 ```
 
 #### Set "highexpressed"
@@ -280,7 +278,6 @@ $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 Now run the client side processes
 
 IMPORTANT: Ensure all the server side processes are finished first
-the stdout log file will say when they are finished
 
 ```bash
 Set=highexpressed
@@ -288,5 +285,5 @@ Sample_Names=promotor_id/sample-names_"$Set".txt
 ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
 WorkDir=promotor_id
-qsub $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
+$ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 ```
