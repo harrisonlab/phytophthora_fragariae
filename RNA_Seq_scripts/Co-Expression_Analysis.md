@@ -207,6 +207,7 @@ done
 ```
 
 Now initialise the server-side processes
+only do one set at a time to avoid port clash
 
 Parallel processes can be set at 4, 16 or 64
 
