@@ -212,16 +212,14 @@ only do one set at a time to avoid port clash
 Parallel processes can be set at 4, 16 or 64
 
 ```bash
-for Set in all highconfidence highexpressed
-do
-    WorkDir=promotor_id
-    tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
-    mkdir -p $tmp_dir
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
-    sample_IDs=$WorkDir/sample-names_"$Set".txt
-    Parallel_processes=4
-    $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
-done
+Set=all
+WorkDir=promotor_id
+tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
+mkdir -p $tmp_dir
+ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+sample_IDs=$WorkDir/sample-names_"$Set".txt
+Parallel_processes=4
+$ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 ```
 
 Now run the client side processes
