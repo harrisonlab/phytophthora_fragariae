@@ -165,12 +165,6 @@ do
 done
 ```
 
-50,698 genes are in the initial gene set
-50,655 genes are in the all comparison set
-50,682 genes are in the high confidence comparison set
-50,675 genes are in the highly expressed comparison set
-1 gene is listed twice, explaining the discrepancy
-
 ## B) Counting kmers with dsm-framework
 
 Before running add the following line to your profile:
