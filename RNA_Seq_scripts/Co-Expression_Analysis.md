@@ -237,3 +237,57 @@ tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
 WorkDir=promotor_id
 $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 ```
+
+#### Set "highconfidence"
+
+```bash
+Set=highconfidence
+WorkDir=promotor_id
+tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
+mkdir -p $tmp_dir
+ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+sample_IDs=$WorkDir/sample-names_"$Set".txt
+Parallel_processes=4
+$ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
+```
+
+Now run the client side processes
+The stdout log file will say when it is okay to run the client side processes
+
+IMPORTANT: Ensure all the server side processes are running first
+
+```bash
+Set=highconfidence
+Sample_Names=promotor_id/sample-names_"$Set".txt
+ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
+WorkDir=promotor_id
+$ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
+```
+
+#### Set "highexpressed"
+
+```bash
+Set=highexpressed
+WorkDir=promotor_id
+tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
+mkdir -p $tmp_dir
+ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+sample_IDs=$WorkDir/sample-names_"$Set".txt
+Parallel_processes=4
+$ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
+```
+
+Now run the client side processes
+The stdout log file will say when it is okay to run the client side processes
+
+IMPORTANT: Ensure all the server side processes are running first
+
+```bash
+Set=highexpressed
+Sample_Names=promotor_id/sample-names_"$Set".txt
+ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
+WorkDir=promotor_id
+$ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
+```
