@@ -224,10 +224,37 @@ $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 
 Now run the client side processes
 
-IMPORTANT: Ensure all the server side processes are finished first
+IMPORTANT: Ensure all the server side processes are running first
 
 ```bash
 Set=all
+Sample_Names=promotor_id/sample-names_"$Set".txt
+ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
+tmp_dir=$ProjDir/promotor_id/tmp_dsmframework_"$Set"_config
+WorkDir=$ProjDir/promotor_id
+$ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
+```
+
+#### Set "all_comparison_set"
+
+```bash
+Set=all_comparison_set
+WorkDir=promotor_id
+tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
+mkdir -p $tmp_dir
+ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+sample_IDs=$WorkDir/sample-names_"$Set".txt
+Parallel_processes=16
+$ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
+```
+
+Now run the client side processes
+
+IMPORTANT: Ensure all the server side processes are running first
+
+```bash
+Set=all_comparison_set
 Sample_Names=promotor_id/sample-names_"$Set".txt
 ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
@@ -251,7 +278,7 @@ $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 
 Now run the client side processes
 
-IMPORTANT: Ensure all the server side processes are finished first
+IMPORTANT: Ensure all the server side processes are running first
 
 ```bash
 Set=highconfidence
@@ -259,6 +286,33 @@ Sample_Names=promotor_id/sample-names_"$Set".txt
 ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
 WorkDir=promotor_id
+$ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
+```
+
+#### Set "highconfidence_comparison_set"
+
+```bash
+Set=highconfidence_comparison_set
+WorkDir=promotor_id
+tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
+mkdir -p $tmp_dir
+ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+sample_IDs=$WorkDir/sample-names_"$Set".txt
+Parallel_processes=16
+$ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
+```
+
+Now run the client side processes
+
+IMPORTANT: Ensure all the server side processes are running first
+
+```bash
+Set=highconfidence_comparison_set
+Sample_Names=promotor_id/sample-names_"$Set".txt
+ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
+tmp_dir=$ProjDir/promotor_id/tmp_dsmframework_"$Set"_config
+WorkDir=$ProjDir/promotor_id
 $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 ```
 
@@ -277,7 +331,7 @@ $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 
 Now run the client side processes
 
-IMPORTANT: Ensure all the server side processes are finished first
+IMPORTANT: Ensure all the server side processes are running first
 
 ```bash
 Set=highexpressed
@@ -285,5 +339,32 @@ Sample_Names=promotor_id/sample-names_"$Set".txt
 ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 tmp_dir=promotor_id/tmp_dsmframework_"$Set"_config
 WorkDir=promotor_id
+$ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
+```
+
+#### Set "highexpressed_comparison_set"
+
+```bash
+Set=highexpressed_comparison_set
+WorkDir=promotor_id
+tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
+mkdir -p $tmp_dir
+ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+sample_IDs=$WorkDir/sample-names_"$Set".txt
+Parallel_processes=16
+$ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
+```
+
+Now run the client side processes
+
+IMPORTANT: Ensure all the server side processes are running first
+
+```bash
+Set=highexpressed_comparison_set
+Sample_Names=promotor_id/sample-names_"$Set".txt
+ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
+ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
+tmp_dir=$ProjDir/promotor_id/tmp_dsmframework_"$Set"_config
+WorkDir=$ProjDir/promotor_id
 $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 ```
