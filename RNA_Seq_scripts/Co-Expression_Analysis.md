@@ -223,6 +223,7 @@ $ProgDir/server_set_up.sh $sample_IDs $tmp_dir $Parallel_processes $WorkDir $Set
 ```
 
 Now run the client side processes
+The stdout log file will say when it is okay to run the client side processes
 
 IMPORTANT: Ensure all the server side processes are running first
 
