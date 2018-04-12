@@ -195,14 +195,13 @@ done
 Create text file containing the names of input files
 
 ```bash
-for Set in all highconfidence highexpressed
+for Set in all all_comparison_set highconfidence highconfidence_comparison_set \
+highexpressed highexpressed_comparison_set
 do
     Name="$Set"_upstream3000
-    Comparison_Name="$Set"_comparison_set_upstream3000
     Txt_File=sample-names_"$Set".txt
     WorkDir=promotor_id
     echo $Name > $WorkDir/$Txt_File
-    echo $Comparison_Name >> $WorkDir/$Txt_File
 done
 ```
 
