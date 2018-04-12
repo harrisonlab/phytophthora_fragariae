@@ -233,7 +233,7 @@ Sample_Names=promotor_id/sample-names_"$Set".txt
 ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
 tmp_dir=$ProjDir/promotor_id/tmp_dsmframework_"$Set"_config
-WorkDir=promotor_id
+WorkDir=$ProjDir/promotor_id
 $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 ```
 
