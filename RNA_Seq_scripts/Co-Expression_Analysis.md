@@ -107,7 +107,7 @@ qsub $ProgDir/sub_export_network_cytoscape.sh $OutDir $Module
 ```
 
 Genes from the module were visually inspected for promotor hunting
-This gave 15 high confidence genes and 27 lower confidence genes
+This gave 11 high confidence genes and 22 lower confidence genes
 Also analyse all genes with an fpkm value above 10,000
 in at least one timepoint, 23 genes
 
