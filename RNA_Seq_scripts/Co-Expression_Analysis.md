@@ -186,3 +186,5 @@ do
     mv $input_modified $input
 done
 ```
+
+## B) Identifying novel motifs using DREME
