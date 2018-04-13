@@ -147,11 +147,6 @@ do
 done
 ```
 
-50,270 genes were in the total gene set
-50,237 genes were in the all comparison set
-50,259 genes were in the high confidence comparison set
-50,260 genes were in the highly expressed comparison set
-
 Extract fastas of gene sets
 
 ```bash
@@ -174,6 +169,19 @@ do
     input_modified="$filename"_modified.fasta
     cat $input | awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $1}}' \
     > $input_modified
+    rm $input
+    mv $input_modified $input
+done
+```
+
+Remove duplicate genes
+
+```bash
+for input in $(ls promotor_id/*.fasta)
+do
+    filename=$(echo $input | cut -f1 -d '.')
+    input_modified="$filename"_modified.fasta
+    awk 'BEGIN{RS=">"}NR>1{sub("\n","\t"); gsub("\n",""); print RS$0}' $input | awk '!seen[$1]++' | awk -v OFS="\n" '{print $1,$2}' > $input_modified
     rm $input
     mv $input_modified $input
 done
