@@ -231,7 +231,7 @@ do
     mkdir -p promotor_id/$Set
     fasta=promotor_id/"$Set"_upstream3000.fasta
     index=promotor_id/"$Set"_upstream3000.fasta.fmi
-    sample_names=sample-names_"$Set".txt
+    sample_names=promotor_id/sample-names_"$Set".txt
     mv $fasta promotor_id/$Set/.
     mv $index promotor_id/$Set/.
     mv $sample_names promotor_id/$Set/.
