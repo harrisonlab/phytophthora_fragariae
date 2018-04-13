@@ -165,6 +165,20 @@ do
 done
 ```
 
+Convert all bases to uppercase, my be causing issues with creating index files
+
+```bash
+for input in $(ls promotor_id/*.fasta)
+do
+    filename=$(echo $input | cut -f1 -d '.')
+    input_modified="$filename"_modified.fasta
+    cat $input | awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $1}}' \
+    > $input_modified
+    rm $input
+    mv $input_modified $input
+done
+```
+
 ## B) Counting kmers with dsm-framework
 
 Before running add the following line to your profile:
