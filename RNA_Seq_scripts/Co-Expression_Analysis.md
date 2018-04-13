@@ -246,8 +246,8 @@ Parallel processes can be set at 4, 16 or 64
 
 ```bash
 Set=all
-WorkDir=promotor_id
-tmp_dir=$WorkDir/tmp_dsmframework_"$Set"_config
+WorkDir=promotor_id/$Set
+tmp_dir=$WorkDir/$Set/tmp_dsmframework_"$Set"_config
 mkdir -p $tmp_dir
 ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 sample_IDs=$WorkDir/sample-names_"$Set".txt
