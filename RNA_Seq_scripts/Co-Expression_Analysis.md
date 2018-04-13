@@ -124,42 +124,6 @@ do
 done
 ```
 
-Create a file for the upstream regions of non-target genes
-These are used as the control when testing for significant enrichment
-
-Create lists of genes to extract
-
-```bash
-# Create list of all IDs to search against
-
-File=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
-cat $File | grep '>' | sed 's/>//g' | tr -d '>' | tr -d ' ' | sort | uniq > promotor_id/Total_Gene_Set.txt
-
-# Create lists of genes to use as comparison set
-
-for File in $(ls promotor_id/*_genes.txt)
-do
-    Prefix=$(echo $File | cut -f2 -d '/' | cut -f1 -d '_')
-    OutDir=promotor_id
-    Output="$Prefix"_comparison_set.txt
-    TotalSet=promotor_id/Total_Gene_Set.txt
-    cat $TotalSet | grep -v -f $File > "$OutDir"/"$Output"
-done
-```
-
-Extract fastas of gene sets
-
-```bash
-for Headers in $(ls promotor_id/*comparison_set.txt)
-do
-    Sequences=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-    OutDir=promotor_id
-    File_ID=$(echo $Headers | cut -f2 -d '/' | cut -f1 -d '_')
-    $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_comparison_set_upstream3000.fasta
-done
-```
-
 Convert all bases to uppercase
 
 ```bash
