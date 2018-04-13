@@ -152,3 +152,6 @@ done
 ```
 
 ## B) Identifying novel motifs using DREME
+
+Count the number of sequences in each file
+Create a control file of random promotors
