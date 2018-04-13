@@ -221,6 +221,23 @@ do
 done
 ```
 
+Ensure that the fasta, fmi and sample-names files are in their own directory
+Otherwise the script errors when trying to read files correctly
+
+```bash
+for Set in all all_comparison_set highconfidence highconfidence_comparison_set \
+highexpressed highexpressed_comparison_set
+do
+    mkdir -p promotor_id/$Set
+    fasta=promotor_id/"$Set"_upstream3000.fasta
+    index=promotor_id/"$Set"_upstream3000.fasta.fmi
+    sample_names=sample-names_"$Set".txt
+    mv $fasta promotor_id/$Set/.
+    mv $index promotor_id/$Set/.
+    mv $sample_names promotor_id/$Set/.
+done
+```
+
 Now initialise the server-side processes
 
 Parallel processes can be set at 4, 16 or 64
