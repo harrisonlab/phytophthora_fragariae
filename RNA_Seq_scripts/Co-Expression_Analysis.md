@@ -120,7 +120,7 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     OutDir=promotor_id
     File_ID=$(echo $Headers | cut -f2 -d '/' | cut -f1 -d '_')
-    $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_upstream3000.fa
+    $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_upstream3000.fasta
 done
 ```
 
@@ -161,7 +161,7 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     OutDir=promotor_id
     File_ID=$(echo $Headers | cut -f2 -d '/' | cut -f1 -d '_')
-    $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_comparison_set_upstream3000.fa
+    $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_comparison_set_upstream3000.fasta
 done
 ```
 
@@ -176,7 +176,7 @@ export DSM_FRAMEWORK_PATH=/home/adamst/prog/dsm-framework
 ### B.1) Pre-processing of fasta files
 
 ```bash
-for File in $(ls promotor_id/*.fa)
+for File in $(ls promotor_id/*.fasta)
 do
     ProgDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
     File_ID=$(echo $File | cut -f2 -d "/")
