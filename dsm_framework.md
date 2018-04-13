@@ -1,7 +1,7 @@
 DSM commands were set up, but no longer relevant for my analysis.
 Keep here for others use.
 
-## B) Counting kmers with dsm-framework
+# B) Counting kmers with dsm-framework
 
 Before running add the following line to your profile:
 
@@ -9,7 +9,7 @@ Before running add the following line to your profile:
 export DSM_FRAMEWORK_PATH=/home/adamst/prog/dsm-framework
 ```
 
-### B.1) Pre-processing of fasta files
+## B.1) Pre-processing of fasta files
 
 ```bash
 for File in $(ls promotor_id/*.fasta)
@@ -20,7 +20,7 @@ do
 done
 ```
 
-### B.2) Initialise server
+## B.2) Initialise server
 
 Create text file containing the names of input files
 
@@ -55,7 +55,7 @@ Now initialise the server-side processes
 
 Parallel processes can be set at 4, 16 or 64
 
-#### Set "all"
+### Set "all"
 
 ```bash
 Set=all
