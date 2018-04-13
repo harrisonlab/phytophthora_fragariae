@@ -261,11 +261,11 @@ IMPORTANT: Ensure all the server side processes are running first
 
 ```bash
 Set=all
-Sample_Names=promotor_id/sample-names_"$Set".txt
+Sample_Names=promotor_id/$Set/sample-names_"$Set".txt
 ScriptDir=/home/adamst/git_repos/tools/seq_tools/kmer_enrichment
 ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
-tmp_dir=$ProjDir/promotor_id/tmp_dsmframework_"$Set"_config
-WorkDir=$ProjDir/promotor_id
+tmp_dir=$ProjDir/promotor_id/$Set/tmp_dsmframework_"$Set"_config
+WorkDir=$ProjDir/promotor_id/$Set/
 $ScriptDir/client_execution.sh $Sample_Names $tmp_dir $WorkDir
 ```
 
