@@ -17,8 +17,9 @@
 fasta=$1
 control=$2
 WorkDir=$3
+Rep=$4
 ffilename=$(basename "$fasta")
-out=${ffilename%.*}_dreme_"$4"
+out=${ffilename%.*}_dreme_"$Rep"
 
 meme=/home/sobczm/bin/meme_4.11.2/bin
 $meme/dreme -oc $WorkDir/$out -p $fasta -n $control -g 10000
