@@ -153,6 +153,8 @@ done
 
 ## B) Identifying novel motifs using DREME
 
+### Set up files
+
 Organise directories and create files for a comparison set to sample from
 
 ```bash
@@ -241,3 +243,5 @@ do
     pyfasta split -n 1 -k 100 $Fasta
 done
 ```
+
+### Create negative samples for each set
