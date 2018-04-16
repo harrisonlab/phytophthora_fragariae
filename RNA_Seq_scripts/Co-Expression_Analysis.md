@@ -159,8 +159,8 @@ Organise directories and create files for a comparison set to sample from
 for Set in all highconfidence highexpressed
 do
     mkdir -p promotor_id/$Set
-    mv "$Set"_genes.txt promotor_id/$Set/.
-    mv "$Set"_upstream3000.fasta promotor_id/$Set/.
+    mv promotor_id/"$Set"_genes.txt promotor_id/$Set/.
+    mv promotor_id/"$Set"_upstream3000.fasta promotor_id/$Set/.
     cat promotor_id/Total_Gene_Set.txt | grep -vf promotor_id/$Set/"$Set"_genes.txt > promotor_id/$Set/"$Set"_nontarget.txt
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
