@@ -20,4 +20,6 @@ RANDOM=`date +%N|sed s/...$//`
 
 meme=/home/sobczm/bin/meme_4.11.2/bin/
 
-$meme/fasta-subsample -seed $RANDOM $fasta $number >${ffilename%.*}_random_"$number"_"$rep".fasta
+$meme/fasta-subsample -seed $RANDOM $fasta $number > ${ffilename%.*}_random_"$number"_"$rep".fasta
+
+echo "Finished with no errors" > /dev/stdout
