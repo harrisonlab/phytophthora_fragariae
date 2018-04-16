@@ -198,6 +198,39 @@ do
 done
 ```
 
+Convert all bases to uppercase
+
+```bash
+for Set in all highconfidence highexpressed
+do
+    for input in $(ls promotor_id/$Set/"$Set"_nontarget_upstream3000.fasta)
+    do
+        filename=$(echo $input | cut -f1 -d '.')
+        input_modified="$filename"_modified.fasta
+        cat $input | awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $1}}' \
+        > $input_modified
+        rm $input
+        mv $input_modified $input
+    done
+done
+```
+
+Remove duplicate genes
+
+```bash
+for Set in all highconfidence highexpressed
+do
+    for input in $(ls promotor_id/$Set/"$Set"_nontarget_upstream3000.fasta)
+    do
+        filename=$(echo $input | cut -f1 -d '.')
+        input_modified="$filename"_modified.fasta
+        awk 'BEGIN{RS=">"}NR>1{sub("\n","\t"); gsub("\n",""); print RS$0}' $input | awk '!seen[$1]++' | awk -v OFS="\n" '{print $1,$2}' > $input_modified
+        rm $input
+        mv $input_modified $input
+    done
+done
+```
+
 Now split non-target files into 100bp sequences
 
 ```bash
