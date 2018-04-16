@@ -198,7 +198,7 @@ do
 done
 ```
 
-Convert all bases to uppercase
+Convert all bases to uppercase in non-target files
 
 ```bash
 for Set in all highconfidence highexpressed
@@ -215,7 +215,7 @@ do
 done
 ```
 
-Remove duplicate genes
+Remove duplicate genes in non-target files
 
 ```bash
 for Set in all highconfidence highexpressed
