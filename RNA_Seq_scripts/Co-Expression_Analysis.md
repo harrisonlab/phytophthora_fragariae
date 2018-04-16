@@ -171,3 +171,17 @@ do
     echo "$Set done"
 done
 ```
+
+Split fasta file into 100bp sequences
+
+Before running, install pyfasta
+
+```bash
+pip install https://pypi.python.org/packages/be/3f/794fbcdaaa2113f0a1d16a962463896c1a6bdab77bd63f33a8f16aae6cdc/pyfasta-0.5.2.tar.gz --user
+```
+
+To use this module, add the following line to your profile
+
+```bash
+export PYTHONPATH="$PYTHONPATH:/home/adamst/.local/lib/python2.7/site-packages"
+```
