@@ -184,4 +184,16 @@ To use this module, add the following line to your profile
 
 ```bash
 export PYTHONPATH="$PYTHONPATH:/home/adamst/.local/lib/python2.7/site-packages"
+export PATH=${PATH}:/home/adamst/.local/bin
+```
+
+Now split files into 100bp sequences
+
+```bash
+for Set in all highconfidence highexpressed
+do
+    WorkDir=promotor_id/$Set
+    Fasta=$WorkDir/"$Set"_upstream3000.fasta
+    pyfasta split -n 1 -k 100 $Fasta
+done
 ```
