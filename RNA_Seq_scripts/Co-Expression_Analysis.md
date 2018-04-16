@@ -245,3 +245,18 @@ done
 ```
 
 ### Create negative samples for each set
+
+```bash
+for Set in all highconfidence highexpressed
+do
+    for Rep in 1 2
+    do
+        WorkDir=promotor_id/$Set
+        Pos_Fasta=$WorkDir/"$Set"_upstream3000.split.100mer.fasta
+        Neg_Fasta=$WorkDir/"$Set"_nontarget_upstream3000.split.100mer.fasta
+        Num_of_Seqs=$(cat $Pos_Fasta | grep '>' | wc -l)
+        Script_Dir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+        qsub $Script_Dir/sub_fasta_subsample.sh $Neg_Fasta $Num_of_Seqs $Rep
+    done
+done
+```
