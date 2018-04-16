@@ -256,7 +256,7 @@ do
         Neg_Fasta=$WorkDir/"$Set"_nontarget_upstream3000.split.100mer.fasta
         Num_of_Seqs=$(cat $Pos_Fasta | grep '>' | wc -l)
         Script_Dir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-        qsub $Script_Dir/sub_fasta_subsample.sh $Neg_Fasta $Num_of_Seqs $Rep
+        qsub $Script_Dir/sub_fasta_subsample.sh $Neg_Fasta $Num_of_Seqs $Rep $WorkDir
     done
 done
 ```
