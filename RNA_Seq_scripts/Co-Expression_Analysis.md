@@ -277,7 +277,7 @@ do
         Positive=$WorkDir/"$Set"_upstream3000.split.100mer.fasta
         Negative=$NegDir/"$Set"_nontarget_upstream3000.split.100mer_random_*_"$Rep".fasta
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-        qsub $ProgDir/sub_dreme.sh $Positive $Negative $WorkDir $Rep 0.10
+        qsub $ProgDir/sub_dreme.sh $Positive $Negative $NegDir $Rep 0.10
     done
 done
 ```
