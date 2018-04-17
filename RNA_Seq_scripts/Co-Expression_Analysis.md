@@ -270,7 +270,7 @@ do
     do
         WorkDir=promotor_id/$Set
         Positive=$WorkDir/"$Set"_upstream3000.split.100mer.fasta
-        Negative=$WorkDir/"$Set"_nontarget_upstream3000.split.100mer_random_960_"$Rep".fasta
+        Negative=$WorkDir/"$Set"_nontarget_upstream3000.split.100mer_random_*_"$Rep".fasta
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
         qsub $ProgDir/sub_dreme.sh $Positive $Negative $WorkDir $Rep
     done
