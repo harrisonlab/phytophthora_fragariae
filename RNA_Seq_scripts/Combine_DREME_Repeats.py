@@ -20,3 +20,8 @@ from repeated runs of DREME')
 ap.add_argument(--'output', required=True, type=str, help='Location to output \
 results to')
 conf = ap.parse_args()
+
+# -----------------------------------------------------
+# Step 2
+# Load motifs and p-values into a dictionary
+# -----------------------------------------------------
