@@ -37,4 +37,4 @@ for File in Files:
                 list = line.split()
                 P_val = list[6]
                 Motif = [2]
-                defaultdict[Motif].append(Pval)
+                defaultdict[Motif].append(P_val)
