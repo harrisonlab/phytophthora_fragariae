@@ -38,3 +38,8 @@ for File in Files:
                 P_val = list[6]
                 Motif = [2]
                 defaultdict[Motif].append(P_val)
+
+# -----------------------------------------------------
+# Step 3
+# Count number of times motifs identified with a p-value below thresholds
+# -----------------------------------------------------
