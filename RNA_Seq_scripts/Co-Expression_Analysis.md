@@ -249,14 +249,15 @@ done
 ```bash
 for Set in all highconfidence highexpressed
 do
-    for Rep in 1 2
+    for Rep in {1..100}
     do
         WorkDir=promotor_id/$Set
         Pos_Fasta=$WorkDir/"$Set"_upstream3000.split.100mer.fasta
         Neg_Fasta=$WorkDir/"$Set"_nontarget_upstream3000.split.100mer.fasta
         Num_of_Seqs=$(cat $Pos_Fasta | grep '>' | wc -l)
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-        qsub $ProgDir/sub_fasta_subsample.sh $Neg_Fasta $Num_of_Seqs $Rep $WorkDir
+        OutDir=/data/scratch/adamst/$Set
+        qsub $ProgDir/sub_fasta_subsample.sh $Neg_Fasta $Num_of_Seqs $Rep $OutDir
     done
 done
 ```
@@ -267,15 +268,16 @@ fifth command line argument is e-value, default is 0.05
 Increasing will provide more motifs, but they may not be significantly enriched
 
 ```bash
-for Rep in 1 2
+for Rep in {1..100}
 do
     for Set in all highconfidence highexpressed
     do
         WorkDir=promotor_id/$Set
+        NegDir=/data/scratch/adamst/$Set
         Positive=$WorkDir/"$Set"_upstream3000.split.100mer.fasta
-        Negative=$WorkDir/"$Set"_nontarget_upstream3000.split.100mer_random_*_"$Rep".fasta
+        Negative=$NegDir/"$Set"_nontarget_upstream3000.split.100mer_random_*_"$Rep".fasta
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-        qsub $ProgDir/sub_dreme.sh $Positive $Negative $WorkDir $Rep 0.35
+        qsub $ProgDir/sub_dreme.sh $Positive $Negative $WorkDir $Rep 0.10
     done
 done
 ```
