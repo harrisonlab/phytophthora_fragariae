@@ -7,3 +7,8 @@ motifs present in 90% of runs
 
 import argparse
 from collections import defaultdict
+
+# -----------------------------------------------------
+# Step 1
+# Import variables
+# -----------------------------------------------------
