@@ -25,3 +25,16 @@ conf = ap.parse_args()
 # Step 2
 # Load motifs and p-values into a dictionary
 # -----------------------------------------------------
+
+motif_dict = defaultdict(list)
+
+Files = conf.inputs
+for File in Files:
+    with open(File) as f:
+        Lines = f.readlines()
+        for line in Lines:
+            if line.startswith('# BEST'):
+                list = line.split()
+                P_val = list[6]
+                Motif = [2]
+                defaultdict[Motif].append(Pval)
