@@ -263,6 +263,8 @@ done
 
 ### DREME motif analysis
 
+fifth command line argument is e-value, default is 0.05
+
 ```bash
 for Rep in 1 2
 do
@@ -272,7 +274,7 @@ do
         Positive=$WorkDir/"$Set"_upstream3000.split.100mer.fasta
         Negative=$WorkDir/"$Set"_nontarget_upstream3000.split.100mer_random_*_"$Rep".fasta
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-        qsub $ProgDir/sub_dreme.sh $Positive $Negative $WorkDir $Rep
+        qsub $ProgDir/sub_dreme.sh $Positive $Negative $WorkDir $Rep 0.15
     done
 done
 ```
