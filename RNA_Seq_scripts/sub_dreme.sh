@@ -1,4 +1,5 @@
 #! /bin/bash
+#$ -S /bin/bash
 #$ -cwd
 #$ -pe smp 1
 #$ -l h_vmem=1G
