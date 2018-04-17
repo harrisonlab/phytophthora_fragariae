@@ -264,6 +264,7 @@ done
 ### DREME motif analysis
 
 fifth command line argument is e-value, default is 0.05
+Increasing will provide more motifs, but they may not be significantly enriched
 
 ```bash
 for Rep in 1 2
