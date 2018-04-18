@@ -2,7 +2,7 @@
 
 '''
 This script will analyse results from each repetition of DREME and extract
-motifs present in 90% of runs
+motifs present in a percentage of runs (value provided by user)
 With significance thresholds of: 0.1, 0.05, 0.01 and 0.001
 '''
 
@@ -59,5 +59,49 @@ for Motif in Motifs:
     P_values = motif_dict[Motif]
     Count = sum(1 for P_val in P_values if P_val <= 0.1)
     Count_Percent = (float(Count) / float(Num_Files_Sub)) * 100
-    if Count_Percent > Percentage:
+    if Count_Percent >= Percentage:
         Positive_Motifs_1.append(Motif)
+
+# Threshold of 0.05
+
+Positive_Motifs_2 = []
+
+for Motif in Motifs:
+    P_values = motif_dict[Motif]
+    Count = sum(1 for P_val in P_values if P_val <= 0.05)
+    Count_Percent = (float(Count) / float(Num_Files_Sub)) * 100
+    if Count_Percent >= Percentage:
+        Positive_Motifs_2.append(Motif)
+
+# Threshold of 0.01
+
+Positive_Motifs_3 = []
+
+for Motif in Motifs:
+    P_values = motif_dict[Motif]
+    Count = sum(1 for P_val in P_values if P_val <= 0.01)
+    Count_Percent = (float(Count) / float(Num_Files_Sub)) * 100
+    if Count_Percent >= Percentage:
+        Positive_Motifs_3.append(Motif)
+
+# Threshold of 0.001
+
+Positive_Motifs_4 = []
+
+for Motif in Motifs:
+    P_values = motif_dict[Motif]
+    Count = sum(1 for P_val in P_values if P_val <= 0.001)
+    Count_Percent = (float(Count) / float(Num_Files_Sub)) * 100
+    if Count_Percent >= Percentage:
+        Positive_Motifs_4.append(Motif)
+
+# Create list of non-significant motifs reliably identified
+
+Negative_Motifs = []
+
+for Motif in Motifs:
+    P_values = motif_dict[Motif]
+    Count = sum(1 for P_val in P_values)
+    Count_Percent = (float(Count) / float(Num_Files_Sub)) * 100
+    if Count_Percent >= Percentage:
+        Negative_Motifs.append(Motif)
