@@ -257,6 +257,7 @@ do
         Num_of_Seqs=$(cat $Pos_Fasta | grep '>' | wc -l)
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
         OutDir=/data/scratch/adamst/$Set
+        mkdir -p $OutDir
         Jobs=$(qstat | grep 'sub_fasta' | wc -l)
         while [ $Jobs -gt 20 ]
         do
