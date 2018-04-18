@@ -124,6 +124,9 @@ List_to_write = []
 for Motif in Positive_Motifs_4:
     List_to_write.append(Motif)
 
+Set_to_write = set(List_to_write)
+List_to_write = list(Set_to_write)
+
 # Write out motifs
 
 Out_File = "Significant_motifs_0.001.txt"
@@ -143,6 +146,9 @@ List_to_write = []
 for Motif in Positive_Motifs_3:
     if Motif not in Positive_Motifs_4:
         List_to_write.append(Motif)
+
+Set_to_write = set(List_to_write)
+List_to_write = list(Set_to_write)
 
 # Write out motifs
 
@@ -164,6 +170,9 @@ for Motif in Positive_Motifs_2:
     if Motif not in Positive_Motifs_4:
         if Motif not in Positive_Motifs_3:
             List_to_write.append(Motif)
+
+Set_to_write = set(List_to_write)
+List_to_write = list(Set_to_write)
 
 # Write out motifs
 
@@ -187,6 +196,9 @@ for Motif in Positive_Motifs_1:
             if Motif not in Positive_Motifs_2:
                 List_to_write.append(Motif)
 
+Set_to_write = set(List_to_write)
+List_to_write = list(Set_to_write)
+
 # Write out motifs
 
 Out_File = "Significant_motifs_0.1.txt"
@@ -209,6 +221,9 @@ for Motif in Negative_Motifs:
             if Motif not in Positive_Motifs_2:
                 if Motif not in Positive_Motifs_1:
                     List_to_write.append(Motif)
+
+Set_to_write = set(List_to_write)
+List_to_write = list(Set_to_write)
 
 # Write out motifs
 
