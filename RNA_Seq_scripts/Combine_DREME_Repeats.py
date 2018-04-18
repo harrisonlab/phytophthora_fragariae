@@ -49,6 +49,7 @@ for File in Files:
 Motifs = motif_dict.keys()
 
 Percentage = conf.percentage
+Num_Files_Sub = len(Files)
 
 # Threshold of 0.1
 
@@ -57,5 +58,6 @@ Positive_Motifs_1 = []
 for Motif in Motifs:
     P_values = motif_dict[Motif]
     Count = sum(1 for P_val in P_values if P_val <= 0.1)
-    if Count > Percentage:
+    Count_Percent = (float(Count) / float(Num_Files_Sub)) * 100
+    if Count_Percent > Percentage:
         Positive_Motifs_1.append(Motif)
