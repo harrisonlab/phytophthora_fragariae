@@ -17,7 +17,9 @@ from collections import defaultdict
 ap = argparse.ArgumentParser()
 ap.add_argument('--inputs', required=True, type=str, help='Lists of files \
 from repeated runs of DREME')
-ap.add_argument(--'output', required=True, type=str, help='Location to output \
+ap.add_argument('--percentage', required=True, type=float, help='Percentage \
+of repeats where a motif must be significantly identified to be counted')
+ap.add_argument(--'outdir', required=True, type=str, help='Directory to output \
 results to')
 conf = ap.parse_args()
 
@@ -37,9 +39,23 @@ for File in Files:
                 list = line.split()
                 P_val = list[6]
                 Motif = [2]
-                defaultdict[Motif].append(P_val)
+                motif_dict[Motif].append(P_val)
 
 # -----------------------------------------------------
 # Step 3
 # Count number of times motifs identified with a p-value below thresholds
 # -----------------------------------------------------
+
+Motifs = motif_dict.keys()
+
+Percentage = conf.percentage
+
+# Threshold of 0.1
+
+Positive_Motifs_1 = []
+
+for Motif in Motifs:
+    P_values = motif_dict[Motif]
+    Count = sum(P_val > 0.1 for P_val in P_values)
+    if Count > Percentage:
+        Positive_Motifs_1.append(Motif)
