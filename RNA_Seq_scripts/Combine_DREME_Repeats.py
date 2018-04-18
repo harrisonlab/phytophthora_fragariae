@@ -8,6 +8,7 @@ With significance thresholds of: 0.1, 0.05, 0.01 and 0.001
 
 import argparse
 from collections import defaultdict
+import os
 
 # -----------------------------------------------------
 # Step 1
@@ -22,6 +23,8 @@ of repeats where a motif must be significantly identified to be counted')
 ap.add_argument(--'outdir', required=True, type=str, help='Directory to output \
 results to')
 conf = ap.parse_args()
+
+cwd = os.getcwd()
 
 # -----------------------------------------------------
 # Step 2
@@ -111,3 +114,24 @@ for Motif in Motifs:
 # Cut down lists to avoid duplication at various significance levels
 # Write lists out to files
 # -----------------------------------------------------
+
+OutDir = conf.outdir
+
+# Threshold of 0.001
+# Create list to write out
+
+List_to_write = []
+for Motif in Positive_Motifs_4:
+    List_to_write.append(Motif)
+
+# Write out motifs
+
+Out_File = "Significant_Motifs_0.001.txt"
+Output = "/".join([cwd, OutDir, Out_File])
+
+with open(Output, 'w') as o:
+    o.write("Motifs significant with an e-value threshold of 0.001")
+    o.write("\n")
+    for Motif in List_to_write:
+        o.write(Motif)
+        o.write("\n")
