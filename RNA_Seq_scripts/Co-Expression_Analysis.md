@@ -292,7 +292,13 @@ do
             printf "."
             Jobs=$(qstat | grep 'sub_dreme' | wc -l)
         done
-        qsub $ProgDir/sub_dreme.sh $Positive $Negative $NegDir $Rep 0.10
+        qsub $ProgDir/sub_dreme.sh $Positive $Negative $NegDir $Rep 0.25
     done
 done
+```
+
+Combine results from multiple repeats
+
+```bash
+
 ```
