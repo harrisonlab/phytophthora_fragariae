@@ -125,7 +125,6 @@ for Motif in Positive_Motifs_4:
     List_to_write.append(Motif)
 
 Set_to_write = set(List_to_write)
-List_to_write = list(Set_to_write)
 
 # Write out motifs
 
@@ -135,7 +134,7 @@ Output = "/".join([cwd, OutDir, Out_File])
 with open(Output, 'w') as o:
     o.write("Motifs significant with an e-value threshold of 0.001")
     o.write("\n")
-    for Motif in List_to_write:
+    for Motif in Set_to_write:
         o.write(Motif)
         o.write("\n")
 
@@ -148,7 +147,6 @@ for Motif in Positive_Motifs_3:
         List_to_write.append(Motif)
 
 Set_to_write = set(List_to_write)
-List_to_write = list(Set_to_write)
 
 # Write out motifs
 
@@ -158,7 +156,7 @@ Output = "/".join([cwd, OutDir, Out_File])
 with open(Output, 'w') as o:
     o.write("Motifs significant with an e-value threshold of 0.01")
     o.write("\n")
-    for Mofit in List_to_write:
+    for Motif in Set_to_write:
         o.write(Motif)
         o.write("\n")
 
@@ -172,7 +170,6 @@ for Motif in Positive_Motifs_2:
             List_to_write.append(Motif)
 
 Set_to_write = set(List_to_write)
-List_to_write = list(Set_to_write)
 
 # Write out motifs
 
@@ -182,7 +179,7 @@ Output = "/".join([cwd, OutDir, Out_File])
 with open(Output, 'w') as o:
     o.write("Motifs significant with an e-value threshold of 0.05")
     o.write("\n")
-    for Mofit in List_to_write:
+    for Motif in Set_to_write:
         o.write(Motif)
         o.write("\n")
 
@@ -197,7 +194,6 @@ for Motif in Positive_Motifs_1:
                 List_to_write.append(Motif)
 
 Set_to_write = set(List_to_write)
-List_to_write = list(Set_to_write)
 
 # Write out motifs
 
@@ -207,7 +203,7 @@ Output = "/".join([cwd, OutDir, Out_File])
 with open(Output, 'w') as o:
     o.write("Motifs significant with an e-value threshold of 0.1")
     o.write("\n")
-    for Mofit in List_to_write:
+    for Motif in Set_to_write:
         o.write(Motif)
         o.write("\n")
 
@@ -223,7 +219,6 @@ for Motif in Negative_Motifs:
                     List_to_write.append(Motif)
 
 Set_to_write = set(List_to_write)
-List_to_write = list(Set_to_write)
 
 # Write out motifs
 
@@ -233,6 +228,6 @@ Output = "/".join([cwd, OutDir, Out_File])
 with open(Output, 'w') as o:
     o.write("Motifs significant with an e-value above 0.1")
     o.write("\n")
-    for Mofit in List_to_write:
+    for Motif in Set_to_write:
         o.write(Motif)
         o.write("\n")
