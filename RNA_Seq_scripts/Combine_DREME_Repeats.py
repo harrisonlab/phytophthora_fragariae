@@ -16,8 +16,8 @@ import os
 # -----------------------------------------------------
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--inputs', required=True, type=str, help='Lists of files \
-from repeated runs of DREME')
+ap.add_argument('--inputs', required=True, type=str, nargs='+', help='Lists of \
+files from repeated runs of DREME')
 ap.add_argument('--percentage', required=True, type=float, help='Percentage \
 of repeats where a motif must be significantly identified to be counted')
 ap.add_argument('--outdir', required=True, type=str, help='Directory to output \
