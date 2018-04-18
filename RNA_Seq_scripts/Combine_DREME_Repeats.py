@@ -41,7 +41,7 @@ for File in Files:
             if line.startswith('# BEST'):
                 list = line.split()
                 P_val = list[6]
-                Motif = [2]
+                Motif = str(list[2])
                 motif_dict[Motif].append(P_val)
 
 # -----------------------------------------------------
