@@ -40,7 +40,7 @@ for File in Files:
         for line in Lines:
             if line.startswith('# BEST'):
                 list = line.split()
-                P_val = list[6]
+                P_val = float(list[7])
                 Motif = str(list[2])
                 motif_dict[Motif].append(P_val)
 
