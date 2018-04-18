@@ -155,3 +155,69 @@ with open(Output, 'w') as o:
     for Mofit in List_to_write:
         o.write(Motif)
         o.write("\n")
+
+# Threshold of 0.05
+# Create list to write out
+
+List_to_write = []
+for Motif in Positive_Motifs_2:
+    if Motif not in Positive_Motifs_4:
+        if Motif not in Positive_Motifs_3:
+            List_to_write.append(Motif)
+
+# Write out motifs
+
+Out_File = "Significant_motifs_0.05.txt"
+Output = "/".join([cwd, OutDir, Out_File])
+
+with open(Output, 'w') as o:
+    o.write("Motifs significant with an e-value threshold of 0.05")
+    o.write("\n")
+    for Mofit in List_to_write:
+        o.write(Motif)
+        o.write("\n")
+
+# Threshold of 0.1
+# Create list to write out
+
+List_to_write = []
+for Motif in Positive_Motifs_1:
+    if Motif not in Positive_Motifs_4:
+        if Motif not in Positive_Motifs_3:
+            if Motif not in Positive_Motifs_2:
+                List_to_write.append(Motif)
+
+# Write out motifs
+
+Out_File = "Significant_motifs_0.1.txt"
+Output = "/".join([cwd, OutDir, Out_File])
+
+with open(Output, 'w') as o:
+    o.write("Motifs significant with an e-value threshold of 0.1")
+    o.write("\n")
+    for Mofit in List_to_write:
+        o.write(Motif)
+        o.write("\n")
+
+# Non-significant
+# Create list to write out
+
+List_to_write = []
+for Motif in Negative_Motifs:
+    if Motif not in Positive_Motifs_4:
+        if Motif not in Positive_Motifs_3:
+            if Motif not in Positive_Motifs_2:
+                if Motif not in Positive_Motifs_1:
+                    List_to_write.append(Motif)
+
+# Write out motifs
+
+Out_File = "Non-Significant_motifs.txt"
+Output = "/".join([cwd, OutDir, Out_File])
+
+with open(Output, 'w') as o:
+    o.write("Motifs significant with an e-value above 0.1")
+    o.write("\n")
+    for Mofit in List_to_write:
+        o.write(Motif)
+        o.write("\n")
