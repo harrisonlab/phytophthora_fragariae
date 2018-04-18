@@ -105,3 +105,9 @@ for Motif in Motifs:
     Count_Percent = (float(Count) / float(Num_Files_Sub)) * 100
     if Count_Percent >= Percentage:
         Negative_Motifs.append(Motif)
+
+# -----------------------------------------------------
+# Step 4
+# Cut down lists to avoid duplication at various significance levels
+# Write lists out to files
+# -----------------------------------------------------
