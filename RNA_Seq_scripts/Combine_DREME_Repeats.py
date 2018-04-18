@@ -56,6 +56,6 @@ Positive_Motifs_1 = []
 
 for Motif in Motifs:
     P_values = motif_dict[Motif]
-    Count = sum(P_val > 0.1 for P_val in P_values)
+    Count = sum(1 for P_val in P_values if P_val <= 0.1)
     if Count > Percentage:
         Positive_Motifs_1.append(Motif)
