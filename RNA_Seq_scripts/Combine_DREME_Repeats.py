@@ -126,7 +126,7 @@ for Motif in Positive_Motifs_4:
 
 # Write out motifs
 
-Out_File = "Significant_Motifs_0.001.txt"
+Out_File = "Significant_motifs_0.001.txt"
 Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
