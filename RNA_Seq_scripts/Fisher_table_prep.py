@@ -46,3 +46,10 @@ conf = ap.parse_args()
 # Step 2
 # Load input files to variables
 # -----------------------------------------------------
+
+RxLRs = []
+with open(conf.Module_RxLRs) as f:
+    for line in f.readlines:
+        RxLRs.append(line)
+
+RxLR_Set = set(RxLRs)
