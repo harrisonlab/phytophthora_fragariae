@@ -383,3 +383,19 @@ done
 ```
 
 ### Run Fishers Exact test to test for enrichment
+
+```bash
+for Table in $(ls analysis/coexpression/enrichment/*/*Fishertable.txt)
+do
+    Module_ID=$(echo $Table | rev | cut -f2 -d "/" | rev)
+    Filename=$(echo $Table | rev | cut -f1 -d "/" | rev)
+    Gene_Type=$(echo $Filename | cut -f2 -d "_")
+    OutDir=analysis/coexpression/$Module_ID/Fisher_Results
+    mkdir -p $OutDir
+    Out_File=$OutDir/"$Module_ID"_"$Gene_Type"_Fisher_Results.txt
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    echo "Running $Module_ID" "$Gene_Type"
+    $ProgDir/fisherstest.r --Input_Table $Table --Output_File $Out_File --Module_ID $Module_ID --Gene_Type $Gene_Type
+    echo "$Module_ID" "$Gene_Type done"
+done
+```
