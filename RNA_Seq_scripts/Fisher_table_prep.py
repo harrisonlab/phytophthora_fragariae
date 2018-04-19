@@ -94,3 +94,24 @@ cwd = os.getcwd()
 # Step 3
 # Obtain counts for all gene types in module and rest of genome
 # -----------------------------------------------------
+
+# Modules
+
+Mod_RxLR_Num = len(RxLR_Set)
+Mod_CRN_Num = len(CRN_Set)
+Mod_ApoP_Num = len(ApoP_Set)
+Mod_Effector_Num = len(Effector_Set)
+Mod_Gene_Num = len(Gene_Set)
+
+# Genome
+
+Gen_RxLR_Num = Genome_RxLRs - Mod_RxLR_Num
+Gen_CRN_Num = Genome_CRNs - Mod_CRN_Num
+Gen_ApoP_Num = Genome_ApoP - Mod_ApoP_Num
+Gen_Effector_Num = Genome_Effectors - Mod_Effector_Num
+Gen_Gene_Num = Genome_Genes - Mod_Gene_Num
+
+# -----------------------------------------------------
+# Step 4
+# Write output files
+# -----------------------------------------------------
