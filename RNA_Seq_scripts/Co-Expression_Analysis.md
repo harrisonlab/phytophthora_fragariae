@@ -354,4 +354,4 @@ do
 done
 ```
 
-### Create table for fishers exact test
+### Create contigency tables for fishers exact test
