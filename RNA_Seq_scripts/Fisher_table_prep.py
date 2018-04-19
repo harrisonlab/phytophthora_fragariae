@@ -44,7 +44,7 @@ conf = ap.parse_args()
 
 # -----------------------------------------------------
 # Step 2
-# Load input files to variables
+# Load inputs into python variables
 # -----------------------------------------------------
 
 RxLRs = []
@@ -81,3 +81,11 @@ with open(conf.Module_Genes) as f:
         Genes.append(line)
 
 Gene_Set = set(Genes)
+
+Module_Name = conf.Module_Name
+Genome_RxLRs = conf.Genome_RxLRs
+Genome_CRNs = conf.Genome_CRNs
+Genome_ApoP = conf.Genome_ApoP
+Genome_Effectors = conf.Genome_Effectors
+Genome_Genes = conf.Genome_Genes
+OutDir = conf.OutDir
