@@ -7,7 +7,6 @@ effector genes in a coexpressed module compared to and the rest of the genome
 
 import argparse
 import numpy
-from collections import defaultdict
 import os
 
 # -----------------------------------------------------
@@ -89,3 +88,4 @@ Genome_ApoP = conf.Genome_ApoP
 Genome_Effectors = conf.Genome_Effectors
 Genome_Genes = conf.Genome_Genes
 OutDir = conf.OutDir
+cwd = os.getcwd()
