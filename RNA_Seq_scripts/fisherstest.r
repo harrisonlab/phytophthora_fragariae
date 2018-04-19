@@ -3,6 +3,9 @@
 # Load libraries
 
 library(optparse)
+
+# Load command line options
+
 opt_list <- list(
     make_option("--Input_Table", type = "character", help = "Fisher contigency
     table to analyse"),
@@ -19,6 +22,8 @@ Input_Table <- opt$Input_Table
 Output_File <- opt$Output_File
 Module_ID <- opt$Module_ID
 Gene_Type <- opt$Gene_Type
+
+# Create data structures pre-analysis
 
 Fisher_Table <- data.frame()
 Fisher_Table <- read.table(Input_Table, header = FALSE, sep = "\t")
