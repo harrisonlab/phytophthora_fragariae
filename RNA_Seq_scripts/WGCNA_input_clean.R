@@ -1,6 +1,6 @@
 #!/usr/bin/Rscript
 
-# Load WGCNA package
+# Load libraries
 
 library("WGCNA")
 library("optparse")
