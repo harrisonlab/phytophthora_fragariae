@@ -47,35 +47,35 @@ conf = ap.parse_args()
 
 RxLRs = []
 with open(conf.Module_RxLRs) as f:
-    for line in f.readlines:
+    for line in f.readlines():
         RxLRs.append(line)
 
 RxLR_Set = set(RxLRs)
 
 CRNs = []
 with open(conf.Module_CRNs) as f:
-    for line in f.readlines:
+    for line in f.readlines():
         CRNs.append(line)
 
 CRN_Set = set(CRNs)
 
 ApoP = []
 with open(conf.Module_ApoP) as f:
-    for line in f.readlines:
+    for line in f.readlines():
         ApoP.append(line)
 
 ApoP_Set = set(ApoP)
 
 Effectors = []
 with open(conf.Module_Effectors) as f:
-    for line in f.readlines:
+    for line in f.readlines():
         Effectors.append(line)
 
 Effector_Set = set(Effectors)
 
 Genes = []
 with open(conf.Module_Genes) as f:
-    for line in f.readlines:
+    for line in f.readlines():
         Genes.append(line)
 
 Gene_Set = set(Genes)
