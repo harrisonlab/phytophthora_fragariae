@@ -89,3 +89,8 @@ Genome_Effectors = conf.Genome_Effectors
 Genome_Genes = conf.Genome_Genes
 OutDir = conf.OutDir
 cwd = os.getcwd()
+
+# -----------------------------------------------------
+# Step 3
+# Obtain counts for all gene types in module and rest of genome
+# -----------------------------------------------------
