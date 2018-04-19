@@ -367,7 +367,7 @@ Genome_ApoP=$(cat $ApoP_Headers | sort | uniq | wc -l)
 Genome_Effectors=$(cat $RxLR_Headers $CRN_Headers $ApoP_Headers | sort | uniq | wc -l)
 Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
 Genome_Genes=$(cat $Genes | sort | uniq | wc -l)
-for Module_Dir in $(ls analysis/coexpression/enrichment/*)
+for Module_Dir in $(ls -d analysis/coexpression/enrichment/*)
 do
     Module_Name=$(echo $Module_Dir | rev | cut -f1 -d "/" | rev)
     Module_RxLRs=$Module_Dir/RxLR_IDs.txt
