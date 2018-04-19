@@ -314,3 +314,5 @@ done
 ```
 
 Nothing can be reproducibly pulled out, possibly due to the small input sample size
+
+## Investigate enrichment of effector class genes in co-expression modules
