@@ -12,5 +12,32 @@ import os
 
 # -----------------------------------------------------
 # Step 1
-# Import variables and load input files
+# Import command line arguments
 # -----------------------------------------------------
+
+ap = argparse.ArgumentParser()
+ap.add_argument('--Module_RxLRs', required=True, type=str, help='List of RxLRs \
+in a coexpression module')
+ap.add_argument('--Module_CRNs', required=True, type=str, help='List of CRNs \
+in a coexpression module')
+ap.add_argument('--Module_ApoP', required=True, type=str, help='List of ApoP \
+hits in a coexpression module')
+ap.add_argument('--Module_Effectors', required=True, type=str, help='List of Effectors \
+in a coexpression module')
+ap.add_argument('--Module_Genes', required=True, type=str, help='Complete list \
+of genes in a coexpression module')
+ap.add_argument('--Module_Name', required=True, type=str, help='Name of the \
+module being analysed')
+ap.add_argument('--Genome_RxLRs', required=True, type=float, help='Number of \
+total RxLRs in the genome')
+ap.add_argument('--Genome_CRNs', required=True, type=float, help='Number of \
+total CRNs in the genome')
+ap.add_argument('--Genome_ApoP', required=True, type=float, help='Number of \
+total ApoP hits in the genome')
+ap.add_argument('--Genome_Effectors', required=True, type=float, help='Number of \
+total Effectorss in the genome')
+ap.add_argument('--Genome_Genes', required=True, type=float, help='Number of \
+total genes in the genome')
+ap.add_argument('--OutDir', required=True, type=str, help='Directory to write \
+output files to')
+conf = ap.parse_args()
