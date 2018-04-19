@@ -32,3 +32,9 @@ Fisher_Matrix <- matrix(c(Fisher_Table$V2[1], Fisher_Table$V2[2],
 Fisher_Table$V3[1], Fisher_Table$V3[2]), nrow = 2, dimnames = list(
     Annotation = c(Gene_Type, "Other Genes"), Gene_Set = c(Module_ID, "Genome")
 ))
+
+# Run Fishers exact test: two-way test
+
+results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
+hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
+conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
