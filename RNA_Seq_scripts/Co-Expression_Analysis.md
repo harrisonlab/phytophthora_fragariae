@@ -316,3 +316,40 @@ done
 Nothing can be reproducibly pulled out, possibly due to the small input sample size
 
 ## Investigate enrichment of effector class genes in co-expression modules
+
+Create lists of RxLRs, CRNs, ApoplastP hits and combined list of all effectors
+
+```bash
+for File in $(ls analysis/coexpression/merged_modules/Genes_in_*.txt)
+do
+    Filename=$(echo $File | rev | cut -f1 -d "/" | rev)
+    Module_ID=$(echo $Filename | cut -f3 -d "_" | cut -f1 -d ".")
+    echo "Processing $Module_ID"
+    Module_Dir=analysis/coexpression/enrichment/$Module_ID
+    mkdir -p $Module_Dir
+    Gene_Set_unsorted=$Module_Dir/Gene_Set_unsorted.txt
+    Gene_Set=$Module_Dir/Gene_Set.txt
+    # Copy entire gene set
+    cp $File $Gene_Set_unsorted
+    cat $Gene_Set_unsorted | sort | uniq | sed 's/"//g' | cut -f1 -d "." > $Gene_Set
+    echo "Gene set file created for $Module_ID"
+    # Create RxLR list
+    RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+    RxLRs_In_Module=$Module_Dir/RxLR_IDs.txt
+    cat $RxLR_Headers | cut -f1 -d "." | grep -wf $Gene_Set | sort | uniq > $RxLRs_In_Module
+    echo "RxLR file created for $Module_ID"
+    # Create CRN list
+    CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+    CRNs_In_Module=$Module_Dir/CRN_IDs.txt
+    cat $CRN_Headers | cut -f1 -d "." | grep -wf $Gene_Set | sort | uniq > $CRNs_In_Module
+    echo "CRN file created for $Module_ID"
+    # Create list of ApoplastP hits
+    ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+    ApoP_In_Module=$Module_Dir/ApoP_IDs.txt
+    cat $ApoP_Headers | cut -f1 -d "." | grep -wf $Gene_Set | sort | uniq > $ApoP_In_Module
+    echo "ApoplastP hits file created for $Module_ID"
+    # Create combined effector list
+    Effectors_In_Module=$Module_Dir/Effector_IDs.txt
+    cat $RxLRs_In_Module $CRNs_In_Module $ApoP_In_Module | sort | uniq > $Effectors_In_Module
+done
+```
