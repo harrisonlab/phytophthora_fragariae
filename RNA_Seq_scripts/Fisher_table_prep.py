@@ -41,3 +41,8 @@ total genes in the genome')
 ap.add_argument('--OutDir', required=True, type=str, help='Directory to write \
 output files to')
 conf = ap.parse_args()
+
+# -----------------------------------------------------
+# Step 2
+# Load input files to variables
+# -----------------------------------------------------
