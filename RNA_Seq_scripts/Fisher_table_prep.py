@@ -74,3 +74,10 @@ with open(conf.Module_Effectors) as f:
         Effectors.append(line)
 
 Effector_Set = set(Effectors)
+
+Genes = []
+with open(conf.Module_Genes) as f:
+    for line in f.readlines:
+        Genes.append(line)
+
+Gene_Set = set(Genes)
