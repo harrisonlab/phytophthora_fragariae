@@ -9,3 +9,8 @@ import argparse
 import numpy
 from collections import defaultdict
 import os
+
+# -----------------------------------------------------
+# Step 1
+# Import variables and load input files
+# -----------------------------------------------------
