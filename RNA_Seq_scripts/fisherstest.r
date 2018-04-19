@@ -13,3 +13,6 @@ opt_list <- list(
 opt <- parse_args(OptionParser(option_list = opt_list))
 Input_Table <- opt$Input_Table
 Output_File <- opt$Output_File
+
+Fisher_Table <- data.frame()
+Fisher_Table <- read.table(Input_Table, header = FALSE, sep = "\ts")
