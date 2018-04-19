@@ -120,10 +120,10 @@ RxLR_Out = "/".join([cwd, OutDir, RxLR_File])
 
 with open(RxLR_Out, "w") as o:
     Gen_RxLR = Gen_RxLR_Num - Mod_RxLR_Num
-    Line1 = "\t".join(["RxLR", Mod_RxLR_Num, Gen_RxLR]) + "\n"
+    Line1 = "\t".join(["RxLR", str(Mod_RxLR_Num), str(Gen_RxLR)]) + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_RxLR_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_RxLR_Num
-    Line2 = "\t".join(["Other Genes", Mod_Genes, Gen_Genes]) + "\n"
+    Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
     o.write("".join([Line1, Line2]))
     o.close()
 
@@ -132,10 +132,10 @@ CRN_Out = "/".join([cwd, OutDir, CRN_File])
 
 with open(CRN_Out, "w") as o:
     Gen_CRN = Gen_CRN_Num - Mod_CRN_Num
-    Line1 = "\t".join(["CRN", Mod_CRN_Num, Gen_CRN]) + "\n"
+    Line1 = "\t".join(["CRN", str(Mod_CRN_Num), str(Gen_CRN)]) + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_CRN_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_CRN_Num
-    Line2 = "\t".join(["Other Genes", Mod_Genes, Gen_Genes]) + "\n"
+    Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
     o.write("".join([Line1, Line2]))
     o.close()
 
@@ -144,10 +144,10 @@ ApoP_Out = "/".join([cwd, OutDir, ApoP_File])
 
 with open(ApoP_Out, "w") as o:
     Gen_ApoP = Gen_ApoP_Num - Mod_ApoP_Num
-    Line1 = "\t".join(["ApoP", Mod_ApoP_Num, Gen_ApoP]) + "\n"
+    Line1 = "\t".join(["ApoP", str(Mod_ApoP_Num), str(Gen_ApoP)]) + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_ApoP_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_ApoP_Num
-    Line2 = "\t".join(["Other Genes", Mod_Genes, Gen_Genes]) + "\n"
+    Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
     o.write("".join([Line1, Line2]))
     o.close()
 
@@ -156,9 +156,10 @@ Effector_Out = "/".join([cwd, OutDir, Effector_File])
 
 with open(Effector_Out, "w") as o:
     Gen_Effector = Gen_Effector_Num - Mod_Effector_Num
-    Line1 = "\t".join(["Effector", Mod_Effector_Num, Gen_Effector]) + "\n"
+    Line1 = "\t".join(["Effector", str(Mod_Effector_Num), str(Gen_Effector)]) \
+        + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_Effector_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_Effector_Num
-    Line2 = "\t".join(["Other Genes", Mod_Genes, Gen_Genes]) + "\n"
+    Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
     o.write("".join([Line1, Line2]))
     o.close()
