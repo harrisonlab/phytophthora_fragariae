@@ -53,3 +53,10 @@ with open(conf.Module_RxLRs) as f:
         RxLRs.append(line)
 
 RxLR_Set = set(RxLRs)
+
+CRNs = []
+with open(conf.Module_CRNs) as f:
+    for line in f.readlines:
+        CRNs.append(line)
+
+CRN_Set = set(CRNs)
