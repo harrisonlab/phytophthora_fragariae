@@ -369,13 +369,15 @@ Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fa
 Genome_Genes=$(cat $Genes | sort | uniq | wc -l)
 for Module_Dir in $(ls analysis/coexpression/enrichment/*)
 do
-    Module_name=$(echo $Module_Dir | rev | cut -f1 -d "/" | rev)
+    Module_Name=$(echo $Module_Dir | rev | cut -f1 -d "/" | rev)
     Module_RxLRs=$Module_Dir/RxLR_IDs.txt
     Module_CRNs=$Module_Dir/CRN_IDs.txt
     Module_ApoP=$Module_Dir/ApoP_IDs.txt
     Module_Effectors=$Module_Dir/Effector_IDs.txt
     Module_Genes=$Module_Dir/Gene_Set.txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    echo "Processing $Module_Name"
     python $ProgDir/Fisher_table_prep.py --Module_RxLRs $Module_RxLRs --Module_CRNs $Module_CRNs --Module_ApoP $Module_ApoP --Module_Effectors $Module_Effectors --Module_Genes $Module_Genes --Module_Name $Module_Name --Genome_RxLRs $Genome_RxLRs --Genome_CRNs $Genome_CRNs --Genome_ApoP $Genome_ApoP --Genome_Effectors $Genome_Effectors --Genome_Genes $Genome_Genes --OutDir $ModuleDir
+    echo "$Module_Name done"
 done
 ```
