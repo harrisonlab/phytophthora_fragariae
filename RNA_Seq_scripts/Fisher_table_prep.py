@@ -67,3 +67,10 @@ with open(conf.Module_ApoP) as f:
         ApoP.append(line)
 
 ApoP_Set = set(ApoP)
+
+Effectors = []
+with open(conf.Module_Effectors) as f:
+    for line in f.readlines:
+        Effectors.append(line)
+
+Effector_Set = set(Effectors)
