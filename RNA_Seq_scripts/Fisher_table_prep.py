@@ -60,3 +60,10 @@ with open(conf.Module_CRNs) as f:
         CRNs.append(line)
 
 CRN_Set = set(CRNs)
+
+ApoP = []
+with open(conf.Module_ApoP) as f:
+    for line in f.readlines:
+        ApoP.append(line)
+
+ApoP_Set = set(ApoP)
