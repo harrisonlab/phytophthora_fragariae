@@ -38,3 +38,8 @@ Fisher_Table$V3[1], Fisher_Table$V3[2]), nrow = 2, dimnames = list(
 results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
 hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
 conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
+
+# Write out results
+
+outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+write(outline, file = Output_File, append = T)
