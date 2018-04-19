@@ -115,3 +115,15 @@ Gen_Gene_Num = Genome_Genes - Mod_Gene_Num
 # Step 4
 # Write output files
 # -----------------------------------------------------
+
+RxLR_File = "_".join([Module_Name, "RxLR_Fishertable.txt"])
+RxLR_Out = "/".join([cwd, OutDir, RxLR_File])
+
+with open(RxLR_Out, "w") as o:
+    Gen_RxLR = Gen_RxLR_Num - Mod_RxLR_Num
+    Line1 = "\t".join(["RxLR", Mod_RxLR_Num, Gen_RxLR]) + "\n"
+    Mod_Genes = Mod_Gene_Num - Mod_RxLR_Num
+    Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_RxLR_Num
+    Line2 = "\t".join(["Other Genes", Mod_Genes, Gen_Genes]) + "\n"
+    o.write("".join([Line1, Line2]))
+    o.close()
