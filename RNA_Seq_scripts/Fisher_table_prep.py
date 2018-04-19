@@ -6,7 +6,6 @@ effector genes in a coexpressed module compared to and the rest of the genome
 '''
 
 import argparse
-import numpy
 import os
 
 # -----------------------------------------------------
