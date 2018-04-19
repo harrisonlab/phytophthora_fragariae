@@ -332,6 +332,7 @@ do
     # Copy entire gene set
     cp $File $Gene_Set_unsorted
     cat $Gene_Set_unsorted | sort | uniq | sed 's/"//g' | cut -f1 -d "." > $Gene_Set
+    rm $Gene_Set_unsorted
     echo "Gene set file created for $Module_ID"
     # Create RxLR list
     RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
@@ -355,3 +356,26 @@ done
 ```
 
 ### Create contigency tables for fishers exact test
+
+```bash
+RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+Genome_RxLRs=$(cat $RxLR_Headers | sort | uniq | wc -l)
+CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+Genome_CRNs=$(cat $CRN_Headers | sort | uniq | wc -l)
+ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+Genome_ApoP=$(cat $ApoP_Headers | sort | uniq | wc -l)
+Genome_Effectors=$(cat $RxLR_Headers $CRN_Headers $ApoP_Headers | sort | uniq | wc -l)
+Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
+Genome_Genes=$(cat $Genes | sort | uniq | wc -l)
+for Module_Dir in $(ls analysis/coexpression/enrichment/*)
+do
+    Module_name=$(echo $Module_Dir | rev | cut -f1 -d "/" | rev)
+    Module_RxLRs=$Module_Dir/RxLR_IDs.txt
+    Module_CRNs=$Module_Dir/CRN_IDs.txt
+    Module_ApoP=$Module_Dir/ApoP_IDs.txt
+    Module_Effectors=$Module_Dir/Effector_IDs.txt
+    Module_Genes=$Module_Dir/Gene_Set.txt
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    python $ProgDir/Fisher_table_prep.py --Module_RxLRs $Module_RxLRs --Module_CRNs $Module_CRNs --Module_ApoP $Module_ApoP --Module_Effectors $Module_Effectors --Module_Genes $Module_Genes --Module_Name $Module_Name --Genome_RxLRs $Genome_RxLRs --Genome_CRNs $Genome_CRNs --Genome_ApoP $Genome_ApoP --Genome_Effectors $Genome_Effectors --Genome_Genes $Genome_Genes --OutDir $ModuleDir
+done
+```
