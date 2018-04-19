@@ -11,5 +11,5 @@ opt_list <- list(
 )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
-Fisher_Table <- opt$Input_Table
+Input_Table <- opt$Input_Table
 Output_File <- opt$Output_File
