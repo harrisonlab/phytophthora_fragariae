@@ -42,3 +42,8 @@ for File in Files:
             P_value = float(split_line[2])
             key = "_".join([Module_ID, Gene_type])
             enrichment_dict[key] = P_value
+
+# -----------------------------------------------------
+# Step 3
+# Make a list of tests which pass p-value thresholds for writing out
+# -----------------------------------------------------
