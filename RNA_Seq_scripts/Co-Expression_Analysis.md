@@ -395,7 +395,7 @@ do
     Out_File=$OutDir/"$Module_ID"_"$Gene_Type"_Fisher_Results.txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
     echo "Running $Module_ID" "$Gene_Type"
-    /home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $ProgDir/fisherstest.r --Input_Table $Table --Output_File $Out_File --Module_ID $Module_ID --Gene_Type $Gene_Type
+    /home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $ProgDir/fisherstest.R --Input_Table $Table --Output_File $Out_File --Module_ID $Module_ID --Gene_Type $Gene_Type
     echo "$Module_ID" "$Gene_Type done"
 done
 ```
