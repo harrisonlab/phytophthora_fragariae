@@ -84,7 +84,9 @@ Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
     for item in Significant_1e3:
-        o.write(item)
+        P_value = enrichment_dict[item]
+        to_write = "\t".join([item, P_value])
+        o.write(to_write)
         o.write("\n")
 
 # Threshold of 0.01
@@ -94,7 +96,9 @@ Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
     for item in Significant_1e2:
-        o.write(item)
+        P_value = enrichment_dict[item]
+        to_write = "\t".join([item, P_value])
+        o.write(to_write)
         o.write("\n")
 
 # Threshold of 0.05
@@ -104,7 +108,9 @@ Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
     for item in Significant_5e2:
-        o.write(item)
+        P_value = enrichment_dict[item]
+        to_write = "\t".join([item, P_value])
+        o.write(to_write)
         o.write("\n")
 
 # Threshold of 0.1
@@ -114,5 +120,7 @@ Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
     for item in Significant_1e1:
-        o.write(item)
+        P_value = enrichment_dict[item]
+        to_write = "\t".join([item, P_value])
+        o.write(to_write)
         o.write("\n")
