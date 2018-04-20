@@ -51,7 +51,10 @@ for File in Files:
             P_vals.append(P_value)
 
 FDR = conf.FDR
-Corrected_Pval_array = statsmodels.sandbox.stats.multicomp.multipletests(P_vals, alpha=FDR, method='fdr_bh', is_sorted=False, returnsorted=False)
+Corrected_Pval_array = statsmodels.stats.multipletests(P_vals, alpha=FDR,
+                                                       method='fdr_bh',
+                                                       is_sorted=False,
+                                                       returnsorted=False)
 
 i = 0
 for key in keys:
