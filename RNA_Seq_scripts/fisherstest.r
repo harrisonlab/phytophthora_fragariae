@@ -2,7 +2,7 @@
 
 # Load libraries
 
-library(optparse)
+library("optparse")
 
 # Load command line options
 
