@@ -52,3 +52,10 @@ for File in Files:
 # -----------------------------------------------------
 
 # Threshold of 0.001
+
+Significant_1e3 = []
+
+for key in keys:
+    P_value = enrichment_dict[key]
+    if P_value <= 0.001:
+        Significant_1e3.append(key)
