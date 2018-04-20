@@ -31,6 +31,8 @@ cwd = os.getcwd()
 
 enrichment_dict = defaultdict(float)
 
+keys = []
+
 Files = conf.inputs
 for File in Files:
     with open(File) as f:
@@ -41,9 +43,12 @@ for File in Files:
             Gene_type = str(split_line[1])
             P_value = float(split_line[2])
             key = "_".join([Module_ID, Gene_type])
+            keys.append(key)
             enrichment_dict[key] = P_value
 
 # -----------------------------------------------------
 # Step 3
 # Make a list of tests which pass p-value thresholds for writing out
 # -----------------------------------------------------
+
+# Threshold of 0.001
