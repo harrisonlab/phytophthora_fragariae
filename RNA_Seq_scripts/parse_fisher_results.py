@@ -23,3 +23,8 @@ results to')
 conf = ap.parse_args()
 
 cwd = os.getcwd()
+
+# -----------------------------------------------------
+# Step 2
+# Creates dictionary of each gene type in each option
+# -----------------------------------------------------
