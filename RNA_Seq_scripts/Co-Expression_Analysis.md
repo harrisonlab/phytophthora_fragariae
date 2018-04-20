@@ -390,7 +390,7 @@ do
     Module_ID=$(echo $Table | rev | cut -f2 -d "/" | rev)
     Filename=$(echo $Table | rev | cut -f1 -d "/" | rev)
     Gene_Type=$(echo $Filename | cut -f2 -d "_")
-    OutDir=analysis/coexpression/$Module_ID/Fisher_Results
+    OutDir=analysis/coexpression/enrichment/$Module_ID/Fisher_Results
     mkdir -p $OutDir
     Out_File=$OutDir/"$Module_ID"_"$Gene_Type"_Fisher_Results.txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
