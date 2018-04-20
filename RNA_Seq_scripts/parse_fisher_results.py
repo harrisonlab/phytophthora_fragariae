@@ -14,3 +14,12 @@ import os
 # Step 1
 # Import variables
 # -----------------------------------------------------
+
+ap = argparse.ArgumentParser()
+ap.add_argument('--inputs', required=True, type=str, nargs='+', help='List of \
+files from all Fisher tests')
+ap.add_argument('--outdir', required=True, type=str, help='Directory to output \
+results to')
+conf = ap.parse_args()
+
+cwd = os.getcwd()
