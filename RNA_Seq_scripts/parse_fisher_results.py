@@ -74,3 +74,15 @@ for key in keys:
 # Step 4
 # Write out files
 # -----------------------------------------------------
+
+OutDir = conf.outdir
+
+# Threshold of 0.001
+
+Out_File = "Significant_enrichment_0.001.txt"
+Output = "/".join([cwd, OutDir, Out_File])
+
+with open(Output, 'w') as o:
+    for item in Significant_1e3:
+        o.write(item)
+        o.write("\n")
