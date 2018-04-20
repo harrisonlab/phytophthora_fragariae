@@ -42,4 +42,4 @@ conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
 # Write out results
 
 outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
-write(outline, file = Output_File, append = T)
+write(outline, file = Output_File, append = F)
