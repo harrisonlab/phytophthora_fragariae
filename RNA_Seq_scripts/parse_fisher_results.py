@@ -76,13 +76,16 @@ for key in keys:
 # -----------------------------------------------------
 
 OutDir = conf.outdir
+Header = "\t".join(["Module_Gene type", "P-value"])
 
 # Threshold of 0.001
 
-Out_File = "Significant_enrichment_0.001.txt"
+Out_File = "Significant_enrichment_0.001.tsv"
 Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
+    o.write(Header)
+    o.write("\n")
     for item in Significant_1e3:
         P_value = enrichment_dict[item]
         to_write = "\t".join([item, P_value])
@@ -91,10 +94,12 @@ with open(Output, 'w') as o:
 
 # Threshold of 0.01
 
-Out_File = "Significant_enrichment_0.01.txt"
+Out_File = "Significant_enrichment_0.01.tsv"
 Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
+    o.write(Header)
+    o.write("\n")
     for item in Significant_1e2:
         P_value = enrichment_dict[item]
         to_write = "\t".join([item, P_value])
@@ -103,10 +108,12 @@ with open(Output, 'w') as o:
 
 # Threshold of 0.05
 
-Out_File = "Significant_enrichment_0.05.txt"
+Out_File = "Significant_enrichment_0.05.tsv"
 Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
+    o.write(Header)
+    o.write("\n")
     for item in Significant_5e2:
         P_value = enrichment_dict[item]
         to_write = "\t".join([item, P_value])
@@ -115,10 +122,12 @@ with open(Output, 'w') as o:
 
 # Threshold of 0.1
 
-Out_File = "Significant_enrichment_0.1.txt"
+Out_File = "Significant_enrichment_0.1.tsv"
 Output = "/".join([cwd, OutDir, Out_File])
 
 with open(Output, 'w') as o:
+    o.write(Header)
+    o.write("\n")
     for item in Significant_1e1:
         P_value = enrichment_dict[item]
         to_write = "\t".join([item, P_value])
