@@ -106,3 +106,13 @@ with open(Output, 'w') as o:
     for item in Significant_5e2:
         o.write(item)
         o.write("\n")
+
+# Threshold of 0.1
+
+Out_File = "Significant_enrichment_0.1.txt"
+Output = "/".join([cwd, OutDir, Out_File])
+
+with open(Output, 'w') as o:
+    for item in Significant_1e1:
+        o.write(item)
+        o.write("\n")
