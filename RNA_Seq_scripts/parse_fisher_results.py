@@ -9,6 +9,8 @@ With significance thresholds of: 0.1, 0.05, 0.01 and 0.001
 import argparse
 from collections import defaultdict
 import os
+import numpy
+import statsmodels
 
 # -----------------------------------------------------
 # Step 1
@@ -20,13 +22,15 @@ ap.add_argument('--inputs', required=True, type=str, nargs='+', help='List of \
 files from all Fisher tests')
 ap.add_argument('--outdir', required=True, type=str, help='Directory to output \
 results to')
+ap.add_argument('--FDR', required=True, type=float, help='False Discovery rate \
+for Benjamini-Hochberg multi-test correction')
 conf = ap.parse_args()
 
 cwd = os.getcwd()
 
 # -----------------------------------------------------
 # Step 2
-# Creates dictionary of each gene type in each option
+# Creates dictionary of each gene type in each option and corrects p-values
 # -----------------------------------------------------
 
 enrichment_dict = defaultdict(float)
@@ -46,6 +50,15 @@ for File in Files:
             key = "_".join([Module_ID, Gene_type])
             keys.append(key)
             P_vals.append(P_value)
+
+FDR = conf.FDR
+Corrected_Pval_array = statsmodels.sandbox.stats.multicomp.multipletests(P_vals, alpha=FDR, method='fdr_bh', is_sorted=False, returnsorted=False)
+
+i = 0
+for key in keys:
+    P_value = Corrected_Pval_array[0][i]
+    enrichment_dict[key] = P_value
+    i = i + 1
 
 # -----------------------------------------------------
 # Step 3
