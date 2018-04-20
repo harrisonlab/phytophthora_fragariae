@@ -32,6 +32,7 @@ cwd = os.getcwd()
 enrichment_dict = defaultdict(float)
 
 keys = []
+P_vals = []
 
 Files = conf.inputs
 for File in Files:
@@ -44,7 +45,7 @@ for File in Files:
             P_value = float(split_line[2])
             key = "_".join([Module_ID, Gene_type])
             keys.append(key)
-            enrichment_dict[key] = P_value
+            P_vals.append(P_value)
 
 # -----------------------------------------------------
 # Step 3
