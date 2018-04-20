@@ -9,3 +9,8 @@ With significance thresholds of: 0.1, 0.05, 0.01 and 0.001
 import argparse
 from collections import defaultdict
 import os
+
+# -----------------------------------------------------
+# Step 1
+# Import variables
+# -----------------------------------------------------
