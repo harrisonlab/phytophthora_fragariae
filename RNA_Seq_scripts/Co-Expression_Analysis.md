@@ -405,3 +405,13 @@ do
     echo "$Module_ID" "$Gene_Type done"
 done
 ```
+
+Parse fisher results files to fewer files by p-values
+
+```bash
+Files=$(ls analysis/coexpression/enrichment/*/*Fisher_Results.txt)
+OutDir=analysis/coexpression/enrichment/Parsed_Fisher_Results
+mkdir -p $OutDir
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+python $ProgDir/parse_fisher_results.py --inputs $Files --outdir $OutDir
+```
