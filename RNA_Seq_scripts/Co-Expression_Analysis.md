@@ -385,6 +385,9 @@ done
 ### Run Fishers Exact test to test for enrichment
 
 ```bash
+qlogin
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+
 for Table in $(ls analysis/coexpression/enrichment/*/*Fishertable.txt)
 do
     Module_ID=$(echo $Table | rev | cut -f2 -d "/" | rev)
