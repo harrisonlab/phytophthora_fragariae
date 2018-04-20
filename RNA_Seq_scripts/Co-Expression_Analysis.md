@@ -383,6 +383,8 @@ done
 ```
 
 ### Run Fishers Exact test to test for enrichment
+Does not run on head node, throws an error of incorrect version of GLOB
+I recommend running in screen due to large numbers of items in loop
 
 ```bash
 qlogin
