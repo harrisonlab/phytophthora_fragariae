@@ -88,7 +88,7 @@ with open(Output, 'w') as o:
     o.write("\n")
     for item in Significant_1e3:
         P_value = enrichment_dict[item]
-        to_write = "\t".join([item, P_value])
+        to_write = "\t".join([item, str(P_value)])
         o.write(to_write)
         o.write("\n")
 
@@ -102,7 +102,7 @@ with open(Output, 'w') as o:
     o.write("\n")
     for item in Significant_1e2:
         P_value = enrichment_dict[item]
-        to_write = "\t".join([item, P_value])
+        to_write = "\t".join([item, str(P_value)])
         o.write(to_write)
         o.write("\n")
 
@@ -116,7 +116,7 @@ with open(Output, 'w') as o:
     o.write("\n")
     for item in Significant_5e2:
         P_value = enrichment_dict[item]
-        to_write = "\t".join([item, P_value])
+        to_write = "\t".join([item, str(P_value)])
         o.write(to_write)
         o.write("\n")
 
@@ -130,6 +130,6 @@ with open(Output, 'w') as o:
     o.write("\n")
     for item in Significant_1e1:
         P_value = enrichment_dict[item]
-        to_write = "\t".join([item, P_value])
+        to_write = "\t".join([item, str(P_value)])
         o.write(to_write)
         o.write("\n")
