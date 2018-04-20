@@ -409,7 +409,7 @@ done
 Parse fisher results files to fewer files by p-values
 
 ```bash
-Files=$(ls analysis/coexpression/enrichment/*/*Fisher_Results.txt)
+Files=$(ls analysis/coexpression/enrichment/*/Fisher_Results/*Fisher_Results.txt)
 OutDir=analysis/coexpression/enrichment/Parsed_Fisher_Results
 mkdir -p $OutDir
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
