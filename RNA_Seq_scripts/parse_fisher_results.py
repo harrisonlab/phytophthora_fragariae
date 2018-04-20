@@ -9,7 +9,7 @@ With significance thresholds of: 0.1, 0.05, 0.01 and 0.001
 import argparse
 from collections import defaultdict
 import os
-import statsmodels
+import statsmodels.sandbox.stats.multicomp as stats
 
 # -----------------------------------------------------
 # Step 1
@@ -51,7 +51,7 @@ for File in Files:
             P_vals.append(P_value)
 
 FDR = conf.FDR
-Corrected_Pval_array = multipletests(P_vals, alpha=FDR, method='fdr_bh', is_sorted=False, returnsorted=False)
+Corrected_Pval_array = stats.multipletests(P_vals, alpha=FDR, method='fdr_bh', is_sorted=False, returnsorted=False)
 
 i = 0
 for key in keys:
