@@ -113,6 +113,7 @@ Mod_RxLR_Num = len(RxLR_Set)
 Mod_CRN_Num = len(CRN_Set)
 Mod_ApoP_Num = len(ApoP_Set)
 Mod_Effector_Num = len(Effector_Set)
+Mod_Secreted_Num = len(Secreted_Set)
 Mod_Gene_Num = len(Gene_Set)
 
 # Genome
