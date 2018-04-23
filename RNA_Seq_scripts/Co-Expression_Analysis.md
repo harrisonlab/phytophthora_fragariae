@@ -352,6 +352,12 @@ do
     # Create combined effector list
     Effectors_In_Module=$Module_Dir/Effector_IDs.txt
     cat $RxLRs_In_Module $CRNs_In_Module $ApoP_In_Module | sort | uniq > $Effectors_In_Module
+    echo "Effector list created for $Module_ID"
+    # Create combined secreted proteins list
+    Secreted_In_Module=$Module_Dir/Secreted_IDs.txt
+    Augustus_Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
+    ORF_Secreted=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
+    cat $Augustus_Secreted $ORF_Secreted | cut -f1 -d "." | grep -wf $Gene_Set | sort | uniq > $Secreted_In_Module
 done
 ```
 
