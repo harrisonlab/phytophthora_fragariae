@@ -45,7 +45,7 @@ Genome_Ratio <- Genome_Features / (Genome_Genes + Genome_Features)
 
 Out_enriched_up <- paste(Output_Directory, "enriched_up.txt", sep = "/")
 Out_enriched_down <- paste(Output_Directory, "enriched_down.txt", sep = "/")
-Out_enriched_equal <- paste(Output_Directory, "enriched.txt", sep = "/")
+Out_enriched_equal <- paste(Output_Directory, "enriched_equal.txt", sep = "/")
 
 if (Module_Ratio > Genome_Ratio){
     results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
