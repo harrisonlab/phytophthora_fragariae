@@ -9,8 +9,8 @@ library("optparse")
 opt_list <- list(
     make_option("--Input_Table", type = "character", help = "Fisher contigency
     table to analyse"),
-    make_option("--Output_File", type = "character", help = "Output tab
-    separated file"),
+    make_option("--Output_Directory", type = "character", help = "Directory
+    where ouput files are written to"),
     make_option("--Module_ID", type = "character", help = "Name of module being
     analysed"),
     make_option("--Gene_Type", type = "character", help = "Type of gene being
@@ -19,7 +19,7 @@ opt_list <- list(
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 Input_Table <- opt$Input_Table
-Output_File <- opt$Output_File
+Output_Directory <- opt$Output_Directory
 Module_ID <- opt$Module_ID
 Gene_Type <- opt$Gene_Type
 
