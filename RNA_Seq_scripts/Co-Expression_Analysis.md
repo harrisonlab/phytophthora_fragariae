@@ -365,6 +365,9 @@ Genome_CRNs=$(cat $CRN_Headers | sort | uniq | wc -l)
 ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
 Genome_ApoP=$(cat $ApoP_Headers | sort | uniq | wc -l)
 Genome_Effectors=$(cat $RxLR_Headers $CRN_Headers $ApoP_Headers | sort | uniq | wc -l)
+Augustus_Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
+ORF_Secreted=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
+Genome_Secreted=$(cat $Augustus_Secreted $ORF_Secreted | sort | uniq | wc -l)
 Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
 Genome_Genes=$(cat $Genes | sort | uniq | wc -l)
 for Module_Dir in $(ls -d analysis/coexpression/enrichment/*)
