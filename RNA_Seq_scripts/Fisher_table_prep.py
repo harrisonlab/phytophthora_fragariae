@@ -78,6 +78,13 @@ with open(conf.Module_Effectors) as f:
 
 Effector_Set = set(Effectors)
 
+Secreted = []
+with open(conf.Module_Secreted) as f:
+    for line in f.readlines():
+        Secreted.append(line)
+
+Secreted_Set = set(Secreted)
+
 Genes = []
 with open(conf.Module_Genes) as f:
     for line in f.readlines():
