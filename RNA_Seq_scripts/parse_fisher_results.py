@@ -80,3 +80,8 @@ for key in keys:
         Significant.append(key)
     else:
         Non_Significant.append(key)
+
+# -----------------------------------------------------
+# Step 4
+# Split dictionary into separate dictionaries by gene type & significance
+# -----------------------------------------------------
