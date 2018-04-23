@@ -134,8 +134,7 @@ RxLR_File = "_".join([Module_Name, "RxLR_Fishertable.txt"])
 RxLR_Out = "/".join([cwd, OutDir, RxLR_File])
 
 with open(RxLR_Out, "w") as o:
-    Gen_RxLR = Gen_RxLR_Num - Mod_RxLR_Num
-    Line1 = "\t".join(["RxLR", str(Mod_RxLR_Num), str(Gen_RxLR)]) + "\n"
+    Line1 = "\t".join(["RxLR", str(Mod_RxLR_Num), str(Gen_RxLR_Num)]) + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_RxLR_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_RxLR_Num
     Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
@@ -146,8 +145,7 @@ CRN_File = "_".join([Module_Name, "CRN_Fishertable.txt"])
 CRN_Out = "/".join([cwd, OutDir, CRN_File])
 
 with open(CRN_Out, "w") as o:
-    Gen_CRN = Gen_CRN_Num - Mod_CRN_Num
-    Line1 = "\t".join(["CRN", str(Mod_CRN_Num), str(Gen_CRN)]) + "\n"
+    Line1 = "\t".join(["CRN", str(Mod_CRN_Num), str(Gen_CRN_Num)]) + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_CRN_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_CRN_Num
     Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
@@ -158,8 +156,7 @@ ApoP_File = "_".join([Module_Name, "ApoP_Fishertable.txt"])
 ApoP_Out = "/".join([cwd, OutDir, ApoP_File])
 
 with open(ApoP_Out, "w") as o:
-    Gen_ApoP = Gen_ApoP_Num - Mod_ApoP_Num
-    Line1 = "\t".join(["ApoP", str(Mod_ApoP_Num), str(Gen_ApoP)]) + "\n"
+    Line1 = "\t".join(["ApoP", str(Mod_ApoP_Num), str(Gen_ApoP_Num)]) + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_ApoP_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_ApoP_Num
     Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
@@ -170,9 +167,8 @@ Effector_File = "_".join([Module_Name, "Effector_Fishertable.txt"])
 Effector_Out = "/".join([cwd, OutDir, Effector_File])
 
 with open(Effector_Out, "w") as o:
-    Gen_Effector = Gen_Effector_Num - Mod_Effector_Num
-    Line1 = "\t".join(["Effector", str(Mod_Effector_Num), str(Gen_Effector)]) \
-        + "\n"
+    Line1 = "\t".join(["Effector", str(Mod_Effector_Num),
+                      str(Gen_Effector_Num)]) + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_Effector_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_Effector_Num
     Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
@@ -183,9 +179,8 @@ Secreted_File = "_".join([Module_Name, "Secreted_Fishertable.txt"])
 Secreted_Out = "/".join([cwd, OutDir, Secreted_File])
 
 with open(Secreted_Out, "w") as o:
-    Gen_Secreted = Gen_Secreted_Num - Mod_Secreted_Num
-    Line1 = "\t".join(["Secreted", str(Mod_Secreted_Num), str(Gen_Secreted)]) \
-        + "\n"
+    Line1 = "\t".join(["Secreted", str(Mod_Secreted_Num),
+                       str(Gen_Secreted_Num)]) + "\n"
     Mod_Genes = Mod_Gene_Num - Mod_Secreted_Num
     Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_Secreted_Num
     Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
