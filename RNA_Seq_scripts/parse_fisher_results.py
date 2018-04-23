@@ -69,22 +69,13 @@ for key in keys:
 # Make a list of tests which pass p-value thresholds for writing out
 # -----------------------------------------------------
 
-Significant_1e3 = []
-Significant_1e2 = []
-Significant_5e2 = []
-Significant_1e1 = []
+Significant = []
 Non_Significant = []
 
 for key in keys:
     P_value = enrichment_dict[key]
-    if P_value <= 0.001:
-        Significant_1e3.append(key)
-    elif P_value <= 0.01:
-        Significant_1e2.append(key)
-    elif P_value <= 0.05:
-        Significant_5e2.append(key)
-    elif P_value <= 0.1:
-        Significant_1e1.append(key)
+    if P_value < 0.05:
+        Significant.append(key)
     else:
         Non_Significant.append(key)
 
