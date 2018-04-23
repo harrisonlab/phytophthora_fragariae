@@ -471,9 +471,12 @@ done
 Parse fisher results files to fewer files by p-values
 
 ```bash
-Files=$(ls analysis/coexpression/enrichment/*/Fisher_Results/*Fisher_Results.txt)
-OutDir=analysis/coexpression/enrichment/Parsed_Fisher_Results
-mkdir -p $OutDir
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-python $ProgDir/parse_fisher_results.py --inputs $Files --outdir $OutDir --FDR 0.05 --Types RxLR CRN ApoP Effector Secreted --Threshold 0.05
+for Type in up down equal
+do
+    Files=$(ls analysis/coexpression/enrichment/*/Fisher_Results/enriched_"$Type".txt)
+    OutDir=analysis/coexpression/enrichment/Parsed_Fisher_Results
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    python $ProgDir/parse_fisher_results.py --inputs $Files --outdir $OutDir --FDR 0.05 --Types RxLR CRN ApoP Effector Secreted --Threshold 0.05
+done
 ```
