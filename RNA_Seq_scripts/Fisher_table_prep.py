@@ -122,6 +122,7 @@ Gen_RxLR_Num = Genome_RxLRs - Mod_RxLR_Num
 Gen_CRN_Num = Genome_CRNs - Mod_CRN_Num
 Gen_ApoP_Num = Genome_ApoP - Mod_ApoP_Num
 Gen_Effector_Num = Genome_Effectors - Mod_Effector_Num
+Gen_Secreted_Num = Genome_Secreted - Mod_Secreted_Num
 Gen_Gene_Num = Genome_Genes - Mod_Gene_Num
 
 # -----------------------------------------------------
