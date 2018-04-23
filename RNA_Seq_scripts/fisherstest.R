@@ -33,7 +33,7 @@ Fisher_Table$V3[1], Fisher_Table$V3[2]), nrow = 2, dimnames = list(
     Annotation = c(Gene_Type, "Other Genes"), Gene_Set = c(Module_ID, "Genome")
 ))
 
-# Run Fishers exact test: two-way test
+# Run Fishers exact test: one way, which way depending on relative proportions
 
 results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
 hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
