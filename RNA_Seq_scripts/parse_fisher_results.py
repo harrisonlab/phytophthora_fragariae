@@ -60,7 +60,7 @@ Corrected_Pval_array = stats.multipletests(P_vals, alpha=FDR, method='fdr_bh',
 
 i = 0
 for key in keys:
-    P_value = Corrected_Pval_array[0][i]
+    P_value = Corrected_Pval_array[1][i]
     enrichment_dict[key] = P_value
     i = i + 1
 
