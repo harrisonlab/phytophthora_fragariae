@@ -35,11 +35,38 @@ Fisher_Table$V3[1], Fisher_Table$V3[2]), nrow = 2, dimnames = list(
 
 # Run Fishers exact test: one way, which way depending on relative proportions
 
-results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
-hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
-conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
+Module_Features <- Fisher_Table$V2[1]
+Module_Genes <- Fisher_Table$V2[2]
+Genome_Features <- Fisher_Table$V3[1]
+Genome_Genes <- Fisher_Table$V3[2]
 
-# Write out results
+Module_Ratio <- Module_Features / (Module_Genes + Module_Features)
+Genome_Ratio <- Genome_Features / (Genome_Genes + Genome_Features)
 
-outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
-write(outline, file = Output_File, append = F)
+Out_enriched_up <- paste(Output_Directory, "enriched_up.txt", sep = "/")
+Out_enriched_down <- paste(Output_Directory, "enriched_down.txt", sep = "/")
+Out_enriched_equal <- paste(Output_Directory, "enriched.txt", sep = "/")
+
+if (Module_Ratio > Genome_Ratio){
+    results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
+    hybrid = FALSE, control = list(), or = 1, alternative = "greater",
+    conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
+    outine <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    write(outline, file = Out_enriched_up, append = F)
+}
+
+if (Module_Ratio < Genome_Ratio){
+    results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
+    hybrid = FALSE, control = list(), or = 1, alternative = "less",
+    conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
+    outine <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    write(outline, file = Out_enriched_down, append = F)
+}
+
+if (Module_Ratio == Genome_Ratio){
+    results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
+    hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
+    conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
+    outine <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    write(outline, file = Out_enriched_equal, append = F)
+}
