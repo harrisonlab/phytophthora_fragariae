@@ -23,6 +23,8 @@ ap.add_argument('--outdir', required=True, type=str, help='Directory to output \
 results to')
 ap.add_argument('--FDR', required=True, type=float, help='False Discovery rate \
 for Benjamini-Hochberg multi-test correction')
+ap.add_argument('--types', required=True, type=str, nargs='+', help='List of \
+genes types to parse the enrichment results of')
 conf = ap.parse_args()
 
 cwd = os.getcwd()
