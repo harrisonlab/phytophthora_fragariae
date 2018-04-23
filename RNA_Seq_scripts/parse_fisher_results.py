@@ -2,8 +2,8 @@
 
 '''
 This script will analyse results from a Fishers Exact Test on enrichment
-for RxLRs, CRNs, ApoplastP hits and combined Effectors vs the genome
-With significance thresholds of: 0.1, 0.05, 0.01 and 0.001
+for specified gene types, with a specified False Discovery Rate
+and specified P-value threshold
 '''
 
 import argparse
