@@ -480,3 +480,5 @@ do
     python $ProgDir/parse_fisher_results.py --inputs $Files --outdir $OutDir --FDR 0.05 --Types RxLR CRN ApoP Effector Secreted --Threshold 0.05
 done
 ```
+
+None are listed as equal, so this execution of the script fails
