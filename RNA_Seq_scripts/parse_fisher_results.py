@@ -72,9 +72,11 @@ for key in keys:
 Significant = []
 Non_Significant = []
 
+Threshold = conf.Threshold
+
 for key in keys:
     P_value = enrichment_dict[key]
-    if P_value < 0.05:
+    if P_value < Threshold:
         Significant.append(key)
     else:
         Non_Significant.append(key)
