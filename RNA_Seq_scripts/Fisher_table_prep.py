@@ -97,6 +97,7 @@ Genome_RxLRs = conf.Genome_RxLRs
 Genome_CRNs = conf.Genome_CRNs
 Genome_ApoP = conf.Genome_ApoP
 Genome_Effectors = conf.Genome_Effectors
+Genome_Secreted = conf.Genome_Secreted
 Genome_Genes = conf.Genome_Genes
 OutDir = conf.OutDir
 cwd = os.getcwd()
