@@ -23,6 +23,8 @@ ap.add_argument('--Module_ApoP', required=True, type=str, help='List of ApoP \
 hits in a coexpression module')
 ap.add_argument('--Module_Effectors', required=True, type=str, help='List of Effectors \
 in a coexpression module')
+ap.add_argument('--Module_Secreted', required=True, type=str, help='List of \
+Secreted genes in a coexpression module')
 ap.add_argument('--Module_Genes', required=True, type=str, help='Complete list \
 of genes in a coexpression module')
 ap.add_argument('--Module_Name', required=True, type=str, help='Name of the \
@@ -34,7 +36,9 @@ total CRNs in the genome')
 ap.add_argument('--Genome_ApoP', required=True, type=float, help='Number of \
 total ApoP hits in the genome')
 ap.add_argument('--Genome_Effectors', required=True, type=float, help='Number of \
-total Effectorss in the genome')
+total Effectors in the genome')
+ap.add_argument('--Genome_Secreted', required=True, type=float, help='Number of \
+total Secreted proteins in the genome')
 ap.add_argument('--Genome_Genes', required=True, type=float, help='Number of \
 total genes in the genome')
 ap.add_argument('--OutDir', required=True, type=str, help='Directory to write \
