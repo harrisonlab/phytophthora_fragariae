@@ -178,3 +178,16 @@ with open(Effector_Out, "w") as o:
     Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
     o.write("".join([Line1, Line2]))
     o.close()
+
+Secreted_File = "_".join([Module_Name, "Secreted_Fishertable.txt"])
+Secreted_Out = "/".join([cwd, OutDir, Secreted_File])
+
+with open(Secreted_Out, "w") as o:
+    Gen_Secreted = Gen_Secreted_Num - Mod_Secreted_Num
+    Line1 = "\t".join(["Secreted", str(Mod_Secreted_Num), str(Gen_Secreted)]) \
+        + "\n"
+    Mod_Genes = Mod_Gene_Num - Mod_Secreted_Num
+    Gen_Genes = Gen_Gene_Num - Mod_Gene_Num - Gen_Secreted_Num
+    Line2 = "\t".join(["Other Genes", str(Mod_Genes), str(Gen_Genes)]) + "\n"
+    o.write("".join([Line1, Line2]))
+    o.close()
