@@ -317,7 +317,7 @@ Nothing can be reproducibly pulled out, possibly due to the small input sample s
 
 ## Investigate enrichment of effector class genes in co-expression modules
 
-### Create lists of RxLRs, CRNs, ApoplastP hits and combined list of all effectors
+### Create lists of RxLRs, CRNs, ApoplastP hits, a combined list of all effectors and a list of secreted proteins
 
 ```bash
 for File in $(ls analysis/coexpression/merged_modules/Genes_in_*.txt)
