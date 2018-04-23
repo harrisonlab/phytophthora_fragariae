@@ -84,4 +84,45 @@ for key in keys:
 # -----------------------------------------------------
 # Step 4
 # Split dictionary into separate dictionaries by gene type & significance
+# Also write out file
 # -----------------------------------------------------
+
+Types = conf.Types
+OutDir = conf.outdir
+Header = "\t".join(["Module_Gene type", "P-value"])
+
+for Type in Types:
+    Type_Sig_dict = defaultdict(float)
+    Type_NonSig_dict = defaultdict(float)
+    Type_Sig = []
+    Type_NonSig = []
+    for key in keys:
+        P_value_Corrected = enrichment_dict[key]
+        if Type in key and key in Significant:
+            Type_Sig_dict[key] = P_value_Corrected
+            Type_Sig.append(key)
+        elif Type in key and key in Non_Significant:
+            Type_NonSig_dict[key] = P_value_Corrected
+            Type_NonSig.append(key)
+    Out_Sig_File = "_".join([Type, "Significant_enrichment.tsv"])
+    Out_NonSig_File = "_".join([Type, "NonSignificant_enrichment.tsv"])
+    Sig_Output = "/".join([cwd, OutDir, Out_Sig_File])
+    NonSig_Ouput = "/".join([cwd, OutDir, Out_NonSig_File])
+    with open(Sig_Output, 'w') as o:
+        o.write(Header)
+        o.write("\n")
+        for item in Type_Sig:
+            P_value_Corrected = enrichment_dict[item]
+            to_write = "\t".join([item, str(P_value_Corrected)])
+            o.write(to_write)
+            o.write("\n")
+        o.close()
+    with open(NonSig_Ouput, 'w') as o:
+        o.write(Header)
+        o.write("\n")
+        for item in Type_NonSig:
+            P_value_Corrected = enrichment_dict[item]
+            to_write = "\t".join([item, str(P_value_Corrected)])
+            o.write(to_write)
+            o.write("\n")
+        o.close()
