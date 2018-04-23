@@ -468,7 +468,7 @@ do
 done
 ```
 
-Parse fisher results files to fewer files by p-values
+Parse fisher results files to fewer files by type and hypothesis being tested
 
 ```bash
 for Type in up down equal
