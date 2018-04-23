@@ -358,6 +358,7 @@ do
     Augustus_Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
     ORF_Secreted=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
     cat $Augustus_Secreted $ORF_Secreted | cut -f1 -d "." | grep -wf $Gene_Set | sort | uniq > $Secreted_In_Module
+    echo "Secreted list created for $Module_ID"
 done
 ```
 
