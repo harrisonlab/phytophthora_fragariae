@@ -70,3 +70,5 @@ cd $ProjDir
 ```
 
 ## Assemble a rough genome with canu
+
+### Adapter removal with porechop
