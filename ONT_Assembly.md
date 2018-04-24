@@ -17,9 +17,9 @@ screen -a
 ssh nanopore@nanopore
 
 # upgrade albacore
-wget https://mirror.oxfordnanoportal.com/software/analysis/ont_albacore-2.2.7-cp36-cp36m-manylinux1_x86_64.whl
+wget https://mirror.oxfordnanoportal.com/software/analysis/ont_albacore-2.2.7-cp34-cp34m-manylinux1_x86_64.whl
 /home/nanopore/.local/bin/read_fast5_basecaller.py --version
-pip3 install --user ont_albacore-2.2.7-cp36-cp36m-manylinux1_x86_64.whl --upgrade
+pip3 install --user ont_albacore-2.2.7-cp34-cp34m-manylinux1_x86_64.whl --upgrade
 /home/nanopore/.local/bin/read_fast5_basecaller.py --version
 
 mkdir Pfrag_NOV9_18-04-18
