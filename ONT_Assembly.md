@@ -84,3 +84,17 @@ do
     qsub $ProgDir/sub_porechop.sh $RawReads $OutDir
 done
 ```
+
+### Identify sequencing coverage
+
+```bash
+for RawData in $(ls qc_dna/minion/*/*/*.fastq.gz)
+do
+    echo $RawData
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
+    GenomeSz=90
+    OutDir=$(echo $RawData | cut -f11,12,13,14 -d '/')
+    mkdir -p $OutDir
+    qsub $ProgDir/sub_count_nuc.sh $GenomeSz $RawData $OutDir
+done
+```
