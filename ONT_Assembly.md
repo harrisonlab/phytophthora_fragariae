@@ -52,3 +52,19 @@ tar -czf Pfrag_albacore_v2.2.7.tar.gz Pfrag_albacore_v2.2.7
 mv Pfrag_albacore_v2.2.7.fastq.tar.gz $OutDir/.
 chmod +rw $OutDir/Pfrag_albacore_v2.2.7.tar.gz
 ```
+
+Build a directory structure on /data
+
+```bash
+ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
+cd $ProjDir
+
+Organism=P.fragariae
+Strain=NOV-9
+OutDir=raw_dna/minion/$Organism/$Strain
+mkdir -p $OutDir
+RawData=$(ls /data/scratch/nanopore_tmp_data/P.fragariae/albacore_v2.2.7/Pfrag_albacore_v2.2.7.fastq.gz)
+cd $OutDir
+cp -s $RawDat .
+cd $ProjDir
+```
