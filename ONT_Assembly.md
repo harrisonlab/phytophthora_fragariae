@@ -6,4 +6,4 @@ Raw data is deposited at the following location after running on a GridION
 /data/seq_data/minion/2018/20180418_NOV9/
 ```
 
-Code was all run form /home/groups/harrisonlab/project_files/phytophthora_fragariae
+Code was all run from /home/groups/harrisonlab/project_files/phytophthora_fragariae
