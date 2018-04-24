@@ -7,3 +7,5 @@ Raw data is deposited at the following location after running on a GridION
 ```
 
 Code was all run from /home/groups/harrisonlab/project_files/phytophthora_fragariae
+
+## Build directory structure and run base calling
