@@ -72,3 +72,15 @@ cd $ProjDir
 ## Assemble a rough genome with canu
 
 ### Adapter removal with porechop
+
+```bash
+for RawReads in $(ls raw_dna/minion/*/*/*.fastq.gz)
+do
+    Organism=$(echo $RawReads | rev | cut -f3 -d '/' | rev)
+    Strain=$(echo $RawReads | rev | cut -f2 -d '/' | rev)
+    echo "$Organism - $Strain"
+    OutDir=qc_dna/minion/$Organism/$Strain
+    ProgDir=/home/adast/git_repos/tools/seq_tools/dna_qc
+    qsub $ProgDir/sub_porechop.sh $RawReads $OutDir
+done
+```
