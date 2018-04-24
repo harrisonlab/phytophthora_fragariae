@@ -482,3 +482,36 @@ done
 ```
 
 None are listed as equal, so this execution of the script fails
+Summary of results
+
+```
+RxLRs:
+Significantly enriched: 32
+Non-Significantly enriched: 61
+Significantly lacking: 0
+Non-Significantly lacking: 96
+
+CRNs:
+Significantly enriched: 5
+Non-Significantly enriched: 6
+Significantly lacking: 0
+Non-Significantly lacking: 158
+
+ApoP:
+Significantly enriched: 31
+Non-Significantly enriched: 98
+Significantly lacking: 0
+Non-Significantly lacking: 60
+
+Effectors:
+Significantly enriched: 52
+Non-Significantly enriched: 90
+Significantly lacking: 0
+Non-Significantly lacking: 47
+
+Secreted
+Significantly enriched: 159
+Non-Significantly enriched: 28
+Significantly lacking: 0
+Non-Significantly lacking: 2
+```
