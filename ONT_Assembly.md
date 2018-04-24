@@ -98,3 +98,8 @@ do
     qsub $ProgDir/sub_count_nuc.sh $GenomeSz $RawData $OutDir
 done
 ```
+
+```
+Coverage:
+
+```
