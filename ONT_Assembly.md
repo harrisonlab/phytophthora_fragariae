@@ -68,3 +68,5 @@ cd $OutDir
 cp -s $RawDat .
 cd $ProjDir
 ```
+
+## Assemble a rough genome with canu
