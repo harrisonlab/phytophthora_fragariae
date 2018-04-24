@@ -51,7 +51,8 @@ if (Module_Ratio > Genome_Ratio){
     results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
     hybrid = FALSE, control = list(), or = 1, alternative = "greater",
     conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
-    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t") + "\n"
+    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    outline <- paste(outline, "\n", sep = "")
     write(outline, file = Out_enriched_up, append = T)
 }
 
@@ -59,7 +60,8 @@ if (Module_Ratio < Genome_Ratio){
     results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
     hybrid = FALSE, control = list(), or = 1, alternative = "less",
     conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
-    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t") + "\n"
+    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    outline <- paste(outline, "\n", sep = "")
     write(outline, file = Out_enriched_down, append = T)
 }
 
@@ -67,6 +69,7 @@ if (Module_Ratio == Genome_Ratio){
     results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
     hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
     conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
-    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t") + "\n"
+    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    outline <- paste(outline, "\n", sep = "")
     write(outline, file = Out_enriched_equal, append = T)
 }
