@@ -131,3 +131,5 @@ do
     qsub $ProgDir/sub_SMARTdenovo.sh $CorrectedReads $Prefix $OutDir
 done
 ```
+
+#### Quast and busco analyses were used to assess assembly quality
