@@ -117,3 +117,5 @@ do
     qsub $ProgDir/sub_canu_correction.sh $TrimReads $GenomeSz $Strain $OutDir
 done
 ```
+
+### Assembly using SMARTdenovo
