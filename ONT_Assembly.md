@@ -228,3 +228,10 @@ These need to be temporarily unpacked
 They must be deleted after nanpolish has finished running.
 
 Copy raw reads onto the cluster scratch space for this step and unpack
+
+```bash
+Tar=/data/scratch/nanopore_tmp_data/P.fragariae/albacore_v2.2.7/Pfrag_albacore_v2.2.7.tar.gz
+ScratchDir=/data/scratch/adamst/P.fragariae/albacore_v2.2.7
+mkdir -p $ScratchDir
+tar -zxvf $Tar -C $ScratchDir
+```
