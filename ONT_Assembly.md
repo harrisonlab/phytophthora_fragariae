@@ -367,3 +367,5 @@ do
     $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/pilon_min_500bp_renamed.fasta --coord_file tmp.txt > $OutDir/log.txt
 done
 ```
+
+#### Quast and BUSCO were run to assess the effects of Pilon on quality
