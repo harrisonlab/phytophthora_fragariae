@@ -236,7 +236,7 @@ mkdir -p $ScratchDir
 tar -zxvf $Tar -C $ScratchDir
 ```
 
-#### Run Nanopolish
+### Run Nanopolish
 
 ```bash
 for Assembly in $(ls assembly/SMARTdenovo/*/NOV9/racon2_10/racon_min_500bp_renamed.fasta)
@@ -311,3 +311,20 @@ done
 ```
 
 #### Run quast and BUSCO to assess effects of nanopolish on quality
+
+```bash
+for Assembly in $(ls assembly/SMARTdenovo/*/*/nanopolish/*_nanopolish_min_500bp_renamed.fasta)
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    # Quast
+    OutDir=$(dirname $Assembly)
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+    # BUSCO
+    BuscoDB=Eukaryotic
+    OutDir=gene_pred/busco/$Organism/$Strain/assembly
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+    qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
+done
+```
