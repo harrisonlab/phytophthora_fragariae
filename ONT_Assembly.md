@@ -235,3 +235,5 @@ ScratchDir=/data/scratch/adamst/P.fragariae/albacore_v2.2.7
 mkdir -p $ScratchDir
 tar -zxvf $Tar -C $ScratchDir
 ```
+
+Run Nanopolish
