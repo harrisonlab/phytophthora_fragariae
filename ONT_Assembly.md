@@ -134,6 +134,8 @@ done
 
 #### Quast and busco analyses were used to assess assembly quality
 
+Quast
+
 ```bash
 for Assembly in $(ls assembly/SMARTdenovo/*/*/*.dmo.lay.utg)
 do
@@ -142,5 +144,20 @@ do
     OutDir=$(dirname $Assembly)
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
     qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+done
+```
+
+BUSCO
+
+```bash
+for Assembly in $(ls assembly/SMARTdenovo/*/*/*.dmo.lay.utg)
+do
+    Strain=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    echo "$Organism - $Strain"
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+    BuscoDB=Eukaryotic
+    OutDir=gene_pred/busco/$Organism/$Strain/assembly
+    qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 done
 ```
