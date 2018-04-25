@@ -517,3 +517,5 @@ do
     $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/pilon_min_500bp_renamed.fasta --coord_file tmp.txt > $OutDir/log.txt
 done
 ```
+
+## Repeat Masking
