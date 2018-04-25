@@ -69,7 +69,7 @@ cp -s $RawDat .
 cd $ProjDir
 ```
 
-## Assemble a rough genome with canu
+## Assemble a rough genome with SMARTdenovo
 
 ### Adapter removal with porechop
 
@@ -226,6 +226,7 @@ done
 Fast5 files are very large and need to be stored as gzipped tarballs.
 These need to be temporarily unpacked
 They must be deleted after nanpolish has finished running.
+This uses information from raw ONT data to polish assemblies
 
 Copy raw reads onto the cluster scratch space for this step and unpack
 
@@ -328,3 +329,5 @@ do
     qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 done
 ```
+
+### Pilon error correction
