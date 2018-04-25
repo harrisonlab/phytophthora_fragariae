@@ -534,3 +534,5 @@ do
     qsub $ProgDir/transposonPSI.sh $Assembly $OutDir
 done
 ```
+
+### Merge transposonPSI & repeatmasker/repeatmodeller results
