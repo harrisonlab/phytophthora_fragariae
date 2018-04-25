@@ -536,3 +536,27 @@ done
 ```
 
 ### Merge transposonPSI & repeatmasker/repeatmodeller results
+
+```bash
+# Softmasked
+for File in $(ls PATH/TO/SOFT/MASKED/ASSEMBLY)
+do
+    OutDir=$(dirname $File)
+    TPSI=$(ls $OutDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+    OutFile=$(echo $File | sed 's/_contigs_softmasked.fa/_contigs_softmasked_repeatmasker_TPSI_appended.fa/g')
+    echo "$OutFile"
+    bedtools maskfasta -sof -fi $File -bed $TPSI -fo $OutFile
+    echo "Number of masked bases:"
+    cat $OutFile | grep -v '>' | tr -d '\n' | awk '{print $0, gsub("[a-z]", ".")}' | cut -f2 -d ' '
+done
+
+# Hardmasked
+for File in $(ls PATH/TO/HARD/MASKED/ASSEMBLY)
+do
+    OutDir=$(dirname $File)
+    TPSI=$(ls $OutDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+    OutFile=$(echo $File | sed 's/_contigs_hardmasked.fa/_contigs_hardmasked_repeatmasker_TPSI_appended.fa/g')
+    echo "$OutFile"
+    bedtools maskfasta -fi $File -bed $TPSI -fo $OutFile
+done
+```
