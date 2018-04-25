@@ -237,3 +237,22 @@ tar -zxvf $Tar -C $ScratchDir
 ```
 
 Run Nanopolish
+
+```bash
+for Assembly in $(ls assembly/SMARTdenovo/*/NOV9/racon2_10/racon_min_500bp_renamed.fasta)
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    # Extract reads as a .fq file
+    ReadDir=raw_dna/nanopolish/$Organism/$Strain
+    mkdir -p $ReadDir
+    ReadsFq=$(ls raw_dna/minion/*/$Strain/*.fastq.gz)
+    ScratchDir=/data/scratch/adamst/P.fragariae
+    Fast5Dir=$ScratchDir/albacore_v2.2.7/Pfrag_albacore_v2.2.7/workspace/pass
+    OutDir=$(dirname $Assembly)/nanopolish
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/nanopolish
+    qsub $ProgDir/sub_minimap2_nanopolish.sh $Assembly $ReadsFq $OutDir
+done
+```
