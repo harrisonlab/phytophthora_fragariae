@@ -482,3 +482,25 @@ do
     qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 done
 ```
+
+### Polish merged assembly with Pilon
+
+```bash
+for Assembly in $(ls assembly/merged_SMARTdenovo_spades/*/*/merged.fasta)
+do
+    Organism=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Strain=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
+    echo "$Organism - $Strain"
+    IlluminaDir=$(qc_dna/paired/*/$Strain)
+    TrimF1_Read=$(ls $IlluminaDir/F/*_16029_trim.fq.gz)
+    TrimR1_Read=$(ls $IlluminaDir/R/*_16029_trim.fq.gz)
+    TrimF2_Read=$(ls $IlluminaDir/F/Pfrag-*.fq.gz)
+    TrimR2_Read=$(ls $IlluminaDir/R/Pfrag-*.fq.gz)
+    TrimF3_Read=$(ls $IlluminaDir/F/PfragNov9*.fq.gz)
+    TrimR3_Read=$(ls $IlluminaDir/R/PfragNov9*.fq.gz)
+    OutDir=$(dirname $Assembly)/pilon
+    Iterations=10
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
+    qsub $ProgDir/sub_pilon_3_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $TrimF3_Read $TrimR3_Read $OutDir $Iterations
+done
+```
