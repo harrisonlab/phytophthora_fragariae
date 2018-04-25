@@ -119,3 +119,15 @@ done
 ```
 
 ### Assembly using SMARTdenovo
+
+```bash
+for CorrectedReads in $(ls assembly/canu/*/*/*.trimmedReads.fasta.gz)
+do
+    Organism=$(echo $CorrectedReads | rev | cut -f3 -d '/' | rev)
+    Strain=$(echo $CorrectedReads | rev | cut -f2 -d '/' | rev)
+    Prefix="$Strain"_SMARTdenovo
+    OutDir=assembly/SMARTdenovo/$Organism/$Strain
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/SMARTdenovo
+    qsub $ProgDir/sub_SMARTdenovo.sh $CorrectedReads $Prefix $OutDir
+done
+```
