@@ -387,3 +387,8 @@ do
     qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 done
 ```
+
+## Hybrid assembly
+
+Some people report hybrid assemblies give higher quality.
+I found the opposite for PacBio data, but test with ONT data.
