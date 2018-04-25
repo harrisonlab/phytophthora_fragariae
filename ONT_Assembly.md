@@ -331,3 +331,5 @@ done
 ```
 
 ### Pilon error correction
+
+Corrects assembly using Illumina reads, due to lower error rate
