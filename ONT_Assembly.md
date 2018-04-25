@@ -504,3 +504,5 @@ do
     qsub $ProgDir/sub_pilon_3_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $TrimF3_Read $TrimR3_Read $OutDir $Iterations
 done
 ```
+
+#### Rename contigs of merged assembly
