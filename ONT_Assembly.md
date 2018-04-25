@@ -220,3 +220,11 @@ do
     qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 done
 ```
+
+### Error correction using nanopolish
+
+Fast5 files are very large and need to be stored as gzipped tarballs.
+These need to be temporarily unpacked
+They must be deleted after nanpolish has finished running.
+
+Copy raw reads onto the cluster scratch space for this step and unpack
