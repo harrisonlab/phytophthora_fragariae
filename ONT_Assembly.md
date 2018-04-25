@@ -191,7 +191,9 @@ do
 done
 ```
 
-Quast and BUSCO were run to assess the effects of racon on assembly quality
+#### Quast and BUSCO were run to assess the effects of racon on assembly quality
+
+Quast
 
 ```bash
 for Assembly in $(ls assembly/SMARTdenovo/*/*/racon2_10/racon_min_500bp_renamed.fasta)
@@ -203,3 +205,5 @@ do
     qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 done
 ```
+
+BUSCO
