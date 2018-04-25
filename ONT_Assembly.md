@@ -309,3 +309,5 @@ do
     $ProgDir/remove_contaminants.py --keep_mitochondria --inp $OutDir/"$Strain"_nanopolish.fa --out $OutDir/"$Strain"_nanopolish_min_500bp_renamed.fasta --coord_file tmp.txt > $OutDir/log.txt
 done
 ```
+
+#### Run quast and BUSCO to assess effects of nanopolish on quality
