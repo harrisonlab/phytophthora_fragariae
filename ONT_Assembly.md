@@ -521,3 +521,16 @@ done
 ## Repeat Masking
 
 The <X> assembly was the highest quality and so carried forward for analysis
+
+```bash
+for Assembly in $(ls PATH/TO/ASSEMBLY)
+do
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    echo "$Organism - $Strain"
+    OutDir=repeat_masked/$Organism/$Strain/filtered_contigs
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
+    qsub $ProgDir/rep_modeling.sh $Assembly $OutDir
+    qsub $ProgDir/transposonPSI.sh $Assembly $OutDir
+done
+```
