@@ -293,3 +293,19 @@ done
 ```
 
 Merge nanopolish results
+
+```bash
+for Assembly in $(ls assembly/SMARTdenovo/*/*/racon2_10/racon_min_500bp_renamed.fasta)
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    OutDir=assembly/SMARTdenovo/$Organism/$Strain/nanopolish
+    mkdir -p $OutDir
+    NanopolishDir=/home/armita/prog/nanopolish/nanopolish/scripts
+    InDir=$(dirname $Assembly)
+    python $NanopolishDir/nanopolish_merge.py $InDir/nanopolish/*/*.fa > $OutDir/"$Strain"_nanopolish.fa
+    echo "" > tmp.txt
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+    $ProgDir/remove_contaminants.py --keep_mitochondria --inp $OutDir/"$Strain"_nanopolish.fa --out $OutDir/"$Strain"_nanopolish_min_500bp_renamed.fasta --coord_file tmp.txt > $OutDir/log.txt
+done
+```
