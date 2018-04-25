@@ -448,3 +448,5 @@ do
     qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 done
 ```
+
+## Merging SMARTdenovo and SPAdes assemblies
