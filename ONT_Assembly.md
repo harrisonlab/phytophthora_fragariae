@@ -430,3 +430,21 @@ do
     $ProgDir/filter_abyss_contigs.py $Contigs 500 > $AssemblyDir/filtered_contigs/contigs_min_500bp.fasta
 done
 ```
+
+#### Quast and BUSCO analyses run to assess quality of assemblies
+
+```bash
+for Assembly in $(ls assembly/spades_minion/*/*/filtered_contigs/contigs_min_500bp.fasta)
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    OutDir=$(dirname $Assembly)
+    # Quast
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+    qsub $ProgDir/sub_quast $Assembly $OutDir
+    # BUSCO
+    BuscoDB=Eukaryotic
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+    qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
+done
+```
