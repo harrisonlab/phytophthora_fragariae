@@ -392,3 +392,5 @@ done
 
 Some people report hybrid assemblies give higher quality.
 I found the opposite for PacBio data, but test with ONT data.
+
+### SPAdes assembly
