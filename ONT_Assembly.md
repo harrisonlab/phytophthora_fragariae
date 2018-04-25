@@ -519,3 +519,5 @@ done
 ```
 
 ## Repeat Masking
+
+The <X> assembly was the highest quality and so carried forward for analysis
