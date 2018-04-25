@@ -291,3 +291,5 @@ do
     done
 done
 ```
+
+Merge nanopolish results
