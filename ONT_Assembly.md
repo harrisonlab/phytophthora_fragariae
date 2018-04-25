@@ -103,3 +103,5 @@ done
 Coverage:
 
 ```
+
+### Read correction using Canu
