@@ -258,3 +258,36 @@ done
 ```
 
 #### Split assembly into 50Kb fragments and submit each separately for nanopolish
+
+```bash
+for Assembly in $(ls assembly/SMARTdenovo/*/NOV9/racon2_10/racon_min_500bp_renamed.fasta)
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    OutDir=$(dirname $Assembly)/nanopolish
+    RawReads=$(ls raw_dna/minion/*/$Strain/*.fastq.gz)
+    AlignedReads=$(ls $OutDir/reads.sorted.bam)
+
+    NanopolishDir=/home/armita/prog/nanopolish/nanopolish/scripts
+    python $NanopolishDir/nanopolish_makerange.py $Assembly --segment-length 50000 > $OutDir/nanopolish_range.txt
+
+    Ploidy=2
+    echo "nanopolish log:" > $OutDir/nanopolish_log.txt
+    for Region in $(cat $OutDir/nanopolish_range.txt)
+    do
+        Jobs=$(qstat | grep 'sub_nanopo' | grep 'qw' | wc -l)
+        while [ $Jobs -gt 1 ]
+        do
+            sleep 1m
+            printf "."
+            Jobs=$(qstat | grep 'sub_nanopo' | grep 'qw' | wc -l)
+        done
+        printf "\n"
+        echo $Region
+        echo $Region >> $OutDir/nanopolish_log.txt
+        ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/nanopolish
+        qsub $ProgDir/sub_nanopolish_variants.sh $Assembly $RawReads $AlignedReads $Ploidy $Region $OutDir/$Region
+    done
+done
+```
