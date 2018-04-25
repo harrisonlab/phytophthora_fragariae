@@ -418,3 +418,15 @@ do
     qsub $ProgDir/subSpades_3lib_minion.sh $TrimReads $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $TrimF3_Read $TrimR3_Read $OutDir
 done
 ```
+
+#### Remove contigs shorter than 500bp
+
+```bash
+for Contigs in $(ls assembly/spades_minion/*/*/contigs.fasta)
+do
+    AssemblyDir=$(dirname $Contigs)
+    mkdir -p $AssemblyDir/filtered_contigs
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/abyss
+    $ProgDir/filter_abyss_contigs.py $Contigs 500 > $AssemblyDir/filtered_contigs/contigs_min_500bp.fasta
+done
+```
