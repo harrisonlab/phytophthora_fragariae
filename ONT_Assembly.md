@@ -161,3 +161,20 @@ do
     qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
 done
 ```
+
+### Error correction using racon
+
+This polishes the assembly using the raw ONT reads
+
+```bash
+for Assembly in $(ls assembly/SMARTdenovo/*/*/*.dmo.lay.utg)
+do
+    Strain=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    ReadsFq=$(ls qc_dna/minion/*/$Strain/*fastq.gz)
+    Iterations=10
+    OutDir=$(dirname $Assembly)"/racon2_$Iterations"
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/racon
+    qsub $ProgDir/sub_racon.sh $Assembly $ReadsFq $Iterations $OutDir
+done
+```
