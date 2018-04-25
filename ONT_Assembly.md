@@ -178,3 +178,15 @@ do
     qsub $ProgDir/sub_racon.sh $Assembly $ReadsFq $Iterations $OutDir
 done
 ```
+
+Remove contaminants using a python script
+
+```bash
+for Assembly in $(ls assembly/SMARTdenovo/*/*/racon2_10/*.fasta | grep 'round_10')
+do
+    OutDir=$(dirname $Assembly)
+    echo "" > tmp.txt
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+    $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/racon_min_500bp_renamed.fasta --coord_file tmp.txt > $OutDir/log.txt
+done
+```
