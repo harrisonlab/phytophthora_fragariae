@@ -105,3 +105,15 @@ Coverage:
 ```
 
 ### Read correction using Canu
+
+```bash
+for TrimReads in $(ls qc_dna/minion/*/*/*fastq.gz)
+do
+    Organism=$(echo $TrimReads | rev | cut -f3 -d '/' | rev)
+    Strain=$(echo $TrimReads | rev | cut -f2 -d '/' | rev)
+    OutDir=assembly/canu/$Organism/$Strain
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/canu
+    GenomeSz=90m
+    qsub $ProgDir/sub_canu_correction.sh $TrimReads $GenomeSz $Strain $OutDir
+done
+```
