@@ -301,7 +301,7 @@ done
 Combine results from multiple repeats
 
 ```bash
-for Set in all highconfidence highexpressed
+for Set in all highconfidence highexpressed totalmodule
 do
     OutDir=promotor_id/$Set
     DremeDir=/data/scratch/adamst/$Set
