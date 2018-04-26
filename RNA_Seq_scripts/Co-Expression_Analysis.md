@@ -193,7 +193,7 @@ export PATH=${PATH}:/home/adamst/.local/bin
 Now split target files into 100bp sequences
 
 ```bash
-for Set in all highconfidence highexpressed
+for Set in all highconfidence highexpressed totalmodule
 do
     WorkDir=promotor_id/$Set
     Fasta=$WorkDir/"$Set"_upstream3000.fasta
