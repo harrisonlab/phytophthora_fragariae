@@ -796,7 +796,7 @@ ORF_Secreted=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merg
 Genome_Secreted=$(cat $Augustus_Secreted $ORF_Secreted | sort | uniq | wc -l)
 Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
 Genome_Genes=$(cat $Genes | sort | uniq | wc -l)
-for Module_Dir in $(ls -d analysis/coexpression/enrichment/*)
+for Module_Dir in $(ls -d analysis/coexpression/enrichment_large_modules/*)
 do
     Module_Name=$(echo $Module_Dir | rev | cut -f1 -d "/" | rev)
     Module_RxLRs=$Module_Dir/RxLR_IDs.txt
