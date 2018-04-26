@@ -532,7 +532,7 @@ do
     Sequences=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     OutDir=promotor_id/large_modules
-    File_ID=$(echo $Headers | cut -f2 -d '/' | cut -f1 -d '_')
+    File_ID=$(echo $Headers | cut -f3 -d '/' | cut -f1 -d '_')
     $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_upstream3000.fasta
 done
 ```
