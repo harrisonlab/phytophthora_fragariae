@@ -307,7 +307,6 @@ do
     DremeDir=/data/scratch/adamst/$Set
     DremeRes=$DremeDir/*dreme*/dreme.txt
     Percentage=90
-    OutDir=promotor_id/$Set
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
     python $ProgDir/Combine_DREME_Repeats.py --inputs $DremeRes \
     --percentage $Percentage --outdir $OutDir
