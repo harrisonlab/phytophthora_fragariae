@@ -521,19 +521,17 @@ Non-Significantly lacking: 2
 Repeat this analysis for a minimum module size of 30 to see if this is more appropriate
 
 Genes from the steelblue module were visually inspected for promotor hunting
-This gave 11 high confidence genes and 22 lower confidence genes
-Also analyse all genes with an fpkm value above 9,000
-in at least one BC-16 timepoint, 10 genes
-Also run the entirety of palevioletred3, 115 genes so might work better
+This gave 12 high confidence genes and 48 lower confidence genes
+Also run the entirety of steelblue, 212 genes so might work better
 
 Extract the 3000 bases upstream of these genes
 
 ```bash
-for Headers in $(ls promotor_id/*genes.txt)
+for Headers in $(ls promotor_id/large_modules/*genes.txt)
 do
     Sequences=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-    OutDir=promotor_id
+    OutDir=promotor_id/large_modules
     File_ID=$(echo $Headers | cut -f2 -d '/' | cut -f1 -d '_')
     $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_upstream3000.fasta
 done
