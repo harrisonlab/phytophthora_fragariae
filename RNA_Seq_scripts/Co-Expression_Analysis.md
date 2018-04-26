@@ -204,7 +204,7 @@ done
 Convert all bases to uppercase in non-target files
 
 ```bash
-for Set in all highconfidence highexpressed
+for Set in all highconfidence highexpressed totalmodule
 do
     for input in $(ls promotor_id/$Set/"$Set"_nontarget_upstream3000.fasta)
     do
