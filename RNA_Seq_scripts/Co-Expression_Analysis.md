@@ -279,7 +279,7 @@ Increasing will provide more motifs, but they may not be significantly enriched
 ```bash
 for Rep in {1..100}
 do
-    for Set in all highconfidence highexpressed
+    for Set in all highconfidence highexpressed totalmodule
     do
         WorkDir=promotor_id/$Set
         NegDir=/data/scratch/adamst/$Set
