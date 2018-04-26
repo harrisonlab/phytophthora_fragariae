@@ -691,10 +691,10 @@ Increasing will provide more motifs, but they may not be significantly enriched
 ```bash
 for Rep in {1..100}
 do
-    for Set in all highconfidence highexpressed totalmodule
+    for Set in all highconfidence totalmodule
     do
-        WorkDir=promotor_id/$Set
-        NegDir=/data/scratch/adamst/$Set
+        WorkDir=promotor_id/large_modules/$Set
+        NegDir=/data/scratch/adamst/large_modules/$Set
         Positive=$WorkDir/"$Set"_upstream3000.split.100mer.fasta
         Negative=$NegDir/"$Set"_nontarget_upstream3000.split.100mer_random_*_"$Rep".fasta
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
