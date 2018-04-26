@@ -159,7 +159,7 @@ done
 Organise directories and create files for a comparison set to sample from
 
 ```bash
-for Set in all highconfidence highexpressed
+for Set in all highconfidence highexpressed totalmodule
 do
     mkdir -p promotor_id/$Set
     mv promotor_id/"$Set"_genes.txt promotor_id/$Set/.
