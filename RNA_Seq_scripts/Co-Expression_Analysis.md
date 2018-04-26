@@ -571,16 +571,16 @@ done
 Organise directories and create files for a comparison set to sample from
 
 ```bash
-for Set in all highconfidence highexpressed totalmodule
+for Set in all highconfidence totalmodule
 do
-    mkdir -p promotor_id/$Set
-    mv promotor_id/"$Set"_genes.txt promotor_id/$Set/.
-    mv promotor_id/"$Set"_upstream3000.fasta promotor_id/$Set/.
-    cat promotor_id/Total_Gene_Set.txt | grep -vf promotor_id/$Set/"$Set"_genes.txt > promotor_id/$Set/"$Set"_nontarget.txt
+    mkdir -p promotor_id/large_modules/$Set
+    mv promotor_id/large_modules/"$Set"_genes.txt promotor_id/large_modules/$Set/.
+    mv promotor_id/large_modules/"$Set"_upstream3000.fasta promotor_id/large_modules/$Set/.
+    cat promotor_id/large_modules/Total_Gene_Set.txt | grep -vf promotor_id/large_modules/$Set/"$Set"_genes.txt > promotor_id/large_modules/$Set/"$Set"_nontarget.txt
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.upstream3000.fasta
-    Headers=promotor_id/$Set/"$Set"_nontarget.txt
-    Output=promotor_id/$Set/"$Set"_nontarget_upstream3000.fasta
+    Headers=promotor_id/large_modules/$Set/"$Set"_nontarget.txt
+    Output=promotor_id/large_modules/$Set/"$Set"_nontarget_upstream3000.fasta
     echo "Extracting fasta for $Set"
     $ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $Output
     echo "$Set done"
