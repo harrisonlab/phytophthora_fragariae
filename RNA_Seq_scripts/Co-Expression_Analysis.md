@@ -605,9 +605,9 @@ export PATH=${PATH}:/home/adamst/.local/bin
 Now split target files into 100bp sequences
 
 ```bash
-for Set in all highconfidence highexpressed totalmodule
+for Set in all highconfidence totalmodule
 do
-    WorkDir=promotor_id/$Set
+    WorkDir=promotor_id/large_modules/$Set
     Fasta=$WorkDir/"$Set"_upstream3000.fasta
     pyfasta split -n 1 -k 100 $Fasta
 done
