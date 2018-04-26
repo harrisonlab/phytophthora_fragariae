@@ -821,12 +821,12 @@ I recommend running in screen due to large numbers of items in loop
 qlogin
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
-for Table in $(ls analysis/coexpression/enrichment/*/*Fishertable.txt)
+for Table in $(ls analysis/coexpression/enrichment_large_modules/*/*Fishertable.txt)
 do
     Module_ID=$(echo $Table | rev | cut -f2 -d "/" | rev)
     Filename=$(echo $Table | rev | cut -f1 -d "/" | rev)
     Gene_Type=$(echo $Filename | cut -f2 -d "_")
-    OutDir=analysis/coexpression/enrichment/$Module_ID/Fisher_Results
+    OutDir=analysis/coexpression/enrichment_large_modules/$Module_ID/Fisher_Results
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
     echo "Running $Module_ID" "$Gene_Type"
