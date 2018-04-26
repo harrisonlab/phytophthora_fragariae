@@ -669,7 +669,7 @@ do
         Neg_Fasta=$WorkDir/"$Set"_nontarget_upstream3000.split.100mer.fasta
         Num_of_Seqs=$(cat $Pos_Fasta | grep '>' | wc -l)
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-        OutDir=/data/scratch/adamst/$Set
+        OutDir=/data/scratch/adamst/large_modules/$Set
         mkdir -p $OutDir
         Jobs=$(qstat | grep 'sub_fasta' | wc -l)
         while [ $Jobs -gt 20 ]
