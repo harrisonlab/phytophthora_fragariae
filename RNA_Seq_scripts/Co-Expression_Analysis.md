@@ -633,9 +633,9 @@ done
 Remove duplicate genes in non-target files
 
 ```bash
-for Set in all highconfidence highexpressed totalmodule
+for Set in all highconfidence totalmodule
 do
-    for input in $(ls promotor_id/$Set/"$Set"_nontarget_upstream3000.fasta)
+    for input in $(ls promotor_id/large_modules/$Set/"$Set"_nontarget_upstream3000.fasta)
     do
         filename=$(echo $input | cut -f1 -d '.')
         input_modified="$filename"_modified.fasta
