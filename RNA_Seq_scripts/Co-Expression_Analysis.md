@@ -110,6 +110,7 @@ Genes from the module were visually inspected for promotor hunting
 This gave 11 high confidence genes and 22 lower confidence genes
 Also analyse all genes with an fpkm value above 9,000
 in at least one BC-16 timepoint, 10 genes
+Also run the entirety of palevioletred3, 115 genes so might work better
 
 Extract the 3000 bases upstream of these genes
 
