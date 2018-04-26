@@ -737,12 +737,12 @@ Files for Genomic sets of Genes and features done previously
 Create files for Module sets of Genes and features
 
 ```bash
-for File in $(ls analysis/coexpression/merged_modules/Genes_in_*.txt)
+for File in $(ls analysis/coexpression/high/merged_modules/Genes_in_*.txt)
 do
     Filename=$(echo $File | rev | cut -f1 -d "/" | rev)
     Module_ID=$(echo $Filename | cut -f3 -d "_" | cut -f1 -d ".")
     echo "Processing $Module_ID"
-    Module_Dir=analysis/coexpression/enrichment/$Module_ID
+    Module_Dir=analysis/coexpression/enrichment_large_modules/$Module_ID
     mkdir -p $Module_Dir
     Gene_Set_unsorted=$Module_Dir/Gene_Set_unsorted.txt
     Gene_Set=$Module_Dir/Gene_Set.txt
