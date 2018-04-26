@@ -554,7 +554,7 @@ done
 Remove duplicate genes
 
 ```bash
-for input in $(ls promotor_id/*.fasta)
+for input in $(ls promotor_id/large_modules/*.fasta)
 do
     filename=$(echo $input | cut -f1 -d '.')
     input_modified="$filename"_modified.fasta
