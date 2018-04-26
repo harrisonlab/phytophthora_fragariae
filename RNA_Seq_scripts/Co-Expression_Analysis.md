@@ -237,7 +237,7 @@ done
 Now split non-target files into 100bp sequences
 
 ```bash
-for Set in all highconfidence highexpressed
+for Set in all highconfidence highexpressed totalmodule
 do
     WorkDir=promotor_id/$Set
     Fasta=$WorkDir/"$Set"_nontarget_upstream3000.fasta
