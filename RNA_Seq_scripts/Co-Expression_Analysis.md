@@ -517,3 +517,5 @@ Non-Significantly enriched: 28
 Significantly lacking: 0
 Non-Significantly lacking: 2
 ```
+
+Repeat this analysis for a minimum module size of 30 to see if this is more appropriate
