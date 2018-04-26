@@ -731,53 +731,8 @@ Or due to the lack of a true negative control set
 
 ### Create lists of RxLRs, CRNs, ApoplastP hits, a combined list of all effectors and a list of secreted proteins
 
-Remove statement from beginning of removed_genes file from WGCNA
-Create files for Genomic sets of Genes and features
-
-```bash
-cat analysis/coexpression/removed_genes.txt | sed 's/Removing genes: //g' > analysis/coexpression/removed_genes.txt
-Removed_Genes=analysis/coexpression/removed_genes.txt
-
-# All genes
-
-Gene_Set=analysis/coexpression/Genes_for_WGCNA.txt
-Genome_Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cdna.fasta
-Genome_Headers=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_Headers.txt
-cat $Genome_Fasta | grep '>' | sort | uniq > $Genome_Headers
-cat $Genome_Headers | grep -wvf $Removed_Genes | sort | uniq > $Gene_Set
-
-# RxLRs
-
-RxLR_Set=analysis/coexpression/RxLRs_analysed.txt
-RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
-cat $RxLR_Headers | grep -wf $Gene_Set | sort | uniq > $RxLR_Set
-
-# CRNs
-
-CRN_Set=analysis/coexpression/CRNs_analysed.txt
-CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
-cat $CRN_Headers | grep -wf $Gene_Set | sort | uniq > $CRN_Set
-
-# ApoP
-
-ApoP_Set=analysis/coexpression/ApoP_analysed.txt
-ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
-cat $ApoP_Headers | grep -wf $Gene_Set | sort | uniq > $ApoP_Set
-
-# Effectors
-
-Effector_Set=analysis/coexpression/Effectors_analysed.txt
-cat $RxLR_Set $CRN_Set $ApoP_Set | sort | uniq > $Effector_Set
-
-# Secreted proteins
-
-Secreted_Set=analysis/coexpression/Secreted_analysed.txt
-Augustus_Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
-ORF_Secreted=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
-cat $ORF_Secreted | sed 's/$/.t1/' > tmp_ORF.txt
-cat $Augustus_Secreted tmp_ORF.txt | grep -wf $Gene_Set | sort | uniq > $Secreted_Set
-rm tmp_ORF.txt
-```
+Remove statement from beginning of removed_genes file from WGCNA done previously
+Files for Genomic sets of Genes and features done previously
 
 Create files for Module sets of Genes and features
 
