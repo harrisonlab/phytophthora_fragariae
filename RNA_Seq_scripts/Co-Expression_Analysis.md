@@ -713,13 +713,12 @@ done
 Combine results from multiple repeats
 
 ```bash
-for Set in all highconfidence highexpressed totalmodule
+for Set in all highconfidence totalmodule
 do
-    OutDir=promotor_id/$Set
-    DremeDir=/data/scratch/adamst/$Set
+    OutDir=promotor_id/large_modules/$Set
+    DremeDir=/data/scratch/adamst/large_modules/$Set
     DremeRes=$DremeDir/*dreme*/dreme.txt
     Percentage=90
-    OutDir=promotor_id/$Set
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
     python $ProgDir/Combine_DREME_Repeats.py --inputs $DremeRes \
     --percentage $Percentage --outdir $OutDir
