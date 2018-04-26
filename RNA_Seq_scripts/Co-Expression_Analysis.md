@@ -840,8 +840,8 @@ Parse fisher results files to fewer files by type and hypothesis being tested
 ```bash
 for Type in up down equal
 do
-    Files=$(ls analysis/coexpression/enrichment/*/Fisher_Results/enriched_"$Type".txt)
-    OutDir=analysis/coexpression/enrichment/Parsed_Fisher_Results/$Type
+    Files=$(ls analysis/coexpression/enrichment_large_modules/*/Fisher_Results/enriched_"$Type".txt)
+    OutDir=analysis/coexpression/enrichment_large_modules/Parsed_Fisher_Results/$Type
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
     python $ProgDir/parse_fisher_results.py --inputs $Files --outdir $OutDir --FDR 0.05 --Types RxLR CRN ApoP Effector Secreted --Threshold 0.05
