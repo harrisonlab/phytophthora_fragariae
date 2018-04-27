@@ -53,7 +53,7 @@ mv Pfrag_albacore_v2.2.7.tar.gz $OutDir/.
 chmod +rw $OutDir/Pfrag_albacore_v2.2.7.tar.gz
 ```
 
-Build a directory structure on /data
+Build a directory structure on /data and /home
 
 ```bash
 ProjDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae
