@@ -49,7 +49,7 @@ chmod +w $OutDir
 cp Pfrag_albacore_v2.2.7.fastq.gz $OutDir/.
 chmod +rw $OutDir/Pfrag_albacore_v2.2.7.fastq.gz
 tar -czf Pfrag_albacore_v2.2.7.tar.gz Pfrag_albacore_v2.2.7
-mv Pfrag_albacore_v2.2.7.fastq.tar.gz $OutDir/.
+mv Pfrag_albacore_v2.2.7.tar.gz $OutDir/.
 chmod +rw $OutDir/Pfrag_albacore_v2.2.7.tar.gz
 ```
 
