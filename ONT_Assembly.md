@@ -65,7 +65,7 @@ OutDir=raw_dna/minion/$Organism/$Strain
 mkdir -p $OutDir
 RawData=$(ls /data/scratch/nanopore_tmp_data/P.fragariae/albacore_v2.2.7/Pfrag_albacore_v2.2.7.fastq.gz)
 cd $OutDir
-cp -s $RawDat .
+cp -s $RawData .
 cd $ProjDir
 ```
 
