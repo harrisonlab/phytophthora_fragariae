@@ -96,7 +96,7 @@ do
     echo $RawData
     ProgDir=/home/adamst/git_repos/tools/seq_tools/dna_qc
     GenomeSz=90
-    OutDir=$(echo $RawData | cut -f11,12,13,14 -d '/')
+    OutDir=$(dirname $RawData)
     mkdir -p $OutDir
     qsub $ProgDir/sub_count_nuc.sh $GenomeSz $RawData $OutDir
 done
