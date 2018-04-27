@@ -73,6 +73,9 @@ cd $ProjDir
 
 ### Adapter removal with porechop
 
+Before running, all PYTHONPATH variables were commented out and PYTHONPATH
+lines from Andy's profile at /home/armita/.profile were copied into mine
+
 ```bash
 for RawReads in $(ls raw_dna/minion/*/*/*.fastq.gz)
 do
