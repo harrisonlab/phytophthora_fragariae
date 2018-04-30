@@ -5812,4 +5812,6 @@ The number of proteins scoring positive for being GPI anchored is:
 1,319
 ```
 
+## Genes with transcription factor annotations
+
 Further downstream analysis done in Whole_Genome_Orthology.md, RNA-Seq_analysis.md and SNP_analysis.md
