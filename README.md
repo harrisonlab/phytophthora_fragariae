@@ -5831,4 +5831,6 @@ rm journal.pone.0111841.s002
 mv Own_Models.hmm TF_TR_Buitrago-Florez.hmm
 ```
 
+Identify TFs & TRs in gene set
+
 Further downstream analysis done in Whole_Genome_Orthology.md, RNA-Seq_analysis.md and SNP_analysis.md
