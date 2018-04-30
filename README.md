@@ -5815,7 +5815,11 @@ The number of proteins scoring positive for being GPI anchored is:
 ## Genes with transcription factor annotations
 
 2014 paper :
+
+```
 http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111841
+```
+
 Identified TF & TR families in Stramenopiles and produced HMMs
 
 Further downstream analysis done in Whole_Genome_Orthology.md, RNA-Seq_analysis.md and SNP_analysis.md
