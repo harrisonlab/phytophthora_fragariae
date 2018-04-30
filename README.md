@@ -5832,5 +5832,31 @@ mv Own_Models.hmm TF_TR_Buitrago-Florez.hmm
 ```
 
 Identify TFs & TRs in gene set
+4 sets of commands, run each in a separate qlogin session
+
+```bash
+# greedy ApoP
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
+do
+    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+    HMMModel=/home/adamst/TF_TR_Buitrago-Florez.hmm
+    OutDir=analysis/transcription_factors/$Organism/$Strain
+    mkdir -p $OutDir
+    HMMResults="$Strain"_TF_TR_hmmer.txt
+    hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
+    echo "Greedy RxLRs plus ApoP"
+    echo "$Organism $Strain"
+    cat $OutDir/$HMMResults | grep 'Initial search space'
+    cat $OutDir/$HMMResults | grep 'number of targets reported over threshold'
+    HMMFasta="$Strain"_TF_TR_hmmer.fa
+    $ProgDir/hmmer2fasta.pl $OutDir/$HMMResults $Proteome > $OutDir/$HMMFasta
+    Headers="$Strain"_TF_TR_hmmer_headers.txt
+    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
+    Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors.gff3)
+    cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_TF_TR.gff3
+done
+```
 
 Further downstream analysis done in Whole_Genome_Orthology.md, RNA-Seq_analysis.md and SNP_analysis.md
