@@ -103,8 +103,10 @@ done
 ```
 
 ```
-Coverage:
-
+Genome size: 90 Mb
+Bases in file: 6,368,613,371
+Number of sequences: 1,016,351
+Coverage: 70.76x
 ```
 
 ### Read correction using Canu
