@@ -5821,5 +5821,6 @@ http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111841
 ```
 
 Identified TF & TR families in Stramenopiles and produced HMMs
+Files downloaded for use
 
 Further downstream analysis done in Whole_Genome_Orthology.md, RNA-Seq_analysis.md and SNP_analysis.md
