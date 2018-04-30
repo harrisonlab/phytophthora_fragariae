@@ -5855,7 +5855,7 @@ do
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     $ProgDir/hmmer2fasta.pl $OutDir/$HMMResults $Proteome > $OutDir/$HMMFasta
     Headers="$Strain"_TF_TR_hmmer_headers.txt
-    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
+    cat $OutDir/$HMMFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
     Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors.gff3)
     cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_TF_TR.gff3
 done
@@ -5880,7 +5880,7 @@ do
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     $ProgDir/hmmer2fasta.pl $OutDir/$HMMResults $Proteome > $OutDir/$HMMFasta
     Headers="$Strain"_TF_TR_hmmer_headers.txt
-    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
+    cat $OutDir/$HMMFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
     Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_conservative.gff3)
     cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_TF_TR.gff3
 done
@@ -5905,7 +5905,7 @@ do
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     $ProgDir/hmmer2fasta.pl $OutDir/$HMMResults $Proteome > $OutDir/$HMMFasta
     Headers="$Strain"_TF_TR_hmmer_headers.txt
-    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
+    cat $OutDir/$HMMFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
     Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_noApoP.gff3)
     cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_TF_TR.gff3
 done
@@ -5930,7 +5930,7 @@ do
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     $ProgDir/hmmer2fasta.pl $OutDir/$HMMResults $Proteome > $OutDir/$HMMFasta
     Headers="$Strain"_TF_TR_hmmer_headers.txt
-    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
+    cat $OutDir/$HMMFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
     Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_conservative_noApoP.gff3)
     cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_TF_TR.gff3
 done
