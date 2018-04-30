@@ -5842,7 +5842,7 @@ do
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
     HMMModel=/home/adamst/TF_TR_Buitrago-Florez.hmm
-    OutDir=analysis/transcription_factors/$Organism/$Strain
+    OutDir=analysis/transcription_factors/$Organism/$Strain/greedy
     mkdir -p $OutDir
     HMMResults="$Strain"_TF_TR_hmmer.txt
     hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
@@ -5855,6 +5855,29 @@ do
     Headers="$Strain"_TF_TR_hmmer_headers.txt
     cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
     Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors.gff3)
+    cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_TF_TR.gff3
+done
+
+# conservative ApoP
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
+do
+    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
+    HMMModel=/home/adamst/TF_TR_Buitrago-Florez.hmm
+    OutDir=analysis/transcription_factors/$Organism/$Strain/conservative
+    mkdir -p $OutDir
+    HMMResults="$Strain"_TF_TR_hmmer.txt
+    hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
+    echo "Greedy RxLRs plus ApoP"
+    echo "$Organism $Strain"
+    cat $OutDir/$HMMResults | grep 'Initial search space'
+    cat $OutDir/$HMMResults | grep 'number of targets reported over threshold'
+    HMMFasta="$Strain"_TF_TR_hmmer.fa
+    $ProgDir/hmmer2fasta.pl $OutDir/$HMMResults $Proteome > $OutDir/$HMMFasta
+    Headers="$Strain"_TF_TR_hmmer_headers.txt
+    cat $OutDir/$HmmFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
+    Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_conservative.gff3)
     cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_TF_TR.gff3
 done
 ```
