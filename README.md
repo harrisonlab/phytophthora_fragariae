@@ -5836,6 +5836,8 @@ Identify TFs & TRs in gene set
 
 ```bash
 # greedy ApoP
+qlogin
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
@@ -5859,6 +5861,8 @@ do
 done
 
 # conservative ApoP
+qlogin
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
@@ -5882,6 +5886,8 @@ do
 done
 
 # greedy no ApoP
+qlogin
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_noApoP.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
@@ -5905,6 +5911,8 @@ do
 done
 
 # conservative no ApoP
+qlogin
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative_noApoP.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
