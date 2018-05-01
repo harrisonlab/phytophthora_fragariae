@@ -5838,7 +5838,6 @@ Identify TFs & TRs in gene set
 # greedy ApoP
 qlogin
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
-echo "Greedy RxLRs plus ApoP"
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
@@ -5849,6 +5848,7 @@ do
     mkdir -p $OutDir
     HMMResults="$Strain"_TF_TR_hmmer.txt
     hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
+    echo "Greedy RxLRs plus ApoP"
     echo "$Organism $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
     python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
@@ -5863,7 +5863,6 @@ done
 # conservative ApoP
 qlogin
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
-echo "Conservative RxLRs plus ApoP"
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
@@ -5874,6 +5873,7 @@ do
     mkdir -p $OutDir
     HMMResults="$Strain"_TF_TR_hmmer.txt
     hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
+    echo "Conservative RxLRs plus ApoP"
     echo "$Organism $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
     python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
@@ -5888,7 +5888,6 @@ done
 # greedy no ApoP
 qlogin
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
-echo "Greedy RxLRs, no ApoP"
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_noApoP.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
@@ -5899,6 +5898,7 @@ do
     mkdir -p $OutDir
     HMMResults="$Strain"_TF_TR_hmmer.txt
     hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
+    echo "Greedy RxLRs, no ApoP"
     echo "$Organism $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
     python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
@@ -5913,7 +5913,6 @@ done
 # conservative no ApoP
 qlogin
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
-echo "Conservative RxLRs, no ApoP"
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative_noApoP.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
@@ -5924,6 +5923,7 @@ do
     mkdir -p $OutDir
     HMMResults="$Strain"_TF_TR_hmmer.txt
     hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
+    echo "Conservative RxLRs, no ApoP"
     echo "$Organism $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
     python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
