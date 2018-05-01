@@ -5888,6 +5888,7 @@ done
 # greedy no ApoP
 qlogin
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
+echo "Greedy RxLR, no ApoP"
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_noApoP.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
@@ -5898,16 +5899,15 @@ do
     mkdir -p $OutDir
     HMMResults="$Strain"_TF_TR_hmmer.txt
     hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
-    echo "Greedy RxLRs plus ApoP"
-    echo "$Organism $Strain"
-    cat $OutDir/$HMMResults | grep 'Initial search space'
-    cat $OutDir/$HMMResults | grep 'number of targets reported over threshold'
+    echo "$Organism $Strain:"
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
+    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
+    cat $OutDir/*TF_TR_Headers.txt | wc -l
     HMMFasta="$Strain"_TF_TR_hmmer.fa
-    $ProgDir/hmmer2fasta.pl $OutDir/$HMMResults $Proteome > $OutDir/$HMMFasta
-    Headers="$Strain"_TF_TR_hmmer_headers.txt
-    cat $OutDir/$HMMFasta | grep '>' | cut -f1 | tr -d '>' | sed -r 's/\.t.*//' | tr -d ' ' | sort | uniq > $OutDir/$Headers
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR_hmmer.fa
     Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_noApoP.gff3)
-    cat $Gff | grep -w -f $OutDir/$Headers > $OutDir/"$Strain"_TF_TR.gff3
+    cat $Gff | grep -w -f $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR.gff3done
 done
 
 # conservative no ApoP
