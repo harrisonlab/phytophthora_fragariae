@@ -105,6 +105,9 @@ ap.add_argument('--Swissprot', required=True, type=str,
 ap.add_argument('--modules', required=True, nargs='+', type=str,
                 help='Space separated list of files containing genes in \
                 modules')
+ap.add_argument('--Transcription_factors', required=True, type=str, help='File \
+                containing gene names identified as transcription factors or \
+                transcriptional regulators by a HMM')
 
 conf = ap.parse_args()
 
