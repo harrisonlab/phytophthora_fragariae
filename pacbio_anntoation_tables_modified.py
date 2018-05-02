@@ -861,7 +861,8 @@ for line in transcript_lines:
     #                 orthogroup])
     outline.extend([sigP2, sigP3, sigP4, phobius])
     outline.extend([trans_mem, gpi, secreted])
-    outline.extend([RxLR_total, RxLR_EER_total, CRN_total, ApoP_total])
+    outline.extend([RxLR_total, RxLR_EER_total, CRN_total, ApoP_total,
+                    TF_Total])
     outline.append(orthogroup)
     outline.extend(mean_count_cols)
     outline.extend(mean_fpkm_cols)
