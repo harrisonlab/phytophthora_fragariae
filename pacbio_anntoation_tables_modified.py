@@ -797,8 +797,8 @@ for line in transcript_lines:
         CRN_total = 'Yes'
     if transcript_id in ApoP_total_set:
         ApoP_total = 'Yes'
-        if transcript_id in TF_set:
-            TF_Total = 'Yes'
+    if transcript_id in TF_set:
+        TF_Total = 'Yes'
     if ortho_dict[transcript_id]:
         orthogroup = ortho_dict[transcript_id]
     DEG_out = []
