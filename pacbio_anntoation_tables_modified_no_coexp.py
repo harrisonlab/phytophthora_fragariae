@@ -600,6 +600,15 @@ for line in swissprot_lines:
     swissprot_dict[gene_id].extend(swissprot_columns)
 
 # -----------------------------------------------------
+# Load transcription factor results into a set
+# -----------------------------------------------------
+
+TF_set = Set()
+for line in TF_lines:
+    header = line.rstrip()
+    TF_set.add(header)
+
+# -----------------------------------------------------
 # Step 3
 # Iterate through genes in file, identifying if
 # they have associated information
