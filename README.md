@@ -5832,7 +5832,7 @@ mv Own_Models.hmm TF_TR_Buitrago-Florez.hmm
 ```
 
 Identify TFs & TRs in gene set
-4 sets of commands, run each in a separate qlogin session
+4 sets of commands, run each in a separate qlogin session with a screen session
 
 ```bash
 # greedy ApoP
