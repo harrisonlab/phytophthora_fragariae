@@ -210,6 +210,9 @@ with open(conf.InterPro) as f:
 with open(conf.Swissprot) as f:
     swissprot_lines = f.readlines()
 
+with open(conf.Transcription_factors) as f:
+    TF_lines = f.readlines()
+
 # -----------------------------------------------------
 # Load protein sequence data into a dictionary
 # -----------------------------------------------------
