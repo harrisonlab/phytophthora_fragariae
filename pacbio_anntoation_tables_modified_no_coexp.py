@@ -102,6 +102,9 @@ ap.add_argument('--Swissprot', required=True, type=str,
                 help='A parsed table of BLAST results against the Swissprot \
                 database. Note - must have been parsed with \
                 swissprot_parser.py')
+ap.add_argument('--Transcription_factors', required=True, type=str, help='File \
+                containing gene names identified as transcription factors or \
+                transcriptional regulators by a HMM')
 
 conf = ap.parse_args()
 
