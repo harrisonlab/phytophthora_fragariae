@@ -5851,7 +5851,7 @@ do
     echo "Greedy RxLRs plus ApoP"
     echo "$Organism $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
-    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
+    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Strain
     cat $OutDir/*TF_TR_Headers.txt | wc -l
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
@@ -5876,7 +5876,7 @@ do
     echo "Conservative RxLRs plus ApoP"
     echo "$Organism $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
-    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
+    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Strain
     cat $OutDir/*TF_TR_Headers.txt | wc -l
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
@@ -5901,7 +5901,7 @@ do
     echo "Greedy RxLRs, no ApoP"
     echo "$Organism $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
-    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
+    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Strain
     cat $OutDir/*TF_TR_Headers.txt | wc -l
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
@@ -5926,7 +5926,7 @@ do
     echo "Conservative RxLRs, no ApoP"
     echo "$Organism $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
-    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Stain
+    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Strain
     cat $OutDir/*TF_TR_Headers.txt | wc -l
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
