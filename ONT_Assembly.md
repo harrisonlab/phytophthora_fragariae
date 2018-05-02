@@ -126,7 +126,7 @@ done
 ### Assembly using SMARTdenovo
 
 ```bash
-for CorrectedReads in $(ls assembly/canu/*/*/*.trimmedReads.fasta.gz)
+for CorrectedReads in $(ls assembly/canu/*/*/*.trimmedReads.fasta.gz | grep -v Bc16)
 do
     Organism=$(echo $CorrectedReads | rev | cut -f3 -d '/' | rev)
     Strain=$(echo $CorrectedReads | rev | cut -f2 -d '/' | rev)
