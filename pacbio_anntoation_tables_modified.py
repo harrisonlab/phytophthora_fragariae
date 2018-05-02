@@ -227,6 +227,9 @@ for module_file in module_files:
             gene_id = gene_id.replace('\n', "")
             module_dict[gene_id] = module_ID
 
+with open(conf.Transcription_factors) as f:
+    TF_lines = f.readlines()
+
 # -----------------------------------------------------
 # Load protein sequence data into a dictionary
 # -----------------------------------------------------
