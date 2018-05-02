@@ -639,7 +639,7 @@ header_line.extend(['contig', 'start', 'stop', 'strand'])
 #                     'CRN_total', 'orthogroup'])
 header_line.extend(['sigP2', 'sigP3', 'sigP4', 'phobius', 'TMHMM', 'GPI',
                     'secreted', 'RxLR_total', 'RxLR_EER_total', 'CRN_total',
-                    'ApoplastP_total', 'orthogroup'])
+                    'ApoplastP_total', 'Transcription_Factor', 'orthogroup'])
 for treatment in sorted(set(count_treatment_list)):
     treatment = "raw_count_" + treatment
     header_line.append(treatment)
