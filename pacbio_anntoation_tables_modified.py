@@ -735,6 +735,7 @@ for line in transcript_lines:
     # CRN_DWL = ''
     CRN_total = ''
     ApoP_total = ''
+    TF_Total = ''
     orthogroup = ''
     module = ''
     prot_seq = ''
