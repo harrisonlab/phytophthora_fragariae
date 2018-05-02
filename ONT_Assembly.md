@@ -171,6 +171,23 @@ do
 done
 ```
 
+```
+Assembly statistics:
+
+Number of contigs: 124
+N50: 1,250,697
+Genome Size: 92,662,945
+L50: 23
+GC content: 53.48%
+
+BUSCO statistics:
+
+224 complete single copy
+6 complete duplicated
+40 fragmented
+33 missing
+```
+
 ### Error correction using racon
 
 This polishes the assembly using the raw ONT reads
