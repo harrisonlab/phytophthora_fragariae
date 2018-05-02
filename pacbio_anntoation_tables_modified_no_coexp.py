@@ -717,6 +717,7 @@ for line in transcript_lines:
     # CRN_DWL = ''
     CRN_total = ''
     ApoP_total = ''
+    TF_Total = ''
     orthogroup = ''
     prot_seq = ''
     swissprot_cols = []
