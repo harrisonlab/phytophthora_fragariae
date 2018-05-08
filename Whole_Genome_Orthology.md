@@ -1046,7 +1046,7 @@ done
 
 # Race 2 unique Transcription factor or Transcriptional regulators orthogroups
 
-# Race 2 TF genes were parsed to the same format as the gene names used in the analysis:
+# Race 2 TF/TR genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
 for num in 1
