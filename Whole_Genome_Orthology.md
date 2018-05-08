@@ -2474,7 +2474,7 @@ do
 done
 ```
 
-# Race 3 unique TF/TR orthology groups
+# Race 3 unique Transcription factor or Transcriptional regulators orthogroups
 
 # Race 3 TF genes were parsed to the same format as the gene names used in the analysis:
 
