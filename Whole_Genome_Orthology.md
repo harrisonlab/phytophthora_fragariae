@@ -1097,7 +1097,7 @@ done
 
 ```
 
-#The Race 2 TF/TRs that were not found in orthogroups were identified:
+# The Race 2 TF/TRs that were not found in orthogroups were identified:
 
 ```bash
 for num in 1
@@ -1129,7 +1129,7 @@ done
 
 ```
 
-##Extracting fasta files for orthogroups containing Race 2 putative TF/TRs
+## Extracting fasta files for orthogroups containing Race 2 putative TF/TRs
 
 ```bash
 for num in 1
@@ -1144,7 +1144,7 @@ done
 ```
 
 
-##Extracting fasta files for P. fragariae orthogroups containing Race 2 putative TF/TRs
+## Extracting fasta files for P. fragariae orthogroups containing Race 2 putative TF/TRs
 
 ```bash
 for num in 1
