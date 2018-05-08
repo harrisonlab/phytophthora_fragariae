@@ -1830,7 +1830,12 @@ done
 ```
 
 ```
-
+The number of UK1 unique TFs are:
+4
+The number of BC-1 genes extracted is:
+2
+The number of NOV-5 genes extracted is:
+2
 ```
 
 ## Extracting fasta files for orthogroups containing Race 1 putative TF/TRs
