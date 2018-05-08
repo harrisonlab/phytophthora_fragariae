@@ -1139,7 +1139,12 @@ done
 ```
 
 ```
-
+The number of UK2 unique TFs are:
+7
+The number of BC-16 genes extracted is:
+4
+The number of A4 genes extracted is:
+3
 ```
 
 ## Extracting fasta files for orthogroups containing Race 2 putative TF/TRs
