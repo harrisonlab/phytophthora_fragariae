@@ -190,6 +190,12 @@ BUSCO statistics:
 
 ### Error correction using racon
 
+Before running, add the following line to my bash profile
+
+```
+PATH=${PATH}:/data/scratch/armita/minimap/minimap2
+```
+
 This polishes the assembly using the raw ONT reads
 
 ```bash
