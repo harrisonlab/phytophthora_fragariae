@@ -2928,7 +2928,7 @@ t1 <- counts(dds)
 t1 <- mygenes[rownames(t1)]
 rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
 
-# robust may be better set at fasle to normalise based on total counts rather than 'library normalisation factors'
+# robust may be better set at false to normalise based on total counts rather than 'library normalisation factors'
 fpkm_counts <- data.frame(fpkm(dds, robust = TRUE))
 colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"analysis/DeSeq/Method_2/Nov9/fpkm_norm_counts.txt",sep="\t",na="",quote=F)
