@@ -2974,6 +2974,7 @@ do
     ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
     Secreted_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
     Secreted_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+    TFs=analysis/transcription_factors/P.fragariae/$Strain/"$Strain"_TF_TR_Headers.txt
     OutDir=analysis/DeSeq/Method_1/expression_results
     Scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
     python $Scripts/Identify_unique_Expressed_Genes.py --FPKM_in $FPKM --Orthogroup_in $Orthogroups --Reference_name $Strain --Organism_1 $Org1 --Organism_2 $Org2 --Organism_3 $Org3 --FPKM_min $FPKM_min --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Secreted_CQ --Secreted_ORF $Secreted_ORF --OutDir $OutDir
