@@ -1094,7 +1094,20 @@ done
 ```
 
 ```
-
+The number of TFs searched for is:
+516
+Of these, the following number were found in orthogroups:
+509
+These were distributed through the following number of Orthogroups:
+217
+The following TFs were found in Race 2 unique orthogroups:
+0
+These orthogroups contain the following number of TFs:
+0
+The following TFs were found in P.fragariae unique orthogroups:
+217
+These orthogroups contain the following number of TFs:
+509
 ```
 
 # The Race 2 TF/TRs that were not found in orthogroups were identified:
