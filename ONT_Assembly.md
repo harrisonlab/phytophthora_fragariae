@@ -473,7 +473,7 @@ do
     OutDir=$(dirname $Assembly)
     # Quast
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-    qsub $ProgDir/sub_quast $Assembly $OutDir
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
     # BUSCO
     BuscoDB=Eukaryotic
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
