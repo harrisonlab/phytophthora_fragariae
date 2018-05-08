@@ -481,6 +481,22 @@ do
 done
 ```
 
+```
+Assembly Statistics:
+Number of contigs: 2,824
+N50: 124,780
+Genome Size: 86,494,617
+L50: 203
+GC content: 53.34%
+
+BUSCO statistics:
+
+269 complete single copy
+10 complete duplicated
+7 fragmented
+17 missing
+```
+
 ## Merging SMARTdenovo and SPAdes assemblies
 
 ```bash
