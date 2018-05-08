@@ -2438,6 +2438,130 @@ do
 done
 ```
 
+# Race 3 unique TF/TR orthology groups
+
+# Race 3 TF genes were parsed to the same format as the gene names used in the analysis:
+
+```bash
+for num in 1
+do
+    TF_Names_Nov27=analysis/transcription_factors/P.fragariae/Nov27/greedy/Nov27_TF_TR_Headers.txt
+    TF_Names_Nov71=analysis/transcription_factors/P.fragariae/Nov71/greedy/Nov71_TF_TR_Headers.txt
+    TF_Names_Nov9=analysis/transcription_factors/P.fragariae/Nov9/greedy/Nov9_TF_TR_Headers.txt
+    WorkDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal
+    TF_Dir=$WorkDir/UK3_TF
+    Orthogroups=$WorkDir/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    TF_ID=$TF_Dir/UK3_TF_IDs.txt
+    mkdir -p $TF_Dir
+    cat $TF_Names_Nov27 | sed -r 's/^/Nov27|/g' > $TF_ID
+    cat $TF_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $TF_ID
+    cat $TF_Names_Nov9 | sed -r 's/^/Nov9|/g' >> $TF_ID
+done
+```
+
+# Ortholog groups containing TF/TR proteins were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of TFs searched for is:"
+    cat $TF_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    TF_Orthogroup_hits=$TF_Dir/UK3_TF_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $TF_ID > $TF_Orthogroup_hits
+    cat $TF_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    TF_Orthogroup=$TF_Dir/UK3_TF_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $TF_ID > $TF_Orthogroup
+    cat $TF_Orthogroup | wc -l
+    echo "The following TFs were found in Race 3 unique orthogroups:"
+    TF_UK3_uniq_groups=$TF_Dir/UK3_uniq_TF_Orthogroups_hits.txt
+    cat $RxLR_Orthogroup | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc1|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' > $TF_UK3_uniq_groups
+    cat $TF_UK3_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of TFs:"
+    cat $TF_UK3_uniq_groups | grep -w -o -f $TF_ID | wc -l
+    echo "The following TFs were found in P.fragariae unique orthogroups:"
+    TF_Pf_uniq_groups=$TF_Dir/Pf_TF_Orthogroups_hits.txt
+    cat $TF_Orthogroup > $TF_Pf_uniq_groups
+    cat $TF_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of TFs:"
+    cat $TF_Pf_uniq_groups | grep -w -o -f $TF_ID | wc -l
+done
+```
+
+```
+
+```
+
+# The Race 3 TF/TR genes that were not found in orthogroups were identified:
+
+```bash
+for num in 1
+do
+    TF_UK3_uniq=$TF_Dir/UK3_unique_TFs.txt
+    cat $TF_ID | grep -v -w -f $TF_Orthogroup_hits > $TF_UK3_uniq
+    echo "The number of UK3 unique TFs are:"
+    cat $TF_UK3_uniq | wc -l
+    TF_Seq_Nov27=analysis/transcription_factors/P.fragariae/Nov27/greedy/Nov27_TF_TR_hmmer.fa
+    TF_Seq_Nov71=analysis/transcription_factors/P.fragariae/Nov71/greedy/Nov71_TF_TR_hmmer.fa
+    TF_Seq_Nov9=analysis/transcription_factors/P.fragariae/Nov9/greedy/Nov9_TF_TR_hmmer.fa
+    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+    Nov27_TF_UK3_uniq_fa=$TF_Dir/Nov27_UK3_unique_TFs.fa
+    Nov71_TF_UK3_uniq_fa=$TF_Dir/Nov71_UK3_unique_TFs.fa
+    Nov9_TF_UK3_uniq_fa=$TF_Dir/Nov9_UK3_unique_TFs.fa
+    Nov27_to_extract=$TF_Dir/Nov27_to_extract.txt
+    Nov71_to_extract=$TF_Dir/Nov71_to_extract.txt
+    Nov9_to_extract=$TF_Dir/Nov9_to_extract.txt
+    cat $TF_UK3_uniq | grep 'Nov27|' | cut -f2 -d "|" > $Nov27_to_extract
+    cat $TF_UK3_uniq | grep 'Nov71|' | cut -f2 -d "|" > $Nov71_to_extract
+    cat $TF_UK3_uniq | grep 'Nov9|' | cut -f2 -d "|" > $Nov9_to_extract
+    cat $Final_genes_Nov27 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov27_to_extract | grep -E -v '^--' > $Nov27_TF_UK3_uniq_fa
+    cat $Final_genes_Nov71 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov71_to_extract | grep -E -v '^--' > $Nov71_TF_UK3_uniq_fa
+    cat $Final_genes_Nov9 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Nov9_to_extract | grep -E -v '^--' > $Nov9_TF_UK3_uniq_fa
+    echo "The number of NOV-27 genes extracted is:"
+    cat $Nov27_TF_UK3_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-71 genes extracted is:"
+    cat $Nov71_TF_UK3_uniq_fa | grep '>' | wc -l
+    echo "The number of NOV-9 genes extracted is:"
+    cat $Nov9_TF_UK3_uniq_fa | grep '>' | wc -l
+done
+```
+
+```
+
+```
+
+## Extracting fasta files for orthogroups containing Race 3 putative TF/TRs
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK3_TF/UK3_TF_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK3_TFs/orthogroups_fasta_UK3_TF
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+
+## Extracting fasta files for P. fragariae orthogroups containing Race 3 putative TF/TRs
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK3_TFs/Pf_TF_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/UK3_TFs/orthogroups_fasta_Pf_TF
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
 #Extract fasta files for all unique orthogroups, including non-effector groups
 
 ```bash
