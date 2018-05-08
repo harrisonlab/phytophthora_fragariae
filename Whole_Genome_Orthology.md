@@ -1110,7 +1110,7 @@ These orthogroups contain the following number of TFs:
 509
 ```
 
-# The Race 2 TF/TRs that were not found in orthogroups were identified:
+## The Race 2 TF/TRs that were not found in orthogroups were identified
 
 ```bash
 for num in 1
