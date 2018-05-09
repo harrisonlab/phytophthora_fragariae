@@ -2512,7 +2512,7 @@ do
     cat $TF_Orthogroup | wc -l
     echo "The following TFs were found in Race 3 unique orthogroups:"
     TF_UK3_uniq_groups=$TF_Dir/UK3_uniq_TF_Orthogroups_hits.txt
-    cat $RxLR_Orthogroup | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc1|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' > $TF_UK3_uniq_groups
+    cat $TF_Orthogroup | grep -v -e 'A4|' -e 'Nov5|' -e 'Bc1|' -e 'Bc16|' | grep -e 'Nov27|' | grep -e 'Nov71|' | grep -e 'Nov9|' > $TF_UK3_uniq_groups
     cat $TF_UK3_uniq_groups | wc -l
     echo "These orthogroups contain the following number of TFs:"
     cat $TF_UK3_uniq_groups | grep -w -o -f $TF_ID | wc -l
