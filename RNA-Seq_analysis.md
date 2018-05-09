@@ -3264,9 +3264,9 @@ do
     cat $Uniq_Sec_Bc1 | tail -n +2 | wc -l
     echo "The number of NOV-9 differently differentially expressed secreted proteins is:"
     cat $Uniq_Sec_Nov9 | tail -n +2 | wc -l
-    Uniq_TFs_Bc16=$OutDir/Secreted/"$Strain"_Bc16_unique_DEGs_TFs.txt
-    Uniq_TFs_Bc1=$OutDir/Secreted/"$Strain"_Bc1_unique_DEGs_TFs.txt
-    Uniq_TFs_Nov9=$OutDir/Secreted/"$Strain"_Nov9_unique_DEGs_TFs.txt
+    Uniq_TFs_Bc16=$OutDir/TFs/"$Strain"_Bc16_unique_DEGs_TFs.txt
+    Uniq_TFs_Bc1=$OutDir/TFs/"$Strain"_Bc1_unique_DEGs_TFs.txt
+    Uniq_TFs_Nov9=$OutDir/TFs/"$Strain"_Nov9_unique_DEGs_TFs.txt
     echo "The number of BC-16 differently differentially expressed secreted proteins is:"
     cat $Uniq_TFs_Bc16 | tail -n +2 | wc -l
     echo "The number of BC-1 differently differentially expressed secreted proteins is:"
