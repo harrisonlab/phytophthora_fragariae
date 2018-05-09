@@ -631,3 +631,81 @@ with open(Org3_out, 'w') as o:
         o.write("\n")
 
 print("Output files created for all uniquely expressed Secreted proteins")
+
+# -----------------------------------------------------
+# Step 15
+# Identify TFs/TRs that are uniquely expressed
+# -----------------------------------------------------
+
+with open(conf.TFs) as f:
+    TFs = []
+    TF_lines = f.readlines()
+    for line in TF_lines:
+        ID = line.rstrip()
+        TFs.append(ID)
+
+TF_set = set(TFs)
+Isolate1_TFs = []
+Isolate2_TFs = []
+Isolate3_TFs = []
+
+for transcript in Isolate1_uniq_set:
+    if transcript in TF_set:
+        Isolate1_TFs.append(transcript)
+
+for transcript in Isolate2_uniq_set:
+    if transcript in TF_set:
+        Isolate2_TFs.append(transcript)
+
+for transcript in Isolate3_uniq_set:
+    if transcript in TF_set:
+        Isolate3_TFs.append(transcript)
+
+print("Unqiuely expressed TFs identified")
+
+# -----------------------------------------------------
+# Step 16
+# Print all uniquely expressed RxLRs to text file
+# -----------------------------------------------------
+
+Org1_file = "_".join([Reference_name, Org1, "expressed_unique_TFs.txt"])
+Org2_file = "_".join([Reference_name, Org2, "expressed_unique_TFs.txt"])
+Org3_file = "_".join([Reference_name, Org3, "expressed_unique_TFs.txt"])
+
+Org1_out = "/".join([cwd, OutDir, "TFs", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "TFs", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "TFs", Org3_file])
+
+with open(Org1_out, 'w') as o:
+    o.write(Header)
+    o.write("\n")
+    for item in Isolate1_TFs:
+        FPKM = str(Isolate1_dict[item])
+        FPKM = FPKM.replace('[', '')
+        FPKM = FPKM.replace(']', '')
+        orthogroup = Isolate1_candidates[item]
+        output = "\t".join([item, orthogroup, FPKM])
+        o.write(output)
+        o.write("\n")
+
+with open(Org2_out, 'w') as o:
+    o.write(Header)
+    o.write("\n")
+    for item in Isolate2_TFs:
+        FPKM = str(Isolate2_dict[item])
+        orthogroup = Isolate2_candidates[item]
+        output = "\t".join([item, orthogroup, FPKM])
+        o.write(output)
+        o.write("\n")
+
+with open(Org3_out, 'w') as o:
+    o.write(Header)
+    o.write("\n")
+    for item in Isolate3_TFs:
+        FPKM = str(Isolate3_dict[item])
+        orthogroup = Isolate3_candidates[item]
+        output = "\t".join([item, orthogroup, FPKM])
+        o.write(output)
+        o.write("\n")
+
+print("Output files created for all uniquely expressed TFs")
