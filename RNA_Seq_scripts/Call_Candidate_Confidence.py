@@ -333,7 +333,7 @@ Org3_exp_Head = "_".join([Org3, "uniquely", "expressed"])
 Header = "\t".join([Org1_gene_Head, Org2_gene_Head, Org3_gene_Head,
                     "Orthogroup", Org1_DEG_Head, Org2_DEG_Head, Org3_DEG_Head,
                     Org1_exp_Head, Org2_exp_Head, Org3_exp_Head, "RxLR", "CRN",
-                    "ApoplastP", "Secreted", "Score"])
+                    "ApoplastP", "Secreted", "TFs/TRs", "Score"])
 
 with open(Output, 'w') as o:
     o.write(Header)
