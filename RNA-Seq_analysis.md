@@ -3421,10 +3421,11 @@ do
     ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
     Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
     Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+    TFs=analysis/transcription_factors/P.fragariae/$Strain/greedy/"$Strain"_TF_TR_Headers.txt
     OutDir=analysis/DeSeq/Method_1/candidates
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-    python $ProgDir/Call_Candidate_Confidence.py --Unique_Expression_Files $Uniq_Exp_files --Differently_DEG_File $Uniq_DEG_files --Orthogroup_in $Orthogroups --Organism_1 $Strain --Organism_2 $Org2 --Organism_3 $Org3 --Race_isolates $Race_isolates --Reference_name $Strain --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF --OutDir $OutDir
+    python $ProgDir/Call_Candidate_Confidence.py --Unique_Expression_Files $Uniq_Exp_files --Differently_DEG_File $Uniq_DEG_files --Orthogroup_in $Orthogroups --Organism_1 $Strain --Organism_2 $Org2 --Organism_3 $Org3 --Race_isolates $Race_isolates --Reference_name $Strain --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF --TFs $TFs --OutDir $OutDir
 done
 ```
 
