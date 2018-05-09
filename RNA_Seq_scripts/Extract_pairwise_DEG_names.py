@@ -84,7 +84,7 @@ for line in Ortho_lines:
     split_line = line.split()
     orthogroup = split_line[0]
     orthogroup = orthogroup.replace(":", "")
-    genes_in_group = [ x for x in split_line if reference_name in x ]
+    genes_in_group = [x for x in split_line if reference_name in x]
     for gene in genes_in_group:
         gene = gene.replace(reference_name, '').replace('|', '')
         ortho_dict[gene] = orthogroup
