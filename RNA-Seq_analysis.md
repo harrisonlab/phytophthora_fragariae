@@ -3305,11 +3305,17 @@ The number of BC-1 differently differentially expressed apoplastic effectors is:
 The number of NOV-9 differently differentially expressed apoplastic effectors is:
 39
 The number of BC-16 differently differentially expressed secreted proteins is:
-171
+327
 The number of BC-1 differently differentially expressed secreted proteins is:
-36
+63
 The number of NOV-9 differently differentially expressed secreted proteins is:
-212
+237
+The number of BC-16 differently differentially expressed TFs/TRs is:
+18
+The number of BC-1 differently differentially expressed TFs/TRs is:
+2
+The number of NOV-9 differently differentially expressed TFs/TRs is:
+10
 
 Analysis using Bc1 as the reference genome:
 
@@ -3338,11 +3344,17 @@ The number of BC-1 differently differentially expressed apoplastic effectors is:
 The number of NOV-9 differently differentially expressed apoplastic effectors is:
 22
 The number of BC-16 differently differentially expressed secreted proteins is:
-343
+471
 The number of BC-1 differently differentially expressed secreted proteins is:
-340
+491
 The number of NOV-9 differently differentially expressed secreted proteins is:
-259
+250
+The number of BC-16 differently differentially expressed TFs/TRs is:
+31
+The number of BC-1 differently differentially expressed TFs/TRs is:
+27
+The number of NOV-9 differently differentially expressed TFs/TRs is:
+10
 
 Analysis using Nov9 as the reference genome:
 
@@ -3371,11 +3383,17 @@ The number of BC-1 differently differentially expressed apoplastic effectors is:
 The number of NOV-9 differently differentially expressed apoplastic effectors is:
 122
 The number of BC-16 differently differentially expressed secreted proteins is:
-361
+641
 The number of BC-1 differently differentially expressed secreted proteins is:
-237
+207
 The number of NOV-9 differently differentially expressed secreted proteins is:
-543
+649
+The number of BC-16 differently differentially expressed TFs/TRs is:
+27
+The number of BC-1 differently differentially expressed TFs/TRs is:
+6
+The number of NOV-9 differently differentially expressed TFs/TRs is:
+35
 ```
 
 Now call candidate confidence for each isolate
