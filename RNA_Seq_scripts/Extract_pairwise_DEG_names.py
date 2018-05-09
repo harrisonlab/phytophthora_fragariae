@@ -1,35 +1,53 @@
 #!/usr/bin/python
 
 '''
-This script uses the output of DeSeq2 to produce a list of genes that are differntially expressed only in a single isolate and add orthogroup ID for each gene. Only works for three isolates.
+This script uses the output of DeSeq2 to produce a list of genes that are
+differntially expressed only in a single isolate and add orthogroup ID for each
+gene. Only works for three isolates.
 '''
 
-import sys,argparse
+import argparse
 from collections import defaultdict
-from sets import Set
 import os
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--DEG_files',required=True,nargs='+',type=str,help='space spererated list of files containing DEG information')
-ap.add_argument('--Orthogroup_in',required=True,type=str,help='text output file of Orthogroups from OrthoFinder')
-ap.add_argument('--Reference_name',required=True,type=str,help='Name of organism gene IDs are from in DEG input file')
-ap.add_argument('--Min_LFC',required=True,type=float,help='Minimum log fold change for a gene to be called a DEG')
-ap.add_argument('--Sig_Level',required=True,type=float,help='Minimum p-value for a DEG to be considered significant')
-ap.add_argument('--Organism_1',required=True,type=str,help='Name of isolate 1, three timepoints')
-ap.add_argument('--Organism_2',required=True,type=str,help='Name of isolate 2, one timepoint')
-ap.add_argument('--Organism_3',required=True,type=str,help='Name of isolate 3, one timepoint')
-ap.add_argument('--OutDir',required=True,type=str,help='Directory to write output files to')
-ap.add_argument('--RxLRs',required=True,type=str,help='File of all RxLR names for aligned genome')
-ap.add_argument('--CRNs',required=True,type=str,help='File of all CRN names for aligned genome')
-ap.add_argument('--ApoP',required=True,type=str,help='File of all hits from ApoplastP')
-ap.add_argument('--Secreted_CQ',required=True,type=str,help='File of all secreted gene models')
-ap.add_argument('--Secreted_ORF',required=True,type=str,help='File of all secreted ORF fragments')
+ap.add_argument('--DEG_files', required=True, nargs='+', type=str,
+                help='space spererated list of files containing DEG \
+                information')
+ap.add_argument('--Orthogroup_in', required=True, type=str,
+                help='text output file of Orthogroups from OrthoFinder')
+ap.add_argument('--Reference_name', required=True, type=str,
+                help='Name of organism gene IDs are from in DEG input file')
+ap.add_argument('--Min_LFC', required=True, type=float,
+                help='Minimum log fold change for a gene to be called a DEG')
+ap.add_argument('--Sig_Level', required=True, type=float,
+                help='Minimum p-value for a DEG to be considered significant')
+ap.add_argument('--Organism_1', required=True, type=str,
+                help='Name of isolate 1, three timepoints')
+ap.add_argument('--Organism_2', required=True, type=str,
+                help='Name of isolate 2, one timepoint')
+ap.add_argument('--Organism_3', required=True, type=str,
+                help='Name of isolate 3, one timepoint')
+ap.add_argument('--OutDir', required=True, type=str,
+                help='Directory to write output files to')
+ap.add_argument('--RxLRs', required=True, type=str,
+                help='File of all RxLR names for aligned genome')
+ap.add_argument('--CRNs', required=True, type=str,
+                help='File of all CRN names for aligned genome')
+ap.add_argument('--ApoP', required=True, type=str,
+                help='File of all hits from ApoplastP')
+ap.add_argument('--Secreted_CQ', required=True, type=str,
+                help='File of all secreted gene models')
+ap.add_argument('--Secreted_ORF', required=True, type=str,
+                help='File of all secreted ORF fragments')
+ap.add_argument('--TFs', required=True, type=str,
+                help='File of IDs of TFs/TRs')
 conf = ap.parse_args()
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Load input files
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 LFC = conf.Min_LFC
 Sig_Level = conf.Sig_Level
@@ -81,23 +99,27 @@ cwd = os.getcwd()
 
 print("Input files loaded")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 2
 # Create sets for pairwise comaprisons
-#-----------------------------------------------------
+# -----------------------------------------------------
 
-#Organism1 vs Organism2
+# Organism1 vs Organism2
 Org1_vs_Org2 = []
 Org1_vs_Org2_LFC = defaultdict(float)
 Org1_vs_Org2_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org1 and \
+            item.split('/')[-1].split('_')[3] == Org2 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org1_vs_Org2.append(transcript_id)
         Org1_vs_Org2_LFC[transcript_id] = LFC_values[item]
         Org1_vs_Org2_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0].split('-')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5] == "down.txt":
+    elif item.split('/')[-1].split('_')[0].split('-')[0] == Org2 and \
+            item.split('/')[-1].split('_')[3] == Org1 and \
+            item.split('/')[-1].split('_')[5] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org1_vs_Org2.append(transcript_id)
         Org1_vs_Org2_LFC[transcript_id] = LFC_values[item]
@@ -105,18 +127,22 @@ for item in DEG_list:
 
 Org1_vs_Org2_set = set(Org1_vs_Org2)
 
-#Organism1 vs Organism3
+# Organism1 vs Organism3
 Org1_vs_Org3 = []
 Org1_vs_Org3_LFC = defaultdict(float)
 Org1_vs_Org3_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org1 and \
+            item.split('/')[-1].split('_')[3] == Org3 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org1_vs_Org3.append(transcript_id)
         Org1_vs_Org3_LFC[transcript_id] = LFC_values[item]
         Org1_vs_Org3_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0].split('-')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5] == "down.txt":
+    elif item.split('/')[-1].split('_')[0].split('-')[0] == Org3 and \
+            item.split('/')[-1].split('_')[3] == Org1 and \
+            item.split('/')[-1].split('_')[5] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org1_vs_Org3.append(transcript_id)
         Org1_vs_Org3_LFC[transcript_id] = LFC_values[item]
@@ -124,18 +150,22 @@ for item in DEG_list:
 
 Org1_vs_Org3_set = set(Org1_vs_Org3)
 
-#Organism2 vs Organism1
+# Organism2 vs Organism1
 Org2_vs_Org1 = []
 Org2_vs_Org1_LFC = defaultdict(float)
 Org2_vs_Org1_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org2 and \
+            item.split('/')[-1].split('_')[3] == Org1 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org2_vs_Org1.append(transcript_id)
         Org2_vs_Org1_LFC[transcript_id] = LFC_values[item]
         Org2_vs_Org1_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
+    elif item.split('/')[-1].split('_')[0] == Org1 and \
+            item.split('/')[-1].split('_')[3] == Org2 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org2_vs_Org1.append(transcript_id)
         Org2_vs_Org1_LFC[transcript_id] = LFC_values[item]
@@ -143,18 +173,22 @@ for item in DEG_list:
 
 Org2_vs_Org1_set = set(Org2_vs_Org1)
 
-#Organism2 vs Organism3
+# Organism2 vs Organism3
 Org2_vs_Org3 = []
 Org2_vs_Org3_LFC = defaultdict(float)
 Org2_vs_Org3_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org2 and \
+            item.split('/')[-1].split('_')[3] == Org3 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org2_vs_Org3.append(transcript_id)
         Org2_vs_Org3_LFC[transcript_id] = LFC_values[item]
         Org2_vs_Org3_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
+    elif item.split('/')[-1].split('_')[0] == Org3 and \
+            item.split('/')[-1].split('_')[3] == Org2 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org2_vs_Org3.append(transcript_id)
         Org2_vs_Org3_LFC[transcript_id] = LFC_values[item]
@@ -162,18 +196,22 @@ for item in DEG_list:
 
 Org2_vs_Org3_set = set(Org2_vs_Org3)
 
-#Organism3 vs Organism1
+# Organism3 vs Organism1
 Org3_vs_Org1 = []
 Org3_vs_Org1_LFC = defaultdict(float)
 Org3_vs_Org1_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org1 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org3 and \
+            item.split('/')[-1].split('_')[3] == Org1 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org3_vs_Org1.append(transcript_id)
         Org3_vs_Org1_LFC[transcript_id] = LFC_values[item]
         Org3_vs_Org1_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org1 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
+    elif item.split('/')[-1].split('_')[0] == Org1 and \
+            item.split('/')[-1].split('_')[3] == Org3 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org3_vs_Org1.append(transcript_id)
         Org3_vs_Org1_LFC[transcript_id] = LFC_values[item]
@@ -181,18 +219,22 @@ for item in DEG_list:
 
 Org3_vs_Org1_set = set(Org3_vs_Org1)
 
-#Organism3 vs Organism2
+# Organism3 vs Organism2
 Org3_vs_Org2 = []
 Org3_vs_Org2_LFC = defaultdict(float)
 Org3_vs_Org2_Pval = defaultdict(float)
 
 for item in DEG_list:
-    if item.split('/')[-1].split('_')[0] == Org3 and item.split('/')[-1].split('_')[3] == Org2 and item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
+    if item.split('/')[-1].split('_')[0] == Org3 and \
+            item.split('/')[-1].split('_')[3] == Org2 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "up.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org3_vs_Org2.append(transcript_id)
         Org3_vs_Org2_LFC[transcript_id] = LFC_values[item]
         Org3_vs_Org2_Pval[transcript_id] = P_values[item]
-    elif item.split('/')[-1].split('_')[0] == Org2 and item.split('/')[-1].split('_')[3] == Org3 and item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
+    elif item.split('/')[-1].split('_')[0] == Org2 and \
+            item.split('/')[-1].split('_')[3] == Org3 and \
+            item.split('/')[-1].split('_')[5].split('-')[0] == "down.txt":
         transcript_id = item.split('/')[-1].split('-')[1]
         Org3_vs_Org2.append(transcript_id)
         Org3_vs_Org2_LFC[transcript_id] = LFC_values[item]
@@ -202,10 +244,10 @@ Org3_vs_Org2_set = set(Org3_vs_Org2)
 
 print("Sets of pairwise comparisons created")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 3
 # Create unique sets for DEGs of each isolate
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_uniq = []
 Org2_uniq = []
@@ -229,10 +271,10 @@ Org3_uniq_set = set(Org3_uniq)
 
 print("Unique sets for each organism created")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 4
 # Write out text files for all genes that are uniquely differentially expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([reference_name, Org1, "unique_DEGs.txt"])
 Org2_file = "_".join([reference_name, Org2, "unique_DEGs.txt"])
@@ -294,10 +336,10 @@ with open(Org3_out, 'w') as o:
 
 print("Output files for all genes written")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 5
 # Identify RxLRs that are uniquely differentially expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 with open(conf.RxLRs) as f:
     RxLRs = []
@@ -327,10 +369,10 @@ for transcript in Org3_uniq_set:
 
 print("Uniquely differentially expressed RxLRs identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 6
 # Write all uniquely differentially expressed RxLRs to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([reference_name, Org1, "unique_DEGs_RxLRs.txt"])
 Org2_file = "_".join([reference_name, Org2, "unique_DEGs_RxLRs.txt"])
@@ -381,10 +423,10 @@ with open(Org3_out, 'w') as o:
 
 print("Uniquely differentially expressed RxLRs written to text file")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 7
 # Identify CRNs that are uniquely differentially expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 with open(conf.CRNs) as f:
     CRNs = []
@@ -414,10 +456,10 @@ for transcript in Org3_uniq_set:
 
 print("Uniquely differentially expressed CRNs identified")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 8
 # Write all uniquely differentially expressed CRNs to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([reference_name, Org1, "unique_DEGs_CRNs.txt"])
 Org2_file = "_".join([reference_name, Org2, "unique_DEGs_CRNs.txt"])
@@ -468,10 +510,10 @@ with open(Org3_out, 'w') as o:
 
 print("Uniquely differentially expressed CRNs written to text file")
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 9
 # Identify Apoplastic effectors that are uniquely differentially expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 with open(conf.ApoP) as f:
     ApoP = []
@@ -501,10 +543,10 @@ for transcript in Org3_uniq_set:
 
 print("Uniquely differentially expressed Apoplastic effectors identified")
 
-#-----------------------------------------------------
-# Step 8
+# -----------------------------------------------------
+# Step 10
 # Write all uniquely differentially expressed Apoplastic effectors to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([reference_name, Org1, "unique_DEGs_ApoP.txt"])
 Org2_file = "_".join([reference_name, Org2, "unique_DEGs_ApoP.txt"])
@@ -553,12 +595,13 @@ with open(Org3_out, 'w') as o:
         o.write(output)
         o.write("\n")
 
-print("Uniquely differentially expressed Apoplastic effectors written to text file")
+print("Uniquely differentially expressed Apoplastic effectors written \
+to text file")
 
-#-----------------------------------------------------
-# Step 9
+# -----------------------------------------------------
+# Step 11
 # Identify Secreted proteins that are uniquely differentially expressed
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 with open(conf.Secreted_CQ) as f:
     Secreted_CQ = []
@@ -608,10 +651,10 @@ for transcript in Org3_uniq_set:
 
 print("Uniquely differentially expressed secreted proteins identified")
 
-#-----------------------------------------------------
-# Step 14
+# -----------------------------------------------------
+# Step 12
 # Print all uniquely expressed Secreted proteins to text file
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Org1_file = "_".join([reference_name, Org1, "unique_DEGs_Secreted.txt"])
 Org2_file = "_".join([reference_name, Org2, "unique_DEGs_Secreted.txt"])
@@ -660,4 +703,5 @@ with open(Org3_out, 'w') as o:
         o.write(output)
         o.write("\n")
 
-print("Uniquely differentially expressed Secreted proteins written to text file")
+print("Uniquely differentially expressed Secreted \
+proteins written to text file")
