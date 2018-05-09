@@ -3177,6 +3177,7 @@ mkdir -p analysis/DeSeq/Method_1/DEG_results/RxLRs
 mkdir -p analysis/DeSeq/Method_1/DEG_results/CRNs
 mkdir -p analysis/DeSeq/Method_1/DEG_results/ApoP
 mkdir -p analysis/DeSeq/Method_1/DEG_results/Secreted
+mkdir -p analysis/DeSeq/Method_1/DEG_results/TFs
 ```
 
 Now generate results
