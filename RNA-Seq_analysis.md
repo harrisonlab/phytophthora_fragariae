@@ -3510,6 +3510,8 @@ do
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | cut -f13 | grep 'Yes' | wc -l
     echo "The number of secreted proteins of confidence level 6 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of TFs/TRs of confidence level 6 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | cut -f15 | grep 'Yes' | wc -l
     echo "The number of genes of confidence level 5 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | wc -l
     echo "The number of RxLRs of confidence level 5 is:"
@@ -3520,7 +3522,8 @@ do
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | cut -f13 | grep 'Yes' | wc -l
     echo "The number of secreted proteins of confidence level 5 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | cut -f14 | grep 'Yes' | wc -l
-    echo "The number of genes of confidence level 4 is:"
+    echo "The number of TFs/TRs of confidence level 5 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "5" | cut -f15 | grep 'Yes' | wc -lecho "The number of genes of confidence level 4 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | wc -l
     echo "The number of RxLRs of confidence level 4 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | cut -f11 | grep 'Yes' | wc -l
@@ -3530,6 +3533,8 @@ do
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | cut -f13 | grep 'Yes' | wc -l
     echo "The number of secreted proteins of confidence level 4 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of TFs/TRs of confidence level 4 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "4" | cut -f15 | grep 'Yes' | wc -l
     echo "The number of genes of confidence level 3 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | wc -l
     echo "The number of RxLRs of confidence level 3 is:"
@@ -3540,6 +3545,8 @@ do
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | cut -f13 | grep 'Yes' | wc -l
     echo "The number of secreted proteins of confidence level 3 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of TFs/TRs of confidence level 3 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "3" | cut -f15 | grep 'Yes' | wc -l
     echo "The number of genes of confidence level 2 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | wc -l
     echo "The number of RxLRs of confidence level 2 is:"
@@ -3550,6 +3557,8 @@ do
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | cut -f13 | grep 'Yes' | wc -l
     echo "The number of secreted proteins of confidence level 2 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of TFs/TRs of confidence level 2 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "2" | cut -f15 | grep 'Yes' | wc -l
     echo "The number of genes of confidence level 1 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | wc -l
     echo "The number of RxLRs of confidence level 1 is:"
@@ -3560,6 +3569,8 @@ do
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | cut -f13 | grep 'Yes' | wc -l
     echo "The number of secreted proteins of confidence level 1 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of TFs/TRs of confidence level 1 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "1" | cut -f15 | grep 'Yes' | wc -l
     echo "The number of genes of confidence level 0 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | wc -l
     echo "The number of RxLRs of confidence level 0 is:"
@@ -3570,6 +3581,8 @@ do
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | cut -f13 | grep 'Yes' | wc -l
     echo "The number of secreted proteins of confidence level 0 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of TFs/TRs of confidence level 0 is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "0" | cut -f15 | grep 'Yes' | wc -l
     printf "\n"
 done
 ```
