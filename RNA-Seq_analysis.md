@@ -3202,10 +3202,11 @@ do
     RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
     CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
     ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
-    Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted.txt
+    Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
     Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+    TFs=analysis/transcription_factors/P.fragariae/$Strain/greedy/"$Strain"_TF_TR_Headers.txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-    python $ProgDir/Extract_pairwise_DEG_names.py --DEG_files $DEG_files --Orthogroup_in $Orthogroups --Reference_name $Strain --Min_LFC $Min_LFC --Sig_Level $Min_Pval --Organism_1 $Org1 --Organism_2 $Org2 --Organism_3 $Org3 --OutDir $OutDir --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF
+    python $ProgDir/Extract_pairwise_DEG_names.py --DEG_files $DEG_files --Orthogroup_in $Orthogroups --Reference_name $Strain --Min_LFC $Min_LFC --Sig_Level $Min_Pval --Organism_1 $Org1 --Organism_2 $Org2 --Organism_3 $Org3 --OutDir $OutDir --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF --TFs $TFs
     echo "$Strain done"
 done
 ```
