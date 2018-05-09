@@ -2526,7 +2526,20 @@ done
 ```
 
 ```
-
+The number of TFs searched for is:
+726
+Of these, the following number were found in orthogroups:
+720
+These were distributed through the following number of Orthogroups:
+219
+The following TFs were found in Race 3 unique orthogroups:
+0
+These orthogroups contain the following number of TFs:
+0
+The following TFs were found in P.fragariae unique orthogroups:
+219
+These orthogroups contain the following number of TFs:
+720
 ```
 
 # The Race 3 TF/TR genes that were not found in orthogroups were identified:
