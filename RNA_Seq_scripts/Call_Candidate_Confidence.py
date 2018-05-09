@@ -40,6 +40,8 @@ ap.add_argument('--Secreted_CQ', required=True, type=str, help='File of all \
 secreted gene models')
 ap.add_argument('--Secreted_ORF', required=True, type=str, help='File of all \
 secreted ORF fragments')
+ap.add_argument('--TFs', required=True, type=str, help='File of all genes \
+identified as possible TFs/TRs')
 ap.add_argument('--OutDir', required=True, type=str, help='Directory to write \
 output files to')
 conf = ap.parse_args()
