@@ -250,6 +250,7 @@ RxLR_to_print = []
 CRN_to_print = []
 ApoP_to_print = []
 Sec_to_print = []
+TF_to_print = []
 Score_dict = defaultdict(float)
 
 for transcript_ID in Org1_ID_dict.keys():
