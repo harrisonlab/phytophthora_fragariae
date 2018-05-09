@@ -910,6 +910,118 @@ do
 done
 ```
 
+# Race 2 unique transcription factors and transcriptional regulators
+
+# Race 2 transcription factors and transcriptional regulators were parsed to the same format as the gene names used in the analysis
+
+```bash
+for num in 1
+do
+    TF_Names_Bc16=analysis/transcription_factors/P.fragariae/Bc16/greedy/Bc16_TF_TR_Headers.txt
+    TF_Names_A4=analysis/transcription_factors/P.fragariae/A4/greedy/A4_TF_TR_Headers.txt
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
+    TF_Dir=$WorkDir/UK2_TFs
+    Orthogroups=$WorkDir/Orthogroups.txt
+    TF_ID=$TF_Dir/UK2_TF_IDs.txt
+    mkdir -p $TF_Dir
+    cat $TF_Names_Bc16 | sed -r 's/^/Bc16|/g' > $TF_ID
+    cat $TF_Names_A4 | sed -r 's/^/A4|/g' >> $TF_ID
+done
+```
+
+# Orthology groups containing transcription factors and transcriptional regulators were identified using the following commands:
+
+```bash
+for num in 1
+do
+    echo "The number of TF/TRs searched for is:"
+    cat $TF_ID | wc -l
+    echo "Of these, the following number were found in orthogroups:"
+    TF_Orthogroup_hits=$TF_Dir/UK2_TF_Orthogroups_hits.txt
+    cat $Orthogroups | grep -o -w -f $TF_ID > $TF_Orthogroup_hits
+    cat $TF_Orthogroup_hits | wc -l
+    echo "These were distributed through the following number of Orthogroups:"
+    TF_Orthogroup=$TF_Dir/UK2_TF_Orthogroups.txt
+    cat $Orthogroups | grep -w -f $TF_ID > $TF_Orthogroup
+    cat $TF_Orthogroup | wc -l
+    echo "The following TF/TRs were found in Race 2 unique orthogroups:"
+    TF_UK2_uniq_groups=$TF_Dir/UK2_uniq_TF_Orthogroups_hits.txt
+    cat $TF_Orthogroup | grep -v -e 'Nov5|' -e 'Nov27|' -e 'Nov71|' -e 'Bc1|' -e 'Nov9|' | grep -e 'A4|' | grep -e 'Bc16|' > $TF_UK2_uniq_groups
+    cat $TF_UK2_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of TF/TRs:"
+    cat $TF_UK2_uniq_groups | grep -w -o -f $TF_ID | wc -l
+    echo "The following TF/TRs were found in P.fragariae unique orthogroups:"
+    TF_Pf_uniq_groups=$TF_Dir/Pf_TF_Orthogroups_hits.txt
+    cat $TF_Orthogroup > $TF_Pf_uniq_groups
+    cat $TF_Pf_uniq_groups | wc -l
+    echo "These orthogroups contain the following number of TF/TRs:"
+    cat $TF_Pf_uniq_groups | grep -w -o -f $TF_ID | wc -l
+done
+```
+
+```
+
+```
+
+# The Race 2 transcription factors and transcriptional regulators that were not found in orthogroups were identified
+
+```bash
+for num in 1
+do
+    TF_UK2_uniq=$TF_Dir/UK2_unique_TF.txt
+    cat $TF_ID | grep -v -w -f $TF_Orthogroup_hits > $TF_UK2_uniq
+    echo "The number of UK2 unique TF/TRs are:"
+    cat $TF_UK2_uniq | wc -l
+    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
+    Bc16_TF_UK2_uniq_fa=$TF_Dir/Bc16_UK2_unique_TFs.fa
+    A4_TF_UK2_uniq_fa=$TF_Dir/A4_UK2_unique_TFs.fa
+    Bc16_to_extract=$TF_Dir/Bc16_to_extract.txt
+    A4_to_extract=$TF_Dir/A4_to_extract.txt
+    cat $TF_UK2_uniq | grep 'Bc16|' | cut -f2 -d "|" > $Bc16_to_extract
+    cat $TF_UK2_uniq | grep 'A4|' | cut -f2 -d "|" > $A4_to_extract
+    cat $Final_genes_Bc16 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $Bc16_to_extract | grep -E -v '^--' > $Bc16_TF_UK2_uniq_fa
+    cat $Final_genes_A4 | sed -e 's/\(^>.*$\)/#\1#/' | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d' | grep -w -A1 -f $A4_to_extract | grep -E -v '^--' > $A4_TF_UK2_uniq_fa
+    echo "The number of BC-16 genes extracted is:"
+    cat $Bc16_TF_UK2_uniq_fa | grep '>' | wc -l
+    echo "The number of A4 genes extracted is:"
+    cat $A4_TF_UK2_uniq_fa | grep '>' | wc -l
+done
+```
+
+```
+
+```
+
+## Extracting fasta files for orthogroups containing Race 2 putative transcription factors and transcriptional regulators
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK2_TFs/UK2_TF_Orthogroups.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK2_TFs/orthogroups_fasta_UK2_TF
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
+
+## Extracting fasta files for P. fragariae orthogroups containing Race 2 putative transcription factors and transcriptional regulators
+
+```bash
+for num in 1
+do
+    ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK2_TFs/Pf_TF_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16/UK2_TFs/orthogroups_fasta_Pf_TF
+    mkdir -p $OutDir
+    $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
+done
+```
+
 #Analysis of orthogroups unique to UK race 1 (Strains BC-1 & NOV-5)
 
 ##The genes unique to Race 1 were identified within the orthology analysis
