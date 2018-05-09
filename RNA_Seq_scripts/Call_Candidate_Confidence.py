@@ -171,6 +171,13 @@ with open(conf.Secreted_ORF) as f:
         ID_modified = ".".join([ID, "t1"])
         Sec.append(ID_modified)
 
+TFs = []
+with open(conf.TFs) as f:
+    TF_lines = f.readlines()
+    for line in TF_lines:
+        ID = line.rstrip()
+        TFs.append(ID)
+
 RxLR_set = set(RxLRs)
 CRN_set = set(CRNs)
 ApoP_set = set(ApoPs)
