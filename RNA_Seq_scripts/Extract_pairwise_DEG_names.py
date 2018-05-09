@@ -705,3 +705,88 @@ with open(Org3_out, 'w') as o:
 
 print("Uniquely differentially expressed Secreted \
 proteins written to text file")
+
+# -----------------------------------------------------
+# Step 13
+# Identify TFs/TRs that are uniquely differentially expressed
+# -----------------------------------------------------
+
+with open(conf.TFs) as f:
+    TFs = []
+    TF_lines = f.readlines()
+    for line in TF_lines:
+        ID = line.rstrip()
+        TFs.append(ID)
+
+TF_set = set(TFs)
+Isolate1_TFs = []
+Isolate2_TFs = []
+Isolate3_TFs = []
+
+for transcript in Org1_uniq_set:
+    if transcript in TF_set:
+        Isolate1_TFs.append(transcript)
+
+for transcript in Org2_uniq_set:
+    if transcript in TF_set:
+        Isolate2_TFs.append(transcript)
+
+for transcript in Org3_uniq_set:
+    if transcript in TF_set:
+        Isolate3_TFs.append(transcript)
+
+print("Uniquely differentially expressed TFs/TRs identified")
+
+# -----------------------------------------------------
+# Step 14
+# Write all uniquely differentially expressed TFs to text file
+# -----------------------------------------------------
+
+Org1_file = "_".join([reference_name, Org1, "unique_DEGs_TFs.txt"])
+Org2_file = "_".join([reference_name, Org2, "unique_DEGs_TFs.txt"])
+Org3_file = "_".join([reference_name, Org3, "unique_DEGs_TFs.txt"])
+
+Org1_out = "/".join([cwd, OutDir, "TFs", Org1_file])
+Org2_out = "/".join([cwd, OutDir, "TFs", Org2_file])
+Org3_out = "/".join([cwd, OutDir, "TFs", Org3_file])
+
+with open(Org1_out, 'w') as o:
+    o.write(Header_Org1)
+    o.write("\n")
+    for transcript in Isolate1_TFs:
+        orthogroup = ortho_dict[transcript]
+        LFC2 = str(Org1_vs_Org2_LFC[transcript])
+        PV2 = str(Org1_vs_Org2_Pval[transcript])
+        LFC3 = str(Org1_vs_Org3_LFC[transcript])
+        PV3 = str(Org1_vs_Org3_Pval[transcript])
+        output = "\t".join([transcript, orthogroup, LFC2, PV2, LFC3, PV3])
+        o.write(output)
+        o.write("\n")
+
+with open(Org2_out, 'w') as o:
+    o.write(Header_Org2)
+    o.write("\n")
+    for transcript in Isolate2_TFs:
+        orthogroup = ortho_dict[transcript]
+        LFC1 = str(Org2_vs_Org1_LFC[transcript])
+        PV1 = str(Org2_vs_Org1_Pval[transcript])
+        LFC3 = str(Org2_vs_Org3_LFC[transcript])
+        PV3 = str(Org2_vs_Org3_Pval[transcript])
+        output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC3, PV3])
+        o.write(output)
+        o.write("\n")
+
+with open(Org3_out, 'w') as o:
+    o.write(Header_Org3)
+    o.write("\n")
+    for transcript in Isolate3_TFs:
+        orthogroup = ortho_dict[transcript]
+        LFC2 = str(Org3_vs_Org1_LFC[transcript])
+        PV2 = str(Org3_vs_Org1_Pval[transcript])
+        LFC3 = str(Org3_vs_Org2_LFC[transcript])
+        PV3 = str(Org3_vs_Org2_Pval[transcript])
+        output = "\t".join([transcript, orthogroup, LFC1, PV1, LFC2, PV2])
+        o.write(output)
+        o.write("\n")
+
+print("Uniquely differentially expressed TFs/TRs written to text file")
