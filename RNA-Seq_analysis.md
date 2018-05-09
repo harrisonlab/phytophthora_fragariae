@@ -3081,6 +3081,12 @@ The number of BC-1 uniquely expressed secreted proteins is:
 21
 The number of NOV-9 uniquely expressed secreted proteins is:
 96
+The number of BC-16 uniquely expressed TFs is:
+24
+The number of BC-1 uniquely expressed TFs is:
+2
+The number of NOV-9 uniquely expressed TFs is:
+0
 
 Analysis using Bc1 as the reference genome:
 
@@ -3114,6 +3120,12 @@ The number of BC-1 uniquely expressed secreted proteins is:
 38
 The number of NOV-9 uniquely expressed secreted proteins is:
 231
+The number of BC-16 uniquely expressed TFs is:
+22
+The number of BC-1 uniquely expressed TFs is:
+1
+The number of NOV-9 uniquely expressed TFs is:
+3
 
 Analysis using Nov9 as the reference genome:
 
@@ -3147,6 +3159,12 @@ The number of BC-1 uniquely expressed secreted proteins is:
 233
 The number of NOV-9 uniquely expressed secreted proteins is:
 112
+The number of BC-16 uniquely expressed TFs is:
+23
+The number of BC-1 uniquely expressed TFs is:
+1
+The number of NOV-9 uniquely expressed TFs is:
+1
 ```
 
 ##Method 1, extracting names of only genes that are uniquely differentially expressed
