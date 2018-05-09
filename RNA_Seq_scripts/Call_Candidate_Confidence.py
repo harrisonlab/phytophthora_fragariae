@@ -287,7 +287,8 @@ for transcript_ID in Org1_ID_dict.keys():
 
 for transcript_ID in Org1_ID_dict.keys():
     if (transcript_ID in RxLR_to_print or transcript_ID in CRN_to_print or
-       transcript_ID in ApoP_to_print or transcript_ID in Sec_to_print):
+       transcript_ID in ApoP_to_print or transcript_ID in Sec_to_print
+       or transcript_ID in TF_to_print):
         feat_list = []
         if transcript_ID in Org1_Exp_to_print:
             feat_list.append('O1E')
