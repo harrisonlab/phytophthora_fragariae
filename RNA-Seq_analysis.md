@@ -3035,7 +3035,6 @@ do
     cat $Uniq_Sec_Bc1 | tail -n +2 | wc -l
     echo "The number of NOV-9 uniquely expressed secreted proteins is:"
     cat $Uniq_Sec_Nov9 | tail -n +2 | wc -l
-    printf "\n"
     Uniq_TFs_Bc16=$OutDir/TFs/"$Strain"_Bc16_expressed_unique_TFs.txt
     Uniq_TFs_Bc1=$OutDir/TFs/"$Strain"_Bc1_expressed_unique_TFs.txt
     Uniq_TFs_Nov9=$OutDir/TFs/"$Strain"_Nov9_expressed_unique_TFs.txt
