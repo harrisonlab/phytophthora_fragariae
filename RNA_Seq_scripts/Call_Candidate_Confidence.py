@@ -282,6 +282,8 @@ for transcript_ID in Org1_ID_dict.keys():
         ApoP_to_print.append(transcript_ID)
     if transcript_ID in Sec_set:
         Sec_to_print.append(transcript_ID)
+    if transcript_ID in TF_set:
+        TF_to_print.append(transcript_ID)
 
 for transcript_ID in Org1_ID_dict.keys():
     if (transcript_ID in RxLR_to_print or transcript_ID in CRN_to_print or
