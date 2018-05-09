@@ -182,6 +182,7 @@ RxLR_set = set(RxLRs)
 CRN_set = set(CRNs)
 ApoP_set = set(ApoPs)
 Sec_set = set(Sec)
+TF_set = set(TFs)
 
 print("Files loaded and prepared")
 
