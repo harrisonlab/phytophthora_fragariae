@@ -152,8 +152,8 @@ vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf polished_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out polished_contigs_unmasked_pol_filtered
 ```
 
-##This requires editing every time, the python script is designed by Maria to find differences.
-###For UK2, set UK2 isolates and P. rubi isolates
+## This requires editing every time, the python script is designed by Maria to find differences
+### For UK2, set UK2 isolates and P. rubi isolates
 
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_filtered.recode.vcf --out polished_contigs_unmasked_pol_filtered_fixed.vcf --ply 2 --pop1 Bc16,,A4 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
