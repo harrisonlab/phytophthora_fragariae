@@ -174,7 +174,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 11. contig_76 248,619 T/C - ~1kb upstream of g30189 (no annotation), ~4.5kb upstream of g30188
 ```
 
-###UK1 based analysis
+### UK1 based analysis
 
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_filtered.recode.vcf --out polished_contigs_unmasked_pol_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
