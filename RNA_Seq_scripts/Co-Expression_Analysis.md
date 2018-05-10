@@ -727,6 +727,8 @@ done
 Nothing can be reproducibly pulled out, possibly due to the small input sample size
 Or due to the lack of a true negative control set
 
+Using larger module sizes
+
 ## Investigate enrichment of effector class genes in co-expression modules
 
 ### Create lists of RxLRs, CRNs, ApoplastP hits, a combined list of all effectors and a list of secreted proteins
