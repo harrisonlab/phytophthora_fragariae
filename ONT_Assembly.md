@@ -253,6 +253,23 @@ do
 done
 ```
 
+```
+Assembly statistics:
+
+Number of contigs: 124
+N50: 1,262,408
+Genome Size: 93,610,772
+L50: 23
+GC content: 53.50%
+
+BUSCO statistics:
+
+256 complete single copy
+9 complete duplicated
+17 fragmented
+21 missing
+```
+
 ### Error correction using nanopolish
 
 Fast5 files are very large and need to be stored as gzipped tarballs.
