@@ -3861,6 +3861,12 @@ Inspection of TFs for realistic expression, the following look promissing
 
 ```
 Only rarely doesa candidate have an FPKM > 10 and never > 20, likely artefacts
+Manual inspection shows g19212 has an early peak much higher than UK1/3
+but falls away after that point, possibly still active?
+
+Possible infection related TFs:
+g8222.t1
+g19212.t1 - could also be UK2 specific
 ```
 
 ##Method2
