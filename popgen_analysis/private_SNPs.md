@@ -98,7 +98,7 @@ vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf polished_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out polished_contigs_unmasked_bw_filtered
 ```
 
-## This requires editing every time, the python script is designed by Maria to find differences.
+## This requires editing every time, the python script is designed by Maria to find differences
 
 ### For UK2, set UK2 isolates and P. rubi isolates
 
