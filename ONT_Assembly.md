@@ -241,7 +241,7 @@ done
 BUSCO
 
 ```bash
-for Assembly in $(ls assembly/SMARTdenovo/*/*/racon2_10/*.fasta)
+for Assembly in $(ls assembly/SMARTdenovo/*/*/racon2_10/racon_min_500bp_renamed.fasta)
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
