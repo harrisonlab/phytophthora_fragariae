@@ -289,7 +289,7 @@ tar -zxvf $Tar -C $ScratchDir
 ### Run Nanopolish
 
 ```bash
-for Assembly in $(ls assembly/SMARTdenovo/*/NOV9/racon2_10/racon_min_500bp_renamed.fasta)
+for Assembly in $(ls assembly/SMARTdenovo/*/Nov9/racon2_10/racon_min_500bp_renamed.fasta)
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Assembly | rev | cut f4 -d '/' | rev)
