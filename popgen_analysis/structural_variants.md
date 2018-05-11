@@ -77,3 +77,7 @@ OutDir=.
 ProgDir=/home/adamst/git_repos/scripts/phytophthora/Pcac_popgen
 qsub $ProgDir/sub_svaba.sh $Prefix $Reference $AlignDir $OutDir
 ```
+
+##### Analysis of indel file
+
+This file contains smaller indels
