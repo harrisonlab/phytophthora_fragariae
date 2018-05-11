@@ -103,6 +103,8 @@ vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.indel_cut.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.indel_cut_filtered
 ```
 
+No sites removed by filtering
+
 #### Ancestral variants
 
 ##### For UK2, set UK2 isolates and P. rubi isolates as pop1
