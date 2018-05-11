@@ -88,3 +88,15 @@ This file contains smaller indels
 scripts=/home/sobczm/bin/popgen/summary_stats
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 ```
+
+###### Create a cut-down VCF and filter it
+
+```bash
+cd $input
+
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.indel.vcf SCRP245_v2 ONT3 Nov77 Bc23 > Pfrag_svaba_sv.svaba.indel_cut.vcf
+
+vcftools=/home/sobczm/bin/vcftools/bin
+$vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.indel_cut.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.indel_cut_filtered
+```
