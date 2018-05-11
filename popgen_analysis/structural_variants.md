@@ -106,17 +106,17 @@ $vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.indel_cut.vcf  --max-missing 0.95 
 ##### For UK2, set UK2 isolates and P. rubi isolates as pop1
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_filtered.recode.vcf --out polished_contigs_unmasked_bw_filtered_fixed.vcf --ply 2 --pop1 Bc16,,A4,,SCRP249,,SCRP324,,SCRP333 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.indel_cut_filtered_fixed_UK2.vcf --ply 2 --pop1 Bc16,,A4,,SCRP249,,SCRP324,,SCRP333 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
 ```
 
 ##### UK1 based analysis
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_filtered.recode.vcf --out polished_contigs_unmasked_bw_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.indel_cut_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
 ```
 
 ##### UK3 based analysis
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_filtered.recode.vcf --out polished_contigs_unmasked_bw_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.indel_cut_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
 ```
