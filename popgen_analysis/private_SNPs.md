@@ -92,7 +92,7 @@ cd $input
 cp ../SNP_calling/polished_contigs_unmasked.vcf .
 
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP245_v2_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam > polished_contigs_unmasked_bw.vcf
+$vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 > polished_contigs_unmasked_bw.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf polished_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out polished_contigs_unmasked_bw_filtered
@@ -146,7 +146,7 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/Polarising
 cd $input
 
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP245_v2_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam SCRP249_sorted.bam SCRP324_sorted.bam SCRP333_sorted.bam > polished_contigs_unmasked_pol.vcf
+$vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP245_v2 ONT3 Nov77 Bc23 SCRP249 SCRP324 SCRP333 > polished_contigs_unmasked_pol.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf polished_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out polished_contigs_unmasked_pol_filtered
