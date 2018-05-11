@@ -310,7 +310,7 @@ done
 #### Split assembly into 50Kb fragments and submit each separately for nanopolish
 
 ```bash
-for Assembly in $(ls assembly/SMARTdenovo/*/NOV9/racon2_10/racon_min_500bp_renamed.fasta)
+for Assembly in $(ls assembly/SMARTdenovo/*/NOV-9/racon2_10/racon_min_500bp_renamed.fasta)
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
