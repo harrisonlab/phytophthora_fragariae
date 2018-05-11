@@ -152,3 +152,78 @@ python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.indel_cut_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71--pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
 ```
+
+### Analysis of files produced by svaba
+
+#### Analysis of sv file
+
+This file contains larger indels
+
+##### Set initial variables
+
+```bash
+scripts=/home/sobczm/bin/popgen/summary_stats
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
+```
+
+##### Create a cut-down VCF and filter it
+
+```bash
+cd $input
+
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.sv.vcf SCRP245_v2 ONT3 Nov77 Bc23 > Pfrag_svaba_sv.svaba.sv_cut.vcf
+
+vcftools=/home/sobczm/bin/vcftools/bin
+$vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.sv_cut.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.sv_cut_filtered
+```
+
+#### Ancestral variants
+
+##### For UK2, set UK2 isolates and P. rubi isolates as pop1
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.sv_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.sv_cut_filtered_fixed_UK2.vcf --ply 2 --pop1 Bc16,,A4,,SCRP249,,SCRP324,,SCRP333 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
+```
+
+##### UK1 based analysis, set UK1 isolates and P. rubi isolates as pop1
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.sv_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.sv_cut_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
+```
+
+##### UK3 based analysis, set UK3 isolates and P. rubi isolates as pop1
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.sv_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.sv_cut_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
+```
+
+#### Just private variants, without addressing ancestral state
+
+##### Create cut down VCF and filter it
+
+```bash
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.sv.vcf SCRP245_v2 ONT3 Nov77 Bc23 SCRP249 SCRP324 SCRP333 > Pfrag_svaba_sv.svaba.sv_cut_UK123.vcf
+
+vcftools=/home/sobczm/bin/vcftools/bin
+$vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.sv_cut_UK123.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.sv_cut_UK123_filtered
+```
+
+##### For UK2, set UK2 isolates and P. rubi isolates as pop1
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.sv_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.sv_cut_filtered_fixed_UK2.vcf --ply 2 --pop1 Bc16,,A4 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
+```
+
+##### UK1 based analysis, set UK1 isolates and P. rubi isolates as pop1
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.sv_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.sv_cut_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
+```
+
+##### UK3 based analysis, set UK3 isolates and P. rubi isolates as pop1
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.sv_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.sv_cut_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71--pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
+```
