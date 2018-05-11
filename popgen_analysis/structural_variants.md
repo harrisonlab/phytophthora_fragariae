@@ -81,3 +81,10 @@ qsub $ProgDir/sub_svaba.sh $Prefix $Reference $AlignDir $OutDir
 ##### Analysis of indel file
 
 This file contains smaller indels
+
+###### Set initial variables
+
+```bash
+scripts=/home/sobczm/bin/popgen/summary_stats
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
+```
