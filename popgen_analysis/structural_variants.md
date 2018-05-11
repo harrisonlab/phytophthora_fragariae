@@ -78,18 +78,20 @@ ProgDir=/home/adamst/git_repos/scripts/phytophthora/Pcac_popgen
 qsub $ProgDir/sub_svaba.sh $Prefix $Reference $AlignDir $OutDir
 ```
 
-##### Analysis of indel file
+### Analysis of files produced by svaba
+
+#### Analysis of indel file
 
 This file contains smaller indels
 
-###### Set initial variables
+##### Set initial variables
 
 ```bash
 scripts=/home/sobczm/bin/popgen/summary_stats
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 ```
 
-###### Create a cut-down VCF and filter it
+##### Create a cut-down VCF and filter it
 
 ```bash
 cd $input
@@ -99,4 +101,10 @@ $vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.indel.vcf SCRP245_v2 ONT3 Nov77 Bc
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.indel_cut.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.indel_cut_filtered
+```
+
+##### For UK2, set UK2 isolates and P. rubi isolates as pop1
+
+```bash
+python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_filtered.recode.vcf --out polished_contigs_unmasked_bw_filtered_fixed.vcf --ply 2 --pop1 Bc16,,A4,,SCRP249,,SCRP324,,SCRP333 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
 ```
