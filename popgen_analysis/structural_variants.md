@@ -122,3 +122,15 @@ python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_filtered.vcf --out Pfrag_svaba_sv.svaba.indel_cut_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
 ```
+
+#### Just private variants, without addressing ancestral state
+
+##### Create cut down VCF and filter it
+
+```bash
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.indel.vcf SCRP245_v2 ONT3 Nov77 Bc23 SCRP249 SCRP324 SCRP333 > Pfrag_svaba_sv.svaba.indel_cut_UK123.vcf
+
+vcftools=/home/sobczm/bin/vcftools/bin
+$vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.indel_cut_UK123.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.indel_cut_UK123_filtered
+```
