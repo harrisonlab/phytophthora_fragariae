@@ -97,7 +97,7 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 cd $input
 
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.indel.vcf SCRP245_v2_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam > Pfrag_svaba_sv.svaba.indel_cut.vcf
+$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.indel.vcf SCRP245_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam > Pfrag_svaba_sv.svaba.indel_cut.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.indel_cut.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.indel_cut_filtered
@@ -129,7 +129,7 @@ python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_
 
 ```bash
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.indel.vcf SCRP245_v2 ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam SCRP249_sorted.bam SCRP324_sorted.bam SCRP333_sorted.bam > Pfrag_svaba_sv.svaba.indel_cut_UK123.vcf
+$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.indel.vcf SCRP245_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam SCRP249_sorted.bam SCRP324_sorted.bam SCRP333_sorted.bam > Pfrag_svaba_sv.svaba.indel_cut_UK123.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.indel_cut_UK123.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.indel_cut_UK123_filtered
@@ -172,7 +172,7 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/sv_calling
 cd $input
 
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.sv.vcf SCRP245_v2_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam > Pfrag_svaba_sv.svaba.sv_cut.vcf
+$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.sv.vcf SCRP245_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam > Pfrag_svaba_sv.svaba.sv_cut.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.sv_cut.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.sv_cut_filtered
@@ -204,7 +204,7 @@ python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.sv_cut_fil
 
 ```bash
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.sv.vcf SCRP245_v2_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam SCRP249_sorted.bam SCRP324_sorted.bam SCRP333_sorted.bam > Pfrag_svaba_sv.svaba.sv_cut_UK123.vcf
+$vcflib/vcfremovesamples Pfrag_svaba_sv.svaba.sv.vcf SCRP245_sorted.bam ONT3_sorted.bam Nov77_sorted.bam Bc23_sorted.bam SCRP249_sorted.bam SCRP324_sorted.bam SCRP333_sorted.bam > Pfrag_svaba_sv.svaba.sv_cut_UK123.vcf
 
 vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf Pfrag_svaba_sv.svaba.sv_cut_UK123.vcf  --max-missing 0.95 --recode --out Pfrag_svaba_sv.svaba.sv_cut_UK123_filtered
