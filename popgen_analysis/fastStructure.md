@@ -53,3 +53,12 @@ cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 ```
 
 ### Now draw plots
+
+```bash
+Popfile=${input_file%.vcf}.lab
+for i in $(seq $s $f)
+do
+    Output=${input_file%.vcf}_${i}.svg
+    python $structure/distruct_mod.py -K $i --input $input_vcf_file --output $Output --title K$i --popfile $Popfile
+done
+```
