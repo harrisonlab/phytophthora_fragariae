@@ -133,6 +133,10 @@ Nothing found
 python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_filtered.recode.vcf --out Pfrag_svaba_sv.svaba.indel_cut_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
 ```
 
+```
+Nothing found
+```
+
 #### Just private variants, without addressing ancestral state
 
 ##### Create cut down VCF and filter it
