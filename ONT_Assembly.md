@@ -303,6 +303,7 @@ do
     OutDir=$(dirname $Assembly)/nanopolish
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/nanopolish
+    nanopolish index -d $Fast5Dir $ReadsFq
     qsub $ProgDir/sub_minimap2_nanopolish.sh $Assembly $ReadsFq $OutDir
 done
 ```
