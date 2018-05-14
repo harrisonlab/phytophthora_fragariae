@@ -51,3 +51,5 @@ over admixture proportions
 ```bash
 cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 ```
+
+### Now draw plots
