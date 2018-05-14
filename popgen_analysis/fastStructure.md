@@ -20,3 +20,15 @@ plink --allow-extra-chr --const-fid 0 --vcf $input_file --recode --make-bed --ou
 ```
 
 ## Tests various values of K for iterations of fastStructure
+
+```bash
+# Set minimum number of considered clusters
+s=1
+# Set maximum number of considered clusters
+f=5
+
+for i in $(seq $s $f)
+do
+    qsub $scripts/sub_fast_structure.sh ${input_file%.vcf} $i
+done
+```
