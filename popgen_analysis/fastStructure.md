@@ -18,3 +18,5 @@ input_file=polished_contigs_unmasked_filtered.recode_annotated.vcf
 
 plink --allow-extra-chr --const-fid 0 --vcf $input_file --recode --make-bed --out ${input_file%.vcf} > ${input_file%.vcf}.log
 ```
+
+## Tests various values of K for iterations of fastStructure
