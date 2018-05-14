@@ -37,6 +37,7 @@ done
 
 ```bash
 structure=/home/sobczm/bin/fastStructure
+input_file=polished_contigs_unmasked_filtered.recode_annotated.vcf
 input_vcf_file=${input_file%.vcf}
 python $structure/chooseK.py --input $input_vcf_file > ${input_file%.vcf}_K_choice
 ```
