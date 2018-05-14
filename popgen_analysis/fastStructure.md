@@ -34,3 +34,9 @@ done
 ```
 
 ## Choose model complexity (K) among all the K values tested
+
+```bash
+structure=/home/sobczm/bin/fastStructure
+input_vcf_file=${input_file%.vcf}
+python $structure/chooseK.py --input $input_vcf_file > ${input_file%.vcf}_K_choice
+```
