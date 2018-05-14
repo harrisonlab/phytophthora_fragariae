@@ -222,6 +222,10 @@ Nothing found
 python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.sv_cut_filtered.recode.vcf --out Pfrag_svaba_sv.svaba.sv_cut_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
 ```
 
+```
+Nothing found
+```
+
 ##### UK3 based analysis, set UK3 isolates and P. rubi isolates as pop1
 
 ```bash
