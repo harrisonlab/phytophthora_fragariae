@@ -56,6 +56,8 @@ cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 
 ```bash
 Popfile=${input_file%.vcf}.lab
+s=1
+f=5
 for i in $(seq $s $f)
 do
     Output=${input_file%.vcf}_${i}.svg
