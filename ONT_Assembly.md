@@ -288,6 +288,8 @@ tar -zxvf $Tar -C $ScratchDir
 
 ### Run Nanopolish
 
+nanopolish index doesn't run in screen on the head node, but does in a screen session running qlogin
+
 ```bash
 for Assembly in $(ls assembly/SMARTdenovo/*/NOV-9/racon2_10/racon_min_500bp_renamed.fasta)
 do
