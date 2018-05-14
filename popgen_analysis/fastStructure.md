@@ -45,3 +45,9 @@ python $structure/chooseK.py --input $input_vcf_file > ${input_file%.vcf}_K_choi
 
 This uses the mean of variational posterior distribution
 over admixture proportions
+
+### First generate sample labels
+
+```bash
+cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
+```
