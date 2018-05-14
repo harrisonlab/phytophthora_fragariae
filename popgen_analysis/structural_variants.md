@@ -172,7 +172,7 @@ Nothing found
 ##### UK3 based analysis, set UK3 isolates and P. rubi isolates as pop1
 
 ```bash
-python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_UK123_filtered.recode.vcf --out Pfrag_svaba_sv.svaba.indel_cut_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71--pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
+python $scripts/vcf_find_difference_pop.py --vcf Pfrag_svaba_sv.svaba.indel_cut_UK123_filtered.recode.vcf --out Pfrag_svaba_sv.svaba.indel_cut_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
 ```
 
 ### Analysis of files produced by svaba
