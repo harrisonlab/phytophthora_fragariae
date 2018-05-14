@@ -59,6 +59,7 @@ cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 Popfile=${input_file%.vcf}.lab
 s=1
 f=5
+structure=/home/sobczm/bin/fastStructure
 for i in $(seq $s $f)
 do
     Output=${input_file%.vcf}_${i}.svg
