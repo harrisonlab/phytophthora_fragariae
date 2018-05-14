@@ -40,3 +40,8 @@ structure=/home/sobczm/bin/fastStructure
 input_vcf_file=${input_file%.vcf}
 python $structure/chooseK.py --input $input_vcf_file > ${input_file%.vcf}_K_choice
 ```
+
+## Visualise expected admixture proportions with Distruct plots
+
+This uses the mean of variational posterior distribution
+over admixture proportions
