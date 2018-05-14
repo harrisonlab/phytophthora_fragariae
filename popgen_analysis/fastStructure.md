@@ -32,3 +32,5 @@ do
     qsub $scripts/sub_fast_structure.sh ${input_file%.vcf} $i
 done
 ```
+
+## Choose model complexity (K) among all the K values tested
