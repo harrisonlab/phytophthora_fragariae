@@ -289,6 +289,7 @@ tar -zxvf $Tar -C $ScratchDir
 ### Run Nanopolish
 
 nanopolish index doesn't run in screen on head, does in screen running qlogins
+qsub command run separately
 
 ```bash
 for Assembly in $(ls assembly/SMARTdenovo/*/NOV-9/racon2_10/racon_min_500bp_renamed.fasta)
@@ -306,6 +307,20 @@ do
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/nanopolish
     nanopolish index -d $Fast5Dir $ReadsFq
+done
+
+for Assembly in $(ls assembly/SMARTdenovo/*/NOV-9/racon2_10/racon_min_500bp_renamed.fasta)
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    # Extract reads as a .fq file
+    ReadDir=raw_dna/nanopolish/$Organism/$Strain
+    ReadsFq=$(ls raw_dna/minion/*/$Strain/*.fastq.gz)
+    ScratchDir=/data/scratch/adamst/P.fragariae
+    Fast5Dir=$ScratchDir/albacore_v2.2.7/Pfrag_albacore_v2.2.7/workspace/pass
+    OutDir=$(dirname $Assembly)/nanopolish
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/nanopolish
     qsub $ProgDir/sub_minimap2_nanopolish.sh $Assembly $ReadsFq $OutDir
 done
 ```
