@@ -9,6 +9,10 @@ input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructur
 scripts=/home/sobczm/bin/popgen/snp
 ```
 
+### Concatenates vcf files from multiple sources into one
+
+In this case, variant calls from GATK and indels & SVs from svaba
+
 ### Converts VCF files to Plink's PED format
 
 ```bash
