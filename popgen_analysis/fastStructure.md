@@ -148,13 +148,9 @@ $vcftools/vcf-concat $GATK_vcf $indel_vcf_corrected_sorted $sv_vcf_corrected_sor
 ### Converts VCF files to Plink's PED format
 
 ```bash
-mkdir -p $input
-cd $input
+input_file=concatenated_Pfrag_SNP_indel_SV.vcf
 
-cp ../../SNP_calling/Pfrag_only_polished_contigs_unmasked_filtered.recode_annotated.vcf .
-input_file=Pfrag_only_polished_contigs_unmasked_filtered.recode_annotated.vcf
-
-plink --allow-extra-chr --const-fid 0 --vcf $input_file --recode --make-bed --out ${input_file%.vcf} > ${input_file%.vcf}.log
+plink --allow-extra-chr --const-fid 0 --vcf $input_file --make-bed --out ${input_file%.vcf} > ${input_file%.vcf}.log
 ```
 
 ### Tests various values of K for iterations of fastStructure
