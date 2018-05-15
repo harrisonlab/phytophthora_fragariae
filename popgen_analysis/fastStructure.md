@@ -46,7 +46,7 @@ $vcftools/vcf-concat $GATK_vcf $indel_vcf_corrected_sorted $sv_vcf_corrected_sor
 ```bash
 input_file=concatenated_Pfrag_SNP_indel_SV.vcf
 
-plink --allow-extra-chr --const-fid 0 --vcf $input_file --recode --make-bed --out ${input_file%.vcf} > ${input_file%.vcf}.log
+plink --allow-extra-chr --const-fid 0 --vcf $input_file --make-bed --out ${input_file%.vcf} > ${input_file%.vcf}.log
 ```
 
 ### Tests various values of K for iterations of fastStructure
