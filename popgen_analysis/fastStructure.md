@@ -19,12 +19,21 @@ cd $input
 
 GATK_vcf=../../SNP_calling/polished_contigs_unmasked_filtered.recode_annotated.vcf
 indel_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.indel.vcf
+indel_vcf_corrected=Pfrag_svaba_sv.svaba.indel_corrected.vcf
 SV_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.sv.vcf
+sv_vcf_corrected=Pfrag_svaba_sv.svaba.sv_corrected.vcf
 final_vcf=concatenated_Pfrag_SNP_indel_SV.vcf
 vcftools=/home/sobczm/bin/vcftools/bin
 
+cp $indel_vcf $indel_vcf_corrected
+cp $SV_vcf $sv_vcf_corrected
+
+# Use nano to removes .sorted.bam from ends of sample names
+nano $indel_vcf_corrected
+nano $sv_vcf_corrected
+
 # Had to uncomment vcflib & vcftools perl variables in my profile for this to run
-$vcftools/vcf-concat $GATK_vcf $indel_vcf $SV_vcf > $final_vcf
+$vcftools/vcf-concat $GATK_vcf $indel_vcf_corrected $sv_vcf_corrected > $final_vcf
 ```
 
 ### Converts VCF files to Plink's PED format
