@@ -292,6 +292,7 @@ nanopolish index doesn't run in screen on head, does in screen running qlogins
 qsub command run separately
 
 ```bash
+# Do inside qlogin
 for Assembly in $(ls assembly/SMARTdenovo/*/NOV-9/racon2_10/racon_min_500bp_renamed.fasta)
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
@@ -309,6 +310,7 @@ do
     nanopolish index -d $Fast5Dir $ReadsFq
 done
 
+# Do outside qlogin
 for Assembly in $(ls assembly/SMARTdenovo/*/NOV-9/racon2_10/racon_min_500bp_renamed.fasta)
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
