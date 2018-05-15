@@ -105,6 +105,39 @@ Throws an error for being unable to load a Fontconfig file (non-critical)
 
 ## Without *Phytophthora rubi* isolates
 
+### Concatenates vcf files from multiple sources into one
+
+In this case, variant calls from GATK and indels & SVs from svaba
+
+```bash
+mkdir -p $input
+cd $input
+
+GATK_vcf=../../SNP_calling/Pfrag_only_polished_contigs_unmasked_filtered.recode_annotated.vcf
+indel_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.indel.vcf
+indel_vcf_corrected=Pfrag_svaba_sv.svaba.indel_corrected.vcf
+indel_vcf_corrected_sorted=Pfrag_svaba_sv.svaba.indel_corrected_sorted.vcf
+SV_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.sv.vcf
+sv_vcf_corrected=Pfrag_svaba_sv.svaba.sv_corrected.vcf
+sv_vcf_corrected_sorted=Pfrag_svaba_sv.svaba.sv_corrected_sorted.vcf
+final_vcf=concatenated_Pfrag_SNP_indel_SV.vcf
+vcftools=/home/sobczm/bin/vcftools/bin
+vcflib=/home/sobczm/bin/vcflib/bin
+
+$vcflib/vcfremovesamples $indel_vcf SCRP324 SCRP333 SCRP249 > $indel_vcf_corrected
+$vcflib/vcfremovesamples $SV_vcf SCRP324 SCRP333 SCRP249 > $sv_vcf_corrected
+
+# Use nano to remove _sorted.bam from ends of sample names & add _v2 to SCRP245
+# Remove at BOTH metafields & column headers
+nano $indel_vcf_corrected
+nano $sv_vcf_corrected
+
+# Had to uncomment vcflib & vcftools perl variables in my profile for this to run
+$vcftools/vcf-shuffle-cols -t $GATK_vcf $indel_vcf_corrected > $indel_vcf_corrected_sorted
+$vcftools/vcf-shuffle-cols -t $GATK_vcf $sv_vcf_corrected > $sv_vcf_corrected_sorted
+$vcftools/vcf-concat $GATK_vcf $indel_vcf_corrected_sorted $sv_vcf_corrected_sorted > $final_vcf
+```
+
 ### Sets initial variables
 
 ```bash
