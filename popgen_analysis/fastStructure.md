@@ -109,6 +109,13 @@ Throws an error for being unable to load a Fontconfig file (non-critical)
 
 In this case, variant calls from GATK and indels & SVs from svaba
 
+### Sets initial variables
+
+```bash
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/without_rubi
+scripts=/home/sobczm/bin/popgen/snp
+```
+
 ```bash
 mkdir -p $input
 cd $input
@@ -136,13 +143,6 @@ nano $sv_vcf_corrected
 $vcftools/vcf-shuffle-cols -t $GATK_vcf $indel_vcf_corrected > $indel_vcf_corrected_sorted
 $vcftools/vcf-shuffle-cols -t $GATK_vcf $sv_vcf_corrected > $sv_vcf_corrected_sorted
 $vcftools/vcf-concat $GATK_vcf $indel_vcf_corrected_sorted $sv_vcf_corrected_sorted > $final_vcf
-```
-
-### Sets initial variables
-
-```bash
-input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/without_rubi
-scripts=/home/sobczm/bin/popgen/snp
 ```
 
 ### Converts VCF files to Plink's PED format
