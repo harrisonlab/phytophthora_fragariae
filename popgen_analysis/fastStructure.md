@@ -56,6 +56,9 @@ cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 ### Now draw plots
 
 ```bash
+# Setting of the DISPLAY environmental variable necessary using OSX locally
+# Linux builds may be able to use ssh -X
+DISPLAY=:0.0
 Popfile=${input_file%.vcf}.lab
 s=1
 f=5
