@@ -23,6 +23,7 @@ SV_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.sv.vcf
 final_vcf=concatenated_Pfrag_SNP_indel_SV.vcf
 vcftools=/home/sobczm/bin/vcftools/bin
 
+# Had to uncomment vcflib & vcftools perl variables in my profile for this to run
 $vcftools/vcf-concat $GATK_vcf $indel_vcf $SV_vcf > $final_vcf
 ```
 
