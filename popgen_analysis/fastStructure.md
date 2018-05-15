@@ -28,7 +28,8 @@ vcftools=/home/sobczm/bin/vcftools/bin
 cp $indel_vcf $indel_vcf_corrected
 cp $SV_vcf $sv_vcf_corrected
 
-# Use nano to removes .sorted.bam from ends of sample names
+# Use nano to remove _sorted.bam from ends of sample names & add _v2 to SCRP245
+# Remove at BOTH metafields & column headers
 nano $indel_vcf_corrected
 nano $sv_vcf_corrected
 
