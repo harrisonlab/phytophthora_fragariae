@@ -57,7 +57,7 @@ cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 
 ```bash
 # Setting of the DISPLAY environmental variable necessary using OSX locally
-# Linux builds may be able to use ssh -X
+# Linux builds may be able to use ssh -X (UNTESTED)
 DISPLAY=:0.0
 input_file=polished_contigs_unmasked_filtered.recode_annotated.vcf
 input_vcf_file=${input_file%.vcf}
