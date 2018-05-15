@@ -73,6 +73,8 @@ do
 done
 ```
 
+Throws an error for being unable to load a Fontconfig file (non-critical)
+
 ## Without *Phytophthora rubi* isolates
 
 ### Sets initial variables
@@ -145,3 +147,5 @@ do
     python $structure/distruct_mod.py -K $i --input $input_vcf_file --output $Output --title K$i --popfile $Popfile
 done
 ```
+
+Throws an error for being unable to load a Fontconfig file (non-critical)
