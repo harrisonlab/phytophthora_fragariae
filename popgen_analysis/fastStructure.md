@@ -131,8 +131,8 @@ final_vcf=concatenated_Pfrag_SNP_indel_SV.vcf
 vcftools=/home/sobczm/bin/vcftools/bin
 vcflib=/home/sobczm/bin/vcflib/bin
 
-$vcflib/vcfremovesamples $indel_vcf SCRP324 SCRP333 SCRP249 > $indel_vcf_corrected
-$vcflib/vcfremovesamples $SV_vcf SCRP324 SCRP333 SCRP249 > $sv_vcf_corrected
+$vcflib/vcfremovesamples $indel_vcf SCRP324_sorted.bam SCRP333_sorted.bam SCRP249_sorted.bam > $indel_vcf_corrected
+$vcflib/vcfremovesamples $SV_vcf SCRP324_sorted.bam SCRP333_sorted.bam SCRP249_sorted.bam > $sv_vcf_corrected
 
 # Use nano to remove _sorted.bam from ends of sample names & add _v2 to SCRP245
 # Remove at BOTH metafields & column headers
