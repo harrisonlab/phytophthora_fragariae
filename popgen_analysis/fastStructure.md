@@ -13,14 +13,23 @@ scripts=/home/sobczm/bin/popgen/snp
 
 In this case, variant calls from GATK and indels & SVs from svaba
 
-### Converts VCF files to Plink's PED format
-
 ```bash
 mkdir -p $input
 cd $input
 
-cp ../../SNP_calling/polished_contigs_unmasked_filtered.recode_annotated.vcf .
-input_file=polished_contigs_unmasked_filtered.recode_annotated.vcf
+GATK_vcf=../../SNP_calling/polished_contigs_unmasked_filtered.recode_annotated.vcf
+indel_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.indel.vcf
+SV_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.sv.vcf
+final_vcf=concatenated_Pfrag_SNP_indel_SV.vcf
+vcftools=/home/sobczm/bin/vcftools/bin
+
+$vcftools/vcf-concat $GATK_vcf $indel_vcf $SV_vcf > $final_vcf
+```
+
+### Converts VCF files to Plink's PED format
+
+```bash
+input_file=concatenated_Pfrag_SNP_indel_SV.vcf
 
 plink --allow-extra-chr --const-fid 0 --vcf $input_file --recode --make-bed --out ${input_file%.vcf} > ${input_file%.vcf}.log
 ```
@@ -43,7 +52,7 @@ done
 
 ```bash
 structure=/home/sobczm/bin/fastStructure
-input_file=polished_contigs_unmasked_filtered.recode_annotated.vcf
+input_file=concatenated_Pfrag_SNP_indel_SV.vcf
 input_vcf_file=${input_file%.vcf}
 python $structure/chooseK.py --input $input_vcf_file > ${input_file%.vcf}_K_choice
 ```
@@ -64,7 +73,7 @@ cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 ```bash
 # X11 forwarding is required, set up on an OSX local machine running OSX v10.13.4 using:
 # https://stackoverflow.com/questions/39622173/cant-run-ssh-x-on-macos-sierra
-input_file=polished_contigs_unmasked_filtered.recode_annotated.vcf
+input_file=concatenated_Pfrag_SNP_indel_SV.vcf
 input_vcf_file=${input_file%.vcf}
 Popfile=${input_file%.vcf}.lab
 s=1
