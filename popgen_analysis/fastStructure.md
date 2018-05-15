@@ -20,8 +20,10 @@ cd $input
 GATK_vcf=../../SNP_calling/polished_contigs_unmasked_filtered.recode_annotated.vcf
 indel_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.indel.vcf
 indel_vcf_corrected=Pfrag_svaba_sv.svaba.indel_corrected.vcf
+indel_vcf_corrected_sorted=Pfrag_svaba_sv.svaba.indel_corrected_sorted.vcf
 SV_vcf=../../sv_calling/Pfrag_svaba_sv.svaba.sv.vcf
 sv_vcf_corrected=Pfrag_svaba_sv.svaba.sv_corrected.vcf
+sv_vcf_corrected_sorted=Pfrag_svaba_sv.svaba.sv_corrected_sorted.vcf
 final_vcf=concatenated_Pfrag_SNP_indel_SV.vcf
 vcftools=/home/sobczm/bin/vcftools/bin
 
@@ -34,7 +36,9 @@ nano $indel_vcf_corrected
 nano $sv_vcf_corrected
 
 # Had to uncomment vcflib & vcftools perl variables in my profile for this to run
-$vcftools/vcf-concat $GATK_vcf $indel_vcf_corrected $sv_vcf_corrected > $final_vcf
+$vcftools/vcf-shuffle-cols -t $GATK_vcf $indel_vcf_corrected > $indel_vcf_corrected_sorted
+$vcftools/vcf-shuffle-cols -t $GATK_vcf $sv_vcf_corrected > $sv_vcf_corrected_sorted
+$vcftools/vcf-concat $GATK_vcf $indel_vcf_corrected_sorted $sv_vcf_corrected_sorted > $final_vcf
 ```
 
 ### Converts VCF files to Plink's PED format
