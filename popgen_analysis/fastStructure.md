@@ -171,7 +171,7 @@ done
 
 ```bash
 structure=/home/sobczm/bin/fastStructure
-input_file=Pfrag_only_polished_contigs_unmasked_filtered.recode_annotated.vcf
+input_file=concatenated_Pfrag_SNP_indel_SV.vcf
 input_vcf_file=${input_file%.vcf}
 python $structure/chooseK.py --input $input_vcf_file > ${input_file%.vcf}_K_choice
 ```
