@@ -27,6 +27,7 @@ $vcftools/vcftools --vcf polished_contigs_unmasked_UK123_filtered.recode_haplo.v
 --indv Bc1 --indv Bc16 --indv A4 --indv Nov27 --indv Nov9 --indv Nov5 --indv Nov71
 mv out.hap.ld ld.UK123
 
+# Run on head due to version of R required
 $scripts/summary_stats/sub_plot_ld.sh ld.UK123
 ```
 
