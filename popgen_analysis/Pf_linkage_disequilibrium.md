@@ -42,7 +42,7 @@ based on fastStructure results
 
 ```bash
 cd summary_stats
-full_vcf=../SNP_calling/polished_contigs_unmasked_filtered.recode_annotated.vcf
+full_vcf=../SNP_calling/polished_contigs_unmasked_filtered.recode.vcf
 inputvcf=polished_contigs_unmasked_filtered_recode_PfN77.vcf
 vcflib=/home/sobczm/bin/vcflib/bin
 $vcflib/vcfremovesamples $full_vcf SCRP249 SCRP324 SCRP333 Nov77 > $inputvcf
