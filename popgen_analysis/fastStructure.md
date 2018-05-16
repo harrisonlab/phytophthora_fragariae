@@ -192,7 +192,7 @@ cut -f2 ${input_file%.vcf}.fam | cut -d " " -f2 > ${input_file%.vcf}.lab
 ```bash
 # X11 forwarding is required, set up on an OSX local machine running OSX v10.13.4 using:
 # https://stackoverflow.com/questions/39622173/cant-run-ssh-x-on-macos-sierra
-input_file=Pfrag_only_polished_contigs_unmasked_filtered.recode_annotated.vcf
+input_file=concatenated_Pfrag_SNP_indel_SV.vcf
 input_vcf_file=${input_file%.vcf}
 Popfile=${input_file%.vcf}.lab
 s=1
