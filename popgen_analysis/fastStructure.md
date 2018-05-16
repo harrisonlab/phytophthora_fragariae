@@ -1,5 +1,7 @@
 # Evaluation of population structure using fastStructure
 
+This uses only biallelic SNP sites
+
 ## With *Phytophthora rubi* isolates
 
 ### Sets initial variables
