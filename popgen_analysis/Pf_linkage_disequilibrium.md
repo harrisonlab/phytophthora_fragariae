@@ -22,7 +22,7 @@ program calculates the stats using only the individuals listed after "--indv" sw
 
 ```bash
 gunzip polished_contigs_unmasked_UK123_filtered.recode_haplo.vcf.gz
-$vcftools/vcftools --vcf 95m_contigs_unmasked_UK123_filtered.recode_haplo.vcf \
+$vcftools/vcftools --vcf polished_contigs_unmasked_UK123_filtered.recode_haplo.vcf \
 --hap-r2 --ld-window-bp-min 1000 --ld-window-bp 100000 \
 --indv Bc1 --indv Bc16 --indv A4 --indv Nov27 --indv Nov9 --indv Nov5 --indv Nov71
 mv out.hap.ld ld.UK123
