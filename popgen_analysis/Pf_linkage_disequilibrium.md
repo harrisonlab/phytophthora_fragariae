@@ -29,6 +29,9 @@ mv out.hap.ld ld.UK123
 
 # Run on head due to version of R required
 $scripts/summary_stats/sub_plot_ld.sh ld.UK123
+
+mkdir -p UK123
+mv ld* UK123/.
 ```
 
 ## Analysis on all *P. fragariae* isolates less NOV-77
@@ -39,7 +42,7 @@ based on fastStructure results
 
 ```bash
 cd summary_stats
-full_vcf=../SNP_calling/polished_contigs_unmasked_filtered.recode.vcf
+full_vcf=../SNP_calling/polished_contigs_unmasked_filtered.recode_annotated.vcf
 inputvcf=polished_contigs_unmasked_filtered_recode_PfN77.vcf
 vcflib=/home/sobczm/bin/vcflib/bin
 $vcflib/vcfremovesamples $full_vcf SCRP249 SCRP324 SCRP333 Nov77 > $inputvcf
