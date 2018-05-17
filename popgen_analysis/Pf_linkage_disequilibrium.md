@@ -57,7 +57,7 @@ $vcftools/vcftools --vcf polished_contigs_unmasked_Pf_filtered.recode_annotated_
 --indv Bc1 --indv Bc16 --indv A4 --indv Nov27 --indv Nov9 --indv Nov5 --indv Nov71 --indv Bc23 --indv ONT3 --indv SCRP245_v2
 mv out.hap.ld ld.Pf
 
-qsub $scripts/summary_stats/sub_plot_ld.sh ld.Pf
+$scripts/summary_stats/sub_plot_ld.sh ld.Pf
 
 mkdir -p Pf
 mv ld* Pf/.
