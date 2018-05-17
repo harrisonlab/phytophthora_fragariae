@@ -62,3 +62,35 @@ $scripts/summary_stats/sub_plot_ld.sh ld.Pf
 mkdir -p Pf
 mv ld* Pf/.
 ```
+
+## Analysis of BC-23 and ONT-3
+
+based on fastStructure results - they group separately
+
+### Carry out phasing of diploid genomes
+
+```bash
+cd summary_stats
+fullvcf=../SNP_calling/polished_contigs_unmasked_filtered.recode.vcf
+inputvcf=polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated.vcf
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples $fullvcf A4 Bc1 Bc16 Nov5 Nov9 Nov27 Nov71 Nov77 SCRP245_v2 SCRP249 SCRP324 SCRP333 > $inputvcf
+qsub $scripts/snp/sub_beagle.sh $inputvcf
+```
+
+### Calculate D, D' and r^2 for SNPs separated by 1 - 100 kbp in Pf
+
+program calculates the stats using only the individuals listed after "--indv" switch
+
+```bash
+gunzip polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated_haplo.vcf.gz
+$vcftools/vcftools --vcf polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated_haplo.vcf \
+--hap-r2 --ld-window-bp-min 1000 --ld-window-bp 100000 \
+--indv Bc23 --indv ONT3
+mv out.hap.ld ld.Pf
+
+$scripts/summary_stats/sub_plot_ld.sh ld.Bc23_ONT3
+
+mkdir -p Bc23_ONT3
+mv ld* Bc23_ONT3/.
+```
