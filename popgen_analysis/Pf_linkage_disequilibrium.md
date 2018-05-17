@@ -77,8 +77,7 @@ vcflib=/home/sobczm/bin/vcflib/bin
 $vcflib/vcfremovesamples $fullvcf A4 Bc1 Bc16 Nov5 Nov9 Nov27 Nov71 Nov77 SCRP245_v2 SCRP249 SCRP324 SCRP333 > $inputvcf
 vcftools=/home/sobczm/bin/vcftools/bin
 input_vcf_cleaned=polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated_nomissing.vcf
-out=$(echo $input_vcf_cleaned | cut -f1 -d ".")
-$vcftools/vcftools --vcf $inputvcf --out $out --max-missing 1
+$vcftools/vcftools --vcf $inputvcf --out polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated_nomissing --max-missing 1
 qsub $scripts/snp/sub_beagle.sh $input_vcf_cleaned
 ```
 
