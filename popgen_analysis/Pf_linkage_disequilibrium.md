@@ -74,7 +74,7 @@ cd summary_stats
 fullvcf=../SNP_calling/polished_contigs_unmasked_filtered.recode.vcf
 inputvcf=polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated.vcf
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples $fullvcf A4 Bc1 Bc16 Nov5 Nov9 Nov27 Nov71 Nov77 SCRP245_v2 SCRP249 SCRP324 SCRP333 > $inputvcf
+$vcflib/vcfkeepsamples $fullvcf Bc23 ONT3 > $inputvcf
 qsub $scripts/snp/sub_beagle.sh $inputvcf
 ```
 
