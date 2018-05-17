@@ -7,4 +7,4 @@
 
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 
-/home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/WGCNA_input_clean.R --gene_table $1 --out_dir $2
+/home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/WGCNA_input_clean.R --gene_table $1 --out_dir $2 --FPKM_start $3 --FPKM_end $4
