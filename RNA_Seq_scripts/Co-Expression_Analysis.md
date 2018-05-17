@@ -18,7 +18,9 @@ OutDir=analysis/coexpression
 mkdir -p $OutDir
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 gene_table=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
-qsub $ProgDir/sub_WGCNA_input_clean.sh $gene_table $OutDir
+FPKM_start=26
+FPKM_end=33
+qsub $ProgDir/sub_WGCNA_input_clean.sh $gene_table $OutDir $FPKM_start $FPKM_end
 ```
 
 ```
