@@ -90,7 +90,7 @@ gunzip polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated_nomissing.re
 $vcftools/vcftools --vcf polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated_nomissing.recode_haplo.vcf \
 --hap-r2 --ld-window-bp-min 1000 --ld-window-bp 100000 \
 --indv Bc23 --indv ONT3
-mv out.hap.ld ld.Pf
+mv out.hap.ld ld.Bc23_ONT3
 
 $scripts/summary_stats/sub_plot_ld.sh ld.Bc23_ONT3
 
