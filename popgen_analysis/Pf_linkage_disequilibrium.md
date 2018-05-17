@@ -51,7 +51,7 @@ qsub $scripts/snp/sub_beagle.sh $inputvcf
 program calculates the stats using only the individuals listed after "--indv" switch
 
 ```bash
-gunzip polished_contigs_unmasked_filtered_recode_PfN77_haplo.vcf.gz
+gunzip polished_contigs_unmasked_Pf_filtered.recode_annotated_haplo.vcf.gz
 $vcftools/vcftools --vcf polished_contigs_unmasked_filtered_recode_PfN77_haplo.vcf \
 --hap-r2 --ld-window-bp-min 1000 --ld-window-bp 100000 \
 --indv Bc1 --indv Bc16 --indv A4 --indv Nov27 --indv Nov9 --indv Nov5 --indv Nov71 --indv Bc23 --indv ONT3 --indv SCRP245_v2
