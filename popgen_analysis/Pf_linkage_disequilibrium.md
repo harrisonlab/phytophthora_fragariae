@@ -92,7 +92,7 @@ $vcftools/vcftools --vcf polished_contigs_unmasked_Bc23ONT3_filtered.recode_anno
 --indv Bc23 --indv ONT3
 mv out.hap.ld ld.Bc23_ONT3
 
-$scripts/summary_stats/sub_plot_ld.sh ld.Bc23_ONT3
+/home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/plot_ld.R ld.Bc23_ONT3
 
 mkdir -p Bc23_ONT3
 mv ld* Bc23_ONT3/.
