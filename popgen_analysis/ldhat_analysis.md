@@ -27,3 +27,18 @@ PATH=/home/adamst/prog/LDhat:${PATH}
 ```
 
 ## Convert vcf file to correct format for LDhat
+
+Requires a phased vcf (see Pf_linkage_disequilibrium.md) for diploids
+Haploids do not require phasing
+
+```bash
+input=LDhat/UK123
+mkdir -p $input
+cd $input
+
+vcftools=/home/sobczm/bin/vcftools/bin
+input_vcf=../../summary_stats/polished_contigs_unmasked_UK123_filtered.recode_haplo.vcf
+Out_prefix=polished_contigs_unmasked_UK123_haplo
+
+$vcftools/vcftools --vcf $input_vcf --out $Out_prefix --chr --phased --ldhat
+```
