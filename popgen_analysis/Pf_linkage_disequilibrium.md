@@ -92,6 +92,7 @@ $vcftools/vcftools --vcf polished_contigs_unmasked_Bc23ONT3_filtered.recode_anno
 --indv Bc23 --indv ONT3
 mv out.hap.ld ld.Bc23_ONT3
 
+# Run in qlogin session due to high memory usage
 /home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/plot_ld.R ld.Bc23_ONT3
 
 mkdir -p Bc23_ONT3
