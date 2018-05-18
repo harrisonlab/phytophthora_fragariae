@@ -13,5 +13,6 @@ Maria has put together a series of tools for population genetics analyses. This 
 8. structural_variants.md - Uses bwa-mem and svaba to ID and assess structural variants between isolates
 9. fastStructure.md - Run fastStructure to give an overview of population structure
 10. Pf_linkage_disequilibrium.md - This phases diploid genomes and run linkage disequilibrium analyses
-11. MKT_analysis.md - Commands to test ancestral variants and run some popgen tests such as MKT and Fay & Wu's H - also uses sub_calculate_mkt.sh and calculate_outgroup_mktest.R
-12. Pf_popgenome_analysis.md - Extra summary stats analysis using popgenome R tools - these scripts are contained in the popgenome_scripts folder
+11. ldhat_analysis.md - Further LD analyses using the LDHat suite.
+12. MKT_analysis.md - Commands to test ancestral variants and run some popgen tests such as MKT and Fay & Wu's H - also uses sub_calculate_mkt.sh and calculate_outgroup_mktest.R
+13. Pf_popgenome_analysis.md - Extra summary stats analysis using popgenome R tools - these scripts are contained in the popgenome_scripts folder
