@@ -25,3 +25,5 @@ Prepending is necessary as convert is also the name of a part of core unix
 ```bash
 PATH=/home/adamst/prog/LDhat:${PATH}
 ```
+
+## Convert vcf file to correct format for LDhat
