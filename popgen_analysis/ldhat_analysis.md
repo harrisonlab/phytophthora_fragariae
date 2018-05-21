@@ -55,3 +55,5 @@ do
     mv ldhat_"$contig_name".ldhat.sites $contig_name/.
 done
 ```
+
+## Use pairwise to build a lookup table and calculate some statistics
