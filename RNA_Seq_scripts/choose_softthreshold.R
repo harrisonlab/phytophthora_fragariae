@@ -24,6 +24,7 @@ opt_list <- list(
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outdir <- opt$out_dir
+max_SFT <- opt$max_SFT
 
 # Load previous scripts output
 
