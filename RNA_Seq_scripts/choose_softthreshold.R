@@ -35,7 +35,7 @@ lnames <- load(file = lfile)
 
 # Testing soft-thresholding power values
 
-powers <- c(c(1:40))
+powers <- c(c(1:max_SFT))
 
 sft <- pickSoftThreshold(datexpr, powerVector = powers, verbose = 5)
 
