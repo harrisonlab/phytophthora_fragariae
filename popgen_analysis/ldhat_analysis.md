@@ -40,4 +40,5 @@ vcftools=/home/sobczm/bin/vcftools/bin
 input_vcf=../../summary_stats/polished_contigs_unmasked_UK123_filtered.recode_haplo.vcf
 Out_prefix=polished_contigs_unmasked_UK123_haplo
 
+contigs=$(cat $input_vcf | grep -v "#" | cut -f1 | cut -f2 -d "_" | sort -n | uniq)
 ```
