@@ -17,7 +17,9 @@ allowWGCNAThreads(nThreads = 4)
 
 opt_list <- list(
   make_option("--out_dir", type = "character",
-  help = "Directory for plots to be written to")
+  help = "Directory for plots to be written to"),
+  make_option("--max_SFT", type = "integer",
+  help = "Maximum SFT value to trial")
   )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
