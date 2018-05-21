@@ -38,7 +38,7 @@ Test various values of soft thresholding for building the network
 OutDir=analysis/coexpression
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
 max_SFT=40
-qsub $ProgDir/sub_choose_softthreshold.sh $OutDir 40
+qsub $ProgDir/sub_choose_softthreshold.sh $OutDir $max_SFT
 ```
 
 ```
