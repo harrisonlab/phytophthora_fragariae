@@ -362,6 +362,22 @@ do
 done
 ```
 
+Some jobs failed due to requiring too much memory, repeat these as follows
+
+```bash
+Assembly=$(ls assembly/SMARTdenovo/*/NOV-9/racon2_10/racon_min_500bp_renamed.fasta)
+Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+OutDir=$(dirname $Assembly)/nanopolish
+RawReads=$(ls raw_dna/minion/*/$Strain/*.fastq.gz)
+AlignedReads=$(ls $OutDir/reads.sorted.bam)
+NanopolishDir=/home/armita/prog/nanopolish/nanopolish/scripts
+Ploidy=2
+Region=$(cat $OutDir/nanopolish_range.txt | grep "contig_52:200000")
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/nanopolish
+qsub $ProgDir/sub_nanopolish_variants_high_mem.sh $Assembly $RawReads $AlignedReads $Ploidy $Region $OutDir/$Region
+```
+
 Merge nanopolish results
 
 ```bash
