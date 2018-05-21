@@ -1,5 +1,7 @@
 # Further analysis of linkage disequilibrium using the LDhat suite
 
+Caveat - the model for recombination hotspots is based on human data
+
 ## Installation and profile modifications
 
 Not required for other users
@@ -30,6 +32,7 @@ PATH=/home/adamst/prog/LDhat:${PATH}
 
 Requires a phased vcf (see Pf_linkage_disequilibrium.md) for diploids
 Haploids do not require phasing
+Treat each contig as a separate "chromosome"
 
 ```bash
 input=LDhat/UK123
@@ -41,4 +44,8 @@ input_vcf=../../summary_stats/polished_contigs_unmasked_UK123_filtered.recode_ha
 Out_prefix=polished_contigs_unmasked_UK123_haplo
 
 contigs=$(cat $input_vcf | grep -v "#" | cut -f1 | cut -f2 -d "_" | sort -n | uniq)
+for num in $(echo $contigs)
+do
+    contig_name=$(echo contig_"$num")
+done
 ```
