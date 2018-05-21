@@ -47,5 +47,7 @@ contigs=$(cat $input_vcf | grep -v "#" | cut -f1 | cut -f2 -d "_" | sort -n | un
 for num in $(echo $contigs)
 do
     contig_name=$(echo contig_"$num")
+    Out_prefix=$(echo ldhat_"$contig_name")
+    $vcftools/vcftools --vcf $input_vcf --out $Out_prefix --chr $contig_name --phased --ldhat
 done
 ```
