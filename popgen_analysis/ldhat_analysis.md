@@ -60,6 +60,10 @@ done
 
 This must be run in a screen session running a qlogin job
 Requires some user input on the command line
+
+My recommendations:
+
+```
 Unless another source of evidence available, use the suggested value of theta
 Minor changes in theta do not seem to have an effect
 4Ner should range between 20 - 100
@@ -72,6 +76,11 @@ If estimates at extreme of grid, change the defaults
 Ignore sliding window analyses - interval is better
 
 Use option 2 for rmin to write output to a file not just screen
+
+Allow estimation of 4Ner by moment method
+
+Test for recombination
+```
 
 ```bash
 for input_dir in $(ls -d contig_*)
