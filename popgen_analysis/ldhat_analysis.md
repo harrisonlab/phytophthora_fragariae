@@ -107,9 +107,9 @@ Done separately for each contig
 input_dir=contig_1
 cd $input_dir
 n=14
-4Ner_max=500
+four_Ner_max=500
 no_points=201
 theta=0.00479
-complete -n $n -rhomax $4Ner_max -n_pts $n_pts -theta $theta
+/home/adamst/prog/LDhat/complete -n $n -rhomax $four_Ner_max -n_pts $no_points -theta $theta
 cd ../
 ```
