@@ -97,3 +97,7 @@ done
 ```
 
 Manually copy and paste all output written to screen to a log.txt file
+
+## Use complete to refine the lookup table
+
+Use the same rhomax and theta as in pairwise, stored in log file
