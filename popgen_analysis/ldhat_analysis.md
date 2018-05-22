@@ -91,7 +91,7 @@ do
     cd $input_dir
     seq_file=*.ldhat.sites
     loc_file=*.ldhat.locs
-    pairwise -seq $seq_file -loc $loc_file > log.txt
+    pairwise -seq $seq_file -loc $loc_file | tee -a log.txt
     cd ../
 done
 ```
