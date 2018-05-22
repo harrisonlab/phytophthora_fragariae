@@ -366,7 +366,7 @@ RawReads=$(ls raw_dna/minion/*/$Strain/*.fastq.gz)
 AlignedReads=$(ls $OutDir/reads.sorted.bam)
 NanopolishDir=/home/armita/prog/nanopolish/nanopolish/scripts
 Ploidy=2
-Region=$(cat $OutDir/nanopolish_range.txt | grep "contig_52:200000")
+Region=$(cat $OutDir/nanopolish_range.txt | grep "contig_79:250000")
 ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/nanopolish
 qsub $ProgDir/sub_nanopolish_variants_high_mem.sh $Assembly $RawReads $AlignedReads $Ploidy $Region $OutDir/$Region
 ```
