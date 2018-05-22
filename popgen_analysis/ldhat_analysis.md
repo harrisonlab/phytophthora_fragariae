@@ -60,7 +60,26 @@ done
 
 This must be run in a screen session running a qlogin job
 Requires some user input on the command line
+Unless another source of evidence available, use the suggested value of theta
+Minor changes in theta do not seem to have an effect
+4Ner should range between 20 - 100
+No. of points on grid should range between 21 - 201
+Larger values of 4Ner & No. of points take longer, but are more accurate
+
+After generation of the table, use default grid value for recombination rate
+If estimates at extreme of grid, change the defaults
+
+Ignore sliding window analyses - interval is better
+
+Use option 2 for rmin to write output to a file not just screen
 
 ```bash
-
+for input_dir in $(ls -d contig_*)
+do
+    cd $input_dir
+    seq_file=*.ldhat.sites
+    loc_file=*.ldhat.locs
+    pairwise -seq $seq_file -loc $loc_file
+    cd ../
+done
 ```
