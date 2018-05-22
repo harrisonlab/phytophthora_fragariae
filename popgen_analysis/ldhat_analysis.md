@@ -111,4 +111,5 @@ n=14
 no_points=201
 theta=0.00479
 complete -n $n -rhomax $4Ner_max -n_pts $n_pts -theta $theta
+cd ../
 ```
