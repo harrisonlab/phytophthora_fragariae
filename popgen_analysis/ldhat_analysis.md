@@ -104,12 +104,23 @@ Use the same 4Ner_max, no of points and theta as in pairwise, stored in log file
 Done separately for each contig
 
 ```bash
-input_dir=contig_1
-cd $input_dir
-n=14
-four_Ner_max=500
-no_points=201
-theta=0.00479
-/home/adamst/prog/LDhat/complete -n $n -rhomax $four_Ner_max -n_pts $no_points -theta $theta
-cd ../
+for input_dir in $(ls -d contig_*)
+do
+    cd $input_dir
+    n=14
+    four_Ner_max=500
+    no_points=201
+    theta=0.00479
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    Jobs=$(qstat | grep 'sub_comple' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_comple' | grep 'qw' | wc -l)
+    done
+    printf "\n"
+    qsub $ProgDir/sub_complete.sh
+    cd ../
+done
 ```
