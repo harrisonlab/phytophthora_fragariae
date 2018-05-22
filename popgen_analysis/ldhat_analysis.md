@@ -82,13 +82,16 @@ Allow estimation of 4Ner by moment method
 Test for recombination
 ```
 
+The main thing needed from pairwise is the lookup table
+The rest are mostly improved upon by interval & rhomap
+
 ```bash
 for input_dir in $(ls -d contig_*)
 do
     cd $input_dir
     seq_file=*.ldhat.sites
     loc_file=*.ldhat.locs
-    pairwise -seq $seq_file -loc $loc_file
+    pairwise -seq $seq_file -loc $loc_file > log.txt
     cd ../
 done
 ```
