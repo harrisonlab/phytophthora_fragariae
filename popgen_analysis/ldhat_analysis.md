@@ -57,3 +57,10 @@ done
 ```
 
 ## Use pairwise to build a lookup table and calculate some statistics
+
+This must be run in a screen session running a qlogin job
+Requires some user input on the command line
+
+```bash
+
+```
