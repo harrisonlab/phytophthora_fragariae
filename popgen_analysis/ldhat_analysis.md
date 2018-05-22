@@ -58,7 +58,7 @@ done
 
 ## Use pairwise to build a lookup table and calculate some statistics
 
-This must be run in a screen session running a qlogin job
+The following commands must be run in a screen session running a qlogin job
 Requires some user input on the command line
 
 My recommendations:
@@ -100,4 +100,14 @@ Manually copy and paste all output written to screen to a log.txt file
 
 ## Use complete to refine the lookup table
 
-Use the same rhomax and theta as in pairwise, stored in log file
+Use the same 4Ner_max, no of points and theta as in pairwise, stored in log file
+
+```bash
+input_dir=contig_1
+cd $input_dir
+n=14
+4Ner_max=500
+no_points=201
+theta=0.00479
+complete -n $n -rhomax $4Ner_max -n_pts $n_pts -theta $theta
+```
