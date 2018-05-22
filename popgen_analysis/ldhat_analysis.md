@@ -71,7 +71,7 @@ No. of points on grid should range between 21 - 201
 Larger values of 4Ner & No. of points take longer, but are more accurate
 
 After generation of the table, use default grid value for recombination rate
-If estimates at extreme of grid, change the defaults
+If estimates at extreme of grid, change the defaults - can exceed above limits
 
 Ignore sliding window analyses - interval is better
 
