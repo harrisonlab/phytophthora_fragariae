@@ -166,7 +166,8 @@ for input_dir in $(ls -d contig_*)
 do
     cd $input_dir
     rates_file=rates.txt
-    # Specify number of iterations to discard, 100,000 iterations is recommended min
+    # Specify number of iterations to discard
+    # 100,000 iterations is recommended min
     # So divide 100,000 by sampling rate for burn-in value
     burn_in=50
     location_file=ldhat_"$input_dir".ldhat.locs
@@ -186,7 +187,8 @@ for input_dir in $(ls -d contig_*)
 do
     cd $input_dir
     bounds_file=bounds.txt
-    # Specify number of iterations to discard, 100,000 iterations is recommended min
+    # Specify number of iterations to discard
+    # 100,000 iterations is recommended min
     # So divide 100,000 by sampling rate for burn-in value
     burn_in=50
     location_file=ldhat_"$input_dir".ldhat.locs
