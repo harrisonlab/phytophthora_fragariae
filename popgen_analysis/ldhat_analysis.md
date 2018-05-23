@@ -122,3 +122,7 @@ do
     qsub $ProgDir/sub_complete.sh $input_dir $n $four_Ner_max $no_points $theta
 done
 ```
+
+## Run interval to estimate the recombination rate
+
+This only uses the crossing over model with a bayesian rjMCMC approach
