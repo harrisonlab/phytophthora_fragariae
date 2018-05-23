@@ -213,3 +213,12 @@ based on human recombination. LDhat authors recommend using LDhot.
 ### Installation and profile modifications
 
 Not required for other users
+
+```bash
+cd  /home/adamst/prog
+git clone https://github.com/auton1/LDhot.git
+
+cd LDhot
+make
+make clean
+```
