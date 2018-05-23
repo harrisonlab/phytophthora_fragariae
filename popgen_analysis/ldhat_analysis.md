@@ -106,7 +106,6 @@ Done separately for each contig
 ```bash
 for input_dir in $(ls -d contig_*)
 do
-    cd $input_dir
     n=14
     four_Ner_max=500
     no_points=201
@@ -121,6 +120,5 @@ do
     done
     printf "\n"
     qsub $ProgDir/sub_complete.sh
-    cd ../
 done
 ```
