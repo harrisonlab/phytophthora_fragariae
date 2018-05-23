@@ -119,6 +119,6 @@ do
         Jobs=$(qstat | grep 'sub_comple' | grep 'qw' | wc -l)
     done
     printf "\n"
-    qsub $ProgDir/sub_complete.sh
+    qsub $ProgDir/sub_complete.sh $input_dir $n $four_Ner_max $no_points $theta
 done
 ```
