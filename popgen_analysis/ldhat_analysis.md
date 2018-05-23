@@ -128,19 +128,29 @@ done
 This only uses the crossing over model with a bayesian rjMCMC approach
 
 ```bash
-input_dir=contig_1
-cd $input_dir
-mv new_lk.txt exhaustive_lk.txt
-sequence_data=ldhat_"$input_dir".ldhat.sites
-location_data=ldhat_"$input_dir".ldhat.locs
-lookup_table=exhaustive_lk.txt
-#10,000,000 is the recommended number of iterations in the manual
-iterations=10000000
-# Sample rate keeps every xth result of the markov chain
-sample_rate=2000
-# Values from 0 - 50 are recommended, 5 is okay for humans
-# If you have data on expected recombination rate
-# run simulations with different penalities to test which is least 'noisy'
-block_penalty=5
-interval -seq $sequence_data -loc $location_data -lk $lookup_table -its $iterations -bpen $block_penalty -samp $sample_rate
+for input_dir in $(ls -d contig_*)
+do
+    mv $input_dir/new_lk.txt $input_dir/exhaustive_lk.txt
+    sequence_data=$input_dir/ldhat_"$input_dir".ldhat.sites
+    location_data=$input_dir/ldhat_"$input_dir".ldhat.locs
+    lookup_table=$input_dir/exhaustive_lk.txt
+    #10,000,000 is the recommended number of iterations in the manual
+    iterations=10000000
+    # Sample rate keeps every xth result of the markov chain
+    sample_rate=2000
+    # Values from 0 - 50 are recommended, 5 is okay for humans
+    # If you have data on expected recombination rate
+    # run simulations with different penalities to test which is least 'noisy'
+    block_penalty=5
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/
+    Jobs=$(qstat | grep 'sub_interv' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_interv' | grep 'qw' | wc -l)
+    done
+    printf "\n"
+    qsub $ProgDir/sub_interval.sh $input_dir $sequence_data $location_data $lookup_table $iterations $block_penalty $sample_rate
+done
 ```
