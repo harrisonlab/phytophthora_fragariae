@@ -10,3 +10,7 @@ n=$2
 four_Ner_max=$3
 no_points=$4
 theta=$5
+
+cd $input_dir
+
+/home/adamst/prog/LDhat/complete -n $n -rhomax $four_Ner_max -n_pts $no_points -theta $theta
