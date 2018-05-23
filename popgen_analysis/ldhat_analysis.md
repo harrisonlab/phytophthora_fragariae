@@ -107,9 +107,9 @@ Done separately for each contig
 for input_dir in $(ls -d contig_*)
 do
     n=$(cat $input_dir/ld_hat_contig_*.ldhat.sites | grep '>' | wc -l)
-    four_Ner_max=500
-    no_points=201
-    theta=0.00479
+    four_Ner_max=$(cat $input_dir/log.txt | grep -e 'Max 4Ner for grid (suggest 100):' | cut -f2 -d ':')
+    no_points=$(cat $input_dir/log.txt | grep -e 'Number of points on grid (suggest 101, min=2):' | cut -f2 -d ':')
+    theta=$(cat $input_dir/log.txt | grep -e 'Input theta per site (suggest Watterson estimate of ' | cut -f2 -d ':')
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
     Jobs=$(qstat | grep 'sub_comple' | grep 'qw' | wc -l)
     while [ $Jobs -gt 1 ]
