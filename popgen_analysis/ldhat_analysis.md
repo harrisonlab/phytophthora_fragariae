@@ -158,18 +158,45 @@ done
 ### Visualise output of interval using stat
 
 Average values are stored in the log files from sge
+Ensure all the jobs in one loop are finished before starting the other
+They both produce output files of the same name initially due to source code
 
 ```bash
-input_dir=contig_1
-cd $input_dir
-rates_file=rates.txt
-bounds_file=bounds.txt
-# Specify number of iterations to discard, 100,000 iterations is recommended min
-# So divide 100,000 by sampling rate for burn-in value
-burn_in=50
-location_file=ldhat_"$input_dir".ldhat.locs
-stat -input $rates_file -burn $burn_in -loc $location_file
-mv res.txt res_rates.txt
-stat -input $bounds_file -burn $burn_in -loc $location_file
-mv res.txt res_bounds.txt
+for input_dir in $(ls -d contig_*)
+do
+    cd $input_dir
+    rates_file=rates.txt
+    # Specify number of iterations to discard, 100,000 iterations is recommended min
+    # So divide 100,000 by sampling rate for burn-in value
+    burn_in=50
+    location_file=ldhat_"$input_dir".ldhat.locs
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    Jobs=$(qstat | grep 'sub_stat' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_stat' | grep 'qw' | wc -l)
+    done
+    qsub $ProgDir/sub_stat_rates.sh $rates_file $burn_in $location_file
+done
+
+for input_dir in $(ls -d contig_*)
+do
+    cd $input_dir
+    bounds_file=bounds.txt
+    # Specify number of iterations to discard, 100,000 iterations is recommended min
+    # So divide 100,000 by sampling rate for burn-in value
+    burn_in=50
+    location_file=ldhat_"$input_dir".ldhat.locs
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    Jobs=$(qstat | grep 'sub_stat' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_stat' | grep 'qw' | wc -l)
+    done
+    qsub $ProgDir/sub_stat_bounds.sh $bounds_file $burn_in $location_file
+done
 ```
