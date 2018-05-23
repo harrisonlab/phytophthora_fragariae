@@ -10,4 +10,4 @@ burn=$2
 loc=$3
 
 stat -input $input -burn $burn -loc $loc
-mv res.txt res_rates.txt
+mv res.txt res_bounds.txt
