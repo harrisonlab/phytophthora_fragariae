@@ -157,7 +157,7 @@ done
 
 ### Visualise output of interval using stat
 
-Average values are stored in the log files from sge
+Average values are stored in the output log files from sge
 Ensure all the jobs in one loop are finished before starting the other
 They both produce output files of the same name initially due to source code
 
