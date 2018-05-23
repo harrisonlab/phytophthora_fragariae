@@ -131,9 +131,9 @@ This only uses the crossing over model with a bayesian rjMCMC approach
 for input_dir in $(ls -d contig_*)
 do
     mv $input_dir/new_lk.txt $input_dir/exhaustive_lk.txt
-    sequence_data=$input_dir/ldhat_"$input_dir".ldhat.sites
-    location_data=$input_dir/ldhat_"$input_dir".ldhat.locs
-    lookup_table=$input_dir/exhaustive_lk.txt
+    sequence_data=ldhat_"$input_dir".ldhat.sites
+    location_data=ldhat_"$input_dir".ldhat.locs
+    lookup_table=exhaustive_lk.txt
     #10,000,000 is the recommended number of iterations in the manual
     iterations=10000000
     # Sample rate keeps every xth result of the markov chain
