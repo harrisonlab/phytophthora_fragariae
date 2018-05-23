@@ -204,3 +204,12 @@ do
     cd ../
 done
 ```
+
+Whilst rhomap is included in LDhat for identifying hotspots, this uses a model
+based on human recombination. LDhat authors recommend using LDhot.
+
+## Investigate recombination hotspots using LDhot
+
+### Installation and profile modifications
+
+Not required for other users
