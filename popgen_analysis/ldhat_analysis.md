@@ -154,3 +154,5 @@ do
     qsub $ProgDir/sub_interval.sh $input_dir $sequence_data $location_data $lookup_table $iterations $block_penalty $sample_rate
 done
 ```
+
+### Visualise output of interval using stat
