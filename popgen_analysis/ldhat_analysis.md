@@ -142,7 +142,7 @@ do
     # If you have data on expected recombination rate
     # run simulations with different penalities to test which is least 'noisy'
     block_penalty=5
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
     Jobs=$(qstat | grep 'sub_interv' | grep 'qw' | wc -l)
     while [ $Jobs -gt 1 ]
     do
@@ -156,3 +156,16 @@ done
 ```
 
 ### Visualise output of interval using stat
+
+```bash
+input_dir=contig_1
+cd $input_dir
+rates_file=rates.txt
+bounds_file=bounds.txt
+# Specify number of iterations to discard, 100,000 is recommended minimum
+burn_in=100000
+location_file=ldhat_"$input_dir".ldhat.locs
+stat -input $rates_file -burn $burn_in -loc $location_file
+mv res.txt res_rates.txt
+stat -input $bounds_file -burn $burn_in -loc $location_file
+```
