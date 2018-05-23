@@ -157,6 +157,8 @@ done
 
 ### Visualise output of interval using stat
 
+Average values are stored in the log files from sge
+
 ```bash
 input_dir=contig_1
 cd $input_dir
