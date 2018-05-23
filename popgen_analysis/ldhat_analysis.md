@@ -168,4 +168,5 @@ location_file=ldhat_"$input_dir".ldhat.locs
 stat -input $rates_file -burn $burn_in -loc $location_file
 mv res.txt res_rates.txt
 stat -input $bounds_file -burn $burn_in -loc $location_file
+mv res.txt res_bounds.txt
 ```
