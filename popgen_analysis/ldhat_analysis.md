@@ -126,3 +126,21 @@ done
 ## Run interval to estimate the recombination rate
 
 This only uses the crossing over model with a bayesian rjMCMC approach
+
+```bash
+input_dir=contig_1
+cd $input_dir
+mv new_lk.txt exhaustive_lk.txt
+sequence_data=ldhat_"$input_dir".ldhat.sites
+location_data=ldhat_"$input_dir".ldhat.locs
+lookup_table=exhaustive_lk.txt
+#10,000,000 is the recommended number of iterations in the manual
+iterations=10000000
+# Sample rate keeps every xth result of the markov chain
+sample_rate=2000
+# Values from 0 - 50 are recommended, 5 is okay for humans
+# If you have data on expected recombination rate
+# run simulations with different penalities to test which is least 'noisy'
+block_penalty=5
+interval -seq $sequence_data -loc $location_data -lk $lookup_table -its $iterations -bpen $block_penalty -samp $sample_rate
+```
