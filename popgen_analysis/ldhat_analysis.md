@@ -106,7 +106,7 @@ Done separately for each contig
 ```bash
 for input_dir in $(ls -d contig_*)
 do
-    n=14
+    n=$(cat $input_dir/ld_hat_contig_*.ldhat.sites | grep '>' | wc -l)
     four_Ner_max=500
     no_points=201
     theta=0.00479
