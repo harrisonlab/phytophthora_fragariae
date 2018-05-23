@@ -179,6 +179,7 @@ do
         Jobs=$(qstat | grep 'sub_stat' | grep 'qw' | wc -l)
     done
     qsub $ProgDir/sub_stat_rates.sh $rates_file $burn_in $location_file
+    cd ../
 done
 
 for input_dir in $(ls -d contig_*)
@@ -198,5 +199,6 @@ do
         Jobs=$(qstat | grep 'sub_stat' | grep 'qw' | wc -l)
     done
     qsub $ProgDir/sub_stat_bounds.sh $bounds_file $burn_in $location_file
+    cd ../
 done
 ```
