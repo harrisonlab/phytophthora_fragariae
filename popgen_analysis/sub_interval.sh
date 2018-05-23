@@ -15,4 +15,4 @@ samp=$7
 
 cd $input_dir
 
-interval -seq $seq -loc $loc -lk $lk -its $its -bpen $bpen -samp $samp
+interval -seq $seq -loc $loc -lk $lk -its $its -bpen $bpen -samp $samp -exact
