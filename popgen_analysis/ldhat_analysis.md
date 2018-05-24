@@ -223,6 +223,8 @@ make
 make clean
 ```
 
+### To use LDhot, add the following line to your profile
+
 This uses the res_rates file from LDhat program stat to identify hotspots
 
 ## Initial identification of recombination hotspots
