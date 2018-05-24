@@ -222,3 +222,5 @@ cd LDhot
 make
 make clean
 ```
+
+This uses the res_rates file from LDhat program stat to identify hotspots
