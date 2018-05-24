@@ -236,6 +236,30 @@ A failure will be recorded in the error log
 ## Initial identification of recombination hotspots
 
 ```bash
+for input_dir in $(ls -d contig_*)
+do
+    cd $input_dir
+    sequence_file=ldhat_"$input_dir".ldhat.sites
+    location_file=ldhat_"$input_dir".ldhat.locs
+    lookup_table=exhaustive_lk.txt
+    rates_file=res_rates.txt
+    # 1000 is the recommended minimum value for number of simulations
+    num_simulations=1000
+    Out_prefix=LDhot_results
+    Jobs=$(qstat | grep 'sub_ldhot' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_ldhot' | grep 'qw' | wc -l)
+    done
+    ProgDir=/home/adamst/git_repos/scripts/popgen_analysis
+    qsub $ProgDir/sub_ldhot.sh $sequence_file $location_file $lookup_table $rates_file $num_simulations $Out_prefix
+    cd ../
+done
+```
+
+```bash
 input_dir=contig_1
 cd $input_dir
 sequence_file=ldhat_"$input_dir".ldhat.sites
