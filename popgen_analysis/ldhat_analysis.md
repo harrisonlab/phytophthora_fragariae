@@ -220,7 +220,6 @@ git clone https://github.com/auton1/LDhot.git
 
 cd LDhot
 make
-make clean
 ```
 
 ### To use LDhot, add the following line to your profile
