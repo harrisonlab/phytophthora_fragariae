@@ -47,7 +47,8 @@ done
 ```
 
 ```
-
+The number of contigs larger than 1Mb is:
+28
 ```
 
 ## Convert vcf file to correct format for LDhat
