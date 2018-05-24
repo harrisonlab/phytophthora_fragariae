@@ -233,5 +233,15 @@ This uses the res_rates file from LDhat program stat to identify hotspots
 ## Initial identification of recombination hotspots
 
 ```bash
-
+input_dir=contig_1
+cd $input_dir
+sequence_file=ldhat_"$input_dir".ldhat.sites
+location_file=ldhat_"$input_dir".ldhat.locs
+lookup_table=exhaustive_lk.txt
+rates_file=res_rates.txt
+# 1000 is the recommended minimum value for number of simulations
+num_simulations=1000
+Out_prefix=LDhot_results
+ldhot --seq $sequence_file --loc $location_file --lk $lookup_table --res $rates_file --nsim $num_simulations --out $Out_prefix
+cd ../
 ```
