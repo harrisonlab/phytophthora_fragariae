@@ -35,6 +35,7 @@ for num in 1
 do
     input=LDhat/UK123
     mkdir -p $input
+    cd $input
     Input_file=../../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
     Output_file=cut_down_assembly.fa
     ProgDir=/home/adamst/git_repos/tools/seq_tools
@@ -56,8 +57,6 @@ Haploids do not require phasing
 Treat each contig as a separate "chromosome"
 
 ```bash
-cd $input
-
 vcftools=/home/sobczm/bin/vcftools/bin
 input_vcf=../../summary_stats/polished_contigs_unmasked_UK123_filtered.recode_haplo.vcf
 Out_prefix=polished_contigs_unmasked_UK123_haplo
