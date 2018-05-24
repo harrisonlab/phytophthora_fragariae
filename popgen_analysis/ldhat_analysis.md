@@ -229,7 +229,9 @@ PATH=${PATH}:/home/adamst/prog/LDhot
 ```
 
 This uses the res_rates file from LDhat program stat to identify hotspots
-This does not run during a screen session
+This does not run during a screen session,  throws a GLIBCXX error
+This program requires a minimum of 100 SNPs per contig
+A failure will be recorded in the error log
 
 ## Initial identification of recombination hotspots
 
