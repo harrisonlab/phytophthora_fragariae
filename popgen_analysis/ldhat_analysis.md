@@ -28,6 +28,25 @@ Prepending is necessary as convert is also the name of a part of core unix
 PATH=/home/adamst/prog/LDhat:${PATH}
 ```
 
+## Count number of contigs to be used for LDhat
+
+```bash
+for num in 1
+do
+    Input_file=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+    Output_file=cut_down_assembly.fa
+    ProgDir=/home/adamst/git_repos/tools/seq_tools
+    Minimum_contig_size=1000000
+    python $ProgDir/Size_selection_assembly.py --input $Input_file --output $Output_file --min_size $Minimum_contig_size
+    echo "The number of contigs larger than 1Mb is:"
+    cat $Output_file | grep '>' | wc -l
+done
+```
+
+```
+
+```
+
 ## Convert vcf file to correct format for LDhat
 
 Requires a phased vcf (see Pf_linkage_disequilibrium.md) for diploids
