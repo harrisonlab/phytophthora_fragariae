@@ -225,6 +225,10 @@ make clean
 
 ### To use LDhot, add the following line to your profile
 
+```bash
+PATH=${PATH}:/home/adamst/prog/LDhot
+```
+
 This uses the res_rates file from LDhat program stat to identify hotspots
 
 ## Initial identification of recombination hotspots
