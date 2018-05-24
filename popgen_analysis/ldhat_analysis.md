@@ -262,3 +262,22 @@ done
 ### Summarise LDhot results
 
 WARNING: These commands are untested
+
+```bash
+for input_dir in $(ls -d contig_*)
+do
+    cd $input_dir
+    rates_file=res_rates.txt
+    hotspot_file=LDhot_results.hotspots.txt
+    Out_prefix=LDhot_summary
+    Jobs=$(qstat | grep 'sub_ldhot_' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_ldhot_' | grep 'qw' | wc -l)
+    done
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    qsub $ProgDir/sub_ldhot_summary.sh $rates_file $hotspot_file $Out_prefix
+done
+```
