@@ -253,7 +253,7 @@ do
         printf "."
         Jobs=$(qstat | grep 'sub_ldhot' | grep 'qw' | wc -l)
     done
-    ProgDir=/home/adamst/git_repos/scripts/popgen_analysis
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
     qsub $ProgDir/sub_ldhot.sh $sequence_file $location_file $lookup_table $rates_file $num_simulations $Out_prefix
     cd ../
 done
