@@ -33,7 +33,9 @@ PATH=/home/adamst/prog/LDhat:${PATH}
 ```bash
 for num in 1
 do
-    Input_file=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+    input=LDhat/UK123
+    mkdir -p $input
+    Input_file=../../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
     Output_file=cut_down_assembly.fa
     ProgDir=/home/adamst/git_repos/tools/seq_tools
     Minimum_contig_size=1000000
@@ -54,8 +56,6 @@ Haploids do not require phasing
 Treat each contig as a separate "chromosome"
 
 ```bash
-input=LDhat/UK123
-mkdir -p $input
 cd $input
 
 vcftools=/home/sobczm/bin/vcftools/bin
