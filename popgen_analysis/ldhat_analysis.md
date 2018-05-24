@@ -61,8 +61,9 @@ Treat each contig as a separate "chromosome"
 vcftools=/home/sobczm/bin/vcftools/bin
 input_vcf=../../summary_stats/polished_contigs_unmasked_UK123_filtered.recode_haplo.vcf
 Out_prefix=polished_contigs_unmasked_UK123_haplo
+cut_down_assembly=cut_down_assembly.fa
 
-contigs=$(cat $input_vcf | grep -v "#" | cut -f1 | cut -f2 -d "_" | sort -n | uniq)
+contigs=$(cat $cut_down_assembly | grep '>' | tr -d '>' | cut -f2 -d "_")
 for num in $(echo $contigs)
 do
     contig_name=$(echo contig_"$num")
