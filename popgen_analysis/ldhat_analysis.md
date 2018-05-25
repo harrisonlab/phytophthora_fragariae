@@ -111,6 +111,7 @@ do
     cd $input_dir
     seq_file=ldhat_"$input_dir".ldhat.sites
     loc_file=ldhat_"$input_dir".ldhat.locs
+    echo "$input_dir"
     pairwise -seq $seq_file -loc $loc_file
     cd ../
 done
