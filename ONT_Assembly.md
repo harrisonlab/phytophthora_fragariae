@@ -431,7 +431,7 @@ Corrects assembly using Illumina reads, due to lower error rate
 Strain name and illumina filenames need to be changed if code reused
 
 ```bash
-for Assembly in $(ls assembly/SMARTdenovo/*/*/nanpolish/*_nanopolish_min_500bp_renamed.fasta)
+for Assembly in $(ls assembly/SMARTdenovo/*/*/nanopolish/*_nanopolish_min_500bp_renamed.fasta)
 do
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
