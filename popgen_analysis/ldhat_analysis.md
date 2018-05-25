@@ -109,8 +109,8 @@ The rest are mostly improved upon by interval & rhomap
 for input_dir in $(ls -d contig_*)
 do
     cd $input_dir
-    seq_file=*.ldhat.sites
-    loc_file=*.ldhat.locs
+    seq_file=ldhat_"$input_dir".ldhat.sites
+    loc_file=ldhat_"$input_dir".ldhat.locs
     pairwise -seq $seq_file -loc $loc_file
     cd ../
 done
