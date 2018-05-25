@@ -408,6 +408,23 @@ do
 done
 ```
 
+```
+Assembly statistics:
+
+Number of contigs: 124
+N50: 1,264,033
+Genome Size: 93,677,547
+L50: 23
+GC content: 53.51%
+
+BUSCO statistics:
+
+268 complete single copy
+10 complete duplicated
+8 fragmented
+17 missing
+```
+
 ### Pilon error correction
 
 Corrects assembly using Illumina reads, due to lower error rate
