@@ -119,6 +119,8 @@ done
 
 Manually copy and paste all output written to screen to a log.txt file
 
+Iterative process, follow the ls -d with grep -v -w 'contig_id' to narrow selection
+
 ## Use complete to refine the lookup table
 
 Use the same 4Ner_max, no of points and theta as in pairwise, stored in log file
