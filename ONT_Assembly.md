@@ -452,6 +452,26 @@ done
 
 tmp drive filled up during the 7th iteration of pilon, resubmit these commands
 
+```bash
+for Assembly in $(ls assembly/SMARTdenovo/*/*/pilon/pilon_6.fasta)
+do
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    echo "$Organism - $Strain"
+    IlluminaDir=$(ls -d qc_dna/paired/$Organism/Nov9)
+    TrimF1_Read=$(ls $IlluminaDir/F/*_160129_trim.fq.gz)
+    TrimR1_Read=$(ls $IlluminaDir/R/*_160129_trim.fq.gz)
+    TrimF2_Read=$(ls $IlluminaDir/F/Pfrag-*.fq.gz)
+    TrimR2_Read=$(ls $IlluminaDir/R/Pfrag-*.fq.gz)
+    TrimF3_Read=$(ls $IlluminaDir/F/PfragNov9*.fq.gz)
+    TrimR3_Read=$(ls $IlluminaDir/R/PfragNov9*.fq.gz)
+    OutDir=$(dirname $Assembly)/pilon_repeats
+    Iterations=4
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/pilon
+    qsub $ProgDir/sub_pilon_3_libs.sh $Assembly $TrimF1_Read $TrimR1_Read $TrimF2_Read $TrimR2_Read $TrimF3_Read $TrimR3_Read $OutDir $Iterations
+done
+```
+
 #### Rename contigs
 
 ```bash
