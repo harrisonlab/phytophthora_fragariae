@@ -125,8 +125,6 @@ contigs 1, 21, 5 and 8 max out when 4Ner is set to 100,000
 These values do not seem reasonable, so setting max 4Ner to the recommended 100
 ```
 
-Manually copy and paste all output written to screen to a log.txt file
-
 Iterative process, follow the ls -d with grep -v -w 'contig_id' to narrow selection
 
 ## Use complete to refine the lookup table
@@ -138,9 +136,9 @@ Done separately for each contig
 for input_dir in $(ls -d contig_*)
 do
     n=$(cat $input_dir/ldhat_contig_*.ldhat.sites | grep '>' | wc -l)
-    four_Ner_max=$(cat $input_dir/log.txt | grep -e 'Max 4Ner for grid (suggest 100):' | cut -f2 -d ':')
-    no_points=$(cat $input_dir/log.txt | grep -e 'Number of points on grid (suggest 101, min=2):' | cut -f2 -d ':')
-    theta=$(cat $input_dir/log.txt | grep -e 'Input theta per site (suggest Watterson estimate of ' | cut -f2 -d ':')
+    four_Ner_max=$(cat $input_dir/outfile.txt | grep -e 'Maximum at 4Ner(region)' | cut -f1 -d ':' | cut -f2 -d '=')
+    no_points=201
+    theta=$(cat $input_dir/outfile.txt | grep -e 'Theta' | cut -f2 -d '=')
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
     Jobs=$(qstat | grep 'sub_comple' | grep 'qw' | wc -l)
     while [ $Jobs -gt 1 ]
