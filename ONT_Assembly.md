@@ -450,6 +450,8 @@ do
 done
 ```
 
+tmp drive filled up during the 7th iteration of pilon, resubmit these commands
+
 #### Rename contigs
 
 ```bash
