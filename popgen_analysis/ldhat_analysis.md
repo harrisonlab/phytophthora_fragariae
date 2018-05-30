@@ -118,6 +118,13 @@ do
 done
 ```
 
+```
+contigs 1, 21, 5 and 8 max out when 4Ner is set to 100,000
+5 gives a result of 6,500, but maxes out at 10,000
+8 give a result of 95,500
+These values do not seem reasonable, so setting max 4Ner to the recommended 100
+```
+
 Manually copy and paste all output written to screen to a log.txt file
 
 Iterative process, follow the ls -d with grep -v -w 'contig_id' to narrow selection
