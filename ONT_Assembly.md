@@ -488,7 +488,7 @@ done
 #### Quast and BUSCO were run to assess the effects of Pilon on quality
 
 ```bash
-for Assembly in $(ls assembly/SMARTdenovo/*/*/pilon/pilon_min_500bp_renamed.fasta)
+for Assembly in $(ls assembly/SMARTdenovo/*/*/pilon/pilon_repeats/pilon_min_500bp_renamed.fasta)
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
