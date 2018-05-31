@@ -106,7 +106,7 @@ Test for recombination
 ```
 
 The main thing needed from pairwise is the lookup table
-The rest are mostly improved upon by interval & rhomap
+The rest are mostly improved upon by interval & LDhot
 
 ```bash
 for input_dir in $(ls -d contig_*)
