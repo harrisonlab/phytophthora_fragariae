@@ -585,10 +585,10 @@ BUSCO statistics:
 ## Merging SMARTdenovo and SPAdes assemblies
 
 ```bash
-for MinionAssembly in $(ls assembly/SMARTdenovo/*/*/pilon/pilon_min_500bp_renamed.fasta)
+for MinionAssembly in $(ls assembly/SMARTdenovo/*/*/pilon/pilon_repeats/pilon_min_500bp_renamed.fasta)
 do
-    Organism=$(echo $MinionAssembly | rev | cut -f4 -d '/' | rev)
-    Strain=$(echo $MinionAssembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $MinionAssembly | rev | cut -f5 -d '/' | rev)
+    Strain=$(echo $MinionAssembly | rev | cut -f4 -d '/' | rev)
     HybridAssembly=$(ls assembly/spades_minion/$Organism/$Strain/filtered_contigs/contigs_min_500bp.fasta)
     OutDir=assembly/merged_SMARTdenovo_spades/$Organism/$Strain
     AnchorLength=500000 # May need changing to N50 of Minion
