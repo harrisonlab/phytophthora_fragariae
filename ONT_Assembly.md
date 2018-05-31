@@ -475,7 +475,7 @@ done
 #### Rename contigs
 
 ```bash
-for Assembly in $(ls assembly/SMARTdenovo/*/*/pilon/*.fasta | grep 'pilon_10')
+for Assembly in $(ls assembly/SMARTdenovo/*/*/pilon/pilon_repeats/*.fasta | grep 'pilon_4')
 do
     echo $Assembly
     echo "" > tmp.txt
