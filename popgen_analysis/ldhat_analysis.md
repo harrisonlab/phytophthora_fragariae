@@ -89,6 +89,8 @@ Minor changes in theta do not seem to have an effect
 4Ner should range between 20 - 100
 No. of points on grid should range between 21 - 201
 Larger values of 4Ner & No. of points take longer, but are more accurate
+I recommend number of points to be twice the max 4Ner + 1
+(eg. 4Ner max = 100, number of points = 201)
 
 After generation of the table, use default grid value for recombination rate
 If estimates at extreme of grid, change the defaults - can exceed above limits:
@@ -107,7 +109,7 @@ The main thing needed from pairwise is the lookup table
 The rest are mostly improved upon by interval & rhomap
 
 ```bash
-for input_dir in $(ls -d contig_*)
+for input_dir in $(ls -d contig_* | grep -w -e 'contig_14' -e 'contig_17' -e 'contig_21' -e 'contig_25')
 do
     cd $input_dir
     seq_file=ldhat_"$input_dir".ldhat.sites
