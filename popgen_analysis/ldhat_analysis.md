@@ -119,6 +119,7 @@ done
 ```
 
 Iterative process, follow the ls -d with grep -v -w 'contig_id' to narrow selection
+Results can vary due to the monte carlo simulation being used
 
 ## Use complete to refine the lookup table
 
