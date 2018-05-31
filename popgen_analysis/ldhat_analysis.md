@@ -90,7 +90,7 @@ Minor changes in theta do not seem to have an effect
 No. of points on grid should range between 21 - 201
 Larger values of 4Ner & No. of points take longer, but are more accurate
 I recommend number of points to be twice the max 4Ner + 1
-(eg. 4Ner max = 100, number of points = 201)
+(eg. 4Ner max = 200, number of points = 401)
 
 After generation of the table, use default grid value for recombination rate
 If estimates at extreme of grid, change the defaults - can exceed above limits:
