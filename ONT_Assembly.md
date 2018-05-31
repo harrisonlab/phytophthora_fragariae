@@ -505,6 +505,23 @@ do
 done
 ```
 
+```
+Assembly statistics:
+
+Number of contigs: 124
+N50: 1,264,025
+Genome Size: 93,715,968
+L50: 23
+GC content: 53.52%
+
+BUSCO statistics:
+
+268 complete single copy
+12 complete duplicated
+6 fragmented
+17 missing
+```
+
 ## Hybrid assembly
 
 Some people report hybrid assemblies give higher quality.
