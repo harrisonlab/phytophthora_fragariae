@@ -109,7 +109,7 @@ The main thing needed from pairwise is the lookup table
 The rest are mostly improved upon by interval & rhomap
 
 ```bash
-for input_dir in $(ls -d contig_* | grep -w -e 'contig_14' -e 'contig_17' -e 'contig_21' -e 'contig_25')
+for input_dir in $(ls -d contig_*)
 do
     cd $input_dir
     seq_file=ldhat_"$input_dir".ldhat.sites
