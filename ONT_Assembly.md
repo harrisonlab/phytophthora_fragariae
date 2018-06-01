@@ -633,6 +633,22 @@ do
 done
 ```
 
+```
+Assembly Statistics:
+Number of contigs: 124
+N50: 1,264,025
+Genome Size: 93,715,968
+L50: 23
+GC content: 53.52%
+
+BUSCO statistics:
+
+268 complete single copy
+12 complete duplicated
+6 fragmented
+17 missing
+```
+
 ### Polish merged assembly with Pilon
 
 ```bash
@@ -641,7 +657,7 @@ do
     Organism=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Strain=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
     echo "$Organism - $Strain"
-    IlluminaDir=$(qc_dna/paired/*/$Strain)
+    IlluminaDir=$(ls -d qc_dna/paired/*/Nov9)
     TrimF1_Read=$(ls $IlluminaDir/F/*_160129_trim.fq.gz)
     TrimR1_Read=$(ls $IlluminaDir/R/*_160129_trim.fq.gz)
     TrimF2_Read=$(ls $IlluminaDir/F/Pfrag-*.fq.gz)
