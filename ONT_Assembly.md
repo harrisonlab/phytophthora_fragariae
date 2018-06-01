@@ -686,7 +686,7 @@ done
 
 ## Repeat Masking
 
-The <X> assembly was the highest quality and so carried forward for analysis
+The minion only assembly was the highest quality and so carried forward for analysis
 
 ```bash
 for Assembly in $(ls PATH/TO/ASSEMBLY)
