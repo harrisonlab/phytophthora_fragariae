@@ -726,3 +726,5 @@ do
     bedtools maskfasta -fi $File -bed $TPSI -fo $OutFile
 done
 ```
+
+## Use satsuma to assess synteny between the two long read genomes
