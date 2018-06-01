@@ -728,3 +728,20 @@ done
 ```
 
 ## Use satsuma to assess synteny between the two long read genomes
+
+### Install satsuma
+
+Not required for other users to run
+
+```bash
+wget ftp://ftp.broadinstitute.org/distribution/software/spines/satsuma-3.0.tar.gz
+
+tar -xzf satsuma-3.0.tar.gz
+
+rm satsuma-3.0.tar.gz
+
+cd satsuma-code-0
+make
+```
+
+Issues installing this, Andy also had problems. Speak to Rob
