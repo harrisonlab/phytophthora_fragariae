@@ -689,7 +689,7 @@ done
 The minion only assembly was the highest quality and so carried forward for analysis
 
 ```bash
-for Assembly in $(ls PATH/TO/ASSEMBLY)
+for Assembly in $(ls assembly/SMARTdenovo/*/*/pilon/pilon_repeats/pilon_min_500bp_renamed.fasta)
 do
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
