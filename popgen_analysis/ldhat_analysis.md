@@ -316,3 +316,8 @@ done
 ```
 
 Location results are in kilobases
+
+## Plot results of interval and LDhot as a line graph
+
+Plot recombination rate over the contig
+With hotspots highlighted (where identified)
