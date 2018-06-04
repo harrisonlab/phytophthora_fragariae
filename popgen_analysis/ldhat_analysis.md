@@ -298,7 +298,7 @@ contig 8
 WARNING: These commands are untested
 
 ```bash
-for input_dir in $(ls -d contig_*)
+for input_dir in $(ls -d contig_* | grep -e 'contig_8')
 do
     cd $input_dir
     rates_file=res_rates.txt
@@ -313,5 +313,6 @@ do
     done
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
     qsub $ProgDir/sub_ldhot_summary.sh $rates_file $hotspot_file $Out_prefix
+    cd ../
 done
 ```
