@@ -20,3 +20,8 @@ opt <- parse_args(OptionParser(option_list = opt_list))
 outfile <- opt$out_file
 Recomb_file <- opt$res_in
 Hotspot_file <- opt$hotspot_in
+
+# Load input files
+
+Recomb_df <- read.table(Recomb_file)
+Hotspot_df <- read.table(Hotspot_file)
