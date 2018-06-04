@@ -749,6 +749,14 @@ do
 done
 ```
 
+```
+Number of masked bases:
+38,164,330
+
+Percentage of bases masked:
+40.72%
+```
+
 ## Use satsuma to assess synteny between the two long read genomes
 
 ### Install satsuma
