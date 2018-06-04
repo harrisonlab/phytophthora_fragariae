@@ -15,3 +15,8 @@ opt_list <- list(
     make_option("--hotspot_in", type = "character",
     help = "File containing the locations of recombination hotspots")
 )
+
+opt <- parse_args(OptionParser(option_list = opt_list))
+outfile <- opt$out_file
+Recomb_file <- opt$res_in
+Hotspot_file <- opt$hotspot_in
