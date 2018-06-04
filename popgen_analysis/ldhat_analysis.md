@@ -288,6 +288,11 @@ do
 done
 ```
 
+```
+LDhot ran on the following contigs:
+contig 8
+```
+
 ### Summarise LDhot results
 
 WARNING: These commands are untested
