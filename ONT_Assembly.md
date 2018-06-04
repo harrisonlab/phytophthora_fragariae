@@ -739,7 +739,7 @@ do
 done
 
 # Hardmasked
-for File in $(ls PATH/TO/HARD/MASKED/ASSEMBLY)
+for File in $(ls repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_hardmasked.fa)
 do
     OutDir=$(dirname $File)
     TPSI=$(ls $OutDir/*_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
