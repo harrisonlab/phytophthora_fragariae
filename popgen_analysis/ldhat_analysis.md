@@ -295,8 +295,6 @@ contig 8
 
 ### Summarise LDhot results
 
-WARNING: These commands are untested
-
 ```bash
 for input_dir in $(ls -d contig_* | grep -e 'contig_8')
 do
