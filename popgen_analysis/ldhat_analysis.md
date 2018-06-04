@@ -314,3 +314,5 @@ do
     cd ../
 done
 ```
+
+Location results are in kilobases
