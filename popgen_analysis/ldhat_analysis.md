@@ -184,7 +184,7 @@ done
 
 Average values are stored in the output log files from sge
 Ensure all the jobs in one loop are finished before starting the other
-They both produce output files of the same name initially due to source code
+They both produce intermediate files of the same name initially due to source code
 
 ```bash
 for input_dir in $(ls -d contig_*)
