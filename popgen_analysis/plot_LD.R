@@ -31,3 +31,7 @@ Hotspot_df <- read.table(Hotspot_file)
 Rho_plot <- ggplot(data = Recomb_df, aes(x = Loci, y = Mean_rho, group = 1)) +
     geom_line() +
     geom_point()
+
+# Save graph to file
+
+ggsave(outfile, Rho_plot)
