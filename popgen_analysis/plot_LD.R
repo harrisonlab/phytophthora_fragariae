@@ -32,7 +32,8 @@ Recomb_df_corrected <- Recomb_df[-c(1), ]
 Rho_plot <- ggplot(data = Recomb_df_corrected, aes(x = Loci, y = Mean_rho,
     group = 1)) + geom_line() + geom_point() +
     labs(x = "Contig position (bp)", y = "Mean recombination rate") +
-    geom_rect(data = Hotspot_df, aes(xmin = Hotspot_df$#hotStart))
+    geom_rect(data = Hotspot_df,
+        aes(xmin = X.hotStart, xmax = hotEnd, ymin = -10, ymax = -1))
 
 # Save graph to file
 
