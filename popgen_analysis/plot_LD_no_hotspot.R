@@ -11,7 +11,7 @@ opt_list <- list(
     make_option("--out_file", type = "character",
     help = "Output file for figure to be written to"),
     make_option("--res_in", type = "character",
-    help = "File containing the mean recombination rates at different loci"),
+    help = "File containing the mean recombination rates at different loci")
 )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
