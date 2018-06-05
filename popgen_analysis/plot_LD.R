@@ -33,9 +33,13 @@ Rho_plot <- ggplot(data = Recomb_df_corrected,
     aes(x = Recomb_df_corrected$Loci, y = Recomb_df_corrected$Mean_rho,
     group = 1)) + geom_line() + geom_point() +
     labs(x = "Contig position (kb)", y = "Mean recombination rate") +
-    geom_rect(data = Hotspot_df, inherit.aes = FALSE,
+    geom_rect(data = Hotspot_df, inherit.aes = FALSE, fill = "blue",
         aes(xmin = Hotspot_df$V1, xmax = Hotspot_df$V2,
-            ymin = -10, ymax = -1))
+            ymin = -5, ymax = -1)) +
+    scale_x_continuous(breaks = round(seq(min(0),
+    max(Recomb_df_corrected$Loci), by = 100), 1)) +
+    scale_y_continuous(breaks = round(seq(min(0),
+    max(Recomb_df_corrected$Mean_rho), by = 5), 1))
 
 # Save graph to file
 
