@@ -24,16 +24,20 @@ Hotspot_file <- opt$hotspot_in
 # Load input files
 
 Recomb_df <- read.table(Recomb_file, header = TRUE)
-Hotspot_df <- read.table(Hotspot_file, header = TRUE, comment.char = "-")
+Hotspot_df <- read.table(Hotspot_file)
 Recomb_df_corrected <- Recomb_df[-c(1), ]
+Hotspot_df$V1 <- Hotspot_df$V1 * 1000
+Hotspot_df$V2 <- Hotspot_df$V2 * 1000
 
 # Plot graph
 
-Rho_plot <- ggplot(data = Recomb_df_corrected, aes(x = Loci, y = Mean_rho,
+Rho_plot <- ggplot(data = Recomb_df_corrected,
+    aes(x = Recomb_df_corrected$Loci, y = Recomb_df_corrected$Mean_rho,
     group = 1)) + geom_line() + geom_point() +
     labs(x = "Contig position (bp)", y = "Mean recombination rate") +
     geom_rect(data = Hotspot_df,
-        aes(xmin = X.hotStart, xmax = hotEnd, ymin = -10, ymax = -1))
+        aes(xmin = Hotspot_df$V1, xmax = Hotspot_df$V2,
+            ymin = -10, ymax = -1))
 
 # Save graph to file
 
