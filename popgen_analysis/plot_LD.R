@@ -34,4 +34,4 @@ Rho_plot <- ggplot(data = Recomb_df_corrected, aes(x = Loci, y = Mean_rho,
 
 # Save graph to file
 
-ggsave(outfile, Rho_plot)
+ggsave(outfile, Rho_plot, width = 21, height = 7)
