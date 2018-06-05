@@ -321,3 +321,19 @@ Location results are in kilobases
 
 Plot recombination rate over the contig
 With hotspots highlighted (where identified)
+
+```bash
+for input_dir in $(ls -d contig_*)
+do
+    Rho_file=$input_dir/res_rates.txt
+    Out_file=$input_dir/Rho_plot.pdf
+    Hotspot_file=$input_dir/LDhot_summary.hot_summary.txt
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    if [ -f $Hotspot_file ]
+    then
+        Rscript --vanilla $ProgDir/plot_LD.R --out_file $Out_file --res_in $Rho_file --hotspot_in $Hotspot_file
+    else
+        Rscript --vanilla $ProgDir/plot_LD.R --out_file $Out_file --res_in $Rho_file
+    fi
+done
+```
