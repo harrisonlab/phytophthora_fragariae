@@ -25,3 +25,9 @@ Hotspot_file <- opt$hotspot_in
 
 Recomb_df <- read.table(Recomb_file)
 Hotspot_df <- read.table(Hotspot_file)
+
+# Plot graph
+
+Rho_plot <- ggplot(data = Recomb_df, aes(x = Loci, y = Mean_rho, group = 1)) +
+    geom_line() +
+    geom_point()
