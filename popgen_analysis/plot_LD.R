@@ -23,7 +23,7 @@ Hotspot_file <- opt$hotspot_in
 
 # Load input files
 
-Recomb_df <- read.table(Recomb_file, header = TRUE)
+Recomb_df <- read.table(Recomb_file, header = TRUE, skip = 1)
 Hotspot_df <- read.table(Hotspot_file, header = TRUE)
 
 # Plot graph
