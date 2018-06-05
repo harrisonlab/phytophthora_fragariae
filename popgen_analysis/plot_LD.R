@@ -23,14 +23,14 @@ Hotspot_file <- opt$hotspot_in
 
 # Load input files
 
-Recomb_df <- read.table(Recomb_file, header = TRUE, skip = 1)
+Recomb_df <- read.table(Recomb_file, header = TRUE)
 Hotspot_df <- read.table(Hotspot_file, header = TRUE)
+Recomb_df_corrected <- Recomb_df[-c(1), ]
 
 # Plot graph
 
-Rho_plot <- ggplot(data = Recomb_df, aes(x = Loci, y = Mean_rho, group = 1)) +
-    geom_line() +
-    geom_point()
+Rho_plot <- ggplot(data = Recomb_df_corrected, aes(x = Loci, y = Mean_rho,
+    group = 1)) + geom_line() + geom_point()
 
 # Save graph to file
 
