@@ -333,7 +333,7 @@ do
     then
         Rscript --vanilla $ProgDir/plot_LD.R --out_file $Out_file --res_in $Rho_file --hotspot_in $Hotspot_file
     else
-        Rscript --vanilla $ProgDir/plot_LD.R --out_file $Out_file --res_in $Rho_file
+        Rscript --vanilla $ProgDir/plot_LD_no_hotspot.R --out_file $Out_file --res_in $Rho_file
     fi
 done
 ```
