@@ -51,3 +51,4 @@ df <- data.frame(distance, fpoints)
 maxld <- max(LD.data)
 half_decay <- maxld / 2
 half_decay_distance <- df$distance[which.min(abs(df$fpoints - h.decay))]
+cat("Half decay distance of LD r^2: ", half_decay_distance)
