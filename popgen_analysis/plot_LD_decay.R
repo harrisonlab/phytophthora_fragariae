@@ -27,3 +27,5 @@ units <- opt$units
 input <- read.table(LD_file, header = TRUE)
 
 input$Distance <- input$POS2 - input$POS1
+
+data <- tapply(test$R.2, cut(test$Distance, seq(0, 100000, by = 1000)), mean)
