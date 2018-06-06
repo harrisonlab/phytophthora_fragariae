@@ -16,7 +16,7 @@ opt_list <- list(
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outfile <- opt$out_file
-Chrom_Num <- opt$Chromosome_number
+n <- opt$Chromosome_number
 LD_file <- opt$LD_statistics
 
 # Parse output file into necessary variables
