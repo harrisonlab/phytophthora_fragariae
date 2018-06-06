@@ -337,3 +337,8 @@ do
     fi
 done
 ```
+
+## Plot LD decay and estimate half-decay value
+
+One publication estimates that for Pf n = 10 - 12, DOI: 10.1073/pnas.96.10.5878
+So, my assembly should represent 20 - 24 chromosomes, trial all of these
