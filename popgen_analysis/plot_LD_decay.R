@@ -20,3 +20,10 @@ Chrom_Num <- opt$Chromosome_number
 LD_file <- opt$LD_statistics
 
 # Parse output file into necessary variables
+
+input <- read.table(LD_file, header = TRUE)
+
+input$Distance <- input$POS2 - input$POS1
+distance <- c(input$Distance)
+
+r_sqd <- c(input$R.2)
