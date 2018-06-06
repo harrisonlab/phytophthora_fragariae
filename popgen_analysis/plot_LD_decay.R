@@ -11,13 +11,16 @@ opt_list <- list(
     help = "The number of chromosomes (or contigs) sampled"),
     make_option("--LD_statistics", type = "character",
     help = "Output from vcftools LD statistics calling, contains r^2
-    and positions of variants")
+    and positions of variants"),
+    make_option("--units", type = "character",
+    help = "Units the distance is measured in, eg. bp, kb, Mb etc.")
 )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 outfile <- opt$out_file
 n <- opt$Chromosome_number
 LD_file <- opt$LD_statistics
+units <- opt$units
 
 # Parse output file into necessary variables
 
@@ -51,7 +54,7 @@ df <- data.frame(distance, fpoints)
 maxld <- max(LD_data)
 half_decay <- maxld / 2
 half_decay_distance <- df$distance[which.min(abs(df$fpoints - half_decay))]
-cat("Half decay distance of LD r^2: ", half_decay_distance)
+cat("Half decay distance of LD r^2: ", half_decay_distance, units)
 
 # Plot LD points and a dotted line
 
