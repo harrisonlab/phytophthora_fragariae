@@ -13,7 +13,12 @@ opt_list <- list(
     help = "Output from vcftools LD statistics calling, contains r^2
     and positions of variants"),
     make_option("--units", type = "character",
-    help = "Units the distance is measured in, eg. bp, kb, Mb etc.")
+    help = "Units the distance is measured in, eg. bp, kb, Mb etc."),
+    make_option("--window_size", type = "integer",
+    help = "Window size used for calculating LD statistics,
+    used as largest bin maximum size"),
+    make_option("--bin_size", type = "integer",
+    help = "")
 )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
@@ -28,4 +33,7 @@ input <- read.table(LD_file, header = TRUE)
 
 input$Distance <- input$POS2 - input$POS1
 
-data <- tapply(test$R.2, cut(test$Distance, seq(0, 100000, by = 1000)), mean)
+# Bin data
+
+data <- tapply(test$R.2, cut(test$Distance, seq(0, window_size,
+    by = bin_size)), mean)
