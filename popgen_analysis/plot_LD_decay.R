@@ -44,3 +44,10 @@ fpoints <- ( (10 + new.rho * distance) / ( (2 + new.rho * distance) * (11 +
     new.rho * distance))) * (1 + ( (3 + new.rho * distance) * (12 + 12 *
         new.rho * distance + (new.rho * distance) ^ 2)) / (n * (2 + new.rho *
             distance) * (11 + new.rho * distance)))
+
+# Calculate the half-decay distance
+
+df <- data.frame(distance, fpoints)
+maxld <- max(LD.data)
+half_decay <- maxld / 2
+half_decay_distance <- df$distance[which.min(abs(df$fpoints - h.decay))]
