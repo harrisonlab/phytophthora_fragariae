@@ -26,14 +26,14 @@ input <- read.table(LD_file, header = TRUE)
 input$Distance <- input$POS2 - input$POS1
 distance <- c(input$Distance)
 
-r_sqd <- c(input$R.2)
+LD_data <- c(input$R.2)
 
 # Fit results to decomposition model
 # Following code from:
 # https://fabiomarroni.wordpress.com/2011/08/09/estimate-decay-of-linkage-disequilibrium-with-distance/
 
 HW.st <- c(C = 0.1)
-HW.nonlinear <- nls(LD.data~ ( (10 + C * distance) / ( (2 + C *
+HW.nonlinear <- nls(LD_data~ ( (10 + C * distance) / ( (2 + C *
     distance) * (11 + C * distance))) * (1 + ( (3 + C * distance) * (12 +
         12 * C * distance + (C * distance) ^ 2)) / (n * (2 + C *
             distance) * (11 + C * distance))), start = HW.st,
