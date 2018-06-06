@@ -52,3 +52,12 @@ maxld <- max(LD.data)
 half_decay <- maxld / 2
 half_decay_distance <- df$distance[which.min(abs(df$fpoints - h.decay))]
 cat("Half decay distance of LD r^2: ", half_decay_distance)
+
+# Plot LD points and a dotted line
+
+pdf(outfile)
+ld_df <- data.frame(distance, fpoints)
+ld_df <- ld.df[order(ld.df$distance), ]
+plot(distance, LD.data, pch = 19, cex = 0.9)
+lines(ld.df$distance, ld.df$fpoints, lty = 3, lwd = 1.2)
+dev.off()
