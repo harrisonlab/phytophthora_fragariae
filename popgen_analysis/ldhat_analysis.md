@@ -342,3 +342,14 @@ done
 
 One publication estimates that for Pf n = 10 - 12, DOI: 10.1073/pnas.96.10.5878
 So, my assembly should represent 20 - 24 chromosomes, trial all of these
+
+```bash
+for Size in 20 22 24
+do
+    LD_results=summary_stats/UK123/ld.UK123
+    out_file=summary_stats/UK123/r^2_decay_"$Size".pdf
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    echo "$Size chromosomes"
+    Rscript --vanilla $ProgDir/plot_LD_decay.R --out_file $out_file --Chromosome_number $Size --LD_statistics $LD_results
+done
+```
