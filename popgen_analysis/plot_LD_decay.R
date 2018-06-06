@@ -60,4 +60,4 @@ ld_df <- data.frame(distance, fpoints)
 ld_df <- ld_df[order(ld_df$distance), ]
 plot(distance, LD_data, pch = 19, cex = 0.9)
 lines(ld_df$distance, ld_df$fpoints, lty = 3, lwd = 1.2)
-dev.off()
+trash <- dev.off()

@@ -349,7 +349,8 @@ do
     LD_results=summary_stats/UK123/ld.UK123
     out_file=summary_stats/UK123/r^2_decay_"$Size".pdf
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
-    echo "$Size chromosomes"
+    echo "$Size chromosomes:"
     Rscript --vanilla $ProgDir/plot_LD_decay.R --out_file $out_file --Chromosome_number $Size --LD_statistics $LD_results
+    printf "\n"
 done
 ```
