@@ -98,3 +98,15 @@ mv out.hap.ld ld.Bc23_ONT3
 mkdir -p Bc23_ONT3
 mv ld* Bc23_ONT3/.
 ```
+
+## Analysis of LD decay in UK123 isolates
+
+### Recalculate LD statistics without a minimum window size
+
+```bash
+$vcftools/vcftools --vcf polished_contigs_unmasked_UK123_filtered.recode_haplo.vcf \
+--hap-r2 --ld-window-bp 100000 \
+--indv Bc1 --indv Bc16 --indv A4 --indv Nov27 --indv Nov9 --indv Nov5 --indv Nov71
+mv out.hap.ld ld.UK123_no_min
+mv ld* UK123/.
+```
