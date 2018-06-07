@@ -3,6 +3,7 @@
 # Load libraries
 
 library("optparse")
+library("data.table")
 
 opt_list <- list(
     make_option("--out_file", type = "character",
@@ -41,8 +42,10 @@ input$Distance <- input$POS2 - input$POS1
 
 # Bin data
 
-data <- tapply(input$R.2, cut(input$Distance, seq(0, window_size,
-    by = bin_size)), mean)
-data_df <- as.data.frame(data)
+data <- c(tapply(input$R.2, cut(input$Distance, seq(0, window_size,
+    by = bin_size)), mean))
+data_df <- data.frame(data)
+setDT(data_df, keep.rownames = TRUE)
+colnames(data_df) <- c("R^2", "Distance")
 
 # Fit binned data to Hills and Weir decay function (a non-linear model)
