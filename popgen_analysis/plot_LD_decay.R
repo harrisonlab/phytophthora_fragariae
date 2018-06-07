@@ -61,3 +61,7 @@ modelC <- nls(Rsqd~ ( (10 + C * midpoint) / ( (2 + C * midpoint) * (11 + C *
     midpoint))) * (1 + ( (3 + C * midpoint) * (12 + 12 * C * midpoint + (C *
         midpoint) ^ 2)) / (n * (2 + C * midpoint) * (11 + C * midpoint))),
         start = Cstart, control = nls.control(maxiter = 100))
+
+# extract rho, the recombination parameter, 4Nr
+
+rho <- summary(modelC)$parameters[1]
