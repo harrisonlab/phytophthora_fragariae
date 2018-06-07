@@ -4,6 +4,7 @@
 
 library("optparse")
 library("data.table")
+library("ggplot2")
 
 opt_list <- list(
     make_option("--out_file", type = "character",
@@ -79,13 +80,19 @@ fitted_data <- data.frame(data_df$midpoint, newrsqd)
 max_rsqd <- max(fitted_data$newrsqd)
 half_decay <- max_rsqd * 0.5
 half_decayd_dist <- fitted_data$data_df.midpoint[which.min(abs(
-    fitted_data$newrsq - half_decay))]
+    fitted_data$newrsqd - half_decay))]
 fitted_data <- fitted_data[order(fitted_data$data_df.midpoint), ]
 
 # Identify point where r^2 = 0.2
 
-rsqd_pt2 <- fitted_data$data_df.midpoint[which.min(abs(fitted_data$newrsq
+rsqd_pt2 <- fitted_data$data_df.midpoint[which.min(abs(fitted_data$newrsqd
     - 0.2))]
 
 cat("Half decay distance of LD r^2:", half_decay_dist, units)
 cat("Distance where r^2 = 0.2:", rsqd_pt2, units)
+
+# Plot decay curve and add intercept lines
+
+Decay_plot <- ggplot(data_df, aes(midpoint, Rsqd)) + geom_point() + geom_smooth(formula = fitted_data$data_df.midpoint ~ fitted_data$newrsqd, se = FALSE)
+
+ggsave(outfile, Decay_plot, width = 21, height = 7)
