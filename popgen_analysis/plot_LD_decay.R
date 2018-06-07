@@ -93,6 +93,6 @@ cat("Distance where r^2 = 0.2:", rsqd_pt2, units, "\n")
 
 # Plot decay curve and add intercept lines
 
-Decay_plot <- ggplot(data_df, aes(midpoint, Rsqd)) + geom_point() + geom_smooth(formula = fitted_data$data_df.midpoint ~ fitted_data$newrsqd, se = FALSE)
+Decay_plot <- ggplot(fitted_data, aes(midpoint, newrsqd)) + geom_point() + geom_smooth(formula = fitted_data$data_df.midpoint ~ fitted_data$newrsqd, se = FALSE)
 
 ggsave(outfile, Decay_plot, width = 21, height = 7)
