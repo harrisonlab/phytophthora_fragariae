@@ -110,3 +110,21 @@ $vcftools/vcftools --vcf polished_contigs_unmasked_UK123_filtered.recode_haplo.v
 mv out.hap.ld ld.UK123_no_min
 mv ld* UK123/.
 ```
+
+### Calculate LD decay and plot curve
+
+```bash
+for Size in 560 616 672
+do
+    Out_File=UK123/r^2_decay_"$Size".pdf
+    LD_file=UK123/ld.UK123_no_min
+    units=bp
+    window_size=100000
+    bin_size=1000
+    Cstart=0.1
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    echo "Sample size of $Size:"
+    Rscript --vanilla $ProgDir/plot_LD_decay.R --out_file $Out_File --Chromosome_number $Size --LD_statistics $LD_file --units $units --window_size $window_size --bin_size $bin_size --Cstart $Cstart
+    printf "\n"
+done
+```
