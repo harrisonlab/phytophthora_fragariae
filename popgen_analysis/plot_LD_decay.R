@@ -70,7 +70,14 @@ rho <- summary(modelC)$parameters[1]
 
 # Use the new rho value to obtain LD values adjusted for their distances
 
-newrsq <- ( (10 + rho * data_df$midpoint) / ( (2 + rho * data_df$midpoint) *
+newrsqd <- ( (10 + rho * data_df$midpoint) / ( (2 + rho * data_df$midpoint) *
 (11 + rho * data_df$midpoint))) * (1 + ( (3 + rho * data_df$midpoint) * (12 +
     12 * rho * data_df$midpoint + (rho * data_df$midpoint) ^ 2)) / (n * (2 +
         rho * data_df$midpoint) * (11 + rho * data_df$midpoint)))
+
+fitted_data <- data.frame(data_df$midpoint, newrsqd)
+max_rsqd <- max(fitted_data$newrsqd)
+halfdecay <- max_rsqd * 0.5
+halfdecaydist <- fitted_data$data_df.midpoint[which.min(abs(fitted_data$newrsq
+    - halfdecay))]
+fitted_data <- fitted_data[order(fitted_data$data_df.midpoint), ]
