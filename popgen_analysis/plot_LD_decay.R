@@ -88,8 +88,8 @@ fitted_data <- fitted_data[order(fitted_data$data_df.midpoint), ]
 rsqd_pt2 <- fitted_data$data_df.midpoint[which.min(abs(fitted_data$newrsqd
     - 0.2))]
 
-cat("Half decay distance of LD r^2:", half_decay_dist, units)
-cat("Distance where r^2 = 0.2:", rsqd_pt2, units)
+cat("Half decay distance of LD r^2:", half_decay_dist, units, "\n")
+cat("Distance where r^2 = 0.2:", rsqd_pt2, units, "\n")
 
 # Plot decay curve and add intercept lines
 
