@@ -42,4 +42,4 @@ input$Distance <- input$POS2 - input$POS1
 data <- tapply(test$R.2, cut(test$Distance, seq(0, window_size,
     by = bin_size)), mean)
 
-# Fit binned data to Hills and Weir decay function
+# Fit binned data to Hills and Weir decay function (a non-linear model)
