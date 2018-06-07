@@ -51,10 +51,13 @@ colnames(data_df) <- c("Distance", "Rsqd")
 brks <- seq(0, window_size, bin_size)
 ints <- seq(1, 100, by = 1)
 data_df$midpoint <- (head(brks, -1) + diff(brks) / 2)[ints]
+Rsqd <- data_df$Rsqd
+midpoint <- data_df$midpoint
+Cstart <- c(C = Cstart)
 
 # Fit binned data to Hills and Weir decay function (a non-linear model)
 
-modelC <- nls(Rsqd ~ ( (10 + C * midpoint) / ( (2 + C * midpoint) * (11 + C *
+modelC <- nls(Rsqd~ ( (10 + C * midpoint) / ( (2 + C * midpoint) * (11 + C *
     midpoint))) * (1 + ( (3 + C * midpoint) * (12 + 12 * C * midpoint + (C *
         midpoint) ^ 2)) / (n * (2 + C * midpoint) * (11 + C * midpoint))),
-        data = data_df, start = Cstart, control = nls.control(maxiter = 100))
+        start = Cstart, control = nls.control(maxiter = 100))
