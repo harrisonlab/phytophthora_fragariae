@@ -50,7 +50,8 @@ setDT(data_df, keep.rownames = TRUE)
 colnames(data_df) <- c("Distance", "Rsqd")
 
 brks <- seq(0, window_size, bin_size)
-ints <- seq(1, 100, by = 1)
+Max_val <- window_size / bin_size
+ints <- seq(1, Max_val, by = 1)
 data_df$midpoint <- (head(brks, -1) + diff(brks) / 2)[ints]
 Rsqd <- data_df$Rsqd
 midpoint <- data_df$midpoint
