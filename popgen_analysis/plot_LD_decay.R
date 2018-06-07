@@ -79,7 +79,7 @@ newrsqd <- ( (10 + rho * data_df$midpoint) / ( (2 + rho * data_df$midpoint) *
 fitted_data <- data.frame(data_df$midpoint, newrsqd)
 max_rsqd <- max(fitted_data$newrsqd)
 half_decay <- max_rsqd * 0.5
-half_decayd_dist <- fitted_data$data_df.midpoint[which.min(abs(
+half_decay_dist <- fitted_data$data_df.midpoint[which.min(abs(
     fitted_data$newrsqd - half_decay))]
 fitted_data <- fitted_data[order(fitted_data$data_df.midpoint), ]
 
