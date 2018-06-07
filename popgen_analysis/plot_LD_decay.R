@@ -77,7 +77,15 @@ newrsqd <- ( (10 + rho * data_df$midpoint) / ( (2 + rho * data_df$midpoint) *
 
 fitted_data <- data.frame(data_df$midpoint, newrsqd)
 max_rsqd <- max(fitted_data$newrsqd)
-halfdecay <- max_rsqd * 0.5
-halfdecaydist <- fitted_data$data_df.midpoint[which.min(abs(fitted_data$newrsq
-    - halfdecay))]
+half_decay <- max_rsqd * 0.5
+half_decayd_dist <- fitted_data$data_df.midpoint[which.min(abs(
+    fitted_data$newrsq - half_decay))]
 fitted_data <- fitted_data[order(fitted_data$data_df.midpoint), ]
+
+# Identify point where r^2 = 0.2
+
+rsqd_pt2 <- fitted_data$data_df.midpoint[which.min(abs(fitted_data$newrsq
+    - 0.2))]
+
+cat("Half decay distance of LD r^2:", half_decay_dist, units)
+cat("Distance where r^2 = 0.2:", rsqd_pt2, units)
