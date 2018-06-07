@@ -96,8 +96,8 @@ cat("Distance where r^2 = 0.2:", rsqd_pt2, units, "\n")
 
 Decay_plot <- ggplot(data = fitted_data, aes(x = midpoint, y = newrsqd)) +
 geom_line(colour = "blue") + geom_vline(xintercept = half_decay_dist, colour =
-    "green", linetype = "dotted") + geom_hline(yintercept = half_decay,
-        colour = "green", linetype = "dotted") + geom_vline(xintercept =
+    "darkgreen", linetype = "dotted") + geom_hline(yintercept = half_decay,
+        colour = "darkgreen", linetype = "dotted") + geom_vline(xintercept =
             rsqd_pt2, colour = "red", linetype = "dotted") +
             geom_hline(yintercept = 0.2, colour = "red", linetype = "dotted") +
             labs(x = "Physical Distance (bp)", y =
