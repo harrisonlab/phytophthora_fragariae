@@ -67,3 +67,10 @@ modelC <- nls(Rsqd~ ( (10 + C * midpoint) / ( (2 + C * midpoint) * (11 + C *
 # extract rho, the recombination parameter, 4Nr
 
 rho <- summary(modelC)$parameters[1]
+
+# Use the new rho value to obtain LD values adjusted for their distances
+
+newrsq <- ( (10 + rho * data_df$midpoint) / ( (2 + rho * data_df$midpoint) *
+(11 + rho * data_df$midpoint))) * (1 + ( (3 + rho * data_df$midpoint) * (12 +
+    12 * rho * data_df$midpoint + (rho * data_df$midpoint) ^ 2)) / (n * (2 +
+        rho * data_df$midpoint) * (11 + rho * data_df$midpoint)))
