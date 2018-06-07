@@ -95,9 +95,13 @@ cat("Distance where r^2 = 0.2:", rsqd_pt2, units, "\n")
 # Plot decay curve and add intercept lines
 
 Decay_plot <- ggplot(data = fitted_data, aes(x = midpoint, y = newrsqd)) +
-geom_line(colour = "blue") + labs(x = "Physical Distance (bp)", y =
-"Fitted linkage disequilibrium") + theme(panel.grid.major = element_blank(),
-panel.grid.minor = element_blank(), panel.background = element_blank(),
-panel.border = element_rect(colour = "black", fill = NA, size = 1))
+geom_line(colour = "blue") + geom_vline(xintercept = half_decay_dist, colour =
+    "green") + geom_hline(yintercept = half_decay, colour = "green") +
+    geom_vline(xintercept = rsqd_pt2, colour = "red") + geom_hline(yintercept =
+        0.2, colour = "red") + labs(x = "Physical Distance (bp)", y =
+        "Fitted linkage disequilibrium") + theme(panel.grid.major =
+            element_blank(), panel.grid.minor = element_blank(),
+            panel.background = element_blank(), panel.border =
+            element_rect(colour = "black", fill = NA, size = 1))
 
 ggsave(outfile, Decay_plot, width = 21, height = 7)
