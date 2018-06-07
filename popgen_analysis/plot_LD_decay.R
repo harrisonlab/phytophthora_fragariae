@@ -30,6 +30,8 @@ n <- opt$Chromosome_number
 LD_file <- opt$LD_statistics
 units <- opt$units
 Cstart <- opt$Cstart
+window_size <- opt$window_size
+bin_size <- opt$bin_size
 
 # Parse output file into necessary variables
 
@@ -39,7 +41,7 @@ input$Distance <- input$POS2 - input$POS1
 
 # Bin data
 
-data <- as.data.frame(tapply(test$R.2, cut(test$Distance, seq(0, window_size,
+data <- as.data.frame(tapply(input$R.2, cut(input$Distance, seq(0, window_size,
     by = bin_size)), mean))
 
 # Fit binned data to Hills and Weir decay function (a non-linear model)
