@@ -19,7 +19,9 @@ opt_list <- list(
     help = "Window size used for calculating LD statistics,
     used as largest bin maximum size"),
     make_option("--bin_size", type = "integer",
-    help = "")
+    help = "Size of bin for data to be put in"),
+    make_option("--Cstart", type = "double",
+    help = "Starting value for C, recommended 0.1")
 )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
@@ -27,6 +29,7 @@ outfile <- opt$out_file
 n <- opt$Chromosome_number
 LD_file <- opt$LD_statistics
 units <- opt$units
+Cstart <- opt$Cstart
 
 # Parse output file into necessary variables
 
