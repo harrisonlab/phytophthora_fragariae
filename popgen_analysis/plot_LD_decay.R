@@ -56,6 +56,8 @@ midpoint <- data_df$midpoint
 Cstart <- c(C = Cstart)
 
 # Fit binned data to Hills and Weir decay function (a non-linear model)
+# Following code in script adapted from
+# https://jujumaan.com/2017/07/15/linkage-disequilibrium-decay-plot/
 
 modelC <- nls(Rsqd~ ( (10 + C * midpoint) / ( (2 + C * midpoint) * (11 + C *
     midpoint))) * (1 + ( (3 + C * midpoint) * (12 + 12 * C * midpoint + (C *
