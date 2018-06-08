@@ -29,7 +29,8 @@ opt_list <- list(
 )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
-outfile <- opt$out_file
+outfile_fitted <- opt$out_file_fitted
+outfile_unfitted <- opt$out_file_unfitted
 n <- opt$Chromosome_number
 LD_file <- opt$LD_statistics
 units <- opt$units
