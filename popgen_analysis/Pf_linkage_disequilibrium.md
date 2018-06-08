@@ -113,9 +113,11 @@ mv ld* UK123/.
 
 ### Calculate LD decay and plot curve
 
+```
 Size is:
 The number of individuals sampled * number of chromosomes sequenced * ploidy
 I have three as Pf n = 10 - 12 (https://doi.org/10.1073/pnas.96.10.5878)
+```
 
 ```bash
 for Size in 560 616 672
