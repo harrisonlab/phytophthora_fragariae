@@ -7,8 +7,10 @@ library("data.table")
 library("ggplot2")
 
 opt_list <- list(
-    make_option("--out_file", type = "character",
-    help = "Output file for figure to be written to"),
+    make_option("--out_file_fitted", type = "character",
+    help = "Output file for figure of fitted data to be written to"),
+    make_option("--out_file_unfitted", type = "character",
+    help = "Output file for the figure of unfitted data to be written to"),
     make_option("--Chromosome_number", type = "integer",
     help = "The number of individuals sampled *
     number of chromosomes sequenced * ploidy"),
