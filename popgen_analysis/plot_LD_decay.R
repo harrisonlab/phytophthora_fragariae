@@ -62,6 +62,14 @@ Cstart <- c(C = Cstart)
 
 # Plot unfitted data as a sanity check for model fit
 
+Data_plot <- ggplot(data = data_df, aes(x = midpoint, y = Rsqd)) +
+geom_line(colour = "black") + labs(x = "Physical Distance (bp)", y =
+"Linkage disequilibrium") + theme(panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), panel.background = element_blank(),
+panel.border = element_rect(colour = "black", fill = NA, size = 1))
+
+ggsave(out_file_unfitted, Data_plot, width = 21, height = 7)
+
 # Fit binned data to Hills and Weir decay function (a non-linear model)
 # Following code in script adapted from
 # https://jujumaan.com/2017/07/15/linkage-disequilibrium-decay-plot/
@@ -111,4 +119,4 @@ geom_line(colour = "blue") + geom_vline(xintercept = half_decay_dist, colour =
                 panel.background = element_blank(), panel.border =
                 element_rect(colour = "black", fill = NA, size = 1))
 
-ggsave(outfile, Decay_plot, width = 21, height = 7)
+ggsave(outfile_fitted, Decay_plot, width = 21, height = 7)
