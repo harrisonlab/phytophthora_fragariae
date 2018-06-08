@@ -21,7 +21,7 @@ vcf=../../SNP_calling/polished_contigs_unmasked_filtered.recode_annotated.vcf
 input_file=polished_contigs_unmasked_filtered.recode_annotated.vcf
 cp $vcf $input_file
 
-plink --allow-extra-chr --const-fid 0 --vcf $input_file --make-bed --recode --out ${input_file%.vcf} > ${input_file%.vcf}.log
+plink --indep-pairwise 100000 1 0.5 --allow-extra-chr --const-fid 0 --vcf $input_file --make-bed --recode --out ${input_file%.vcf} > ${input_file%.vcf}.log
 ```
 
 ### Tests various values of K for iterations of fastStructure
