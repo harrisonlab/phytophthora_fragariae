@@ -77,7 +77,7 @@ do
 done
 ```
 
-Throws an error for being unable to load a Fontconfig file (non-critical)
+Works, Throws error for being unable to load a Fontconfig file (non-critical)
 
 ## Without *Phytophthora rubi* isolates
 
