@@ -176,7 +176,7 @@ input_file=UK123_only_polished_contigs_unmasked_filtered.recode_annotated.vcf
 vcflib=/home/sobczm/bin/vcflib/bin
 $vcflib/vcfremovesamples $vcf_file SCRP245_v2 Bc23 Nov77 ONT3 > $input_file
 
-plink --allow-extra-chr --const-fid 0 --vcf $input_file --make-bed --recode --out ${input_file%.vcf} > ${input_file%.vcf}.log
+plink --indep-pairwise 100000 1 0.5 --allow-extra-chr --const-fid 0 --vcf $input_file --make-bed --recode --out ${input_file%.vcf} > ${input_file%.vcf}.log
 ```
 
 ### Tests various values of K for iterations of fastStructure
