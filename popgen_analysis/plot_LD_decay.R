@@ -60,6 +60,8 @@ Rsqd <- data_df$Rsqd
 midpoint <- data_df$midpoint
 Cstart <- c(C = Cstart)
 
+# Plot unfitted data as a sanity check for model fit
+
 # Fit binned data to Hills and Weir decay function (a non-linear model)
 # Following code in script adapted from
 # https://jujumaan.com/2017/07/15/linkage-disequilibrium-decay-plot/
