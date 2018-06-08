@@ -116,7 +116,8 @@ mv ld* UK123/.
 ```bash
 for Size in 560 616 672
 do
-    Out_File=UK123/r^2_decay_"$Size".pdf
+    Out_File_Fitted=UK123/r^2_decay_"$Size"_fitted.pdf
+    Out_File_Unfitted=UK123/r^2_decay_"$Size"_unfitted.pdf
     LD_file=UK123/ld.UK123_no_min
     units=bp
     window_size=100000
@@ -124,7 +125,7 @@ do
     Cstart=0.1
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
     echo "Sample size of $Size:"
-    Rscript --vanilla $ProgDir/plot_LD_decay.R --out_file $Out_File --Chromosome_number $Size --LD_statistics $LD_file --units $units --window_size $window_size --bin_size $bin_size --Cstart $Cstart
+    Rscript --vanilla $ProgDir/plot_LD_decay.R --out_file_fitted $Out_File_Fitted --out_file_unfitted $Out_File_Unfitted --Chromosome_number $Size --LD_statistics $LD_file --units $units --window_size $window_size --bin_size $bin_size --Cstart $Cstart
     printf "\n"
 done
 ```
