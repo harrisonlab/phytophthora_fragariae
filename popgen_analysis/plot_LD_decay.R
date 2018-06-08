@@ -68,7 +68,7 @@ geom_line(colour = "black") + labs(x = "Physical Distance (bp)", y =
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1))
 
-ggsave(out_file_unfitted, Data_plot, width = 21, height = 7)
+ggsave(outfile_unfitted, Data_plot, width = 21, height = 7)
 
 # Fit binned data to Hills and Weir decay function (a non-linear model)
 # Following code in script adapted from
