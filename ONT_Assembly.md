@@ -759,6 +759,54 @@ Percentage of bases masked:
 
 ## Align BC-16 and NOV-9 reads to the ONT assembly
 
+```bash
+# BC-16
+Reference=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
+for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -e 'Bc16')
+do
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
+    Strain=$(echo $StrainPath | rev | cut -f1 -d '/' | rev)
+    Organism=$(echo $StrainPath | rev | cut -f2 -d '/' | rev)
+    F1_Read=$(ls $StrainPath/F/*_trim.fq.gz | head -n1 | tail -n1);
+    R1_Read=$(ls $StrainPath/R/*_trim.fq.gz | head -n1 | tail -n1);
+    F2_Read=$(ls $StrainPath/F/*_trim.fq.gz | head -n2 | tail -n1);
+    R2_Read=$(ls $StrainPath/R/*_trim.fq.gz | head -n2 | tail -n1);
+    echo $F1_Read
+    echo $R1_Read
+    echo $F2_Read
+    echo $R2_Read
+    OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
+    qsub $ProgDir/bowtie/sub_bowtie_2lib.sh $Reference $F1_Read $R1_Read $F2_Read $R2_Read $OutDir
+done
+
+# NOV-9
+Reference=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
+for StrainPath in $(ls -d qc_dna/paired/P.*/* | grep -e 'Nov9')
+do
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/spades
+    Strain=$(echo $StrainPath | rev | cut -f1 -d '/' | rev)
+    Organism=$(echo $StrainPath | rev | cut -f2 -d '/' | rev)
+    F1_Read=$(ls $StrainPath/F/*_trim.fq.gz | head -n1 | tail -n1);
+    R1_Read=$(ls $StrainPath/R/*_trim.fq.gz | head -n1 | tail -n1);
+    F2_Read=$(ls $StrainPath/F/*_trim.fq.gz | head -n2 | tail -n1);
+    R2_Read=$(ls $StrainPath/R/*_trim.fq.gz | head -n2 | tail -n1);
+    F3_Read=$(ls $StrainPath/F/*_trim.fq.gz | head -n3 | tail -n1);
+    R3_Read=$(ls $StrainPath/R/*_trim.fq.gz | head -n3 | tail -n1);
+    echo $F1_Read
+    echo $R1_Read
+    echo $F2_Read
+    echo $R2_Read
+    echo $F3_Read
+    echo $R3_Read
+    OutDir=analysis/genome_alignment/bowtie/$Organism/$Strain/vs_Bc16_FALCON
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment
+    qsub $ProgDir/bowtie/sub_bowtie_3lib.sh $Reference $F1_Read $R1_Read $F2_Read $R2_Read $F3_Read $R3_Read $OutDir
+done
+```
+
 ## Use satsuma to assess synteny between the two long read genomes
 
 ### Install satsuma
