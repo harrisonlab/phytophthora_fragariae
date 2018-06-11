@@ -838,5 +838,5 @@ mkdir -p $WorkDir
 
 Reference=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
 faidx -x $Reference
-cp contig* $WorkDir/.
+mv contig* $WorkDir/.
 ```
