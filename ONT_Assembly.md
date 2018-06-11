@@ -884,5 +884,8 @@ cd $WorkDir
 for Sequence in $(ls contig_*.fa)
 do
     Query=../../../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+    OutDir=$(echo $Sequence | cut -f1 -d ".")
+    mkdir -p $OutDir
+    SatsumaSynteny -t $Sequence -q $Query -o $OutDir
 done
 ```
