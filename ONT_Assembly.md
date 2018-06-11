@@ -878,6 +878,8 @@ mv contig* $WorkDir/.
 
 #### Run satsuma as an iterative process
 
+Ensure $OutDir is empty of files before running, satsuma will not overwrite
+
 ```bash
 WorkDir=analysis/genome_alignment/satsuma
 cd $WorkDir
