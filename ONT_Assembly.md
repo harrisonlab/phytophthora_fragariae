@@ -759,6 +759,8 @@ Percentage of bases masked:
 
 ## Align BC-16 and NOV-9 reads to the ONT assembly
 
+Checking for evidence of the 6bp insertion upstream of candidate Avr
+
 ```bash
 # BC-16
 Reference=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
