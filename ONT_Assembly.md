@@ -859,3 +859,5 @@ Reference=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
 faidx -x $Reference
 mv contig* $WorkDir/.
 ```
+
+#### Run satsuma as an iterative process
