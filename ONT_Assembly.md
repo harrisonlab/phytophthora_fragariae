@@ -725,6 +725,22 @@ do
 done
 ```
 
+```
+Assembly statistics:
+Number of contigs: 124
+N50: 1,264,192
+Genome Size: 93,718,369
+L50: 23
+GC content: 53.52%
+
+BUSCO statistics:
+
+268 complete single copy
+12 complete duplicated
+6 fragmented
+17 missing
+```
+
 ## Repeat Masking
 
 The minion only assembly was the highest quality and so carried forward for analysis
@@ -861,3 +877,12 @@ mv contig* $WorkDir/.
 ```
 
 #### Run satsuma as an iterative process
+
+```bash
+WorkDir=analysis/genome_alignment/satsuma
+cd $WorkDir
+for Sequence in $(ls contig_*.fa)
+do
+    Query=../../../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+done
+```
