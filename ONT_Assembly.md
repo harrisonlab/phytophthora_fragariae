@@ -837,7 +837,7 @@ WorkDir=analysis/genome_alignment/satsuma
 mkdir -p $WorkDir
 
 Reference=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
-cp $Reference $WorkDir/.
 Genome_ID=$(echo $Reference | rev | cut -f1 -d '/' | rev)
-faidx -x $WorkDir/$Genome_ID
+faidx -x $Reference
+cp contig* $WorkDir/.
 ```
