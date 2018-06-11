@@ -698,7 +698,7 @@ done
 ```bash
 for Assembly in $(ls assembly/merged_SMARTdenovo_spades/*/*/pilon/pilon_repeats/*.fasta | grep 'pilon_4')
 do
-    echo Assembly
+    echo $Assembly
     echo "" > tmp.txt
     OutDir=$(dirname $Assembly)
     ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
