@@ -859,6 +859,15 @@ rm satsuma-3.0.tar.gz
 
 cd satsuma-code-0
 make
+
+make clean
+make
+```
+
+Add the following line to your profile to run Satsuma
+
+```bash
+PATH=${PATH}:/home/adamst/prog/satsuma-code-0/
 ```
 
 ### Run satsuma
