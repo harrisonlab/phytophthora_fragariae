@@ -825,5 +825,3 @@ rm satsuma-3.0.tar.gz
 cd satsuma-code-0
 make
 ```
-
-Issues installing this, Andy also had problems. Speak to Rob
