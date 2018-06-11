@@ -838,6 +838,6 @@ mkdir -p $WorkDir
 
 Reference=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
 cp $Reference $WorkDir/.
-Genome_ID=$(cat $Reference | rev | cut -f1 -d '/' | rev)
+Genome_ID=$(echo $Reference | rev | cut -f1 -d '/' | rev)
 faidx -x $WorkDir/Genome_ID
 ```
