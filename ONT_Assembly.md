@@ -706,6 +706,25 @@ do
 done
 ```
 
+### Quast & BUSCO to assess extra polishing
+
+```bash
+for Assembly in $(ls assembly/merged_SMARTdenovo_spades/*/*/pilon/pilon_repeats/*.fasta | grep 'pilon_4')
+do
+    Strain=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    OutDir=$(dirname $Assembly)
+    # Quast
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+    # BUSCO
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+    BuscoDB=Eukaryotic
+    OutDir=$(dirname $Assembly)
+    qsub $ProgDir/sub_busco3.sh $Assembly $BuscoDB $OutDir
+done
+```
+
 ## Repeat Masking
 
 The minion only assembly was the highest quality and so carried forward for analysis
