@@ -869,7 +869,6 @@ Add the following line to your profile to run Satsuma
 ```bash
 PATH=${PATH}:/home/adamst/prog/satsuma-code-0/
 ```
-
 ### Run satsuma
 
 #### Split most complete genome into a file per contig
@@ -889,13 +888,6 @@ mv contig* $WorkDir/.
 
 Ensure $OutDir is empty of files before running, satsuma will not overwrite
 
-I recommend running in screen
-Before doing this run the following command in screen
-
-```bash
-. ~/.profile
-```
-
 ```bash
 WorkDir=analysis/genome_alignment/satsuma
 cd $WorkDir
@@ -904,6 +896,7 @@ do
     Query=../../../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
     OutDir=$(echo $Sequence | cut -f1 -d ".")
     mkdir -p $OutDir
-    /home/adamst/prog/satsuma-code-0/SatsumaSynteny -t $Sequence -q $Query -o $OutDir
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
+    qsub $ProgDir/sub_SatsumaSynteny.sh $Sequence $Query $OutDir
 done
 ```
