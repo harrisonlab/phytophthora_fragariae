@@ -896,6 +896,14 @@ do
     Query=../../../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
     OutDir=$(echo $Sequence | cut -f1 -d ".")
     mkdir -p $OutDir
+    Jobs=$(qstat | grep 'sub_Satsum' | grep 'qw' | wc -l)
+    while [ $Jobs -gt 1 ]
+    do
+        sleep 1m
+        printf "."
+        Jobs=$(qstat | grep 'sub_Satsum' | grep 'qw' | wc -l)
+    done
+    printf "\n"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
     qsub $ProgDir/sub_SatsumaSynteny.sh $Sequence $Query $OutDir
 done
