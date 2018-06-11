@@ -889,6 +889,13 @@ mv contig* $WorkDir/.
 
 Ensure $OutDir is empty of files before running, satsuma will not overwrite
 
+I recommend running in screen
+Before doing this run the following command in screen
+
+```bash
+. ~/.profile
+```
+
 ```bash
 WorkDir=analysis/genome_alignment/satsuma
 cd $WorkDir
