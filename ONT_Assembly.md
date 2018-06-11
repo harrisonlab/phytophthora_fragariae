@@ -696,7 +696,7 @@ done
 #### Rename contigs of merged assembly
 
 ```bash
-for Assembly in $(ls assembly/merged_SMARTdenovo_spades/*/*/pilon/*.fasta | grep 'pilon_10')
+for Assembly in $(ls assembly/merged_SMARTdenovo_spades/*/*/pilon/pilon_repeats/*.fasta | grep 'pilon_4')
 do
     echo Assembly
     echo "" > tmp.txt
