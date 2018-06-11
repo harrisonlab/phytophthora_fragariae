@@ -827,3 +827,5 @@ make
 ```
 
 ### Run satsuma
+
+Runs a single job and farms out alignments to different jobs
