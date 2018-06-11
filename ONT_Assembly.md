@@ -828,6 +828,11 @@ make
 
 ### Run satsuma
 
-```bash
+#### Split most complete genome into a file per contig
 
+This is recommended for all genome sizes > 1.5 Gb
+
+```bash
+WorkDir=analysis/genome_alignment/satsuma
+mkdir -p $WorkDirs
 ```
