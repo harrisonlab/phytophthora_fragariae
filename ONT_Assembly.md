@@ -757,6 +757,8 @@ Percentage of bases masked:
 40.72%
 ```
 
+## Align BC-16 and NOV-9 reads to the ONT assembly
+
 ## Use satsuma to assess synteny between the two long read genomes
 
 ### Install satsuma
