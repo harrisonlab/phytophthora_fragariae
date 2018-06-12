@@ -877,40 +877,14 @@ PATH=${PATH}:/home/adamst/prog/satsuma-code-0/
 ```
 ### Run satsuma
 
-#### Split most complete genome into a file per contig
-
-This is recommended for all genome sizes > 1.5 Gb
-
-```bash
-WorkDir=analysis/genome_alignment/satsuma
-mkdir -p $WorkDir
-
-Reference=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
-faidx -x $Reference
-mv contig* $WorkDir/.
-```
-
-#### Run satsuma as an iterative process
-
 Ensure $OutDir is empty of files before running, satsuma will not overwrite
+Target sequence should be the more complete genome
 
 ```bash
-WorkDir=analysis/genome_alignment/satsuma
-cd $WorkDir
-for Sequence in $(ls contig_*.fa)
-do
-    Query=../../../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
-    OutDir=$(echo $Sequence | cut -f1 -d ".")
-    mkdir -p $OutDir
-    Jobs=$(qstat | grep 'sub_Satsum' | grep 'qw' | wc -l)
-    while [ $Jobs -gt 1 ]
-    do
-        sleep 1m
-        printf "."
-        Jobs=$(qstat | grep 'sub_Satsum' | grep 'qw' | wc -l)
-    done
-    printf "\n"
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
-    qsub $ProgDir/sub_SatsumaSynteny.sh $Sequence $Query $OutDir
-done
+Target=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
+Query=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+OutDir=analysis/genome_alignment/satsuma/Bc16_vs_Nov9
+mkdir -p $OutDir
+ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
+qsub $ProgDir/sub_SatsumaSynteny.sh $Target $Query $OutDir
 ```
