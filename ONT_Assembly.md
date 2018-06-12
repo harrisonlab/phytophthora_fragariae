@@ -844,6 +844,12 @@ do
 done
 ```
 
+Index file required for viewing in IGV, follow this command template
+
+```bash
+samtools index /PATH/TO/FILE.bam
+```
+
 ## Use satsuma to assess synteny between the two long read genomes
 
 ### Install satsuma
