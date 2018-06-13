@@ -138,7 +138,9 @@ mkdir nonsyn
 mv *.fasta ./nonsyn
 ```
 
-## And now back to creating dir structure and carrying out Popgenome analysis
+## Create directory structure and carry out Popgenome analysis
+
+```bash
 cd $input/syn
 mkdir contigs
 mv *.fasta ./contigs
@@ -146,16 +148,15 @@ cp -r /home/sobczm/popgen/summary_stats/gff ./
 cd contigs
 for f in *.fasta
 do
-folder=${f%.fasta}
-mkdir $folder
-mv $f $folder
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
 done
 
 cd $input/syn
 qsub $scripts/sub_calculate_nucleotide_diversity.sh
 qsub $scripts/sub_calculate_neutrality_stats.sh
 qsub $scripts/sub_calculate_fst.sh
-qsub $scripts/sub_calculate_haplotype_based_stats.sh
 
 cd $input/nonsyn
 mkdir contigs
@@ -164,16 +165,16 @@ cp -r /home/sobczm/popgen/summary_stats/gff ./
 cd contigs
 for f in *.fasta
 do
-folder=${f%.fasta}
-mkdir $folder
-mv $f $folder
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
 done
 
 cd $input/nonsyn
 qsub $scripts/sub_calculate_nucleotide_diversity.sh
 qsub $scripts/sub_calculate_neutrality_stats.sh
 qsub $scripts/sub_calculate_fst.sh
-qsub $scripts/sub_calculate_haplotype_based_stats.sh
+```
 
 #Pf analysis
 
