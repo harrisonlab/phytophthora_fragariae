@@ -120,20 +120,23 @@ qsub $scripts/sub_calculate_fst.sh
 
 ```bash
 cd $input
-ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_hardmasked.fa
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
 python $scripts/vcf_to_fasta.py \
 polished_contigs_unmasked_filtered.recode_annotated_syn.vcf $ref_genome 2
 mkdir syn
 mv *.fasta ./syn
 ```
 
-##non-synonymous
+### Non-synonymous sites
+
+```bash
 cd $input
-ref_genome=/home/sobczm/popgen/summary_stats/Fus2_canu_contigs_unmasked.fa
-python $scripts/vcf_to_fasta.py Fus2_canu_contigs_unmasked_noA13_filtered.recode_annotated_nonsyn.vcf $ref_genome 1
-#Moving each subset of FASTA files into a separate dir.
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+python $scripts/vcf_to_fasta.py \
+polished_contigs_unmasked_filtered.recode_annotated_nonsyn.vcf $ref_genome 2
 mkdir nonsyn
 mv *.fasta ./nonsyn
+```
 
 ## And now back to creating dir structure and carrying out Popgenome analysis
 cd $input/syn
