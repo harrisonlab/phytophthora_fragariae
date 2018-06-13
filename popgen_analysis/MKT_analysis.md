@@ -64,6 +64,7 @@ Out of 402939 variants in the file, 402094 were annotated with (an) ancestral al
 #### 2) Run progressiveMauve
 
 ```bash
+cd $input/summary_stats
 cp $Pf ./
 cp $Pra ./
 cp $Prb ./
