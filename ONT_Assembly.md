@@ -875,6 +875,7 @@ Add the following line to your profile to run Satsuma
 ```bash
 PATH=${PATH}:/home/adamst/prog/satsuma-code-0/
 ```
+
 ### Run satsuma
 
 Ensure $OutDir is empty of files before running, satsuma will not overwrite
