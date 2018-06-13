@@ -39,7 +39,7 @@ status of SNPs of interest or can be used in the formal tests for selection
 
 ```bash
 #*P. fragariae*
-Pf=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/Bc16/filtered_contigs_repmask/polished_contigs_hardmasked.fa
+Pf=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_hardmasked.fa
 #*P. rubi* SCRP249
 Pra=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP249/deconseq_Paen_repmask/SCRP249_contigs_hardmasked.fa
 #*P. rubi* SCRP324
