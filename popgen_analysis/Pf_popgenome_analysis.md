@@ -88,6 +88,7 @@ scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/p
 qsub $scripts2/sub_calculate_nucleotide_diversity.sh
 qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 ```
 
 This calculation was done over all sites. Now going to proceed for site subsets:
@@ -99,7 +100,8 @@ synonymous, non-synonymous and four-fold degenerate (silent)
 cd $input/ffd
 mkdir contigs
 mv *.fasta ./contigs
-cp -r /home/sobczm/popgen/summary_stats/gff ./
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 cd contigs
 for f in *.fasta
 do
@@ -109,9 +111,10 @@ do
 done
 cd $input/silent
 
-qsub $scripts/sub_calculate_nucleotide_diversity.sh
-qsub $scripts/sub_calculate_neutrality_stats.sh
-qsub $scripts/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+qsub $scripts2/sub_calculate_neutrality_stats.sh
+qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 ```
 
 ## For synonymous and non-synonymous have to create FASTA input first
@@ -144,7 +147,8 @@ mv *.fasta ./nonsyn
 cd $input/syn
 mkdir contigs
 mv *.fasta ./contigs
-cp -r /home/sobczm/popgen/summary_stats/gff ./
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 cd contigs
 for f in *.fasta
 do
@@ -154,14 +158,16 @@ do
 done
 
 cd $input/syn
-qsub $scripts/sub_calculate_nucleotide_diversity.sh
-qsub $scripts/sub_calculate_neutrality_stats.sh
-qsub $scripts/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+qsub $scripts2/sub_calculate_neutrality_stats.sh
+qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 
 cd $input/nonsyn
 mkdir contigs
 mv *.fasta ./contigs
-cp -r /home/sobczm/popgen/summary_stats/gff ./
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 cd contigs
 for f in *.fasta
 do
@@ -171,14 +177,15 @@ do
 done
 
 cd $input/nonsyn
-qsub $scripts/sub_calculate_nucleotide_diversity.sh
-qsub $scripts/sub_calculate_neutrality_stats.sh
-qsub $scripts/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+qsub $scripts2/sub_calculate_neutrality_stats.sh
+qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 ```
 
-#Pf analysis
+## Pf analysis
 
-##Set inital variables
+### Set initial variables for Pf
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
@@ -186,33 +193,40 @@ scripts=/home/adamst/git_repos/scripts/popgen_analysis
 ```
 
 ```
-In order to calculate different statistics in Popgenome, the input has to be arranged in a particular way.
+In order to calculate different statistics in Popgenome, the input has to be
+arranged in a particular way.
 The input directory should contain two folders.
-Folder No. 1: named "gff", contains GFF files for all the contigs output from the split_gff_contig.sh script
-Folder No. 2: named "contigs", contains subfolders, each subfolder named with exact contig name and containing one individual contig FASTA file, also named with exact contig name, as output from vcf_to_fasta.py
+Folder No. 1: named "gff", contains GFF files for all the contigs output from
+the split_gff_contig.sh script
+Folder No. 2: named "contigs", contains subfolders, each subfolder named with
+exact contig name and containing one individual contig FASTA file, also named
+with exact contig name, as output from vcf_to_fasta.py
 ```
 
-##An example on how to create this directory structure
+### Create directory structure
 
 ```bash
+mkdir -p $input/all_Pf
 cd $input/all_Pf
 ```
 
-###This folder contains only contig FASTA files
-###So create a new "contigs" directory to hold those files:
+### This folder contains only contig FASTA files for Pf
+
+So create a new "contigs" directory to hold those files
 
 ```bash
 mkdir contigs
 mv *.fasta ./contigs
 ```
 
-###copy the "gff" folder containing gff files
+### Copy the "gff" folder containing gff files for Pf
 
 ```bash
-cp -r /home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
+cp -r /
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 ```
 
-###Next step: in the folder "contigs" create subfolders, each to hold one contig FASTA file
+### In the folder "contigs" create subfolders, each to hold one FASTA file
 
 ```bash
 cd contigs
@@ -224,13 +238,13 @@ do
 done
 ```
 
-##Navigate to the input folder holding the two folders: "contigs" and "gff" to proceed with Popgenome run.
+## Navigate to the input folder and proceed with Popgenome run
 
 ```bash
 cd $input/all_Pf
 ```
 
-###Lastly, test if all contigs have a matching gff and remove any which do not
+### Test if all contigs have a matching gff and remove any which do not
 
 ```bash
 for a in $PWD/contigs/*/*.fasta
@@ -255,85 +269,107 @@ Vcf of all Pf strains, bar NOV-77 has been phased, run for haplotype-based stats
 
 ```bash
 scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/popgenome_scripts
-# qsub $scripts2/sub_calculate_nucleotide_diversity.sh
-# qsub $scripts2/sub_calculate_neutrality_stats.sh
-# qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+qsub $scripts2/sub_calculate_neutrality_stats.sh
+qsub $scripts2/sub_calculate_fst.sh
 qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 ```
 
-<!-- #This calculation was done over all sites. Now going to proceed for site subsets:
-#synonymous, non-synonymous and four-fold degenerate (silent), in the respective folders
+## This calculation was done over all sites. Proceed for site subsets
 
-#four_fold_degenerate (analogous to above, for all sites)
+### synonymous, non-synonymous and four-fold degenerate (silent)
+
+#### four_fold_degenerate (analogous to above, for all sites) for Pf
+
+```bash
 cd $input/silent
 mkdir contigs
 mv *.fasta ./contigs
-cp -r /home/sobczm/popgen/summary_stats/gff ./
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
+
 cd contigs
 for f in *.fasta
 do
-folder=${f%.fasta}
-mkdir $folder
-mv $f $folder
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
 done
+
 cd $input/silent
 
-qsub $scripts/sub_calculate_nucleotide_diversity.sh
-qsub $scripts/sub_calculate_neutrality_stats.sh
-qsub $scripts/sub_calculate_fst.sh
-qsub $scripts/sub_calculate_haplotype_based_stats.sh
+qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+qsub $scripts2/sub_calculate_neutrality_stats.sh
+qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
+```
 
-#For synonymous and non-synonymous have to create FASTA input first, as done
-#for silent and all sites in fus_variant_annotation.sh
-##synonymous
+## For synonymous and non-synonymous have to create FASTA input first for Pf
+
+### Synonymous sites for Pf
+
+```bash
 cd $input
-ref_genome=/home/sobczm/popgen/summary_stats/Fus2_canu_contigs_unmasked.fa
-python $scripts/vcf_to_fasta.py Fus2_canu_contigs_unmasked_noA13_filtered.recode_annotated_syn.vcf $ref_genome 1
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+python $scripts/vcf_to_fasta.py \
+Pfrag_only_polished_contigs_unmasked_filtered.recode_annotated_syn.vcf \
+$ref_genome 2
 #Moving each subset of FASTA files into a separate dir.
 mkdir syn
 mv *.fasta ./syn
+```
 
-##non-synonymous
+### Non-synonymous
+
+```bash
 cd $input
-ref_genome=/home/sobczm/popgen/summary_stats/Fus2_canu_contigs_unmasked.fa
-python $scripts/vcf_to_fasta.py Fus2_canu_contigs_unmasked_noA13_filtered.recode_annotated_nonsyn.vcf $ref_genome 1
-#Moving each subset of FASTA files into a separate dir.
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+python $scripts/vcf_to_fasta.py \
+Pfrag_only_polished_contigs_unmasked_filtered.recode_annotated_nonsyn.vcf \
+$ref_genome 2
+# Moving each subset of FASTA files into a separate dir.
 mkdir nonsyn
 mv *.fasta ./nonsyn
+```
 
-## And now back to creating dir structure and carrying out Popgenome analysis
+## Create directory structure and carry out Popgenome analysis for Pf
+
+```bash
 cd $input/syn
 mkdir contigs
 mv *.fasta ./contigs
-cp -r /home/sobczm/popgen/summary_stats/gff ./
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 cd contigs
 for f in *.fasta
 do
-folder=${f%.fasta}
-mkdir $folder
-mv $f $folder
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
 done
 
 cd $input/syn
-qsub $scripts/sub_calculate_nucleotide_diversity.sh
-qsub $scripts/sub_calculate_neutrality_stats.sh
-qsub $scripts/sub_calculate_fst.sh
-qsub $scripts/sub_calculate_haplotype_based_stats.sh
+qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+qsub $scripts2/sub_calculate_neutrality_stats.sh
+qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
 
 cd $input/nonsyn
 mkdir contigs
 mv *.fasta ./contigs
-cp -r /home/sobczm/popgen/summary_stats/gff ./
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 cd contigs
 for f in *.fasta
 do
-folder=${f%.fasta}
-mkdir $folder
-mv $f $folder
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
 done
 
 cd $input/nonsyn
-qsub $scripts/sub_calculate_nucleotide_diversity.sh
-qsub $scripts/sub_calculate_neutrality_stats.sh
-qsub $scripts/sub_calculate_fst.sh
-qsub $scripts/sub_calculate_haplotype_based_stats.sh -->
+qsub $scripts2/sub_calculate_nucleotide_diversity.sh
+qsub $scripts2/sub_calculate_neutrality_stats.sh
+qsub $scripts2/sub_calculate_fst.sh
+qsub $scripts2/sub_calculate_haplotype_based_stats.sh
+```
