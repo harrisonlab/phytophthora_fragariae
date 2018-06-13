@@ -69,6 +69,7 @@ cp $Prc ./
 qsub $scripts/run_progressive_mauve.sh $input/progressiveMauve \
 "polished_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa \
 SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
+
 rm polished_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa \
 SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa
 ```
