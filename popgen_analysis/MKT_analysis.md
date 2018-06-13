@@ -1,5 +1,7 @@
 # Runs analysis of *P. fragariae* and *P. rubi* genomes by McDonald-Kreitman test
 
+Commands copied from Maria's directory
+
 ## Set initial variables
 
 ```bash
