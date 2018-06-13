@@ -55,6 +55,10 @@ python $scripts/annotate_vcf_aa.py \
 $input/SNP_calling/polished_contigs_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
 ```
 
+```
+Out of 402939 variants in the file, 402094 were annotated with (an) ancestral allele(s)
+```
+
 #### 2) Run progressiveMauve
 
 ```bash
