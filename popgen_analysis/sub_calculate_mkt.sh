@@ -7,4 +7,4 @@
 
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
 
-Rscript --vanilla $scripts/calculate_outgroup_mktest.R
+/home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/calculate_outgroup_mktest.R
