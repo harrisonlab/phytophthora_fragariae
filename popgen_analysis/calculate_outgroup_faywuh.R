@@ -17,7 +17,7 @@ Pfrag <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1",
 #not be changed as it evoked below on line 35.
 ancestral <- c("SCRP249_1", "SCRP249_2", "SCRP324_1", "SCRP324_2", "SCRP333_1",
 "SCRP333_2")
-populations <- list(Pfrag, Prubi)
+populations <- list(Pfrag)
 #Number of populations assigned above.
 population_no <- length(populations)
 population_names <- c("Pfrag")
