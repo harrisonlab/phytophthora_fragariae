@@ -40,7 +40,7 @@ for (dir in contig_folders[contig_folders != ""]){
   GENOME_class_split <- splitting.data(GENOME_class, subsites = "gene")
   GENOME_class_split <- neutrality.stats(GENOME_class_split)
   fay_wu_h <- GENOME_class_split@Fay.Wu.H
-  fay_wu_h <- as.data.frame(fay_wu_h)
+  fay_wu_h_d <- as.data.frame(fay_wu_h)
   for (i in seq_along(population_names)){
     file_hist <- paste(dir, "_", population_names[i], "_FayWuH_per_gene.pdf",
     sep = "")
