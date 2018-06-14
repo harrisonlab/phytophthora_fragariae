@@ -80,5 +80,5 @@ for (i in seq_along(population_names)){
   fay_wu_h_plot <- ggplot(x, aes(x = x[, 3])) +
   geom_histogram(colour = "black", fill = "thistle1") + xlab("Fay & Wu's H") +
   ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[, 3], n = 10))
-  ggsave(file_hist, faywuh_plot)
+  ggsave(file_hist, fay_wu_h_plot)
 }
