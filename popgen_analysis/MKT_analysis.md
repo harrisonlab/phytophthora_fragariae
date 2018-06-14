@@ -128,6 +128,14 @@ $input/summary_stats/polished_contigs_unmasked_filtered_gen_aa.vcf \
 $input/summary_stats/polished_contigs_unmasked_filtered_gen_aa.vcf 2 N
 ```
 
+```
+In total, 267475 variants were annotated with consensus ancestral allele, out
+of 402094 variants in the file. 0 annotations were found to differ between the
+two input annotation sources, and were rejected, while 0 and 0 ancestral allele
+annotations were present only in the input annotation source 1 or 2,
+respectively, and were included.
+```
+
 ## B) McDonald-Kreitman test calculated by PopGenome
 
 ```bash
