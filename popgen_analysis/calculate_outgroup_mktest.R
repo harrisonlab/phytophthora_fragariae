@@ -62,13 +62,13 @@ for (dir in contig_folders[contig_folders != ""]){
   MKT_d <- as.data.frame(GENOME.class.split@MKT)
   file_hist <- paste(dir, "_", population_names[1],
   "_MKT_neutrality_index_per_gene.pdf", sep = "")
-  MKT_len <- length(MKT_d[, 5])
-  MKT_na <- sum(sapply(MKT_d[, 5], is.na))
+  MKT_len <- length(MKT_d[, 7])
+  MKT_na <- sum(sapply(MKT_d[, 7], is.na))
   if (MKT_len > MKT_na){
-    mkt_plot <- ggplot(MKT_d, aes(x = MKT_d[, 5])) +
+    mkt_plot <- ggplot(MKT_d, aes(x = MKT_d[, 7])) +
     geom_histogram(colour = "black", fill = "yellow") + ggtitle(dir) +
     xlab("MKT's neutrality index") + ylab("Number of genes") +
-    scale_x_continuous(breaks = pretty(MKT_d[, 5], n = 10))
+    scale_x_continuous(breaks = pretty(MKT_d[, 7], n = 10))
     ggsave(file_hist, mkt_plot)
 }
   current_gff <- paste(gff, "/", dir, ".gff", sep = "")
@@ -92,10 +92,10 @@ for (dir in contig_folders[contig_folders != ""]){
   x <- as.data.frame(read.delim(file_table2))
   file_hist <- paste("genome_", population_names[1],
   "_MKT_neutrality_index_per_gene_all.pdf", sep = "")
-  mkt_plot <- ggplot(x, aes(x = x[, 6])) +
+  mkt_plot <- ggplot(x, aes(x = x[, 8])) +
   geom_histogram(colour = "black", fill = "yellow4") +
   xlab("MKT's neutrality index") + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(x[, 6], n = 10))
+  scale_x_continuous(breaks = pretty(x[, 8], n = 10))
   ggsave(file_hist, mkt_plot)
 
 ###Adjust the McDonald Kreitman Fisher's exact test results for multiple testing with Benjamini Hochberg correction
@@ -104,7 +104,7 @@ for (dir in contig_folders[contig_folders != ""]){
   #Remove gene entries with not enough polymorphism for MKT to be carried out.
   y <- na.omit(y)
   #Carry out BH adjustment for multiple testing
-  adjusted_p_value <- p.adjust(y[, 8], method = "BH", n = length(y[, 8]))
+  adjusted_p_value <- p.adjust(y[, 10], method = "BH", n = length(y[, 8]))
   #Write the genome-wide MKT values table with adjusted p-values
   file_table3 <- paste("genome_", population_names[1],
   "_MKT_per_gene_all_p_corrected.txt", sep = "")
