@@ -44,8 +44,8 @@ all_folders <- list.dirs("contigs", full.names = FALSE)
 #Remove the gff folder from PopGenome contig analysis
 contig_folders <- all_folders[all_folders != "gff"]
 
-top_header <- c("gene_name", "P1_nonsyn",  "P2_nonsyn", "P1_syn", "P2_syn", "D_nonsyn", "D_syn",
-"neutrality.index", "alpha", "Fisher.p-value")
+top_header <- c("gene_name", "P1_nonsyn",  "P2_nonsyn", "P1_syn", "P2_syn",
+"D_nonsyn", "D_syn", "neutrality.index", "alpha", "Fisher.p-value")
 file_table2 <- paste("genome_", population_names[1], "_MKT_per_gene_all.txt",
 sep = "")
 write.table(paste(top_header, collapse = "\t"), file = file_table2, sep = "\t",
