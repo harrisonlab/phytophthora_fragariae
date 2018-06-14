@@ -20,7 +20,7 @@ ancestral <- c("SCRP249_1", "SCRP249_2", "SCRP324_1", "SCRP324_2", "SCRP333_1",
 populations <- list(Pfrag, Prubi)
 #Number of populations assigned above.
 population_no <- length(populations)
-population_names <- c("Pfrag", "Prubi")
+population_names <- c("Pfrag")
 #########################################################################
 
 #Folder containing FASTA alignments in the current dir
