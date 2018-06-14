@@ -58,7 +58,7 @@ $input/SNP_calling/polished_contigs_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SC
 ```
 
 ```
-Out of 402939 variants in the file, 402094 were annotated with (an) ancestral allele(s)
+Out of 402,939 variants in the file, 402,094 were annotated with (an) ancestral allele(s)
 ```
 
 #### 2) Run progressiveMauve
@@ -100,6 +100,10 @@ outgroup-based statistics: Fay & Wu's H and McDonald-Kreitman test
 python $scripts/annotate_gen_aa.py \
 $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
 $input/summary_stats/polished_contigs_unmasked_filtered.vcf 2 Y
+```
+
+```
+Out of 402,939 variants in the file, 267,475 were annotated with (an) ancestral allele(s)
 ```
 
 ##### Carry out analysis above without printing fake genotypes
