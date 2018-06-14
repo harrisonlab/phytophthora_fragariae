@@ -184,7 +184,8 @@ Popgenome
 #### Requires adjustment of the script called below to include the samples
 
 ```bash
-qsub $scripts/sub_calculate_mkt.sh
+scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+qsub $scripts2/sub_calculate_mkt.sh
 ```
 
 ## Outgroup-based tests for selection
