@@ -201,5 +201,5 @@ python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
 ##Prepare Popgenome input
 Popgenome
 # Requires adjustment of the script called below to include the samples
-qsub $scripts/sub_calculate_faywu.sh
+qsub $scripts2/sub_calculate_faywu.sh
 ```
