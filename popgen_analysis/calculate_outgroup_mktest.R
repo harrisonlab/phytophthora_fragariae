@@ -52,14 +52,14 @@ write.table(paste(top_header, collapse = "\t"), file = file_table2, sep = "\t",
 quote = FALSE, row.names = FALSE, col.names = FALSE, append = TRUE)
 for (dir in contig_folders[contig_folders != ""]){
   contig_folder <- paste("contigs/", dir, sep = "")
-  GENOME.class <- readData(contig_folder, gffpath = gff, include.unknown = TRUE)
-  GENOME.class <- set.populations(GENOME.class, populations)
-  GENOME.class <- set.outgroup(GENOME.class, new.outgroup = ancestral)
-  GENOME.class.split <- splitting.data(GENOME.class, subsites = "gene")
+  GENOME_class <- readData(contig_folder, gffpath = gff, include.unknown = TRUE)
+  GENOME_class <- set.populations(GENOME_class, populations)
+  GENOME_class <- set.outgroup(GENOME_class, new.outgroup = ancestral)
+  GENOME_class_split <- splitting.data(GENOME_class, subsites = "gene")
 
   #Carry out McDonald-Kreitman test and write the results to file
-  GENOME.class.split <- MKT(GENOME.class.split, do.fisher.test = TRUE)
-  MKT_d <- as.data.frame(GENOME.class.split@MKT)
+  GENOME_class_split <- MKT(GENOME_class_split, do.fisher.test = TRUE)
+  MKT_d <- as.data.frame(GENOME_class_split@MKT)
   file_hist <- paste(dir, "_", population_names[1],
   "_MKT_neutrality_index_per_gene.pdf", sep = "")
   MKT_len <- length(MKT_d[, 7])
@@ -72,9 +72,9 @@ for (dir in contig_folders[contig_folders != ""]){
     ggsave(file_hist, mkt_plot)
 }
   current_gff <- paste(gff, "/", dir, ".gff", sep = "")
-  gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr = dir,
+  gene_ids <- get_gff_info(GENOME_class_split, current_gff, chr = dir,
       feature = FALSE, extract.gene.names = TRUE)
-  mkt_table <- cbind(gene_ids, GENOME.class.split@MKT)
+  mkt_table <- cbind(gene_ids, GENOME_class_split@MKT)
 
   file_table <- paste(dir, "_", population_names[1], "_MKT_per_gene.txt",
   sep = "")
