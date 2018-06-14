@@ -114,6 +114,10 @@ $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
 $input/summary_stats/polished_contigs_unmasked_filtered.vcf 2 N
 ```
 
+```
+Out of 402,939 variants in the file, 267,475 were annotated with (an) ancestral allele(s)
+```
+
 #### 3) Compare results of ancestral annotation
 
 ##### print AA field and fake genotype with the ancestral allele
