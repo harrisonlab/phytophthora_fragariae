@@ -902,3 +902,13 @@ Target=NOV-9
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
 $ProgDir/satsuma_coords2circos.py --inp_coords $input_coords --query_id $Query --target_id $Target > $WorkDir/Bc16_vs_Nov9_links.txt
 ```
+
+Run circos to produce figure
+
+```bash
+OutDir=analysis/genome_alignment/satsuma/Bc16_vs_Nov9
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/circos
+circos -conf $ProgDir/Bc16_vs_Nov9_circos.conf -outputdir $OutDir
+mv $OutDir/circos.png $OutDir/Bc16_vs_Nov9_circos.png
+mv $OutDir/circos.svg $OutDir/Bc16_vs_Nov9_circos.svg
+```
