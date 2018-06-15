@@ -917,7 +917,7 @@ ProgDir=/home/adamst/git_repos/scripts/fusarium/pathogen/identify_LS_chromosomes
 $ProgDir/fasta2circos.py --genome $Query_genome --contig_prefix "Bc16_" > $OutDir/Bc16_genome.txt
 
 cat $OutDir/Bc16_genome.txt > $OutDir/Bc16_vs_Nov9_genome.txt
-tac $OutDir/Nov0_genome.txt >> $OutDir/Bc16_vs_Nov9_genome.txt
+tac $OutDir/Nov9_genome.txt >> $OutDir/Bc16_vs_Nov9_genome.txt
 ```
 
 Run circos to produce figure
