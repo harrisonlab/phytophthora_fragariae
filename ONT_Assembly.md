@@ -889,3 +889,5 @@ mkdir -p $OutDir
 ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
 qsub $ProgDir/sub_SatsumaSynteny.sh $Target $Query $OutDir
 ```
+
+### Try various visualisation methods to see what they produce
