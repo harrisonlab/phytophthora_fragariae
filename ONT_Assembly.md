@@ -895,12 +895,5 @@ qsub $ProgDir/sub_SatsumaSynteny.sh $Target $Query $OutDir
 ### Convert Satsuma results file to co-ordinates for circos
 
 ```bash
-<<<<<<< HEAD
 
-=======
-ProgDir=/home/adamst/prog/satsuma-code-0/
-WorkDir=analysis/genome_alignment/satsuma/Bc16_vs_Nov9
-Target_ID=BC-16
-$ProgDir/MicroSyntenyPlot -i $WorkDir/HomologyByXCorr.0.out -t $Target_ID -o $WorkDir/MicroSyntenyPlot.ps
->>>>>>> 2dec2623baaee9b7790fe7b579696493ef9405e0
 ```
