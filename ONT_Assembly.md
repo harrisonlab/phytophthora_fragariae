@@ -903,6 +903,23 @@ ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
 $ProgDir/satsuma_coords2circos.py --inp_coords $input_coords --query_id $Query --target_id $Target > $WorkDir/Bc16_vs_Nov9_links.txt
 ```
 
+Create genome text file for circos
+
+```bash
+OutDir=analysis/genome_alignment/satsuma/Bc16_vs_Nov9
+
+Target_genome=repeat_masked/NOV-9/pilon/filtered_contigs/pilon_contigs_unmasked.fa
+ProgDir=/home/adamst/git_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+$ProgDir/fasta2circos.py --genome $Target_genome --contig_prefix "Nov9_" > $OutDir/Nov9_genome.txt
+
+Query_genome=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+ProgDir=/home/adamst/git_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
+$ProgDir/fasta2circos.py --genome $Query_genome --contig_prefix "Bc16_" > $OutDir/Bc16_genome.txt
+
+cat $OutDir/Bc16_genome.txt > $OutDir/Bc16_vs_Nov9_genome.txt
+tac $OutDir/Nov0_genome.txt >> $OutDir/Bc16_vs_Nov9_genome.txt
+```
+
 Run circos to produce figure
 
 ```bash
