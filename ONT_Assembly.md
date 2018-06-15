@@ -890,13 +890,10 @@ ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
 qsub $ProgDir/sub_SatsumaSynteny.sh $Target $Query $OutDir
 ```
 
-### Try various visualisation methods to see what they produce
+## Visualise alignments using circos
 
-#### Postscript dot plot coloured by target chromosome
+### Convert Satsuma results file to co-ordinates for circos
 
 ```bash
-ProgDir=/home/adamst/prog/satsuma-code-0/
-WorkDir=analysis/genome_alignment/satsuma/Bc16_vs_Nov9
-Target_ID=BC-16
-$ProgDir/MicroSyntenyPlot -i $WorkDir/HomologyByXCorr.0.out -t $Target_ID
+
 ```
