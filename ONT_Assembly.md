@@ -899,6 +899,6 @@ WorkDir=analysis/genome_alignment/satsuma/Bc16_vs_Nov9
 input_coords=$WorkDir/satsuma_summary.chained.out
 Query=BC-16
 Target=NOV-9
-ProgDir=/home/adamst/git_repos/tools/seq_tools/ggenome_alignment/Satsuma
+ProgDir=/home/adamst/git_repos/tools/seq_tools/genome_alignment/Satsuma
 $ProgDir/satsuma_coords2circos.py --inp_coords $input_coords --query_id $Query --target_id $Target > $WorkDir/Bc16_vs_Nov9_links.txt
 ```
