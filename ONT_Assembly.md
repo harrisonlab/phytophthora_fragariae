@@ -907,7 +907,7 @@ Run circos to produce figure
 
 ```bash
 OutDir=analysis/genome_alignment/satsuma/Bc16_vs_Nov9
-ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/circos
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/circos/Bc16_vs_Nov9
 circos -conf $ProgDir/Bc16_vs_Nov9_circos.conf -outputdir $OutDir
 mv $OutDir/circos.png $OutDir/Bc16_vs_Nov9_circos.png
 mv $OutDir/circos.svg $OutDir/Bc16_vs_Nov9_circos.svg
