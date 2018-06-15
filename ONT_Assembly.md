@@ -898,5 +898,5 @@ qsub $ProgDir/sub_SatsumaSynteny.sh $Target $Query $OutDir
 ProgDir=/home/adamst/prog/satsuma-code-0/
 WorkDir=analysis/genome_alignment/satsuma/Bc16_vs_Nov9
 Target_ID=BC-16
-$ProgDir/MicroSyntenyPlot -i $WorkDir/HomologyByXCorr.0.out -t $Target_ID
+$ProgDir/MicroSyntenyPlot -i $WorkDir/HomologyByXCorr.0.out -t $Target_ID -o $WorkDir/MicroSyntenyPlot.out
 ```
