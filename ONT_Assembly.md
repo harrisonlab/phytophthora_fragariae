@@ -935,7 +935,7 @@ Try using an alternative, python based system, MCscan, part of jcvi
 For another using my install, add the following line to your profile
 
 ```bash
-
+export PYTHONPATH=/home/adamst/prog/jcvi:$PYTHONPATH
 ```
 
 Download commands
