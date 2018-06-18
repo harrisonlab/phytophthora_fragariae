@@ -940,7 +940,7 @@ export PYTHONPATH=/home/adamst/prog/jcvi:$PYTHONPATH
 
 Download commands
 
-pip install failed for some reason
+pip install failed for various reasons
 
 ```bash
 cd /home/adamst/prog
