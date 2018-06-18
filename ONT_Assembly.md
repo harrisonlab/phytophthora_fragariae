@@ -943,7 +943,6 @@ Download commands
 pip install failed for some reason
 
 ```bash
-mkdir -p /home/adamst/prog/jcvi
-cd /home/adamst/prog/jcvi
+cd /home/adamst/prog
 git clone git://github.com/tanghaibao/jcvi.git
 ```
