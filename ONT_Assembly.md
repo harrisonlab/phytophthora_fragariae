@@ -935,5 +935,13 @@ Try using an alternative, python based system, MCscan, part of jcvi
 For another using my install, add the following line to your profile
 
 ```bash
+
+```
+
+Download commands
+
+pip install failed for some reason
+
+```bash
 wget https://files.pythonhosted.org/packages/2f/4c/745403735f07d6f4f83d0779cbfe1b565a366c5caba854bff17970b7b524/jcvi-0.8.4.tar.gz
 ```
