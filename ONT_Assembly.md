@@ -946,3 +946,5 @@ pip install failed for various reasons
 cd /home/adamst/prog
 git clone git://github.com/tanghaibao/jcvi.git
 ```
+
+### Visualise as a dot plot
