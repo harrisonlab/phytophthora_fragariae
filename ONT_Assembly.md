@@ -943,5 +943,7 @@ Download commands
 pip install failed for some reason
 
 ```bash
-wget https://files.pythonhosted.org/packages/2f/4c/745403735f07d6f4f83d0779cbfe1b565a366c5caba854bff17970b7b524/jcvi-0.8.4.tar.gz
+mkdir -p /home/adamst/prog/jcvi
+cd /home/adamst/prog/jcvi
+git clone git://github.com/tanghaibao/jcvi.git
 ```
