@@ -263,7 +263,7 @@ class ShadeManager (object):
 class Karyotype (object):
 
     def __init__(self, fig, root, seqidsfile, layoutfile, gap=.01,
-                 height=.01, lw=1, generank=True, sizes=None, heightpad=0,
+                 height=.01, lw=1, generank=False, sizes=None, heightpad=0,
                  roundrect=False, plot_label=True):
 
         layout = Layout(layoutfile, generank=generank)
@@ -296,7 +296,8 @@ class Karyotype (object):
         ShadeManager(root, tracks, layout, heightpad=heightpad)
 
         for tr in tracks:
-            tr.draw(roundrect=roundrect, plot_label=plot_label)  # this time for real
+            # this time for real
+            tr.draw(roundrect=roundrect, plot_label=plot_label)
 
         self.tracks = tracks
         self.layout = layout
