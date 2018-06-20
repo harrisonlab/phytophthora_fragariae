@@ -51,14 +51,10 @@ class LayoutLine (object):
         self.color = args[4]
         self.label = args[5]
         self.va = args[6]
-        if len(args) == 9:
-            self.label_va = args[8]
+        if len(args) == 8:
+            self.label_va = args[7]
         else:
             self.label_va = "center"
-        self.order = self.bed.order
-        self.order_in_chr = self.bed.order_in_chr if generank \
-                            else self.bed.bp_in_chr
-
 
 class Layout (AbstractLayout):
 
