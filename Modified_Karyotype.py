@@ -124,7 +124,7 @@ class Track (object):
         self.x = x = (self.xstart + self.xend) / 2
         y = self.y
         self.tr = mpl.transforms.Affine2D().\
-                    rotate_deg_around(x, y, self.rotation) + ax.transAxes
+            rotate_deg_around(x, y, self.rotation) + ax.transAxes
         self.inv = ax.transAxes.inverted()
 
         nseqids = len(self.seqids)
