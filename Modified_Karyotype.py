@@ -10,9 +10,11 @@ Modified to remove need for BED file
 Illustrate macrosynteny between tracks which represent individual genomes.
 
 seqids contain the chromosomes to plot. Each line correspond to a track.
-layout provides configuration for placement of tracks and mapping file between tracks.
+layout provides configuration for placement of tracks and mapping file between
+tracks.
 
-Layout file example - first section specify how to draw each track. Then the "edges"
+Layout file example - first section specify how to draw each track. Then the
+"edges"
 section specify which connections to draw.
 
 # y, xstart, xend, rotation, color, label, va, label_va
