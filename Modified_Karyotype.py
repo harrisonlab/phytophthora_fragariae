@@ -225,7 +225,7 @@ class ShadeManager (object):
     def __init__(self, ax, tracks, layout, heightpad=0):
         for i, j, blocks, samearc in layout.edges:
             # if same track (duplication shades), shall we draw above or below?
-            #samearc = "above" if i == j and i == 0 else "below"
+            # samearc = "above" if i == j and i == 0 else "below"
             self.draw_blocks(ax, blocks, tracks[i], tracks[j],
                              samearc=samearc, heightpad=heightpad)
 
