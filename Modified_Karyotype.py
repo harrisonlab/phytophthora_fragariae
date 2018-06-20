@@ -38,7 +38,7 @@ from jcvi.graphics.base import mpl, plt, savefig, markup, AbstractLayout
 
 class LayoutLine (object):
 
-    def __init__(self, row, delimiter=',', generank=True):
+    def __init__(self, row, delimiter=',', generank=False):
         args = row.rstrip().split(delimiter)
         args = [x.strip() for x in args]
 
