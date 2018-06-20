@@ -58,6 +58,7 @@ class LayoutLine (object):
         else:
             self.label_va = "center"
 
+
 class Layout (AbstractLayout):
 
     def __init__(self, filename, delimiter=',', generank=False):
