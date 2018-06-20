@@ -43,7 +43,7 @@ class LayoutLine (object):
         args = [x.strip() for x in args]
 
         self.empty = False
-        if len(args) < 8:
+        if len(args) < 7:
             self.empty = True
             return
         self.y = float(args[0])
