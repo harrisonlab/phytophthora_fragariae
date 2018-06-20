@@ -257,7 +257,7 @@ class ShadeManager (object):
             zorder = 2 if highlight else 1
             lw = 1 if highlight else 0
             Shade(ax, p, q, ymid, highlight=highlight, alpha=1, fc="gainsboro",
-                        ec="gainsboro", lw=lw, zorder=zorder)
+                  ec="gainsboro", lw=lw, zorder=zorder)
 
 
 class Karyotype (object):
