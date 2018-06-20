@@ -277,7 +277,6 @@ class Karyotype (object):
             if t.empty:
                 continue
 
-            bed = t.bed
             self.generank = generank
             if generank:
                 sz = dict((x, len(list(bed.sub_bed(x)))) for x in seqids)
