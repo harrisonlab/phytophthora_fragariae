@@ -112,7 +112,6 @@ class Track (object):
         self.label_va = t.label_va
         self.color = t.color if t.color != "None" else None
         self.seqids = t.seqids
-        self.bed = t.bed
         self.order = t.order
         self.order_in_chr = t.order_in_chr
         self.ax = ax
