@@ -935,15 +935,16 @@ Try using an alternative, python based system, MCscan, part of jcvi
 For another using my install, add the following line to your profile
 
 ```bash
-export PYTHONPATH=/home/adamst/prog/jcvi:$PYTHONPATH
+export PYTHONPATH=/home/adamst/prog/python_manual_installs:$PYTHONPATH
 ```
 
-Download commands
+Download commands, future users do not need to repeat these commands
 
 pip install failed for various reasons
 
 ```bash
-cd /home/adamst/prog
+mkdir -p /home/adamst/prog/python_manual_installs
+cd /home/adamst/prog/python_manual_installs
 git clone git://github.com/tanghaibao/jcvi.git
 ```
 
