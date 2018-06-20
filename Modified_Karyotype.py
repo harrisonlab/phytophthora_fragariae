@@ -51,7 +51,6 @@ class LayoutLine (object):
         self.color = args[4]
         self.label = args[5]
         self.va = args[6]
-        self.bed = Bed(args[7])
         if len(args) == 9:
             self.label_va = args[8]
         else:
