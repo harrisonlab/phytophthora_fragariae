@@ -91,7 +91,7 @@ class Layout (AbstractLayout):
         return SimpleFile(simplefile, order=order).blocks
 
 
-MaxSeqids = 16   # above which no labels are written
+MaxSeqids = 180   # above which no labels are written
 
 
 class Track (object):
