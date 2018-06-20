@@ -28,7 +28,6 @@ import string
 
 from jcvi.apps.base import OptionParser
 from jcvi.compara.synteny import SimpleFile
-from jcvi.formats.bed import Bed
 from jcvi.graphics.chromosome import HorizontalChromosome
 from jcvi.graphics.glyph import TextCircle
 from jcvi.graphics.synteny import Shade
