@@ -948,4 +948,4 @@ cd /home/adamst/prog/python_manual_installs
 git clone git://github.com/tanghaibao/jcvi.git
 ```
 
-### Visualise as a dot plot
+### Visualise as macrosynteny figure
