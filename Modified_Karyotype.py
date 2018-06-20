@@ -195,7 +195,8 @@ class Track (object):
             else:  # "center"
                 x, y = self.xstart - vpad, self.y
                 va = "center"
-            ax.text(x, y, label, ha="center", va="center", color=c, transform=tr)
+            ax.text(x, y, label, ha="center", va="center", color=c,
+                    transform=tr)
 
     def update_offsets(self):
         self.offsets = {}
