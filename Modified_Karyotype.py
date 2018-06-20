@@ -15,9 +15,9 @@ layout provides configuration for placement of tracks and mapping file between t
 Layout file example - first section specify how to draw each track. Then the "edges"
 section specify which connections to draw.
 
-# y, xstart, xend, rotation, color, label, va, bed, label_va
-.6, .1, .4, 0, m, Grape, top, grape.bed, center
-.4, .3, .6, 60, k, Athaliana, top, athaliana.bed, center
+# y, xstart, xend, rotation, color, label, va, label_va
+.6, .1, .4, 0, m, Grape, top, center
+.4, .3, .6, 60, k, Athaliana, top, center
 # edges
 e, 0, 1, athaliana.grape.4x1.simple
 """
