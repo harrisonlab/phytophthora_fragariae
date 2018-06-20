@@ -2,6 +2,9 @@
 # -*- coding: UTF-8 -*-
 
 """
+Commands originally from JCVI package https://github.com/tanghaibao/jcvi
+Modified to remove need for BED file
+
 %prog seqids layout
 
 Illustrate macrosynteny between tracks which represent individual genomes.
