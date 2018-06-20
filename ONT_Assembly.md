@@ -948,4 +948,5 @@ cd /home/adamst/prog/python_manual_installs
 git clone git://github.com/tanghaibao/jcvi.git
 ```
 
-### Visualise as macrosynteny figure
+This requires gene models, left here in case others wish to use it
+Attempts to reverse engineer the scripts have failed.
