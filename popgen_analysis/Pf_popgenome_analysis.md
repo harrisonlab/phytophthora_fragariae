@@ -72,7 +72,6 @@ do
        rm -rf $(dirname $a)
     fi
 done
-cd ../
 ```
 
 ```
