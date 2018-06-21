@@ -950,3 +950,4 @@ git clone git://github.com/tanghaibao/jcvi.git
 
 This requires gene models, left here in case others wish to use it
 Attempts to reverse engineer the scripts have failed.
+I can't grasp the logic of how the script is written & very sparsely documented
