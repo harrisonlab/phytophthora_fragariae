@@ -57,7 +57,7 @@ for (dir in contig_folders[contig_folders != ""]){
         fgt_table <- as.data.frame(fourgamete_split[i])
         write.table(fgt_table, file = file_table, sep = "\t", quote = FALSE,
         col.names = FALSE)
-        write.table(fgt_table, file = file_tabsle2, sep = "\t", quote = FALSE,
+        write.table(fgt_table, file = file_table2, sep = "\t", quote = FALSE,
         col.names = FALSE, append = TRUE)
     }
 
