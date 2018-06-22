@@ -333,7 +333,7 @@ mv *.fasta ./nonsyn_Pf
 ## Create directory structure and carry out Popgenome analysis for Pf
 
 ```bash
-cd $input/syn
+cd $input/syn_Pf
 mkdir contigs
 mv *.fasta ./contigs
 cp -r \
@@ -346,7 +346,7 @@ do
     mv $f $folder
 done
 
-cd $input/syn
+cd $input/syn_Pf
 qsub $scripts2/sub_calculate_nucleotide_diversity.sh
 qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
