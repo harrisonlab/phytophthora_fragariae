@@ -223,7 +223,7 @@ mv *.fasta ./contigs
 ### Copy the "gff" folder containing gff files for Pf
 
 ```bash
-cp -r /
+cp -r \
 /home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
 ```
 
