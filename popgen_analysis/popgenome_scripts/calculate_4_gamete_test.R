@@ -1,10 +1,16 @@
 library("PopGenome")
-library(ggplot2)
+library("ggplot2")
 
-Pfrag <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1", "A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
-populations <- list(Pfrag)
-population_names <- c("Pfrag")
+UK1 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2")
+UK2 <- c("Bc16_1", "Bc16_2", "A4_1", "A4_2")
+UK3 <- c("Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
+CA4 <- c("ONT3_1", "ONT3_2")
+CA5 <- c("Bc23_1", "Bc23_2")
+UN <- c("SCRP245_v2_1", "SCRP245_v2_2")
+populations <- list(UK1, UK2, UK3, CA4, CA5, UN)
+population_names <- c("UK1", "UK2", "UK3", "CA4", "CA5", "UN")
 population_no <- length(populations)
+pairs <- choose(population_no, 2)
 
 interval <-  10000
 jump_size <-  interval / 10
