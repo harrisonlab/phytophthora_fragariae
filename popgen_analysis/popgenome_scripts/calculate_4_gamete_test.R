@@ -28,8 +28,9 @@ for (dir in contig_folders[contig_folders != ""]){
   GENOME.class <- readData(contig_folder, gffpath = gff, include.unknown = TRUE)
   GENOME.class <- set.populations(GENOME.class, populations)
 
-  GENOME.class.split <- splitting.data(GENOME.class, subsites="gene")
-  GENOME.class.slide <- sliding.window.transform(GENOME.class,width=interval,jump=jump_size,type=2, whole.data=TRUE)
+  GENOME.class.split <- splitting.data(GENOME.class, subsites = "gene")
+  GENOME.class.slide <- sliding.window.transform(GENOME.class,
+      width = interval, jump = jump_size, type = 2, whole.data = TRUE)
   #per gene
   GENOME.class.split <- recomb.stats(GENOME.class.split)
   fourgamete_split <- get.recomb(GENOME.class.split)
