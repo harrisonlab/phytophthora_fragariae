@@ -350,7 +350,7 @@ cd $input/syn_Pf
 qsub $scripts2/sub_calculate_nucleotide_diversity.sh
 qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
-qsub $scripts2/sub_calculate_haplotype_based_stats.sh
+qsub $scripts2/sub_calculate_4_gamete_test.sh
 
 cd $input/nonsyn
 mkdir contigs
