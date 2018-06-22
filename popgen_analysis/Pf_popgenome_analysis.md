@@ -314,8 +314,8 @@ ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_
 ProgDir=/home/adamst/git_repos/scripts/popgen/summary_stats
 python $ProgDir/vcf_to_fasta.py \
 polished_contigs_unmasked_Pf_filtered.recode_syn.vcf $ref_genome 2
-mkdir syn
-mv *.fasta ./syn
+mkdir syn_Pf
+mv *.fasta ./syn_Pf
 ```
 
 ### Non-synonymous
