@@ -43,26 +43,33 @@ for (dir in contig_folders[contig_folders != ""]){
   xaxis <- seq(from = 1, to = ids, by = 1)
 
   # Loop over each population: print figure and table with raw data to file
-  for (i in seq_along(population_names))
-  {
+  for (i in seq_along(population_names)){
     fgt <- unlist(fourgamete_split[i])
-    file_table = paste(dir, "_", population_names[i], "_4GT_per_gene.txt", sep="")
-    file_table2 = paste("genome_", population_names[i], "_4GT_per_gene.txt", sep="")
-    current_gff <- paste(gff, "/", dir, ".gff", sep="")
-    gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr=dir, feature=FALSE, extract.gene.names=TRUE)
+    file_table <- paste(dir, "_", population_names[i], "_4GT_per_gene.txt",
+    sep = "")
+    file_table2 <- paste("genome_", population_names[i], "_4GT_per_gene.txt",
+    sep = "")
+    current_gff <- paste(gff, "/", dir, ".gff", sep = "")
+    gene_ids <- get_gff_info(GENOME.class.split, current_gff, chr = dir,
+        feature = FALSE, extract.gene.names = TRUE)
     fgt_table <- as.data.frame(fourgamete_split[i])
-    write.table(fgt_table, file=file_table, sep="\t",quote=FALSE, col.names=FALSE)
-    write.table(fgt_table, file=file_table2, sep="\t",quote=FALSE, col.names=FALSE, append=TRUE)
+    write.table(fgt_table, file = file_table, sep = "\t", quote = FALSE,
+    col.names = FALSE)
+    write.table(fgt_table, file = file_tabsle2, sep = "\t", quote = FALSE,
+    col.names = FALSE, append = TRUE)
   }
 
-  for (i in seq_along(population_names))
-  {
+  for (i in seq_along(population_names)){
     fgt <- unlist(fourgamete_slide[i])
     #write table with raw data
-    slide_table <- paste(dir, "_", population_names[i], "_4GT_per_sliding_window.txt", sep="")
-    slide_table2 <- paste("genome_", population_names[i], "_4GT_per_sliding_window.txt", sep="")
-    write.table(as.data.frame(fourgamete_slide[i]), file=slide_table, sep="\t",quote=FALSE, col.names=FALSE)
-    write.table(as.data.frame(fourgamete_slide[i]), file=slide_table2, sep="\t",quote=FALSE, col.names=FALSE, append=TRUE)
+    slide_table <- paste(dir, "_", population_names[i],
+    "_4GT_per_sliding_window.txt", sep = "")
+    slide_table2 <- paste("genome_", population_names[i],
+    "_4GT_per_sliding_window.txt", sep = "")
+    write.table(as.data.frame(fourgamete_slide[i]), file = slide_table,
+    sep = "\t", quote = FALSE, col.names = FALSE)
+    write.table(as.data.frame(fourgamete_slide[i]), file = slide_table2,
+    sep = "\t", quote = FALSE, col.names = FALSE, append = TRUE)
   }
 
 }
