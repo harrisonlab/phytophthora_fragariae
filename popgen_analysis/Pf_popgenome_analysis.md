@@ -96,6 +96,7 @@ synonymous, non-synonymous and four-fold degenerate (silent)
 ### four_fold_degenerate (analogous to above, for all sites)
 
 ```bash
+mkdir -p $input/ffd
 cd $input/ffd
 mkdir contigs
 mv *.fasta ./contigs
