@@ -19,10 +19,10 @@ jump_size <-  interval / 10
 # Folder containing FASTA alignments is the current directory
 gff <- "gff"
 all_folders <- list.dirs("contigs", full.names = FALSE)
-#Remove the gff folder from PopGenome contig analysis
+# Remove the gff folder from PopGenome contig analysis
 contig_folders <- all_folders[all_folders != "gff"]
 
-###Loop through each contig-containing folder to calculate stats on each contig separately.
+### Loop through each contig containing folder to calculate stats on each contig separately
 for (dir in contig_folders[contig_folders != ""])
 {
   contig_folder <- paste("contigs/", dir, sep="")
