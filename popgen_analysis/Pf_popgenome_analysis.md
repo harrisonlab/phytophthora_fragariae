@@ -87,7 +87,7 @@ scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/p
 qsub $scripts2/sub_calculate_nucleotide_diversity.sh
 qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
-qsub $scripts2/sub_calculate_haplotype_based_stats.sh
+qsub $scripts2/sub_calculate_4_gamete_test.sh
 ```
 
 This calculation was done over all sites. Now going to proceed for site subsets:
