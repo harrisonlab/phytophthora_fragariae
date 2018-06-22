@@ -31,16 +31,18 @@ for (dir in contig_folders[contig_folders != ""]){
   GENOME.class.split <- splitting.data(GENOME.class, subsites = "gene")
   GENOME.class.slide <- sliding.window.transform(GENOME.class,
       width = interval, jump = jump_size, type = 2, whole.data = TRUE)
-  #per gene
+
+  # per gene
   GENOME.class.split <- recomb.stats(GENOME.class.split)
   fourgamete_split <- get.recomb(GENOME.class.split)
-  #per interval
+
+  # per interval
   GENOME.class.slide <- recomb.stats(GENOME.class.slide)
   fourgamete_slide <- get.recomb(GENOME.class.slide)
   ids <- length(GENOME.class.slide@region.names)
   xaxis <- seq(from = 1, to = ids, by = 1)
 
-  #Loop over each population: print figure and table with raw data to file
+  # Loop over each population: print figure and table with raw data to file
   for (i in seq_along(population_names))
   {
     fgt <- unlist(fourgamete_split[i])
