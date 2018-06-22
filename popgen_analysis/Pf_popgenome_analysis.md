@@ -123,7 +123,8 @@ qsub $scripts2/sub_calculate_4_gamete_test.sh
 ```bash
 cd $input
 ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
-python $scripts/vcf_to_fasta.py \
+ProgDir=/home/adamst/git_repos/scripts/popgen/summary_stats
+python $ProgDir/vcf_to_fasta.py \
 polished_contigs_unmasked_filtered.recode_annotated_syn.vcf $ref_genome 2
 mkdir syn
 mv *.fasta ./syn
