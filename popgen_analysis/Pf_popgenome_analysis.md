@@ -93,10 +93,10 @@ qsub $scripts2/sub_calculate_4_gamete_test.sh
 This calculation was done over all sites. Now going to proceed for site subsets:
 synonymous, non-synonymous and four-fold degenerate (silent)
 
-### four_fold_degenerate (analogous to above, for all sites)
+### four_fold_degenerate (analogous to above, for all sites), called silent
 
 ```bash
-cd $input/ffd
+cd $input/silent
 mkdir contigs
 mv *.fasta ./contigs
 cp -r \
