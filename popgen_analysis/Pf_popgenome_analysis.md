@@ -171,6 +171,19 @@ do
 done
 
 cd $input/syn
+
+# Check all contigs have a matching gff and remove any that do not
+
+for a in $PWD/contigs/*/*.fasta
+do
+    filename=$(basename "$a")
+    expected_gff="$PWD/gff/${filename%.fa*}.gff"
+    if [ ! -f "$expected_gff" ]
+    then
+       rm -rf $(dirname $a)
+    fi
+done
+
 qsub $scripts2/sub_calculate_nucleotide_diversity.sh
 qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
