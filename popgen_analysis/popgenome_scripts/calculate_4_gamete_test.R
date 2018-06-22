@@ -23,10 +23,9 @@ all_folders <- list.dirs("contigs", full.names = FALSE)
 contig_folders <- all_folders[all_folders != "gff"]
 
 ### Loop through each contig containing folder to calculate stats on each contig separately
-for (dir in contig_folders[contig_folders != ""])
-{
-  contig_folder <- paste("contigs/", dir, sep="")
-  GENOME.class <- readData(contig_folder, gffpath=gff, include.unknown = TRUE)
+for (dir in contig_folders[contig_folders != ""]){
+  contig_folder <- paste("contigs/", dir, sep = "")
+  GENOME.class <- readData(contig_folder, gffpath = gff, include.unknown = TRUE)
   GENOME.class <- set.populations(GENOME.class, populations)
 
   GENOME.class.split <- splitting.data(GENOME.class, subsites="gene")
