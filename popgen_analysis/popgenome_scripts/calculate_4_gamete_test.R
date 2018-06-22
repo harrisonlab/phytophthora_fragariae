@@ -1,6 +1,7 @@
 library("PopGenome")
 library("ggplot2")
 
+# Set populations
 UK1 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2")
 UK2 <- c("Bc16_1", "Bc16_2", "A4_1", "A4_2")
 UK3 <- c("Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
@@ -15,6 +16,7 @@ pairs <- choose(population_no, 2)
 interval <-  10000
 jump_size <-  interval / 10
 
+# Folder containing FASTA alignments is the current directory
 gff <- "gff"
 all_folders <- list.dirs("contigs", full.names = FALSE)
 #Remove the gff folder from PopGenome contig analysis
