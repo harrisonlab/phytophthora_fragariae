@@ -282,7 +282,7 @@ qsub $scripts2/sub_calculate_4_gamete_test.sh
 #### four_fold_degenerate (analogous to above, for all sites) for Pf
 
 ```bash
-cd $input/silent
+cd $input/silent_Pf
 mkdir contigs
 mv *.fasta ./contigs
 cp -r \
@@ -296,7 +296,7 @@ do
     mv $f $folder
 done
 
-cd $input/silent
+cd $input/silent_Pf
 
 qsub $scripts2/sub_calculate_nucleotide_diversity.sh
 qsub $scripts2/sub_calculate_neutrality_stats.sh
