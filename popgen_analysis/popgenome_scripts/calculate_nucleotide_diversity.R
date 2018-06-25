@@ -10,15 +10,12 @@ library("ggplot2")
 UK1 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2")
 UK2 <- c("Bc16_1", "Bc16_2", "A4_1", "A4_2")
 UK3 <- c("Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
-CA4 <- c("ONT3_1", "ONT3_2")
-CA5 <- c("Bc23_1", "Bc23_2")
-UN <- c("SCRP245_v2_1", "SCRP245_v2_2")
 #In the output for pairwise FST, pop1, pop2 etc. refer to the order in which the populations have been listed here:
-populations <- list(UK1, UK2, UK3, CA4, CA5, UN)
+populations <- list(UK1, UK2, UK3)
 #Number of populations assigned above.
 population_no <- length(populations)
 pairs <- choose(population_no, 2)
-population_names <- c("UK1", "UK2", "UK3", "CA4", "CA5", "UN")
+population_names <- c("UK1", "UK2", "UK3")
 #Given in the same order, as above.
 #Interval and jump size used in the sliding window analysis
 #For graphical comparison of nucleotide diversity in choice populations, amend Addendum B) and E) below.
