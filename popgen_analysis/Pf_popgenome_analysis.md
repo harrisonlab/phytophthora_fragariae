@@ -1,5 +1,9 @@
 # Second stage of summary_stats analysis
 
+R scripts sourced from Maria's analyses
+The R scripts called for this analysis have to be changed for every population.
+Currently set for UK123
+
 ## UK123 analysis
 
 ### Set initial variables
