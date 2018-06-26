@@ -212,7 +212,7 @@ qsub $scripts2/sub_calculate_faywu.sh
 
 ```bash
 python $scripts/annotate_vcf_aa.py \
-$input/SNP_calling/polished_contigs_unmasked_UK123_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
+$input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
 ```
 
 ```
