@@ -207,20 +207,7 @@ qsub $scripts2/sub_calculate_faywu.sh
 ```
 
 ## Analyse using UK123 as the focal population
-
-### Set variables for locations of *P. fragariae* and *P. rubi* genomes
-
-```bash
-#*P. fragariae*
-Pf=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_hardmasked.fa
-#*P. rubi* SCRP249
-Pra=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP249/deconseq_Paen_repmask/SCRP249_contigs_hardmasked.fa
-#*P. rubi* SCRP324
-Prb=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP324/ncbi_edits_repmask/SCRP324_contigs_hardmasked.fa
-#*P. rubi* SCRP333
-Prc=/home/groups/harrisonlab/project_files/phytophthora_rubi/repeat_masked/P.rubi/SCRP333/deconseq_Paen_repmask/SCRP333_contigs_hardmasked.fa
-```
-
+s
 #### 1) Annotate vcf file
 
 ```bash
