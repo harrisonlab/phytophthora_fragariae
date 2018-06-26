@@ -207,12 +207,12 @@ qsub $scripts2/sub_calculate_faywu.sh
 ```
 
 ## Analyse using UK123 as the focal population
-s
-#### 1) Annotate vcf file
+
+### 1) Annotate UK123 vcf file
 
 ```bash
 python $scripts/annotate_vcf_aa.py \
-$input/SNP_calling/polished_contigs_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
+$input/SNP_calling/polished_contigs_unmasked_UK123_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
 ```
 
 ```
