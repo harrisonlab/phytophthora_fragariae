@@ -229,7 +229,7 @@ qsub $script $vcf
 ```bash
 mv polished_contigs_UK123_plus_ancestral_unmasked_filtered.vcf $input/summary_stats/.
 python $scripts/annotate_vcf_aa.py \
-$input/SNP_calling/polished_contigs_UK123_plus_ancestral_unmasked.vcf 2 SCRP249,,SCRP324,,SCRP333
+$input/summary_stats/polished_contigs_UK123_plus_ancestral_unmasked_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
 ```
 
 ```
