@@ -215,6 +215,15 @@ vcflib=/home/sobczm/bin/vcflib/bin
 $vcflib/vcfremovesamples $input/SNP_calling/polished_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 > $input/SNP_calling/polished_contigs_UK123_plus_ancestral_unmasked.vcf
 ```
 
+### Filter vcf
+
+```bash
+vcf=$input/SNP_calling/polished_contigs_UK123_plus_ancestral_unmasked.vcf
+echo $vcf
+script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
+qsub $script $vcf
+```
+
 ### 1) Annotate UK123 vcf file
 
 ```bash
