@@ -208,6 +208,13 @@ qsub $scripts2/sub_calculate_faywu.sh
 
 ## Analyse using UK123 as the focal population
 
+### Create cut down vcf file
+
+```bash
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples $input/SNP_calling/polished_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 > polished_contigs_UK123_plus_ancestral_unmasked.vcf
+```
+
 ### 1) Annotate UK123 vcf file
 
 ```bash
