@@ -15,8 +15,7 @@ library("ggplot2")
 ##When using diploid organisms and input FASTA files generated using vcf_to_fasta.py, each sample will be artificially
 ##one haplotype. Both need to be input below.
 Pfrag <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1",
-"A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2",
-"SCRP245_v2_1", "SCRP245_v2_2", "Bc23_1", "Bc23_2")
+"A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
 #Assign outgroup samples to the "ancestral" population. The population name "ancestral" should
 #not be changed as it evoked below on line 33.
 ancestral <- c("SCRP249_1", "SCRP249_2", "SCRP324_1", "SCRP324_2",
