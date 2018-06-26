@@ -223,7 +223,7 @@ $input/SNP_calling/polished_contigs_UK123_plus_ancestral_unmasked.vcf 2 SCRP249,
 ```
 
 ```
-Out of 541,599 variants in the file, 540,513 were annotated with (an) ancestral allele(s)
+Out of 819,736 variants in the file, 813,250 were annotated with (an) ancestral allele(s)
 ```
 
 ```
