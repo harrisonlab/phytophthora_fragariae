@@ -238,7 +238,7 @@ outgroup-based statistics: Fay & Wu's H and McDonald-Kreitman test
 ```bash
 python $scripts/annotate_gen_aa.py \
 $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
-$input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 Y
+$input/SNP_calling/polished_contigs_UK123_plus_ancestral_unmasked.vcf 2 Y
 ```
 
 ```
