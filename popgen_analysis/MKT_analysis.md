@@ -320,9 +320,9 @@ scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
 qsub $scripts2/sub_calculate_mkt.sh
 ```
 
-## Outgroup-based tests for selection
+## Outgroup-based tests for selection for UK123
 
-### Fay & Wu's H (at least one outgroup needed) calculated by PopGenome
+### Fay & Wu's H (at least one outgroup needed) calculated by PopGenome for UK123
 
 ```bash
 mkdir -p $input/faywuh
