@@ -268,7 +268,7 @@ allele annotations were present only in the input annotation source 1 or 2,
 respectively, and were included.
 ```
 
-## B) McDonald-Kreitman test calculated by PopGenome
+## B) McDonald-Kreitman test calculated by PopGenome for UK123
 
 ```bash
 mkdir -p $input/mkt
