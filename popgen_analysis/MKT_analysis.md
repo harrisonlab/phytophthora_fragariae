@@ -254,7 +254,7 @@ $input/SNP_calling/polished_contigs_UK123_plus_ancestral_unmasked.vcf 2 N
 ```
 
 ```
-Out of 541,599 variants in the file, 342,303 were annotated with (an) ancestral allele(s)
+Out of 819,736  variants in the file, 438,894 were annotated with (an) ancestral allele(s)
 ```
 
 ### 3) Compare results of ancestral annotation for UK123
