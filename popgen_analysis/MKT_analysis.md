@@ -226,12 +226,12 @@ Use this option when proceeding to use Popgenome in order to calculate
 outgroup-based statistics: Fay & Wu's H and McDonald-Kreitman test
 ```
 
-##### Carry out analysis with fake genotype
+#### Carry out analysis with fake genotype for UK123
 
 ```bash
 python $scripts/annotate_gen_aa.py \
 $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
-$input/summary_stats/polished_contigs_unmasked_filtered.vcf 2 Y
+$input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 Y
 ```
 
 ```
