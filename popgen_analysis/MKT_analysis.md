@@ -219,14 +219,6 @@ $input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 SCRP249,,SCR
 Out of 541,599 variants in the file, 540,513 were annotated with (an) ancestral allele(s)
 ```
 
-##### Parse Mauve output
-
-```bash
-perl /home/sobczm/bin/popoolation_1.2.2/mauve-parser.pl --ref $Pf \
---input $input/summary_stats/progressiveMauve/aligned_genomes.xmfa --output \
-$input/summary_stats/progressiveMauve/mel-guided-alignment.txt
-```
-
 ```
 Option 'Y' specifies to print fake genotype into the VCF file encoding the
 identified ancestral alleles.
