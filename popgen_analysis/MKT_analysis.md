@@ -294,7 +294,7 @@ annotation source 1 or 2, respectively, and were included.
 mkdir -p $input/mkt/UK123
 cd $input/mkt/UK123
 ref_genome=$Pf
-vcf_file=$input/summary_stats/polished_contigs_unmasked_UK123_filtered_vcf_aa.vcf
+vcf_file=$input/summary_stats/polished_contigs_UK123_plus_ancestral_unmasked_filtered_vcf_aa.vcf
 python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
 ```
 
