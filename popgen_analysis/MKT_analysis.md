@@ -198,7 +198,7 @@ qsub $scripts2/sub_calculate_mkt.sh
 mkdir -p $input/faywuh
 cd $input/faywuh
 ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_hardmasked.fa
-vcf_file=$input/summary_stats/polished_contigs_unmasked_filtered_gen_aa.vcf
+vcf_file=$input/summary_stats/polished_contigs_unmasked_filtered_vcf_aa.vcf
 python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
 ##Prepare Popgenome input
 Popgenome
