@@ -219,7 +219,7 @@ $vcflib/vcfremovesamples $input/SNP_calling/polished_contigs_unmasked.vcf SCRP24
 
 ```bash
 python $scripts/annotate_vcf_aa.py \
-$input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 SCRP249,,SCRP324,,SCRP333
+$input/SNP_calling/polished_contigs_UK123_plus_ancestral_unmasked.vcf 2 SCRP249,,SCRP324,,SCRP333
 ```
 
 ```
