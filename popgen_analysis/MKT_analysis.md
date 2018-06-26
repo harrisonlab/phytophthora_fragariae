@@ -235,7 +235,7 @@ $input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 Y
 ```
 
 ```
-Out of 402,939 variants in the file, 267,475 were annotated with (an) ancestral allele(s)
+Out of 541,599 variants in the file, 342,303 were annotated with (an) ancestral allele(s)
 ```
 
 ##### Carry out analysis above without printing fake genotypes
