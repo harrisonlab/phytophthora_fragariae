@@ -238,7 +238,7 @@ $input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 Y
 Out of 541,599 variants in the file, 342,303 were annotated with (an) ancestral allele(s)
 ```
 
-##### Carry out analysis above without printing fake genotypes for UK123
+#### Carry out analysis above without printing fake genotypes for UK123
 
 ```bash
 python $scripts/annotate_gen_aa.py \
@@ -250,9 +250,9 @@ $input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 N
 Out of 541,599 variants in the file, 342,303 were annotated with (an) ancestral allele(s)
 ```
 
-#### 3) Compare results of ancestral annotation
+### 3) Compare results of ancestral annotation for UK123
 
-##### print AA field and fake genotype with the ancestral allele
+#### print AA field and fake genotype with the ancestral allele for UK123
 
 ```bash
 python $scripts/compare_outgroup_results.py \
