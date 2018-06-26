@@ -262,7 +262,8 @@ Out of 359,325 variants in the file, 240,975 were annotated with (an) ancestral 
 ```bash
 python $scripts/annotate_gen_aa.py \
 $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
-$input/SNP_calling/polished_contigs_UK123_plus_ancestral_unmasked.vcf 2 N
+$input/summary_stats/polished_contigs_UK123_plus_ancestral_unmasked_filtered.vcf \
+2 N
 ```
 
 ```
