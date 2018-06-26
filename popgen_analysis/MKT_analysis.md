@@ -219,24 +219,6 @@ $input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 SCRP249,,SCR
 Out of 541,599 variants in the file, 540,513 were annotated with (an) ancestral allele(s)
 ```
 
-#### 2) Run progressiveMauve
-
-```bash
-cd $input/summary_stats
-cp $Pf ./
-cp $Pra ./
-cp $Prb ./
-cp $Prc ./
-qsub $scripts/run_progressive_mauve.sh $input/progressiveMauve \
-"polished_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa \
-SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
-
-# Only run this command once progressiveMauve finishes
-
-rm polished_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa \
-SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa
-```
-
 ##### Parse Mauve output
 
 ```bash
