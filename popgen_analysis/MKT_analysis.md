@@ -238,12 +238,12 @@ $input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 Y
 Out of 541,599 variants in the file, 342,303 were annotated with (an) ancestral allele(s)
 ```
 
-##### Carry out analysis above without printing fake genotypes
+##### Carry out analysis above without printing fake genotypes for UK123
 
 ```bash
 python $scripts/annotate_gen_aa.py \
 $input/summary_stats/progressiveMauve/mel-guided-alignment.txt \
-$input/summary_stats/polished_contigs_unmasked_filtered.vcf 2 N
+$input/summary_stats/polished_contigs_unmasked_UK123_filtered.vcf 2 N
 ```
 
 ```
