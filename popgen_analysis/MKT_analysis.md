@@ -256,8 +256,8 @@ Out of 541,599 variants in the file, 342,303 were annotated with (an) ancestral 
 
 ```bash
 python $scripts/compare_outgroup_results.py \
-$input/summary_stats/polished_contigs_unmasked_filtered_gen_aa.vcf \
-$input/summary_stats/polished_contigs_unmasked_filtered_gen_aa.vcf 2 N
+$input/summary_stats/polished_contigs_unmasked_UK123_filtered_gen_aa.vcf \
+$input/summary_stats/polished_contigs_unmasked_UK123_filtered_gen_aa.vcf 2 N
 ```
 
 ```
