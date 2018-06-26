@@ -278,7 +278,7 @@ vcf_file=$input/summary_stats/polished_contigs_unmasked_UK123_filtered_vcf_aa.vc
 python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
 ```
 
-### Prepare Popgenome input
+### Prepare Popgenome input for UK123
 
 ```bash
 function Popgenome {
