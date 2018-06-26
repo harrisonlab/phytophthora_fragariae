@@ -271,10 +271,10 @@ respectively, and were included.
 ## B) McDonald-Kreitman test calculated by PopGenome for UK123
 
 ```bash
-mkdir -p $input/mkt
-cd $input/mkt
+mkdir -p $input/mkt/UK123
+cd $input/mkt/UK123
 ref_genome=$Pf
-vcf_file=$input/SNP_calling/polished_contigs_unmasked_filtered_vcf_aa.vcf
+vcf_file=$input/summary_stats/polished_contigs_unmasked_UK123_filtered_vcf_aa.vcf
 python $scripts/vcf_to_fasta.py $vcf_file $ref_genome 2
 ```
 
