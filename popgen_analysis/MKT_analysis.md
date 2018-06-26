@@ -313,7 +313,7 @@ done
 Popgenome
 ```
 
-#### Requires adjustment of the script called below to include the samples
+#### Requires adjustment of the script called below to include the samples for UK123
 
 ```bash
 scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
