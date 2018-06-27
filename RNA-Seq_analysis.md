@@ -1,6 +1,6 @@
-#Analysis of RNA-Seq data
+# Analysis of RNA-Seq data
 
-##RNA-Seq data was downloaded from novogenes servers with the following commands
+## RNA-Seq data was downloaded from novogenes servers with the following commands
 
 ```bash
 wget https://s3-eu-west-1.amazonaws.com/novogene-europe/HW/project/C101HW17030405_2.tar
@@ -8,7 +8,7 @@ mdkir -p /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/n
 tar -C /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/novogene/. -xvf /home/groups/harrisonlab/raw_data/raw_seq/P.frag/C101HW17030405_2.tar
 ```
 
-##Reorganise data into timepoints: mycelium, 0hr, 24hr, 48hr and 96hr
+## Reorganise data into timepoints: mycelium, 0hr, 24hr, 48hr and 96hr
 
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/raw_rna/novogene/
@@ -57,10 +57,11 @@ mv ../../C101HW17030405/raw_data/TA-20_2* 96hr/R/.
 mv ../../C101HW17030405/raw_data/MD5.txt .
 ```
 
-##Perform qc on RNA-Seq timecourse and mycelium data
+## Perform qc on RNA-Seq timecourse and mycelium data
 
 ```bash
-for FilePath in $(ls -d raw_rna/novogene/P.fragariae/Bc16/* | grep -v '0hr' | grep -v 'MD5.txt')
+for FilePath in $(ls -d raw_rna/novogene/P.fragariae/Bc16/* | grep -v '0hr' \
+| grep -v 'MD5.txt')
 do
     echo $FilePath
     FileNum=$(ls $FilePath/F/*.gz | wc -l)
@@ -76,7 +77,7 @@ do
             sleep 5m
             printf "."
             Jobs=$(qstat | grep 'rna_qc' | grep 'qw' | wc -l)
-        done		
+        done
         printf "\n"
         IlluminaAdapters=/home/adamst/git_repos/tools/seq_tools/ncbi_adapters.fa
         ProgDir=/home/adamst/git_repos/tools/seq_tools/rna_qc
@@ -122,7 +123,7 @@ do
                 echo "all nodes full, waiting ten minutes"
                 sleep 10m
             fi
-        done    
+        done
     done
 done
 
@@ -130,7 +131,7 @@ mkdir -p qc_rna/novogene
 mv qc_rna/P.fragariae qc_rna/novogene/.
 ```
 
-###Visualise data quality using fastqc
+### Visualise data quality using fastqc
 
 Only submit three jobs at a time, copying 30 files is too much!
 
@@ -144,10 +145,11 @@ done
 ```
 
 ```
-Looks okay, AT rich at early timepoints as expected from a plant genome, rising to higher GC contents at later timepoints
+Looks okay, AT rich at early timepoints as expected from a plant genome,
+rising to higher GC contents at later timepoints
 ```
 
-#Align mycelium reads to FALCON assembly with STAR
+## Align mycelium reads to FALCON assembly with STAR
 
 ```bash
 for Assembly in $(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
@@ -178,7 +180,7 @@ do
 done
 ```
 
-##Align all timepoints to *Fragaria vesca* genome v1.1
+## Align all timepoints to *Fragaria vesca* genome v1.1
 
 ```bash
 for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/Bc16/*/F/*_trim.fq.gz | grep -v 'TA-3')
@@ -205,7 +207,7 @@ do
 done
 ```
 
-##Gzip output files to save space on the disk and allow star to run correctly downstream. ONLY RUN THIS ONCE
+## Gzip output files to save space on the disk. ONLY RUN THIS ONCE
 
 ```bash
 for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/*/*)
@@ -215,12 +217,12 @@ do
 done
 ```
 
-##Align compressed files of unmapped reads from aligning to vesca
+## Align compressed files of unmapped reads from aligning to vesca
 
-This star script had the following options added to the sub_star.sh script in the ProgDir specified in the below commands:
+This star script had the following options added to the sub_star.sh script
+in the ProgDir specified in the below commands:
 --winAnchorMultimapNmax 200
 --seedSearchStartLmax 30
-
 
 ```bash
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
