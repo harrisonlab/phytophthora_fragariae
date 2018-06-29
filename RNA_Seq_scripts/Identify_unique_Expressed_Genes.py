@@ -32,14 +32,14 @@ ap.add_argument('--RxLRs', required=True, type=str,
 ap.add_argument('--CRNs', required=True, type=str,
                 help='File of all CRN names for aligned genome')
 ap.add_argument('--ApoP', required=True, type=str,
-                help='File of all hits from ApoplastP')
+                help='File of all hits from ApoplastP for aligned genome')
 ap.add_argument('--Secreted_CQ', required=True, type=str,
-                help='File of all secreted gene models')
+                help='File of all secreted gene models for aligned genome')
 ap.add_argument('--Secreted_ORF', required=True, type=str,
-                help='File of all secreted ORF fragments')
+                help='File of all secreted ORF fragments for aligned genome')
 ap.add_argument('--TFs', required=True, type=str,
                 help='File of all predicted transcription factors or \
-                transcriptional regulators')
+                transcriptional regulators for aligned genome')
 ap.add_argument('--OutDir', required=True, type=str,
                 help='Directory to write output files to')
 conf = ap.parse_args()
