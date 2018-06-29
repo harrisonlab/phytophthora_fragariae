@@ -125,7 +125,8 @@ print("FPKM & Orthogroup libraries built")
 
 # -----------------------------------------------------
 # Step 3
-# Iterate over dictionaries to keep only those with FPKM > 5
+# Iterate over dictionaries to keep only those with FPKM greater than or equal
+# to the specified minimum value
 # -----------------------------------------------------
 
 Isolate1_candidates = defaultdict(list)
