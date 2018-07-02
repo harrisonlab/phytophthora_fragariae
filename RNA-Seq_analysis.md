@@ -3269,11 +3269,11 @@ do
     Uniq_TFs_Bc16=$OutDir/TFs/"$Strain"_Bc16_unique_DEGs_TFs.txt
     Uniq_TFs_Bc1=$OutDir/TFs/"$Strain"_Bc1_unique_DEGs_TFs.txt
     Uniq_TFs_Nov9=$OutDir/TFs/"$Strain"_Nov9_unique_DEGs_TFs.txt
-    echo "The number of BC-16 differently differentially expressed secreted proteins is:"
+    echo "The number of BC-16 differently differentially expressed TFs/TRs is:"
     cat $Uniq_TFs_Bc16 | tail -n +2 | wc -l
-    echo "The number of BC-1 differently differentially expressed secreted proteins is:"
+    echo "The number of BC-1 differently differentially expressed TFs/TRs is:"
     cat $Uniq_TFs_Bc1 | tail -n +2 | wc -l
-    echo "The number of NOV-9 differently differentially expressed secreted proteins is:"
+    echo "The number of NOV-9 differently differentially expressed TFs/TRs is:"
     cat $Uniq_TFs_Nov9 | tail -n +2 | wc -l
     printf "\n"
 done
@@ -3283,17 +3283,17 @@ done
 Analysis using Bc16 as the reference genome:
 
 The number of BC-16 differently differentially expressed genes is:
-1,385
+1,135
 The number of BC-1 differently differentially expressed genes is:
-207
+83
 The number of NOV-9 differently differentially expressed genes is:
-1,441
+1,131
 The number of BC-16 differently differentially expressed RxLRs is:
-33
+30
 The number of BC-1 differently differentially expressed RxLRs is:
-12
+2
 The number of NOV-9 differently differentially expressed RxLRs is:
-31
+25
 The number of BC-16 differently differentially expressed CRNs is:
 2
 The number of BC-1 differently differentially expressed CRNs is:
@@ -3301,101 +3301,101 @@ The number of BC-1 differently differentially expressed CRNs is:
 The number of NOV-9 differently differentially expressed CRNs is:
 10
 The number of BC-16 differently differentially expressed apoplastic effectors is:
-116
+81
 The number of BC-1 differently differentially expressed apoplastic effectors is:
-30
+5
 The number of NOV-9 differently differentially expressed apoplastic effectors is:
-39
+21
 The number of BC-16 differently differentially expressed secreted proteins is:
-327
+241
 The number of BC-1 differently differentially expressed secreted proteins is:
-63
+10
 The number of NOV-9 differently differentially expressed secreted proteins is:
-237
+175
 The number of BC-16 differently differentially expressed TFs/TRs is:
-18
+16
 The number of BC-1 differently differentially expressed TFs/TRs is:
 2
 The number of NOV-9 differently differentially expressed TFs/TRs is:
-10
+5
 
 Analysis using Bc1 as the reference genome:
 
 The number of BC-16 differently differentially expressed genes is:
-2,277
+580
 The number of BC-1 differently differentially expressed genes is:
-2,431
+97
 The number of NOV-9 differently differentially expressed genes is:
-1,053
+879
 The number of BC-16 differently differentially expressed RxLRs is:
-49
+18
 The number of BC-1 differently differentially expressed RxLRs is:
-72
+2
 The number of NOV-9 differently differentially expressed RxLRs is:
-34
+32
 The number of BC-16 differently differentially expressed CRNs is:
-3
+1
 The number of BC-1 differently differentially expressed CRNs is:
-3
+0
 The number of NOV-9 differently differentially expressed CRNs is:
 6
 The number of BC-16 differently differentially expressed apoplastic effectors is:
-140
+26
 The number of BC-1 differently differentially expressed apoplastic effectors is:
-120
+1
 The number of NOV-9 differently differentially expressed apoplastic effectors is:
-22
+15
 The number of BC-16 differently differentially expressed secreted proteins is:
-471
+117
 The number of BC-1 differently differentially expressed secreted proteins is:
-491
+21
 The number of NOV-9 differently differentially expressed secreted proteins is:
-250
+222
 The number of BC-16 differently differentially expressed TFs/TRs is:
-31
+7
 The number of BC-1 differently differentially expressed TFs/TRs is:
-27
+2
 The number of NOV-9 differently differentially expressed TFs/TRs is:
-10
+6
 
 Analysis using Nov9 as the reference genome:
 
 The number of BC-16 differently differentially expressed genes is:
-2,419
+445
 The number of BC-1 differently differentially expressed genes is:
-943
+773
 The number of NOV-9 differently differentially expressed genes is:
-3,755
+369
 The number of BC-16 differently differentially expressed RxLRs is:
-77
+18
 The number of BC-1 differently differentially expressed RxLRs is:
-44
+40
 The number of NOV-9 differently differentially expressed RxLRs is:
-86
+10
 The number of BC-16 differently differentially expressed CRNs is:
-3
+2
 The number of BC-1 differently differentially expressed CRNs is:
 4
 The number of NOV-9 differently differentially expressed CRNs is:
-18
+2
 The number of BC-16 differently differentially expressed apoplastic effectors is:
-228
+38
 The number of BC-1 differently differentially expressed apoplastic effectors is:
-11
+8
 The number of NOV-9 differently differentially expressed apoplastic effectors is:
-122
+11
 The number of BC-16 differently differentially expressed secreted proteins is:
-641
+122
 The number of BC-1 differently differentially expressed secreted proteins is:
-207
+176
 The number of NOV-9 differently differentially expressed secreted proteins is:
-649
+69
 The number of BC-16 differently differentially expressed TFs/TRs is:
-27
+2
 The number of BC-1 differently differentially expressed TFs/TRs is:
-6
+1
 The number of NOV-9 differently differentially expressed TFs/TRs is:
-35
+2
 ```
 
 Now call candidate confidence for each isolate
