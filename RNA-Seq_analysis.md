@@ -3594,7 +3594,7 @@ done
 Analysis of Bc16
 
 The number of candidate genes regardless of confidence is:
-1430
+1,430
 The number of genes of confidence level 6 is:
 203
 The number of RxLRs of confidence level 6 is:
@@ -3668,7 +3668,7 @@ The number of secreted proteins of confidence level 1 is:
 The number of TFs/TRs of confidence level 1 is:
 0
 The number of genes of confidence level 0 is:
-1123
+1,123
 The number of RxLRs of confidence level 0 is:
 0
 The number of CRNs of confidence level 0 is:
