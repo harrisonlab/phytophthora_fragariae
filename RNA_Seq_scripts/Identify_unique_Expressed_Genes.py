@@ -666,7 +666,7 @@ print("Unqiuely expressed TFs identified")
 
 # -----------------------------------------------------
 # Step 16
-# Print all uniquely expressed RxLRs to text file
+# Print all uniquely expressed Secreted proteins to text file
 # -----------------------------------------------------
 
 Org1_file = "_".join([Reference_name, Org1, "expressed_unique_TFs.txt"])
