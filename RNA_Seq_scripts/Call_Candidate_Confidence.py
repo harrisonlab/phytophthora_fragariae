@@ -88,7 +88,7 @@ Org1_Uniq_Exp_set = set(Org1_Uniq_Exp)
 Org2_Uniq_Exp_set = set(Org2_Uniq_Exp)
 Org3_Uniq_Exp_set = set(Org3_Uniq_Exp)
 
-Uniq_DEG_Files = conf.Unique_Expression_Files
+Uniq_DEG_Files = conf.Differently_DEG_File
 Org1_Uniq_DEG = []
 Org2_Uniq_DEG = []
 Org3_Uniq_DEG = []
