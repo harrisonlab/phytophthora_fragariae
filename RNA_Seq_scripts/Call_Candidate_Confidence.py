@@ -218,7 +218,7 @@ print("Dictionary of orthogroups created")
 # -----------------------------------------------------
 # Step 3
 # Loop through genes from isolate of interest
-# ID genes from other reference genomes in same OG
+# ID genes from other analysed genomes in same OG
 # -----------------------------------------------------
 
 Org1_Org2_dict = defaultdict(list)
