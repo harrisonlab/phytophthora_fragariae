@@ -26,7 +26,7 @@ ap.add_argument('--Organism_2', required=True, type=str, help='ID of organism \
 ap.add_argument('--Organism_3', required=True, type=str, help='ID of organism \
 3')
 ap.add_argument('--Race_isolates', required=True, nargs='+', type=str,
-                help='Space separated list of isolates of the race of interest\
+                help='Space separated list of isolates of the race of interest \
                 ')
 ap.add_argument('--Reference_name', required=True, type=str, help='ID of \
 isolate to score candidates of')
