@@ -211,6 +211,7 @@ for transcript_ID in Org1_Uniq_Exp_set:
             Isolates_in_OG.append(Isolate)
             if set(Race_list).issubset(set(Isolates_in_OG)):
                 Org1_ID_dict[transcript_ID] = orthogroup
+            Isolates_in_OG = []
 
 print("Dictionary of orthogroups created")
 
