@@ -197,7 +197,6 @@ Race_list = []
 for Race in Race_IDs:
     Race_list.append(Race)
 
-
 Org1_ID_dict = defaultdict(list)
 
 for transcript_ID in Org1_Uniq_Exp_set:
