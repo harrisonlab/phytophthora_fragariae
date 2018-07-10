@@ -203,7 +203,7 @@ for transcript_ID in Org1_Uniq_Exp_set:
     orthogroups = [OG for OG, genes in ortho_dict.items() if ID_to_search in
                    genes]
     for orthogroup in orthogroups:
-        OGs.append(orthogroups)
+        OGs.append(orthogroup)
         for item in ortho_dict[orthogroup]:
             Isolate = item.split('|')[0]
             Isolates_per_group[orthogroup].append(Isolate)
