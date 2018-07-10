@@ -3405,7 +3405,7 @@ BC-16, UK2
 ```bash
 screen -
 
-qlogin -l h=blacklace11.blacklace
+qlogin
 
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
@@ -3436,7 +3436,7 @@ BC-1, UK1
 ```bash
 screen -
 
-qlogin -l h=blacklace11.blacklace
+qlogin
 
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
@@ -3467,7 +3467,7 @@ NOV-9, UK3
 ```bash
 screen -
 
-qlogin -l h=blacklace11.blacklace
+qlogin
 
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
