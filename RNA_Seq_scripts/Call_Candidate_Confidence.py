@@ -201,17 +201,16 @@ Org1_ID_dict = defaultdict(list)
 Isolates_per_group = defaultdict(list)
 
 for transcript_ID in Org1_Uniq_Exp_set:
-    Isolates_in_OG = []
     ID_to_search = "|".join([Org1, transcript_ID])
     orthogroups = [OG for OG, genes in ortho_dict.items() if ID_to_search in
                    genes]
     for orthogroup in orthogroups:
         for item in ortho_dict[orthogroup]:
             Isolate = item.split('|')[0]
-            Isolates_in_OG.append(Isolate)
-            if set(Race_list).issubset(set(Isolates_in_OG)):
-                Org1_ID_dict[transcript_ID] = orthogroup
-            Isolates_in_OG = []
+            Isolates_per_group[orthogroup].extend(Isolate)
+
+if set(Race_list).issubset(set(Isolates_per_group[orthogroup])):
+    Org1_ID_dict[transcript_ID] = orthogroup
 
 print("Dictionary of orthogroups created")
 
