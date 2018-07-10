@@ -204,7 +204,7 @@ for transcript_ID in Org1_Uniq_Exp_set:
     for orthogroup in orthogroups:
         for item in ortho_dict[orthogroup]:
             Isolate = item.split('|')[0]
-            Isolates_per_group[orthogroup].extend(Isolate)
+            Isolates_per_group[orthogroup].append(Isolate)
 
 if set(Race_IDs).issubset(set(Isolates_per_group[orthogroup])):
     Org1_ID_dict[transcript_ID] = orthogroup
