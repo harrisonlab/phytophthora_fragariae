@@ -193,9 +193,6 @@ print("Files loaded and prepared")
 # -----------------------------------------------------
 
 Race_IDs = conf.Race_isolates
-Race_list = []
-for Race in Race_IDs:
-    Race_list.append(Race)
 
 Org1_ID_dict = defaultdict(list)
 Isolates_per_group = defaultdict(list)
