@@ -3594,81 +3594,81 @@ done
 Analysis of Bc16
 
 The number of candidate genes regardless of confidence is:
-1,430
+1,390
 The number of genes of confidence level 6 is:
-203
+11
 The number of RxLRs of confidence level 6 is:
-32
+5
 The number of CRNs of confidence level 6 is:
 0
 The number of apoplastic effectors of confidence level 6 is:
-61
+4
 The number of secreted proteins of confidence level 6 is:
-187
+10
 The number of TFs/TRs of confidence level 6 is:
-15
+0
 The number of genes of confidence level 5 is:
-0
+8
 The number of RxLRs of confidence level 5 is:
-0
+2
 The number of CRNs of confidence level 5 is:
 0
 The number of apoplastic effectors of confidence level 5 is:
-0
+2
 The number of secreted proteins of confidence level 5 is:
-0
+8
 The number of TFs/TRs of confidence level 5 is:
 0
 The number of genes of confidence level 4 is:
-59
+71
 The number of RxLRs of confidence level 4 is:
-7
+12
 The number of CRNs of confidence level 4 is:
-3
+1
 The number of apoplastic effectors of confidence level 4 is:
-25
+24
 The number of secreted proteins of confidence level 4 is:
-49
+64
 The number of TFs/TRs of confidence level 4 is:
 5
 The number of genes of confidence level 3 is:
-0
+127
 The number of RxLRs of confidence level 3 is:
-0
+15
 The number of CRNs of confidence level 3 is:
 0
 The number of apoplastic effectors of confidence level 3 is:
-0
+37
 The number of secreted proteins of confidence level 3 is:
-0
+117
 The number of TFs/TRs of confidence level 3 is:
-0
+11
 The number of genes of confidence level 2 is:
 45
 The number of RxLRs of confidence level 2 is:
-9
+7
 The number of CRNs of confidence level 2 is:
-0
+1
 The number of apoplastic effectors of confidence level 2 is:
-11
+16
 The number of secreted proteins of confidence level 2 is:
-40
+38
 The number of TFs/TRs of confidence level 2 is:
 4
 The number of genes of confidence level 1 is:
-0
+32
 The number of RxLRs of confidence level 1 is:
-0
+7
 The number of CRNs of confidence level 1 is:
 0
 The number of apoplastic effectors of confidence level 1 is:
-0
+5
 The number of secreted proteins of confidence level 1 is:
-0
+28
 The number of TFs/TRs of confidence level 1 is:
-0
+3
 The number of genes of confidence level 0 is:
-1,123
+1,096
 The number of RxLRs of confidence level 0 is:
 0
 The number of CRNs of confidence level 0 is:
@@ -3683,7 +3683,7 @@ The number of TFs/TRs of confidence level 0 is:
 Analysis of Bc1
 
 The number of candidate genes regardless of confidence is:
-142
+138
 The number of genes of confidence level 6 is:
 0
 The number of RxLRs of confidence level 6 is:
@@ -3709,55 +3709,55 @@ The number of secreted proteins of confidence level 5 is:
 The number of TFs/TRs of confidence level 5 is:
 0
 The number of genes of confidence level 4 is:
-7
-The number of RxLRs of confidence level 4 is:
 2
+The number of RxLRs of confidence level 4 is:
+0
 The number of CRNs of confidence level 4 is:
 0
 The number of apoplastic effectors of confidence level 4 is:
-1
+0
 The number of secreted proteins of confidence level 4 is:
-6
+1
 The number of TFs/TRs of confidence level 4 is:
 1
 The number of genes of confidence level 3 is:
-0
+1
 The number of RxLRs of confidence level 3 is:
-0
+1
 The number of CRNs of confidence level 3 is:
 0
 The number of apoplastic effectors of confidence level 3 is:
 0
 The number of secreted proteins of confidence level 3 is:
-0
+1
 The number of TFs/TRs of confidence level 3 is:
 0
 The number of genes of confidence level 2 is:
-15
+9
 The number of RxLRs of confidence level 2 is:
-4
+2
 The number of CRNs of confidence level 2 is:
 0
 The number of apoplastic effectors of confidence level 2 is:
-4
+2
 The number of secreted proteins of confidence level 2 is:
-15
+9
 The number of TFs/TRs of confidence level 2 is:
 0
 The number of genes of confidence level 1 is:
-0
+10
 The number of RxLRs of confidence level 1 is:
-0
+3
 The number of CRNs of confidence level 1 is:
 0
 The number of apoplastic effectors of confidence level 1 is:
-0
+3
 The number of secreted proteins of confidence level 1 is:
-0
+10
 The number of TFs/TRs of confidence level 1 is:
 0
 The number of genes of confidence level 0 is:
-120
+116
 The number of RxLRs of confidence level 0 is:
 0
 The number of CRNs of confidence level 0 is:
@@ -3772,7 +3772,7 @@ The number of TFs/TRs of confidence level 0 is:
 Analysis of Nov9
 
 The number of candidate genes regardless of confidence is:
-385
+369
 The number of genes of confidence level 6 is:
 0
 The number of RxLRs of confidence level 6 is:
@@ -3798,55 +3798,55 @@ The number of secreted proteins of confidence level 5 is:
 The number of TFs/TRs of confidence level 5 is:
 0
 The number of genes of confidence level 4 is:
-37
-The number of RxLRs of confidence level 4 is:
-5
-The number of CRNs of confidence level 4 is:
-3
-The number of apoplastic effectors of confidence level 4 is:
 12
+The number of RxLRs of confidence level 4 is:
+2
+The number of CRNs of confidence level 4 is:
+2
+The number of apoplastic effectors of confidence level 4 is:
+5
 The number of secreted proteins of confidence level 4 is:
-34
+10
 The number of TFs/TRs of confidence level 4 is:
 0
 The number of genes of confidence level 3 is:
-0
+13
 The number of RxLRs of confidence level 3 is:
-0
+3
 The number of CRNs of confidence level 3 is:
-0
+1
 The number of apoplastic effectors of confidence level 3 is:
-0
+3
 The number of secreted proteins of confidence level 3 is:
-0
+12
 The number of TFs/TRs of confidence level 3 is:
 0
 The number of genes of confidence level 2 is:
-19
+15
 The number of RxLRs of confidence level 2 is:
-8
+2
 The number of CRNs of confidence level 2 is:
 0
 The number of apoplastic effectors of confidence level 2 is:
-6
+3
 The number of secreted proteins of confidence level 2 is:
-18
+15
 The number of TFs/TRs of confidence level 2 is:
 0
 The number of genes of confidence level 1 is:
-0
+14
 The number of RxLRs of confidence level 1 is:
-0
+6
 The number of CRNs of confidence level 1 is:
 0
 The number of apoplastic effectors of confidence level 1 is:
-0
+5
 The number of secreted proteins of confidence level 1 is:
-0
+13
 The number of TFs/TRs of confidence level 1 is:
 0
 The number of genes of confidence level 0 is:
-329
+315
 The number of RxLRs of confidence level 0 is:
 0
 The number of CRNs of confidence level 0 is:
