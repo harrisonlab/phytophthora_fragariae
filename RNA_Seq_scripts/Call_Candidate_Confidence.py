@@ -198,6 +198,7 @@ for Race in Race_IDs:
     Race_list.append(Race)
 
 Org1_ID_dict = defaultdict(list)
+Isolates_per_group = defaultdict(list)
 
 for transcript_ID in Org1_Uniq_Exp_set:
     Isolates_in_OG = []
