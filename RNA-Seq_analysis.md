@@ -3862,13 +3862,15 @@ The number of TFs/TRs of confidence level 0 is:
 Inspection of TFs for realistic expression, the following look promising
 
 ```
-Only rarely does a candidate have an FPKM > 10 and never > 20, likely artefacts
-Manual inspection shows g19212 has an early peak much higher than UK1/3
-but falls away after that point, possibly still active?
+Possible infection related TFs from BC-16 genome:
+g8963.t1 - possibly weakly infection related
+g15142.t1 - possibly weakly infection related - may be race 2 specific
 
-Possible infection related TFs:
-g8222.t1
-g19212.t1 - could also be UK2 specific
+Possible infection related TFs from BC-1 genome:
+None
+
+Possible infection related TFs from NOV-9 genome:
+g2299.t1 - possibly infection related, but only in NOV-9, still a low level.
 ```
 
 ##Produce a more detailed table of analyses
