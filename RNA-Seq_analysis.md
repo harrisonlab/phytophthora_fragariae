@@ -3195,7 +3195,7 @@ for Strain in Bc1 Bc16 Nov9
 do
     DEG_files=$(ls analysis/DeSeq/Method_1/$Strain/*.txt | grep -e "up" -e "down")
     Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
-    Min_LFC=1
+    Min_LFC=3
     Min_Pval=0.05
     Org1=Bc16
     Org2=Bc1
