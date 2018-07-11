@@ -3862,7 +3862,7 @@ The number of TFs/TRs of confidence level 0 is:
 Inspection of TFs for realistic expression, the following look promissing
 
 ```
-Only rarely doesa candidate have an FPKM > 10 and never > 20, likely artefacts
+Only rarely does a candidate have an FPKM > 10 and never > 20, likely artefacts
 Manual inspection shows g19212 has an early peak much higher than UK1/3
 but falls away after that point, possibly still active?
 
