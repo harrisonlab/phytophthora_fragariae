@@ -3859,7 +3859,7 @@ The number of TFs/TRs of confidence level 0 is:
 0
 ```
 
-Inspection of TFs for realistic expression, the following look promissing
+Inspection of TFs for realistic expression, the following look promising
 
 ```
 Only rarely does a candidate have an FPKM > 10 and never > 20, likely artefacts
