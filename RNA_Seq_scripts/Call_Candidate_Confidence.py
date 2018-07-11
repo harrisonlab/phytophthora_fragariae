@@ -198,8 +198,17 @@ Org1_ID_dict = defaultdict(list)
 Isolates_per_group = defaultdict(list)
 transcript_IDs = defaultdict(list)
 OGs = []
+transcripts_to_check = []
 
-for transcript_ID in Org1_Uniq_Exp_set:
+for ID in Org1_Uniq_Exp_set:
+    transcripts_to_check.append(ID)
+
+for ID in Org1_Uniq_DEG_set:
+    transcripts_to_check.append(ID)
+
+transcripts_to_check_set = set(transcripts_to_check)
+
+for transcript_ID in transcripts_to_check_set:
     ID_to_search = "|".join([Org1, transcript_ID])
     orthogroups = [OG for OG, genes in ortho_dict.items() if ID_to_search in
                    genes]
