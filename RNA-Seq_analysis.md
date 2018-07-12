@@ -3397,12 +3397,6 @@ Now call candidate confidence for each isolate
 BC-16, UK2
 
 ```bash
-screen -
-
-qlogin
-
-cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
-
 for num in 1
 do
     Strain=Bc16
@@ -3428,12 +3422,6 @@ done
 BC-1, UK1
 
 ```bash
-screen -
-
-qlogin
-
-cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
-
 for num in 1
 do
     Strain=Bc1
@@ -3459,12 +3447,6 @@ done
 NOV-9, UK3
 
 ```bash
-screen -
-
-qlogin
-
-cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
-
 for num in 1
 do
     Strain=Nov9
