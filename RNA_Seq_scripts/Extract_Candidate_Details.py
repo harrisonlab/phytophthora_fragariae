@@ -17,8 +17,8 @@ ap.add_argument('--candidates', required=True, type=str,
 ap.add_argument('--annotation_table', required=True, type=str,
                 help='TSV file containing gene expression details and other \
                 information')
-ap.add_argument('--out_dir', required=True, type=str,
-                help='Directory to write output files to')
+ap.add_argument('--out_file', required=True, type=str,
+                help='File to write output files to')
 conf = ap.parse_args()
 
 # -----------------------------------------------------
