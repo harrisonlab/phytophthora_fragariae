@@ -26,6 +26,14 @@ conf = ap.parse_args()
 # Load candidate file and create a list of candidate genes
 # -----------------------------------------------------
 
+transcripts = []
+candidates_file = conf.candidates
+candidate_lines = candidates_file.readlines[1:]
+for line in candidate_lines:
+    split_line = line.split()
+    transcript_ID = split_line[0]
+    transcripts.append(transcript_ID)
+
 # -----------------------------------------------------
 # Step 2
 # Identify lines in annotation table to keep and add to list
