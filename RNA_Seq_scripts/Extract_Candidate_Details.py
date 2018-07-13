@@ -42,6 +42,7 @@ with open(candidates_file) as f:
 Output_lines = []
 annotation_table = conf.annotation_table
 with open(annotation_table) as f:
+    Header = f.readlines[0]
     annotation_lines = f.readlines()[1:]
     for transcript_ID in transcripts:
         for annotation_line in annotation_lines:
@@ -56,8 +57,6 @@ with open(annotation_table) as f:
 outfile = conf.out_file
 cwd = os.getcwd()
 Output = "/".join([cwd, outfile])
-
-Header = annotation_table.readlines[0]
 
 with open(Output, 'w') as o:
     o.write(Header)
