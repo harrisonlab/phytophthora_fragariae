@@ -60,7 +60,5 @@ Output = "/".join([cwd, outfile])
 
 with open(Output, 'w') as o:
     o.write(Header)
-    o.write("\n")
     for line in Output_lines:
         o.write(line)
-        o.write("\n")
