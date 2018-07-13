@@ -52,14 +52,14 @@ with open(annotation_table) as f:
     annotation_set = set(annotation_lines)
     Header = annotation_lines[0]
     Header_split = Header.split()
-    Header_split = Header_split.append("Score")
+    Header_split.append("Score")
     Header = "\t".join(Header_split)
     for transcript_ID in transcripts:
         for annotation_line in annotation_set:
             if annotation_line.startswith(transcript_ID):
                 score = score_dict[transcript_ID]
                 annotation_split = annotation_line.split()
-                annotation_split = annotation_split.append(score)
+                annotation_split.append(score)
                 Final_line = "\t".join(annotation_split)
                 Output_lines.append(Final_line)
 
