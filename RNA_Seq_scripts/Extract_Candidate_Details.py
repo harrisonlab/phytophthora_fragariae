@@ -8,6 +8,7 @@ or pacbio_anntoation_tables_modified_no_coexp.py depending on isolate examined
 
 import argparse
 import os
+from collections import defaultdict
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--candidates', required=True, type=str,
@@ -22,9 +23,10 @@ conf = ap.parse_args()
 
 # -----------------------------------------------------
 # Step 1
-# Load candidate file and create a list of candidate genes
+# Load candidate file and create a list of candidate genes and their score
 # -----------------------------------------------------
 
+score_dict = defaultdict(float)
 transcripts = []
 candidates_file = conf.candidates
 with open(candidates_file) as f:
@@ -33,6 +35,8 @@ with open(candidates_file) as f:
         split_line = line.split()
         transcript_ID = split_line[0]
         transcripts.append(transcript_ID)
+        score = split_line[-1]
+        score_dict[transcript_ID] = score
 
 print("Candidate gene list loaded")
 
