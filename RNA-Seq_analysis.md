@@ -3888,20 +3888,6 @@ do
 done
 ```
 
-Inspection of TFs for realistic expression, the following look promising
-
-```
-Possible infection related TFs from BC-16 genome:
-g8963.t1 - possibly weakly infection related
-g15142.t1 - possibly weakly infection related - may be race 2 specific
-
-Possible infection related TFs from BC-1 genome:
-None
-
-Possible infection related TFs from NOV-9 genome:
-g2299.t1 - possibly infection related, but only in NOV-9, still a low level.
-```
-
 ##Produce a more detailed table of analyses
 
 Includes coexpression modules, creation detailed in RNA_Seq_scripts/Co-Expression_Analysis.md
