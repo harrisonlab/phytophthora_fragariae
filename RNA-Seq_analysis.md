@@ -3875,19 +3875,6 @@ The number of TFs/TRs of confidence level 0 is:
 0
 ```
 
-Extract details of the candidate genes from annotation tables for visual grepping
-
-```bash
-for Strain in Bc16 Bc1 Nov9
-do
-    candidates=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv
-    annotation_table=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_gene_table_incl_exp.tsv
-    OutFile=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs_details.tsv
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-    python $ProgDir/Extract_Candidate_Details.py --candidates $candidates --annotation_table $annotation_table --out_file $OutFile
-done
-```
-
 ##Produce a more detailed table of analyses
 
 Includes coexpression modules, creation detailed in RNA_Seq_scripts/Co-Expression_Analysis.md
@@ -4011,6 +3998,19 @@ do
         $ProgDir/pacbio_anntoation_tables_modified_no_coexp.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP2_ORF $SigP2_ORF --SigP3 $SigP3 --SigP3_ORF $SigP3_ORF --SigP4 $SigP4 --SigP4_ORF $SigP4_ORF --phobius $PhobiusFa --phobius_ORF $PhobiusFa_ORF --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --RxLR_total_ORF $RxLR_ORF_total --RxLR_EER_total $RxLR_EER_total --RxLR_EER_total_ORF $RxLR_EER_ORF_total --CRN_total $CRN_total --ApoP_total $ApoP_total --ortho_name $OrthoName --ortho_file $OrthoFile --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM --Swissprot $SwissProt --InterPro $InterPro --Transcription_factors $Transcription_factors > $OutDir/"$Strain"_gene_table_incl_exp.tsv
         cat $OutDir/"$Strain"_gene_table_incl_exp.tsv | sort | uniq > $OutDir/"$Strain"_gene_table_incl_exp.tsv
     done
+done
+```
+
+Extract details of the candidate genes from annotation tables for visual grepping
+
+```bash
+for Strain in Bc16 Bc1 Nov9
+do
+    candidates=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv
+    annotation_table=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_gene_table_incl_exp.tsv
+    OutFile=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs_details.tsv
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    python $ProgDir/Extract_Candidate_Details.py --candidates $candidates --annotation_table $annotation_table --out_file $OutFile
 done
 ```
 
