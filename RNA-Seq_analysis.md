@@ -3581,6 +3581,16 @@ Analysis of Bc16
 
 The number of candidate genes regardless of confidence is:
 1,419
+The number of candidate RxLRs regardless of confidence is:
+51
+The number of candidate CRNs regardless of confidence is:
+2
+The number of candidate apoplastic effectors regardless of confidence is:
+91
+The number of candidate secreted proteins regardless of confidence level is:
+272
+The number of candidate TFs/TRs regardless of confidence level is:
+23
 The number of genes of confidence level 6 is:
 14
 The number of RxLRs of confidence level 6 is:
@@ -3670,6 +3680,16 @@ Analysis of Bc1
 
 The number of candidate genes regardless of confidence is:
 454
+The number of candidate RxLRs regardless of confidence is:
+16
+The number of candidate CRNs regardless of confidence is:
+0
+The number of candidate apoplastic effectors regardless of confidence is:
+51
+The number of candidate secreted proteins regardless of confidence level is:
+107
+The number of candidate TFs/TRs regardless of confidence level is:
+7
 The number of genes of confidence level 6 is:
 0
 The number of RxLRs of confidence level 6 is:
@@ -3759,6 +3779,16 @@ Analysis of Nov9
 
 The number of candidate genes regardless of confidence is:
 1,106
+The number of candidate RxLRs regardless of confidence is:
+35
+The number of candidate CRNs regardless of confidence is:
+3
+The number of candidate apoplastic effectors regardless of confidence is:
+53
+The number of candidate secreted proteins regardless of confidence level is:
+168
+The number of candidate TFs/TRs regardless of confidence level is:
+12
 The number of genes of confidence level 6 is:
 0
 The number of RxLRs of confidence level 6 is:
