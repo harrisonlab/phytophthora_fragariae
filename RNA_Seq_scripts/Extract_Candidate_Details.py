@@ -45,7 +45,7 @@ with open(annotation_table) as f:
     annotation_lines = f.readlines()[1:]
     for transcript_ID in transcripts:
         for annotation_line in annotation_lines:
-            if annotation_line.startswih(transcript_ID):
+            if annotation_line.startswith(transcript_ID):
                 Output_lines.append(annotation_line)
 
 # -----------------------------------------------------
