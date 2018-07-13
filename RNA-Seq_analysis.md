@@ -3882,7 +3882,8 @@ for Strain in Bc16 Bc1 Nov9
 do
     candidates=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv
     annotation_table=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_gene_table_incl_exp.tsv
-    python Extract_Candidate_Details.py --candidates $candidates --annotation_table $annotation_table --out_dir $OutDir
+    OutFile=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs_details.tsv
+    python Extract_Candidate_Details.py --candidates $candidates --annotation_table $annotation_table --out_file $OutFile
 done
 ```
 
