@@ -51,3 +51,16 @@ for transcript_ID in transcripts:
 # Step 3
 # Write out lines to keep to TSV file
 # -----------------------------------------------------
+
+outfile = conf.out_file
+cwd = os.getcwd()
+Output = "/".join([cwd, outfile])
+
+Header = annotation_table.readlines[0]
+
+with open(Output, 'w') as o:
+    o.write(Header)
+    o.write("\n")
+    for line in Output_lines:
+        o.write(line)
+        o.write("\n")
