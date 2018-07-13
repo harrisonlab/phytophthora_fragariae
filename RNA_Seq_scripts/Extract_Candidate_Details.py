@@ -27,11 +27,12 @@ conf = ap.parse_args()
 
 transcripts = []
 candidates_file = conf.candidates
-candidate_lines = candidates_file.readlines()[1:]
-for line in candidate_lines:
-    split_line = line.split()
-    transcript_ID = split_line[0]
-    transcripts.append(transcript_ID)
+with open(candidates_file) as f:
+    candidate_lines = f.readlines()[1:]
+    for line in candidate_lines:
+        split_line = line.split()
+        transcript_ID = split_line[0]
+        transcripts.append(transcript_ID)
 
 # -----------------------------------------------------
 # Step 2
@@ -40,11 +41,12 @@ for line in candidate_lines:
 
 Output_lines = []
 annotation_table = conf.annotation_table
-annotation_lines = annotation_table.readlines()[1:]
-for transcript_ID in transcripts:
-    for annotation_line in annotation_lines:
-        if annotation_line.startswih(transcript_ID):
-            Output_lines.append(annotation_line)
+with open(annotation_table) as f:
+    annotation_lines = f.readlines()[1:]
+    for transcript_ID in transcripts:
+        for annotation_line in annotation_lines:
+            if annotation_line.startswih(transcript_ID):
+                Output_lines.append(annotation_line)
 
 # -----------------------------------------------------
 # Step 3
