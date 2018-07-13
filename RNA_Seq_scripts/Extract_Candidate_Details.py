@@ -34,6 +34,8 @@ with open(candidates_file) as f:
         transcript_ID = split_line[0]
         transcripts.append(transcript_ID)
 
+print("Candidate gene list loaded")
+
 # -----------------------------------------------------
 # Step 2
 # Identify lines in annotation table to keep and add to list
@@ -50,6 +52,8 @@ with open(annotation_table) as f:
             if annotation_line.startswith(transcript_ID):
                 Output_lines.append(annotation_line)
 
+print("Lines of annotation table to keep identified")
+
 # -----------------------------------------------------
 # Step 3
 # Write out lines to keep to TSV file
@@ -63,3 +67,5 @@ with open(Output, 'w') as o:
     o.write(Header)
     for line in Output_lines:
         o.write(line)
+
+print("Output file created")
