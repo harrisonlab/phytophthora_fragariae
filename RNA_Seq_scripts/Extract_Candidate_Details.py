@@ -20,3 +20,18 @@ ap.add_argument('--annotation_table', required=True, type=str,
 ap.add_argument('--out_dir', required=True, type=str,
                 help='Directory to write output files to')
 conf = ap.parse_args()
+
+# -----------------------------------------------------
+# Step 1
+# Load candidate file and create a list of candidate genes
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Step 2
+# Identify lines in annotation table to keep and add to list
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Step 3
+# Write out lines to keep to TSV file
+# -----------------------------------------------------
