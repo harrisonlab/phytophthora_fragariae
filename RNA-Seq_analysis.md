@@ -3875,6 +3875,8 @@ The number of TFs/TRs of confidence level 0 is:
 0
 ```
 
+Extract details of the candidate genes from annotation tables
+
 Inspection of TFs for realistic expression, the following look promising
 
 ```
