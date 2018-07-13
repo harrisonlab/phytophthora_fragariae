@@ -51,7 +51,9 @@ with open(annotation_table) as f:
     annotation_lines = f.readlines()
     annotation_set = set(annotation_lines)
     Header = annotation_lines[0]
-    Header = "\t".join([Header, "Score"])
+    Header_split = Header.split()
+    Header_split = Header_split.append("Score")
+    Header = "\t".join(Header_split)
     for transcript_ID in transcripts:
         for annotation_line in annotation_set:
             if annotation_line.startswith(transcript_ID):
