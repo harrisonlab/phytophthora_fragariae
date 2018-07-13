@@ -56,7 +56,9 @@ with open(annotation_table) as f:
         for annotation_line in annotation_set:
             if annotation_line.startswith(transcript_ID):
                 score = score_dict[transcript_ID]
-                Final_line = "\t".join([annotation_line, score])
+                annotation_split = annotation_line.split()
+                annotation_split = annotation_split.append(score)
+                Final_line = "\t".join(annotation_split)
                 Output_lines.append(Final_line)
 
 print("Lines of annotation table to keep identified")
