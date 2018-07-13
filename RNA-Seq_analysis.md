@@ -3883,7 +3883,8 @@ do
     candidates=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv
     annotation_table=gene_pred/annotation/P.fragariae/$Strain/"$Strain"_gene_table_incl_exp.tsv
     OutFile=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs_details.tsv
-    python Extract_Candidate_Details.py --candidates $candidates --annotation_table $annotation_table --out_file $OutFile
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    python $ProgDir/Extract_Candidate_Details.py --candidates $candidates --annotation_table $annotation_table --out_file $OutFile
 done
 ```
 
