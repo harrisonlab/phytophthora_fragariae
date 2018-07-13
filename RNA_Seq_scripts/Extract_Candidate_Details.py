@@ -39,6 +39,14 @@ for line in candidate_lines:
 # Identify lines in annotation table to keep and add to list
 # -----------------------------------------------------
 
+Output_lines = []
+annotation_table = conf.annotation_table
+annotation_lines = annotation_table.readlines[1:]
+for transcript_ID in transcripts:
+    for annotation_line in annotation_lines:
+        if annotation_line.startswih(transcript_ID):
+            Output_lines.append(annotation_line)
+
 # -----------------------------------------------------
 # Step 3
 # Write out lines to keep to TSV file
