@@ -3478,6 +3478,16 @@ do
     printf "\n"
     echo "The number of candidate genes regardless of confidence is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | wc -l
+    echo "The number of candidate RxLRs regardless of confidence is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | cut -f11 | grep 'Yes' | wc -l
+    echo "The number of candidate CRNs regardless of confidence is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | cut -f12 | grep 'Yes' | wc -l
+    echo "The number of candidate apoplastic effectors regardless of confidence is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | cut -f13 | grep 'Yes' | wc -l
+    echo "The number of candidate secreted proteins regardless of confidence level is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | cut -f14 | grep 'Yes' | wc -l
+    echo "The number of candidate TFs/TRs regardless of confidence level is:"
+    cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | cut -f15 | grep 'Yes' | wc -l
     echo "The number of genes of confidence level 6 is:"
     cat analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs.tsv | tail -n +2 | grep -w "6" | wc -l
     echo "The number of RxLRs of confidence level 6 is:"
