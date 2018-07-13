@@ -58,7 +58,8 @@ with open(annotation_table) as f:
         for annotation_line in annotation_set:
             if annotation_line.startswith(transcript_ID):
                 score = score_dict[transcript_ID]
-                annotation_split = annotation_line.split()
+                trimmed_line = annotation_line[:-1]
+                annotation_split = trimmed_line.split("\t")
                 annotation_split.append(score)
                 Final_line = "\t".join(annotation_split)
                 Output_lines.append(Final_line)
