@@ -10,6 +10,8 @@ WorkDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/o
 
 ##Copy files of all protein sequences to one directory
 
+Files already reformatted in Whole_Genome_Orthology.md
+
 ```bash
 mkdir -p $input
 cp -r analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/formatted $input
