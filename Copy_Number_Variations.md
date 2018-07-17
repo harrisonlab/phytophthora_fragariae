@@ -27,3 +27,5 @@ gene_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors.bed
 sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
 sort -k1,1V -k2,2n -k3,3n $gene_bed > $sorted_bed
 ```
+
+### Use samtools to calculate read depth for each gene
