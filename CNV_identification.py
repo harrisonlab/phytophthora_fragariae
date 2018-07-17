@@ -59,6 +59,16 @@ Location_dict = defaultdict(list)
 Depths_dict = defaultdict(list)
 Average_Depth_dict = defaultdict(list)
 
+with open(gene_bed) as f:
+    lines = f.readlines()
+    for line in lines:
+        split_line = line.split()
+        gene_ID = split_line[3]
+        contig_ID = split_line[0]
+        start = split_line[1]
+        end = split_line[2]
+        Location_dict[gene_ID] = [contig_ID, start, end]
+
 # -----------------------------------------------------
 # Step 2
 # Calculate averages necessary for adjusting read depth
