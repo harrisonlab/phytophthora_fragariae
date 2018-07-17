@@ -55,6 +55,10 @@ gene_fasta = conf.gene_fasta
 OutDir = conf.OutDir
 cwd = os.getcwd()
 
+Location_dict = defaultdict(list)
+Depths_dict = defaultdict(list)
+Average_Depth_dict = defaultdict(list)
+
 # -----------------------------------------------------
 # Step 2
 # Calculate averages necessary for adjusting read depth
