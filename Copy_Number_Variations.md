@@ -28,6 +28,14 @@ sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
 sort -k1,1V -k2,2n -k3,3n $gene_bed > $sorted_bed
 ```
 
+#### Some bam files were not sorted before, do this now
+
+```bash
+aligned_reads=analysis/genome_alignment/bowtie/P.fragariae/Bc1/vs_Bc16_FALCON/Bc1_polished_contigs_unmasked.fa_aligned.sam
+sorted_bam=analysis/genome_alignment/bowtie/P.fragariae/Bc1/vs_Bc16_FALCON/Bc1_polished_contigs_unmasked.fa_aligned_sorted.bam
+samtools sort -o $sorted_bam $aligned_reads
+```
+
 ### Use samtools to calculate read depth for each gene
 
 ```bash
