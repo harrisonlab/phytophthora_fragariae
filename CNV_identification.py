@@ -38,25 +38,20 @@ conf = ap.parse_args()
 
 # -----------------------------------------------------
 # Step 1
-# Load input files
+# Load input files and calculate average read depths
 # -----------------------------------------------------
 
 # -----------------------------------------------------
 # Step 2
-# Calculate average read depths per gene
+# Calculate averages necessary for adjusting read depth
 # -----------------------------------------------------
 
 # -----------------------------------------------------
 # Step 3
-# Calculate copy numbers for each gene
+# Adjust copy numbers for each gene and calculate copy number variation
 # -----------------------------------------------------
 
 # -----------------------------------------------------
 # Step 4
-# Identify genes with copy number variation
-# -----------------------------------------------------
-
-# -----------------------------------------------------
-# Step 5
 # Write out results to tsv files
 # -----------------------------------------------------
