@@ -25,5 +25,5 @@ python $ProgDir/gff2bed.py --gff_in $gene_gff --out_dir $OutDir
 ```bash
 gene_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors.bed
 sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
-bedtools sort -i $gene_bed > $sorted_bed
+sort -k1,1V -k2,2n -k3,3n $gene_bed > $sorted_bed
 ```
