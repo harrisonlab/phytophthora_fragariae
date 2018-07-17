@@ -55,6 +55,8 @@ gene_fasta = conf.gene_fasta
 OutDir = conf.OutDir
 cwd = os.getcwd()
 
+# ID locations of genes
+
 Location_dict = defaultdict(list)
 Gene_IDs = []
 
@@ -71,7 +73,58 @@ with open(gene_bed) as f:
 
 Gene_set = set(Gene_IDs)
 
-Depths_dict = defaultdict(list)
+# Get per base read depths
+
+Org1_Depths_dict = defaultdict(list)
+
+with open(Org1_depth) as f:
+    depth_lines = f.readlines()
+    for depth_line in depth_lines:
+        depth_split_line = depth_line.split()
+        depth_contig = depth_split_line[0]
+        depth_pos = depth_split_line[1]
+        depth = depth_split_line[2]
+        for gene in Gene_set:
+            gene_contig = Location_dict[gene][0]
+            gene_start = Location_dict[gene][1]
+            gene_end = Location_dict[gene][2]
+            if depth_contig == gene_contig:
+                if depth_pos >= gene_start and depth_pos <= gene_end:
+                    Org1_Depths_dict[gene].append(depth)
+
+Org2_Depths_dict = defaultdict(list)
+
+with open(Org2_depth) as f:
+    depth_lines = f.readlines()
+    for depth_line in depth_lines:
+        depth_split_line = depth_line.split()
+        depth_contig = depth_split_line[0]
+        depth_pos = depth_split_line[1]
+        depth = depth_split_line[2]
+        for gene in Gene_set:
+            gene_contig = Location_dict[gene][0]
+            gene_start = Location_dict[gene][1]
+            gene_end = Location_dict[gene][2]
+            if depth_contig == gene_contig:
+                if depth_pos >= gene_start and depth_pos <= gene_end:
+                    Org2_Depths_dict[gene].append(depth)
+
+Org3_Depths_dict = defaultdict(list)
+
+with open(Org3_depth) as f:
+    depth_lines = f.readlines()
+    for depth_line in depth_lines:
+        depth_split_line = depth_line.split()
+        depth_contig = depth_split_line[0]
+        depth_pos = depth_split_line[1]
+        depth = depth_split_line[2]
+        for gene in Gene_set:
+            gene_contig = Location_dict[gene][0]
+            gene_start = Location_dict[gene][1]
+            gene_end = Location_dict[gene][2]
+            if depth_contig == gene_contig:
+                if depth_pos >= gene_start and depth_pos <= gene_end:
+                    Org3_Depths_dict[gene].append(depth)
 
 # -----------------------------------------------------
 # Step 2
