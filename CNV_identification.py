@@ -27,9 +27,36 @@ ap.add_argument('--Org3_ID', required=True, type=str, help='Name of organism 3 \
 ap.add_argument('--Org3_depth', required=True, type=str, help='Text table \
                 containing the average read depth of genes in organism 3 \
                 sequencing reads')
+ap.add_argument('--gene_bed', required=True, type=str, help='bed file \
+                containing gene locations in the reference assembly')
 ap.add_argument('--gene_fasta', required=True, type=str, help='Fasta file \
                 containing the gene sequences of the referene assembly, \
                 required for normalising by GC content')
 ap.add_argument('--OutDir', required=True, type=str, help='Output directory for \
                 results tsv to be written to')
 conf = ap.parse_args()
+
+# -----------------------------------------------------
+# Step 1
+# Load input files
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Step 2
+# Calculate average read depths per gene
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Step 3
+# Calculate copy numbers for each gene
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Step 4
+# Identify genes with copy number variation
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Step 5
+# Write out results to tsv files
+# -----------------------------------------------------
