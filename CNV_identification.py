@@ -41,6 +41,20 @@ conf = ap.parse_args()
 # Load input files and calculate average read depths
 # -----------------------------------------------------
 
+Org1 = conf.Org1_ID
+Org2 = conf.Org2_ID
+Org3 = conf.Org3_ID
+
+Org1_depth = conf.Org1_depth
+Org2_depth = conf.Org2_depth
+Org3_depth = conf.Org3_depth
+
+gene_bed = conf.gene_bed
+gene_fasta = conf.gene_fasta
+
+OutDir = conf.OutDir
+cwd = os.getcwd()
+
 # -----------------------------------------------------
 # Step 2
 # Calculate averages necessary for adjusting read depth
