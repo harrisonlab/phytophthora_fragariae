@@ -29,3 +29,13 @@ sort -k1,1V -k2,2n -k3,3n $gene_bed > $sorted_bed
 ```
 
 ### Use samtools to calculate read depth for each gene
+
+```bash
+for Isolate in Bc16 Bc1 Nov9
+do
+    aligned_bam=analysis/genome_alignment/bowtie/P.fragariae/$Isolate/vs_Bc16_FALCON/"$Isolate"_polished_contigs_unmasked.fa_aligned_sorted.bam
+    sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
+    output_table=CNV_analysis/"$Isolate"_read_depth.txt
+    samtools depth -a -b $sorted_bed $aligned_bam > $output_table
+done
+```
