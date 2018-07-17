@@ -11,3 +11,11 @@ popgen_analysis/pre_SNP_calling_cleanup.md
 ## Calculate average read depth
 
 ### Convert gene gff to bed, required for samtools
+
+```bash
+gene_gff=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3
+OutDir=CNV_analysis
+mkdir -p $OutDir
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+python $ProgDir/gff2bed.py --gff_in $gene_gff --out_dir $OutDir
+```
