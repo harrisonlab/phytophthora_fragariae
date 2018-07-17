@@ -19,3 +19,11 @@ mkdir -p $OutDir
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
 python $ProgDir/gff2bed.py --gff_in $gene_gff --out_dir $OutDir
 ```
+
+### Sort output bed file
+
+```bash
+gene_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors.bed
+sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
+bedtools sort -i $gene_bed > $sorted_bed
+```
