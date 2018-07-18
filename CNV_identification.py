@@ -273,3 +273,29 @@ for gene in Gene_set:
 # Step 4
 # Write out results to tsv files
 # -----------------------------------------------------
+
+# Identify genes showing CNV
+
+Out_File = "_".join([Org1, Org2, Org3, "CNV", "calls.tsv"])
+Output = "/".join([cwd, OutDir, Out_File])
+
+Head_1 = "_".join([Org1, "vs", Org2, "CNV"])
+Head_2 = "_".join([Org1, "vs", Org3, "CNV"])
+Head_3 = "_".join([Org2, "vs", Org3, "CNV"])
+
+Header = "\t".join(["Gene_ID", Head_1, Head_2, Head_3])
+
+with open(Output, "w") as o:
+    o.write(Header)
+    o.write("\n")
+    for gene in Gene_set:
+        Org1_vs_Org2_CNV = Org1_vs_Org2_CNV_dict[gene]
+        Org1_vs_Org3_CNV = Org1_vs_Org3_CNV_dict[gene]
+        Org2_vs_Org3_CNV = Org2_vs_Org3_CNV_dict[gene]
+        if Org1_vs_Org2_CNV >= 1 or Org1_vs_Org2_CNV <= -1 or \
+           Org1_vs_Org3_CNV >= 1 or Org1_vs_Org3_CNV <= -1 or \
+           Org1_vs_Org3_CNV >= 1 or Org1_vs_Org3_CNV <= -1:
+            Outline = "\t".join([gene, Org1_vs_Org2_CNV, Org1_vs_Org3_CNV,
+                                Org2_vs_Org3_CNV])
+            o.write(Outline)
+            o.write("\n")
