@@ -192,6 +192,23 @@ for gene in Gene_set:
     Org3_ARD_percentile_dict[percentile].append(Org3_ARD)
     gene_percentile_dict[percentile].append(gene)
 
+# Calculate mean ARD for each GC percentile for each organism
+
+Org1_GC_Mean_ARDs_dict = defaultdict(float)
+Org2_GC_Mean_ARDs_dict = defaultdict(float)
+Org3_GC_Mean_ARDs_dict = defaultdict(float)
+
+for percentile in range(0, 101, 1):
+    Org1_ARDs = Org1_ARD_percentile_dict[percentile]
+    Org2_ARDs = Org2_ARD_percentile_dict[percentile]
+    Org3_ARDs = Org3_ARD_percentile_dict[percentile]
+    Org1_GC_Mean_ARD = float(sum(Org1_ARDs)/len(Org1_ARDs))
+    Org2_GC_Mean_ARD = float(sum(Org2_ARDs)/len(Org2_ARDs))
+    Org3_GC_Mean_ARD = float(sum(Org3_ARDs)/len(Org3_ARDs))
+    Org1_GC_Mean_ARDs_dict[percentile] = Org1_GC_Mean_ARD
+    Org2_GC_Mean_ARDs_dict[percentile] = Org2_GC_Mean_ARD
+    Org3_GC_Mean_ARDs_dict[percentile] = Org3_GC_Mean_ARD
+
 # -----------------------------------------------------
 # Step 3
 # Adjust copy numbers for each gene and calculate copy number variation
