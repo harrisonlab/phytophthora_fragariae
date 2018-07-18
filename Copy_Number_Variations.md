@@ -50,6 +50,8 @@ done
 
 ## Identify genes displaying copy number variation
 
+Uses a large amount of memory, so run via qlogin
+
 ```bash
 Isolate_1=BC-16
 Isolate_2=BC-1
