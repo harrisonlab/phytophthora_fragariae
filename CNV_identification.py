@@ -10,6 +10,7 @@ levels of copy number variation and writes them to a tsv
 import argparse
 from collections import defaultdict
 import os
+import numpy as np
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--Org1_ID', required=True, type=str, help='Name of organism 1 \
@@ -125,6 +126,29 @@ with open(Org3_depth) as f:
             if depth_contig == gene_contig:
                 if depth_pos >= gene_start and depth_pos <= gene_end:
                     Org3_Depths_dict[gene].append(depth)
+
+# Calculate average depth per gene
+
+Org1_ARD_dict = defaultdict(float)
+Org2_ARD_dict = defaultdict(float)
+Org3_ARD_dict = defaultdict(float)
+Org1_ARDs = []
+Org2_ARDs = []
+Org3_ARDs = []
+
+for gene in Gene_set:
+    Org1_depths = Org1_Depths_dict[gene]
+    Org2_depths = Org2_Depths_dict[gene]
+    Org3_depths = Org3_Depths_dict[gene]
+    Org1_ARD = np.mean(Org1_depths)
+    Org2_ARD = np.mean(Org2_depths)
+    Org3_ARD = np.mean(Org3_depths)
+    Org1_ARD_dict[gene] = Org1_ARD
+    Org2_ARD_dict[gene] = Org2_ARD
+    Org3_ARD_dict[gene] = Org3_ARD
+    Org1_ARDs.append(Org1_ARD)
+    Org2_ARDs.append(Org2_ARD)
+    Org3_ARDs.append(Org3_ARD)
 
 # -----------------------------------------------------
 # Step 2
