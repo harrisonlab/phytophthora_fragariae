@@ -10,7 +10,8 @@ levels of copy number variation and writes them to a tsv
 import argparse
 from collections import defaultdict
 import os
-import numpy as np
+from Bio import SeqIO
+from Bio.SeqUtils import GC
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--Org1_ID', required=True, type=str, help='Name of organism 1 \
@@ -140,9 +141,9 @@ for gene in Gene_set:
     Org1_depths = Org1_Depths_dict[gene]
     Org2_depths = Org2_Depths_dict[gene]
     Org3_depths = Org3_Depths_dict[gene]
-    Org1_ARD = np.mean(Org1_depths)
-    Org2_ARD = np.mean(Org2_depths)
-    Org3_ARD = np.mean(Org3_depths)
+    Org1_ARD = float(sum(Org1_depths)/len(Org1_depths))
+    Org2_ARD = float(sum(Org2_depths)/len(Org2_depths))
+    Org3_ARD = float(sum(Org3_depths)/len(Org3_depths))
     Org1_ARD_dict[gene] = Org1_ARD
     Org2_ARD_dict[gene] = Org2_ARD
     Org3_ARD_dict[gene] = Org3_ARD
@@ -155,9 +156,13 @@ for gene in Gene_set:
 # Calculate averages necessary for adjusting read depth
 # -----------------------------------------------------
 
-Org1_MeanARD = np.mean(Org1_ARDs)
-Org2_MeanARD = np.mean(Org2_ARDs)
-Org3_MeanARD = np.mean(Org3_ARDs)
+# Calculate overall mean average read depth for each isolate
+
+Org1_MeanARD = float(sum(Org1_ARDs)/len(Org1_ARDs))
+Org2_MeanARD = float(sum(Org2_ARDs)/len(Org2_ARDs))
+Org3_MeanARD = float(sum(Org3_ARDs)/len(Org3_ARDs))
+
+
 
 # -----------------------------------------------------
 # Step 3
