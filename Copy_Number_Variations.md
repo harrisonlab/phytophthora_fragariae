@@ -65,3 +65,37 @@ OutDir=CNV_analysis
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 python $ProgDir/CNV_identification.py --Org1_ID $Isolate_1 --Org2_ID $Isolate_2 --Org3_ID $Isolate_3 --Org1_depth $Isolate_1_depth --Org2_depth $Isolate_2_depth --Org3_depth $Isolate_3_depth --gene_bed $bed_in --gene_fasta $fasta_in --OutDir $OutDir
 ```
+
+### Summarise the results of CNV analysis
+
+```bash
+CNV_IDs=CNV_analysis/BC-16_BC-1_NOV-9_CNV_calls.tsv
+RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+RxLR_CNVs=CNV_analysis/CNV_RxLRs.txt
+CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+CRN_CNVs=CNV_analysis/CNV_CRNs.txt
+ApoP=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+ApoP_CNVs=CNV_analysis/CNV_ApoP.txt
+Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
+Secreted_CNVs=CNV_analysis/CNV_Secreted.txt
+TFs=analysis/transcription_factors/P.fragariae/Bc16/greedy/Bc16_TF_TR_Headers.txt
+TF_CNVs=CNV_analysis/CNV_TF_TR.txt
+
+echo "The total number of genes identified as showing CNV is:"
+cat $CNV_IDs | tail -n+2 wc -l
+echo "The number of RxLRs showing CNV is:"
+cat $CNV_IDs | grep -o -w -f $RxLRs > $RxLR_CNVs
+cat $RxLR_CNVs | wc -l
+echo "The number of CRNs showing CNV is:"
+cat $CNV_IDs | grep -o -w -f $CRNs > $CRN_CNVs
+cat $CRN_CNVs | wc -l
+echo "The number of apoplastic effectors showing CNV is:"
+cat $CNV_IDs | grep -o -w -f $ApoP > $ApoP_CNVs
+cat $ApoP_CNVs | wc -l
+echo "The number of secreted proteins showing CNV is:"
+cat $CNV_IDs | grep -o -w -f $Secreted > $Secreted_CNVs
+cat $Secreted_CNVs | wc -l
+echo "The number of transcript factors and transcriptional regulators showing CNV is:"
+cat $CNV_IDs | grep -o -w -f $TFs > $TF_CNVs
+cat $TF_CNVs | wc -l
+```
