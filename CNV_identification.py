@@ -155,6 +155,10 @@ for gene in Gene_set:
 # Calculate averages necessary for adjusting read depth
 # -----------------------------------------------------
 
+Org1_MeanARD = np.mean(Org1_ARDs)
+Org2_MeanARD = np.mean(Org2_ARDs)
+Org3_MeanARD = np.mean(Org3_ARDs)
+
 # -----------------------------------------------------
 # Step 3
 # Adjust copy numbers for each gene and calculate copy number variation
