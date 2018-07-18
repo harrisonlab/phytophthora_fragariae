@@ -176,13 +176,20 @@ for rec in SeqIO.parse(gene_fasta, "fasta"):
 
 # Assign genes to a GC percentile
 
-GC_percentile_dict = defaultdict(list)
+Org1_ARD_percentile_dict = defaultdict(list)
+Org2_ARD_percentile_dict = defaultdict(list)
+Org3_ARD_percentile_dict = defaultdict(list)
 gene_percentile_dict = defaultdict(list)
 
 for gene in Gene_set:
     GC = GC_dict[gene]
+    Org1_ARD = Org1_ARD_dict[gene]
+    Org2_ARD = Org2_ARD_dict[gene]
+    Org3_ARD = Org3_ARD_dict[gene]
     percentile = int(stats.percentileofscore(GC_values, GC, kind='weak'))
-    GC_percentile_dict[percentile].append(GC)
+    Org1_ARD_percentile_dict[percentile].append(Org1_ARD)
+    Org2_ARD_percentile_dict[percentile].append(Org2_ARD)
+    Org3_ARD_percentile_dict[percentile].append(Org3_ARD)
     gene_percentile_dict[percentile].append(gene)
 
 # -----------------------------------------------------
