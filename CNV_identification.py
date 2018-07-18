@@ -252,6 +252,23 @@ for gene in Gene_set:
     Org2_CN_dict[gene] = Org2_CN
     Org3_CN_dict[gene] = Org3_CN
 
+# Calculate copy number variations between organisms
+
+Org1_vs_Org2_CNV_dict = defaultdict(float)
+Org1_vs_Org3_CNV_dict = defaultdict(float)
+Org2_vs_Org3_CNV_dict = defaultdict(float)
+
+for gene in Gene_set:
+    Org1_CN = Org1_CN_dict[gene]
+    Org2_CN = Org2_CN_dict[gene]
+    Org3_CN = Org3_CN_dict[gene]
+    Org1_vs_Org2_CNV = float(Org1_CN - Org2_CN)
+    Org1_vs_Org3_CNV = float(Org1_CN - Org3_CN)
+    Org2_vs_Org3_CNV = float(Org2_CN - Org3_CN)
+    Org1_vs_Org2_CNV_dict[gene] = Org1_vs_Org2_CNV
+    Org1_vs_Org3_CNV_dict[gene] = Org1_vs_Org3_CNV
+    Org2_vs_Org3_CNV_dict[gene] = Org2_vs_Org3_CNV
+
 # -----------------------------------------------------
 # Step 4
 # Write out results to tsv files
