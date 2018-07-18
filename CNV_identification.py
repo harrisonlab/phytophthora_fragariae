@@ -58,6 +58,8 @@ gene_fasta = conf.gene_fasta
 OutDir = conf.OutDir
 cwd = os.getcwd()
 
+print("Arguments parsed")
+
 # ID locations of genes
 
 Location_dict = defaultdict(list)
@@ -75,6 +77,8 @@ with open(gene_bed) as f:
         Location_dict[gene_ID] = [contig_ID, start, end]
 
 Gene_set = set(Gene_IDs)
+
+print("Gene locations identified")
 
 # Get per base read depths
 
@@ -129,7 +133,9 @@ with open(Org3_depth) as f:
                 if depth_pos >= gene_start and depth_pos <= gene_end:
                     Org3_Depths_dict[gene].append(depth)
 
-# Calculate average depth per gene
+print("Per base read depth identified")
+
+# Calculate average read depth per gene
 
 Org1_ARD_dict = defaultdict(float)
 Org2_ARD_dict = defaultdict(float)
@@ -152,6 +158,8 @@ for gene in Gene_set:
     Org2_ARDs.append(Org2_ARD)
     Org3_ARDs.append(Org3_ARD)
 
+print("Average read depth per gene calculated")
+
 # -----------------------------------------------------
 # Step 2
 # Calculate averages necessary for adjusting read depth
@@ -163,6 +171,8 @@ Org1_Mean_ARD = float(sum(Org1_ARDs)/len(Org1_ARDs))
 Org2_Mean_ARD = float(sum(Org2_ARDs)/len(Org2_ARDs))
 Org3_Mean_ARD = float(sum(Org3_ARDs)/len(Org3_ARDs))
 
+print("Overall mean average read depths calculated")
+
 # Calculate GC% for each gene
 
 GC_dict = defaultdict(float)
@@ -173,6 +183,8 @@ for rec in SeqIO.parse(gene_fasta, "fasta"):
     GC = GC(rec.seq)
     GC_dict[gene_ID] = GC
     GC_values.append(GC)
+
+print("GC content values identified per gene")
 
 # Assign genes to a GC percentile
 
@@ -192,6 +204,8 @@ for gene in Gene_set:
     Org3_ARD_percentile_dict[percentile].append(Org3_ARD)
     gene_percentile_dict[gene] = percentile
 
+print("GC content percentiles identified")
+
 # Calculate mean ARD for each GC percentile for each organism
 
 Org1_GC_Mean_ARDs_dict = defaultdict(float)
@@ -208,6 +222,8 @@ for percentile in range(0, 101, 1):
     Org1_GC_Mean_ARDs_dict[percentile] = Org1_GC_Mean_ARD
     Org2_GC_Mean_ARDs_dict[percentile] = Org2_GC_Mean_ARD
     Org3_GC_Mean_ARDs_dict[percentile] = Org3_GC_Mean_ARD
+
+print("Mean average read depth for each GC content percentile calculated")
 
 # -----------------------------------------------------
 # Step 3
@@ -235,6 +251,8 @@ for gene in Gene_set:
     Org2_aARD[gene] = Org2_aARD
     Org3_aARD[gene] = Org3_aARD
 
+print("Average read depth values adjusted")
+
 # Calculate copy numbers for each gene in each organism, Kamoun lab method
 
 Org1_CN_dict = defaultdict(float)
@@ -252,6 +270,8 @@ for gene in Gene_set:
     Org2_CN_dict[gene] = Org2_CN
     Org3_CN_dict[gene] = Org3_CN
 
+print("Copy numbers calculated for each gene")
+
 # Calculate copy number variations between organisms
 
 Org1_vs_Org2_CNV_dict = defaultdict(float)
@@ -268,6 +288,8 @@ for gene in Gene_set:
     Org1_vs_Org2_CNV_dict[gene] = Org1_vs_Org2_CNV
     Org1_vs_Org3_CNV_dict[gene] = Org1_vs_Org3_CNV
     Org2_vs_Org3_CNV_dict[gene] = Org2_vs_Org3_CNV
+
+print("Pairwise copy number variations calculated")
 
 # -----------------------------------------------------
 # Step 4
@@ -299,3 +321,5 @@ with open(Output, "w") as o:
                                 Org2_vs_Org3_CNV])
             o.write(Outline)
             o.write("\n")
+
+print("Outfiles written and script complete")
