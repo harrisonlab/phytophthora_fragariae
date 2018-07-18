@@ -235,6 +235,23 @@ for gene in Gene_set:
     Org2_aARD[gene] = Org2_aARD
     Org3_aARD[gene] = Org3_aARD
 
+# Calculate copy numbers for each gene in each organism, Kamoun lab method
+
+Org1_CN_dict = defaultdict(float)
+Org2_CN_dict = defaultdict(float)
+Org3_CN_dict = defaultdict(float)
+
+for gene in Gene_set:
+    Org1_aARD = Org1_aARD[gene]
+    Org2_aARD = Org2_aARD[gene]
+    Org3_aARD = Org3_aARD[gene]
+    Org1_CN = float(Org1_aARD / Org1_Mean_ARD)
+    Org2_CN = float(Org2_aARD / Org2_Mean_ARD)
+    Org3_CN = float(Org3_aARD / Org3_Mean_ARD)
+    Org1_CN_dict[gene] = Org1_CN
+    Org2_CN_dict[gene] = Org2_CN
+    Org3_CN_dict[gene] = Org3_CN
+
 # -----------------------------------------------------
 # Step 4
 # Write out results to tsv files
