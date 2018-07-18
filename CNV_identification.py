@@ -12,6 +12,7 @@ from collections import defaultdict
 import os
 from Bio import SeqIO
 from Bio.SeqUtils import GC
+from scipy import stats
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--Org1_ID', required=True, type=str, help='Name of organism 1 \
@@ -172,6 +173,17 @@ for rec in SeqIO.parse(gene_fasta, "fasta"):
     GC = GC(rec.seq)
     GC_dict[gene_ID] = GC
     GC_values.append(GC)
+
+# Assign genes to a GC percentile
+
+GC_percentile_dict = defaultdict(list)
+gene_percentile_dict = defaultdict(list)
+
+for gene in Gene_set:
+    GC = GC_dict[gene]
+    percentile = int(stats.percentileofscore(GC_values, GC, kind='weak'))
+    GC_percentile_dict[percentile].append(GC)
+    gene_percentile_dict[percentile].append(gene)
 
 # -----------------------------------------------------
 # Step 3
