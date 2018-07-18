@@ -162,7 +162,16 @@ Org1_MeanARD = float(sum(Org1_ARDs)/len(Org1_ARDs))
 Org2_MeanARD = float(sum(Org2_ARDs)/len(Org2_ARDs))
 Org3_MeanARD = float(sum(Org3_ARDs)/len(Org3_ARDs))
 
+# Calculate GC% for each gene
 
+GC_dict = defaultdict(float)
+GC_values = []
+
+for rec in SeqIO.parse(gene_fasta, "fasta"):
+    gene_ID = rec.id
+    GC = GC(rec.seq)
+    GC_dict[gene_ID] = GC
+    GC_values.append(GC)
 
 # -----------------------------------------------------
 # Step 3
