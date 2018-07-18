@@ -211,8 +211,10 @@ for percentile in range(0, 101, 1):
 
 # -----------------------------------------------------
 # Step 3
-# Adjust copy numbers for each gene and calculate copy number variation
+# Adjust average read depth for each gene and calculate copy number variation
 # -----------------------------------------------------
+
+
 
 # -----------------------------------------------------
 # Step 4
