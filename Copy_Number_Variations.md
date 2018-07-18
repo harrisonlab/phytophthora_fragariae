@@ -47,3 +47,19 @@ do
     samtools depth -a -b $sorted_bed $aligned_bam > $output_table
 done
 ```
+
+## Identify genes displaying copy number variation
+
+```bash
+Isolate_1=BC-16
+Isolate_2=BC-1
+Isolate_3=NOV-9
+Isolate_1_depth=CNV_analysis/Bc16_read_depth.txt
+Isolate_2_depth=CNV_analysis/Bc1_read_depth.txt
+Isolate_3_depth=CNV_analysis/Nov9_read_depth.txt
+bed_in=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
+fasta_in=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
+OutDir=CNV_analysis
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+python $ProgDir/CNV_identification.py --Org1_ID $Isolate_1 --Org2_ID $Isolate_2 --Org3_ID $Isolate_3 --Org1_depth $Isolate_1_depth --Org2_depth $Isolate_2_depth --Org3_depth $Isolate_3_depth --gene_bed $bed_in --gene_fasta $fasta_in --OutDir $OutDir
+```
