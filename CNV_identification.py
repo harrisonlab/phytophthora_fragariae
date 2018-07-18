@@ -159,9 +159,9 @@ for gene in Gene_set:
 
 # Calculate overall mean average read depth for each isolate
 
-Org1_MeanARD = float(sum(Org1_ARDs)/len(Org1_ARDs))
-Org2_MeanARD = float(sum(Org2_ARDs)/len(Org2_ARDs))
-Org3_MeanARD = float(sum(Org3_ARDs)/len(Org3_ARDs))
+Org1_Mean_ARD = float(sum(Org1_ARDs)/len(Org1_ARDs))
+Org2_Mean_ARD = float(sum(Org2_ARDs)/len(Org2_ARDs))
+Org3_Mean_ARD = float(sum(Org3_ARDs)/len(Org3_ARDs))
 
 # Calculate GC% for each gene
 
@@ -179,7 +179,7 @@ for rec in SeqIO.parse(gene_fasta, "fasta"):
 Org1_ARD_percentile_dict = defaultdict(list)
 Org2_ARD_percentile_dict = defaultdict(list)
 Org3_ARD_percentile_dict = defaultdict(list)
-gene_percentile_dict = defaultdict(list)
+gene_percentile_dict = defaultdict(float)
 
 for gene in Gene_set:
     GC = GC_dict[gene]
@@ -190,7 +190,7 @@ for gene in Gene_set:
     Org1_ARD_percentile_dict[percentile].append(Org1_ARD)
     Org2_ARD_percentile_dict[percentile].append(Org2_ARD)
     Org3_ARD_percentile_dict[percentile].append(Org3_ARD)
-    gene_percentile_dict[percentile].append(gene)
+    gene_percentile_dict[gene] = percentile
 
 # Calculate mean ARD for each GC percentile for each organism
 
@@ -214,7 +214,26 @@ for percentile in range(0, 101, 1):
 # Adjust average read depth for each gene and calculate copy number variation
 # -----------------------------------------------------
 
+# Adjust ARD, using Kamoun lab method
 
+Org1_aARD = defaultdict(float)
+Org2_aARD = defaultdict(float)
+Org3_aARD = defaultdict(float)
+
+for gene in Gene_set:
+    Org1_ARD = Org1_ARD_dict[gene]
+    Org2_ARD = Org2_ARD_dict[gene]
+    Org3_ARD = Org3_ARD_dict[gene]
+    GC_percentile = gene_percentile_dict[gene]
+    Org1_mean_ARD_GC = Org1_GC_Mean_ARDs_dict[GC_percentile]
+    Org1_aARD = float(Org1_ARD * float(Org1_Mean_ARD / Org1_mean_ARD_GC))
+    Org2_mean_ARD_GC = Org2_GC_Mean_ARDs_dict[GC_percentile]
+    Org2_aARD = float(Org2_ARD * float(Org2_Mean_ARD / Org2_mean_ARD_GC))
+    Org3_mean_ARD_GC = Org3_GC_Mean_ARDs_dict[GC_percentile]
+    Org3_aARD = float(Org3_ARD * float(Org3_Mean_ARD / Org3_mean_ARD_GC))
+    Org1_aARD[gene] = Org1_aARD
+    Org2_aARD[gene] = Org2_aARD
+    Org3_aARD[gene] = Org3_aARD
 
 # -----------------------------------------------------
 # Step 4
