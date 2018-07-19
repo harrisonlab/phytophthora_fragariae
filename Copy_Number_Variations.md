@@ -119,7 +119,7 @@ do
     cat $Secreted_ORF | sed -r 's/.t1//g' >> $Secreted_IDs
     cat $CNV_Headers | grep -o -w -f $Secreted_IDs > $Secreted_CNVs
     cat $Secreted_CNVs | wc -l
-    echo "The number of transcript factors and transcriptional regulators showing CNV is:"
+    echo "The number of transcription factors and transcriptional regulators showing CNV is:"
     cat $TFs | sed -r 's/.t1//g' > $TF_IDs
     cat $CNV_Headers | grep -o -w -f $TF_IDs > $TF_CNVs
     cat $TF_CNVs | wc -l
@@ -134,9 +134,9 @@ The number of RxLRs showing CNV is:
 The number of CRNs showing CNV is:
 0
 The number of apoplastic effectors showing CNV is:
-43
+44
 The number of secreted proteins showing CNV is:
-0
+40
 The number of transcript factors and transcriptional regulators showing CNV is:
 0
 ```
