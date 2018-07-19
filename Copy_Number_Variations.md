@@ -44,7 +44,7 @@ do
     aligned_bam=analysis/genome_alignment/bowtie/P.fragariae/$Isolate/vs_Bc16_FALCON/"$Isolate"_polished_contigs_unmasked.fa_aligned_sorted.bam
     sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
     output_table=CNV_analysis/"$Isolate"_read_depth.txt
-    samtools depth -a -b $sorted_bed $aligned_bam > $output_table
+    samtools bedcov $sorted_bed $aligned_bam > $output_table
 done
 ```
 
