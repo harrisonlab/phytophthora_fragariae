@@ -103,19 +103,25 @@ do
     cat $CNV_IDs | tail -n+2 | cut -f1 > $CNV_Headers
     cat $CNV_Headers | wc -l
     echo "The number of RxLRs showing CNV is:"
-    cat $CNV_Headers | grep -o -w -f $RxLRs > $RxLR_CNVs
+    cat $RxLRs | sed -r 's/.t1//g' > $RxLR_IDs
+    cat $CNV_Headers | grep -o -w -f $RxLR_IDs > $RxLR_CNVs
     cat $RxLR_CNVs | wc -l
     echo "The number of CRNs showing CNV is:"
-    cat $CNV_Headers | grep -o -w -f $CRNs > $CRN_CNVs
+    cat $CRNs | sed -r 's/.t1//g' > $CRN_IDs
+    cat $CNV_Headers | grep -o -w -f $CRN_IDs > $CRN_CNVs
     cat $CRN_CNVs | wc -l
     echo "The number of apoplastic effectors showing CNV is:"
-    cat $CNV_Headers | grep -o -w -f $ApoP > $ApoP_CNVs
+    cat $ApoP | sed -r 's/.t1//g' > $ApoP_IDs
+    cat $CNV_Headers | grep -o -w -f $ApoP_IDs > $ApoP_CNVs
     cat $ApoP_CNVs | wc -l
     echo "The number of secreted proteins showing CNV is:"
-    cat $CNV_Headers | grep -o -w -f $Secreted > $Secreted_CNVs
+    cat $Secreted | sed -r 's/.t1//g' > $Secreted_IDs
+    cat $Secreted_ORF | sed -r 's/.t1//g' >> $Secreted_IDs
+    cat $CNV_Headers | grep -o -w -f $Secreted_IDs > $Secreted_CNVs
     cat $Secreted_CNVs | wc -l
     echo "The number of transcript factors and transcriptional regulators showing CNV is:"
-    cat $CNV_Headers | grep -o -w -f $TFs > $TF_CNVs
+    cat $TFs | sed -r 's/.t1//g' > $TF_IDs
+    cat $CNV_Headers | grep -o -w -f $TF_IDs > $TF_CNVs
     cat $TF_CNVs | wc -l
 done
 ```
