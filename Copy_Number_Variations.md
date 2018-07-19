@@ -79,6 +79,7 @@ python $ProgDir/CNV_identification.py --Org1_ID $Isolate_1 --Org2_ID $Isolate_2 
 
 ```bash
 CNV_IDs=CNV_analysis/BC-16_BC-1_NOV-9_CNV_calls.tsv
+CNV_Headers=CNV_analysis/Bc16_Bc1_Nov9_CNV_headers.txt
 RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
 RxLR_CNVs=CNV_analysis/CNV_RxLRs.txt
 CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
@@ -93,7 +94,7 @@ TF_CNVs=CNV_analysis/CNV_TF_TR.txt
 for num in 1
 do
     echo "The total number of genes identified as showing CNV is:"
-    cat $CNV_IDs | tail -n+2 | wc -l
+    cat $CNV_IDs | tail -n+2 | cut -f1 | > $CNV_Headers
     echo "The number of RxLRs showing CNV is:"
     cat $CNV_IDs | grep -o -w -f $RxLRs > $RxLR_CNVs
     cat $RxLR_CNVs | wc -l
