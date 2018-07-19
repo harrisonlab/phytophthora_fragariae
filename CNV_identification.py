@@ -286,8 +286,8 @@ with open(Output, "w") as o:
         if Org1_vs_Org2_CNV >= 1 or Org1_vs_Org2_CNV <= -1 or \
            Org1_vs_Org3_CNV >= 1 or Org1_vs_Org3_CNV <= -1 or \
            Org1_vs_Org3_CNV >= 1 or Org1_vs_Org3_CNV <= -1:
-            Outline = "\t".join([gene, Org1_vs_Org2_CNV, Org1_vs_Org3_CNV,
-                                Org2_vs_Org3_CNV])
+            Outline = "\t".join([gene, str(Org1_vs_Org2_CNV),
+                                str(Org1_vs_Org3_CNV), str(Org2_vs_Org3_CNV)])
             o.write(Outline)
             o.write("\n")
 
