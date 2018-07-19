@@ -62,7 +62,6 @@ print("Arguments parsed")
 
 # ID locations of genes
 
-Location_dict = defaultdict(list)
 Gene_IDs = []
 
 with open(gene_bed) as f:
@@ -85,7 +84,50 @@ Org1_ARDs = []
 Org2_ARDs = []
 Org3_ARDs = []
 
-print("Average read depth per gene calculated")
+with open(Org1_depth) as f:
+    depth_lines = f.readlines()
+    for depth_line in depth_lines:
+        depth_split_line = depth_line.split()
+        depth_gene = depth_split_line[3]
+        depth_coverage = depth_split_line[6]
+        depth_start = depth_split_line[1]
+        depth_end = depth_split_line[2]
+        depth_length = depth_end - depth_start + 1
+        depth_ARD = float(depth_coverage / depth_length)
+        Org1_ARD_dict[depth_gene] = depth_ARD
+        Org1_ARDs.append(depth_ARD)
+
+print("Average read depth per gene calculated for organism 1")
+
+with open(Org2_depth) as f:
+    depth_lines = f.readlines()
+    for depth_line in depth_lines:
+        depth_split_line = depth_line.split()
+        depth_gene = depth_split_line[3]
+        depth_coverage = depth_split_line[6]
+        depth_start = depth_split_line[1]
+        depth_end = depth_split_line[2]
+        depth_length = depth_end - depth_start + 1
+        depth_ARD = float(depth_coverage / depth_length)
+        Org2_ARD_dict[depth_gene] = depth_ARD
+        Org2_ARDs.append(depth_ARD)
+
+print("Average read depth per gene calculated for organism 2")
+
+with open(Org3_depth) as f:
+    depth_lines = f.readlines()
+    for depth_line in depth_lines:
+        depth_split_line = depth_line.split()
+        depth_gene = depth_split_line[3]
+        depth_coverage = depth_split_line[6]
+        depth_start = depth_split_line[1]
+        depth_end = depth_split_line[2]
+        depth_length = depth_end - depth_start + 1
+        depth_ARD = float(depth_coverage / depth_length)
+        Org3_ARD_dict[depth_gene] = depth_ARD
+        Org3_ARDs.append(depth_ARD)
+
+print("Average read depth per gene calculated for organism 3")
 
 # -----------------------------------------------------
 # Step 2
