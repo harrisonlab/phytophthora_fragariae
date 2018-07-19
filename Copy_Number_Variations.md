@@ -36,6 +36,15 @@ sorted_bam=analysis/genome_alignment/bowtie/P.fragariae/Bc1/vs_Bc16_FALCON/Bc1_p
 samtools sort -o $sorted_bam $aligned_reads
 ```
 
+#### Create index files for those that are missing them
+
+```bash
+cd analysis/genome_alignment/bowtie/P.fragariae/Bc1/vs_Bc16_FALCON
+bam_file=Bc1_polished_contigs_unmasked.fa_aligned_sorted.bam
+samtools index $bam_file
+cd ../../../../../../
+```
+
 ### Use samtools to calculate read depth for each gene
 
 ```bash
