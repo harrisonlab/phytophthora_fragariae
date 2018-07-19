@@ -93,7 +93,7 @@ TF_CNVs=CNV_analysis/CNV_TF_TR.txt
 for num in 1
 do
     echo "The total number of genes identified as showing CNV is:"
-    cat $CNV_IDs | tail -n+2 wc -l
+    cat $CNV_IDs | tail -n+2 | wc -l
     echo "The number of RxLRs showing CNV is:"
     cat $CNV_IDs | grep -o -w -f $RxLRs > $RxLR_CNVs
     cat $RxLR_CNVs | wc -l
