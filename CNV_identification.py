@@ -201,9 +201,9 @@ print("Mean average read depth for each GC content percentile calculated")
 
 # Adjust ARD, using Kamoun lab method
 
-Org1_aARD = defaultdict(float)
-Org2_aARD = defaultdict(float)
-Org3_aARD = defaultdict(float)
+Org1_aARD_dict = defaultdict(float)
+Org2_aARD_dict = defaultdict(float)
+Org3_aARD_dict = defaultdict(float)
 
 for gene in Gene_set:
     Org1_ARD = Org1_ARD_dict[gene]
@@ -216,9 +216,9 @@ for gene in Gene_set:
     Org2_aARD = float(Org2_ARD * float(Org2_Mean_ARD / Org2_mean_ARD_GC))
     Org3_mean_ARD_GC = Org3_GC_Mean_ARDs_dict[GC_percentile]
     Org3_aARD = float(Org3_ARD * float(Org3_Mean_ARD / Org3_mean_ARD_GC))
-    Org1_aARD[gene] = Org1_aARD
-    Org2_aARD[gene] = Org2_aARD
-    Org3_aARD[gene] = Org3_aARD
+    Org1_aARD_dict[gene] = Org1_aARD
+    Org2_aARD_dict[gene] = Org2_aARD
+    Org3_aARD_dict[gene] = Org3_aARD
 
 print("Average read depth values adjusted")
 
@@ -229,9 +229,9 @@ Org2_CN_dict = defaultdict(float)
 Org3_CN_dict = defaultdict(float)
 
 for gene in Gene_set:
-    Org1_aARD = Org1_aARD[gene]
-    Org2_aARD = Org2_aARD[gene]
-    Org3_aARD = Org3_aARD[gene]
+    Org1_aARD = Org1_aARD_dict[gene]
+    Org2_aARD = Org2_aARD_dict[gene]
+    Org3_aARD = Org3_aARD_dict[gene]
     Org1_CN = float(Org1_aARD / Org1_Mean_ARD)
     Org2_CN = float(Org2_aARD / Org2_Mean_ARD)
     Org3_CN = float(Org3_aARD / Org3_Mean_ARD)
