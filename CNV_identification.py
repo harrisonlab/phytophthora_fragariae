@@ -149,9 +149,9 @@ GC_values = []
 
 for rec in SeqIO.parse(gene_fasta, "fasta"):
     gene_ID = rec.id
-    GC = GC(rec.seq)
-    GC_dict[gene_ID] = GC
-    GC_values.append(GC)
+    GC_val = GC(rec.seq)
+    GC_dict[gene_ID] = GC_val
+    GC_values.append(GC_val)
 
 print("GC content values identified per gene")
 
