@@ -90,21 +90,24 @@ Secreted_CNVs=CNV_analysis/CNV_Secreted.txt
 TFs=analysis/transcription_factors/P.fragariae/Bc16/greedy/Bc16_TF_TR_Headers.txt
 TF_CNVs=CNV_analysis/CNV_TF_TR.txt
 
-echo "The total number of genes identified as showing CNV is:"
-cat $CNV_IDs | tail -n+2 wc -l
-echo "The number of RxLRs showing CNV is:"
-cat $CNV_IDs | grep -o -w -f $RxLRs > $RxLR_CNVs
-cat $RxLR_CNVs | wc -l
-echo "The number of CRNs showing CNV is:"
-cat $CNV_IDs | grep -o -w -f $CRNs > $CRN_CNVs
-cat $CRN_CNVs | wc -l
-echo "The number of apoplastic effectors showing CNV is:"
-cat $CNV_IDs | grep -o -w -f $ApoP > $ApoP_CNVs
-cat $ApoP_CNVs | wc -l
-echo "The number of secreted proteins showing CNV is:"
-cat $CNV_IDs | grep -o -w -f $Secreted > $Secreted_CNVs
-cat $Secreted_CNVs | wc -l
-echo "The number of transcript factors and transcriptional regulators showing CNV is:"
-cat $CNV_IDs | grep -o -w -f $TFs > $TF_CNVs
-cat $TF_CNVs | wc -l
+for num in 1
+do
+    echo "The total number of genes identified as showing CNV is:"
+    cat $CNV_IDs | tail -n+2 wc -l
+    echo "The number of RxLRs showing CNV is:"
+    cat $CNV_IDs | grep -o -w -f $RxLRs > $RxLR_CNVs
+    cat $RxLR_CNVs | wc -l
+    echo "The number of CRNs showing CNV is:"
+    cat $CNV_IDs | grep -o -w -f $CRNs > $CRN_CNVs
+    cat $CRN_CNVs | wc -l
+    echo "The number of apoplastic effectors showing CNV is:"
+    cat $CNV_IDs | grep -o -w -f $ApoP > $ApoP_CNVs
+    cat $ApoP_CNVs | wc -l
+    echo "The number of secreted proteins showing CNV is:"
+    cat $CNV_IDs | grep -o -w -f $Secreted > $Secreted_CNVs
+    cat $Secreted_CNVs | wc -l
+    echo "The number of transcript factors and transcriptional regulators showing CNV is:"
+    cat $CNV_IDs | grep -o -w -f $TFs > $TF_CNVs
+    cat $TF_CNVs | wc -l
+done
 ```
