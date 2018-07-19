@@ -81,14 +81,20 @@ python $ProgDir/CNV_identification.py --Org1_ID $Isolate_1 --Org2_ID $Isolate_2 
 CNV_IDs=CNV_analysis/BC-16_BC-1_NOV-9_CNV_calls.tsv
 CNV_Headers=CNV_analysis/Bc16_Bc1_Nov9_CNV_headers.txt
 RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+RxLR_IDs=CNV_analysis/parsed_RxLRs.txt
 RxLR_CNVs=CNV_analysis/CNV_RxLRs.txt
 CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+CRN_IDs=CNV_analysis/parsed_CRNs.txt
 CRN_CNVs=CNV_analysis/CNV_CRNs.txt
 ApoP=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+ApoP_IDs=CNV_analysis/parsed_ApoP.txt
 ApoP_CNVs=CNV_analysis/CNV_ApoP.txt
 Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
+Secreted_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
+Secreted_IDs=CNV_analysis/parsed_secreted.txt
 Secreted_CNVs=CNV_analysis/CNV_Secreted.txt
 TFs=analysis/transcription_factors/P.fragariae/Bc16/greedy/Bc16_TF_TR_Headers.txt
+TF_IDs=CNV_analysis/parsed_TF_TR.txt
 TF_CNVs=CNV_analysis/CNV_TF_TR.txt
 
 for num in 1
