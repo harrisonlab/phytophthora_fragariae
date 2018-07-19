@@ -71,10 +71,6 @@ with open(gene_bed) as f:
         split_line = line.split()
         gene_ID = split_line[3]
         Gene_IDs.append(gene_ID)
-        contig_ID = split_line[0]
-        start = split_line[1]
-        end = split_line[2]
-        Location_dict[gene_ID] = [contig_ID, start, end]
 
 Gene_set = set(Gene_IDs)
 
@@ -88,20 +84,6 @@ Org3_ARD_dict = defaultdict(float)
 Org1_ARDs = []
 Org2_ARDs = []
 Org3_ARDs = []
-
-for gene in Gene_set:
-    Org1_depths = Org1_Depths_dict[gene]
-    Org2_depths = Org2_Depths_dict[gene]
-    Org3_depths = Org3_Depths_dict[gene]
-    Org1_ARD = float(sum(Org1_depths)/len(Org1_depths))
-    Org2_ARD = float(sum(Org2_depths)/len(Org2_depths))
-    Org3_ARD = float(sum(Org3_depths)/len(Org3_depths))
-    Org1_ARD_dict[gene] = Org1_ARD
-    Org2_ARD_dict[gene] = Org2_ARD
-    Org3_ARD_dict[gene] = Org3_ARD
-    Org1_ARDs.append(Org1_ARD)
-    Org2_ARDs.append(Org2_ARD)
-    Org3_ARDs.append(Org3_ARD)
 
 print("Average read depth per gene calculated")
 
