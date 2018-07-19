@@ -98,6 +98,7 @@ with open(Org1_depth) as f:
             if depth_contig == gene_contig:
                 if depth_pos >= gene_start and depth_pos <= gene_end:
                     Org1_Depths_dict[gene].append(depth)
+                    break
 
 Org2_Depths_dict = defaultdict(list)
 
@@ -115,6 +116,7 @@ with open(Org2_depth) as f:
             if depth_contig == gene_contig:
                 if depth_pos >= gene_start and depth_pos <= gene_end:
                     Org2_Depths_dict[gene].append(depth)
+                    break
 
 Org3_Depths_dict = defaultdict(list)
 
@@ -132,6 +134,7 @@ with open(Org3_depth) as f:
             if depth_contig == gene_contig:
                 if depth_pos >= gene_start and depth_pos <= gene_end:
                     Org3_Depths_dict[gene].append(depth)
+                    break
 
 print("Per base read depth identified")
 
