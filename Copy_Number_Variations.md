@@ -111,3 +111,18 @@ do
     cat $TF_CNVs | wc -l
 done
 ```
+
+```
+The total number of genes identified as showing CNV is:
+123
+The number of RxLRs showing CNV is:
+6
+The number of CRNs showing CNV is:
+0
+The number of apoplastic effectors showing CNV is:
+43
+The number of secreted proteins showing CNV is:
+0
+The number of transcript factors and transcriptional regulators showing CNV is:
+0
+```
