@@ -92,8 +92,8 @@ with open(Org1_depth) as f:
         depth_coverage = depth_split_line[6]
         depth_start = depth_split_line[1]
         depth_end = depth_split_line[2]
-        depth_length = depth_end - depth_start + 1
-        depth_ARD = float(depth_coverage / depth_length)
+        depth_length = float(depth_end) - float(depth_start) + 1
+        depth_ARD = float(float(depth_coverage) / depth_length)
         Org1_ARD_dict[depth_gene] = depth_ARD
         Org1_ARDs.append(depth_ARD)
 
@@ -107,8 +107,8 @@ with open(Org2_depth) as f:
         depth_coverage = depth_split_line[6]
         depth_start = depth_split_line[1]
         depth_end = depth_split_line[2]
-        depth_length = depth_end - depth_start + 1
-        depth_ARD = float(depth_coverage / depth_length)
+        depth_length = float(depth_end) - float(depth_start) + 1
+        depth_ARD = float(float(depth_coverage) / depth_length)
         Org2_ARD_dict[depth_gene] = depth_ARD
         Org2_ARDs.append(depth_ARD)
 
@@ -122,8 +122,8 @@ with open(Org3_depth) as f:
         depth_coverage = depth_split_line[6]
         depth_start = depth_split_line[1]
         depth_end = depth_split_line[2]
-        depth_length = depth_end - depth_start + 1
-        depth_ARD = float(depth_coverage / depth_length)
+        depth_length = float(depth_end) - float(depth_start) + 1
+        depth_ARD = float(float(depth_coverage) / depth_length)
         Org3_ARD_dict[depth_gene] = depth_ARD
         Org3_ARDs.append(depth_ARD)
 
