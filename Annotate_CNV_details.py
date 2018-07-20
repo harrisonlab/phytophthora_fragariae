@@ -71,17 +71,17 @@ with open(conf.CNV_CRNs) as f:
     for line in lines:
         CRNs.append(line)
 
-ApoP = []
+ApoPs = []
 with open(conf.CNV_ApoP) as f:
     lines = f.readlines()
     for line in lines:
-        ApoP.append(line)
+        ApoPs.append(line)
 
-Sec = []
-with open(conf.CNV_Sec) as f:
+Secs = []
+with opn(conf.CNV_Sec) as f:
     lines = f.readlines()
     for line in lines:
-        Sec.append(line)
+        Secs.append(line)
 
 TFs = []
 with open(conf.CNV_TFs) as f:
@@ -96,3 +96,28 @@ OutDir = conf.OutDir
 # Identify genes with particular features and which organism they have a change
 # in CNV in
 # -----------------------------------------------------
+
+features_dict = defaultdict(list)
+
+for gene in Gene_set:
+    if gene in RxLRs:
+        RxLR = 'Yes'
+    else:
+        RxLR = ''
+    if gene in CRNs:
+        CRN = 'Yes'
+    else:
+        CRN = ''
+    if gene in ApoPs:
+        ApoP = 'Yes'
+    else:
+        ApoP = ''
+    if gene in Secs:
+        Sec = 'Yes'
+    else:
+        Sec = ''
+    if gene in TFs:
+        TF = 'Yes'
+    else:
+        TF = ''
+    features_dict[gene] = [RxLR, CRN, ApoP, Sec, TF]
