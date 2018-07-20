@@ -33,3 +33,8 @@ ap.add_argument('--CNV_TFs', required=True, type=str, help='File containing \
 ap.add_argument('--OutDir', required=True, type=str, help='Directory to write \
                 results to')
 conf = ap.parse_args()
+
+# -----------------------------------------------------
+# Step 1
+# Load input files and create necessary data structures
+# -----------------------------------------------------
