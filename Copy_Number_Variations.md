@@ -140,3 +140,5 @@ The number of secreted proteins showing CNV is:
 The number of transcript factors and transcriptional regulators showing CNV is:
 0
 ```
+
+### Create a table containing more details about genes showing CNV
