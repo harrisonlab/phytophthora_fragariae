@@ -142,3 +142,18 @@ The number of transcript factors and transcriptional regulators showing CNV is:
 ```
 
 ### Create a table containing more details about genes showing CNV
+
+```bash
+CNV_table=CNV_analysis/BC-16_BC-1_NOV-9_CNV_calls.tsv
+CNV_RxLRs=CNV_analysis/CNV_RxLRs.txt
+CNV_CRNs=CNV_analysis/CNV_CRNs.txt
+CNV_ApoP=CNV_analysis/CNV_ApoP.txt
+CNV_Secreted=CNV_analysis/CNV_Secreted.txt
+CNV_TFs=CNV_analysis/CNV_TF_TR.txt
+OutDir=CNV_analysis
+Org1=BC-16
+Org2=BC-1
+Org3=NOV-9
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+python $ProgDir/Annotate_CNV_details.py --Org1_ID $Org1 --Org2_ID $Org2 --Org3_ID $Org3 --CNV_table $CNV_table --CNV_RxLRs $CNV_RxLRs --CNV_CRNs $CNV_CRNs --CNV_ApoP $CNV_ApoP --CNV_Sec $CNV_Secreted --CNV_TFs $CNV_TFs --OutDir $OutDir
+```
