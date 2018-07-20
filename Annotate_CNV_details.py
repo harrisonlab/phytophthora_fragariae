@@ -78,7 +78,7 @@ with open(conf.CNV_ApoP) as f:
         ApoPs.append(line)
 
 Secs = []
-with opn(conf.CNV_Sec) as f:
+with open(conf.CNV_Sec) as f:
     lines = f.readlines()
     for line in lines:
         Secs.append(line)
@@ -90,6 +90,7 @@ with open(conf.CNV_TFs) as f:
         TFs.append(line)
 
 OutDir = conf.OutDir
+cwd = os.getcwd()
 
 # -----------------------------------------------------
 # Step 2
@@ -152,3 +153,8 @@ for gene in Gene_set:
     else:
         Decrease = ''
     Inc_Dec_dict[gene] = [Increase, Decrease]
+
+# -----------------------------------------------------
+# Step 3
+# Writes results to file
+# -----------------------------------------------------
