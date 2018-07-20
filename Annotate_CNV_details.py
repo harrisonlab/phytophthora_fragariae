@@ -97,6 +97,8 @@ OutDir = conf.OutDir
 # in CNV in
 # -----------------------------------------------------
 
+# Assign gene features
+
 features_dict = defaultdict(list)
 
 for gene in Gene_set:
@@ -121,3 +123,32 @@ for gene in Gene_set:
     else:
         TF = ''
     features_dict[gene] = [RxLR, CRN, ApoP, Sec, TF]
+
+# Identify isolate with CNV for each gene
+
+Inc_Dec_dict = defaultdict(list)
+
+for gene in Gene_set:
+    CNVs = CNV_in_dict[gene]
+    CNV_A = CNVs[0]
+    CNV_B = CNVs[1]
+    CNV_C = CNVs[2]
+    # Check for single increase
+    if CNV_A >= 1 and CNV_B >= 1:
+        Increased = 'BC-16'
+    elif CNV_A <= -1 and CNV_C >= 1:
+        Increased = 'BC-1'
+    elif CNV_B <= -1 and CNV_C <= -1:
+        Increase = 'NOV-9'
+    else:
+        Increase = ''
+    # Check for single decrease
+    if CNV_A <= -1 and CNV_B <= -1:
+        Decrease = 'BC-16'
+    elif CNV_A >= 1 and CNV_C <= -1:
+        Decrease = 'BC-1'
+    elif CNV_B >= 1 and CNV_C >= 1:
+        Decrease = 'NOV-9'
+    else:
+        Decrease = ''
+    Inc_Dec_dict[gene] = [Increase, Decrease]
