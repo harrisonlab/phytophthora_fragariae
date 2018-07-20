@@ -56,31 +56,36 @@ RxLRs = []
 with open(conf.CNV_RxLRs) as f:
     lines = f.readlines()
     for line in lines:
-        RxLRs.append(line)
+        RxLR = line.strip("\n")
+        RxLRs.append(RxLR)
 
 CRNs = []
 with open(conf.CNV_CRNs) as f:
     lines = f.readlines()
     for line in lines:
-        CRNs.append(line)
+        CRN = line.strip("\n")
+        CRNs.append(CRN)
 
 ApoPs = []
 with open(conf.CNV_ApoP) as f:
     lines = f.readlines()
     for line in lines:
-        ApoPs.append(line)
+        ApoP = line.strip("\n")
+        ApoPs.append(ApoP)
 
 Secs = []
 with open(conf.CNV_Sec) as f:
     lines = f.readlines()
     for line in lines:
-        Secs.append(line)
+        Sec = line.strip("\n")
+        Secs.append(Sec)
 
 TFs = []
 with open(conf.CNV_TFs) as f:
     lines = f.readlines()
     for line in lines:
-        TFs.append(line)
+        TF = line.strip("\n")
+        TFs.append(TF)
 
 OutDir = conf.OutDir
 cwd = os.getcwd()
