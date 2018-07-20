@@ -44,6 +44,7 @@ Org2 = conf.Org2_ID
 Org3 = conf.Org3_ID
 
 CNV_in_dict = defaultdict(list)
+Genes = []
 
 with open(conf.CNV_table) as f:
     lines = f.readlines()[1]
@@ -54,6 +55,9 @@ with open(conf.CNV_table) as f:
         CNV_2 = split_line[2]
         CNV_3 = split_line[3]
         CNV_in_dict[Gene] = [CNV_1, CNV_2, CNV_3]
+        Genes.append(Gene)
+
+Gene_set = set(Genes)
 
 RxLRs = []
 with open(conf.CNV_RxLRs) as f:
