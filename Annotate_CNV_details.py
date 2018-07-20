@@ -47,8 +47,11 @@ CNV_in_dict = defaultdict(list)
 Genes = []
 
 with open(conf.CNV_table) as f:
-    lines = f.readlines()[1]
+    lines = f.readlines()
     for line in lines:
+        if line.startswith('Gene_ID'):
+            Header = line
+        else:
         split_line = line.split()
         Gene = split_line[0]
         CNV_1 = split_line[1]
@@ -158,3 +161,19 @@ for gene in Gene_set:
 # Step 3
 # Writes results to file
 # -----------------------------------------------------
+
+OutName = "CNV_details.tsv"
+Output = "/".join([cwd, OutDir, OutName])
+
+with open(Output, "w") as o:
+    Header = "\t".join([Header, "Increased_CN", "Decreased_CN", "RxLR", "CRN",
+                        "ApoP", "Secreted", "TF/TR"])
+    o.write(Header)
+    o.write("\n")
+    for gene in Gene_set:
+        CNVs = CNV_in_dict[gene]
+        Feats = features_dict[gene]
+        Inc_Dec = Inc_Dec_dict[gene]
+        Outline = "\t".join([gene, CNVs, Inc_Dec, Feats])
+        o.write(Outline)
+        o.write("\n")
