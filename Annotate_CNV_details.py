@@ -129,9 +129,9 @@ Inc_Dec_dict = defaultdict(list)
 
 for gene in Gene_set:
     CNVs = CNV_in_dict[gene]
-    CNV_A = CNVs[0]
-    CNV_B = CNVs[1]
-    CNV_C = CNVs[2]
+    CNV_A = float(CNVs[0])
+    CNV_B = float(CNVs[1])
+    CNV_C = float(CNVs[2])
     # Check for single increase
     if CNV_A >= 1 and CNV_B >= 1:
         Increase = 'BC-16'
