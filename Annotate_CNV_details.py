@@ -11,12 +11,6 @@ from collections import defaultdict
 import os
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--Org1_ID', required=True, type=str, help='Name of organism \
-                1')
-ap.add_argument('--Org2_ID', required=True, type=str, help='Name of organism \
-                2')
-ap.add_argument('--Org3_ID', required=True, type=str, help='Name of organism \
-                3')
 ap.add_argument('--CNV_table', required=True, type=str, help='Table produced \
                 by CNV_identification.py')
 ap.add_argument('--CNV_RxLRs', required=True, type=str, help='File containing \
@@ -38,10 +32,6 @@ conf = ap.parse_args()
 # Step 1
 # Load input files and create necessary data structures
 # -----------------------------------------------------
-
-Org1 = conf.Org1_ID
-Org2 = conf.Org2_ID
-Org3 = conf.Org3_ID
 
 CNV_in_dict = defaultdict(list)
 Genes = []
