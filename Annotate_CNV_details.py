@@ -139,9 +139,9 @@ for gene in Gene_set:
     CNV_C = CNVs[2]
     # Check for single increase
     if CNV_A >= 1 and CNV_B >= 1:
-        Increased = 'BC-16'
+        Increase = 'BC-16'
     elif CNV_A <= -1 and CNV_C >= 1:
-        Increased = 'BC-1'
+        Increase = 'BC-1'
     elif CNV_B <= -1 and CNV_C <= -1:
         Increase = 'NOV-9'
     else:
