@@ -171,9 +171,17 @@ with open(Output, "w") as o:
     o.write(Header)
     o.write("\n")
     for gene in Gene_set:
-        CNVs = CNV_in_dict[gene]
-        Feats = features_dict[gene]
-        Inc_Dec = Inc_Dec_dict[gene]
-        Outline = "\t".join([gene, CNVs, Inc_Dec, Feats])
+        CNV_1 = CNV_in_dict[gene][0]
+        CNV_2 = CNV_in_dict[gene][1]
+        CNV_3 = CNV_in_dict[gene][2]
+        RxLR = features_dict[gene][0]
+        CRN = features_dict[gene][1]
+        ApoP = features_dict[gene][2]
+        Sec = features_dict[gene][3]
+        TF = features_dict[gene][4]
+        Inc = Inc_Dec_dict[gene][0]
+        Dec = Inc_Dec_dict[gene][1]
+        Outline = "\t".join([gene, CNV_1, CNV_2, CNV_3, Inc, Dec, RxLR, CRN,
+                            ApoP, Sec, TF])
         o.write(Outline)
         o.write("\n")
