@@ -50,7 +50,7 @@ with open(conf.CNV_table) as f:
     lines = f.readlines()
     for line in lines:
         if line.startswith('Gene_ID'):
-            Header = line
+            Header = line.strip('\n')
         else:
             split_line = line.split()
             Gene = split_line[0]
