@@ -52,13 +52,13 @@ with open(conf.CNV_table) as f:
         if line.startswith('Gene_ID'):
             Header = line
         else:
-        split_line = line.split()
-        Gene = split_line[0]
-        CNV_1 = split_line[1]
-        CNV_2 = split_line[2]
-        CNV_3 = split_line[3]
-        CNV_in_dict[Gene] = [CNV_1, CNV_2, CNV_3]
-        Genes.append(Gene)
+            split_line = line.split()
+            Gene = split_line[0]
+            CNV_1 = split_line[1]
+            CNV_2 = split_line[2]
+            CNV_3 = split_line[3]
+            CNV_in_dict[Gene] = [CNV_1, CNV_2, CNV_3]
+            Genes.append(Gene)
 
 Gene_set = set(Genes)
 
