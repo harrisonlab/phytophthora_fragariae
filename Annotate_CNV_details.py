@@ -86,3 +86,9 @@ with open(conf.CNV_TFs) as f:
         TFs.append(line)
 
 OutDir = conf.OutDir
+
+# -----------------------------------------------------
+# Step 2
+# Identify genes with particular features and which organism they have a change
+# in CNV in
+# -----------------------------------------------------
