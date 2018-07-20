@@ -38,3 +38,51 @@ conf = ap.parse_args()
 # Step 1
 # Load input files and create necessary data structures
 # -----------------------------------------------------
+
+Org1 = conf.Org1_ID
+Org2 = conf.Org2_ID
+Org3 = conf.Org3_ID
+
+CNV_in_dict = defaultdict(list)
+
+with open(conf.CNV_table) as f:
+    lines = f.readlines()[1]
+    for line in lines:
+        split_line = line.split()
+        Gene = split_line[0]
+        CNV_1 = split_line[1]
+        CNV_2 = split_line[2]
+        CNV_3 = split_line[3]
+        CNV_in_dict[Gene] = [CNV_1, CNV_2, CNV_3]
+
+RxLRs = []
+with open(conf.CNV_RxLRs) as f:
+    lines = f.readlines()
+    for line in lines:
+        RxLRs.append(line)
+
+CRNs = []
+with open(conf.CNV_CRNs) as f:
+    lines = f.readlines()
+    for line in lines:
+        CRNs.append(line)
+
+ApoP = []
+with open(conf.CNV_ApoP) as f:
+    lines = f.readlines()
+    for line in lines:
+        ApoP.append(line)
+
+Sec = []
+with open(conf.CNV_Sec) as f:
+    lines = f.readlines()
+    for line in lines:
+        Sec.append(line)
+
+TFs = []
+with open(conf.CNV_TFs) as f:
+    lines = f.readlines()
+    for line in lines:
+        TFs.append(line)
+
+OutDir = conf.OutDir
