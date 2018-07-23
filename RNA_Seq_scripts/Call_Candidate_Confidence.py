@@ -352,58 +352,63 @@ with open(Output, 'w') as o:
     o.write(Header)
     o.write("\n")
     for transcript_ID in Org1_ID_dict.keys():
-        if transcript_ID in Org1_Exp_to_print:
-            Org1_Exp = "Yes"
-        else:
-            Org1_Exp = ""
-        if transcript_ID in Org2_Exp_to_print:
-            Org2_Exp = "Yes"
-        else:
-            Org2_Exp = ""
-        if transcript_ID in Org3_Exp_to_print:
-            Org3_Exp = "Yes"
-        else:
-            Org3_Exp = ""
-        if transcript_ID in Org1_DEG_to_print:
-            Org1_DEG = "Yes"
-        else:
-            Org1_DEG = ""
-        if transcript_ID in Org2_DEG_to_print:
-            Org2_DEG = "Yes"
-        else:
-            Org2_DEG = ""
-        if transcript_ID in Org3_DEG_to_print:
-            Org3_DEG = "Yes"
-        else:
-            Org3_DEG = ""
-        if transcript_ID in RxLR_to_print:
-            RxLR = "Yes"
-        else:
-            RxLR = ""
-        if transcript_ID in CRN_to_print:
-            CRN = "Yes"
-        else:
-            CRN = ""
-        if transcript_ID in ApoP_to_print:
-            ApoP = "Yes"
-        else:
-            ApoP = ""
-        if transcript_ID in Sec_to_print:
-            Sec = "Yes"
-        else:
-            Sec = ""
-        if transcript_ID in TF_to_print:
-            TF = "Yes"
-        else:
-            TF = ""
-        Org2_IDs = ",".join(str(ID) for ID in Org1_Org2_dict[transcript_ID])
-        Org3_IDs = ",".join(str(ID) for ID in Org1_Org3_dict[transcript_ID])
-        Orthogroup = str(Org1_ID_dict[transcript_ID])
-        Score = str(Score_dict[transcript_ID])
-        To_Write = "\t".join([transcript_ID, Org2_IDs, Org3_IDs, Orthogroup,
-                             Org1_Exp, Org2_Exp, Org3_Exp, Org1_DEG, Org2_DEG,
-                             Org3_DEG, RxLR, CRN, ApoP, Sec, TF, Score])
-        o.write(To_Write)
-        o.write("\n")
+        if transcript_ID in RxLR_to_print or CRN_to_print or ApoP_to_print or \
+         Sec_to_print or TF_to_print:
+            if transcript_ID in Org1_Exp_to_print:
+                Org1_Exp = "Yes"
+            else:
+                Org1_Exp = ""
+            if transcript_ID in Org2_Exp_to_print:
+                Org2_Exp = "Yes"
+            else:
+                Org2_Exp = ""
+            if transcript_ID in Org3_Exp_to_print:
+                Org3_Exp = "Yes"
+            else:
+                Org3_Exp = ""
+            if transcript_ID in Org1_DEG_to_print:
+                Org1_DEG = "Yes"
+            else:
+                Org1_DEG = ""
+            if transcript_ID in Org2_DEG_to_print:
+                Org2_DEG = "Yes"
+            else:
+                Org2_DEG = ""
+            if transcript_ID in Org3_DEG_to_print:
+                Org3_DEG = "Yes"
+            else:
+                Org3_DEG = ""
+            if transcript_ID in RxLR_to_print:
+                RxLR = "Yes"
+            else:
+                RxLR = ""
+            if transcript_ID in CRN_to_print:
+                CRN = "Yes"
+            else:
+                CRN = ""
+            if transcript_ID in ApoP_to_print:
+                ApoP = "Yes"
+            else:
+                ApoP = ""
+            if transcript_ID in Sec_to_print:
+                Sec = "Yes"
+            else:
+                Sec = ""
+            if transcript_ID in TF_to_print:
+                TF = "Yes"
+            else:
+                TF = ""
+            Org2_IDs = ",".join(str(ID) for ID in Org1_Org2_dict[transcript_ID]
+                                )
+            Org3_IDs = ",".join(str(ID) for ID in Org1_Org3_dict[transcript_ID]
+                                )
+            Orthogroup = str(Org1_ID_dict[transcript_ID])
+            Score = str(Score_dict[transcript_ID])
+            To_Write = "\t".join([transcript_ID, Org2_IDs, Org3_IDs,
+                                 Orthogroup, Org1_Exp, Org2_Exp, Org3_Exp,
+                                 Org1_DEG, Org2_DEG, Org3_DEG, RxLR, CRN, ApoP,
+                                 Sec, TF, Score])
+            o.write(To_Write)
+            o.write("\n")
 
 print("Output written to file")
