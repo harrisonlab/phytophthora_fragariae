@@ -92,6 +92,7 @@ Uniq_DEG_Files = conf.Differently_DEG_File
 Org1_Uniq_DEG = []
 Org2_Uniq_DEG = []
 Org3_Uniq_DEG = []
+
 for Uniq_DEG_File in Uniq_DEG_Files:
     with open(Uniq_DEG_File) as f:
         if (Uniq_DEG_File.split('/')[-1].split('_')[0] == Org1 and
@@ -120,6 +121,7 @@ Org2_Uniq_DEG_set = set(Org2_Uniq_DEG)
 Org3_Uniq_DEG_set = set(Org3_Uniq_DEG)
 
 ortho_dict = defaultdict(list)
+
 with open(conf.Orthogroup_in) as f:
     Ortho_lines = f.readlines()
     for line in Ortho_lines:
@@ -131,6 +133,7 @@ with open(conf.Orthogroup_in) as f:
         ortho_dict[orthogroup] = genes_in_group
 
 RxLRs = []
+
 with open(conf.RxLRs) as f:
     RxLR_lines = f.readlines()
     for line in RxLR_lines:
@@ -140,6 +143,7 @@ with open(conf.RxLRs) as f:
         RxLRs.append(ID)
 
 CRNs = []
+
 with open(conf.CRNs) as f:
     CRN_lines = f.readlines()
     for line in CRN_lines:
@@ -149,6 +153,7 @@ with open(conf.CRNs) as f:
         CRNs.append(ID)
 
 ApoPs = []
+
 with open(conf.ApoP) as f:
     ApoP_lines = f.readlines()
     for line in ApoP_lines:
@@ -158,6 +163,7 @@ with open(conf.ApoP) as f:
         ApoPs.append(ID)
 
 Sec = []
+
 with open(conf.Secreted_CQ) as f:
     Sec_CQ_lines = f.readlines()
     for line in Sec_CQ_lines:
@@ -172,6 +178,7 @@ with open(conf.Secreted_ORF) as f:
         Sec.append(ID_modified)
 
 TFs = []
+
 with open(conf.TFs) as f:
     TF_lines = f.readlines()
     for line in TF_lines:
@@ -220,6 +227,7 @@ for transcript_ID in transcripts_to_check_set:
             transcript_IDs[orthogroup] = transcript_ID
 
 OGs_set = set(OGs)
+
 for orthogroup in OGs_set:
     transcript_ID = transcript_IDs[orthogroup]
     if set(Race_IDs).issubset(set(Isolates_per_group[orthogroup])):
