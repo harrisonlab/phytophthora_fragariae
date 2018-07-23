@@ -3580,7 +3580,7 @@ done
 Analysis of Bc16
 
 The number of candidate genes regardless of confidence is:
-1,419
+302
 The number of candidate RxLRs regardless of confidence is:
 51
 The number of candidate CRNs regardless of confidence is:
@@ -3664,7 +3664,7 @@ The number of secreted proteins of confidence level 1 is:
 The number of TFs/TRs of confidence level 1 is:
 3
 The number of genes of confidence level 0 is:
-1,117
+0
 The number of RxLRs of confidence level 0 is:
 0
 The number of CRNs of confidence level 0 is:
@@ -3679,7 +3679,7 @@ The number of TFs/TRs of confidence level 0 is:
 Analysis of Bc1
 
 The number of candidate genes regardless of confidence is:
-454
+114
 The number of candidate RxLRs regardless of confidence is:
 16
 The number of candidate CRNs regardless of confidence is:
@@ -3763,7 +3763,7 @@ The number of secreted proteins of confidence level 1 is:
 The number of TFs/TRs of confidence level 1 is:
 5
 The number of genes of confidence level 0 is:
-340
+0
 The number of RxLRs of confidence level 0 is:
 0
 The number of CRNs of confidence level 0 is:
@@ -3778,7 +3778,7 @@ The number of TFs/TRs of confidence level 0 is:
 Analysis of Nov9
 
 The number of candidate genes regardless of confidence is:
-1,106
+186
 The number of candidate RxLRs regardless of confidence is:
 35
 The number of candidate CRNs regardless of confidence is:
@@ -3862,7 +3862,7 @@ The number of secreted proteins of confidence level 1 is:
 The number of TFs/TRs of confidence level 1 is:
 9
 The number of genes of confidence level 0 is:
-920
+0
 The number of RxLRs of confidence level 0 is:
 0
 The number of CRNs of confidence level 0 is:
