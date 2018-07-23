@@ -360,8 +360,9 @@ with open(Output, 'w') as o:
     o.write(Header)
     o.write("\n")
     for transcript_ID in Org1_ID_dict.keys():
-        if transcript_ID in RxLR_to_print or CRN_to_print or ApoP_to_print or \
-         Sec_to_print or TF_to_print:
+        if transcript_ID in RxLR_to_print or transcript_ID in CRN_to_print \
+         or transcript_ID in ApoP_to_print or transcript_ID in Sec_to_print \
+         or transcript_ID in TF_to_print:
             if transcript_ID in Org1_Exp_to_print:
                 Org1_Exp = "Yes"
             else:
