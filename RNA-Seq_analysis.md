@@ -4051,12 +4051,18 @@ Investigate whether this gene appears to be part of a family or not
 Header file created using nano for target - gene ID is g24882.t1
 
 ```bash
+# Candidate gene
 WorkDir=analysis/DeSeq/Method_1/candidates/BLAST_of_candidate
 mkdir -p $WorkDir
 Headers=$WorkDir/candidate_avr.txt
 Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 $ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $WorkDir/target.fa
+
+# All RxLRs
+Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
+$ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $WorkDir/all_Bc16_RxLRs.fa
 ```
 
 ### Then BLAST against all RxLRs effectors
