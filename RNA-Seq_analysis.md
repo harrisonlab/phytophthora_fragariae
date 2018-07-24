@@ -4067,7 +4067,7 @@ Run in screen session
 qlogin
 
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/DeSeq/Method_1/candidates/BLAST_of_candidate
-Genes=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR.fa
+Genes=all_Bc16_RxLRs.fa
 makeblastdb -in $Genes -input_type fasta -dbtype nucl -out BC-16_RxLRs.db
 
 blastn -db BC-16_RxLRs.db -query target.fa -out candidate_BLAST.tbl -evalue 0.0000000001 -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"
