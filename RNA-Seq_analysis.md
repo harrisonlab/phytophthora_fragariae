@@ -4058,3 +4058,17 @@ Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fa
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 $ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $WorkDir/target.fa
 ```
+
+### Then BLAST against all RxLRs effectors
+
+Run in screen session
+
+```bash
+qlogin
+
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/DeSeq/Method_1/candidates/BLAST_of_candidate
+Genes=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR.fa
+makeblastdb -in $Genes -input_type fasta -dbtype nucl -out BC-16_RxLRs.db
+
+blastn -db BC-16_RxLRs.db -query target.fa -out candidate_BLAST.tbl -evalue 0.0000000001 -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"
+```
