@@ -4045,3 +4045,16 @@ $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Bc16_gen
 
 A very strong candidate for *Avr2* has been identified from previous analyses
 Investigate whether this gene appears to be part of a family or not
+
+### Extract FASTA file of the candidate gene
+
+Header file created using nano - gene ID is g24882.t1
+
+```bash
+WorkDir=analysis/DeSeq/Method_1/candidates/BLAST_of_candidate
+mkdir -p $WorkDir
+Headers=$WorkDir/candidate_avr.txt
+Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
+ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+$ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $WorkDir/target.fa
+```
