@@ -4062,7 +4062,9 @@ $ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $WorkDir/targ
 # All RxLRs
 Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
 Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
-$ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $WorkDir/all_Bc16_RxLRs.fa
+cp $Headers Bc16_RxLRs.txt
+cat Bc16_RxLRs.txt | sed 's/[.]t.//g' > all_Bc16_RxLRs.txt
+$ProgDir/extract_from_fasta.py --fasta $Fasta --headers all_Bc16_RxLRs.txt > $WorkDir/all_Bc16_RxLRs.fa
 ```
 
 ### Then BLAST against all RxLRs effectors
