@@ -4040,3 +4040,8 @@ cat $Set1Genes $Set2Genes > $AllGenes
 
 $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Bc16_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
 ```
+
+## Investigation of candidate gene
+
+A very strong candidate for *Avr2* has been identified from previous analyses
+Investigate whether this gene appears to be part of a family or not
