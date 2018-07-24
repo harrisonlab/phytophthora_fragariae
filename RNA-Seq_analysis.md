@@ -4065,6 +4065,17 @@ Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fa
 cp $Headers Bc16_RxLRs.txt
 cat Bc16_RxLRs.txt | sed 's/[.]t.//g' > $WorkDir/all_Bc16_RxLRs.txt
 $ProgDir/extract_from_fasta.py --fasta $Fasta --headers $WorkDir/all_Bc16_RxLRs.txt > $WorkDir/all_Bc16_RxLRs.fa
+input=$WorkDir/all_Bc16_RxLRs.fa
+input_modified=$WorkDir/all_Bc16_RxLRs_corrected.fa
+# Convert all bases to upper case
+cat $input | awk 'BEGIN{FS=" "}{if(!/>/){print toupper($0)}else{print $1}}' \
+> $input_modified
+rm $input
+mv $input_modified $input
+# Remove duplicate genes
+awk 'BEGIN{RS=">"}NR>1{sub("\n","\t"); gsub("\n",""); print RS$0}' $input | awk '!seen[$1]++' | awk -v OFS="\n" '{print $1,$2}' > $input_modified
+rm $input
+mv $input_modified $input
 ```
 
 ### Then BLAST against all RxLRs effectors
