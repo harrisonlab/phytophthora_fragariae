@@ -8,7 +8,7 @@ This uses only biallelic SNP sites
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/with_rubi
-scripts=/home/sobczm/bin/popgen/snp
+scripts=/home/adamst/git_repos/popgen/snp
 ```
 
 ### Converts VCF files to Plink's PED format
@@ -85,7 +85,7 @@ Works, Throws error for being unable to load a Fontconfig file (non-critical)
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/without_rubi
-scripts=/home/sobczm/bin/popgen/snp
+scripts=scripts=/home/adamst/git_repos/popgen/snp
 ```
 
 ### Converts VCF files to Plink's PED format
@@ -162,7 +162,7 @@ Throws an error for being unable to load a Fontconfig file (non-critical)
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/UK123
-scripts=/home/sobczm/bin/popgen/snp
+scripts=scripts=/home/adamst/git_repos/popgen/snp
 ```
 
 ### Converts VCF files to Plink's PED format
@@ -239,8 +239,8 @@ This should help detect any weak signals of population structure
 ### Sets initial variables
 
 ```bash
-input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/UK123
-scripts=/home/sobczm/bin/popgen/snp
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/UK123_logistic
+scripts=scripts=/home/adamst/git_repos/popgen/snp
 ```
 
 ### Converts VCF files to Plink's PED format
