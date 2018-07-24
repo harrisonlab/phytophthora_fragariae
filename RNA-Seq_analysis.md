@@ -4046,9 +4046,9 @@ $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $OutDir/Bc16_gen
 A very strong candidate for *Avr2* has been identified from previous analyses
 Investigate whether this gene appears to be part of a family or not
 
-### Extract FASTA file of the candidate gene
+### Extract FASTA file of the candidate gene and target genes
 
-Header file created using nano - gene ID is g24882.t1
+Header file created using nano for target - gene ID is g24882.t1
 
 ```bash
 WorkDir=analysis/DeSeq/Method_1/candidates/BLAST_of_candidate
