@@ -79,10 +79,21 @@ Pacbio fragariae genomes
 # for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
 File=assembly/FALCON_Trial/quiver_results/polished/deconseq_Paen/log.txt
 Name=Bc16
-Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
-Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
-Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
+Good=$(cat $File | cut -f2 | head -n1 | tail -n1)
+Both=$(cat $File | cut -f2 | head -n2 | tail -n1)
+Bad=$(cat $File | cut -f2 | head -n3 | tail -n1)
 printf "$Name\t$Good\t$Both\t$Bad\n"
+```
+
+ONT fragariae genomes
+
+```bash
+File=assembly/SMARTdenovo/P.fragariae/NOV-9/pilon/deconseq_Paen/log.txt
+Name=Nov9
+Good=$(cat $File | cut -f2 | head -n1 | tail -n1)
+Both=$(cat $File | cut -f2 | head - n2 | tails -n1)
+Bad=$(cat $File | cut -f2 | head -n3 | tail -n1)
+printf "$Name\t$Good\t$Bth\t$Bad"
 ```
 
 ```
