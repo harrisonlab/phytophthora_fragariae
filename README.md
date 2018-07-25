@@ -4952,6 +4952,11 @@ The number of sequences extracted is
 10,812
 ```
 
+## Before making a combined GFF, several other intersects are needed
+
+Due to high hit rate of ApoP, and the fact that some RxLRs are also hit by ApoP,
+Extra intersects are needed to avoid genes being present twice.
+
 #Making a combined file of Braker and CodingQuary genes with additional ORF effector candidates
 
 ```bash
