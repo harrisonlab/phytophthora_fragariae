@@ -91,9 +91,9 @@ ONT fragariae genomes
 File=assembly/SMARTdenovo/P.fragariae/NOV-9/pilon/deconseq_Paen/log.txt
 Name=Nov9
 Good=$(cat $File | cut -f2 | head -n1 | tail -n1)
-Both=$(cat $File | cut -f2 | head - n2 | tails -n1)
+Both=$(cat $File | cut -f2 | head -n2 | tail -n1)
 Bad=$(cat $File | cut -f2 | head -n3 | tail -n1)
-printf "$Name\t$Good\t$Bth\t$Bad"
+printf "$Name\t$Good\t$Both\t$Bad"
 ```
 
 ```
@@ -108,6 +108,7 @@ Nov9	11801	0	1
 ONT3	13291	1	0
 SCRP245_v2	13239	1	9
 Bc16	180	0	0
+Nov9 (MinION)   124 0   0
 ```
 
 Contaminant organisms identified by NCBI BLAST
