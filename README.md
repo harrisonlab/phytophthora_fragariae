@@ -4957,6 +4957,53 @@ The number of sequences extracted is
 Due to high hit rate of ApoP, and the fact that some RxLRs are also hit by ApoP,
 Extra intersects are needed to avoid genes being present twice.
 
+```bash
+for MergeDir in $(ls -d analysis/ApoplastP/*/*)
+do
+    Strain=$(echo "$MergeDir" | rev | cut -f1 -d '/' | rev)
+    Species=$(echo "$MergeDir" | rev | cut -f2 -d '/' | rev)
+    RxLR_ORFs=$(ls analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_ORFsUniq_RxLR_motif_hmm.gff)
+    RxLR_EER_ORFs=$(ls analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_ORFsUniq_RxLR_EER_motif_hmm.gff)
+    CRN_ORFs=$(ls analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_ORFsUniq_CRN_hmmer.bed)
+    ApoP_ORFs=$(ls analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_ORFsUniq_ApoplastP.gff)
+    RxLR_No_ApoP=$MergeDir/"$Strain"_RxLR_No_ApoP_ORFs.gff
+    RxLR_Plus_ApoP=$MergeDir/"$Strain"_RxLR_Plus_ApoP_ORFs.gff
+    CRN_No_ApoP=$MergeDir/"$Strain"_CRN_No_ApoP_ORFs.gff
+    CRN_Plus_ApoP=$MergeDir/"$Strain"_CRN_Plus_ApoP_ORFs.gff
+    ApoP_No_RxLR_CRN=$MergeDir/"$Strain"_ApoP_No_RxLR_CRN_ORFs.gff
+    RxLR_EER_No_ApoP=$MergeDir/"$Strain"_RxLR_EER_No_ApoP_ORFs.gff
+    RxLR_EER_Plus_ApoP=$MergeDir/"$Strain"_RxLR_EER_Plus_ApoP_ORFs.gff
+    ApoP_No_RxLR_EER_CRN=$MergeDir/"$Strain"_ApoP_No_RxLR_EER_CRN_ORFs.gff
+
+    bedtools intersect -v -wa -a $RxLR_ORFs -b $ApoP_ORFs > $RxLR_No_ApoP
+    bedtools intersect -wa -u -a $RxLR_ORFs -b $ApoP_ORFs > $RxLR_Plus_ApoP
+    bedtools intersect -v -wa -a $CRN_ORFs -b $ApoP_ORFs > $CRN_No_ApoP
+    bedtools intersect -wa -u -a $CRN_ORFs -b $ApoP_ORFs > $CRN_Plus_ApoP
+    bedtools intersect -v -wa -a $ApoP_ORFs -b $RxLR_ORFs $CRN_ORFs > $ApoP_No_RxLR_CRN
+    bedtools intersect -v -wa -a $RxLR_EER_ORFs -b $ApoP_ORFs > $RxLR_EER_No_ApoP
+    bedtools intersect -wa -u -a $RxLR_EER_ORFs -b $ApoP_ORFs > $RxLR_EER_Plus_ApoP
+    bedtools intersect -v -wa -a $ApoP_ORFs -b $RxLR_EER_ORFs $CRN_ORFs > $ApoP_No_RxLR_EER_CRN
+
+    echo "$Species - $Strain"
+    echo "The number of RxLRs not hit by ApoplastP is:"
+    cat $RxLR_No_ApoP | grep -w 'gene' | wc -l
+    echo "The number of RxLRs that also hit ApoplastP is:"
+    cat $RxLR_Plus_ApoP | grep -w 'gene' | wc -l
+    echo "The number of CRNs not hit by ApoplastP is:"
+    cat $CRN_No_ApoP | grep -w 'gene' | wc -l
+    echo "The number of CRNs that also hit ApoplastP is:"
+    cat $CRN_Plus_ApoP | grep -w 'gene' | wc -l
+    echo "The number of ApoplastP hits that are not RxLRs or CRNs is:"
+    cat $ApoP_No_RxLR_CRN | grep -w 'gene' | wc -l
+    echo "The number of RxLRs with an EER domain not hit by ApoplastP is:"
+    cat $RxLR_EER_No_ApoP | grep -w 'gene' | wc -l
+    echo "The number of RxLRs with an EER domain also hit by ApoplastP is:"
+    cat $RxLR_EER_Plus_ApoP | grep -w 'gene' | wc -l
+    echo "The number of ApoplastP hits that are not RxLRs with an EER domain or CRNs is:"
+    cat $ApoP_No_RxLR_EER_CRN | grep -w 'gene' | wc -l
+done
+```
+
 #Making a combined file of Braker and CodingQuary genes with additional ORF effector candidates
 
 ```bash
