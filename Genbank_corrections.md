@@ -42,6 +42,21 @@ ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_con
 qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
 ```
 
+ONT fragariae genomes
+
+```bash
+Assembly=assembly/SMARTdenovo/P.fragariae/NOV-9/pilon/pilon_repeats/pilon_min_500bp_renamed.fasta
+Strain=Nov9
+Organism=P.fragariae
+echo "$Organism - $Strain"
+Exclude_db="bacillus"
+Good_db="phytoph"
+AssemblyDir=$(dirname $Assembly)
+OutDir=$AssemblyDir/../deconseq_Paen
+ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
+```
+
 Results were summarised using the following commands
 
 Illumina fragariae genomes
