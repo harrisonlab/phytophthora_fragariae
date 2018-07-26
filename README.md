@@ -5226,7 +5226,7 @@ The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
 9,771
 ```
 
-#Making a combined file of Braker and CodingQuary genes with additional ORF effector candidates
+#Making a combined file of Braker and CodingQuarry genes with additional ORF effector candidates
 
 ```bash
 for num in 1
@@ -5237,9 +5237,14 @@ do
         Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $GeneGff | rev | cut -d '/' -f4 | rev)
         echo "$Strain - $Organism"
-        GffOrfRxLR=$(ls analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_ORFsUniq_RxLR_motif_hmm.gff)
-        GffOrfCRN=$(ls analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_ORFsUniq_CRN_hmmer.bed)
-        GffOrfApo=$(ls analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_ORFsUniq_ApoplastP.gff)
+        RxLR_No_ApoP=$MergeDir/"$Strain"_RxLR_No_ApoP_ORFs.gff
+        RxLR_Plus_ApoP=$MergeDir/"$Strain"_RxLR_Plus_ApoP_ORFs.gff
+        CRN_No_ApoP=$MergeDir/"$Strain"_CRN_No_ApoP_ORFs.gff
+        CRN_Plus_ApoP=$MergeDir/"$Strain"_CRN_Plus_ApoP_ORFs.gff
+        ApoP_No_RxLR_CRN=$MergeDir/"$Strain"_ApoP_No_RxLR_CRN_ORFs.gff
+        RxLR_EER_No_ApoP=$MergeDir/"$Strain"_RxLR_EER_No_ApoP_ORFs.gff
+        RxLR_EER_Plus_ApoP=$MergeDir/"$Strain"_RxLR_EER_Plus_ApoP_ORFs.gff
+        ApoP_No_RxLR_EER_CRN=$MergeDir/"$Strain"_ApoP_No_RxLR_EER_CRN_ORFs.gff
         if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
         then
             Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
