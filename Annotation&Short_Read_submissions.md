@@ -3,7 +3,7 @@
 This appears to be a complex procedure, following Andy's commands.
 Bioprojects & Biosamples have already been created.
 
-## Preliminary steps
+## Submission steps
 
 Fasta files were uploaded initially to allow for contamination screen
 (See Genbank_corrections.md), however as the MiSeq genomes were submitted as a
