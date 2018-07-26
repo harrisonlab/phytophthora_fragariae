@@ -4984,6 +4984,27 @@ do
     bedtools intersect -wa -u -a $RxLR_EER_ORFs -b $ApoP_ORFs > $RxLR_EER_Plus_ApoP
     bedtools intersect -v -wa -a $ApoP_ORFs -b $RxLR_EER_ORFs $CRN_ORFs > $ApoP_No_RxLR_EER_CRN
 
+    RxLR_No_ApoP_modified=$MergeDir/"$Strain"_RxLR_No_ApoP_ORFs_modified.gff
+    RxLR_Plus_ApoP_modified=$MergeDir/"$Strain"_RxLR_Plus_ApoP_ORFs_modified.gff
+    CRN_No_ApoP_modified=$MergeDir/"$Strain"_CRN_No_ApoP_ORFs_modified.gff
+    CRN_Plus_ApoP_modified=$MergeDir/"$Strain"_CRN_Plus_ApoP_ORFs_modified.gff
+    RxLR_EER_No_ApoP_modified=$MergeDir/"$Strain"_RxLR_EER_No_ApoP_ORFs_modified.gff
+    RxLR_EER_Plus_ApoP_modified=$MergeDir/"$Strain"_RxLR_EER_Plus_ApoP_ORFs_modified.gff
+
+    cat $RxLR_No_ApoP | sed -r 's/ORF_RxLR/RxLR_ORF/g' > $RxLR_No_ApoP_modified
+    cat $RxLR_Plus_ApoP | sed -r 's/ORF_RxLR/RxLR_ORF_+_ApoplastP_ORF/g' > $RxLR_Plus_ApoP_modified
+    cat $CRN_No_ApoP | sed -r 's/CRN_HMM/CRN_ORF/g' > $CRN_No_ApoP_modified
+    cat $CRN_Plus_ApoP | sed -r 's/CRN_HMM/CRN_ORF_+_ApoplastP_ORF/g' > $CRN_Plus_ApoP_modified
+    cat $RxLR_EER_No_ApoP | sed -r 's/ORF_RxLR/RxLR_ORF/g' > $RxLR_EER_No_ApoP_modified
+    cat $RxLR_EER_Plus_ApoP | sed -r 's/ORF_RxLR/RxLR_ORF_+_ApoplastP_ORF/g' > $RxLR_EER_Plus_ApoP_modified
+
+    mv $RxLR_No_ApoP_modified $RxLR_No_ApoP
+    mv $RxLR_Plus_ApoP_modified $RxLR_Plus_ApoP
+    mv $CRN_No_ApoP_modified $CRN_No_ApoP
+    mv $CRN_Plus_ApoP_modified $CRN_Plus_ApoP
+    mv $RxLR_EER_No_ApoP_modified $RxLR_EER_No_ApoP
+    mv $RxLR_EER_Plus_ApoP_modified $RxLR_EER_Plus_ApoP
+
     echo "$Species - $Strain"
     echo "The number of RxLRs not hit by ApoplastP is:"
     cat $RxLR_No_ApoP | grep -w 'gene' | wc -l
