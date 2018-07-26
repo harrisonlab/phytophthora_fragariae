@@ -5284,6 +5284,7 @@ do
         $ProgDir/gff2fasta.pl $Assembly $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3 $OutDir/"$Strain"_genes_incl_ORFeffectors
         # Note - these fasta files have not been validated - do not use
     done
+    echo "Gff created with all RxLRs and ApoplastP hits"
 
     #With EER discrimination and with ApoplastP
     for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gff3)
@@ -5338,6 +5339,7 @@ do
         $ProgDir/gff2fasta.pl $Assembly $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative.gff3 $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative
         # Note - these fasta files have not been validated - do not use
     done
+    echo "Gff created with high confidence RxLRs and ApoplastP hits"
 
     #Without EER discrimination and without ApoplastP
     for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gff3)
@@ -5382,6 +5384,7 @@ do
         $ProgDir/gff2fasta.pl $Assembly $OutDir/"$Strain"_genes_incl_ORFeffectors_noApoP.gff3 $OutDir/"$Strain"_genes_incl_ORFeffectors_noApoP
         # Note - these fasta files have not been validated - do not use
     done
+    echo "Gff created with all RxLRs and without ApoplastP hits"
 
     #With EER discrimination and without ApoplastP
     for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gff3)
@@ -5426,6 +5429,7 @@ do
         $ProgDir/gff2fasta.pl $Assembly $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative_noApoP.gff3 $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative_noApoP
         # Note - these fasta files have not been validated - do not use
     done
+    echo "Gff created with high confidence RxLRs and without ApoplastP hits"
 done
 ```
 
