@@ -5236,6 +5236,7 @@ do
     do
         Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $GeneGff | rev | cut -d '/' -f4 | rev)
+        MergeDir=$(ls -d analysis/ApoplastP/$Organism/$Strain)
         echo "$Strain - $Organism"
         RxLR_No_ApoP=$MergeDir/"$Strain"_RxLR_No_ApoP_ORFs.gff
         RxLR_Plus_ApoP=$MergeDir/"$Strain"_RxLR_Plus_ApoP_ORFs.gff
@@ -5289,6 +5290,7 @@ do
     do
         Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $GeneGff | rev | cut -d '/' -f4 | rev)
+        MergeDir=$(ls -d analysis/ApoplastP/$Organism/$Strain)
         echo "$Strain - $Organism"
         RxLR_EER_No_ApoP=$MergeDir/"$Strain"_RxLR_EER_No_ApoP_ORFs.gff
         RxLR_EER_Plus_ApoP=$MergeDir/"$Strain"_RxLR_EER_Plus_ApoP_ORFs.gff
