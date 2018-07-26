@@ -5269,9 +5269,14 @@ do
         	> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
         # cat $GeneGff > $OutDir/10300_genes_incl_ORFeffectors.gff3
         ProgDir=/home/adamst/git_repos/scripts/phytophthora/10300_analysis
-        $ProgDir/gff_name2id.py --gff $GffOrfRxLR > $OutDir/ORF_RxLR_parsed.gff3
-        $ProgDir/gff_name2id.py --gff $GffOrfCRN > $OutDir/ORF_CRN_parsed.gff3
-        $ProgDir/gff_name2id.py --gff $GffOrfApo > $OutDir/ORF_ApoplastP_parsed.gff3
+        $ProgDir/gff_name2id.py --gff $RxLR_No_ApoP > $OutDir/ORF_RxLR_No_ApoP_parsed.gff3
+        $ProgDir/gff_name2id.py --gff $RxLR_Plus_ApoP > $OutDir/ORF_RxLR_Plus_ApoP_parsed.gff3
+        $ProgDir/gff_name2id.py --gff $CRN_No_ApoP > $OutDir/ORF_CRN_No_ApoP_parsed.gff3
+        $ProgDir/gff_name2id.py --gff $CRN_Plus_ApoP > $OutDir/ORF_CRN_Plus_ApoP_parsed.gff3
+        $ProgDir/gff_name2id.py --gff $ApoP_No_RxLR_CRN > $OutDir/ORF_ApoP_No_RxLR_CRN_parsed.gff3
+        $ProgDir/gff_name2id.py --gff $RxLR_EER_No_ApoP > $OutDir/ORF_RxLR_EER_No_ApoP_parsed.gff3
+        $ProgDir/gff_name2id.py --gff $RxLR_EER_Plus_ApoP > $OutDir/ORF_RxLR_EER_Plus_ApoP_parsed.gff3
+        $ProgDir/gff_name2id.py --gff $ApoP_No_RxLR_EER_CRN > $OutDir/ORF_ApoP_No_RxLR_EER_CRN_parsed.gff3
 
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
         $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
