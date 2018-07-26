@@ -5274,14 +5274,13 @@ do
         $ProgDir/gff_name2id.py --gff $CRN_No_ApoP > $OutDir/ORF_CRN_No_ApoP_parsed.gff3
         $ProgDir/gff_name2id.py --gff $CRN_Plus_ApoP > $OutDir/ORF_CRN_Plus_ApoP_parsed.gff3
         $ProgDir/gff_name2id.py --gff $ApoP_No_RxLR_CRN > $OutDir/ORF_ApoP_No_RxLR_CRN_parsed.gff3
-        $ProgDir/gff_name2id.py --gff $RxLR_EER_No_ApoP > $OutDir/ORF_RxLR_EER_No_ApoP_parsed.gff3
-        $ProgDir/gff_name2id.py --gff $RxLR_EER_Plus_ApoP > $OutDir/ORF_RxLR_EER_Plus_ApoP_parsed.gff3
-        $ProgDir/gff_name2id.py --gff $ApoP_No_RxLR_EER_CRN > $OutDir/ORF_ApoP_No_RxLR_EER_CRN_parsed.gff3
 
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-        $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
-        $ProgDir/add_ORF_features.pl $OutDir/ORF_CRN_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
-        $ProgDir/add_ORF_features.pl $OutDir/ORF_ApoplastP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+        $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_No_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+        $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_Plus_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+        $ProgDir/add_ORF_features.pl $OutDir/ORF_CRN_No_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+        $ProgDir/add_ORF_features.pl $OutDir/ORF_CRN_Plus_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+        $ProgDir/add_ORF_features.pl $OutDir/ORF_ApoP_No_RxLR_CRN_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
         # Make gene models from gff files.
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
         $ProgDir/gff2fasta.pl $Assembly $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3 $OutDir/"$Strain"_genes_incl_ORFeffectors
