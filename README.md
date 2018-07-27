@@ -5465,7 +5465,7 @@ do
 done
 ```
 
-BC-16 conservative fails when run in this loop, but when running each line individually it runs fine.
+Additional Gff clean up performed in Annotation&Short_Read_submissions.md
 
 #Functional annotation
 
