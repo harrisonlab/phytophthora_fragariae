@@ -76,6 +76,47 @@ ProgDir=/home/adamst/git_repos/tools/genbank_submission
 LabID=AdamsNIABEMR
 ```
 
+#### Check gffs for duplication and rename genes
+
+There should not be any duplicatd features - but sanity check.
+Renaming is definitely needed and a log file is needed to ensure results of
+analyses can still be interpreted. Also create fasta files.
+
+```bash
+#P.frag
+for Gff in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.gff3)
+do
+    Organism=$(echo $Gff | rev | cut -d '/' -f3 | rev)
+    Isolate=$(echo $Gff | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    OutDir=$(dirname $Gff)
+    Filtered_Gff=$OutDir/filtered_duplicates.gff
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
+    # Check for duplicate features
+    $ProgDir/remove_dup_features.py --inp_gff $Gff --out_gff $Filtered_Gff
+    Renamed_Gff=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
+    LogFile=$OutDir/"$Isolate"_genes_appended_renamed.log
+    # Rename genes
+    $ProgDir/gff_rename_genes.py --inp_gff $Filtered_Gff --conversion_log $LogFile > $Renamed_Gff
+    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
+        echo $Assembly
+    fi
+    # Create Fasta files
+    $ProgDir/gff2fasta.pl $Assembly $Renamed_Gff $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
+    # Corrects * for stop codons to X that NCBI prefer
+    sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
+done
+```
+
 ### Generating .tbl file using GAG
 
 The Genome Annotation Generator (GAG.py) can convert gffs to .tbl files
