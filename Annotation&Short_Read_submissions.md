@@ -326,3 +326,50 @@ done
 
 tbl2asn was run to collect error reports on the current formatting.
 All input files must be in same dir with same basename
+
+```bash
+# P.frag
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate"
+    OutDir=genome_submission/$Organism/$Isolate
+    if [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
+        echo $Assembly
+    fi
+    cp $Assembly $OutDir/gag/round_1/genome.fsa
+    SbtFile=genome_submission/$Organism/$Isolate/template.sbt
+    mkdir -p $OutDir/tbl2asn/round_1
+    tbl2asn -p $OutDir/gag/round_1/. -t $OutDir/gag/round_1/template.sbt -r $OutDir/tbl2asn/round_1 -M n -X E -Z $OutDir/gag/round_1/discrep.txt -j "[organism=$Organism] [strain=$Isolate]"
+done
+
+# P.rubi
+for Isolate in SCRP249 SCRP324 SCRP333
+do
+    Organism=P.rubi
+    echo "$Organism - $Isolate"
+    OutDir=genome_submission/$Organism/$Isolate
+    if [ -f ../pythophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls ../pythophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f ../pythophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls ../pythophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
+        echo $Assembly
+    fi
+    cp $Assembly $OutDir/gag/round_1/genome.fsa
+    SbtFile=genome_submission/$Organism/$Isolate/template.sbt
+    mkdir -p $OutDir/tbl2asn/round_1
+    tbl2asn -p $OutDir/gag/round_1/. -t $OutDir/gag/round_1/template.sbt -r $OutDir/tbl2asn/round_1 -M n -X E -Z $OutDir/gag/round_1/discrep.txt -j "[organism=$Organism] [strain=$Isolate]"
+done
+```
