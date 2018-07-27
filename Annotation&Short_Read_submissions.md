@@ -307,9 +307,9 @@ do
     echo "$Organism - $Isolate"
     if [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
-        Assembly=$(ls r../phytophthora_rubi/epeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
-    elif [ -f r../phytophthora_rubi/epeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+    elif [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
