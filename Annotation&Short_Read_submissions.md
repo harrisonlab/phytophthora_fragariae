@@ -1,6 +1,7 @@
 # Commands to prepare gene annotations and raw reads for submission to NCBI
 
-This appears to be a complex procedure, following Andy's commands.
+This appears to be a complex procedure, following Andy's commands in
+phytophthora repository.
 Bioprojects & Biosamples have already been created.
 This is for *P. fragariae* and *P. rubi*
 
@@ -267,5 +268,35 @@ do
     python $AnnieDir/annie.py -ipr $InterProTab -g $GffFile -b $SwissProtBlast -db $SwissProtFasta -o $OutDir/annie_output.csv --fix_bad_products
     ProgDir=/home/adamst/git_repos/tools/genbank_submission
     $ProgDir/edit_tbl_file/annie_corrector.py --inp_csv $OutDir/annie_output.csv --out_csv $OutDir/annie_corrected_output.csv
+done
+```
+
+#### Running GAG
+
+GAG was run using the modified GFF as well as the output of annie. Outputs database references incorrectly, so these are modified
+
+```bash
+# P.frag
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate"
+    if [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
+        echo $Assembly
+    fi
+    OutDir=genome_submission/$Organism/$Isolate
+    Gff=$(ls gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors.gff3)
+    mkdir -p $OutDir/gag/round_1
+    gag.py -f $Assembly -g $Gff -a $OutDir/annie_corrected_output.csv --fix_start_stop -o $OutDir/gag/round_1 2>&1 | tee $OutDir/gag_log_1.txt
+    sed -i 's/Dbxref/db_xref/g' $OutDir/gag/round_1/genome.tbl
 done
 ```
