@@ -75,3 +75,8 @@ AnnieDir=/home/armita/prog/annie/genomeannotation-annie-c1e848b
 ProgDir=/home/adamst/git_repos/tools/genbank_submission
 LabID=AdamsNIABEMR
 ```
+
+### Generating .tbl file using GAG
+
+The Genome Annotation Generator (GAG.py) can convert gffs to .tbl files
+It can also add interpro & swissprot annotations using Annie
