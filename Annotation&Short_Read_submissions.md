@@ -86,3 +86,20 @@ It can also add interpro & swissprot annotations using Annie
 Interpro & Swissprot annotation were extracted using Annie. Output was filtered
 to keep only annotations with references to NCBI approved databases
 NOTE: transcripts must be re-labeled as mRNA
+
+```bash
+# P.frag isolates
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate"
+    OutDir=genome_submission/$Organism/$Isolate
+    Gff=$(ls gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors.gff3)
+    InterProTab=$(ls gene_pred/interproscan/$Organism/$Isolate/greedy/"$Isolate"_interproscan.tsv)
+    SwissProtBlast=$(ls gene_pred/swissprot/$Organism/$Isolate/greedy/swissprot_vJul2016_tophit_parsed.tbl)
+    SwissProtFasta=/home/groups/harrisonlab/uniprot/swissprot/uniprot_sprot.fasta
+    python $AnnieDir/annie.py -ipr $InterProTab -g $GffFile -b $SwissProtBlast -db $SwissProtFasta -o $OutDir/annie_output.csv --fix_bad_products
+    ProgDir=/home/adamst/git_repos/tools/genbank_submission
+    $ProgDir/edit_tbl_file/annie_corrector.py --inp_csv $OutDir/annie_output.csv --out_csv $OutDir/annie_corrected_output.csv
+done
+```
