@@ -95,7 +95,7 @@ do
     OutDir=$(dirname $Gff)
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     # Check for duplicate features
-    $ProgDir/ID_dup_features.py --inp_gff $Gff
+    $ProgDir/ID_dup_features.py --inp_gff $Gff > $OutDir/Duplicates.txt
 done
 
 # P.rubi
@@ -107,7 +107,7 @@ do
     OutDir=$(dirname $Gff)
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     # Check for duplicate features
-    $ProgDir/ID_dup_features.py --inp_gff $Gff
+    $ProgDir/ID_dup_features.py --inp_gff $Gff > $OutDir/Duplicates.txt
 done
 ```
 
