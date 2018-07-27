@@ -299,4 +299,25 @@ do
     gag.py -f $Assembly -g $Gff -a $OutDir/annie_corrected_output.csv --fix_start_stop -o $OutDir/gag/round_1 2>&1 | tee $OutDir/gag_log_1.txt
     sed -i 's/Dbxref/db_xref/g' $OutDir/gag/round_1/genome.tbl
 done
+
+# P.rubi
+for Isolate in SCRP249 SCRP34 SCRP333
+do
+    Organism=P.rubi
+    echo "$Organism - $Isolate"
+    if [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls r../phytophthora_rubi/epeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f r../phytophthora_rubi/epeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
+        echo $Assembly
+    fi
+    OutDir=genome_submission/$Organism/$Isolate
+    Gff=$(ls ../phytophthora_rubi/gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors.gff3)
+    mkdir -p $OutDir/gag/round_1
+    gag.py -f $Assembly -g $Gff -a $OutDir/annie_corrected_output.csv --fix_start_stop -o $OutDir/gag/round_1 2>&1 | tee $OutDir/gag_log_1.txt
+    sed -i 's/Dbxref/db_xref/g' $OutDir/gag/round_1/genome.tbl
+done
 ```
