@@ -87,7 +87,7 @@ analyses can still be interpreted. Also create fasta files.
 for Gff in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.gff3)
 do
     Organism=$(echo $Gff | rev | cut -d '/' -f3 | rev)
-    Isolate=$(echo $Gff | rev | cut -d '/' -f4 | rev)
+    Isolate=$(echo $Gff | rev | cut -d '/' -f2 | rev)
     echo "$Organism - $Isolate"
     OutDir=$(dirname $Gff)
     Filtered_Gff=$OutDir/filtered_duplicates.gff
@@ -120,7 +120,7 @@ done
 for Gff in $(ls ../phytophthora_rubi/gene_pred/annotation/P.rubi/*/*_genes_incl_ORFeffectors.gff3)
 do
     Organism=$(echo $Gff | rev | cut -d '/' -f3 | rev)
-    Isolate=$(echo $Gff | rev | cut -d '/' -f4 | rev)
+    Isolate=$(echo $Gff | rev | cut -d '/' -f2 | rev)
     echo "$Organism - $Isolate"
     OutDir=$(dirname $Gff)
     Filtered_Gff=$OutDir/filtered_duplicates.gff
