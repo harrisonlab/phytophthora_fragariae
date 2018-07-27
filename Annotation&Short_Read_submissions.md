@@ -138,6 +138,30 @@ do
     bedtools intersect -wo -a $GeneGff -b $ApoP_No_RxLR_CRN | grep -e "AUGUSTUS.gene" | grep "ApoplastP_ORF" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
     bedtools intersect -wo -a $GeneGff -b $ApoP_No_RxLR_CRN | grep -e "CodingQuarry_v2.0.gene" | grep "ApoplastP_ORF" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
 done
+
+# P.rubi
+for GeneGff in $(ls ../phytophtora_rubi/gene_pred/final/*/*/final/final_genes_appended_renamed.gff3)
+do
+    Isolate=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $GeneGff | rev | cut -d '/' -f4 | rev)
+    MergeDir=$(ls -d ../phytophtora_rubi/analysis/ApoplastP/$Organism/$Isolate)
+    FinalDir=$(ls -d ../phytophtora_rubi/gene_pred/annotation/$Organism/$Isolate)
+    RxLR_No_ApoP=$MergeDir/"$Isolate"_RxLR_No_ApoP_ORFs.gff
+    RxLR_Plus_ApoP=$MergeDir/"$Isolate"_RxLR_Plus_ApoP_ORFs.gff
+    CRN_No_ApoP=$MergeDir/"$Isolate"_CRN_No_ApoP_ORFs.gff
+    CRN_Plus_ApoP=$MergeDir/"$Isolate"_CRN_Plus_ApoP_ORFs.gff
+    ApoP_No_RxLR_CRN=$MergeDir/"$Isolate"_ApoP_No_RxLR_CRN_ORFs.gff
+    bedtools intersect -wo -a $GeneGff -b $RxLR_No_ApoP | grep -e "AUGUSTUS.gene" | grep "RxLR_ORF.gene" | cut -f1,9,18 > $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $RxLR_No_ApoP | grep -e "CodingQuarry_v2.0.gene" | grep "RxLR_ORF.gene" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $RxLR_Plus_ApoP | grep -e "AUGUSTUS.gene" | grep "RxLR_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $RxLR_Plus_ApoP | grep -e "CodingQuarry_v2.0.gene" | grep "RxLR_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $CRN_No_ApoP | grep -e "AUGUSTUS.gene" | grep "CRN_ORF" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $CRN_No_ApoP | grep -e "CodingQuarry_v2.0.gene" | grep "CRN_ORF" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $CRN_Plus_ApoP | grep -e "AUGUSTUS.gene" | grep "CRN_ORF_+_ApoplastP_ORF" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $CRN_Plus_ApoP | grep -e "CodingQuarry_v2.0.gene" | grep "CRN_ORF_+_ApoplastP_ORF" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $ApoP_No_RxLR_CRN | grep -e "AUGUSTUS.gene" | grep "ApoplastP_ORF" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+    bedtools intersect -wo -a $GeneGff -b $ApoP_No_RxLR_CRN | grep -e "CodingQuarry_v2.0.gene" | grep "ApoplastP_ORF" | cut -f1,9,18 >> $FinalDir/Overlaps.txt
+done
 ```
 
 Rename the cleaned up gff
