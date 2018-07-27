@@ -321,3 +321,8 @@ do
     sed -i 's/Dbxref/db_xref/g' $OutDir/gag/round_1/genome.tbl
 done
 ```
+
+### tbl2asn round 1
+
+tbl2asn was run to collect error reports on the current formatting.
+All input files must be in same dir with same basename
