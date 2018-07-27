@@ -164,6 +164,8 @@ do
 done
 ```
 
+Lists of genes to remove were made in same directory as overlap file using nano
+
 Rename the cleaned up gff
 
 ```bash
