@@ -4754,6 +4754,8 @@ do
     AugGff=$MergeDir/"$Species"_"$Strain"_ApoplastP.gff
     AugTxt=$MergeDir/"$Species"_"$Strain"_ApoplastP_headers.txt
     AugFa=$(ls gene_pred/final/"$Species"/"$Strain"/final/final_genes_appended_renamed.pep.fasta)
+    AugRxLR=$(ls analysis/RxLR_effectors/combined_evidence/$Species/$Strain/"$Strain"_total_RxLR.gff)
+    AugCRN=$(ls analysis/CRN_effectors/hmmer_CRN/$Species/$Strain/"$Strain"_pub_CRN_LFLAK_DWL.gff)
 
     ORFGff=$(ls $MergeDir/"$Strain"_ApoplastP_ORF_merged.gff)
     ORFsFa=$(ls gene_pred/ORF_finder/*/"$Strain"/"$Strain".aa_cat.fa)
@@ -4766,13 +4768,13 @@ do
     TotalApoPTxt=$MergeDir/"$Strain"_Total_ApoplastP.txt
     TotalApoPGff=$MergeDir/"$Strain"_Total_ApoplastP.gff
 
-    bedtools intersect -wa -u -a $ORFGff -b $AugGff > $ORFsInAug
+    bedtools intersect -wa -u -a $ORFGff -b $AugGff $AugRxLR $AugCRN > $ORFsInAug
     bedtools intersect -wa -u -a $AugGff -b $ORFGff > $AugInORFs
-    bedtools intersect -v -wa -a $ORFGff -b $AugGff > $ORFsUniq
+    bedtools intersect -v -wa -a $ORFGff -b $AugGff $AugRxLR $AugCRN > $ORFsUniq
     bedtools intersect -v -wa -a $AugGff -b $ORFGff > $AugUniq
 
     echo "$Species - $Strain"
-    echo "The number of ORF apoplastic effectors overlapping Augustus apoplastic effectors:"
+    echo "The number of ORF apoplastic effectors overlapping Augustus effectors:"
     cat $ORFsInAug | grep -w 'gene' | wc -l
     echo "The number of Augustus apoplastic effectors overlapping ORF apoplastic effectors:"
     cat $AugInORFs | grep -w 'gene' | wc -l
