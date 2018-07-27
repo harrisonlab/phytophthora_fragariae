@@ -102,4 +102,19 @@ do
     ProgDir=/home/adamst/git_repos/tools/genbank_submission
     $ProgDir/edit_tbl_file/annie_corrector.py --inp_csv $OutDir/annie_output.csv --out_csv $OutDir/annie_corrected_output.csv
 done
+
+# P.rubi isolates
+for Isolate in SCRP249 SCRP324 SCRP333
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate"
+    OutDir=genome_submission/$Organism/$Isolate
+    Gff=$(ls ../phytophthora_rubi/gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors.gff3)
+    InterProTab=$(ls ../phytophthora_rubi/gene_pred/interproscan/$Organism/$Isolate/greedy/"$Isolate"_interproscan.tsv)
+    SwissProtBlast=$(ls ../phytophthora_rubi/gene_pred/swissprot/$Organism/$Isolate/greedy/swissprot_vJul2016_tophit_parsed.tbl)
+    SwissProtFasta=/home/groups/harrisonlab/uniprot/swissprot/uniprot_sprot.fasta
+    python $AnnieDir/annie.py -ipr $InterProTab -g $GffFile -b $SwissProtBlast -db $SwissProtFasta -o $OutDir/annie_output.csv --fix_bad_products
+    ProgDir=/home/adamst/git_repos/tools/genbank_submission
+    $ProgDir/edit_tbl_file/annie_corrector.py --inp_csv $OutDir/annie_output.csv --out_csv $OutDir/annie_corrected_output.csv
+done
 ```
