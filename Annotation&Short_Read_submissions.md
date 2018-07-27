@@ -55,3 +55,13 @@ do
     mkdir -p $OutDir
 done
 ```
+
+### Sbt file
+
+A template was created from the genbank template tool for A4. The Biosample
+was then modified for each isolate. File transferred by scp and modified with
+nano. URL below:
+
+```
+http://www.ncbi.nlm.nih.gov/WebSub/template.cgi
+```
