@@ -82,6 +82,9 @@ There should not be any duplicatd features - but sanity check.
 Renaming is definitely needed and a log file is needed to ensure results of
 analyses can still be interpreted. Also create fasta files.
 
+ID duplicate features, ApoplastP means some ORFs are identical to Augustus
+genes, check all hits from this script manually in Geneious
+
 ```bash
 # P.frag
 for Gff in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.gff3)
@@ -90,30 +93,9 @@ do
     Isolate=$(echo $Gff | rev | cut -d '/' -f2 | rev)
     echo "$Organism - $Isolate"
     OutDir=$(dirname $Gff)
-    Filtered_Gff=$OutDir/filtered_duplicates.gff
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     # Check for duplicate features
-    $ProgDir/remove_dup_features.py --inp_gff $Gff --out_gff $Filtered_Gff
-    Renamed_Gff=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
-    LogFile=$OutDir/"$Isolate"_genes_appended_renamed.log
-    # Rename genes
-    $ProgDir/gff_rename_genes.py --inp_gff $Filtered_Gff --conversion_log $LogFile > $Renamed_Gff
-    if [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
-    then
-        Assembly=$(ls repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
-        echo $Assembly
-    elif [ -f repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
-    then
-        Assembly=$(ls repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
-        echo $Assembly
-    else
-        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
-        echo $Assembly
-    fi
-    # Create Fasta files
-    $ProgDir/gff2fasta.pl $Assembly $Renamed_Gff $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
-    # Corrects * for stop codons to X that NCBI prefer
-    sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
+    $ProgDir/ID_dup_features.py --inp_gff $Gff
 done
 
 # P.rubi
@@ -123,28 +105,53 @@ do
     Isolate=$(echo $Gff | rev | cut -d '/' -f2 | rev)
     echo "$Organism - $Isolate"
     OutDir=$(dirname $Gff)
-    Filtered_Gff=$OutDir/filtered_duplicates.gff
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     # Check for duplicate features
-    $ProgDir/remove_dup_features.py --inp_gff $Gff --out_gff $Filtered_Gff
-    Renamed_Gff=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
-    LogFile=$OutDir/"$Isolate"_genes_appended_renamed.log
-    # Rename genes
-    $ProgDir/gff_rename_genes.py --inp_gff $Filtered_Gff --conversion_log $LogFile > $Renamed_Gff
-    if [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
-    then
-        Assembly=$(ls repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
-        echo $Assembly
-    elif [ -f repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
-    then
-        Assembly=$(ls repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
-        echo $Assembly
-    fi
-    # Create Fasta files
-    $ProgDir/gff2fasta.pl $Assembly $Renamed_Gff $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
-    # Corrects * for stop codons to X that NCBI prefer
-    sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
+    $ProgDir/ID_dup_features.py --inp_gff $Gff
 done
+```
+
+```bash
+
+Renamed_Gff=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
+LogFile=$OutDir/"$Isolate"_genes_appended_renamed.log
+# Rename genes
+$ProgDir/gff_rename_genes.py --inp_gff $Filtered_Gff --conversion_log $LogFile > $Renamed_Gff
+if [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+then
+    Assembly=$(ls repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
+    echo $Assembly
+elif [ -f repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+then
+    Assembly=$(ls repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
+    echo $Assembly
+else
+    Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
+    echo $Assembly
+fi
+# Create Fasta files
+$ProgDir/gff2fasta.pl $Assembly $Renamed_Gff $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
+# Corrects * for stop codons to X that NCBI prefer
+sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
+
+Renamed_Gff=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
+LogFile=$OutDir/"$Isolate"_genes_appended_renamed.log
+# Rename genes
+$ProgDir/gff_rename_genes.py --inp_gff $Filtered_Gff --conversion_log $LogFile > $Renamed_Gff
+if [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+then
+    Assembly=$(ls repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
+    echo $Assembly
+elif [ -f repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+then
+    Assembly=$(ls repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
+    echo $Assembly
+fi
+# Create Fasta files
+$ProgDir/gff2fasta.pl $Assembly $Renamed_Gff $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
+# Corrects * for stop codons to X that NCBI prefer
+sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
+
 ```
 
 ### Generating .tbl file using GAG
