@@ -29,3 +29,5 @@ PR001 SAMN07449690 SCRP249
 PR002 SAMN07449691 SCRP324
 PR003 SAMN07449692 SCRP333" > genome_submission/Pf_Pr_locus_tags.txt
 ```
+
+## Prepare files for submission
