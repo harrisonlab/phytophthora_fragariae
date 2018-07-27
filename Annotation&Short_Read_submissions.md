@@ -2,6 +2,7 @@
 
 This appears to be a complex procedure, following Andy's commands.
 Bioprojects & Biosamples have already been created.
+This is for *P. fragariae* and *P. rubi*
 
 ## Submission steps
 
