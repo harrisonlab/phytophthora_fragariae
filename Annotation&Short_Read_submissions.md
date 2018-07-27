@@ -80,3 +80,9 @@ LabID=AdamsNIABEMR
 
 The Genome Annotation Generator (GAG.py) can convert gffs to .tbl files
 It can also add interpro & swissprot annotations using Annie
+
+#### Extracting annotations (Annie)
+
+Interpro & Swissprot annotation were extracted using Annie. Output was filtered
+to keep only annotations with references to NCBI approved databases
+NOTE: transcripts must be re-labeled as mRNA
