@@ -31,3 +31,27 @@ PR003 SAMN07449692 SCRP333" > genome_submission/Pf_Pr_locus_tags.txt
 ```
 
 ## Prepare files for submission
+
+### Directory structure created
+
+```bash
+# P.frag Illumina genomes
+
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate"
+    OutDir=genome_submission/$Organism/$Isolate
+    mkdir -p $OutDir
+done
+
+# P.rubi Illumina genomes
+
+for Isolate in SCRP249 SCRP324 SCRP333
+do
+    Organism=P.rubi
+    echo "$Organism - $Isolate"
+    OutDir=genome_submission/$Organism/$Isolate
+    mkdir -p $OutDir
+done
+```
