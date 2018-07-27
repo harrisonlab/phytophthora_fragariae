@@ -111,7 +111,10 @@ do
 done
 ```
 
+Rename the cleaned up gff
+
 ```bash
+# P.frag
 for Gff in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.gff3)
 do
     Organism=$(echo $Gff | rev | cut -d '/' -f3 | rev)
@@ -141,6 +144,7 @@ do
     sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
 done
 
+# P.rubi
 for Gff in $(ls ../phytophthora_rubi/gene_pred/annotation/P.rubi/*/*_genes_incl_ORFeffectors.gff3)
 do
     Organism=$(echo $Gff | rev | cut -d '/' -f3 | rev)
