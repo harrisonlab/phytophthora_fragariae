@@ -65,3 +65,13 @@ nano. URL below:
 ```
 http://www.ncbi.nlm.nih.gov/WebSub/template.cgi
 ```
+
+#### Setting variables
+
+Variables containing the locations of files and options for scripts were set
+
+```bash
+AnnieDir=/home/armita/prog/annie/genomeannotation-annie-c1e848b
+ProgDir=/home/adamst/git_repos/tools/genbank_submission
+LabID=AdamsNIABEMR
+```
