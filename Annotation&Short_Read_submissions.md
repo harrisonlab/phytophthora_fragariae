@@ -192,6 +192,20 @@ do
 done
 ```
 
+##### Collect statistics
+
+```bash
+for Transcriptome in $(ls gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_renamed.pep.fasta)
+do
+    Isolate=$(echo $Transcriptome | rev | cut -f2 -d '/' | rev)
+    Species=$(echo $Transcriptome | rev | cut -f3 -d '/' | rev)
+    Gff=$(echo $Transcriptome | sed 's/.pep.fasta/.gff3/g')
+    Genes=$(cat $Gff | grep -w 'gene' | wc -l)
+    Proteins=$(cat $Transcriptome | grep '>' | wc -l)
+    printf "$Species\t$Isolate\t$Genes\t$Proteins"
+done
+```
+
 ### Generating .tbl file using GAG
 
 The Genome Annotation Generator (GAG.py) can convert gffs to .tbl files
