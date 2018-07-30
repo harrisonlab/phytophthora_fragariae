@@ -204,6 +204,7 @@ done
 #### Check for further duplication, rename the genes and extract fasta files
 
 ```bash
+# P.frag
 for Gff in $(ls gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_filtered.gff3)
 do
     Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
@@ -227,6 +228,34 @@ do
         echo $Assembly
     else
         Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
+        echo $Assembly
+    fi
+    $ProgDir/gff2fasta.pl $Assembly $GffRenamed $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
+    # Perl script uses * for stop codons, NCBI want X
+    sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
+done
+
+# P.rubi
+for Gff in $(ls ../phytophthora_rubi/gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_filtered.gff3)
+do
+    Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
+    Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
+    echo "$Species - $Isolate"
+    OutDir=$(dirname $Gff)
+    Gff_Filtered=$OutDir/filtered_duplicates.gff
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
+    $ProgDir/remove_dup_features.py --inp_gff $Gff -out_gff $Gff_Filtered
+    Gff_Renamed=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
+    Log_File=$OutDir/Renaming_log.log
+    $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered --conversion_log $Log_File > $Gff_Renamed
+    rm $Gff_Filtered
+    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
     fi
     $ProgDir/gff2fasta.pl $Assembly $GffRenamed $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
