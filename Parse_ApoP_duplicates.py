@@ -62,3 +62,8 @@ with open(ApoP_ORF) as f:
         ApoPs.append(line)
 
 ApoP_set = set(ApoPs)
+
+# -----------------------------------------------------
+# Step 3
+# Check where two genes are at the same location and preferentially keep ApoP
+# -----------------------------------------------------
