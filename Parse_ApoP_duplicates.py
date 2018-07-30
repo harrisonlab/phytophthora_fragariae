@@ -73,6 +73,7 @@ ApoP_set = set(ApoPs)
 Replacement_dict = defaultdict(list)
 write_dict = defaultdict(list)
 Unclear_dict = defaultdict(list)
+genes_to_write = []
 
 for item in location_dict.keys():
     genes = location_dict[item]
@@ -89,6 +90,10 @@ for item in Replacement_dict.keys():
         write_dict[item] = location_dict[item]
     else:
         Unclear_dict[item] = genes
+
+for item in write_dict.keys():
+    gene = write_dict[item]
+    genes_to_write.append(gene)
 
 # -----------------------------------------------------
 # Step 4
