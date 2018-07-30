@@ -23,3 +23,9 @@ conf = ap.parse_args()
 # Step 1
 # Parse arguments
 #-----------------------------------------------------
+
+In_Gff = conf.gff_in
+Out_Gff = conf.gff_out
+ApoP_Aug = conf.Aug_ApoP
+ApoP_ORF = conf.ORF_ApoP
+cwd = os.getcwd()
