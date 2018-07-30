@@ -86,7 +86,7 @@ do
     Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
     Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
     echo "$Species - $Isolate"
-    Gff_out=gene_pred/annotation/$Species/$Isolate/"$Strain"_genes_incl_ORFeffectors_nodup.gff3
+    Gff_out=gene_pred/annotation/$Species/$Isolate/"$Isolate"_genes_incl_ORFeffectors_nodup.gff3
     Aug_ApoP=analysis/ApoplastP/$Species/$Isolate/*_ApoplastP_headers.txt
     ORF_ApoP=analysis/ApoplastP/$Species/$Isolate/*_ApoplastP_ORF_merged_headers.txt
     Unclear_Genes=gene_pred/annotation/$Species/$Isolate/Unclear_duplicates.txt
@@ -100,7 +100,7 @@ do
     Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
     Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
     echo "$Species - $Isolate"
-    Gff_out=../phytophthora_rubi/gene_pred/annotation/$Species/$Isolate/"$Strain"_genes_incl_ORFeffectors_nodup.gff3
+    Gff_out=../phytophthora_rubi/gene_pred/annotation/$Species/$Isolate/"$Isolate"_genes_incl_ORFeffectors_nodup.gff3
     Aug_ApoP=../phytophthora_rubi/analysis/ApoplastP/$Species/$Isolate/*_ApoplastP_headers.txt
     ORF_ApoP=../phytophthora_rubi/analysis/ApoplastP/$Species/$Isolate/*_ApoplastP_ORF_merged_headers.txt
     Unclear_Genes=../phytophthora_rubi/gene_pred/annotation/$Species/$Isolate/Unclear_duplicates.txt
