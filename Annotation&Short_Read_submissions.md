@@ -138,6 +138,8 @@ do
 done
 ```
 
+#### Remove genes to ensure no overlapping predictions
+
 ### Generating .tbl file using GAG
 
 The Genome Annotation Generator (GAG.py) can convert gffs to .tbl files
