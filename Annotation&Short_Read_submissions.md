@@ -136,6 +136,31 @@ do
     # ApoP_No_RxLR_CRN
     bedtools intersect -wo -a $Gff -b $ApoP_No_RxLR_CRN | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt
 done
+
+# P.rubi
+for Gff in $(ls ../phytophthora_rubi/gene_pred/final/*/*/final/final_genes_appended.gff3)
+do
+    Species=$(echo $Gff | rev | cut -f4 -d '/' | rev)
+    Isolate=$(echo $Gff | rev | cut -f3 -d '/' | rev)
+    echo "$Species - $Isolate"
+    OutDir=../phytophthora_rubi/gene_pred/annotation/$Species/$Isolate
+    MergeDir=../phytophthora_rubi/analysis/ApoplastP/$Species/$Isolate
+    RxLR_No_ApoP=$MergeDir/"$Isolate"_RxLR_No_ApoP_ORFs.gff
+    RxLR_Plus_ApoP=$MergeDir/"$Isolate"_RxLR_Plus_ApoP_ORFs.gff
+    CRN_No_ApoP=$MergeDir/"$Isolate"_CRN_No_ApoP_ORFs.gff
+    CRN_Plus_ApoP=$MergeDir/"$Isolate"_CRN_Plus_ApoP_ORFs.gff
+    ApoP_No_RxLR_CRN=$MergeDir/"$Isolate"_ApoP_No_RxLR_CRN_ORFs.gff
+    # RxLR_No_ApoP
+    bedtools intersect -wo -a $Gff -b $RxLR_No_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "RxLR_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt
+    # RxLR_Plus_ApoP
+    bedtools intersect -wo -a $Gff -b $RxLR_Plus_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "RxLR_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
+    # CRN_No_ApoP
+    bedtools intersect -wo -a $Gff -b $CRN_No_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "CRN_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt
+    # CRN_Plus_ApoP
+    bedtools intersect -wo -a $Gff -b $CRN_Plus_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "CRN_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
+    # ApoP_No_RxLR_CRN
+    bedtools intersect -wo -a $Gff -b $ApoP_No_RxLR_CRN | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt
+done
 ```
 
 #### Remove genes to ensure no overlapping predictions
