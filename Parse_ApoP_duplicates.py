@@ -34,3 +34,6 @@ cwd = os.getcwd()
 # Step 2
 # Create dictionary of gene locations and list of ApoPs
 # -----------------------------------------------------
+
+location_dict = defaultdict(list)
+Apops = []
