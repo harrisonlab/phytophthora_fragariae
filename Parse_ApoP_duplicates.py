@@ -67,3 +67,11 @@ ApoP_set = set(ApoPs)
 # Step 3
 # Check where two genes are at the same location and preferentially keep ApoP
 # -----------------------------------------------------
+
+Replacement_dict = defaultdict(list)
+
+for item in location_dict.keys():
+    genes = location_dict[item]
+    for gene in genes:
+        if gene in ApoP_set:
+            Replacement_dict[item].append(gene)
