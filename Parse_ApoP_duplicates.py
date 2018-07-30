@@ -75,3 +75,8 @@ for item in location_dict.keys():
     for gene in genes:
         if gene in ApoP_set:
             Replacement_dict[item].append(gene)
+
+# -----------------------------------------------------
+# Step 4
+# Write out GFF file
+# -----------------------------------------------------
