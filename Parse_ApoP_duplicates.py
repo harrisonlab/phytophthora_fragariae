@@ -29,3 +29,8 @@ Out_Gff = conf.gff_out
 ApoP_Aug = conf.Aug_ApoP
 ApoP_ORF = conf.ORF_ApoP
 cwd = os.getcwd()
+
+# -----------------------------------------------------
+# Step 2
+# Create dictionary of gene locations and list of ApoPs
+# -----------------------------------------------------
