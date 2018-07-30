@@ -109,6 +109,8 @@ do
 done
 ```
 
+#### Bedtools used to identify intersecting gene models and effector ORFs
+
 ### Generating .tbl file using GAG
 
 The Genome Annotation Generator (GAG.py) can convert gffs to .tbl files
