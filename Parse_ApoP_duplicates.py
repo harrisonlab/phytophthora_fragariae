@@ -32,6 +32,8 @@ ApoP_Aug = conf.Aug_ApoP
 ApoP_ORF = conf.ORF_ApoP
 cwd = os.getcwd()
 
+print("Command line arguments parsed")
+
 # -----------------------------------------------------
 # Step 2
 # Create dictionary of gene locations and list of ApoPs
@@ -65,6 +67,8 @@ with open(ApoP_ORF) as f:
 
 ApoP_set = set(ApoPs)
 
+print("Dictionaries and list of ApoP hits created")
+
 # -----------------------------------------------------
 # Step 3
 # Check where two genes are at the same location and preferentially keep ApoP
@@ -95,6 +99,8 @@ for item in write_dict.keys():
     gene = write_dict[item]
     genes_to_write.append(gene)
 
+print("Genes to write out identified")
+
 # -----------------------------------------------------
 # Step 4
 # Write out outputs
@@ -111,6 +117,8 @@ with open(Out_Gff, 'w') as o:
         if ID in genes_to_write:
             o.write(line)
             o.write('\n')
+
+print("Gff written")
 
 if len(Unclear_dict.keys()) > 0:
     print("Some genes are unclear as to which to keep")
