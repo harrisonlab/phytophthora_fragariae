@@ -19,10 +19,10 @@ ap.add_argument('--ORF_ApoP', required=True, type=str, help='File of ORF \
 ApoplastP predictions')
 conf = ap.parse_args()
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Parse arguments
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 In_Gff = conf.gff_in
 Out_Gff = conf.gff_out
