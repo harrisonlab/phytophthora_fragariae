@@ -158,6 +158,8 @@ do
 done
 ```
 
+#### Check for further duplication, rename the genes and extract fasta files
+
 ### Generating .tbl file using GAG
 
 The Genome Annotation Generator (GAG.py) can convert gffs to .tbl files
