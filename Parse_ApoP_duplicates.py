@@ -36,7 +36,7 @@ cwd = os.getcwd()
 # -----------------------------------------------------
 
 location_dict = defaultdict(list)
-Apops = []
+ApoPs = []
 
 with open(In_Gff) as f:
     lines = f.readlines()
@@ -50,3 +50,15 @@ with open(In_Gff) as f:
             end = split_line[4]
             key = "_".join([contig, start, end])
             location_dict[key].append(gene_ID)
+
+with open(ApoP_Aug) as f:
+    lines = f.readlines()
+    for line in lines:
+        ApoPs.append(line)
+
+with open(ApoP_ORF) as f:
+    lines = f.readlines()
+    for line in lines:
+        ApoPs.append(line)
+
+ApoP_set = set(ApoPs)
