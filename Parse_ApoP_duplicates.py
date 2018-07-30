@@ -37,3 +37,16 @@ cwd = os.getcwd()
 
 location_dict = defaultdict(list)
 Apops = []
+
+with open(In_Gff) as f:
+    lines = f.readlines()
+    for line in lines:
+        split_line = line.split()
+        if split_line[2] == 'mRNA':
+            col9 = split_line[8]
+            gene_ID = col9.split(';')[0].replace('ID=', '')
+            contig = split_line[0]
+            start = split_line[3]
+            end = split_line[4]
+            key = "_".join([contig, start, end])
+            location_dict[key].append(gene_ID)
