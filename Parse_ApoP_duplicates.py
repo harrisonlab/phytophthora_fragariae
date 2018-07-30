@@ -69,9 +69,21 @@ ApoP_set = set(ApoPs)
 # -----------------------------------------------------
 
 Replacement_dict = defaultdict(list)
+write_dict = defaultdict(list)
+Unclear_genes = []
 
 for item in location_dict.keys():
     genes = location_dict[item]
-    for gene in genes:
-        if gene in ApoP_set:
-            Replacement_dict[item].append(gene)
+    if len(genes) > 1:
+        for gene in genes:
+            if gene in ApoP_set:
+                Replacement_dict[item].append(gene)
+    else:
+        write_dict[item] = location_dict[item]
+
+for item in Replacement_dict.keys():
+    genes = Replacement_dict[item]
+    if len(genes) < 1:
+        write_dict[item] = location_dict[item]
+    else:
+        Unclear_genes.append(genes)
