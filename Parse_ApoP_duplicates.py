@@ -99,3 +99,24 @@ for item in write_dict.keys():
 # Step 4
 # Write out outputs
 # -----------------------------------------------------
+
+with open(Out_Gff, 'w') as o:
+    for line in input_lines:
+        split_line = line.split()
+        type = split_line[2]
+        if type == 'gene':
+            ID = split_line[8].split('=')[-1]
+        else:
+            ID = split_line[8].split('=')[-1].split('.')[0]
+        if ID in genes_to_write:
+            o.write(line)
+            o.write('\n')
+
+if len(Unclear_dict.keys()) > 0:
+    print("Some genes are unclear as to which to keep")
+    with open(conf.Unclear_genes, 'w') as o:
+        for item in Unclear_dict.keys():
+            for gene in Unclear_dict[item]:
+                Output = "\t".join([item, gene])
+                o.write(Output)
+                o.write("\n")
