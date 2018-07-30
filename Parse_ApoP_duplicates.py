@@ -39,8 +39,8 @@ location_dict = defaultdict(list)
 ApoPs = []
 
 with open(In_Gff) as f:
-    lines = f.readlines()
-    for line in lines:
+    input_lines = f.readlines()
+    for line in input_lines:
         split_line = line.split()
         if split_line[2] == 'mRNA':
             col9 = split_line[8]
@@ -75,8 +75,3 @@ for item in location_dict.keys():
     for gene in genes:
         if gene in ApoP_set:
             Replacement_dict[item].append(gene)
-
-# -----------------------------------------------------
-# Step 4
-# Write out GFF file
-# -----------------------------------------------------
