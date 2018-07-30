@@ -17,6 +17,8 @@ ap.add_argument('--Aug_ApoP', required=True, type=str, help='File of Augustus \
 ApoplastP predictions')
 ap.add_argument('--ORF_ApoP', required=True, type=str, help='File of ORF \
 ApoplastP predictions')
+ap.add_argument('--Unclear_Genes', required=True, type=str, help='File of \
+genes where it is unclear which model to accept')
 conf = ap.parse_args()
 
 # -----------------------------------------------------
@@ -87,3 +89,8 @@ for item in Replacement_dict.keys():
         write_dict[item] = location_dict[item]
     else:
         Unclear_dict[item] = genes
+
+# -----------------------------------------------------
+# Step 4
+# Write out outputs
+# -----------------------------------------------------
