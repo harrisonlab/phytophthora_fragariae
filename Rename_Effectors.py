@@ -46,3 +46,13 @@ with open(conf.Conversion_File) as f:
         Old_ID = split_line[0]
         New_ID = split_line[2]
         conversion_dict[Old_ID] = New_ID
+
+# Create set of new IDs
+
+New_IDs = []
+
+for Old_Gene in Old_Set:
+    New_Gene = conversion_dict[Old_Gene]
+    New_IDs.append(New_Gene)
+
+New_Set = set(New_IDs)
