@@ -286,6 +286,7 @@ Any duplicates identified by this script were manually investigated for how
 they slipped through previous attempts to remove them
 
 ```
+Only one duplicate was identified:
 Duplicate in SCRP333:
 contig_11317_F1.t1
 this is the reverse complement of an Augustus prediction (g31870.t1). The ORF
@@ -321,6 +322,17 @@ done
 
 ```
 Species Isolate Genes   Proteins
+P.fragariae	A4	41,131	41,942
+P.fragariae	Bc16	49,981	50,278
+P.fragariae	Bc1	41,405	42,214
+P.fragariae	Bc23	40,770	41,595
+P.fragariae	Nov27	41,524	42,351
+P.fragariae	Nov5	41,191	42,007
+P.fragariae	Nov71	40,622	41,446
+P.fragariae	Nov77	41,076	41,904
+P.fragariae	Nov9	41,127	41,961
+P.fragariae	ONT3	44,734	45,527
+P.fragariae	SCRP245_v2	44,933	45,748
 P.rubi	SCRP249	42,302	42,647
 P.rubi	SCRP324	43,281	43,568
 P.rubi	SCRP333	43,402	43,717
