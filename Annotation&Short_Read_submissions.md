@@ -290,6 +290,7 @@ Duplicate in SCRP333:
 contig_11317_F1.t1
 this is the reverse complement of an Augustus prediction (g31870.t1). The ORF
 is hit only by ApoplastP, the Augustus gene has no effector predictions.
+Difficult to distinguish from RNA-Seq data, so accept Augustus model.
 ```
 
 ##### Collect statistics
