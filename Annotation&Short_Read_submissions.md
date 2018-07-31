@@ -304,7 +304,7 @@ do
     Gff=$(echo $Transcriptome | sed 's/.pep.fasta/.gff3/g')
     Genes=$(cat $Gff | grep -w 'gene' | wc -l)
     Proteins=$(cat $Transcriptome | grep '>' | wc -l)
-    printf "$Species\t$Isolate\t$Genes\t$Proteins"
+    printf "$Species\t$Isolate\t$Genes\t$Proteins\n"
 done
 
 # P.rubi
@@ -315,7 +315,7 @@ do
     Gff=$(echo $Transcriptome | sed 's/.pep.fasta/.gff3/g')
     Genes=$(cat $Gff | grep -w 'gene' | wc -l)
     Proteins=$(cat $Transcriptome | grep '>' | wc -l)
-    printf "$Species\t$Isolate\t$Genes\t$Proteins"
+    printf "$Species\t$Isolate\t$Genes\t$Proteins\n"
 done
 ```
 
