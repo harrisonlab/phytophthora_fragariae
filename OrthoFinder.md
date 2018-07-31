@@ -200,6 +200,17 @@ orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 ```
 
+### Create goodproteins file
+
+```bash
+Input_dir=$WorkDir/formatted
+Min_length=10
+Max_percent_stops=20
+Good_proteins_file=$WorkDir/goodProteins/goodProteins.fasta
+Poor_proteins_file=$WorkDir/badProteins/poorProteins.fasta
+orthomclFilterFasta $Input_dir $Min_length $Max_percent_stops $Good_proteins_file $Poor_proteins_file
+```
+
 ### Runs orthofinder
 
 ```bash
@@ -376,7 +387,7 @@ The total number of genes in UK3 orthogroups is:
 
 ```bash
 ProgDir=/home/armita/git_repos/emr_repos/tools/pathogen/orthology/orthoMCL
-$ProgDir/orthoMCLgroups2tab.py $workDir/goodProteins/goodProteins.fasta $WorkDir/Orthogroups.txt > $WorkDir/Orthogroups.tab
+$ProgDir/orthoMCLgroups2tab.py $WorkDir/goodProteins/goodProteins.fasta $WorkDir/Orthogroups.txt > $WorkDir/Orthogroups.tab
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 $ProgDir/UK1_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/UK1_orthogroups.pdf
 $ProgDir/UK2_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/UK2_orthogroups.pdf
