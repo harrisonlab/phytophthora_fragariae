@@ -1,6 +1,8 @@
-#Maria has suggested a new tool to try for orthology analysis, run it in parallel with orthomcl as a comparison.
+# Compare OrthoFinder to orthoMCL
 
-##Setting of variables
+Done at Maria's suggestion
+
+## Setting of variables
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
@@ -8,13 +10,147 @@ scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 WorkDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Aug18
 ```
 
-##Copy files of all protein sequences to one directory
+## 4.1 Format fasta files
 
-Files already reformatted in Whole_Genome_Orthology.md
+
+### for A4
 
 ```bash
-mkdir -p $input
-cp -r analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/formatted $input
+Taxon_code=A4
+Fasta_file=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for BC-1
+
+```bash
+Taxon_code=Bc1
+Fasta_file=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for BC-16
+
+```bash
+Taxon_code=Bc16
+Fasta_file=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for BC-23
+
+```bash
+Taxon_code=Bc23
+Fasta_file=gene_pred/annotation/P.fragariae/Bc23/Bc23_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for NOV-27
+
+```bash
+Taxon_code=Nov27
+Fasta_file=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for NOV-5
+
+```bash
+Taxon_code=Nov5
+Fasta_file=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for NOV-71
+
+```bash
+Taxon_code=Nov71
+Fasta_file=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for NOV-77
+
+```bash
+Taxon_code=Nov77
+Fasta_file=gene_pred/annotation/P.fragariae/Nov77/Nov77_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for NOV-9
+
+```bash
+Taxon_code=Nov9
+Fasta_file=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for ONT-3
+
+```bash
+Taxon_code=ONT3
+Fasta_file=gene_pred/annotation/P.fragariae/ONT3/ONT3_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for SCRP245_v2
+
+```bash
+Taxon_code=SCRP245_v2
+Fasta_file=gene_pred/annotation/P.fragariae/SCRP245_v2/SCRP245_v2_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for SCRP249
+
+```bash
+Taxon_code=SCRP249
+Fasta_file=../phytophthora_rubi/gene_pred/annotation/P.rubi/SCRP249/SCRP249_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for SCRP324
+
+```bash
+Taxon_code=SCRP324
+Fasta_file=../phytophthora_rubi/gene_pred/annotation/P.rubi/SCRP324/SCRP324_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
+```
+
+### for SCRP333
+
+```bash
+Taxon_code=SCRP333
+Fasta_file=../phytophthora_rubi/gene_pred/annotation/P.rubi/SCRP333/SCRP333_genes_incl_ORFeffectors_renamed.pep.fasta
+Id_field=1
+orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 ```
 
 ###Runs orthofinder
