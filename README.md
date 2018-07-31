@@ -5794,39 +5794,6 @@ nano gene_pred/GPIsom/P.fragariae/Nov77/greedy/GPI_pos.fa
 nano gene_pred/GPIsom/P.fragariae/Nov9/greedy/GPI_pos.fa
 nano gene_pred/GPIsom/P.fragariae/ONT3/greedy/GPI_pos.fa
 nano gene_pred/GPIsom/P.fragariae/SCRP245_v2/greedy/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/A4/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc1/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc16/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc23/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov27/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov5/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov71/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov77/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov9/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/ONT3/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/SCRP245_v2/conservative/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/A4/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc1/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc16/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc23/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov27/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov5/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov71/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov77/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov9/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/ONT3/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/SCRP245_v2/greedy_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/A4/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc1/conservative/_noApoPGPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc16/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Bc23/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov27/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov5/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov71/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov77/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/Nov9/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/ONT3/conservative_noApoP/GPI_pos.fa
-nano gene_pred/GPIsom/P.fragariae/SCRP245_v2/conservative_noApoP/GPI_pos.fa
 ```
 
 Create a file just listing gene names
