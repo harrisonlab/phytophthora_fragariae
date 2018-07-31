@@ -67,16 +67,6 @@ nano. URL below:
 http://www.ncbi.nlm.nih.gov/WebSub/template.cgi
 ```
 
-#### Setting variables
-
-Variables containing the locations of files and options for scripts were set
-
-```bash
-AnnieDir=/home/armita/prog/annie/genomeannotation-annie-c1e848b
-ProgDir=/home/adamst/git_repos/tools/genbank_submission
-LabID=AdamsNIABEMR
-```
-
 #### Correct duplicate genes - preferentially keep effector calls
 
 ```bash
@@ -336,6 +326,16 @@ P.fragariae	SCRP245_v2	44,933	45,748
 P.rubi	SCRP249	42,302	42,647
 P.rubi	SCRP324	43,281	43,568
 P.rubi	SCRP333	43,402	43,717
+```
+
+#### Setting variables
+
+Variables containing the locations of files and options for scripts were set
+
+```bash
+AnnieDir=/home/armita/prog/annie/genomeannotation-annie-c1e848b
+ProgDir=/home/adamst/git_repos/tools/genbank_submission
+LabID=AdamsNIABEMR
 ```
 
 ### Generating .tbl file using GAG
