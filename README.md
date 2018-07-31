@@ -6079,6 +6079,4 @@ P.fragariae SCRP245_v2:
 251
 ```
 
-Seems to be very little difference between these sets, which is reassuring
-
 Further downstream analysis done in Whole_Genome_Orthology.md, RNA-Seq_analysis.md and SNP_analysis.md
