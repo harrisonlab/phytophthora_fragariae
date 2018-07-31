@@ -5476,27 +5476,9 @@ These scripts are modified to take into account different directory structures
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Genes in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
+for Genes in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_renamed.pep.fasta)
 do
     $ProgDir/sub_interproscan.sh $Genes
-done
-
-ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Genes in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
-do
-    $ProgDir/sub_interproscan2.sh $Genes
-done
-
-ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Genes in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_noApoP.pep.fasta)
-do
-    $ProgDir/sub_interproscan3.sh $Genes
-done
-
-ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
-for Genes in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative_noApoP.pep.fasta)
-do
-    $ProgDir/sub_interproscan4.sh $Genes
 done
 ```
 
