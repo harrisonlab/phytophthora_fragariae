@@ -376,7 +376,7 @@ The total number of genes in UK3 orthogroups is:
 
 ```bash
 ProgDir=/home/armita/git_repos/emr_repos/tools/pathogen/orthology/orthoMCL
-$ProgDir/orthoMCLgroups2tab.py analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta $WorkDir/Orthogroups.txt > $WorkDir/Orthogroups.tab
+$ProgDir/orthoMCLgroups2tab.py $workDir/goodProteins/goodProteins.fasta $WorkDir/Orthogroups.txt > $WorkDir/Orthogroups.tab
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 $ProgDir/UK1_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/UK1_orthogroups.pdf
 $ProgDir/UK2_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/UK2_orthogroups.pdf
