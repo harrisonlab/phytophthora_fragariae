@@ -8,7 +8,6 @@ prediction.
 
 import argparse
 from collections import defaultdict
-import os
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--gff_in', required=True, type=str, help='input gff file')
@@ -30,7 +29,6 @@ In_Gff = conf.gff_in
 Out_Gff = conf.gff_out
 ApoP_Aug = conf.Aug_ApoP
 ApoP_ORF = conf.ORF_ApoP
-cwd = os.getcwd()
 
 print("Command line arguments parsed")
 
