@@ -33,3 +33,16 @@ with open(conf.Feature_File) as f:
             Old_Genes.append(gene_id)
 
 Old_Set = set(Old_Genes)
+
+# Load conversion file into a dictionary
+
+conversion_dict = defaultdict(str)
+
+with open(conf.Conversion_File) as f:
+    lines = f.readlines()
+    for line in lines:
+        stripped_line = line.rstrip()
+        split_line = stripped_line.split()
+        Old_ID = split_line[0]
+        New_ID = split_line[2]
+        conversion_dict[Old_ID] = New_ID
