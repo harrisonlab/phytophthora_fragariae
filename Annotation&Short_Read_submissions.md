@@ -203,9 +203,9 @@ done
 
 ```
 Species Isolate PreFilter   FilterList  UniqueFilterList    GenesRemoved    FinalGenes
-P.fragariae     A4      31502   7785    7471    0       31502
-P.fragariae     Bc16    38671   9172    8813    0       38671
-P.fragariae     Bc1     31736   7945    7686    0       31736
+P.fragariae     A4      41,131   7,785    7,471    0       41,131
+P.fragariae     Bc16    49,981   9,172    8,813    0       49,981
+P.fragariae     Bc1     41,405   7,945    7,686    0       41,405
 P.fragariae     Bc23    31289   7852    7589    0       31289
 P.fragariae     Nov27   31891   7947    7698    0       31891
 P.fragariae     Nov5    31569   7713    7455    0       31569
@@ -214,9 +214,9 @@ P.fragariae     Nov77   31425   7711    7464    0       31425
 P.fragariae     Nov9    31334   7813    7565    0       31334
 P.fragariae     ONT3    34767   8103    7844    0       34767
 P.fragariae     SCRP245_v2      35166   8114    7847    0       35166
-P.rubi  SCRP249 32903   8376    8144    0       32903
-P.rubi  SCRP324 33890   8493    8264    0       33890
-P.rubi  SCRP333 34062   8423    8160    0       34062
+P.rubi  SCRP249 42,302   8,376    8,144    0       42,302
+P.rubi  SCRP324 43,281   8,493    8,264    0       43,281
+P.rubi  SCRP333 43,402   8,423    8,160    0       43,402
 ```
 
 #### Check for further duplication, rename the genes and extract fasta files
@@ -248,7 +248,7 @@ do
         Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
         echo $Assembly
     fi
-    $ProgDir/gff2fasta.pl $Assembly $GffRenamed $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
+    $ProgDir/gff2fasta.pl $Assembly $Gff_Renamed $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
     # Perl script uses * for stop codons, NCBI want X
     sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
 done
@@ -276,7 +276,7 @@ do
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
     fi
-    $ProgDir/gff2fasta.pl $Assembly $GffRenamed $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
+    $ProgDir/gff2fasta.pl $Assembly $Gff_Renamed $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
     # Perl script uses * for stop codons, NCBI want X
     sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
 done
