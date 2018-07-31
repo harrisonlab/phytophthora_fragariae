@@ -6079,4 +6079,5 @@ P.fragariae SCRP245_v2:
 251
 ```
 
-Further downstream analysis done in Whole_Genome_Orthology.md, RNA-Seq_analysis.md and SNP_analysis.md
+Further downstream analysis done in OrthoFinder.md, RNA-Seq_analysis.md and
+popgen_analysis directory
