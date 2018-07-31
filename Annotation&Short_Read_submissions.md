@@ -319,6 +319,13 @@ do
 done
 ```
 
+```
+Species Isolate Genes   Proteins
+P.rubi	SCRP249	42,302	42,647
+P.rubi	SCRP324	43,281	43,568
+P.rubi	SCRP333	43,402	43,717
+```
+
 ### Generating .tbl file using GAG
 
 The Genome Annotation Generator (GAG.py) can convert gffs to .tbl files
