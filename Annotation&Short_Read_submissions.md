@@ -206,7 +206,7 @@ Species Isolate PreFilter   FilterList  UniqueFilterList    GenesRemoved    Fina
 P.fragariae     A4      41,131   7,785    7,471    0       41,131
 P.fragariae     Bc16    49,981   9,172    8,813    0       49,981
 P.fragariae     Bc1     41,405   7,945    7,686    0       41,405
-P.fragariae     Bc23    31289   7852    7589    0       31289
+P.fragariae     Bc23    40,770   7,852    7,589    0       40,770
 P.fragariae     Nov27   31891   7947    7698    0       31891
 P.fragariae     Nov5    31569   7713    7455    0       31569
 P.fragariae     Nov71   31006   7697    7448    0       31006
@@ -236,13 +236,13 @@ do
     Log_File=$OutDir/Renaming_log.log
     $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered --conversion_log $Log_File > $Gff_Renamed
     rm $Gff_Filtered
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
+    if [ -f repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
-        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
+        Assembly=$(ls repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
-    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
+    elif [ -f repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
     then
-        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
+        Assembly=$(ls repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
     else
         Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
@@ -267,13 +267,13 @@ do
     Log_File=$OutDir/Renaming_log.log
     $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered --conversion_log $Log_File > $Gff_Renamed
     rm $Gff_Filtered
-    if [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
+    if [ -f ../phytophthora_rubi/repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
-        Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
-    elif [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
+    elif [ -f ../phytophthora_rubi/repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
     then
-        Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
     fi
     $ProgDir/gff2fasta.pl $Assembly $Gff_Renamed $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed
