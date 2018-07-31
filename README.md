@@ -5754,39 +5754,12 @@ http://gpi.unibe.ch
 Output directory made
 
 ```bash
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_renamed.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
     echo "$Organism - $Strain"
     OutDir=gene_pred/GPIsom/$Organism/$Strain/greedy
-    mkdir -p $OutDir
-done
-
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    echo "$Organism - $Strain"
-    OutDir=gene_pred/GPIsom/$Organism/$Strain/conservative
-    mkdir -p $OutDir
-done
-
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_noApoP.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    echo "$Organism - $Strain"
-    OutDir=gene_pred/GPIsom/$Organism/$Strain/greedy_noApoP
-    mkdir -p $OutDir
-done
-
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative_noApoP.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    echo "$Organism - $Strain"
-    OutDir=gene_pred/GPIsom/$Organism/$Strain/conservative_noApoP
     mkdir -p $OutDir
 done
 ```
