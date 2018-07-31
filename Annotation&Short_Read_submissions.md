@@ -201,6 +201,10 @@ do
 done
 ```
 
+```
+Species Isolate PreFilter   FilterList  UniqueFilterList    GenesRemoved    FinalGenes
+```
+
 #### Check for further duplication, rename the genes and extract fasta files
 
 ```bash
