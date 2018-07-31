@@ -5228,7 +5228,7 @@ The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
 9,717
 ```
 
-#Making a combined file of Braker and CodingQuarry genes with additional ORF effector candidates
+## Making a combined file of Braker and CodingQuarry genes with additional ORF effector candidates
 
 ```bash
 for num in 1
