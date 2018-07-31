@@ -5467,10 +5467,12 @@ done
 
 Additional Gff clean up performed in Annotation&Short_Read_submissions.md
 
-#Functional annotation
+## Functional annotation
 
-##A)Interproscan
-Interproscan was used to give gene models functional annotations. These scripts are modified to take into account different directory structures
+### A)Interproscan
+
+Interproscan was used to give gene models functional annotations.
+These scripts are modified to take into account different directory structures
 
 ```bash
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
