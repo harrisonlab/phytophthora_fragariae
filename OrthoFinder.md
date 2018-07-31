@@ -509,7 +509,7 @@ These values will contain singletons
 
 ### The genes unique to Race 2 were identified within the orthology analysis
 
-### First variables were set:
+### First variables were set
 
 ```bash
 WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
@@ -521,9 +521,7 @@ Uniq_UK2_groups=$UK2UniqDir/UK2_uniq_orthogroups.txt
 mkdir -p $UK2UniqDir
 ```
 
-#Orthogroups only containing Race 2 genes were extracted:
-
-##Bars are to prevent incorrect filtering
+## Orthogroups only containing Race 2 genes were extracted:
 
 ```bash
 for num in 1
