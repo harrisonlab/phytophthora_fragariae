@@ -5753,8 +5753,6 @@ http://gpi.unibe.ch
 
 Output directory made
 
-This crashed before running ONT-3_conservative, SCRP245_v2_greedy and SCRP245_v2_conservative - have sent an email requesting a reboot, but it's not strictly crucial
-
 ```bash
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
 do
