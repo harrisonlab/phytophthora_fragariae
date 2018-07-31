@@ -5919,7 +5919,7 @@ Run in a qlogin session with a screen session
 screen -a
 qlogin
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_renamed.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
@@ -5929,15 +5929,14 @@ do
     mkdir -p $OutDir
     HMMResults="$Strain"_TF_TR_hmmer.txt
     hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
-    echo "Greedy RxLRs plus ApoP"
-    echo "$Organism $Strain:"
+    echo "$Organism - $Strain:"
     ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
     python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Strain
     cat $OutDir/*TF_TR_Headers.txt | wc -l
     HMMFasta="$Strain"_TF_TR_hmmer.fa
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR_hmmer.fa
-    Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors.gff3)
+    Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_renamed.gff3)
     cat $Gff | grep -w -f $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR.gff3
 done
 ```
