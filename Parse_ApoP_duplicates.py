@@ -56,7 +56,8 @@ with open(In_Gff) as f:
 with open(ApoP_Aug) as f:
     lines = f.readlines()
     for line in lines:
-        ApoPs.append(line)
+        line_to_add = line.rstrip()
+        ApoPs.append(line_to_add)
 
 with open(ApoP_ORF) as f:
     lines = f.readlines()
