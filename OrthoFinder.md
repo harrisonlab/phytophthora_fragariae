@@ -515,8 +515,8 @@ These values will contain singletons
 WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
 UK2UniqDir=$WorkDir/UK2_unique
 Orthogroups=$WorkDir/Orthogroups.txt
-Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
-Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
+Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
+Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors_renamed.pep.fasta
 Uniq_UK2_groups=$UK2UniqDir/UK2_uniq_orthogroups.txt
 mkdir -p $UK2UniqDir
 ```
