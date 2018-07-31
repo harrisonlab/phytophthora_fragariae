@@ -92,13 +92,15 @@ for item in location_dict.keys():
         if len(trimmed_set) > 1:
             if gene in ApoP_set:
                 Replacement_dict[item].append(gene)
+        else:
+            write_dict[item] = location_dict[item]
     else:
         write_dict[item] = location_dict[item]
 
 for item in Replacement_dict.keys():
     genes = Replacement_dict[item]
     if len(genes) == 1:
-        write_dict[item] = location_dict[item]
+        write_dict[item] = Replacement_dict[item]
     else:
         Unclear_dict[item] = genes
 
