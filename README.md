@@ -5743,9 +5743,13 @@ do
 done
 ```
 
-##D)Identify genes with GPI anchors
+### D)Identify genes with GPI anchors
 
-Proteins were identified by submitting the combined protein file to webserver at http://gpi.unibe.ch
+Proteins were identified by submitting the combined protein file to webserver:
+
+```html
+http://gpi.unibe.ch
+```
 
 Output directory made
 
