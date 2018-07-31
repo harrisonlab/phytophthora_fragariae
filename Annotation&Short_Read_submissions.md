@@ -203,6 +203,20 @@ done
 
 ```
 Species Isolate PreFilter   FilterList  UniqueFilterList    GenesRemoved    FinalGenes
+P.fragariae     A4      31502   7785    7471    0       31502
+P.fragariae     Bc16    38671   9172    8813    0       38671
+P.fragariae     Bc1     31736   7945    7686    0       31736
+P.fragariae     Bc23    31289   7852    7589    0       31289
+P.fragariae     Nov27   31891   7947    7698    0       31891
+P.fragariae     Nov5    31569   7713    7455    0       31569
+P.fragariae     Nov71   31006   7697    7448    0       31006
+P.fragariae     Nov77   31425   7711    7464    0       31425
+P.fragariae     Nov9    31334   7813    7565    0       31334
+P.fragariae     ONT3    34767   8103    7844    0       34767
+P.fragariae     SCRP245_v2      35166   8114    7847    0       35166
+P.rubi  SCRP249 32903   8376    8144    0       32903
+P.rubi  SCRP324 33890   8493    8264    0       33890
+P.rubi  SCRP333 34062   8423    8160    0       34062
 ```
 
 #### Check for further duplication, rename the genes and extract fasta files
