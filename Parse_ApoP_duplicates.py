@@ -98,7 +98,8 @@ for item in Replacement_dict.keys():
 
 for item in write_dict.keys():
     gene = write_dict[item]
-    genes_to_write.append(gene)
+    for transcript in gene:
+        genes_to_write.append(transcript)
 
 print("Genes to write out identified")
 
