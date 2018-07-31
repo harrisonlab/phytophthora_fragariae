@@ -79,6 +79,7 @@ Replacement_dict = defaultdict(list)
 write_dict = defaultdict(list)
 Unclear_dict = defaultdict(list)
 genes_to_write = []
+transcripts_to_write = []
 
 for item in location_dict.keys():
     genes = location_dict[item]
@@ -104,7 +105,12 @@ for item in Replacement_dict.keys():
 for item in write_dict.keys():
     gene = write_dict[item]
     for transcript in gene:
-        genes_to_write.append(transcript)
+        transcripts_to_write.append(transcript)
+        gene_ID = transcript.split('.')[0]
+        genes_to_write.append(gene_ID)
+
+transcripts_to_write_set = set(transcripts_to_write)
+genes_to_write_set = set(genes_to_write)
 
 print("Genes to write out identified")
 
@@ -121,9 +127,10 @@ with open(Out_Gff, 'w') as o:
             ID = split_line[8].split('=')[-1]
         else:
             ID = split_line[8].split('=')[-1].split('.')[0]
-        if ID in genes_to_write:
+        if ID in genes_to_write_set:
             o.write(line)
-            o.write('\n')
+        elif ID in transcripts_to_write_set:
+            o.write(line)
 
 print("Gff written")
 
