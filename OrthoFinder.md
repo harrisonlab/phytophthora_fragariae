@@ -383,7 +383,7 @@ The total number of genes in UK3 orthogroups is:
 121
 ```
 
-##4.5.b Creates tab file and Plot venn diagrams:
+## 4.5.b Creates tab file and Plot venn diagrams:
 
 ```bash
 ProgDir=/home/armita/git_repos/emr_repos/tools/pathogen/orthology/orthoMCL
@@ -396,13 +396,15 @@ $ProgDir/UK3_Pf_venn_diag.r --inp $WorkDir/Orthogroups.tab --out $WorkDir/UK3_or
 
 Output was a pdf file of the venn diagram.
 
-The following additional information was also provided. The format of the following lines is as follows:
+The following additional information was also provided.
+The format of the following lines is as follows:
 
-Isolate name (total number of orthogroups) number of unique singleton genes number of unique groups of inparalogs
+Isolate name (total number of orthogroups) number of unique singleton genes
+number of unique groups of inparalogs
 
 Singletons will always show up as zeros due to different naming by OrthoFinder
 
-###UK race 1 focused analysis
+### UK race 1 focused analysis
 
 ```
 A4
@@ -435,7 +437,7 @@ The total number of orthogroups and singleton genes not in the venn diagram:  4,
 The total number of singleton genes not in the venn diagram:  0
 ```
 
-###UK race 2 focused analysis
+### UK race 2 focused analysis
 
 ```
 A4
@@ -468,7 +470,7 @@ The total number of orthogroups and singleton genes not in the venn diagram:  3,
 The total number of singleton genes not in the venn diagram:  0
 ```
 
-###UK race 3 focused analysis
+### UK race 3 focused analysis
 
 ```
 A4
@@ -501,13 +503,13 @@ The total number of orthogroups and singleton genes not in the venn diagram:  4,
 The total number of singleton genes not in the venn diagram:  0
 ```
 
-#Analysis of orthogroups unique to UK race 2 (Strains BC-16 & A4)
+## Analysis of orthogroups unique to UK race 2 (Strains BC-16 & A4)
 
 These values will contain singletons
 
-##The genes unique to Race 2 were identified within the orthology analysis
+### The genes unique to Race 2 were identified within the orthology analysis
 
-##First variables were set:
+### First variables were set:
 
 ```bash
 WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Jan16
