@@ -2,6 +2,53 @@
 
 Done at Maria's suggestion
 
+Run on old gene models as below, comparison listed here for reference
+
+##Compare OrthoFinder with orthoMCL
+
+OrthoFinder produces a set of statistics, generate what of these I can for orthoMCL, some others will be calculated manually
+
+```bash
+for num in 1
+do
+    echo "Number of genes:"
+    GoodProts=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    cat $GoodProts | grep '>' | wc -l
+    echo "Number of genes in orthogroups:"
+    OrthoGroups=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/All_Strains_plus_rubi_no_removal_orthogroups.txt
+    fgrep -o '|' $OrthoGroups | wc -l
+    echo "Number of orthogroups:"
+    fgrep -o ':' $OrthoGroups | wc -l
+    echo "Median orthogroup size:"
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    python $ProgDir/calc_orthogroup_median.py --orthogroups $OrthoGroups
+done
+```
+
+```
+OrthoMCL:
+Number of genes input: 478,997
+Number of genes in orthogroups: 455,838
+Number of unassigned genes: 23,159
+Percentage of unassigned genes: 4.8%
+Number of orthogroups: 24,041
+Mean orthogroup size: 19.0
+Median orthogroup size: 14
+
+OrthoFinder:
+Number of genes input: 479,008
+Number of genes in orthogroups: 469,036
+Number of unassigned genes: 9,972
+Percentage of unassigned genes: 2.1%
+Number of orthogroups: 38,179 - this does not include singletons
+Mean orthogroup size: 12.3
+Median orthogroup size: 12
+
+Unclear where there are 11 more genes fed into OrthoFinder, but there are 2.7 percentage points fewer genes in unassigned groups, with 14,138 more orthogroups, with a 6.7 smaller mean orthogroup size and a 2 smaller median orthogroup size. So, OrthoFinder seems better than OrthoMCL for my requirements.
+```
+
+Analysis on corrected models submitted to NCBI
+
 ## Setting of variables
 
 ```bash
@@ -153,7 +200,7 @@ orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 ```
 
-###Runs orthofinder
+### Runs orthofinder
 
 ```bash
 screen -a
@@ -173,49 +220,6 @@ Best outgroup for species tree:
 SCRP249, SCRP333, SCRP324
 
 OrthoFinder assigned 469036 genes (97.9% of total) to 38179 orthogroups. Fifty percent of all genes were in orthogroups with 14 or more genes (G50 was 14) and were contained in the largest 12233 orthogroups (O50 was 12233). There were 17388 orthogroups with all species present and 13444 of these consisted entirely of single-copy genes.
-```
-
-##Compare OrthoFinder with orthoMCL
-
-OrthoFinder produces a set of statistics, generate what of these I can for orthoMCL, some others will be calculated manually
-
-```bash
-for num in 1
-do
-    echo "Number of genes:"
-    GoodProts=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
-    cat $GoodProts | grep '>' | wc -l
-    echo "Number of genes in orthogroups:"
-    OrthoGroups=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/All_Strains_plus_rubi_no_removal_orthogroups.txt
-    fgrep -o '|' $OrthoGroups | wc -l
-    echo "Number of orthogroups:"
-    fgrep -o ':' $OrthoGroups | wc -l
-    echo "Median orthogroup size:"
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    python $ProgDir/calc_orthogroup_median.py --orthogroups $OrthoGroups
-done
-```
-
-```
-OrthoMCL:
-Number of genes input: 478,997
-Number of genes in orthogroups: 455,838
-Number of unassigned genes: 23,159
-Percentage of unassigned genes: 4.8%
-Number of orthogroups: 24,041
-Mean orthogroup size: 19.0
-Median orthogroup size: 14
-
-OrthoFinder:
-Number of genes input: 479,008
-Number of genes in orthogroups: 469,036
-Number of unassigned genes: 9,972
-Percentage of unassigned genes: 2.1%
-Number of orthogroups: 38,179 - this does not include singletons
-Mean orthogroup size: 12.3
-Median orthogroup size: 12
-
-Unclear where there are 11 more genes fed into OrthoFinder, but there are 2.7 percentage points fewer genes in unassigned groups, with 14,138 more orthogroups, with a 6.7 smaller mean orthogroup size and a 2 smaller median orthogroup size. So, OrthoFinder seems better than OrthoMCL for my requirements.
 ```
 
 ##4.5.a Manual identification of numbers of orthologous and unique genes
