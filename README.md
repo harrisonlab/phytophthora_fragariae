@@ -5348,23 +5348,23 @@ do
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
         if [ -s $OutDir/ORF_RxLR_EER_No_ApoP_parsed.gff3 ]
         then
-            $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_EER_No_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+            $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_EER_No_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative.gff3
         fi
         if [ -s $OutDir/ORF_RxLR_EER_Plus_ApoP_parsed.gff3 ]
         then
-            $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_EER_Plus_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+            $ProgDir/add_ORF_features.pl $OutDir/ORF_RxLR_EER_Plus_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative.gff3
         fi
         if [ -s $OutDir/ORF_CRN_No_ApoP_parsed.gff3 ]
         then
-            $ProgDir/add_ORF_features.pl $OutDir/ORF_CRN_No_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+            $ProgDir/add_ORF_features.pl $OutDir/ORF_CRN_No_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative.gff3
         fi
         if [ -s $OutDir/ORF_CRN_Plus_ApoP_parsed.gff3 ]
         then
-            $ProgDir/add_ORF_features.pl $OutDir/ORF_CRN_Plus_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+            $ProgDir/add_ORF_features.pl $OutDir/ORF_CRN_Plus_ApoP_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative.gff3
         fi
         if [ -s $OutDir/ORF_ApoP_No_RxLR_EER_CRN_parsed.gff3 ]
         then
-            $ProgDir/add_ORF_features.pl $OutDir/ORF_ApoP_No_RxLR_EER_CRN_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors.gff3
+            $ProgDir/add_ORF_features.pl $OutDir/ORF_ApoP_No_RxLR_EER_CRN_parsed.gff3 $Assembly >> $OutDir/"$Strain"_genes_incl_ORFeffectors_conservative.gff3
         fi
         # Make gene models from gff files.
         ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
