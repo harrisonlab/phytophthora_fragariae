@@ -63,7 +63,8 @@ with open(ApoP_ORF) as f:
     lines = f.readlines()
     for line in lines:
         line_to_add = line.rstrip()
-        ApoPs.append(line_to_add)
+        to_add = ".".join([line_to_add, "t1"])
+        ApoPs.append(to_add)
 
 ApoP_set = set(ApoPs)
 
