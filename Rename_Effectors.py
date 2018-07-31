@@ -34,6 +34,8 @@ with open(conf.Feature_File) as f:
 
 Old_Set = set(Old_Genes)
 
+print "Old gene IDs loaded and parsed"
+
 # Load conversion file into a dictionary
 
 conversion_dict = defaultdict(str)
@@ -47,6 +49,8 @@ with open(conf.Conversion_File) as f:
         New_ID = split_line[2]
         conversion_dict[Old_ID] = New_ID
 
+print "Conversion file loaded and parsed"
+
 # Create set of new IDs
 
 New_IDs = []
@@ -57,9 +61,13 @@ for Old_Gene in Old_Set:
 
 New_Set = set(New_IDs)
 
+print "New gene IDs generated"
+
 # Write out new IDs
 
 with open(conf.Out_File, 'w') as o:
     for gene in New_Set:
         o.write(gene)
         o.write('\n')
+
+print "New headers file written"
