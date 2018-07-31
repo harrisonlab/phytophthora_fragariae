@@ -5525,7 +5525,7 @@ WARNING: This has a high false positive rate
 modified from the base script to allow greedy/conservative
 
 ```bash
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
+for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_renamed.pep.fasta)
 do
     Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
@@ -5538,51 +5538,6 @@ do
         Jobs=$(qstat | grep 'submit_TM' | wc -l)
     done
     qsub $ProgDir/submit_TMHMM.sh $Proteome
-done
-
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
-    Jobs=$(qstat | grep 'submit_TM' | wc -l)
-    while [ $Jobs -gt 5 ]
-    do
-        sleep 1
-        printf "."
-        Jobs=$(qstat | grep 'submit_TM' | wc -l)
-    done
-    qsub $ProgDir/submit_TMHMM2.sh $Proteome
-done
-
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_noApoP.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
-    Jobs=$(qstat | grep 'submit_TM' | wc -l)
-    while [ $Jobs -gt 5 ]
-    do
-        sleep 1
-        printf "."
-        Jobs=$(qstat | grep 'submit_TM' | wc -l)
-    done
-    qsub $ProgDir/submit_TMHMM3.sh $Proteome
-done
-
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative_noApoP.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/transmembrane_helices
-    Jobs=$(qstat | grep 'submit_TM' | wc -l)
-    while [ $Jobs -gt 5 ]
-    do
-        sleep 1
-        printf "."
-        Jobs=$(qstat | grep 'submit_TM' | wc -l)
-    done
-    qsub $ProgDir/submit_TMHMM4.sh $Proteome
 done
 ```
 
