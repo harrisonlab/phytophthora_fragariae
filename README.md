@@ -5912,7 +5912,7 @@ mv Own_Models.hmm TF_TR_Buitrago-Florez.hmm
 ```
 
 Identify TFs & TRs in gene set
-4 sets of commands, run each in a separate qlogin session with a screen session
+Run in a qlogin session with a screen session
 
 ```bash
 # greedy ApoP
@@ -5939,84 +5939,6 @@ do
     $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR_hmmer.fa
     Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors.gff3)
     cat $Gff | grep -w -f $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR.gff3
-done
-
-# conservative ApoP
-screen -a
-qlogin
-cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
-    HMMModel=/home/adamst/TF_TR_Buitrago-Florez.hmm
-    OutDir=analysis/transcription_factors/$Organism/$Strain/conservative
-    mkdir -p $OutDir
-    HMMResults="$Strain"_TF_TR_hmmer.txt
-    hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
-    echo "Conservative RxLRs plus ApoP"
-    echo "$Organism $Strain:"
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
-    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Strain
-    cat $OutDir/*TF_TR_Headers.txt | wc -l
-    HMMFasta="$Strain"_TF_TR_hmmer.fa
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR_hmmer.fa
-    Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_conservative.gff3)
-    cat $Gff | grep -w -f $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR.gff3
-done
-
-# greedy no ApoP
-screen -a
-qlogin
-cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_noApoP.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
-    HMMModel=/home/adamst/TF_TR_Buitrago-Florez.hmm
-    OutDir=analysis/transcription_factors/$Organism/$Strain/greedy_noApoP
-    mkdir -p $OutDir
-    HMMResults="$Strain"_TF_TR_hmmer.txt
-    hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
-    echo "Greedy RxLRs, no ApoP"
-    echo "$Organism $Strain:"
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
-    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Strain
-    cat $OutDir/*TF_TR_Headers.txt | wc -l
-    HMMFasta="$Strain"_TF_TR_hmmer.fa
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR_hmmer.fa
-    Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_noApoP.gff3)
-    cat $Gff | grep -w -f $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR.gff3done
-done
-
-# conservative no ApoP
-screen -a
-qlogin
-cd /home/groups/harrisonlab/project_files/phytophthora_fragariae/
-for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_conservative_noApoP.pep.fasta)
-do
-    Strain=$(echo $Proteome | rev | cut -f2 -d '/' | rev)
-    Organism=$(echo $Proteome | rev | cut -f3 -d '/' | rev)
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/hmmer
-    HMMModel=/home/adamst/TF_TR_Buitrago-Florez.hmm
-    OutDir=analysis/transcription_factors/$Organism/$Strain/conservative_noApoP
-    mkdir -p $OutDir
-    HMMResults="$Strain"_TF_TR_hmmer.txt
-    hmmsearch -T 0 $HMMModel $Proteome > $OutDir/$HMMResults
-    echo "Conservative RxLRs, no ApoP"
-    echo "$Organism $Strain:"
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/transcription_factors
-    python $ProgDir/parse_hmmer_TF_TR.py --HMM_results $OutDir/$HMMResults --outdir $OutDir --Isolate $Strain
-    cat $OutDir/*TF_TR_Headers.txt | wc -l
-    HMMFasta="$Strain"_TF_TR_hmmer.fa
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR_hmmer.fa
-    Gff=$(ls gene_pred/annotation/$Organism/$Strain/*_genes_incl_ORFeffectors_conservative_noApoP.gff3)
-    cat $Gff | grep -w -f $OutDir/*TF_TR_Headers.txt > $OutDir/"$Strain"_TF_TR.gff3done
 done
 ```
 
