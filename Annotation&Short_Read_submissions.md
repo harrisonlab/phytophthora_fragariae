@@ -1,7 +1,7 @@
 # Commands to prepare gene annotations and raw reads for submission to NCBI
 
 This appears to be a complex procedure, following Andy's commands in
-phytophthora repository.
+phytophthora repository. With a few additional scripts I developed.
 Bioprojects & Biosamples have already been created.
 This is for *P. fragariae* and *P. rubi*
 
