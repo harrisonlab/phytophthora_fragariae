@@ -560,7 +560,7 @@ do
 done
 ```
 
-#Ortholog groups containing RxLR proteins were identified using the following commands:
+## Orthogroups containing RxLR proteins were identified
 
 ```bash
 for num in 1
@@ -607,7 +607,7 @@ These orthogroups contain the following number of RxLRs:
 4,859
 ```
 
-#The Race 2 RxLR genes that were not found in orthogroups were identified:
+## The Race 2 RxLR genes that were not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -616,10 +616,10 @@ do
     cat $RxLR_ID | grep -v -w -f $RxLR_Orthogroup_hits > $RxLR_UK2_uniq
     echo "The number of UK2 unique RxLRs are:"
     cat $RxLR_UK2_uniq | wc -l
-    RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR.fa
-    RxLR_Seq_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_final_RxLR.fa
-    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
+    RxLR_Seq_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_final_RxLR_renamed.fa
+    RxLR_Seq_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_final_RxLR_renamed.fa
+    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors_renamed.pep.fasta
     Bc16_RxLR_UK2_uniq_fa=$RxLR_Dir/Bc16_UK2_unique_RxLRs.fa
     A4_RxLR_UK2_uniq_fa=$RxLR_Dir/A4_UK2_unique_RxLRs.fa
     Bc16_to_extract=$RxLR_Dir/Bc16_to_extract.txt
