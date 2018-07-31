@@ -231,7 +231,7 @@ do
     OutDir=$(dirname $Gff)
     Gff_Filtered=$OutDir/filtered_duplicates.gff
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
-    $ProgDir/remove_dup_features.py --inp_gff $Gff -out_gff $Gff_Filtered
+    $ProgDir/remove_dup_features.py --inp_gff $Gff --out_gff $Gff_Filtered
     Gff_Renamed=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
     Log_File=$OutDir/Renaming_log.log
     $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered --conversion_log $Log_File > $Gff_Renamed
@@ -262,7 +262,7 @@ do
     OutDir=$(dirname $Gff)
     Gff_Filtered=$OutDir/filtered_duplicates.gff
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
-    $ProgDir/remove_dup_features.py --inp_gff $Gff -out_gff $Gff_Filtered
+    $ProgDir/remove_dup_features.py --inp_gff $Gff --out_gff $Gff_Filtered
     Gff_Renamed=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
     Log_File=$OutDir/Renaming_log.log
     $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered --conversion_log $Log_File > $Gff_Renamed
