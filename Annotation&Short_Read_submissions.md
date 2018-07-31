@@ -207,13 +207,13 @@ P.fragariae     A4      41,131   7,785    7,471    0       41,131
 P.fragariae     Bc16    49,981   9,172    8,813    0       49,981
 P.fragariae     Bc1     41,405   7,945    7,686    0       41,405
 P.fragariae     Bc23    40,770   7,852    7,589    0       40,770
-P.fragariae     Nov27   31891   7947    7698    0       31891
-P.fragariae     Nov5    31569   7713    7455    0       31569
-P.fragariae     Nov71   31006   7697    7448    0       31006
-P.fragariae     Nov77   31425   7711    7464    0       31425
-P.fragariae     Nov9    31334   7813    7565    0       31334
-P.fragariae     ONT3    34767   8103    7844    0       34767
-P.fragariae     SCRP245_v2      35166   8114    7847    0       35166
+P.fragariae     Nov27   41,524   7,947    7,698    0       41,524
+P.fragariae     Nov5    41,191   7,713    7,455    0       41,191
+P.fragariae     Nov71   40,622   7,697    7,448    0       40,622
+P.fragariae     Nov77   41,076   7,711    7,464    0       41,076
+P.fragariae     Nov9    41,127   7,813    7,565    0       41,127
+P.fragariae     ONT3    44,734   8,103    7,844    0       44,734
+P.fragariae     SCRP245_v2      44,933   8,114    7,847    0       44,933
 P.rubi  SCRP249 42,302   8,376    8,144    0       42,302
 P.rubi  SCRP324 43,281   8,493    8,264    0       43,281
 P.rubi  SCRP333 43,402   8,423    8,160    0       43,402
@@ -280,6 +280,16 @@ do
     # Perl script uses * for stop codons, NCBI want X
     sed -i 's/\*/X/g' $OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
 done
+```
+
+Any duplicates identified by this script were manually investigated for how
+they slipped through previous attempts to remove them
+
+```
+Duplicate in SCRP333:
+contig_11317_F1.t1
+this is the reverse complement of an Augustus prediction (g31870.t1). The ORF
+is hit only by ApoplastP, the Augustus gene has no effector predictions.
 ```
 
 ##### Collect statistics
