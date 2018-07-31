@@ -83,7 +83,12 @@ genes_to_write = []
 for item in location_dict.keys():
     genes = location_dict[item]
     if len(genes) > 1:
+        trimmed_genes = []
         for gene in genes:
+            trimmed_gene = gene.split('.')[0]
+            trimmed_genes.append(trimmed_gene)
+        trimmed_set = set(trimmed_genes)
+        if len(trimmed_set) > 1:
             if gene in ApoP_set:
                 Replacement_dict[item].append(gene)
     else:
