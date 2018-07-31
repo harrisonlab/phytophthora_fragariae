@@ -5,7 +5,7 @@
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
 scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
-WorkDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Jan16
+WorkDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Aug18
 ```
 
 ##Copy files of all protein sequences to one directory
