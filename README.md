@@ -5519,8 +5519,10 @@ do
 done
 ```
 
-##C)Identify genes with transmembrane domains
-WARNING: This has a high false positive rate - modified from the base script to allow greedy/conservative
+### C)Identify genes with transmembrane domains
+
+WARNING: This has a high false positive rate
+modified from the base script to allow greedy/conservative
 
 ```bash
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
