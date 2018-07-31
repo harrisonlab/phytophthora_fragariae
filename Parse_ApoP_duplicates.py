@@ -90,7 +90,7 @@ for item in location_dict.keys():
 
 for item in Replacement_dict.keys():
     genes = Replacement_dict[item]
-    if len(genes) < 1:
+    if len(genes) == 1:
         write_dict[item] = location_dict[item]
     else:
         Unclear_dict[item] = genes
