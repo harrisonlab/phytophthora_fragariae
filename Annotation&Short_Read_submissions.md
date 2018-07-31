@@ -267,11 +267,11 @@ do
     Log_File=$OutDir/Renaming_log.log
     $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered --conversion_log $Log_File > $Gff_Renamed
     rm $Gff_Filtered
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
+    if [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
-    elif [ -f repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
+    elif [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
