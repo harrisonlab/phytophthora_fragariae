@@ -5497,7 +5497,7 @@ do
 done
 ```
 
-##B)Swissprot
+### B)Swissprot
 
 ```bash
 for Proteome in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors.pep.fasta)
