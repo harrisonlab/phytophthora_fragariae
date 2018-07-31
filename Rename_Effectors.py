@@ -56,3 +56,10 @@ for Old_Gene in Old_Set:
     New_IDs.append(New_Gene)
 
 New_Set = set(New_IDs)
+
+# Write out new IDs
+
+with open(conf.Out_File, 'w') as o:
+    for gene in New_Set:
+        o.write(gene)
+        o.write('\n')
