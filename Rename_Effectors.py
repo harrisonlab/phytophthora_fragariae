@@ -7,7 +7,6 @@ NCBI
 '''
 
 from collections import defaultdict
-import os
 import argparse
 
 ap = argparse.ArgumentParser()
