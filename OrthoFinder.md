@@ -1343,8 +1343,7 @@ do
 done
 ```
 
-
-##Extracting fasta files for P. fragariae orthogroups containing Race 1 putative RxLRs
+## Extracting fastas for Pf orthogroups containing Race 1 putative RxLRs
 
 ```bash
 for num in 1
@@ -1358,15 +1357,15 @@ do
 done
 ```
 
-##Race 1 unique Crinkler families
+## Race 1 unique Crinkler families
 
-#Race 1 crinkler genes were parsed to the same format as the gene names used in the analysis:
+### Race 1 CRNs were parsed to the same format as used in the analysis
 
 ```bash
 for num in 1
 do
-    CRN_Names_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN.txt
-    CRN_Names_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN.txt
+    CRN_Names_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN_renamed.txt
+    CRN_Names_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     CRN_Dir=$WorkDir/UK1_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
