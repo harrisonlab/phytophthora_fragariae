@@ -405,7 +405,7 @@ do
         echo $Assembly
     fi
     OutDir=genome_submission/$Organism/$Isolate
-    Gff=$(ls gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors.gff3)
+    Gff=$(ls gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3)
     mkdir -p $OutDir/gag/round_1
     gag.py -f $Assembly -g $Gff -a $OutDir/annie_corrected_output.csv --fix_start_stop -o $OutDir/gag/round_1 2>&1 | tee $OutDir/gag_log_1.txt
     sed -i 's/Dbxref/db_xref/g' $OutDir/gag/round_1/genome.tbl
@@ -426,7 +426,7 @@ do
         echo $Assembly
     fi
     OutDir=genome_submission/$Organism/$Isolate
-    Gff=$(ls ../phytophthora_rubi/gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors.gff3)
+    Gff=$(ls ../phytophthora_rubi/gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3)
     mkdir -p $OutDir/gag/round_1
     gag.py -f $Assembly -g $Gff -a $OutDir/annie_corrected_output.csv --fix_start_stop -o $OutDir/gag/round_1 2>&1 | tee $OutDir/gag_log_1.txt
     sed -i 's/Dbxref/db_xref/g' $OutDir/gag/round_1/genome.tbl
