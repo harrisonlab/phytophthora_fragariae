@@ -673,15 +673,15 @@ do
 done
 ```
 
-##Race 2 unique Crinkler families
+## Race 2 unique Crinkler families
 
-#Race 2 crinkler genes were parsed to the same format as the gene names used in the analysis:
+### Race 2 crinkler genes were parsed to the same format as the gene names used in the analysis:
 
 ```bash
 for num in 1
 do
-    CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
-    CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.txt
+    CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
+    CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     CRN_Dir=$WorkDir/UK2_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
