@@ -2026,7 +2026,7 @@ The number of NOV-9 genes extracted is:
 0
 ```
 
-##Extracting fasta files for orthogroups containing Race 3 putative RxLRs
+## Extracting fasta files for orthogroups containing Race 3 putative RxLRs
 
 ```bash
 for num in 1
@@ -2040,8 +2040,7 @@ do
 done
 ```
 
-
-##Extracting fasta files for P. fragariae orthogroups containing Race 3 putative RxLRs
+## Extracting fasta files for Pf orthogroups containing Race 3 putative RxLRs
 
 ```bash
 for num in 1
@@ -2055,16 +2054,16 @@ do
 done
 ```
 
-##Race 3 unique Crinkler families
+## Race 3 unique Crinkler families
 
-#Race 3 crinkler genes were parsed to the same format as the gene names used in the analysis:
+### Race 3 crinkler genes were parsed to the same format as used in the analysis
 
 ```bash
 for num in 1
 do
-    CRN_Names_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN.txt
-    CRN_Names_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN.txt
-    CRN_Names_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN.txt
+    CRN_Names_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN_modified.txt
+    CRN_Names_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN_modified.txt
+    CRN_Names_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN_modified.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     CRN_Dir=$WorkDir/UK3_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
