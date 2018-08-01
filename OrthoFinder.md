@@ -800,15 +800,15 @@ do
 done
 ```
 
-##Race 2 unique Apoplastic effector families
+## Race 2 unique Apoplastic effector families
 
-#Race 2 Apoplastic effectors were parsed to the same format as the gene names used in the analysis:
+## Race 2 Apoplastic effectors were parsed to same format as used in analysis
 
 ```bash
 for num in 1
 do
-    ApoP_Names_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
-    ApoP_Names_A4=analysis/ApoplastP/P.fragariae/A4/A4_Total_ApoplastP.txt
+    ApoP_Names_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
+    ApoP_Names_A4=analysis/ApoplastP/P.fragariae/A4/A4_Total_ApoplastP_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     ApoP_Dir=$WorkDir/UK2_ApoP
     Orthogroups=$WorkDir/Orthogroups.txt
