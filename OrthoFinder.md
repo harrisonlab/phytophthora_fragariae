@@ -1329,14 +1329,14 @@ The number of NOV-5 genes extracted is:
 0
 ```
 
-##Extracting fasta files for orthogroups containing Race 1 putative RxLRs
+## Extracting fasta files for orthogroups containing Race 1 putative RxLRs
 
 ```bash
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_RxLR/UK1_RxLR_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_RxLR/orthogroups_fasta_UK1_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1351,7 +1351,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_RxLR/Pf_RxLR_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_RxLR/orthogroups_fasta_Pf_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1464,7 +1464,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_CRN/UK1_CRN_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_CRN/orthogroups_fasta_UK1_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1478,7 +1478,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_CRN/Pf_CRN_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_CRN/orthogroups_fasta_Pf_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1592,7 +1592,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_ApoP/UK1_ApoP_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_ApoP/orthogroups_fasta_UK1_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1606,7 +1606,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_ApoP/Pf_ApoP_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_ApoP/orthogroups_fasta_Pf_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1725,7 +1725,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_Secreted/UK1_Sec_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_Secreted/orthogroups_fasta_UK1_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1739,7 +1739,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_Secreted/Pf_Sec_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_Secreted/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1854,7 +1854,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_TFs/UK1_TF_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_TFs/orthogroups_fasta_UK1_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -1869,7 +1869,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_TFs/Pf_TF_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_TFs/orthogroups_fasta_Pf_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2038,7 +2038,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_RxLR/UK3_RxLR_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_RxLR/orthogroups_fasta_UK3_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2053,7 +2053,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_RxLR/Pf_RxLR_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_RxLR/orthogroups_fasta_Pf_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2175,7 +2175,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_CRN/UK3_CRN_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_CRN/orthogroups_fasta_UK3_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2189,7 +2189,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_CRN/Pf_CRN_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_CRN/orthogroups_fasta_Pf_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2315,7 +2315,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_ApoP/UK3_ApoP_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_ApoP/orthogroups_fasta_UK3_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2329,7 +2329,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_ApoP/Pf_ApoP_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_ApoP/orthogroups_fasta_Pf_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2461,7 +2461,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_Secreted/UK3_Sec_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_Secreted/orthogroups_fasta_UK3_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2476,7 +2476,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_Secreted/Pf_Sec_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_Secreted/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2602,7 +2602,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_TFs/UK3_TF_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_TFs/orthogroups_fasta_UK3_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2617,7 +2617,7 @@ for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_TFs/Pf_TF_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_TFs/orthogroups_fasta_Pf_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
@@ -2630,7 +2630,7 @@ done
 for OrthogroupTxt in $(ls analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK*_unique/*)
 do
     Race=$(echo $OrthogroupTxt | rev | cut -f2 -d '/' | rev)
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/group_fastas/$Race
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
@@ -2682,7 +2682,7 @@ for Race in UK1 UK2 UK3
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/"$Race"_expanded_modified.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/"$Race"_expanded
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
