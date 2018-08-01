@@ -1634,7 +1634,7 @@ do
 done
 ```
 
-#Ortholog groups containing Secreted proteins were identified using the following commands:
+## Orthology groups containing Secreted proteins were identified
 
 ```bash
 for num in 1
@@ -1681,7 +1681,7 @@ These orthogroups contain the following number of Secreted proteins:
 10,612
 ```
 
-#The Race 1 secreted protein genes that were not found in orthogroups were identified:
+## The Race 1 secreted protein genes that were not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -1690,8 +1690,8 @@ do
     cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits > $Sec_UK1_uniq
     echo "The number of UK1 unique secreted proteins are:"
     cat $Sec_UK1_uniq | wc -l
-    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors_renamed.pep.fasta
     Bc1_Sec_UK1_uniq_fa=$Sec_Dir/Bc1_UK1_unique_Secs.fa
     Nov5_Sec_UK1_uniq_fa=$Sec_Dir/Nov5_UK1_unique_Secs.fa
     Bc1_to_extract=$Sec_Dir/Bc1_to_extract.txt
@@ -1716,7 +1716,7 @@ The number of Nov5 genes extracted is:
 8,576
 ```
 
-##Extracting fasta files for orthogroups containing Race 1 putative secreted proteins
+## Extracting fastas for orthogroups containing Race 1 putative secreted proteins
 
 ```bash
 for num in 1
@@ -1730,7 +1730,7 @@ do
 done
 ```
 
-##Extracting fasta files for P. fragariae orthogroups containing Race 1 putative secreted proteins
+## Extracting fastas for Pf orthogroups containing Race 1 putative secreted proteins
 
 ```bash
 for num in 1
@@ -1744,9 +1744,9 @@ do
 done
 ```
 
-# Race 1 unique transcription factor and transcriptional regulator orthogroups
+## Race 1 unique transcription factor and transcriptional regulator orthogroups
 
-# Race 1 transcription factor and transcriptional regulators were parsed to the same format as the gene names used in the analysis
+## Race 1 TF/TRs were parsed to the same format as the gene names used in the analysis
 
 ```bash
 for num in 1
@@ -1763,7 +1763,7 @@ do
 done
 ```
 
-# Orthology groups containing transcription factor and transcriptional regulators were identified using the following commands
+## Orthology groups containing TF/TRs were identified using the following commands
 
 ```bash
 for num in 1
@@ -1810,7 +1810,7 @@ These orthogroups contain the following number of TFs:
 493
 ```
 
-# The Race 1 transcription factor and transcriptional regulators that were not found in orthogroups were identified
+## The Race 1 TF/TRs that were not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -1819,8 +1819,8 @@ do
     cat $TF_ID | grep -v -w -f $TF_Orthogroup_hits > $TF_UK1_uniq
     echo "The number of UK1 unique TFs are:"
     cat $TF_UK1_uniq | wc -l
-    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors_renamed.pep.fasta
     Bc1_TF_UK1_uniq_fa=$TF_Dir/Bc1_UK1_unique_TFs.fa
     Nov5_TF_UK1_uniq_fa=$TF_Dir/Nov5_UK1_unique_TFs.fa
     Bc1_to_extract=$TF_Dir/Bc1_to_extract.txt
