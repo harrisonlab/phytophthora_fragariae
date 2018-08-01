@@ -548,8 +548,8 @@ The following number genes are contained in these orthogroups:
 ```bash
 for num in 1
 do
-    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
-    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_motif_hmm.txt
+    RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
+    RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_motif_hmm_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     RxLR_Dir=$WorkDir/UK2_RxLR
     Orthogroups=$WorkDir/Orthogroups.txt
