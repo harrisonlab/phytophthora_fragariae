@@ -819,7 +819,7 @@ do
 done
 ```
 
-#Ortholog groups containing apoplastic effectors were identified using the following commands:
+## Orthology groups containing apoplastic effectors were identified
 
 ```bash
 for num in 1
@@ -862,8 +862,7 @@ These orthogroups contain the following number of apoplastic effectors:
 3,201
 ```
 
-
-#The Race 2 apoplastic effectors not found in orthogroups were identified:
+## The Race 2 apoplastic effectors not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -872,10 +871,10 @@ do
     cat $ApoP_ID_UK2 | grep -v -w -f $ApoP_Orthogroup_hits_UK2 > $ApoP_UK2_uniq
     echo "The number of UK2 unique apoplastic effectors are:"
     cat $ApoP_UK2_uniq | wc -l
-    ApoP_Seq_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_final_ApoplastP.fa
-    ApoP_Seq_A4=analysis/ApoplastP/P.fragariae/A4/A4_final_ApoplastP.fa
-    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
+    ApoP_Seq_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_final_ApoplastP_renamed.fa
+    ApoP_Seq_A4=analysis/ApoplastP/P.fragariae/A4/A4_final_ApoplastP_renamed.fa
+    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors_renamed.pep.fasta
     Bc16_ApoP_UK2_uniq_fa=$ApoP_Dir/Bc16_UK2_unique_ApoP.fa
     A4_ApoP_UK2_uniq_fa=$ApoP_Dir/A4_UK2_unique_ApoP.fa
     Bc16_to_extract=$ApoP_Dir/Bc16_to_extract.txt
