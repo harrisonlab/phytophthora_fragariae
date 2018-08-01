@@ -1189,19 +1189,19 @@ do
 done
 ```
 
-#Analysis of orthogroups unique to UK race 1 (Strains BC-1 & NOV-5)
+## Analysis of orthogroups unique to UK race 1 (Strains BC-1 & NOV-5)
 
-##The genes unique to Race 1 were identified within the orthology analysis
+## The genes unique to Race 1 were identified within the orthology analysis
 
-##First variables were set:
+## First variables were set
 
 ```bash
 WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/
 UK1UniqDir=$WorkDir/UK1_unique
 Orthogroups=$WorkDir/Orthogroups.txt
-GoodProts=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
-Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
-Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
+GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
+Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors_renamed.pep.fasta
+Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors_renamed.pep.fasta
 Uniq_UK1_groups=$UK1UniqDir/UK1_uniq_orthogroups.txt
 mkdir -p $UK1UniqDir
 ```
