@@ -6105,6 +6105,8 @@ do
     Phobius_Headers=analysis/phobius_CQ/$Species/$Isolate/"$Isolate"_phobius_Headers.txt
     Phobius_ORF_AA=analysis/phobius_ORF/$Species/$Isolate/"$Isolate"_phobius.aa
     Phobius_ORF_Headers=analysis/phobius_ORF/$Species/$Isolate/"$Isolate"_phobius_Headers.txt
+    Aug_Secreted=gene_pred/combined_sigP_CQ/$Species/$Isolate/"$Isolate"_secreted.txt
+    ORF_Secreted=gene_pred/combined_sigP_ORF/$Species/$Isolate/"$Isolate"_all_secreted_merged.txt
     cat $SigP2_AA | grep '>' | cut -f1 | tr -d '>' > $SigP2_Headers
     cat $SigP2_ORF_AA | grep '>' | cut -f1 | tr -d '>' > $SigP2_ORF_Headers
     cat $SigP3_AA | grep '>' | cut -f1 | tr -d '>' > $SigP3_Headers
@@ -6125,6 +6127,8 @@ do
     SigP4_ORF_Headers_renamed=gene_pred/ORF_signalp-4.1/$Species/$Isolate/"$Isolate"_aug_sp_Headers_renamed.txt
     Phobius_Headers_renamed=analysis/phobius_CQ/$Species/$Isolate/"$Isolate"_phobius_Headers_renamed.txt
     Phobius_ORF_Headers_renamed=analysis/phobius_ORF/$Species/$Isolate/"$Isolate"_phobius_ORF_Headers_renamed.txt
+    Aug_Secreted_renamed=gene_pred/combined_sigP_CQ/$Species/$Isolate/"$Isolate"_secreted_renamed.txt
+    ORF_Secreted_renamed=gene_pred/combined_sigP_ORF/$Species/$Isolate/"$Isolate"_all_secreted_merged_renamed.txt
     Log_file=gene_pred/annotation/$Species/$Isolate/Renaming_log.log
 
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -6140,6 +6144,8 @@ do
     python $ProgDir/Rename_Effectors.py --Feature_File $SigP4_ORF_Headers --Conversion_File $Log_file --Out_File $SigP4_ORF_Headers_renamed
     python $ProgDir/Rename_Effectors.py --Feature_File $Phobius_Headers --Conversion_File $Log_file --Out_File $Phobius_Headers_renamed
     python $ProgDir/Rename_Effectors.py --Feature_File $Phobius_ORF_Headers --Conversion_File $Log_file --Out_File $Phobius_ORF_Headers_renamed
+    python $ProgDir/Rename_Effectors.py --Feature_File $Aug_Secreted --Conversion_File $Log_file --Out_File $Aug_Secreted_renamed
+    python $ProgDir/Rename_Effectors.py --Feature_File $ORF_Secreted --Conversion_File $Log_file --Out_File $ORF_Secreted_renamed
 done
 ```
 
