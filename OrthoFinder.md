@@ -927,17 +927,17 @@ do
 done
 ```
 
-#Race 2 unique secreted proteins
+## Race 2 unique secreted proteins
 
-#Race 2 secreted protein genes were parsed to the same format as the gene names used in the analysis:
+## Race 2 secreted protein genes parsed to the same format as analysis
 
 ```bash
 for num in 1
 do
-    Sec_Names_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
-    Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted.txt
-    Sec_Names_Bc16_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
-    Sec_Names_A4_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/A4/A4_all_secreted_merged.txt
+    Sec_Names_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted_renamed.txt
+    Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted_renamed.txt
+    Sec_Names_Bc16_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged_renamed.txt
+    Sec_Names_A4_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/A4/A4_all_secreted_merged_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     Sec_Dir=$WorkDir/UK2_Secreted
     Orthogroups=$WorkDir/Orthogroups.txt
