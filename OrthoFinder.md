@@ -950,7 +950,7 @@ do
 done
 ```
 
-#Ortholog groups containing Secreted proteins were identified using the following commands:
+## Ortholog groups containing Secreted proteins were identified
 
 ```bash
 for num in 1
@@ -997,7 +997,7 @@ These orthogroups contain the following number of Secreted proteins:
 11,487
 ```
 
-#The Race 2 secreted protein genes that were not found in orthogroups were identified:
+## Race 2 secreted protein genes that not in orthogroups were identified
 
 ```bash
 for num in 1
@@ -1006,8 +1006,8 @@ do
     cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits > $Sec_UK2_uniq
     echo "The number of UK2 unique secreted proteins are:"
     cat $Sec_UK2_uniq | wc -l
-    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep_renamed.fasta
     Bc16_Sec_UK2_uniq_fa=$Sec_Dir/Bc16_UK2_unique_Secs.fa
     A4_Sec_UK2_uniq_fa=$Sec_Dir/A4_UK2_unique_Secs.fa
     Bc16_to_extract=$Sec_Dir/Bc16_to_extract.txt
