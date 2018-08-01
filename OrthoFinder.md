@@ -1060,9 +1060,9 @@ do
 done
 ```
 
-# Race 2 unique transcription factors and transcriptional regulators
+## Race 2 unique transcription factors and transcriptional regulators
 
-# Race 2 transcription factors and transcriptional regulators were parsed to the same format as the gene names used in the analysis
+## Race 2 TF/TRs were parsed to the same format as used in the analysis
 
 ```bash
 for num in 1
@@ -1079,7 +1079,7 @@ do
 done
 ```
 
-# Orthology groups containing transcription factors and transcriptional regulators were identified using the following commands:
+## Orthology groups containing TF/TRs were identified
 
 ```bash
 for num in 1
@@ -1126,7 +1126,7 @@ These orthogroups contain the following number of TF/TRs:
 511
 ```
 
-# The Race 2 transcription factors and transcriptional regulators that were not found in orthogroups were identified
+## The Race 2 TF/TRs that were not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -1135,8 +1135,8 @@ do
     cat $TF_ID | grep -v -w -f $TF_Orthogroup_hits > $TF_UK2_uniq
     echo "The number of UK2 unique TF/TRs are:"
     cat $TF_UK2_uniq | wc -l
-    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors_renamed.pep.fasta
     Bc16_TF_UK2_uniq_fa=$TF_Dir/Bc16_UK2_unique_TFs.fa
     A4_TF_UK2_uniq_fa=$TF_Dir/A4_UK2_unique_TFs.fa
     Bc16_to_extract=$TF_Dir/Bc16_to_extract.txt
