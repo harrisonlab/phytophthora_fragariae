@@ -1456,7 +1456,7 @@ The number of NOV-5 genes extracted is:
 0
 ```
 
-##Extracting fasta files for orthogroups containing Race 1 putative CRNs
+## Extracting fasta files for orthogroups containing Race 1 putative CRNs
 
 ```bash
 for num in 1
@@ -1470,7 +1470,7 @@ do
 done
 ```
 
-##Extracting fasta files for P. fragariae orthogroups containing Race 1 putative CRNs
+## Extracting fasta files for Pf orthogroups containing Race 1 putative CRNs
 
 ```bash
 for num in 1
@@ -1484,15 +1484,15 @@ do
 done
 ```
 
-##Race 1 unique Apoplastic effector families
+## Race 1 unique Apoplastic effector families
 
-#Race 1 Apoplastic effectors were parsed to the same format as the gene names used in the analysis:
+## Race 1 Apoplastic effectors were parsed to same format as used in the analysis
 
 ```bash
 for num in 1
 do
-    ApoP_Names_Bc1=analysis/ApoplastP/P.fragariae/Bc1/Bc1_Total_ApoplastP.txt
-    ApoP_Names_Nov5=analysis/ApoplastP/P.fragariae/Nov5/Nov5_Total_ApoplastP.txt
+    ApoP_Names_Bc1=analysis/ApoplastP/P.fragariae/Bc1/Bc1_Total_ApoplastP_renamed.txt
+    ApoP_Names_Nov5=analysis/ApoplastP/P.fragariae/Nov5/Nov5_Total_ApoplastP_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     ApoP_Dir=$WorkDir/UK1_ApoP
     Orthogroups=$WorkDir/Orthogroups.txt
