@@ -1845,7 +1845,7 @@ The number of NOV-5 genes extracted is:
 2
 ```
 
-## Extracting fasta files for orthogroups containing Race 1 putative transcription factor and transcriptional regulators
+## Extracting fasta files for orthogroups containing Race 1 putative TF/TRs
 
 ```bash
 for num in 1
@@ -1859,8 +1859,7 @@ do
 done
 ```
 
-
-## Extracting fasta files for P. fragariae orthogroups containing Race 1 putative transcription factor and transcriptional regulators
+## Extracting fasta files for P. fragariae orthogroups containing Race 1 TF/TRs
 
 ```bash
 for num in 1
@@ -1874,20 +1873,20 @@ do
 done
 ```
 
-#Analysis of orthogroups unique to UK race 3 (Strains NOV-27, NOV-71 & NOV-9)
+## Analysis of orthogroups unique to UK race 3 (Strains NOV-27, NOV-71 & NOV-9)
 
-##The genes unique to Race 3 were identified within the orthology analysis
+## The genes unique to Race 3 were identified within the orthology analysis
 
-##First variables were set:
+## First variables were set for UK3
 
 ```bash
 WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
 UK3UniqDir=$WorkDir/UK3_unique
 Orthogroups=$WorkDir/Orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
-Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
-Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
-Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors_renamed.pep.fasta
+Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors_renamed.pep.fasta
+Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors_renamed.pep.fasta
 Uniq_UK3_groups=$UK3UniqDir/UK3_uniq_orthogroups.txt
 mkdir -p $UK3UniqDir
 ```
