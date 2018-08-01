@@ -1583,7 +1583,7 @@ The number of Nov5 genes extracted is:
 9,251
 ```
 
-##Extracting fasta files for orthogroups containing Race 1 putative apoplastic effectors
+## Extracting fasta files for orthogroups containing Race 1 putative apoplastic effectors
 
 ```bash
 for num in 1
@@ -1597,7 +1597,7 @@ do
 done
 ```
 
-##Extracting fasta files for P. fragariae orthogroups containing Race 1 putative apoplastic effectors
+## Extracting fastas for Pf orthogroups containing Race 1 putative apoplastic effectors
 
 ```bash
 for num in 1
@@ -1611,17 +1611,17 @@ do
 done
 ```
 
-#Race 1 unique secreted proteins
+## Race 1 unique secreted proteins
 
-#Race 1 secreted protein genes were parsed to the same format as the gene names used in the analysis:
+## Race 1 secreted protein genes were parsed to the same format as used in the analysis
 
 ```bash
 for num in 1
 do
-    Sec_Names_Bc1=gene_pred/combined_sigP_CQ/P.fragariae/Bc1/Bc1_secreted.txt
-    Sec_Names_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_secreted.txt
-    Sec_Names_Bc1_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc1/Bc1_all_secreted_merged.txt
-    Sec_Names_Nov5_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov5/Nov5_all_secreted_merged.txt
+    Sec_Names_Bc1=gene_pred/combined_sigP_CQ/P.fragariae/Bc1/Bc1_secreted_renamed.txt
+    Sec_Names_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_secreted_renamed.txt
+    Sec_Names_Bc1_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc1/Bc1_all_secreted_merged_renamed.txt
+    Sec_Names_Nov5_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov5/Nov5_all_secreted_merged_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     Sec_Dir=$WorkDir/UK1_Secreted
     Orthogroups=$WorkDir/Orthogroups.txt
