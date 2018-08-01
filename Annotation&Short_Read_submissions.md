@@ -383,7 +383,8 @@ done
 
 #### Running GAG
 
-GAG was run using the modified GFF as well as the output of annie. Outputs database references incorrectly, so these are modified
+GAG was run using the modified GFF as well as the output of annie.
+Outputs database references incorrectly, so these are modified
 
 ```bash
 # P.frag
