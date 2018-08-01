@@ -1206,9 +1206,7 @@ Uniq_UK1_groups=$UK1UniqDir/UK1_uniq_orthogroups.txt
 mkdir -p $UK1UniqDir
 ```
 
-#Orthogroups only containing Race 1 genes were extracted:
-
-##Bars are to prevent incorrect filtering
+## Orthogroups only containing Race 1 genes were extracted
 
 ```bash
 for num in 1
@@ -1228,15 +1226,15 @@ The following number genes are contained in these orthogroups:
 164
 ```
 
-#Race 1 unique RxLR families
+## Race 1 unique RxLR families
 
-#Race 1 RxLR genes were parsed to the same format as the gene names used in the analysis:
+### Race 1 RxLRs were parsed to the same format as used in the analysis
 
 ```bash
 for num in 1
 do
-    RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_motif_hmm.txt
-    RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_motif_hmm.txt
+    RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_motif_hmm_renamed.txt
+    RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_motif_hmm_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     RxLR_Dir=$WorkDir/UK1_RxLR
     Orthogroups=$WorkDir/Orthogroups.txt
