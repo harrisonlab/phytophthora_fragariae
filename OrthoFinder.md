@@ -899,14 +899,14 @@ The number of A4 genes extracted is:
 9,274
 ```
 
-##Extracting fasta files for orthogroups containing Race 2 putative apoplastic effectors
+## Extract fasta files for orthogroups with Race 2 putative apoplastic effectors
 
 ```bash
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_ApoP/UK2_ApoP_Orthogroups.txt
-    GoodProt=analysis/orthology/orthomcl/All_Strains_plus_rubi_no_removal/goodProteins/goodProteins.fasta
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
     OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_ApoP/orthogroups_fasta_UK2_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
