@@ -1376,7 +1376,7 @@ do
 done
 ```
 
-#Ortholog groups containing CRN proteins were identified using the following commands:
+## Ortholog groups containing CRN proteins were identified
 
 ```bash
 for num in 1
@@ -1419,7 +1419,7 @@ These orthogroups contain the following number of CRNs:
 216
 ```
 
-#The Race 1 CRN genes not found in orthogroups were identified:
+## The Race 1 CRN genes not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -1428,10 +1428,10 @@ do
     cat $CRN_ID_UK1 | grep -v -w -f $CRN_Orthogroup_hits_UK1 > $CRN_UK1_uniq
     echo "The number of Race 1 unique CRNs are:"
     cat $CRN_UK1_uniq | wc -l
-    CRN_Seq_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN.fa
-    CRN_Seq_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN.fa
-    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors.pep.fasta
+    CRN_Seq_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN_renamed.fa
+    CRN_Seq_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN_renamed.fa
+    Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors_renamed.pep.fasta
     Bc1_CRN_UK1_uniq_fa=$CRN_Dir/Bc1_UK1_unique_CRNs.fa
     Nov5_CRN_UK1_uniq_fa=$CRN_Dir/Nov5_UK1_unique_CRNs.fa
     Bc1_to_extract=$CRN_Dir/Bc1_to_extract.txt
