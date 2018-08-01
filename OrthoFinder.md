@@ -692,7 +692,7 @@ do
 done
 ```
 
-#Ortholog groups containing CRN proteins were identified using the following commands:
+## Orthology groups containing CRN proteins were identified=
 
 ```bash
 for num in 1
@@ -735,8 +735,7 @@ These orthogroups contain the following number of CRNs:
 231
 ```
 
-
-#The Race 2 CRN genes not found in orthogroups were identified:
+## The Race 2 CRN genes not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -745,10 +744,10 @@ do
     cat $CRN_ID_UK2 | grep -v -w -f $CRN_Orthogroup_hits_UK2 > $CRN_UK2_uniq
     echo "The number of UK2 unique CRNs are:"
     cat $CRN_UK2_uniq | wc -l
-    CRN_Seq_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.fa
-    CRN_Seq_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN.fa
-    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors.pep.fasta
+    CRN_Seq_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.fa
+    CRN_Seq_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN_renamed.fa
+    Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_A4=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors_renamed.pep.fasta
     Bc16_CRN_UK2_uniq_fa=$CRN_Dir/Bc16_UK2_unique_CRNs.fa
     A4_CRN_UK2_uniq_fa=$CRN_Dir/A4_UK2_unique_CRNs.fa
     Bc16_to_extract=$CRN_Dir/Bc16_to_extract.txt
