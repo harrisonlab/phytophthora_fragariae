@@ -358,7 +358,7 @@ do
     OutDir=genome_submission/$Organism/$Isolate
     Gff=$(ls gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3)
     InterProTab=$(ls gene_pred/interproscan/$Organism/$Isolate/"$Isolate"_interproscan.tsv)
-    SwissProtBlast=$(ls gene_pred/swissprot/$Organism/$Isolate/greedy/swissprot_vJul2016_tophit_parsed.tbl)
+    SwissProtBlast=$(ls gene_pred/swissprot/$Organism/$Isolate/greedy/swissprot_vMar2018_tophit_parsed.tbl)
     SwissProtFasta=/home/groups/harrisonlab/uniprot/swissprot/uniprot_sprot.fasta
     python $AnnieDir/annie.py -ipr $InterProTab -g $Gff -b $SwissProtBlast -db $SwissProtFasta -o $OutDir/annie_output.csv --fix_bad_products
     ProgDir=/home/adamst/git_repos/tools/genbank_submission
@@ -373,7 +373,7 @@ do
     OutDir=genome_submission/$Organism/$Isolate
     Gff=$(ls ../phytophthora_rubi/gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3)
     InterProTab=$(ls ../phytophthora_rubi/gene_pred/interproscan/$Organism/$Isolate/"$Isolate"_interproscan.tsv)
-    SwissProtBlast=$(ls ../phytophthora_rubi/gene_pred/swissprot/$Organism/$Isolate/greedy/swissprot_vJul2016_tophit_parsed.tbl)
+    SwissProtBlast=$(ls ../phytophthora_rubi/gene_pred/swissprot/$Organism/$Isolate/greedy/swissprot_vMar2018_tophit_parsed.tbl)
     SwissProtFasta=/home/groups/harrisonlab/uniprot/swissprot/uniprot_sprot.fasta
     python $AnnieDir/annie.py -ipr $InterProTab -g $Gff -b $SwissProtBlast -db $SwissProtFasta -o $OutDir/annie_output.csv --fix_bad_products
     ProgDir=/home/adamst/git_repos/tools/genbank_submission
