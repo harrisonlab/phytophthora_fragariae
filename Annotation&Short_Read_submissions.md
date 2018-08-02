@@ -556,3 +556,5 @@ do
     > $OutDir/gag/edited/annotation_methods.strcmt.txt
 done
 ```
+
+### Final run of tbl2asn
