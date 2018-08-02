@@ -496,7 +496,7 @@ some of these errors
 for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Species=P.fragariae
-    echo "$Organism - $Isolate"
+    echo "$Species - $Isolate"
     OutDir=genome_submission/$Species/$Isolate
     Locus_tag=$(cat genome_submission/Pf_Pr_locus_tags.txt | grep -w "$Isolate" | cut -f1 -d ' ')
     echo $Locus_tag
@@ -512,7 +512,7 @@ done
 for Isolate in SCRP249 SCRP324 SCRP333
 do
     Species=P.rubi
-    echo "$Organism - $Isolate"
+    echo "$Species - $Isolate"
     OutDir=genome_submission/$Species/$Isolate
     Locus_tag=$(cat genome_submission/Pf_Pr_locus_tags.txt | grep -w "$Isolate" | cut -f1 -d ' ')
     echo $Locus_tag
