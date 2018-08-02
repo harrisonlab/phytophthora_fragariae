@@ -2211,7 +2211,7 @@ do
 done
 ```
 
-#Ortholog groups containing apoplastic effectors were identified using the following commands:
+## Ortholog groups containing apoplastic effectors were identified for UK3
 
 ```bash
 for num in 1
@@ -2254,8 +2254,7 @@ These orthogroups contain the following number of apoplastic effectors:
 4,266
 ```
 
-
-#The Race 3 apoplastic effectors not found in orthogroups were identified:
+## The Race 3 apoplastic effectors not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -2264,12 +2263,12 @@ do
     cat $ApoP_ID_UK3 | grep -v -w -f $ApoP_Orthogroup_hits_UK3 > $ApoP_UK3_uniq
     echo "The number of UK3 unique apoplastic effectors are:"
     cat $ApoP_UK3_uniq | wc -l
-    ApoP_Seq_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_final_ApoplastP.fa
-    ApoP_Seq_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_final_ApoplastP.fa
-    ApoP_Seq_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_final_ApoplastP.fa
-    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+    ApoP_Seq_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_final_ApoplastP_renamed.fa
+    ApoP_Seq_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_final_ApoplastP_renamed.fa
+    ApoP_Seq_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_final_ApoplastP_renamed.fa
+    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors_renamed.pep.fasta
     Nov27_ApoP_UK3_uniq_fa=$ApoP_Dir/Nov27_UK3_unique_ApoP.fa
     Nov71_ApoP_UK3_uniq_fa=$ApoP_Dir/Nov71_UK3_unique_ApoP.fa
     Nov9_ApoP_UK3_uniq_fa=$ApoP_Dir/Nov9_UK3_unique_ApoP.fa
