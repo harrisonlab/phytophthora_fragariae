@@ -2587,7 +2587,7 @@ The number of NOV-9 genes extracted is:
 2
 ```
 
-## Extracting fasta files for orthogroups containing Race 3 putative transcription factors and transcriptional regulators
+## Extracting fasta files for orthogroups containing Race 3 putative TF/TRs
 
 ```bash
 for num in 1
@@ -2601,8 +2601,7 @@ do
 done
 ```
 
-
-## Extracting fasta files for P. fragariae orthogroups containing Race 3 putative transcription factors and transcriptional regulators
+## Extracting fasta files for Pf orthogroups containing Race 3 putative TF/TRs
 
 ```bash
 for num in 1
@@ -2616,7 +2615,7 @@ do
 done
 ```
 
-#Extract fasta files for all unique orthogroups, including non-effector groups
+## Extract fasta files for all unique orthogroups, including non-effector groups
 
 ```bash
 for OrthogroupTxt in $(ls analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK*_unique/*)
@@ -2631,7 +2630,7 @@ do
 done
 ```
 
-#Produce a count table of the number of genes for each strain in each groups
+## Produce a count table of the number of genes for each strain in each groups
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -2640,14 +2639,14 @@ OutName=analysis/orthology/OrthoFinder/formatted/Results_Aug18/count_table.tsv
 $ProgDir/parse_orthogroups.py --orthogroups $OrthoFinder_output --out_dir $OutName
 ```
 
-##Analyse this count table for expanded groups and write orthogroups to a text file 'UKX_expanded.txt'
+## Analyse this count table for expanded groups and write to text file
 
 ```bash
 cd analysis/orthology/OrthoFinder/formatted/Results_Aug18
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
 ```
 
-###Reformat the lists and extract full orthogroup details
+### Reformat the lists and extract full orthogroup details
 
 ```bash
 for file in $(ls UK*_expanded.txt)
@@ -2666,7 +2665,7 @@ do
 done
 ```
 
-##Extract FASTA files of expanded orthogroups
+## Extract FASTA files of expanded orthogroups
 
 ```bash
 cd  ../../../../../
