@@ -3179,7 +3179,7 @@ The number of NOV-9 uniquely expressed TFs is:
 1
 ```
 
-##Method 1, extracting names of only genes that are uniquely differentially expressed
+### Method 1, extracting names of only genes that are uniquely differentially expressed
 
 Create directories for results
 
@@ -3198,18 +3198,18 @@ Now generate results
 for Strain in Bc1 Bc16 Nov9
 do
     DEG_files=$(ls analysis/DeSeq/Method_1/$Strain/*.txt | grep -e "up" -e "down")
-    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Aug18/Orthogroups.txt
     Min_LFC=3
     Min_Pval=0.05
     Org1=Bc16
     Org2=Bc1
     Org3=Nov9
     OutDir=analysis/DeSeq/Method_1/DEG_results
-    RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
-    CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
-    ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
-    Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
-    Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+    RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm_renamed.txt
+    CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN_renamed.txt
+    ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP_renamed.txt
+    Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted_renamed.txt
+    Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged_renamed.txt
     TFs=analysis/transcription_factors/P.fragariae/$Strain/greedy/"$Strain"_TF_TR_Headers.txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
     python $ProgDir/Extract_pairwise_DEG_names.py --DEG_files $DEG_files --Orthogroup_in $Orthogroups --Reference_name $Strain --Min_LFC $Min_LFC --Sig_Level $Min_Pval --Organism_1 $Org1 --Organism_2 $Org2 --Organism_3 $Org3 --OutDir $OutDir --RxLRs $RxLRs --CRNs $CRNs --ApoP $ApoP --Secreted_CQ $Sec_CQ --Secreted_ORF $Sec_ORF --TFs $TFs
