@@ -5259,8 +5259,7 @@ do
         fi
         OutDir=gene_pred/annotation/P.fragariae/$Strain
         mkdir -p $OutDir
-        ProgDir=/home/adamst/git_repos/tools/gene_prediction/augustus
-        $ProgDir/aug_gff_add_exon.py --inp_gff $GeneGff  \
+        cat $GeneGff  \
         	| sed 's/\(\tCDS\t.*\)transcript_id "\(.*\)"; gene_id.*/\1ID=\2.CDS; Parent=\2/g' \
         	| sed 's/\(\exon\t.*\)transcript_id "\(.*\)"; gene_id.*/\1ID=\2.exon; Parent=\2/g' \
         	| sed 's/transcript_id "/ID=/g' | sed 's/";/;/g' | sed 's/ gene_id "/Parent=/g' \
@@ -5329,8 +5328,7 @@ do
         fi
         OutDir=gene_pred/annotation/P.fragariae/$Strain
         mkdir -p $OutDir
-        ProgDir=/home/adamst/git_repos/tools/gene_prediction/augustus
-        $ProgDir/aug_gff_add_exon.py --inp_gff $GeneGff  \
+        cat $GeneGff  \
         	| sed 's/\(\tCDS\t.*\)transcript_id "\(.*\)"; gene_id.*/\1ID=\2.CDS; Parent=\2/g' \
         	| sed 's/\(\exon\t.*\)transcript_id "\(.*\)"; gene_id.*/\1ID=\2.exon; Parent=\2/g' \
         	| sed 's/transcript_id "/ID=/g' | sed 's/";/;/g' | sed 's/ gene_id "/Parent=/g' \
@@ -5395,8 +5393,7 @@ do
         fi
         OutDir=gene_pred/annotation/P.fragariae/$Strain
         mkdir -p $OutDir
-        ProgDir=/home/adamst/git_repos/tools/gene_prediction/augustus
-        $ProgDir/aug_gff_add_exon.py --inp_gff $GeneGff  \
+        cat $GeneGff  \
         	| sed 's/\(\tCDS\t.*\)transcript_id "\(.*\)"; gene_id.*/\1ID=\2.CDS; Parent=\2/g' \
         	| sed 's/\(\exon\t.*\)transcript_id "\(.*\)"; gene_id.*/\1ID=\2.exon; Parent=\2/g' \
         	| sed 's/transcript_id "/ID=/g' | sed 's/";/;/g' | sed 's/ gene_id "/Parent=/g' \
@@ -5440,8 +5437,7 @@ do
         fi
         OutDir=gene_pred/annotation/P.fragariae/$Strain
         mkdir -p $OutDir
-        ProgDir=/home/adamst/git_repos/tools/gene_prediction/augustus
-        $ProgDir/aug_gff_add_exon.py --inp_gff $GeneGff  \
+        cat $GeneGff  \
         	| sed 's/\(\tCDS\t.*\)transcript_id "\(.*\)"; gene_id.*/\1ID=\2.CDS; Parent=\2/g' \
         	| sed 's/\(\exon\t.*\)transcript_id "\(.*\)"; gene_id.*/\1ID=\2.exon; Parent=\2/g' \
         	| sed 's/transcript_id "/ID=/g' | sed 's/";/;/g' | sed 's/ gene_id "/Parent=/g' \
