@@ -16,16 +16,16 @@ whole submission has to be repeated.
 
 ```bash
 printf "PF001 SAMN07449679 A4
-PF002 SAMN07449680 BC-1
-PF003 SAMN07449681 BC-16
-PF004 SAMN07449682 BC-23
-PF005 SAMN07449683 NOV-27
-PF006 SAMN07449684 NOV-5
-PF007 SAMN07449685 NOV-71
-PF008 SAMN07449686 NOV-77
-PF009 SAMN07449687 NOV-9
-PF010 SAMN07449688 ONT-3
-PF011 SAMN07449689 SCRP245
+PF002 SAMN07449680 Bc1
+PF003 SAMN07449681 Bc16
+PF004 SAMN07449682 Bc23
+PF005 SAMN07449683 Nov27
+PF006 SAMN07449684 Nov5
+PF007 SAMN07449685 Nov71
+PF008 SAMN07449686 Nov77
+PF009 SAMN07449687 Nov9
+PF010 SAMN07449688 ONT3
+PF011 SAMN07449689 SCRP245_v2
 PR001 SAMN07449690 SCRP249
 PR002 SAMN07449691 SCRP324
 PR003 SAMN07449692 SCRP333" > genome_submission/Pf_Pr_locus_tags.txt
@@ -490,3 +490,27 @@ done
 
 tbl2asn produces an error log, Andy has produced a python script to correct
 some of these errors
+
+```bash
+# P.frag
+
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Species=P.fragariae
+    echo "$Organism - $Isolate"
+    OutDir=genome_submission/$Species/$Isolate
+    Locus_tag=$(cat genome_submission/Pf_Pr_locus_tags.txt | grep -w "$Isolate")
+done
+
+for Assembly in $(ls repeat_masked/*/*/ncbi_edits_repmask/*_contigs_unmasked.fa | grep ‘1177’); do
+   Organism=$(echo $Assembly | rev | cut -d ‘/’ -f4 | rev)
+   Strain=$(echo $Assembly| rev | cut -d ‘/’ -f3 | rev)
+   echo “$Organism - $Strain”
+   OutDir=“genome_submission/$Organism/$Strain”
+   LocusTag=$(cat genome_submission/Aalt_PRJNA360212_locus_tags.txt | grep “$Strain” | cut -f1 -d ' ’)
+   echo $LocusTag
+   mkdir -p $OutDir/gag/edited
+   ProgDir=/home/armita/git_repos/emr_repos/tools/genbank_submission
+   $ProgDir/edit_tbl_file/ncbi_tbl_corrector.py --inp_tbl $OutDir/gag/round1/genome.tbl --inp_val $OutDir/tbl2asn/round1/genome.val --locus_tag $LocusTag --lab_id $LabID --gene_id “remove” --edits stop pseudo unknown_UTR correct_partial --remove_product_locus_tags “True” --del_name_from_prod “True” --out_tbl $OutDir/gag/edited/genome.tbl
+done
+```
