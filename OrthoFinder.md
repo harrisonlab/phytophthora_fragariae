@@ -2075,7 +2075,7 @@ do
 done
 ```
 
-#Ortholog groups containing CRN proteins were identified using the following commands:
+## Orthology groups containing CRN proteins were identified
 
 ```bash
 for num in 1
@@ -2118,7 +2118,7 @@ These orthogroups contain the following number of CRNs:
 326
 ```
 
-#The Race 3 CRN genes not found in orthogroups were identified:
+## The Race 3 CRN genes not found in orthogroups were identified:
 
 ```bash
 for num in 1
@@ -2127,9 +2127,9 @@ do
     cat $CRN_ID_UK3 | grep -v -w -f $CRN_Orthogroup_hits_UK3 > $CRN_UK3_uniq
     echo "The number of Race 3 unique CRNs are:"
     cat $CRN_UK3_uniq | wc -l
-    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors_renamed.pep.fasta
     Nov27_CRN_UK3_uniq_fa=$CRN_Dir/Nov27_UK3_unique_CRNs.fa
     Nov71_CRN_UK3_uniq_fa=$CRN_Dir/Nov71_UK3_unique_CRNs.fa
     Nov9_CRN_UK3_uniq_fa=$CRN_Dir/Nov9_UK3_unique_CRNs.fa
