@@ -2162,7 +2162,7 @@ The number of NOV-9 genes extracted is:
 0
 ```
 
-##Extracting fasta files for orthogroups containing Race 3 putative CRNs
+## Extracting fasta files for orthogroups containing Race 3 putative CRNs
 
 ```bash
 for num in 1
@@ -2176,7 +2176,7 @@ do
 done
 ```
 
-##Extracting fasta files for P. fragariae orthogroups containing Race 3 putative CRNs
+## Extracting fasta files for Pf orthogroups containing Race 3 putative CRNs
 
 ```bash
 for num in 1
@@ -2190,16 +2190,16 @@ do
 done
 ```
 
-##Race 3 unique Apoplastic effector families
+## Race 3 unique Apoplastic effector families
 
-#Race 3 Apoplastic effectors were parsed to the same format as the gene names used in the analysis:
+## Race 3 Apoplastic effectors were parsed to the same format as used in the analysis
 
 ```bash
 for num in 1
 do
-    ApoP_Names_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_Total_ApoplastP.txt
-    ApoP_Names_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_Total_ApoplastP.txt
-    ApoP_Names_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_Total_ApoplastP.txt
+    ApoP_Names_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_Total_ApoplastP_renamed.txt
+    ApoP_Names_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_Total_ApoplastP_renamed.txt
+    ApoP_Names_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_Total_ApoplastP_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     ApoP_Dir=$WorkDir/UK3_ApoP
     Orthogroups=$WorkDir/Orthogroups.txt
