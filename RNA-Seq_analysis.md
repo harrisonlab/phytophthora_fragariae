@@ -2278,7 +2278,7 @@ colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"analysis/DeSeq/Method_1/Nov9/fpkm_counts.txt",sep="\t",na="",quote=F)
 ```
 
-##Method 2
+## Method 2
 
 BC-16
 
@@ -2489,7 +2489,7 @@ write.table(norm_counts,"analysis/DeSeq/Method_2/Bc16/normalised_counts.txt",sep
 
 library(Biostrings)
 library(naturalsort)
-mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cdna.fasta")
+mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.cdna.fasta")
 t1 <- counts(dds)
 t1 <- mygenes[rownames(t1)]
 rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
