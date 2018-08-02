@@ -3462,15 +3462,15 @@ do
     Strain=Nov9
     Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/all_genes/*_"$Strain"_*expressed_unique.txt)
     Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/*_"$Strain"_*unique_DEGs.txt)
-    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Aug18/Orthogroups.txt
     Org2=Bc16
     Org3=Bc1
     Race_isolates="Nov9 Nov27 Nov71"
-    RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
-    CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
-    ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
-    Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
-    Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+    RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm._renamedtxt
+    CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN_renamed.txt
+    ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP_renamed.txt
+    Sec_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted_renamed.txt
+    Sec_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged_renamed.txt
     TFs=analysis/transcription_factors/P.fragariae/$Strain/greedy/"$Strain"_TF_TR_Headers.txt
     OutDir=analysis/DeSeq/Method_1/candidates
     mkdir -p $OutDir
