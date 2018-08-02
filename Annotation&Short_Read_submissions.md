@@ -401,7 +401,7 @@ do
         Assembly=$(ls repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
     else
-        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked.fa)
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_softmasked.fa)
         echo $Assembly
     fi
     OutDir=genome_submission/$Organism/$Isolate
