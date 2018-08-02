@@ -2949,9 +2949,9 @@ colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"analysis/DeSeq/Method_2/Nov9/fpkm_counts.txt",sep="\t",na="",quote=F)
 ```
 
-#Use custom python scripts to create lists of genes in orthogroups for each of the comparison mechanisms
+## Use custom python scripts to create lists of genes in orthogroups
 
-##Method 1, extracting names of only genes that are uniquely expressed
+### Method 1, extracting names of only genes that are uniquely expressed
 
 Create directories for results
 
@@ -2976,16 +2976,16 @@ cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 for Strain in Bc1 Bc16 Nov9
 do
     FPKM=analysis/DeSeq/Method_1/$Strain/fpkm_counts.txt
-    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Aug18/Orthogroups.txt
     Org1=Bc16
     Org2=Bc1
     Org3=Nov9
     FPKM_min=5
-    RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm.txt
-    CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN.txt
-    ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP.txt
-    Secreted_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted.txt
-    Secreted_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged.txt
+    RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/$Strain/"$Strain"_Total_RxLR_motif_hmm_renamed.txt
+    CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/$Strain/"$Strain"_final_CRN_renamed.txt
+    ApoP=analysis/ApoplastP/P.fragariae/$Strain/"$Strain"_Total_ApoplastP_renamed.txt
+    Secreted_CQ=gene_pred/combined_sigP_CQ/P.fragariae/$Strain/"$Strain"_secreted_renamed.txt
+    Secreted_ORF=gene_pred/combined_sigP_ORF/P.fragariae/$Strain/"$Strain"_all_secreted_merged_renamed.txt
     TFs=analysis/transcription_factors/P.fragariae/$Strain/greedy/"$Strain"_TF_TR_Headers.txt
     OutDir=analysis/DeSeq/Method_1/expression_results
     Scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
