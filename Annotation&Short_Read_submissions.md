@@ -524,3 +524,5 @@ do
     $ProgDir/ncbi_tbl_corrector.py --inp_tbl $Tbl_in --inp_val $Val_in --locus_tag $Locus_tag --lab_id $LabID --gene_id "remove" --edits stop pseudo unknown_UTR correct_partial --remove_product_locus_tags "True" --del_name_from_prod "True" --out_tbl $Tbl_out
 done
 ```
+
+#### Generate a structured comment detailing annotation methods
