@@ -308,10 +308,10 @@ do
 done
 ```
 
-#Quantification of gene models
+## Quantification of gene models
 
 ```bash
-Gff=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3
+Gff=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gff3
 for BamFile in $(ls alignment/star/P.fragariae/Bc16/*/*/star_aligmentAligned.sortedByCoord.out.bam)
 do
     OutDir=$(dirname $BamFile)
