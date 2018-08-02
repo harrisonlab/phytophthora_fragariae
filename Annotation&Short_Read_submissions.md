@@ -558,3 +558,9 @@ done
 ```
 
 ### Final run of tbl2asn
+
+Following correction of the .tbl file, tbl2asn was rerun to provide the submission
+file.
+
+The -l paired-ends -a r10k inform handling of runs of Ns, show that paired ends
+used to estimate gaps & runs > 10 represent gaps.
