@@ -564,3 +564,56 @@ file.
 
 The -l paired-ends -a r10k inform handling of runs of Ns, show that paired ends
 used to estimate gaps & runs > 10 represent gaps.
+
+```bash
+# P.frag
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Species=P.fragariae
+    echo "$Species - $Isolate"
+    OutDir=genome_submission/$Species/$Isolate
+    Final_Name="$Species"_"$Isolate"_Adams_2018
+    if [ -f repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_unmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_unmasked.fa)
+        echo $Assembly
+    else
+        Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa)
+        echo $Assembly
+    fi
+    cp $Assembly $OutDir/gag/edited/genome.fsa
+    SbtFile=genome_submission/$Species/$Isolate/template.sbt
+    cp $SbtFile $OutDir/gag/edited/genome.sbt
+    mkdir -p $OutDir/tbl2asn/final
+    tbl2asn -p $OutDir/gag/edited/. -t $OutDir/gag/edited/genome.sbt -r $OutDir/tbl2asn/final -M n -X E -Z $OutDir/tbl2asn/final/discrep.txt -j "[organism=$Species] [strain=$Isolate]" -l paired-ends -a r10k -w $OutDir/gag/edited/annotation_methods.strcmt.txt
+    cat $OutDir/tbl2asn/final/genome.sqn | sed 's/_pilon//g' | sed 's/title " \[NAH\S*\w/title "Saccharopine dehydrogenase/g' | sed 's/" \[NAH\S*\w"/"Saccharopine dehydrogenase"/g' > $OutDir/tbl2asn/final/"$Final_Name".sqn
+done
+
+# P.rubi
+for Isolate in SCRP249 SCRP324 SCRP333
+do
+    Species=P.rubi
+    echo "$Species - $Isolate"
+    OutDir=genome_submission/$Species/$Isolate
+    Final_Name="$Species"_"$Isolate"_Adams_2018
+    if [ -f ../phytophthora_rubi/repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_unmasked.fa)
+        echo $Assembly
+    elif [ -f ../phytophthora_rubi/repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_unmasked.fa)
+        echo $Assembly
+    fi
+    cp $Assembly $OutDir/gag/edited/genome.fsa
+    SbtFile=genome_submission/$Species/$Isolate/template.sbt
+    cp $SbtFile $OutDir/gag/edited/genome.sbt
+    mkdir -p $OutDir/tbl2asn/final
+    tbl2asn -p $OutDir/gag/edited/. -t $OutDir/gag/edited/genome.sbt -r $OutDir/tbl2asn/final -M n -X E -Z $OutDir/tbl2asn/final/discrep.txt -j "[organism=$Species] [strain=$Isolate]" -l paired-ends -a r10k -w $OutDir/gag/edited/annotation_methods.strcmt.txt
+    cat $OutDir/tbl2asn/final/genome.sqn | sed 's/_pilon//g' | sed 's/title " \[NAH\S*\w/title "Saccharopine dehydrogenase/g' | sed 's/" \[NAH\S*\w"/"Saccharopine dehydrogenase"/g' > $OutDir/tbl2asn/final/"$Final_Name".sqn
+done
+```
