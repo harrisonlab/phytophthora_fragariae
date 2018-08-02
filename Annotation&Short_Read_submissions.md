@@ -526,3 +526,19 @@ done
 ```
 
 #### Generate a structured comment detailing annotation methods
+
+```bash
+# P.frag
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Species=P.fragariae
+    echo "$Species - $Isolate"
+    OutDir=genome_submission/$Species/$Isolate
+    printf "StructuredCommentPrefix\t##Genome-Annotation-Data-START##
+    Annotation Provider\tHarrison Lab NIAB-EMR
+    Annotation Date\tAUG-2018
+    Annotation Version\tRelease 1.01
+    Annotation Method\tAb initio gene prediction: Braker 1.9 and CodingQuarry 2.0; Functional annotation: Swissprot (March 2018 release) and Interproscan 5.18-57.0" \
+    > $OutDir/gag/edited/annotation_methods.strcmt.txt
+done
+```
