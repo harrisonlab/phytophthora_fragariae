@@ -965,15 +965,21 @@ ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 $ProgDir/extract_from_fasta.py --fasta $Genes --headers $DEGNames > $DEGFasta
 ```
 
-New data arrived on BC-1 & NOV-9, three different methods will be used to analyse expression differences by three different methods.
+New data arrived on BC-1 & NOV-9, three different methods will be used to
+analyse expression differences by three different methods.
 
-Method #1: Differential expression between isolates - Align all RNA-Seq to a single genome, then use DeSeq2 to call DEGs and pull out gene IDs from the text file. Do this on genomes of BC-16, BC-1 & NOV-9.
+Method #1: Differential expression between isolates - Align all RNA-Seq to a
+single genome, then use DeSeq2 to call DEGs and pull out gene IDs from the text
+file. Do this on genomes of BC-16, BC-1 & NOV-9.
 
-Method #2: For different differential expression by gene ID - Align RNA-Seq data to the BC-16 reference genome, then call DEGs using mycelial reads from the same isolate. Then compare between reference genomes by orthogroup ID.
+Method #2: For different differential expression by gene ID - Align RNA-Seq data
+to the BC-16 reference genome, then call DEGs using mycelial reads from the same
+isolate. Then compare between reference genomes by orthogroup ID.
 
-Method #1 will give candidates for avirulence genes, whereas #2 will provide differently differentially expressed genes.
+Method #1 will give candidates for avirulence genes, whereas #2 will provide
+differently differentially expressed genes.
 
-#RNA-Seq data was downloaded from novogenes servers with the following commands
+## New RNA-Seq data was downloaded from novogenes servers with the following commands
 
 ```bash
 mkdir -p /home/scratch/adamst/rna_seq/05012018
@@ -982,7 +988,7 @@ wget https://s3-eu-west-1.amazonaws.com/novogene-europe/HW/project/C101HW1703040
 tar -xf /home/scratch/adamst/rna_seq/05012018/C101HW17030405_20180102_5_Yvad6z.tar
 ```
 
-##Reorganise raw data
+## Reorganise raw data
 
 ```bash
 mkdir -p P.fragariae/Bc1/48hr/F/
@@ -1020,7 +1026,7 @@ mv C101HW17030405/raw_data/TA_NO_M5_2.fq.gz P.fragariae/Nov9/mycelium/R/.
 mv C101HW17030405/raw_data/MD5.txt .
 ```
 
-##Perform qc on RNA-Seq timecourse and mycelium data
+## Perform qc on RNA-Seq timecourse and mycelium data
 
 ```bash
 for FilePath in $(ls -d /home/scratch/adamst/rna_seq/05012018/P.fragariae/*/*/)
@@ -1051,7 +1057,7 @@ mv qc_rna/Bc1/ qc_rna/novogene/P.fragariae/.
 mv qc_rna/Nov9/ qc_rna/novogene/P.fragariae/.
 ```
 
-###Visualise data quality using fastqc
+### Visualise data quality using fastqc
 
 Only submit three jobs at a time, copying 30 files is too much!
 
@@ -1075,7 +1081,7 @@ done
 All seem okay to me
 ```
 
-#Align mycelial reads to assemblies
+## Align mycelial reads to assemblies
 
 ```bash
 for Strain in Bc1 Nov9 Bc16
@@ -1117,7 +1123,7 @@ do
 done
 ```
 
-##Align all timepoints to *Fragaria vesca* genome v1.1
+## Align all timepoints to *Fragaria vesca* genome v1.1
 
 ```bash
 for FileF in $(ls /home/groups/harrisonlab/project_files/phytophthora_fragariae/qc_rna/novogene/P.fragariae/*/*/F/*_trim.fq.gz | grep -e "Bc1" -e "Nov9" | grep -v "Bc16" | grep -v "mycelium")
@@ -1144,7 +1150,7 @@ do
 done
 ```
 
-##Gzip output files to save space on the disk and allow star to run correctly downstream. ONLY RUN THIS ONCE
+## Gzip output files to save space on the disk and allow star to run correctly downstream. ONLY RUN THIS ONCE
 
 ```bash
 for AlignDir in $(ls -d /home/groups/harrisonlab/project_files/phytophthora_fragariae/alignment/star/vesca_alignment/set2/*/*)
@@ -1154,9 +1160,10 @@ do
 done
 ```
 
-##Align compressed files of unmapped reads from aligning to vesca
+## Align compressed files of unmapped reads from aligning to vesca
 
-This star script had the following options added to the sub_star.sh script in the ProgDir specified in the below commands:
+This star script had the following options added to the sub_star.sh script in
+the ProgDir specified in the below commands:
 --winAnchorMultimapNmax 200
 --seedSearchStartLmax 30
 
@@ -1250,14 +1257,14 @@ do
 done
 ```
 
-#Quantification of gene models
+## Quantification of gene models
 
 ```bash
 for Strain in Bc16 Bc1 Nov9
 do
     for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam | grep -v "0hr")
     do
-        Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors.gff3
+        Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors_renamed.gff3
         OutDir=analysis/DeSeq
         mkdir -p $OutDir
         Prefix="$Strain"_"$(echo $BamFile | rev | cut -f2 -d '/' | rev)"
