@@ -2356,7 +2356,7 @@ do
 done
 ```
 
-#Ortholog groups containing Secreted proteins were identified using the following commands:
+## Ortholog groups containing Secreted proteins were identified for UK3
 
 ```bash
 for num in 1
@@ -2403,7 +2403,7 @@ These orthogroups contain the following number of Secreted proteins:
 16,056
 ```
 
-#The Race 3 secreted protein genes that were not found in orthogroups were identified:
+## The Race 3 secreted protein genes that were not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -2412,9 +2412,9 @@ do
     cat $Sec_ID | grep -v -w -f $Sec_Orthogroup_hits > $Sec_UK3_uniq
     echo "The number of UK3 unique secreted proteins are:"
     cat $Sec_UK3_uniq | wc -l
-    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors_renamed.pep.fasta
     Nov27_Sec_UK3_uniq_fa=$Sec_Dir/Nov27_UK3_unique_Secs.fa
     Nov71_Sec_UK3_uniq_fa=$Sec_Dir/Nov71_UK3_unique_Secs.fa
     Nov9_Sec_UK3_uniq_fa=$Sec_Dir/Nov9_UK3_unique_Secs.fa
