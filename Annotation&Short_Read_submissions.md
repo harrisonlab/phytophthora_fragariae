@@ -485,3 +485,8 @@ do
     tbl2asn -p $OutDir/gag/round_1/. -t $OutDir/gag/round_1/template.sbt -r $OutDir/tbl2asn/round_1 -M n -X E -Z $OutDir/gag/round_1/discrep.txt -j "[organism=$Organism] [strain=$Isolate]"
 done
 ```
+
+### Edit produced tbl file
+
+tbl2asn produces an error log, Andy has produced a python script to correct
+some of these errors
