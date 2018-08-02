@@ -770,11 +770,11 @@ Total number of Apoplastic effectors in dataset:
 553
 ```
 
-#Draw venn diagrams of differenitally expressed genes
+## Draw venn diagrams of differentially expressed genes
 
-##All genes
+## All genes
 
-###All DEGs
+### All DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -785,7 +785,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Upregulated DEGs
+### Upregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -796,7 +796,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Downregulated DEGs
+### Downregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -807,7 +807,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Venn diagrams
+### Venn diagrams
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -817,9 +817,9 @@ $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_DEGs.tsv --out $WorkD
 $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_DEGs.tsv --out $WorkDir/Bc16_down_DEGs.pdf
 ```
 
-##RxLRs
+## RxLRs
 
-###All DEGs
+### All DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -830,7 +830,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_RxLRs_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Upregulated DEGs
+### Upregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -841,7 +841,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_RxLRs_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Downregulated DEGs
+### Downregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -852,7 +852,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_RxLRs_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Venn diagrams
+### Venn diagrams
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -862,9 +862,9 @@ $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_RxLRs_DEGs.tsv --out 
 $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_RxLRs_DEGs.tsv --out $WorkDir/Bc16_down_RxLRs_DEGs.pdf
 ```
 
-##CRNs
+## CRNs
 
-###All DEGs
+### All DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -875,7 +875,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_CRNs_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Upregulated DEGs
+### Upregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -886,7 +886,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_CRNs_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Downregulated DEGs
+### Downregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -897,7 +897,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_CRNs_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Venn diagrams
+### Venn diagrams
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -907,9 +907,9 @@ $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_CRNs_DEGs.tsv --out $
 $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_CRNs_DEGs.tsv --out $WorkDir/Bc16_down_CRNs_DEGs.pdf
 ```
 
-##Apoplastic effectors
+## Apoplastic effectors
 
-###All DEGs
+### All DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -920,7 +920,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_ApoP_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Upregulated DEGs
+### Upregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -931,7 +931,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_ApoP_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Downregulated DEGs
+### Downregulated DEGs
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -942,7 +942,7 @@ OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_ApoP_DEGs.tsv
 $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
 ```
 
-###Venn diagrams
+### Venn diagrams
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
@@ -952,12 +952,12 @@ $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_ApoP_DEGs.tsv --out $
 $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_ApoP_DEGs.tsv --out $WorkDir/Bc16_down_ApoP_DEGs.pdf
 ```
 
-#Extract fasta file of all DEGs for BLAST analysis
+## Extract fasta file of all DEGs for BLAST analysis
 
 ```bash
 DEGFile=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.tsv
 DEGNames=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs_names.txt
-Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cds.fasta
+Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.cds.fasta
 DEGFasta=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_DEGs.fa
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 $ProgDir/extract_DEG_Names.py --input $DEGFile --output $DEGNames
