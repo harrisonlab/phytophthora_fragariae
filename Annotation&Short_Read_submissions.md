@@ -459,6 +459,7 @@ do
     fi
     cp $Assembly $OutDir/gag/round_1/genome.fsa
     SbtFile=genome_submission/$Organism/$Isolate/template.sbt
+    cp $SbtFile $OutDir/gag/round_1/template.sbt
     mkdir -p $OutDir/tbl2asn/round_1
     tbl2asn -p $OutDir/gag/round_1/. -t $OutDir/gag/round_1/template.sbt -r $OutDir/tbl2asn/round_1 -M n -X E -Z $OutDir/gag/round_1/discrep.txt -j "[organism=$Organism] [strain=$Isolate]"
 done
