@@ -541,4 +541,18 @@ do
     Annotation Method\tAb initio gene prediction: Braker 1.9 and CodingQuarry 2.0; Functional annotation: Swissprot (March 2018 release) and Interproscan 5.18-57.0" \
     > $OutDir/gag/edited/annotation_methods.strcmt.txt
 done
+
+# P.frag
+for Isolate in SCRP249 SCRP324 SCRP333
+do
+    Species=P.rubi
+    echo "$Species - $Isolate"
+    OutDir=genome_submission/$Species/$Isolate
+    printf "StructuredCommentPrefix\t##Genome-Annotation-Data-START##
+    Annotation Provider\tHarrison Lab NIAB-EMR
+    Annotation Date\tAUG-2018
+    Annotation Version\tRelease 1.01
+    Annotation Method\tAb initio gene prediction: Braker 1.9 and CodingQuarry 2.0; Functional annotation: Swissprot (March 2018 release) and Interproscan 5.18-57.0" \
+    > $OutDir/gag/edited/annotation_methods.strcmt.txt
+done
 ```
