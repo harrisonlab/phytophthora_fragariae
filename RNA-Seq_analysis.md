@@ -330,7 +330,7 @@ do
 done
 ```
 
-##A file was created with columns referring to experimental treatments
+## A file was created with columns referring to experimental treatments
 
 ```bash
 OutDir=alignment/star/P.fragariae/Bc16/DeSeq
@@ -411,7 +411,8 @@ do
     fi
 done >> $OutDir/P.frag_Bc16_RNAseq_design.txt
 
-# Edit header lines of feature counts files to ensure they have the treatment name rather than file name
+# Edit header lines of feature counts files to ensure they have the treatment
+# name rather than file name
 OutDir=alignment/star/P.fragariae/Bc16/DeSeq
 mkdir -p $OutDir
 for File in $(ls alignment/star/P.fragariae/Bc16/*/*/*_featurecounts.txt)
@@ -426,13 +427,13 @@ do
 done
 ```
 
-#DeSeq commands
+## DeSeq commands
 
 ```R
 #install.packages("pheatmap", Sys.getenv("R_LIBS_USER"), repos = "http://cran.case.edu" )
 
 #install and load libraries
-require("pheatmap")             
+require("pheatmap")
 require("data.table")
 
 #load tables into a "list of lists"
@@ -640,7 +641,7 @@ write.table(norm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/normalised_counts
 
 library(Biostrings)
 library(naturalsort)
-mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cdna.fasta")
+mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.cdna.fasta")
 t1 <- counts(dds)
 t1 <- mygenes[rownames(t1)]
 rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
