@@ -2061,9 +2061,9 @@ done
 ```bash
 for num in 1
 do
-    CRN_Names_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN_modified.txt
-    CRN_Names_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN_modified.txt
-    CRN_Names_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN_modified.txt
+    CRN_Names_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN_renamed.txt
+    CRN_Names_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN_renamed.txt
+    CRN_Names_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     CRN_Dir=$WorkDir/UK3_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
