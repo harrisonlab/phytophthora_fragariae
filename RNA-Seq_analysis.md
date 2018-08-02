@@ -656,12 +656,12 @@ colnames(fpkm_counts) <- paste(colData$Group)
 write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt",sep="\t",na="",quote=F)
 ```
 
-#Inital analysis of tables of DEGs
+## Inital analysis of tables of DEGs
 
 ```bash
-RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
-CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
-ApoP_Names_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
+CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
+ApoP_Names_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
 for File in $(ls alignment/star/P.fragariae/Bc16/DeSeq/Bc16*.txt)
 do
     Assessment=$(basename $File | sed "s/.txt//g")
