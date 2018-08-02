@@ -2301,7 +2301,7 @@ The number of NOV-9 genes extracted is:
 0
 ```
 
-##Extracting fasta files for orthogroups containing Race 3 putative apoplastic effectors
+## Extracting fasta files for orthogroups containing Race 3 putative apoplastic effectors
 
 ```bash
 for num in 1
@@ -2315,7 +2315,7 @@ do
 done
 ```
 
-##Extracting fasta files for P. fragariae orthogroups containing Race 3 putative apoplastic effectors
+## Extracting fastas for Pf orthogroups containing Race 3 putative apoplastic effectors
 
 ```bash
 for num in 1
@@ -2329,19 +2329,19 @@ do
 done
 ```
 
-#Race 3 unique secreted proteins
+## Race 3 unique secreted proteins
 
-#Race 3 secreted protein genes were parsed to the same format as the gene names used in the analysis:
+## Race 3 secreted protein genes were parsed to the same format as used in the analysis
 
 ```bash
 for num in 1
 do
-    Sec_Names_Nov27=gene_pred/combined_sigP_CQ/P.fragariae/Nov27/Nov27_secreted.txt
-    Sec_Names_Nov71=gene_pred/combined_sigP_CQ/P.fragariae/Nov71/Nov71_secreted.txt
-    Sec_Names_Nov9=gene_pred/combined_sigP_CQ/P.fragariae/Nov9/Nov9_secreted.txt
-    Sec_Names_Nov27_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov27/Nov27_all_secreted_merged.txt
-    Sec_Names_Nov71_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov71/Nov71_all_secreted_merged.txt
-    Sec_Names_Nov9_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov9/Nov9_all_secreted_merged.txt
+    Sec_Names_Nov27=gene_pred/combined_sigP_CQ/P.fragariae/Nov27/Nov27_secreted_renamed.txt
+    Sec_Names_Nov71=gene_pred/combined_sigP_CQ/P.fragariae/Nov71/Nov71_secreted_renamed.txt
+    Sec_Names_Nov9=gene_pred/combined_sigP_CQ/P.fragariae/Nov9/Nov9_secreted_renamed.txt
+    Sec_Names_Nov27_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov27/Nov27_all_secreted_merged_renamed.txt
+    Sec_Names_Nov71_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov71/Nov71_all_secreted_merged_renamed.txt
+    Sec_Names_Nov9_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov9/Nov9_all_secreted_merged_renamed.txt
     WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
     Sec_Dir=$WorkDir/UK3_Secreted
     Orthogroups=$WorkDir/Orthogroups.txt
