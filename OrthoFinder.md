@@ -2447,7 +2447,7 @@ The number of NOV-9 genes extracted is:
 8,713
 ```
 
-##Extracting fasta files for orthogroups containing Race 3 putative secreted proteins
+## Extracting fasta files for orthogroups containing Race 3 putative secreted proteins
 
 ```bash
 for num in 1
@@ -2461,8 +2461,7 @@ do
 done
 ```
 
-
-##Extracting fasta files for P. fragariae orthogroups containing Race 3 putative secreted proteins
+## Extracting fasta files for Pf orthogroups containing UK3 putative secreted proteins
 
 ```bash
 for num in 1
@@ -2476,9 +2475,9 @@ do
 done
 ```
 
-# Race 3 unique transcription factors and transcriptional regulators
+## Race 3 unique transcription factors and transcriptional regulators
 
-# Race 3 transcription factors and transcriptional regulators were parsed to the same format as the gene names used in the analysis
+## Race 3 TF/TRs were parsed to the same format as the gene names used in the analysis
 
 ```bash
 for num in 1
@@ -2497,7 +2496,7 @@ do
 done
 ```
 
-# Orthology groups containing transcription factors and transcriptional regulators were identified using the following commands
+## Orthology groups containing TF/TRs were identified in UK3
 
 ```bash
 for num in 1
@@ -2544,7 +2543,7 @@ These orthogroups contain the following number of TFs:
 720
 ```
 
-# The Race 3 transcription factors and transcriptional regulators that were not found in orthogroups were identified
+## The Race 3 TF/TRs that were not found in orthogroups were identified
 
 ```bash
 for num in 1
@@ -2553,9 +2552,9 @@ do
     cat $TF_ID | grep -v -w -f $TF_Orthogroup_hits > $TF_UK3_uniq
     echo "The number of UK3 unique TFs are:"
     cat $TF_UK3_uniq | wc -l
-    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors.pep.fasta
-    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors.pep.fasta
+    Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors_renamed.pep.fasta
+    Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors_renamed.pep.fasta
     Nov27_TF_UK3_uniq_fa=$TF_Dir/Nov27_UK3_unique_TFs.fa
     Nov71_TF_UK3_uniq_fa=$TF_Dir/Nov71_UK3_unique_TFs.fa
     Nov9_TF_UK3_uniq_fa=$TF_Dir/Nov9_UK3_unique_TFs.fa
