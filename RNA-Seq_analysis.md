@@ -1283,7 +1283,7 @@ do
 done
 ```
 
-#Create files with columns referring to experimental treatments
+## Create files with columns referring to experimental treatments
 
 ```bash
 #Method 1
@@ -1363,7 +1363,8 @@ do
     done >> $OutDir/P.frag_method1_RNAseq_design.txt
 done
 
-#Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
+# Edit headers lines of featurecounts files to ensure they have the treatment
+# name rather than the file name
 OutDir=analysis/DeSeq/Method_1
 for Strain in Bc1 Bc16 Nov9
 do
@@ -1496,7 +1497,8 @@ do
     done >> $OutDir/P.frag_method2_RNAseq_design.txt
 done
 
-#Edit headers lines of featurecounts files to ensure they have the treatment name rather than the file name
+# Edit headers lines of featurecounts files to ensure they have the treatment
+# name rather than the file name
 for Strain in Bc1 Bc16 Nov9
 do
     OutDir=analysis/DeSeq/Method_2/$Strain
@@ -1513,9 +1515,9 @@ do
 done
 ```
 
-#DeSeq commands
+## DeSeq commands
 
-##Method 1
+## Method 1
 
 BC-16
 
@@ -1756,7 +1758,7 @@ write.table(norm_counts,"analysis/DeSeq/Method_1/Bc16/normalised_counts.txt",sep
 
 library(Biostrings)
 library(naturalsort)
-mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cdna.fasta")
+mygenes <- readDNAStringSet("gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.cdna.fasta")
 t1 <- counts(dds)
 t1 <- mygenes[rownames(t1)]
 rowRanges(dds) <- GRanges(t1@ranges@NAMES,t1@ranges)
