@@ -493,24 +493,34 @@ some of these errors
 
 ```bash
 # P.frag
-
 for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Species=P.fragariae
     echo "$Organism - $Isolate"
     OutDir=genome_submission/$Species/$Isolate
-    Locus_tag=$(cat genome_submission/Pf_Pr_locus_tags.txt | grep -w "$Isolate")
+    Locus_tag=$(cat genome_submission/Pf_Pr_locus_tags.txt | grep -w "$Isolate" | cut -f1 -d ' ')
+    echo $Locus_tag
+    mkdir -p $OutDir/gag/edited
+    Tbl_in=$OutDir/gag/round_1/genome.tbl
+    Val_in=$OutDir/tbl2asn/round_1/genome.val
+    Tbl_out=$OutDir/gag/edited/genome.tbl
+    ProgDir=/home/adamst/git_repos/tools/genbank_submission/edit_tbl_file
+    $ProgDir/ncbi_tbl_corrector.py --inp_tbl $Tbl_in --inp_val $Val_in --locus_tag $Locus_tag --lab_id $LabID --gene_id "remove" --edits stop pseudo unknown_UTR correct_partial --remove_product_locus_tags "True" --del_name_from_prod "True" --out_tbl $Tbl_out
 done
 
-for Assembly in $(ls repeat_masked/*/*/ncbi_edits_repmask/*_contigs_unmasked.fa | grep ‘1177’); do
-   Organism=$(echo $Assembly | rev | cut -d ‘/’ -f4 | rev)
-   Strain=$(echo $Assembly| rev | cut -d ‘/’ -f3 | rev)
-   echo “$Organism - $Strain”
-   OutDir=“genome_submission/$Organism/$Strain”
-   LocusTag=$(cat genome_submission/Aalt_PRJNA360212_locus_tags.txt | grep “$Strain” | cut -f1 -d ' ’)
-   echo $LocusTag
-   mkdir -p $OutDir/gag/edited
-   ProgDir=/home/armita/git_repos/emr_repos/tools/genbank_submission
-   $ProgDir/edit_tbl_file/ncbi_tbl_corrector.py --inp_tbl $OutDir/gag/round1/genome.tbl --inp_val $OutDir/tbl2asn/round1/genome.val --locus_tag $LocusTag --lab_id $LabID --gene_id “remove” --edits stop pseudo unknown_UTR correct_partial --remove_product_locus_tags “True” --del_name_from_prod “True” --out_tbl $OutDir/gag/edited/genome.tbl
+# P.rubi
+for Isolate in SCRP249 SCRP324 SCRP333
+do
+    Species=P.rubi
+    echo "$Organism - $Isolate"
+    OutDir=genome_submission/$Species/$Isolate
+    Locus_tag=$(cat genome_submission/Pf_Pr_locus_tags.txt | grep -w "$Isolate" | cut -f1 -d ' ')
+    echo $Locus_tag
+    mkdir -p $OutDir/gag/edited
+    Tbl_in=$OutDir/gag/round_1/genome.tbl
+    Val_in=$OutDir/tbl2asn/round_1/genome.val
+    Tbl_out=$OutDir/gag/edited/genome.tbl
+    ProgDir=/home/adamst/git_repos/tools/genbank_submission/edit_tbl_file
+    $ProgDir/ncbi_tbl_corrector.py --inp_tbl $Tbl_in --inp_val $Val_in --locus_tag $Locus_tag --lab_id $LabID --gene_id "remove" --edits stop pseudo unknown_UTR correct_partial --remove_product_locus_tags "True" --del_name_from_prod "True" --out_tbl $Tbl_out
 done
 ```
