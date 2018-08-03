@@ -5515,7 +5515,7 @@ do
 done
 ```
 
-### C)Identify genes with transmembrane domains
+### C) Identify genes with transmembrane domains
 
 WARNING: This has a high false positive rate
 modified from the base script to allow greedy/conservative
