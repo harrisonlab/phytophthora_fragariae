@@ -109,12 +109,11 @@ do
     Isolate=$(echo $Gff | rev | cut -f3 -d '/' | rev)
     echo "$Species - $Isolate"
     OutDir=gene_pred/annotation/$Species/$Isolate
-    MergeDir=analysis/ApoplastP/$Species/$Isolate
-    RxLR_No_ApoP=$MergeDir/"$Isolate"_RxLR_No_ApoP_ORFs.gff
-    RxLR_Plus_ApoP=$MergeDir/"$Isolate"_RxLR_Plus_ApoP_ORFs.gff
-    CRN_No_ApoP=$MergeDir/"$Isolate"_CRN_No_ApoP_ORFs.gff
-    CRN_Plus_ApoP=$MergeDir/"$Isolate"_CRN_Plus_ApoP_ORFs.gff
-    ApoP_No_RxLR_CRN=$MergeDir/"$Isolate"_ApoP_No_RxLR_CRN_ORFs.gff
+    RxLR_No_ApoP=$OutDir/ORF_RxLR_No_ApoP_parsed.gff3
+    RxLR_Plus_ApoP=$OutDir/ORF_RxLR_Plus_ApoP_parsed.gff3
+    CRN_No_ApoP=$OutDir/ORF_CRN_No_ApoP_parsed.gff3
+    CRN_Plus_ApoP=$OutDir/ORF_CRN_Plus_ApoP_parsed.gff3
+    ApoP_No_RxLR_CRN=$OutDir/ORF_ApoP_No_RxLR_CRN_parsed.gff3
     # RxLR_No_ApoP
     bedtools intersect -wo -a $Gff -b $RxLR_No_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "RxLR_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt
     # RxLR_Plus_ApoP
@@ -134,12 +133,11 @@ do
     Isolate=$(echo $Gff | rev | cut -f3 -d '/' | rev)
     echo "$Species - $Isolate"
     OutDir=../phytophthora_rubi/gene_pred/annotation/$Species/$Isolate
-    MergeDir=../phytophthora_rubi/analysis/ApoplastP/$Species/$Isolate
-    RxLR_No_ApoP=$MergeDir/"$Isolate"_RxLR_No_ApoP_ORFs.gff
-    RxLR_Plus_ApoP=$MergeDir/"$Isolate"_RxLR_Plus_ApoP_ORFs.gff
-    CRN_No_ApoP=$MergeDir/"$Isolate"_CRN_No_ApoP_ORFs.gff
-    CRN_Plus_ApoP=$MergeDir/"$Isolate"_CRN_Plus_ApoP_ORFs.gff
-    ApoP_No_RxLR_CRN=$MergeDir/"$Isolate"_ApoP_No_RxLR_CRN_ORFs.gff
+    RxLR_No_ApoP=$OutDir/ORF_RxLR_No_ApoP_parsed.gff3
+    RxLR_Plus_ApoP=$OutDir/ORF_RxLR_Plus_ApoP_parsed.gff3
+    CRN_No_ApoP=$OutDir/ORF_CRN_No_ApoP_parsed.gff3
+    CRN_Plus_ApoP=$OutDir/ORF_CRN_Plus_ApoP_parsed.gff3
+    ApoP_No_RxLR_CRN=$OutDir/ORF_ApoP_No_RxLR_CRN_parsed.gff3
     # RxLR_No_ApoP
     bedtools intersect -wo -a $Gff -b $RxLR_No_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "RxLR_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt
     # RxLR_Plus_ApoP
