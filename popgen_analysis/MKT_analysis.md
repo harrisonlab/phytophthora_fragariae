@@ -314,7 +314,7 @@ done
 # Gff files
 
 cd ..
-gff=/home/groups/harrisonlab/project_files/phytophthora_fragariae/gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3
+gff=/home/groups/harrisonlab/project_files/phytophthora_fragariae/gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gff3
 $scripts/split_gff_contig.sh $gff
 mkdir gff && mv *.gff ./gff
 
