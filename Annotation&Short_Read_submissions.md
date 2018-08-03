@@ -201,20 +201,20 @@ done
 
 ```
 Species Isolate PreFilter   FilterList  UniqueFilterList    GenesRemoved    FinalGenes
-P.fragariae     A4      41,131   7,785    7,471    0       41,131
-P.fragariae     Bc16    49,981   9,172    8,813    0       49,981
-P.fragariae     Bc1     41,405   7,945    7,686    0       41,405
-P.fragariae     Bc23    40,770   7,852    7,589    0       40,770
-P.fragariae     Nov27   41,524   7,947    7,698    0       41,524
-P.fragariae     Nov5    41,191   7,713    7,455    0       41,191
-P.fragariae     Nov71   40,622   7,697    7,448    0       40,622
-P.fragariae     Nov77   41,076   7,711    7,464    0       41,076
-P.fragariae     Nov9    41,127   7,813    7,565    0       41,127
-P.fragariae     ONT3    44,734   8,103    7,844    0       44,734
-P.fragariae     SCRP245_v2      44,933   8,114    7,847    0       44,933
-P.rubi  SCRP249 42,302   8,376    8,144    0       42,302
-P.rubi  SCRP324 43,281   8,493    8,264    0       43,281
-P.rubi  SCRP333 43,402   8,423    8,160    0       43,402
+P.fragariae     A4      41,131   7,785    7,471    7,471       33,660
+P.fragariae     Bc16    49,981   9,172    8,813    8,813       41,168
+P.fragariae     Bc1     41,405   7,945    7,686    7,686       33,719
+P.fragariae     Bc23    40,770   7,852    7,589    7,588       33,182
+P.fragariae     Nov27   41,524   7,947    7,698    7,698       33,826
+P.fragariae     Nov5    41,191   7,713    7,455    7,454       33,737
+P.fragariae     Nov71   40,622   7,697    7,448    7,447       33,175
+P.fragariae     Nov77   41,076   7,711    7,464    7,464       33,612
+P.fragariae     Nov9    41,127   7,813    7,565    7,564       33,563
+P.fragariae     ONT3    44,734   8,103    7,844    7,843       36,891
+P.fragariae     SCRP245_v2      44,933   8,114    7,847    7,846       37,087
+P.rubi  SCRP249 42,302   8,376    8,144    8,143       34,159
+P.rubi  SCRP324 43,281   8,493    8,264    8,263       35,018
+P.rubi  SCRP333 43,402   8,423    8,160    8,158       35,244
 ```
 
 #### Check for further duplication, rename the genes and extract fasta files
