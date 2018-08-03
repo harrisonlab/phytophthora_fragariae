@@ -22,3 +22,8 @@ Gff_in = conf.inp_gff
 Exclude = conf.exclude_list
 Gff_out = conf.output_gff
 Removed = conf.removed_genes
+
+# -----------------------------------------------------
+# Step 1
+# Identify lines to be removed and create data structures for writing out
+# -----------------------------------------------------
