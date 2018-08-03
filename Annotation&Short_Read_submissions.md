@@ -161,12 +161,13 @@ do
     Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
     echo "$Species - $Isolate"
     OutDir=$(dirname $Gff)
-    cat $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt $OutDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $OutDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt $OutDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $OutDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt | cut -f3 > $OutDir/exclude_list.txt
+    MergeDir=$(ls -d gene_pred/annotation/$Species/$Isolate)
+    cat $MergeDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt | cut -f3 > $MergeDir/exclude_list.txt
     PreFilter=$(cat $Gff | grep -w 'gene' | wc -l)
     FilterList=$(cat $OutDir/exclude_list.txt | wc -l)
     UniqueFilterList=$(cat $OutDir/exclude_list.txt | sort | uniq | wc -l)
     GenesRemoved=$(cat $Gff | grep -w -f $OutDir/exclude_list.txt | grep -w 'gene' | wc -l)
-    cat $Gff | grep -w -v -f $OutDir/exclude_list.txt > $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3
+    cat $Gff | grep -w -v -f $MergeDir/exclude_list.txt > $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3
     FinalGenes=$(cat $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3 | grep -w 'gene' | wc -l)
     printf "$Species\t$Isolate\t$PreFilter\t$FilterList\t$UniqueFilterList\t$GenesRemoved\t$FinalGenes\n"
 done
@@ -178,12 +179,13 @@ do
     Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
     echo "$Species - $Isolate"
     OutDir=$(dirname $Gff)
-    cat $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt $OutDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $OutDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt $OutDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $OutDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt | cut -f3 > $OutDir/exclude_list.txt
+    MergeDir=$(ls -d ../phytophthora_rubi/gene_pred/annotation/$Species/$Isolate)
+    cat $MergeDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt | cut -f3 > $MergeDir/exclude_list.txt
     PreFilter=$(cat $Gff | grep -w 'gene' | wc -l)
     FilterList=$(cat $OutDir/exclude_list.txt | wc -l)
     UniqueFilterList=$(cat $OutDir/exclude_list.txt | sort | uniq | wc -l)
     GenesRemoved=$(cat $Gff | grep -w -f $OutDir/exclude_list.txt | grep -w 'gene' | wc -l)
-    cat $Gff | grep -w -v -f $OutDir/exclude_list.txt > $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3
+    cat $Gff | grep -w -v -f $MergeDir/exclude_list.txt > $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3
     FinalGenes=$(cat $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3 | grep -w 'gene' | wc -l)
     printf "$Species\t$Isolate\t$PreFilter\t$FilterList\t$UniqueFilterList\t$GenesRemoved\t$FinalGenes\n"
 done
