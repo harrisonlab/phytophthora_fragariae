@@ -13,7 +13,7 @@ popgen_analysis/pre_SNP_calling_cleanup.md
 ### Convert gene gff to bed, required for samtools
 
 ```bash
-gene_gff=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3
+gene_gff=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gff3
 OutDir=CNV_analysis
 mkdir -p $OutDir
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
@@ -23,8 +23,8 @@ python $ProgDir/gff2bed.py --gff_in $gene_gff --out_dir $OutDir
 ### Sort output bed file
 
 ```bash
-gene_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors.bed
-sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
+gene_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_renamed.bed
+sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted_renamed.bed
 sort -k1,1V -k2,2n -k3,3n $gene_bed > $sorted_bed
 ```
 
@@ -51,7 +51,7 @@ cd ../../../../../../
 for Isolate in Bc16 Bc1 Nov9
 do
     aligned_bam=analysis/genome_alignment/bowtie/P.fragariae/$Isolate/vs_Bc16_FALCON/"$Isolate"_polished_contigs_unmasked.fa_aligned_sorted.bam
-    sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
+    sorted_bed=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted_renamed.bed
     output_table=CNV_analysis/"$Isolate"_read_depth.txt
     samtools bedcov $sorted_bed $aligned_bam > $output_table
 done
@@ -68,8 +68,8 @@ Isolate_3=NOV-9
 Isolate_1_depth=CNV_analysis/Bc16_read_depth.txt
 Isolate_2_depth=CNV_analysis/Bc1_read_depth.txt
 Isolate_3_depth=CNV_analysis/Nov9_read_depth.txt
-bed_in=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted.bed
-fasta_in=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
+bed_in=CNV_analysis/Bc16_genes_incl_ORFeffectors_sorted_renamed.bed
+fasta_in=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gene.fasta
 OutDir=CNV_analysis
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
 python $ProgDir/CNV_identification.py --Org1_ID $Isolate_1 --Org2_ID $Isolate_2 --Org3_ID $Isolate_3 --Org1_depth $Isolate_1_depth --Org2_depth $Isolate_2_depth --Org3_depth $Isolate_3_depth --gene_bed $bed_in --gene_fasta $fasta_in --OutDir $OutDir
@@ -80,17 +80,17 @@ python $ProgDir/CNV_identification.py --Org1_ID $Isolate_1 --Org2_ID $Isolate_2 
 ```bash
 CNV_IDs=CNV_analysis/BC-16_BC-1_NOV-9_CNV_calls.tsv
 CNV_Headers=CNV_analysis/Bc16_Bc1_Nov9_CNV_headers.txt
-RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
 RxLR_IDs=CNV_analysis/parsed_RxLRs.txt
 RxLR_CNVs=CNV_analysis/CNV_RxLRs.txt
-CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
 CRN_IDs=CNV_analysis/parsed_CRNs.txt
 CRN_CNVs=CNV_analysis/CNV_CRNs.txt
-ApoP=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+ApoP=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
 ApoP_IDs=CNV_analysis/parsed_ApoP.txt
 ApoP_CNVs=CNV_analysis/CNV_ApoP.txt
-Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
-Secreted_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
+Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted_renamed.txt
+Secreted_ORF=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged_renamed.txt
 Secreted_IDs=CNV_analysis/parsed_secreted.txt
 Secreted_CNVs=CNV_analysis/CNV_Secreted.txt
 TFs=analysis/transcription_factors/P.fragariae/Bc16/greedy/Bc16_TF_TR_Headers.txt
