@@ -326,6 +326,8 @@ P.rubi	SCRP324	43,281	43,568
 P.rubi	SCRP333	43,402	43,717
 ```
 
+Annotations (Interproscan & Swissprot) must be performed here - commands in README.md
+
 #### Setting variables
 
 Variables containing the locations of files and options for scripts were set
