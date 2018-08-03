@@ -188,8 +188,12 @@ do
     PreFilter=$(cat $Gff | grep -w 'gene' | wc -l)
     FilterList=$(cat $OutDir/exclude_list.txt | wc -l)
     UniqueFilterList=$(cat $OutDir/exclude_list.txt | sort | uniq | wc -l)
-    GenesRemoved=$(cat $Gff | grep -w -f $OutDir/exclude_list.txt | grep -w 'gene' | wc -l)
-    cat $Gff | grep -w -v -f $MergeDir/exclude_list.txt > $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    Exclude_List=$OutDir/exclude_list.txt
+    Gff_out=$OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3
+    Removed_Genes=$OutDir/Removed_Genes.txt
+    python $ProgDir/Remove_Overlapping_Features.py --inp_gff $Gff --exclude_list $Exclude_List --output_gff $Gff_out --removed_genes $Removed_Genes
+    GenesRemoved=$(cat $Removed_Genes | wc -l)
     FinalGenes=$(cat $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3 | grep -w 'gene' | wc -l)
     printf "$Species\t$Isolate\t$PreFilter\t$FilterList\t$UniqueFilterList\t$GenesRemoved\t$FinalGenes\n"
 done
