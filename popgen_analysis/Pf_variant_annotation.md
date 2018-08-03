@@ -15,7 +15,7 @@ mkdir -p $input
 cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling/polished_contigs_unmasked.vcf $input
 cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/SNP_calling/polished_contigs_unmasked_filtered.vcf $input
 cp /home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa $input
-cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gff3 $input
+cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gff3 $input
 cd $input
 ```
 
