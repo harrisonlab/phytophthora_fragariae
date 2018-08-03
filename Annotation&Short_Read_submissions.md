@@ -315,20 +315,20 @@ done
 
 ```
 Species Isolate Genes   Proteins
-P.fragariae	A4	41,131	41,942
-P.fragariae	Bc16	49,981	50,278
-P.fragariae	Bc1	41,405	42,214
-P.fragariae	Bc23	40,770	41,595
-P.fragariae	Nov27	41,524	42,351
-P.fragariae	Nov5	41,191	42,007
-P.fragariae	Nov71	40,622	41,446
-P.fragariae	Nov77	41,076	41,904
-P.fragariae	Nov9	41,127	41,961
-P.fragariae	ONT3	44,734	45,527
-P.fragariae	SCRP245_v2	44,933	45,748
-P.rubi	SCRP249	42,302	42,647
-P.rubi	SCRP324	43,281	43,568
-P.rubi	SCRP333	43,402	43,717
+P.fragariae	A4	33,660	34,471
+P.fragariae	Bc16	41,168	41,465
+P.fragariae	Bc1	33,719	34,528
+P.fragariae	Bc23	33,182	34,007
+P.fragariae	Nov27	33,826	34,653
+P.fragariae	Nov5	33,737	34,553
+P.fragariae	Nov71	33,175	33,999
+P.fragariae	Nov77	33,612	34,440
+P.fragariae	Nov9	33,563	34,397
+P.fragariae	ONT3	36,891	37,684
+P.fragariae	SCRP245_v2	37,087	37,902
+P.rubi	SCRP249	34,159	34,504
+P.rubi	SCRP324	35,018	35,305
+P.rubi	SCRP333	35,244	35,560
 ```
 
 Annotations (Interproscan & Swissprot) must be performed here - commands in README.md
