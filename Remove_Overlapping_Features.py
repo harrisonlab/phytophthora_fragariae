@@ -100,3 +100,12 @@ Removed_Set = set(removed_genes)
 # Step 2
 # Write out files
 # -----------------------------------------------------
+
+with open(Gff_out) as o:
+    for line in lines_to_write:
+        o.write(line)
+
+with open(Removed) as r:
+    for gene in Removed_Set:
+        r.write(gene)
+        r.write("\n")
