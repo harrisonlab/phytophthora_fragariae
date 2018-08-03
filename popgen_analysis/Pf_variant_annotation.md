@@ -112,7 +112,7 @@ mv *.fasta ./silent
 ```bash
 cd $input
 mkdir -p gff
-$scripts/summary_stats/split_gff_contig.sh Bc16_genes_incl_ORFeffectors.gff3
+$scripts/summary_stats/split_gff_contig.sh Bc16_genes_incl_ORFeffectors_renamed.gff3
 mv *.gff ./gff
 ```
 
