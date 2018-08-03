@@ -6145,5 +6145,7 @@ do
 done
 ```
 
+### Extract fasta files with renamed gene IDs for features
+
 Further downstream analysis done in OrthoFinder.md, RNA-Seq_analysis.md and
 popgen_analysis directory
