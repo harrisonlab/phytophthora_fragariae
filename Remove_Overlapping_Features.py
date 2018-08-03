@@ -27,3 +27,13 @@ Removed = conf.removed_genes
 # Step 1
 # Identify lines to be removed and create data structures for writing out
 # -----------------------------------------------------
+
+Genes_to_remove = []
+
+with open(Exclude) as f:
+    lines = f.readlines()
+    for line in lines:
+        gene = line.rstrip()
+        Genes_to_remove.append(gene)
+
+Removal_Set = set(Genes_to_remove)
