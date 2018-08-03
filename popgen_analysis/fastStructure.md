@@ -309,3 +309,7 @@ do
     python $structure/distruct_mod.py -K $i --input $input_vcf_file --output $Output --title K$i --popfile $Popfile
 done
 ```
+
+```
+Still no population structure detected
+```
