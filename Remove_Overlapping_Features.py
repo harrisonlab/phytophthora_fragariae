@@ -17,3 +17,8 @@ genes in exclude list removed')
 ap.add_argument('--removed_genes', required=True, type=str, help='File \
 containing ID of all removed genes')
 conf = ap.parse_args()
+
+Gff_in = conf.inp_gff
+Exclude = conf.exclude_list
+Gff_out = conf.output_gff
+Removed = conf.removed_genes
