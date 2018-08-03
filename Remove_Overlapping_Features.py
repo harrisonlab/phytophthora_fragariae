@@ -95,3 +95,8 @@ with open(Gff_in) as f:
                 lines_to_write.append(line)
 
 Removed_Set = set(removed_genes)
+
+# -----------------------------------------------------
+# Step 2
+# Write out files
+# -----------------------------------------------------
