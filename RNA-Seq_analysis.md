@@ -4064,13 +4064,13 @@ Header file created using nano for target - gene ID is g24882.t1
 WorkDir=analysis/DeSeq/Method_1/candidates/BLAST_of_candidate
 mkdir -p $WorkDir
 Headers=$WorkDir/candidate_avr.txt
-Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
+Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gene.fasta
 ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
 $ProgDir/extract_from_fasta.py --fasta $Fasta --headers $Headers > $WorkDir/target.fa
 
 # All RxLRs
-Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
-Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
+Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
+Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gene.fasta
 cp $Headers Bc16_RxLRs.txt
 cat Bc16_RxLRs.txt | sed 's/[.]t.//g' > $WorkDir/all_Bc16_RxLRs.txt
 $ProgDir/extract_from_fasta.py --fasta $Fasta --headers $WorkDir/all_Bc16_RxLRs.txt > $WorkDir/all_Bc16_RxLRs.fa
