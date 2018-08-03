@@ -58,7 +58,7 @@ $vcftools/vcftools --vcf polished_contigs_unmasked_Pf_filtered.vcf --mac 1 --rec
 ##Create custom SnpEff genome database
 
 ```bash
-$scripts/summary_stats/build_genome_database.sh polished_contigs_unmasked.fa Bc16_genes_incl_ORFeffectors.gff3 Bc16
+$scripts/summary_stats/build_genome_database.sh polished_contigs_unmasked.fa Bc16_genes_incl_ORFeffectors_renamed.gff3 Bc16
 ```
 
 ##Annotate VCF files
