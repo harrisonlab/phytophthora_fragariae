@@ -96,7 +96,7 @@ cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gf
 
 ```bash
 cd $snpeff/data/Bc16v1.0
-mv Bc16_genes_incl_ORFeffectors.gff3 genes.gff
+mv Bc16_genes_incl_ORFeffectors_renamed.gff3 genes.gff
 mv polished_contigs_unmasked.fa sequences.fa
 ```
 
