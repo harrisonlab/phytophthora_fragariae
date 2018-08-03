@@ -101,11 +101,11 @@ Removed_Set = set(removed_genes)
 # Write out files
 # -----------------------------------------------------
 
-with open(Gff_out) as o:
+with open(Gff_out, 'w') as o:
     for line in lines_to_write:
         o.write(line)
 
-with open(Removed) as r:
+with open(Removed, 'w') as r:
     for gene in Removed_Set:
         r.write(gene)
         r.write("\n")
