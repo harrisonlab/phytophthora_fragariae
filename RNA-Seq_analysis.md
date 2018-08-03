@@ -3951,7 +3951,7 @@ done
 
 for Strain in Bc1 Nov9
 do
-    for GeneGff in $(ls gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.gff3)
+    for GeneGff in $(ls gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors_renamed.gff3)
     do
         Organism=$(echo $GeneGff | rev | cut -f3 -d '/' | rev)
         if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
@@ -3966,33 +3966,33 @@ do
             Assembly=$(ls repeat_masked/quiver_results/polished/filtered_contigs_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
             echo $Assembly
         fi
-        InterPro=$(ls gene_pred/interproscan/$Organism/$Strain/greedy/*_interproscan.tsv)
+        InterPro=$(ls gene_pred/interproscan/$Organism/$Strain/*_interproscan.tsv)
         SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/greedy/swissprot_vJul2016_tophit_parsed.tbl)
         OutDir=gene_pred/annotation/$Organism/$Strain
         mkdir -p $OutDir
         # GeneFasta=$(ls gene_pred/annotation/P.cactorum/414_v2/414_v2_genes_incl_ORFeffectors.pep.fasta)
-        GeneFasta=$(ls gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors.cds.fasta)
-        SigP2=$(ls gene_pred/final_sigP/$Organism/$Strain/*_aug_sp.aa)
-        SigP2_ORF=$(ls gene_pred/ORF_sigP/$Organism/$Strain/*_aug_sp.aa)
-        SigP3=$(ls gene_pred/final_signalp-3.0/$Organism/$Strain/*_aug_sp.aa)
-        SigP3_ORF=$(ls gene_pred/ORF_signalp-3.0/$Organism/$Strain/*_aug_sp.aa)
-        SigP4=$(ls gene_pred/final_signalp-4.1/$Organism/$Strain/*_aug_sp.aa)
-        SigP4_ORF=$(ls gene_pred/ORF_signalp-4.1/$Organism/$Strain/*_aug_sp.aa)
+        GeneFasta=$(ls gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors_renamed.cds.fasta)
+        SigP2=$(ls gene_pred/final_sigP/$Organism/$Strain/*_aug_sp_renamed.aa)
+        SigP2_ORF=$(ls gene_pred/ORF_sigP/$Organism/$Strain/*_aug_sp_renamed.aa)
+        SigP3=$(ls gene_pred/final_signalp-3.0/$Organism/$Strain/*_aug_sp_renamed.aa)
+        SigP3_ORF=$(ls gene_pred/ORF_signalp-3.0/$Organism/$Strain/*_aug_sp_renamed.aa)
+        SigP4=$(ls gene_pred/final_signalp-4.1/$Organism/$Strain/*_aug_sp_renamed.aa)
+        SigP4_ORF=$(ls gene_pred/ORF_signalp-4.1/$Organism/$Strain/*_aug_sp_renamed.aa)
         TMHMM_headers=$(ls gene_pred/trans_mem/$Organism/$Strain/greedy/*_TM_genes_pos_headers.txt)
         GPI_headers=$(ls gene_pred/GPIsom/$Organism/$Strain/greedy/GPI_pos.txt)
-        PhobiusFa=$(ls analysis/phobius_CQ/$Organism/$Strain/*_phobius.fa)
-        PhobiusFa_ORF=$(ls analysis/phobius_ORF/$Organism/$Strain/*_phobius.fa)
+        PhobiusFa=$(ls analysis/phobius_CQ/$Organism/$Strain/*_phobius_renamed.fa)
+        PhobiusFa_ORF=$(ls analysis/phobius_ORF/$Organism/$Strain/*_phobius_renamed.fa)
         #RxLR_Motif=$(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/$Organism/$Strain/*_RxLR_EER_regex.fa | grep -v 'ORF')
         #RxLR_Hmm=$(ls analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer.fa | grep -v 'ORF')
         #RxLR_WY=$(ls analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain/*_WY_hmmer_headers.txt | grep -v 'ORF')
-        RxLR_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_Total_RxLR_motif_hmm.txt)
-        RxLR_ORF_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_total_ORF_RxLR_headers.txt)
-        RxLR_EER_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_Total_RxLR_EER_motif_hmm.txt)
-        RxLR_EER_ORF_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_total_ORF_RxLR_EER_headers.txt)
+        RxLR_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_Total_RxLR_motif_hmm_renamed.txt)
+        RxLR_ORF_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_total_ORF_RxLR_headers_renamed.txt)
+        RxLR_EER_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_Total_RxLR_EER_motif_hmm_renamed.txt)
+        RxLR_EER_ORF_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_total_ORF_RxLR_EER_headers_renamed.txt)
         #CRN_LFLAK=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_pub_CRN_LFLAK_hmm.fa | grep -v 'ORF')
         #CRN_DWL=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_pub_CRN_DWL_hmm.fa | grep -v 'ORF')
-        CRN_total=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_final_CRN.txt)
-        ApoP_total=$(ls analysis/ApoplastP/$Organism/$Strain/*_Total_ApoplastP.txt)
+        CRN_total=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_final_CRN_renamed.txt)
+        ApoP_total=$(ls analysis/ApoplastP/$Organism/$Strain/*_Total_ApoplastP_renamed.txt)
         #	OrthoName=Pcac
         #	OrthoFile=$(ls analysis/orthology/orthomcl/Pcac_Pinf_Ppar_Pcap_Psoj/Pcac_Pinf_Ppar_Pcap_Psoj_orthogroups.txt)
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
