@@ -37,3 +37,61 @@ with open(Exclude) as f:
         Genes_to_remove.append(gene)
 
 Removal_Set = set(Genes_to_remove)
+
+lines_to_write = []
+removed_genes = []
+
+with open(Gff_in) as f:
+    lines = f.readlines()
+    for line in lines:
+        split_line = line.split()
+        col9 = split_line[8]
+        if split_line[2] == 'gene':
+            gene_ID = col9.split('=')[1]
+            if gene_ID in Removal_Set:
+                removed_genes.append(gene_ID)
+            else:
+                lines_to_write.append(line)
+        elif split_line[2] == 'mRNA':
+            gene_ID = col9.split('=')[2]
+            if gene_ID in Removal_Set:
+                removed_genes.append(gene_ID)
+            else:
+                lines_to_write.append(line)
+        elif split_line[2] == 'start_codon':
+            transcript_ID = col9.split('=')[1]
+            gene_ID = transcript_ID.split('.')[0]
+            if gene_ID in Removal_Set:
+                removed_genes.append(gene_ID)
+            else:
+                lines_to_write.append(line)
+        elif split_line[2] == 'CDS':
+            transcript_ID = col9.split('=')[2]
+            gene_ID = transcript_ID.split('.')[1]
+            if gene_ID in Removal_Set:
+                removed_genes.append(gene_ID)
+            else:
+                lines_to_write.append(line)
+        elif split_line[2] == 'exon':
+            transcript_ID = col9.split('=')[2]
+            gene_ID = transcript_ID.split('.')[1]
+            if gene_ID in Removal_Set:
+                removed_genes.append(gene_ID)
+            else:
+                lines_to_write.append(line)
+        elif split_line[2] == 'stop_codon':
+            transcript_ID = col9.split('=')[1]
+            gene_ID = transcript_ID.split('.')[0]
+            if gene_ID in Removal_Set:
+                removed_genes.append(gene_ID)
+            else:
+                lines_to_write.append(line)
+        elif split_line[2] == 'intron':
+            transcript_ID = col9.split('=')[1]
+            gene_ID = transcript_ID.split('.')[0]
+            if gene_ID in Removal_Set:
+                removed_genes.append(gene_ID)
+            else:
+                lines_to_write.append(line)
+
+Removed_Set = set(removed_genes)
