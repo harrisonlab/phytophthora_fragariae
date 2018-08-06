@@ -67,14 +67,14 @@ with open(Gff_in) as f:
                 lines_to_write.append(line)
         elif split_line[2] == 'CDS':
             transcript_ID = col9.split('=')[2]
-            gene_ID = transcript_ID.split('.')[1]
+            gene_ID = transcript_ID.split('.')[0]
             if gene_ID in Removal_Set:
                 removed_genes.append(gene_ID)
             else:
                 lines_to_write.append(line)
         elif split_line[2] == 'exon':
             transcript_ID = col9.split('=')[2]
-            gene_ID = transcript_ID.split('.')[1]
+            gene_ID = transcript_ID.split('.')[0]
             if gene_ID in Removal_Set:
                 removed_genes.append(gene_ID)
             else:
