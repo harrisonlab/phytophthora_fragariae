@@ -637,7 +637,7 @@ https://downloads.asperasoft.com/connect2//
 ##### sqn file moved to its own directory
 
 ```bash
-for sqn in $(ls genome_submission/*/*/*2018.sqn)
+for sqn in $(ls genome_submission/*/*/*/*/*2018.sqn)
 do
     Dir_Name=$(dirname $sqn)
     New_Dir=$Dir_Name/for_submission
