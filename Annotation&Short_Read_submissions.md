@@ -29,11 +29,40 @@ do
     Isolate=Bc16
     Organism=P.fragariae
     OutDir=genome_submission/$Organism/$Isolate/PacBio/SRA
+    mkdir -p $OutDir
     for File in $(ls raw_dna/pacbio/$Organism/$Isolate/extracted/*fastq.gz)
     do
         cp $File $OutDir/.
     done
     tar -czf genome_submission/$Organism/$Isolate/PacBio/PF_"$Isolate"_PacBio_SRA.tar.gz $OutDir
+done
+
+# P.frag ONT
+for num in 1
+do
+    Isolate=Nov9
+    Isolate_in=NOV-9
+    Organism=P.fragariae
+    OutDir=genome_submission/$Organism/$Isolate/ONT/SRA
+    mkdir -p $OutDir
+    for File in $(ls raw_dna/minion/$Organism/$Isolate_in/*.fastq.gz)
+    do
+        cp $File $OutDir/.
+    done
+    tar -czf genome_submission/$Organism/$Isolate/ONT/PF_"$Isolate"_ONT_SRA.tar.gz $OutDir
+done
+
+# P.rubi Illumina
+for Isolate in SCRP249 SCRP324 SCRP333
+do
+    Organism=P.rubi
+    OutDir=genome_submission/$Organism/$Isolate/Illumina/SRA
+    mkdir -p $OutDir
+    for File in $(ls ../phytophthora_rubi/raw_dna/paired/$Organism/$Isolate/*/*.fastq.gz)
+    do
+        cp $File $OutDir/.
+    done
+    tar -czf genome_submission/$Organism/$Isolate/Illumina/PR_"$Isolate"_Illumina_SRA.tar.gz $OutDir
 done
 ```
 
