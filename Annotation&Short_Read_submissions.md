@@ -634,18 +634,6 @@ macbook (OSX 10.13.6)
 https://downloads.asperasoft.com/connect2//
 ```
 
-##### sqn file moved to its own directory
-
-```bash
-for sqn in $(ls genome_submission/*/*/*/*/*2018.sqn)
-do
-    Dir_Name=$(dirname $sqn)
-    New_Dir=$Dir_Name/for_submission
-    mkdir -p $New_Dir
-    cp $sqn $NewDir/
-done
-```
-
 Key file downloaded from submission page. Submission commands run locally
 
 Ensure destination correct before running
