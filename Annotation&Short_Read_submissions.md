@@ -663,3 +663,5 @@ do
     /Users/adamst/Applications/Aspera\ Connect.app/Contents/Resources/ascp -i /Users/adamst/Downloads/aspera.openssh -QT -k1 -d cluster_mount/groups/harrisonlab/project_files/phytophthora_fragariae/genome_submission/P.rubi/$Isolate/tbl2asn/final/for_submission subasp@upload.ncbi.nlm.nih.gov:uploads/thomas.adams@emr.ac.uk_KFcI57ef
 done
 ```
+
+Remove files from separate folder after submission run to keep space clear on disk
