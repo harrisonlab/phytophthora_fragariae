@@ -7,6 +7,23 @@ This is for *P. fragariae* and *P. rubi*
 
 ## Raw read submission
 
+Read data was copied for submission to NCBI
+
+```bash
+# P.frag Illumina
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Organism=P.fragariae
+    OutDir=genome_submission/P.fragariae/$Isolate/SRA
+    mkdir -p $OutDir
+    for File in $(ls raw_dna/paired/$Organism/$Isolate/*/*.fastq.gz)
+    do
+        cp $File $OutDir/.
+    done
+    tar -czf $OutDir/PF_"$Isolate"_SRA.tar.gz $OutDir
+done
+```
+
 ## Submission steps for annotations
 
 Fasta files were uploaded initially to allow for contamination screen
