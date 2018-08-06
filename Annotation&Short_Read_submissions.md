@@ -624,3 +624,24 @@ do
     cat $OutDir/tbl2asn/final/genome.sqn | sed 's/_pilon//g' | sed 's/title " \[NAH\S*\w/title "Saccharopine dehydrogenase/g' | sed 's/" \[NAH\S*\w"/"Saccharopine dehydrogenase"/g' | sed 's/Phospho-2-dehydro-3-deoxyheptonate aldolase_/Phospho-2-dehydro-3-deoxyheptonate aldolase/g' | sed 's/[isomerizing]/isomerizing/g' | sed 's/[glutamine-hydrolyzing]/glutamine-hydrolyzing/g' | sed 's/[acylating]/acylating/g' | sed 's/[ammonia]/ammonia/g' | sed 's/[carboxylating]/carboxylating/g' > $OutDir/tbl2asn/final/"$Final_Name".sqn
 done
 ```
+
+#### Upload commands
+
+FTP and Http transfers both failed, so Aspera connect was download to my local
+macbook (OSX 10.13.6)
+
+```
+https://downloads.asperasoft.com/connect2//
+```
+
+##### sqn file moved to its own directory
+
+```bash
+for sqn in $(ls genome_submission/*/*/*2018.sqn)
+do
+    Dir_Name=$(dirname $sqn)
+    New_Dir=$Dir_Name/for_submission
+    mkdir -p $New_Dir
+    cp $sqn $NewDir/.
+done
+```
