@@ -597,7 +597,7 @@ do
     cp $SbtFile $OutDir/gag/edited/genome.sbt
     mkdir -p $OutDir/tbl2asn/final
     tbl2asn -p $OutDir/gag/edited/. -t $OutDir/gag/edited/genome.sbt -r $OutDir/tbl2asn/final -M n -X E -Z $OutDir/tbl2asn/final/discrep.txt -j "[organism=$Species] [strain=$Isolate]" -l paired-ends -a r10k -w $OutDir/gag/edited/annotation_methods.strcmt.txt
-    cat $OutDir/tbl2asn/final/genome.sqn | sed 's/_pilon//g' | sed 's/title " \[NAH\S*\w/title "Saccharopine dehydrogenase/g' | sed 's/" \[NAH\S*\w"/"Saccharopine dehydrogenase"/g' | sed 's/Phospho-2-dehydro-3-deoxyheptonate aldolase_/Phospho-2-dehydro-3-deoxyheptonate aldolase/g' | sed 's/[isomerizing]/isomerizing/g' | sed 's/[glutamine-hydrolyzing]/glutamine-hydrolyzing/g' | sed 's/[acylating]/acylating/g' | sed 's/[ammonia]/ammonia/g' | sed 's/[carboxylating]/carboxylating/g' > $OutDir/tbl2asn/final/"$Final_Name".sqn
+    cat $OutDir/tbl2asn/final/genome.sqn | sed 's/_pilon//g' | sed 's/title " \[NAH\S*\w/title "Saccharopine dehydrogenase/g' | sed 's/" \[NAH\S*\w"/"Saccharopine dehydrogenase"/g' | sed 's/Phospho-2-dehydro-3-deoxyheptonate aldolase_/Phospho-2-dehydro-3-deoxyheptonate aldolase/g' | sed 's/\[isomerizing\]/isomerizing/g' | sed 's/\[glutamine-hydrolyzing\]/glutamine-hydrolyzing/g' | sed 's/\[acylating\]/acylating/g' | sed 's/\[ammonia\]/ammonia/g' | sed 's/\[carboxylating\]/carboxylating/g' > $OutDir/tbl2asn/final/"$Final_Name".sqn
 done
 
 # P.rubi
@@ -621,7 +621,7 @@ do
     cp $SbtFile $OutDir/gag/edited/genome.sbt
     mkdir -p $OutDir/tbl2asn/final
     tbl2asn -p $OutDir/gag/edited/. -t $OutDir/gag/edited/genome.sbt -r $OutDir/tbl2asn/final -M n -X E -Z $OutDir/tbl2asn/final/discrep.txt -j "[organism=$Species] [strain=$Isolate]" -l paired-ends -a r10k -w $OutDir/gag/edited/annotation_methods.strcmt.txt
-    cat $OutDir/tbl2asn/final/genome.sqn | sed 's/_pilon//g' | sed 's/title " \[NAH\S*\w/title "Saccharopine dehydrogenase/g' | sed 's/" \[NAH\S*\w"/"Saccharopine dehydrogenase"/g' | sed 's/Phospho-2-dehydro-3-deoxyheptonate aldolase_/Phospho-2-dehydro-3-deoxyheptonate aldolase/g' | sed 's/[isomerizing]/isomerizing/g' | sed 's/[glutamine-hydrolyzing]/glutamine-hydrolyzing/g' | sed 's/[acylating]/acylating/g' | sed 's/[ammonia]/ammonia/g' | sed 's/[carboxylating]/carboxylating/g' > $OutDir/tbl2asn/final/"$Final_Name".sqn
+    cat $OutDir/tbl2asn/final/genome.sqn | sed 's/_pilon//g' | sed 's/title " \[NAH\S*\w/title "Saccharopine dehydrogenase/g' | sed 's/" \[NAH\S*\w"/"Saccharopine dehydrogenase"/g' | sed 's/Phospho-2-dehydro-3-deoxyheptonate aldolase_/Phospho-2-dehydro-3-deoxyheptonate aldolase/g' | sed 's/\[isomerizing\]/isomerizing/g' | sed 's/\[glutamine-hydrolyzing\]/glutamine-hydrolyzing/g' | sed 's/\[acylating\]/acylating/g' | sed 's/\[ammonia\]/ammonia/g' | sed 's/\[carboxylating\]/carboxylating/g' > $OutDir/tbl2asn/final/"$Final_Name".sqn
 done
 ```
 
