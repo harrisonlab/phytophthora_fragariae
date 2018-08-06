@@ -642,7 +642,7 @@ do
     Dir_Name=$(dirname $sqn)
     New_Dir=$Dir_Name/for_submission
     mkdir -p $New_Dir
-    cp $sqn $NewDir/.
+    cp $sqn $NewDir/
 done
 ```
 
