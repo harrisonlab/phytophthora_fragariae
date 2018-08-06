@@ -651,8 +651,12 @@ Key file downloaded from submission page. Submission commands run locally
 Ensure destination correct before running
 
 ```bash
+# Bc16 only
+
+/Users/adamst/Applications/Aspera\ Connect.app/Contents/Resources/ascp -i /Users/adamst/Downloads/aspera.openssh -QT -l100m -k1 -d cluster_mount/groups/harrisonlab/project_files/phytophthora_fragariae/genome_submission/P.fragariae/Bc16/tbl2asn/final/for_submission subasp@upload.ncbi.nlm.nih.gov:uploads/thomas.adams@emr.ac.uk_KFcI57ef
+
 # P.frag
-for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+for Isolate in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     /Users/adamst/Applications/Aspera\ Connect.app/Contents/Resources/ascp -i /Users/adamst/Downloads/aspera.openssh -QT -l100m -k1 -d cluster_mount/groups/harrisonlab/project_files/phytophthora_fragariae/genome_submission/P.fragariae/$Isolate/tbl2asn/final/for_submission subasp@upload.ncbi.nlm.nih.gov:uploads/thomas.adams@emr.ac.uk_KFcI57ef
 done
