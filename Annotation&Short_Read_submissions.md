@@ -700,18 +700,37 @@ Ensure destination correct before running
 ```bash
 # Bc16 only
 
-/Users/adamst/Applications/Aspera\ Connect.app/Contents/Resources/ascp -i /Users/adamst/Downloads/aspera.openssh -QT -l100m -k1 -d cluster_mount/groups/harrisonlab/project_files/phytophthora_fragariae/genome_submission/P.fragariae/Bc16/tbl2asn/final/for_submission subasp@upload.ncbi.nlm.nih.gov:uploads/thomas.adams@emr.ac.uk_KFcI57ef
+Organism=P.fragariae
+Isolate=Bc16
+cd genome_submission/$Organism/$Isolate/tbl2asn/final
+ftp ftp-private.ncbi.nlm.nih.gov
+cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+mkdir Bc16_PacBio
+cd Bc16_PacBio
+put P.fragariae_Bc16_Adams_2018.sqn
 
 # P.frag
 for Isolate in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
-    /Users/adamst/Applications/Aspera\ Connect.app/Contents/Resources/ascp -i /Users/adamst/Downloads/aspera.openssh -QT -l100m -k1 -d cluster_mount/groups/harrisonlab/project_files/phytophthora_fragariae/genome_submission/P.fragariae/$Isolate/tbl2asn/final/for_submission subasp@upload.ncbi.nlm.nih.gov:uploads/thomas.adams@emr.ac.uk_KFcI57ef
+    Organism=P.fragariae
+    cd genome_submission/$Organism/$Isolate/tbl2asn/final
+    ftp ftp-private.ncbi.nlm.nih.gov
+    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+    mkdir Illumina_Batch_Sub
+    cd Illumina_Batch_Sub
+    put "$Organism"_"$Isolate"_Adams_2018.sqn
 done
 
 # P.rubi
 for Isolate in SCRP249 SCRP324 SCRP333
 do
-    /Users/adamst/Applications/Aspera\ Connect.app/Contents/Resources/ascp -i /Users/adamst/Downloads/aspera.openssh -QT -l100m -k1 -d cluster_mount/groups/harrisonlab/project_files/phytophthora_fragariae/genome_submission/P.rubi/$Isolate/tbl2asn/final/for_submission subasp@upload.ncbi.nlm.nih.gov:uploads/thomas.adams@emr.ac.uk_KFcI57ef
+    Organism=P.rubi
+    cd genome_submission/$Organism/$Isolate/tbl2asn/final
+    ftp ftp-private.ncbi.nlm.nih.gov
+    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+    mkdir Illumina_Batch_Sub
+    cd Illumina_Batch_Sub
+    put "$Organism"_"$Isolate"_Adams_2018.sqn
 done
 ```
 
