@@ -5,7 +5,9 @@ phytophthora repository. With a few additional scripts I developed.
 Bioprojects & Biosamples have already been created.
 This is for *P. fragariae* and *P. rubi*
 
-## Submission steps
+## Raw read submission
+
+## Submission steps for annotations
 
 Fasta files were uploaded initially to allow for contamination screen
 (See Genbank_corrections.md), however as the MiSeq genomes were submitted as a
