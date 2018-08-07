@@ -759,17 +759,15 @@ Ensure destination correct before running
 ```bash
 # Bc16 only
 
-for num in 1
-do
-    Organism=P.fragariae
-    Isolate=Bc16
-    cd genome_submission/$Organism/$Isolate/tbl2asn/final
-    ftp ftp-private.ncbi.nlm.nih.gov
-    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
-    mkdir Bc16_PacBio
-    cd Bc16_PacBio
-    put P.fragariae_Bc16_Adams_2018.sqn
-done
+Organism=P.fragariae
+Isolate=Bc16
+cd genome_submission/$Organism/$Isolate/tbl2asn/final
+ftp ftp-private.ncbi.nlm.nih.gov
+
+cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+mkdir Bc16_PacBio
+cd Bc16_PacBio
+put P.fragariae_Bc16_Adams_2018.sqn
 
 # P.frag
 for Isolate in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
