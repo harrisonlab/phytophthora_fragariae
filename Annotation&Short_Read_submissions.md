@@ -23,6 +23,7 @@ do
         cp $File $OutDir/.
     done
     tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_Illumina_SRA.tar.gz $OutDir
+    rm -r $OutDir
 done
 
 # P.frag PacBio
@@ -39,6 +40,7 @@ do
         cp $File $OutDir/.
     done
     tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_PacBio_SRA.tar.gz $OutDir
+    rm -r $OutDir
 done
 
 # P.frag ONT
@@ -56,6 +58,7 @@ do
         cp $File $OutDir/.
     done
     tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_ONT_SRA.tar.gz $OutDir
+    rm -r $OutDir
 done
 
 # P.rubi Illumina
@@ -71,6 +74,7 @@ do
         cp $File $OutDir/.
     done
     tar -czf genome_submission/$Organism/$Isolate/Reads/PR_"$Isolate"_Illumina_SRA.tar.gz $OutDir
+    rm -r $OutDir
 done
 ```
 
