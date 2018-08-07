@@ -66,6 +66,57 @@ do
 done
 ```
 
+### Submit reads to NCBI
+
+```bash
+# P.frag PacBio
+for num in 1
+do
+    Isolate=Bc16
+    Organism=P.fragariae
+    cd genome_submission/$Organism/$Isolate/PacBio
+    ftp ftp-private.ncbi.nlm.nih.gov
+    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+    mkdir SRA_submission
+    cd SRA_submission
+    put PF_"$Isolate"_PacBio_SRA.tar.gz
+done
+
+# P.frag ONT
+for num in 1
+do
+    Isolate=Nov9
+    Organism=P.fragariae
+    cd genome_submission/$Organism/$Isolate/ONT
+    ftp ftp-private.ncbi.nlm.nih.gov
+    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+    cd SRA_submission
+    put PF_"$Isolate"_ONT_SRA.tar.gz
+done
+
+# P.frag Illumina
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Organism=P.fragariae
+    cd genome_submission/$Organism/$Isolate/Illumina
+    ftp ftp-private.ncbi.nlm.nih.gov
+    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+    cd SRA_submission
+    put PF_"$Isolate"_Illumina_SRA.tar.gz
+done
+
+# P.rubi Illumina
+for Isolate in SCRP249 SCRP324 SCRP333
+do
+    Organism=P.rubi
+    cd genome_submission/$Organism/$Isolate/Illumina
+    ftp ftp-private.ncbi.nlm.nih.gov
+    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+    cd SRA_submission
+    put PR_"$Isolate"_Illumina_SRA.tar.gz
+done
+```
+
 ## Submission steps for annotations
 
 Fasta files were uploaded initially to allow for contamination screen
@@ -700,14 +751,17 @@ Ensure destination correct before running
 ```bash
 # Bc16 only
 
-Organism=P.fragariae
-Isolate=Bc16
-cd genome_submission/$Organism/$Isolate/tbl2asn/final
-ftp ftp-private.ncbi.nlm.nih.gov
-cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
-mkdir Bc16_PacBio
-cd Bc16_PacBio
-put P.fragariae_Bc16_Adams_2018.sqn
+for num in 1
+do
+    Organism=P.fragariae
+    Isolate=Bc16
+    cd genome_submission/$Organism/$Isolate/tbl2asn/final
+    ftp ftp-private.ncbi.nlm.nih.gov
+    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+    mkdir Bc16_PacBio
+    cd Bc16_PacBio
+    put P.fragariae_Bc16_Adams_2018.sqn
+done
 
 # P.frag
 for Isolate in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
