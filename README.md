@@ -5487,7 +5487,6 @@ do
     Strain=$(echo $Proteome | rev | cut -d '/' -f2 | rev)
     Organism=$(echo $Proteome | rev | cut -d '/' -f3 | rev)
     echo "$Organism - $Strain"
-    echo $Strain
     InterProRaw=gene_pred/interproscan/$Organism/$Strain/raw
     $ProgDir/append_interpro.sh $Proteome $InterProRaw
 done
