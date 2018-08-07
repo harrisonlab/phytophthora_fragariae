@@ -90,6 +90,7 @@ ftp ftp-private.ncbi.nlm.nih.gov
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
 mkdir SRA_submission
 cd SRA_submission
+tick
 put PF_"$Isolate"_PacBio_SRA.tar.gz
 exit
 
@@ -103,6 +104,7 @@ cd genome_submission/$Organism/$Isolate/Reads
 ftp ftp-private.ncbi.nlm.nih.gov
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
 cd SRA_submission
+tick
 put PF_"$Isolate"_ONT_SRA.tar.gz
 exit
 
@@ -116,6 +118,7 @@ cd genome_submission/$Organism/$Isolate/Reads
 ftp ftp-private.ncbi.nlm.nih.gov
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
 cd SRA_submission
+tick
 put PF_"$Isolate"_Illumina_SRA.tar.gz
 exit
 
@@ -128,6 +131,7 @@ cd genome_submission/$Organism/$Isolate/Reads
 ftp ftp-private.ncbi.nlm.nih.gov
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
 cd SRA_submission
+tick
 put PR_"$Isolate"_Illumina_SRA.tar.gz
 exit
 
@@ -776,6 +780,7 @@ ftp ftp-private.ncbi.nlm.nih.gov
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
 mkdir Bc16_PacBio
 cd Bc16_PacBio
+tick
 put P.fragariae_Bc16_Adams_2018.sqn
 exit
 
@@ -791,6 +796,7 @@ ftp ftp-private.ncbi.nlm.nih.gov
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
 mkdir Illumina_Batch_Sub
 cd Illumina_Batch_Sub
+tick
 put "$Organism"_"$Isolate"_Adams_2018.sqn
 exit
 
@@ -806,6 +812,7 @@ ftp ftp-private.ncbi.nlm.nih.gov
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
 mkdir Illumina_Batch_Sub
 cd Illumina_Batch_Sub
+tick
 put "$Organism"_"$Isolate"_Adams_2018.sqn
 exit
 
