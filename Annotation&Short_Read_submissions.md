@@ -14,13 +14,13 @@ Read data was copied for submission to NCBI
 for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Organism=P.fragariae
-    OutDir=genome_submission/$Organism/$Isolate/Illumina/SRA
+    OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
     mkdir -p $OutDir
     for File in $(ls raw_dna/paired/$Organism/$Isolate/*/*.fastq.gz)
     do
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/Illumina/PF_"$Isolate"_Illumina_SRA.tar.gz $OutDir
+    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_Illumina_SRA.tar.gz $OutDir
 done
 
 # P.frag PacBio
@@ -28,13 +28,13 @@ for num in 1
 do
     Isolate=Bc16
     Organism=P.fragariae
-    OutDir=genome_submission/$Organism/$Isolate/PacBio/SRA
+    OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
     mkdir -p $OutDir
     for File in $(ls raw_dna/pacbio/$Organism/$Isolate/extracted/*fastq.gz)
     do
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/PacBio/PF_"$Isolate"_PacBio_SRA.tar.gz $OutDir
+    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_PacBio_SRA.tar.gz $OutDir
 done
 
 # P.frag ONT
@@ -43,26 +43,26 @@ do
     Isolate=Nov9
     Isolate_in=NOV-9
     Organism=P.fragariae
-    OutDir=genome_submission/$Organism/$Isolate/ONT/SRA
+    OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
     mkdir -p $OutDir
     for File in $(ls raw_dna/minion/$Organism/$Isolate_in/*.fastq.gz)
     do
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/ONT/PF_"$Isolate"_ONT_SRA.tar.gz $OutDir
+    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_ONT_SRA.tar.gz $OutDir
 done
 
 # P.rubi Illumina
 for Isolate in SCRP249 SCRP324 SCRP333
 do
     Organism=P.rubi
-    OutDir=genome_submission/$Organism/$Isolate/Illumina/SRA
+    OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
     mkdir -p $OutDir
     for File in $(ls ../phytophthora_rubi/raw_dna/paired/$Organism/$Isolate/*/*.fastq.gz)
     do
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/Illumina/PR_"$Isolate"_Illumina_SRA.tar.gz $OutDir
+    tar -czf genome_submission/$Organism/$Isolate/Reads/PR_"$Isolate"_Illumina_SRA.tar.gz $OutDir
 done
 ```
 
