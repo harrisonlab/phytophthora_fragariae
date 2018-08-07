@@ -768,30 +768,39 @@ cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
 mkdir Bc16_PacBio
 cd Bc16_PacBio
 put P.fragariae_Bc16_Adams_2018.sqn
+exit
+
+cd ../../../../../
 
 # P.frag
-for Isolate in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
-do
-    Organism=P.fragariae
-    cd genome_submission/$Organism/$Isolate/tbl2asn/final
-    ftp ftp-private.ncbi.nlm.nih.gov
-    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
-    mkdir Illumina_Batch_Sub
-    cd Illumina_Batch_Sub
-    put "$Organism"_"$Isolate"_Adams_2018.sqn
-done
+# for Isolate in A4 Bc1 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+
+Organism=P.fragariae
+cd genome_submission/$Organism/$Isolate/tbl2asn/final
+ftp ftp-private.ncbi.nlm.nih.gov
+
+cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+mkdir Illumina_Batch_Sub
+cd Illumina_Batch_Sub
+put "$Organism"_"$Isolate"_Adams_2018.sqn
+exit
+
+cd ../../../../../
 
 # P.rubi
-for Isolate in SCRP249 SCRP324 SCRP333
-do
-    Organism=P.rubi
-    cd genome_submission/$Organism/$Isolate/tbl2asn/final
-    ftp ftp-private.ncbi.nlm.nih.gov
-    cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
-    mkdir Illumina_Batch_Sub
-    cd Illumina_Batch_Sub
-    put "$Organism"_"$Isolate"_Adams_2018.sqn
-done
+# for Isolate in SCRP249 SCRP324 SCRP333
+
+Organism=P.rubi
+cd genome_submission/$Organism/$Isolate/tbl2asn/final
+ftp ftp-private.ncbi.nlm.nih.gov
+
+cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
+mkdir Illumina_Batch_Sub
+cd Illumina_Batch_Sub
+put "$Organism"_"$Isolate"_Adams_2018.sqn
+exit
+
+cd ../../../../../
 ```
 
 Remove files from separate folder after submission run to keep space clear on disk
