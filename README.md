@@ -4668,7 +4668,9 @@ do
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
     $ProgDir/make_gff_database.py --inp $Apo_Merged_Gff_temp --db sigP_ORF_ApoP_reformat.db
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    echo "Reformatting begun"
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP_reformat.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged_reformat.db --gff > $Apo_Merged_Gff
+    echo "Reformatting finished"
     echo "The number of genes predicted as Apoplastic effectors is:"
     cat $Apo_Merged_txt | wc -l
     echo "The number of genes extracted to the GFF is:"
