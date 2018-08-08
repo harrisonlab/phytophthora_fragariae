@@ -4668,6 +4668,7 @@ do
     echo "The number of genes extracted to the GFF is:"
     cat $Apo_Merged_Gff | grep 'transcript' | wc -l
     ORF_fasta=gene_pred/ORF_finder/$Organism/$Strain/"$Strain".aa_cat.fa
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $Apo_Merged_txt > $Apo_Merged_AA
     echo "The number of genes extracted to the FASTA is:"
     cat $Apo_Merged_AA | grep '>' | wc -l
