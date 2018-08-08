@@ -4645,15 +4645,19 @@ do
     # Remove features on the same strand
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
     $ProgDir/make_gff_database.py --inp $Gff --db sigP_ORF_ApoP.db
+    echo "First database made"
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged.db --gff > $Apo_Merged_Gff_1_strand
+    echo "Overlapping features on the same strand removed"
     # Modify Gff to remove all strand specification
     Gff_no_strands=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ORF_ApoplastP_no_strands.gff3
     cat $Gff | sed 's/+/./g' | sed 's/-/./g' > $Gff_no_strands
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
     $ProgDir/make_gff_database.py --inp $Gff_no_strands --db sigP_ORF_ApoP_mod.db
+    echo "Second database made"
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP_mod.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged_mod.db --gff > $Apo_Merged_Gff_no_strands
+    echo "Overlapping features on opposite strands removed"
     cat $Apo_Merged_Gff_no_strands | grep 'transcript' | rev | cut -f1 -d '=' | rev > $Apo_Merged_txt
     cat $Apo_Merged_Gff_no_strands | grep -B 1 -f $Apo_Merged_txt > $Apo_Merged_Gff
     echo "The number of genes predicted as Apoplastic effectors is:"
