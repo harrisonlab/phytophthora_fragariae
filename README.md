@@ -4662,7 +4662,13 @@ do
     echo "Overlapping features on opposite strands removed"
     cat $Apo_Merged_Gff_no_strands | grep 'transcript' | rev | cut -f1 -d '=' | rev > $Apo_Merged_txt
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-    $ProgDir/gene_list_to_gff.pl $Apo_Merged_txt $Gff ApoplastP_ORF Name Augustus > $Apo_Merged_Gff
+    # Easy reformatting
+    Apo_Merged_Gff_temp=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged_unformatted.gff
+    $ProgDir/gene_list_to_gff.pl $Apo_Merged_txt $Gff ApoplastP_ORF Name Augustus > $Apo_Merged_Gff_temp
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
+    $ProgDir/make_gff_database.py --inp $Apo_Merged_Gff_temp --db sigP_ORF_ApoP_reformat.db
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP_reformat.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged_reformat.db --gff > $Apo_Merged_Gff
     echo "The number of genes predicted as Apoplastic effectors is:"
     cat $Apo_Merged_txt | wc -l
     echo "The number of genes extracted to the GFF is:"
