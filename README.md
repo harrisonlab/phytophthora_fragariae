@@ -5255,7 +5255,7 @@ The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
 for num in 1
 do
     #Without EER discrimination and with ApoplastP
-    for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gff3)
+    for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gff3 | grep 'Bc16')
     do
         Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
         Organism=$(echo $GeneGff | rev | cut -d '/' -f4 | rev)
@@ -5483,6 +5483,7 @@ done
 ```
 
 Additional Gff clean up performed in Annotation&Short_Read_submissions.md
+This must be done before functional annotation
 
 ## Functional annotation
 
