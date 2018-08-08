@@ -4702,67 +4702,67 @@ The number of genes extracted to the FASTA is:
 
 P.fragariae - Bc23
 The number of genes predicted as Apoplastic effectors is:
-10,441
+10,157
 The number of genes extracted to the GFF is:
-10,441
+10,157
 The number of genes extracted to the FASTA is:
-10,441
+10,157
 
 P.fragariae - Nov27
 The number of genes predicted as Apoplastic effectors is:
-10,597
+10,325
 The number of genes extracted to the GFF is:
-10,597
+10,325
 The number of genes extracted to the FASTA is:
-10,597
+10,325
 
 P.fragariae - Nov5
 TThe number of genes predicted as Apoplastic effectors is:
-10,558
+10,294
 The number of genes extracted to the GFF is:
-10,558
+10,294
 The number of genes extracted to the FASTA is:
-10,558
+10,294
 
 P.fragariae - Nov71
 The number of genes predicted as Apoplastic effectors is:
-10,578
+10,320
 The number of genes extracted to the GFF is:
-10,578
+10,320
 The number of genes extracted to the FASTA is:
-10,578
+10,320
 
 P.fragariae - Nov77
 The number of genes predicted as Apoplastic effectors is:
-10,624
+10,360
 The number of genes extracted to the GFF is:
-10,624
+10,360
 The number of genes extracted to the FASTA is:
-10,624
+10,360
 
 P.fragariae - Nov9
 The number of genes predicted as Apoplastic effectors is:
-10,760
+10,489
 The number of genes extracted to the GFF is:
-10,760
+10,489
 The number of genes extracted to the FASTA is:
-10,760
+10,489
 
 P.fragariae - ONT3
 The number of genes predicted as Apoplastic effectors is:
-11,060
+10,769
 The number of genes extracted to the GFF is:
-11,060
+10,769
 The number of genes extracted to the FASTA is:
-11,060
+10,769
 
 P.fragariae - SCRP245_v2
 The number of genes predicted as Apoplastic effectors is:
-10,754
+10,478
 The number of genes extracted to the GFF is:
-10,754
+10,478
 The number of genes extracted to the FASTA is:
-10,754
+10,478
 ```
 
 ####Merge apoplastic effectors from augustus models and ORF fragments
