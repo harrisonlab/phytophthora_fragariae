@@ -4623,6 +4623,8 @@ The number of proteins predicted as being apoplastic effectors were summarised u
 
 Gffutils seems only to search the same strand as the feature
 
+Occassionally there is an error in the script, but this does not happen when repeating the commands
+
 ```bash
 for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_ORF_unmerged.fa)
 do
