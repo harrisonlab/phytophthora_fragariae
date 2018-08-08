@@ -335,7 +335,7 @@ done
 ```
 Species Isolate PreFilter   FilterList  UniqueFilterList    GenesRemoved    FinalGenes
 P.fragariae     A4      41,131   7,785    7,471    7,471       33,660
-P.fragariae     Bc16    49,981   9,172    8,813    8,813       41,168
+P.fragariae     Bc16    49,772   9,026    8,669    8,669       41,103
 P.fragariae     Bc1     41,405   7,945    7,686    7,686       33,719
 P.fragariae     Bc23    40,770   7,852    7,589    7,588       33,182
 P.fragariae     Nov27   41,524   7,947    7,698    7,698       33,826
