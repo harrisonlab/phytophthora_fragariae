@@ -4682,11 +4682,11 @@ The number of genes extracted to the FASTA is:
 
 P.fragariae - Bc16
 The number of genes predicted as Apoplastic effectors is:
-12,769
+12,431
 The number of genes extracted to the GFF is:
-12,769
+12,431
 The number of genes extracted to the FASTA is:
-12,769
+12,431
 
 P.fragariae - Bc1
 The number of genes predicted as Apoplastic effectors is:
@@ -4846,17 +4846,17 @@ The number of sequences extracted is
 
 P.fragariae - Bc16
 The number of ORF apoplastic effectors overlapping Augustus effectors:
-1,303
+1,119
 The number of Augustus apoplastic effectors overlapping ORF apoplastic effectors:
 0
 The number of apoplastic effectors unique to ORF models:
-11,466
+11,232
 The number of apoplastic effectors unique to Augustus models:
 157
 The total number of putative apoplastic effectors are:
-12,740
+12,506
 The number of sequences extracted is
-12,740
+12,506
 
 P.fragariae - Bc23
 The number of ORF apoplastic effectors overlapping Augustus effectors:
