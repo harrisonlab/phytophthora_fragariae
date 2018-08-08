@@ -4683,6 +4683,9 @@ do
 done
 ```
 
+BC-16 had a gene that was missed on the first run through, remove it manually
+from the headers and fasta files.
+
 ```
 P.fragariae - A4
 The number of genes predicted as Apoplastic effectors is:
@@ -4696,9 +4699,11 @@ P.fragariae - Bc16
 The number of genes predicted as Apoplastic effectors is:
 12,431
 The number of genes extracted to the GFF is:
-12,431
+12,430
 The number of genes extracted to the FASTA is:
 12,431
+
+This discrepancy was fixed manually, somehow one gene was missed during the first runs.
 
 P.fragariae - Bc1
 The number of genes predicted as Apoplastic effectors is:
@@ -4858,7 +4863,7 @@ The number of sequences extracted is
 
 P.fragariae - Bc16
 The number of ORF apoplastic effectors overlapping Augustus effectors:
-1,119
+1,198
 The number of Augustus apoplastic effectors overlapping ORF apoplastic effectors:
 0
 The number of apoplastic effectors unique to ORF models:
