@@ -169,7 +169,7 @@ PR003 SAMN07449692 SCRP333" > genome_submission/Pf_Pr_locus_tags.txt
 ### Directory structure created
 
 ```bash
-# P.frag Illumina genomes
+# P.frag genomes
 
 for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
