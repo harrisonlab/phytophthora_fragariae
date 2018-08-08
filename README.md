@@ -4621,6 +4621,8 @@ done
 
 The number of proteins predicted as being apoplastic effectors were summarised using the following commands
 
+Gffutils seems only to search the same strand as the feature
+
 ```bash
 for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_ORF_unmerged.fa)
 do
@@ -4635,14 +4637,25 @@ do
     ORF_fasta=$(ls gene_pred/ORF_finder/*/$Strain/"$Strain".aa_cat.fa)
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
     $ProgDir/gene_list_to_gff.pl $Headers $SigP_Gff ApoplastP_ORF Name Augustus > $Gff
-    Apo_Merged_Gff=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged.gff
+    Apo_Merged_Gff_1_strand=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged_1_strand.gff
     Apo_Merged_txt=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged_headers.txt
     Apo_Merged_AA=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged.aa
+    Apo_Merged_Gff=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged.gff
+    Apo_Merged_Gff_no_strands=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ApoplastP_ORF_merged_no_strands.gff
+    # Remove features on the same strand
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
     $ProgDir/make_gff_database.py --inp $Gff --db sigP_ORF_ApoP.db
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
-    $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged.db --gff > $Apo_Merged_Gff
-    cat $Apo_Merged_Gff | grep 'transcript' | rev | cut -f1 -d '=' | rev > $Apo_Merged_txt
+    $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged.db --gff > $Apo_Merged_Gff_1_strand
+    # Modify Gff to remove all strand specification
+    Gff_no_strands=analysis/ApoplastP/$Organism/$Strain/"$Strain"_ORF_ApoplastP_no_strands.gff3
+    cat $Gff | sed 's/+/./g' | sed 's/-/./g' > $Gff_no_strands
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
+    $ProgDir/make_gff_database.py --inp $Gff_no_strands --db sigP_ORF_ApoP_mod.db
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP_mod.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged_mod.db --gff > $Apo_Merged_Gff_no_strands
+    cat $Apo_Merged_Gff_no_strands | grep 'transcript' | rev | cut -f1 -d '=' | rev > $Apo_Merged_txt
+    cat $Apo_Merged_Gff_no_strands | grep -B 1 -f $Apo_Merged_txt > $Apo_Merged_Gff
     echo "The number of genes predicted as Apoplastic effectors is:"
     cat $Apo_Merged_txt | wc -l
     echo "The number of genes extracted to the GFF is:"
