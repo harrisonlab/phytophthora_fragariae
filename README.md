@@ -4659,7 +4659,7 @@ do
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_ApoP_mod.db --id sigP_ORF_ApoplastP --out sigP_ORF_ApoP_merged_mod.db --gff > $Apo_Merged_Gff_no_strands
     echo "Overlapping features on opposite strands removed"
     cat $Apo_Merged_Gff_no_strands | grep 'transcript' | rev | cut -f1 -d '=' | rev > $Apo_Merged_txt
-    cat $Apo_Merged_Gff_no_strands | grep -B 1 -f $Apo_Merged_txt > $Apo_Merged_Gff
+    cat $Gff | grep -B 1 -f $Apo_Merged_txt > $Apo_Merged_Gff
     echo "The number of genes predicted as Apoplastic effectors is:"
     cat $Apo_Merged_txt | wc -l
     echo "The number of genes extracted to the GFF is:"
