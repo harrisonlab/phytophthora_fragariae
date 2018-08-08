@@ -5092,13 +5092,13 @@ The number of CRNs not hit by ApoplastP is:
 The number of CRNs that also hit ApoplastP is:
 5
 The number of ApoplastP hits that are not RxLRs or CRNs is:
-10,821
+10,612
 The number of RxLRs, with an EER domain, not hit by ApoplastP is:
 85
 The number of RxLRs, with an EER domain, also hit by ApoplastP is:
 18
 The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
-11,441
+11,208
 
 P.fragariae - Bc23
 The number of RxLRs not hit by ApoplastP is:
