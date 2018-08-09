@@ -334,17 +334,17 @@ done
 
 ```
 Species Isolate PreFilter   FilterList  UniqueFilterList    GenesRemoved    FinalGenes
-P.fragariae     A4      41,131   7,785    7,471    7,471       33,660
+P.fragariae     A4      40,970   7,658    7,347    7,347       33,623
 P.fragariae     Bc16    49,772   9,026    8,669    8,669       41,103
-P.fragariae     Bc1     41,405   7,945    7,686    7,686       33,719
-P.fragariae     Bc23    40,770   7,852    7,589    7,588       33,182
-P.fragariae     Nov27   41,524   7,947    7,698    7,698       33,826
-P.fragariae     Nov5    41,191   7,713    7,455    7,454       33,737
-P.fragariae     Nov71   40,622   7,697    7,448    7,447       33,175
-P.fragariae     Nov77   41,076   7,711    7,464    7,464       33,612
-P.fragariae     Nov9    41,127   7,813    7,565    7,564       33,563
-P.fragariae     ONT3    44,734   8,103    7,844    7,843       36,891
-P.fragariae     SCRP245_v2      44,933   8,114    7,847    7,846       37,087
+P.fragariae     Bc1     41,242   7,807    7,551    7,551       33,691
+P.fragariae     Bc23    40,603   7,715    7,458    7,457       33,146
+P.fragariae     Nov27   41,364   7,812    7,567    7,567       33,797
+P.fragariae     Nov5    41,030   7,587    7,332    7,331       33,699
+P.fragariae     Nov71   40,470   7,574    7,328    7,327       33,143
+P.fragariae     Nov77   40,915   7,578    7,334    7,334       33,581
+P.fragariae     Nov9    40,960   7,677    7,434    7,433       33,527
+P.fragariae     ONT3    44,566   7,977    7,720    7,719       36,847
+P.fragariae     SCRP245_v2      44,773   7,984    7,720    7,719       37,054
 P.rubi  SCRP249 42,134   8,220    7,995    7,994       34,140
 P.rubi  SCRP324 43,129   8,356    8,130    8,129       35,000
 P.rubi  SCRP333 43,245   8,284    8,024    8,022       35,223
