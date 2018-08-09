@@ -345,9 +345,9 @@ P.fragariae     Nov77   41,076   7,711    7,464    7,464       33,612
 P.fragariae     Nov9    41,127   7,813    7,565    7,564       33,563
 P.fragariae     ONT3    44,734   8,103    7,844    7,843       36,891
 P.fragariae     SCRP245_v2      44,933   8,114    7,847    7,846       37,087
-P.rubi  SCRP249 42,302   8,376    8,144    8,143       34,159
-P.rubi  SCRP324 43,281   8,493    8,264    8,263       35,018
-P.rubi  SCRP333 43,402   8,423    8,160    8,158       35,244
+P.rubi  SCRP249 42,134   8,220    7,995    7,994       34,140
+P.rubi  SCRP324 43,129   8,356    8,130    8,129       35,000
+P.rubi  SCRP333 43,245   8,284    8,024    8,022       35,223
 ```
 
 #### Check for further duplication, rename the genes and extract fasta files
