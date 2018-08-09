@@ -448,17 +448,17 @@ done
 
 ```
 Species Isolate Genes   Proteins
-P.fragariae	A4	33,660	34,471
+P.fragariae	A4	33,623	34,434
 P.fragariae	Bc16	41,168	41,465
-P.fragariae	Bc1	33,719	34,528
-P.fragariae	Bc23	33,182	34,007
-P.fragariae	Nov27	33,826	34,653
-P.fragariae	Nov5	33,737	34,553
-P.fragariae	Nov71	33,175	33,999
-P.fragariae	Nov77	33,612	34,440
-P.fragariae	Nov9	33,563	34,397
-P.fragariae	ONT3	36,891	37,684
-P.fragariae	SCRP245_v2	37,087	37,902
+P.fragariae	Bc1	33,691	34,500
+P.fragariae	Bc23	33,146	33,971
+P.fragariae	Nov27	33,797	34,624
+P.fragariae	Nov5	33,699	34,515
+P.fragariae	Nov71	33,143	33,967
+P.fragariae	Nov77	33,581	34,409
+P.fragariae	Nov9	33,527	34,361
+P.fragariae	ONT3	36,847	37,640
+P.fragariae	SCRP245_v2	37,054	37,869
 P.rubi  SCRP249 34,140   34,485
 P.rubi  SCRP324 35,000   35,287
 P.rubi  SCRP333 35,223   35,539
