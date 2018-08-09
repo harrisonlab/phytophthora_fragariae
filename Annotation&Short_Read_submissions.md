@@ -459,9 +459,9 @@ P.fragariae	Nov77	33,612	34,440
 P.fragariae	Nov9	33,563	34,397
 P.fragariae	ONT3	36,891	37,684
 P.fragariae	SCRP245_v2	37,087	37,902
-P.rubi  SCRP249 34,159   34,504
-P.rubi  SCRP324 35,018   35,305
-P.rubi  SCRP333 35,244   35,560
+P.rubi  SCRP249 34,140   34,485
+P.rubi  SCRP324 35,000   35,287
+P.rubi  SCRP333 35,223   35,539
 ```
 
 Annotations (Interproscan & Swissprot) must be performed here - commands in README.md
