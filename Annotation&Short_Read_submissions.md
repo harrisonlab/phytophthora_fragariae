@@ -506,7 +506,7 @@ done
 # P.rubi isolates
 for Isolate in SCRP249 SCRP324 SCRP333
 do
-    Organism=P.fragariae
+    Organism=P.rubi
     echo "$Organism - $Isolate"
     OutDir=genome_submission/$Organism/$Isolate
     Gff=$(ls ../phytophthora_rubi/gene_pred/annotation/$Organism/$Isolate/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3)
