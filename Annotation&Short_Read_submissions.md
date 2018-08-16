@@ -608,13 +608,13 @@ do
     Organism=P.rubi
     echo "$Organism - $Isolate"
     OutDir=genome_submission/$Organism/$Isolate
-    if [ -f ../pythophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+    if [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
-        Assembly=$(ls ../pythophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Organism/*/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
-    elif [ -f ../pythophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+    elif [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
     then
-        Assembly=$(ls ../pythophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
     fi
     cp $Assembly $OutDir/gag/round_1/genome.fsa
