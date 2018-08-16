@@ -550,7 +550,7 @@ do
 done
 
 # P.rubi
-for Isolate in SCRP249 SCRP34 SCRP333
+for Isolate in SCRP249 SCRP324 SCRP333
 do
     Organism=P.rubi
     echo "$Organism - $Isolate"
