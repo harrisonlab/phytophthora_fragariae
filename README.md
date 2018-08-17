@@ -5510,7 +5510,7 @@ These scripts are modified to take into account different directory structures
 ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation/interproscan/
 for Genes in $(ls gene_pred/annotation/P.fragariae/*/*_genes_incl_ORFeffectors_renamed.pep.fasta)
 do
-    $ProgDir/sub_interproscan.sh $Genes
+    $ProgDir/sub_interproscan_TA.sh $Genes
 done
 ```
 
@@ -5524,7 +5524,7 @@ do
     Organism=$(echo $Proteome | rev | cut -d '/' -f3 | rev)
     echo "$Organism - $Strain"
     InterProRaw=gene_pred/interproscan/$Organism/$Strain/raw
-    $ProgDir/append_interpro.sh $Proteome $InterProRaw
+    $ProgDir/append_interpro_TA.sh $Proteome $InterProRaw
 done
 ```
 
