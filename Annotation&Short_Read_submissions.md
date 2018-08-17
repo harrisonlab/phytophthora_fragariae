@@ -759,17 +759,6 @@ done
 
 #### Upload commands
 
-FTP and Http transfers both failed, so Aspera connect was download to my local
-macbook (OSX 10.13.6)
-
-```
-https://downloads.asperasoft.com/connect2//
-```
-
-Key file downloaded from submission page. Submission commands run locally
-
-Ensure destination correct before running
-
 ```bash
 # Bc16 only
 
@@ -819,5 +808,3 @@ exit
 
 cd ../../../../../
 ```
-
-Remove files from separate folder after submission run to keep space clear on disk
