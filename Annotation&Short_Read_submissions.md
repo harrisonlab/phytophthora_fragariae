@@ -784,8 +784,8 @@ cd genome_submission/$Organism/$Isolate/tbl2asn/final
 ftp ftp-private.ncbi.nlm.nih.gov
 
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
-mkdir Illumina_Batch_Sub
-cd Illumina_Batch_Sub
+mkdir Batch_sqn
+cd Batch_sqn
 tick
 put "$Organism"_"$Isolate"_Adams_2018.sqn
 exit
@@ -800,8 +800,8 @@ cd genome_submission/$Organism/$Isolate/tbl2asn/final
 ftp ftp-private.ncbi.nlm.nih.gov
 
 cd uploads/thomas.adams@emr.ac.uk_tSvQhcry
-mkdir Illumina_Batch_Sub
-cd Illumina_Batch_Sub
+mkdir Batch_sqn
+cd Batch_sqn
 tick
 put "$Organism"_"$Isolate"_Adams_2018.sqn
 exit
