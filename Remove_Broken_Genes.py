@@ -46,3 +46,7 @@ with open(Gff_in) as f:
             transcript = col9.split('=')[1]
             gene = transcript.split('.')[0]
             Intron.append(gene)
+
+Start_set = set(Start)
+CDS_set = set(CDS)
+Intron_set = set(Intron)
