@@ -58,3 +58,9 @@ Intron_set = set(Intron)
 
 Genes_to_keep = []
 Genes_to_remove = []
+
+for Gene in CDS_set:
+    if Gene not in Start_set and Intron_set:
+        Genes_to_remove.append(Gene)
+    else:
+        Genes_to_keep.append(Gene)
