@@ -88,3 +88,8 @@ with open(Gff_in) as f:
 with open(Gff_out, 'w') as o:
     for line in Outlines:
         o.write(line)
+
+with open(Broken_out, 'w') as b:
+    for item in Remove_set:
+        b.write(item)
+        b.write("\n")
