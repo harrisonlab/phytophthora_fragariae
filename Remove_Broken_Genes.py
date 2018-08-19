@@ -84,3 +84,7 @@ with open(Gff_in) as f:
         gene = transcript.split('.')[0]
         if gene in Keep_set:
             Outlines.append(line)
+
+with open(Gff_out, 'w') as o:
+    for line in Outlines:
+        o.write(line)
