@@ -55,3 +55,6 @@ Intron_set = set(Intron)
 # Step 2
 # Create set of genes to be kept
 # -----------------------------------------------------
+
+Genes_to_keep = []
+Genes_to_remove = []
