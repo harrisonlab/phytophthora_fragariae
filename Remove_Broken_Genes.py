@@ -24,3 +24,7 @@ Broken_out = conf.broken_genes
 # Step 1
 # Create dictionaries of genes with various features
 # -----------------------------------------------------
+
+Start = []
+CDS = []
+Intron = []
