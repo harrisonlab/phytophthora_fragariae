@@ -67,3 +67,8 @@ for Gene in CDS_set:
 
 Keep_set = set(Genes_to_keep)
 Remove_set = set(Genes_to_remove)
+
+# -----------------------------------------------------
+# Step 3
+# Write out Gff and list of removed genes
+# -----------------------------------------------------
