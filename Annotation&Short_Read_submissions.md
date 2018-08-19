@@ -757,6 +757,12 @@ do
 done
 ```
 
+Some genes are flagged with a range error and rejected by NCBI.
+This is because for some reason CodingQuarry has some predictions that are
+longer the contig, perhaps due to cufflinks transcript assembly.
+These genes were corrected manually to end at the end of the contig in the gff
+file and sqn generated again.
+
 #### Upload commands
 
 ```bash
