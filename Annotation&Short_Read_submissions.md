@@ -350,50 +350,11 @@ P.rubi  SCRP324 43,129   8,356    8,130    8,129       35,000
 P.rubi  SCRP333 43,245   8,284    8,024    8,022       35,223
 ```
 
-#### Remove genes that would cause rejection by NCBI
-
-NCBI reject genes where the front part is missing due to a contig break if an
-intron is not predicted
-
-Script identifies gene lacking start codon and introns and removes them
-
-```bash
-# P.frag
-for Gff in $(ls gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_filtered.gff3)
-do
-    Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
-    Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
-    echo "$Species - $Isolate"
-    OutDir=$(dirname $Gff)
-    Gff_out=$OutDir/"$Isolate"_genes_incl_ORFeffectors_nobroken.gff3
-    Broken_genes=$OutDir/broken_genes.txt
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    python $ProgDir/Remove_Broken_Genes.py --inp_gff $Gff --out_gff $Gff_out --broken_genes $Broken_genes
-    echo "The number of genes removed is:"
-    cat $Broken_genes | wc -l
-done
-
-# P.rubi
-for Gff in $(ls ../phytophthora_rubi/gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_filtered.gff3)
-do
-    Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
-    Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
-    echo "$Species - $Isolate"
-    OutDir=$(dirname $Gff)
-    Gff_out=$OutDir/"$Isolate"_genes_incl_ORFeffectors_nobroken.gff3
-    Broken_genes=$OutDir/broken_genes.txt
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    python $ProgDir/Remove_Broken_Genes.py --inp_gff $Gff --out_gff $Gff_out --broken_genes $Broken_genes
-    echo "The number of genes removed is:"
-    cat $Broken_genes | wc -l
-done
-```
-
 #### Check for further duplication, rename the genes and extract fasta files
 
 ```bash
 # P.frag
-for Gff in $(ls gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_nobroken.gff3)
+for Gff in $(ls gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_filtered.gff3)
 do
     Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
     Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
@@ -424,7 +385,7 @@ do
 done
 
 # P.rubi
-for Gff in $(ls ../phytophthora_rubi/gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_nobroken.gff3)
+for Gff in $(ls ../phytophthora_rubi/gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_filtered.gff3)
 do
     Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
     Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
