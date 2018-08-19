@@ -64,3 +64,6 @@ for Gene in CDS_set:
         Genes_to_remove.append(Gene)
     else:
         Genes_to_keep.append(Gene)
+
+Keep_set = set(Genes_to_keep)
+Remove_set = set(Genes_to_remove)
