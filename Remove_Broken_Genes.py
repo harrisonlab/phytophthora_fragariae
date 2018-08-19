@@ -50,3 +50,8 @@ with open(Gff_in) as f:
 Start_set = set(Start)
 CDS_set = set(CDS)
 Intron_set = set(Intron)
+
+# -----------------------------------------------------
+# Step 2
+# Create set of genes to be kept
+# -----------------------------------------------------
