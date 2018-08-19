@@ -393,7 +393,7 @@ done
 
 ```bash
 # P.frag
-for Gff in $(ls gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_filtered.gff3)
+for Gff in $(ls gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_nobroken.gff3)
 do
     Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
     Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
@@ -424,7 +424,7 @@ do
 done
 
 # P.rubi
-for Gff in $(ls ../phytophthora_rubi/gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_filtered.gff3)
+for Gff in $(ls ../phytophthora_rubi/gene_pred/annotation/*/*/*_genes_incl_ORFeffectors_nobroken.gff3)
 do
     Isolate=$(echo $Gff | rev | cut -f2 -d '/' | rev)
     Species=$(echo $Gff | rev | cut -f3 -d '/' | rev)
