@@ -350,6 +350,12 @@ P.rubi  SCRP324 43,129   8,356    8,130    8,129       35,000
 P.rubi  SCRP333 43,245   8,284    8,024    8,022       35,223
 ```
 
+#### Remove genes that would cause rejection by NCBI
+
+NCBI reject genes where the front part is missing due to a contig break if an intron is not predicted
+
+Script identifies gene lacking start codon and introns and removes them
+
 #### Check for further duplication, rename the genes and extract fasta files
 
 ```bash
