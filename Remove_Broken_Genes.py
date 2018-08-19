@@ -72,3 +72,15 @@ Remove_set = set(Genes_to_remove)
 # Step 3
 # Write out Gff and list of removed genes
 # -----------------------------------------------------
+
+Outlines = []
+
+with open(Gff_in) as f:
+    lines = f.readlines()
+    for line in lines:
+        split_line = line.split()
+        col9 = split_line[8]
+        transcript = col9.split('=')[1]
+        gene = transcript.split('.')[0]
+        if gene in Keep_set:
+            Outlines.append(line)
