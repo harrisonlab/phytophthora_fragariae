@@ -28,3 +28,21 @@ Broken_out = conf.broken_genes
 Start = []
 CDS = []
 Intron = []
+
+with open(Gff_in) as f:
+    lines = f.readlines()
+    for line in lines:
+        split_line = line.split()
+        col9 = split_line[8]
+        if split_line[2] == 'start_codon':
+            transcript = col9.split('=')[1]
+            gene = transcript.split('.')[0]
+            Start.append(gene)
+        elif split_line[2] == 'CDS':
+            transcript = col9.split('=')[1]
+            gene = transcript.split('.')[0]
+            CDS.append(gene)
+        elif split_line[2] == 'intron':
+            transcript = col9.split('=')[1]
+            gene = transcript.split('.')[0]
+            Intron.append(gene)
