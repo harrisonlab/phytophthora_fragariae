@@ -6,7 +6,6 @@ contig break and there is not an intron at the break
 '''
 
 import argparse
-from collections import defaultdict
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--inp_gff', required=True, type=str, help='Gff file for genes \
