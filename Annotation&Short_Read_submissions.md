@@ -76,6 +76,40 @@ do
     tar -czf genome_submission/$Organism/$Isolate/Reads/PR_"$Isolate"_Illumina_SRA.tar.gz $OutDir
     rm -r $OutDir
 done
+
+# RNA-Seq on /home
+for Isolate in Bc16
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate - RNA-Seq"
+    OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
+    mkdir -p $OutDir
+    for File in $(ls raw_rna/novogene/$Organism/$Isolate/*/*/*.fq.gz)
+    do
+        echo $File
+        cp $File $OutDir/.
+    done
+    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_RNA_SRA.tar.gz $OutDir
+    rm -r $OutDir
+done
+
+# RNA-Seq on /data
+for Isolate in Bc1 Nov9
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate - RNA-Seq"
+    OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
+    mkdir -p $OutDir
+    for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
+    do
+        echo $File
+        cp $File $OutDir/.
+    done
+    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_RNA_SRA.tar.gz $OutDir
+    rm -r $OutDir
+done
+
+# This appears only to be stored on scratch, check this with Rob as if so this is very worrying.
 ```
 
 ### Submit reads to NCBI
