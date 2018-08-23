@@ -7,3 +7,4 @@ FALCON/ovlp.stats
 *.pdf
 Falcon2Fastg*
 Robs_scripts/
+parse_orthogroups_BG.py
