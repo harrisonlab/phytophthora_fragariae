@@ -117,6 +117,26 @@ do
     done
 done
 
+# RNA-Seq of NOV-9
+for Isolate in Nov9
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate - RNA-Seq"
+    OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
+    mkdir -p $OutDir
+    for Timepoint in mycelium 72hr
+    do
+        Time=$(echo $Timepoint | sed 's/hr/hpi/g' | sed 's/mycelium/Mycelium/g')
+        for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
+        do
+            echo $File
+            cp $File $OutDir/.
+        done
+        tar -czf genome_submission/$Organism/$Isolate/Reads/PF_NOV-9_"$Time"_RNA_SRA.tar.gz $OutDir
+        rm -r $OutDir
+    done
+done
+
 # This appears only to be stored on scratch, check this with Rob as if so this is very worrying.
 ```
 
