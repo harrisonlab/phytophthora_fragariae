@@ -104,14 +104,17 @@ do
     echo "$Organism - $Isolate - RNA-Seq"
     OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
     mkdir -p $OutDir
-    for Timepoint in mycelium
-    for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
+    for Timepoint in mycelium 48hr
     do
-        echo $File
-        cp $File $OutDir/.
+        Time=$(echo $Timepoint | sed 's/hr/hpi/g' | sed 's/mycelium/Mycelium/g')
+        for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
+        do
+            echo $File
+            cp $File $OutDir/.
+        done
+        tar -czf genome_submission/$Organism/$Isolate/Reads/PF_BC-1_"$Time"_RNA_SRA.tar.gz $OutDir
+        rm -r $OutDir
     done
-    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_BC-1_"$Time"_RNA_SRA.tar.gz $OutDir
-    rm -r $OutDir
 done
 
 # This appears only to be stored on scratch, check this with Rob as if so this is very worrying.
