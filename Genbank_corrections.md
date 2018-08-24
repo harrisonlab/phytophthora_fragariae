@@ -267,6 +267,20 @@ do
 done
 ```
 
+Assess results
+
+```bash
+# for File in $(ls assembly/spades/P.*/*/deconseq/log.txt); do
+for File in $(ls assembly/spades/P.*/*/deconseq_Bac/log.txt)
+do
+    Name=$(echo $File | rev | cut -f3 -d '/' | rev)
+    Good=$(cat $File |cut -f2 | head -n1 | tail -n1)
+    Both=$(cat $File |cut -f2 | head -n2 | tail -n1)
+    Bad=$(cat $File |cut -f2 | head -n3 | tail -n1)
+    printf "$Name\t$Good\t$Both\t$Bad\n"
+done
+```
+
 ## Additional contaminant contigs were identified manually and removed
 
 ```bash
