@@ -77,7 +77,7 @@ do
     rm -r $OutDir
 done
 
-# RNA-Seq on /home
+# RNA-Seq of BC-16
 for Isolate in Bc16
 do
     Organism=P.fragariae
@@ -86,7 +86,7 @@ do
     mkdir -p $OutDir
     for Timepoint in mycelium 0hr 24hr 48hr 96hr
     do
-        Time=$(echo $Timepoint | sed 's/hr/hpi/g')
+        Time=$(echo $Timepoint | sed 's/hr/hpi/g' | sed 's/mycelium/Mycelium/g')
         for File in $(ls raw_rna/novogene/$Organism/$Isolate/$Timepoint/*/*.fq.gz)
         do
             echo $File
@@ -97,19 +97,20 @@ do
     done
 done
 
-# RNA-Seq on /data
-for Isolate in Bc1 Nov9
+# RNA-Seq of BC-1
+for Isolate in Bc1
 do
     Organism=P.fragariae
     echo "$Organism - $Isolate - RNA-Seq"
     OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
     mkdir -p $OutDir
+    for Timepoint in mycelium
     for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
     do
         echo $File
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_RNA_SRA.tar.gz $OutDir
+    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_BC-1_"$Time"_RNA_SRA.tar.gz $OutDir
     rm -r $OutDir
 done
 
