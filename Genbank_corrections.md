@@ -287,6 +287,8 @@ SCRP245_v2      13151   84      16
 
 Check these contigs via BLAST and create a list of those that are genuine contaminants
 
+From BLAST, none of them look like it, so ignore these results
+
 ## Additional contaminant contigs were identified manually and removed
 
 ```bash
