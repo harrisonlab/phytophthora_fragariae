@@ -83,9 +83,9 @@ do
     Organism=P.fragariae
     echo "$Organism - $Isolate - RNA-Seq"
     OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
-    mkdir -p $OutDir
     for Timepoint in mycelium 0hr 24hr 48hr 96hr
     do
+        mkdir -p $OutDir
         Time=$(echo $Timepoint | sed 's/hr/hpi/g' | sed 's/mycelium/Mycelium/g')
         for File in $(ls raw_rna/novogene/$Organism/$Isolate/$Timepoint/*/*.fq.gz)
         do
@@ -103,9 +103,9 @@ do
     Organism=P.fragariae
     echo "$Organism - $Isolate - RNA-Seq"
     OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
-    mkdir -p $OutDir
     for Timepoint in mycelium 48hr
     do
+        mkdir -p $OutDir
         Time=$(echo $Timepoint | sed 's/hr/hpi/g' | sed 's/mycelium/Mycelium/g')
         for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
         do
@@ -123,9 +123,9 @@ do
     Organism=P.fragariae
     echo "$Organism - $Isolate - RNA-Seq"
     OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
-    mkdir -p $OutDir
     for Timepoint in mycelium 72hr
     do
+        mkdir -p $OutDir
         Time=$(echo $Timepoint | sed 's/hr/hpi/g' | sed 's/mycelium/Mycelium/g')
         for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
         do
