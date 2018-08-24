@@ -107,7 +107,7 @@ do
     do
         mkdir -p $OutDir
         Time=$(echo $Timepoint | sed 's/hr/hpi/g' | sed 's/mycelium/Mycelium/g')
-        for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
+        for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/$Timepoint/*/*.fq.gz)
         do
             echo $File
             cp $File $OutDir/.
@@ -127,7 +127,7 @@ do
     do
         mkdir -p $OutDir
         Time=$(echo $Timepoint | sed 's/hr/hpi/g' | sed 's/mycelium/Mycelium/g')
-        for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/*/*/*.fq.gz)
+        for File in $(ls /data/scratch/adamst/rna_seq/05012018/$Organism/$Isolate/$Timepoint/*/*.fq.gz)
         do
             echo $File
             cp $File $OutDir/.
