@@ -281,6 +281,12 @@ do
 done
 ```
 
+```
+SCRP245_v2      13151   84      16
+```
+
+Check these contigs via BLAST and create a list of those that are genuine contaminants
+
 ## Additional contaminant contigs were identified manually and removed
 
 ```bash
