@@ -1023,6 +1023,20 @@ do
 done   
 ```
 
+for manually cleaned assemblies
+
+```bash
+ProgDir=/home/adamst/git_repos/tools/seq_tools/repeat_masking
+for Strain in ONT3 SCRP245_v2
+do
+    for BestAss in $(ls assembly/spades/*/$Strain/manual_edits/*_500bp_renamed.fasta)
+    do
+        qsub $ProgDir/rep_modeling.sh $BestAss
+        qsub $ProgDir/transposonPSI.sh $BestAss
+    done
+done   
+```
+
 The number of bases masked by transposonPSI and Repeatmasker were summarised using the following commands:
 
 ```bash
