@@ -198,60 +198,6 @@ Nov9: 978 (No change)
 SCRP245_v2: 995 (Increased by 1)
 ```
 
-##SCRP245_v2 had some hits in the bacillus database that will now be removed in the same manner
-
-NOTE: Lines 97 - 105 of remove_contaminants.py need commenting out
-
-```bash
-for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta | grep -e 'SCRP245_v2')
-do
-    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
-    echo "$Organism - $Strain"
-    NCBI_report=assembly/spades/P.fragariae/SCRP245_v2/ncbi_edits/bacillus_hits.txt
-    if [[ $NCBI_report ]]
-    then
-        echo "Contamination report found"
-    else
-        NCBI_report=genome_submission/$Organism/$Strain/initial_submission/no_edits.txt
-        printf "Exclude:\nSequence name, length, apparent source\n" > $NCBI_report
-    fi
-    OutDir=assembly/spades/$Organism/$Strain/ncbi_edits
-    mkdir -p $OutDir
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
-    $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
-    # $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
-done
-```
-
-###Summarise assemblies using QUAST
-
-```bash
-for Assembly in $(ls assembly/spades/*/*/ncbi_edits/contigs_min_500bp_renamed.fasta | grep -e 'SCRP245_v2')
-do
-    Kmer=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
-    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
-    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
-    # OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
-    OutDir=$(dirname $Assembly)
-    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
-    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
-done
-```
-
-Summary statistics
-
-```
-Number of contigs > 1kb:
-SCRP245_v2: 8,576 (Decreased by 1)
-
-N50:
-SCRP245_v2: 20,056 (No change)
-
-L50:
-SCRP245_v2: 995 (No change)
-```
-
 ##The python script used above does not yet have the capacity to deal with duplications. Trick it into thinking it's an exclude request by mocking up a text file.
 
 ```bash
