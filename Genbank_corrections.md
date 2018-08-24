@@ -266,3 +266,47 @@ do
     qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
 done
 ```
+
+## Additional contaminant contigs were identified manually and removed
+
+```bash
+for Assembly in $(ls assembly/spades/P.*/*/deconseq_Paen/contigs_min_500bp_filtered_renamed.fasta | grep -e 'ONT3')
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    NCBI_report=assembly/spades/P.fragariae/ONT3/deconseq_Paen/Manual_ID.txt
+    if [[ $NCBI_report ]]
+    then
+        echo "Contamination report found"
+    else
+        NCBI_report=genome_submission/$Organism/$Strain/initial_submission/no_edits.txt
+        printf "Exclude:\nSequence name, length, apparent source\n" > $NCBI_report
+    fi
+    OutDir=assembly/spades/$Organism/$Strain/manual_edits
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+    $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
+    # $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
+done
+
+for Assembly in $(ls assembly/spades/P.*/*/deconseq_Bac/contigs_min_500bp_filtered_renamed.fasta | grep -e 'SCRP245_v2')
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    NCBI_report=assembly/spades/P.fragariae/SCRP245_v2/deconseq_Bac/Manual_ID.txt
+    if [[ $NCBI_report ]]
+    then
+        echo "Contamination report found"
+    else
+        NCBI_report=genome_submission/$Organism/$Strain/initial_submission/no_edits.txt
+        printf "Exclude:\nSequence name, length, apparent source\n" > $NCBI_report
+    fi
+    OutDir=assembly/spades/$Organism/$Strain/manual_edits
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+    $ProgDir/remove_contaminants.py --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
+    # $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
+done
+```
