@@ -84,13 +84,17 @@ do
     echo "$Organism - $Isolate - RNA-Seq"
     OutDir=genome_submission/$Organism/$Isolate/Reads/SRA
     mkdir -p $OutDir
-    for File in $(ls raw_rna/novogene/$Organism/$Isolate/*/*/*.fq.gz)
+    for Timepoint in mycelium 0hr 24hr 48hr 96hr
     do
-        echo $File
-        cp $File $OutDir/.
+        Time=$(echo $Timepoint | sed 's/hr/hpi/g')
+        for File in $(ls raw_rna/novogene/$Organism/$Isolate/$Timepoint/*/*.fq.gz)
+        do
+            echo $File
+            cp $File $OutDir/.
+        done
+        tar -czf genome_submission/$Organism/$Isolate/Reads/PF_BC-16_"$Time"_RNA_SRA.tar.gz $OutDir
+        rm -r $OutDir
     done
-    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_RNA_SRA.tar.gz $OutDir
-    rm -r $OutDir
 done
 
 # RNA-Seq on /data
