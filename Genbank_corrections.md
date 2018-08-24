@@ -247,3 +247,22 @@ NOV-71: 20,226 (No change)
 L50:
 NOV-71: 1,016 (No change)
 ```
+
+## Re-run SCRP245 against bacillus database to re-identify problem contigs to remove
+
+```bash
+for Assembly in $(ls assembly/spades/*/*/ncbi_edits/contigs_min_500bp_renamed.fasta | grep -e 'SCRP245_v2')
+do
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    echo "$Organism - $Strain"
+    # Exclude_db="bact,virus,hsref"
+    Exclude_db="bacillus"
+    Good_db="phytoph"
+    AssemblyDir=$(dirname $Assembly)
+    # OutDir=$AssemblyDir/../deconseq
+    OutDir=$AssemblyDir/../deconseq_Bac
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/remove_contaminants
+    qsub $ProgDir/sub_deconseq.sh $Assembly $Exclude_db $Good_db $OutDir
+done
+```
