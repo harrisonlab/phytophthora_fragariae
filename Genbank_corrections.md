@@ -332,3 +332,18 @@ do
     # $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
 done
 ```
+
+### Run QUAST on edited genomes
+
+```bash
+for Assembly in $(ls assembly/spades/*/*/manual_edits/contigs_min_500bp_renamed.fasta)
+do
+    Kmer=$(echo $Assembly | rev | cut -f2 -d '/' | rev)
+    Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
+    Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
+    # OutDir=assembly/spades/$Organism/$Strain/filtered_contigs
+    OutDir=$(dirname $Assembly)
+    ProgDir=/home/adamst/git_repos/tools/seq_tools/assemblers/assembly_qc/quast
+    qsub $ProgDir/sub_quast.sh $Assembly $OutDir
+done
+```
