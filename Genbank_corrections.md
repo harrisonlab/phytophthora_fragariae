@@ -347,3 +347,17 @@ do
     qsub $ProgDir/sub_quast.sh $Assembly $OutDir
 done
 ```
+
+```
+Number of contigs > 1kb:
+SCRP245 8560
+ONT-3   8470
+
+N50:
+SCRP245 18,154
+ONT-3   18,830
+
+L50:
+SCRP245 1,120
+ONT-3   1,104
+```
