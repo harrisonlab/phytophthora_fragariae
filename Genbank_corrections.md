@@ -312,12 +312,12 @@ do
     # $ProgDir/remove_contaminants.py --keep_mitochondria --inp $Assembly --out $OutDir/contigs_min_500bp_renamed.fasta --coord_file $NCBI_report > $OutDir/log.txt
 done
 
-for Assembly in $(ls assembly/spades/P.*/*/deconseq_Bac/contigs_min_500bp_filtered_renamed.fasta | grep -e 'SCRP245_v2')
+for Assembly in $(ls assembly/spades/P.*/*/ncbi_edits/contigs_min_500bp_filtered_renamed.fasta | grep -e 'SCRP245_v2')
 do
     Strain=$(echo $Assembly | rev | cut -f3 -d '/' | rev)
     Organism=$(echo $Assembly | rev | cut -f4 -d '/' | rev)
     echo "$Organism - $Strain"
-    NCBI_report=assembly/spades/P.fragariae/SCRP245_v2/deconseq_Bac/Manual_ID.txt
+    NCBI_report=assembly/spades/P.fragariae/SCRP245_v2/ncbi_edits/Manual_ID.txt
     if [[ $NCBI_report ]]
     then
         echo "Contamination report found"
