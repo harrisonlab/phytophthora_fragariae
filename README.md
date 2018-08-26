@@ -1266,16 +1266,16 @@ Fragmented genes: 7
 Missing genes: 17
 
 ONT3
-Complete and single copy genes: 277
-Complete and duplicated genes: 7
-Fragmented genes: 4
-Missing genes: 15
+Complete and single copy genes: 275
+Complete and duplicated genes: 6
+Fragmented genes: 5
+Missing genes: 17
 
 SCRP245_v2
 Complete and single copy genes: 273
 Complete and duplicated genes: 7
-Fragmented genes: 7
-Missing genes: 16
+Fragmented genes: 6
+Missing genes: 17
 ```
 
 #Gene prediction
