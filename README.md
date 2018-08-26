@@ -1151,13 +1151,13 @@ The number of bases masked by RepeatMasker:	24,970,270
 The number of bases masked by TransposonPSI:	6,289,715
 The total number of masked bases are:	26,760,322
 P.fragariae	ONT3
-The number of bases masked by RepeatMasker:	24,798,551
-The number of bases masked by TransposonPSI:	6,234,855
-The total number of masked bases are:	26,544,846
+The number of bases masked by RepeatMasker:	24298774
+The number of bases masked by TransposonPSI:	6228285
+The total number of masked bases are:	26099638
 P.fragariae	SCRP245_v2
-The number of bases masked by RepeatMasker:	23,766,590
-The number of bases masked by TransposonPSI:	6,037,588
-The total number of masked bases are:	25,543,462
+The number of bases masked by RepeatMasker:	24077643
+The number of bases masked by TransposonPSI:	6029983
+The total number of masked bases are:	25831280
 ```
 
 #Merging RepeatMasker and TransposonPSI outputs
