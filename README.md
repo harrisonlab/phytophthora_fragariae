@@ -2075,7 +2075,11 @@ Open reading frame predictions were made using the atg.pl script as part of the 
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Organism=P.fragariae
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_unmasked.fa ]
+    if [ -f repeat_masked/$Organism/$Strain/manual_edits_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/manual_edits_repmask/*_unmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_unmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_unmasked.fa)
         echo $Assembly
