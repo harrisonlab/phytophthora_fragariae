@@ -2151,10 +2151,10 @@ ORF_finder - Nov77
 653,276
 
 ORF_finder - ONT3
-722,865
+655,156
 
 ORF_finder - SCRP245_v2
-689,938
+645,061
 ```
 
 #Genomic analysis
