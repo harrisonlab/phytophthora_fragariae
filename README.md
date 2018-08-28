@@ -1094,6 +1094,25 @@ do
 done
 ```
 
+For manually corrected assemblies
+
+```bash
+for RepDir in $(ls -d repeat_masked/P.fragariae/*/manual_edits_repmask)
+do
+    Strain=$(echo $RepDir | rev | cut -f2 -d '/' | rev)
+    Organism=$(echo $RepDir | rev | cut -f3 -d '/' | rev)  
+    RepMaskGff=$(ls $RepDir/"$Strain"_contigs_hardmasked.gff)
+    TransPSIGff=$(ls $RepDir/"$Strain"_contigs_unmasked.fa.TPSI.allHits.chains.gff3)
+    printf "$Organism\t$Strain\n"
+    printf "The number of bases masked by RepeatMasker:\t"
+    sortBed -i $RepMaskGff | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+    printf "The number of bases masked by TransposonPSI:\t"
+    sortBed -i $TransPSIGff | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+    printf "The total number of masked bases are:\t"
+    cat $RepMaskGff $TransPSIGff | sortBed | bedtools merge | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+done
+```
+
 ```
 P.fragariae	A4
 The number of bases masked by RepeatMasker:	24,225,474
@@ -1132,13 +1151,13 @@ The number of bases masked by RepeatMasker:	24,970,270
 The number of bases masked by TransposonPSI:	6,289,715
 The total number of masked bases are:	26,760,322
 P.fragariae	ONT3
-The number of bases masked by RepeatMasker:	24,798,551
-The number of bases masked by TransposonPSI:	6,234,855
-The total number of masked bases are:	26,544,846
+The number of bases masked by RepeatMasker:	24298774
+The number of bases masked by TransposonPSI:	6228285
+The total number of masked bases are:	26099638
 P.fragariae	SCRP245_v2
-The number of bases masked by RepeatMasker:	23,766,590
-The number of bases masked by TransposonPSI:	6,037,588
-The total number of masked bases are:	25,543,462
+The number of bases masked by RepeatMasker:	24077643
+The number of bases masked by TransposonPSI:	6029983
+The total number of masked bases are:	25831280
 ```
 
 #Merging RepeatMasker and TransposonPSI outputs
@@ -1167,7 +1186,11 @@ Quality of genome assemblies was assessed by looking for the gene space in the a
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Organism=P.fragariae
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    if [ -f repeat_masked/$Organism/$Strain/manual_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/manual_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
         echo $Assembly
@@ -1243,16 +1266,16 @@ Fragmented genes: 7
 Missing genes: 17
 
 ONT3
-Complete and single copy genes: 277
-Complete and duplicated genes: 7
-Fragmented genes: 4
-Missing genes: 15
+Complete and single copy genes: 275
+Complete and duplicated genes: 6
+Fragmented genes: 5
+Missing genes: 17
 
 SCRP245_v2
 Complete and single copy genes: 273
 Complete and duplicated genes: 7
-Fragmented genes: 7
-Missing genes: 16
+Fragmented genes: 6
+Missing genes: 17
 ```
 
 #Gene prediction
@@ -2052,7 +2075,11 @@ Open reading frame predictions were made using the atg.pl script as part of the 
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Organism=P.fragariae
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_unmasked.fa ]
+    if [ -f repeat_masked/$Organism/$Strain/manual_edits_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/manual_edits_repmask/*_unmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_unmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_unmasked.fa)
         echo $Assembly
@@ -2124,10 +2151,10 @@ ORF_finder - Nov77
 653,276
 
 ORF_finder - ONT3
-722,865
+655,156
 
 ORF_finder - SCRP245_v2
-689,938
+645,061
 ```
 
 #Genomic analysis
