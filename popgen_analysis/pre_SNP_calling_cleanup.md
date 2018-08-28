@@ -1,13 +1,13 @@
-#Sets up correct formatting for SNP calling analysis
+# Sets up correct formatting for SNP calling analysis
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/genome_alignment/bowtie
 scripts=/home/adamst/git_repos/scripts/popgen/snp
 ```
 
-##Repeat alignments for new FALCON assembly of BC-16
+## Repeat alignments for new FALCON assembly of BC-16
 
-###Single run of data
+### Single run of data
 
 ```bash
 Reference=repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa

@@ -1,9 +1,9 @@
-#Looks for structural variations between the genomes
-##Structural variants can include: duplications, deletions, inversions & translocations. Uses read-pair configuration, split-reads & read-depth
+# Looks for structural variations between the genomes
+## Structural variants can include: duplications, deletions, inversions & translocations. Uses read-pair configuration, split-reads & read-depth
 
-###First, run BWA-mem to align reads to FALCON assembly before SV calling
+### First, run BWA-mem to align reads to FALCON assembly before SV calling
 
-####Copy files and concatenate multiple reads into forward and reverse files
+#### Copy files and concatenate multiple reads into forward and reverse files
 
 ```bash
 mkdir sv_calling
@@ -50,7 +50,7 @@ do
 done
 ```
 
-####Run BWA-mem
+#### Run BWA-mem
 
 ```bash
 Reference=../repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
@@ -67,7 +67,7 @@ do
 done
 ```
 
-####Run svaba
+#### Run svaba
 
 ```bash
 Prefix=Pfrag_svaba

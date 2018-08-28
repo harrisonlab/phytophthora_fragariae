@@ -1,11 +1,11 @@
-#Create a cut-down vcf that only includes BC-1 and NOV-9, commands run from phytophthora_fragariae/SNP_calling
+# Create a cut-down vcf that only includes BC-1 and NOV-9, commands run from phytophthora_fragariae/SNP_calling
 
 ```bash
 vcftools=/home/sobczm/bin/vcftools/bin
 vcflib=/home/sobczm/bin/vcflib/bin
 ```
 
-##Just BC-1 and NOV-9
+### Just BC-1 and NOV-9
 First argument: unfiltered input VCF file with all SNPs
 Subsequent arguments: Sample names of individuals to be removed
 
@@ -14,7 +14,7 @@ cd SNP_calling
 $vcflib/vcfremovesamples polished_contigs_unmasked.vcf Nov71 Nov5 Nov27 A4 Bc16 SCRP245_v2 Bc23 ONT3 Nov77 SCRP249 SCRP324 SCRP333 > BC1_NOV9_only_polished_contigs_unmasked.vcf
 ```
 
-#Filter vcf outputs, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
+## Filter vcf outputs, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
 
 ```bash
 for vcf in $(ls *_contigs_unmasked.vcf | grep -e "BC1")

@@ -1,4 +1,4 @@
-#Analysis of private SNPs
+# Analysis of private SNPs
 
 Commented commands were my attempt, after discussions with Maria she found several faults and suggested I use her script instead. This begins after commented out commands, which are kept for reference.
 
