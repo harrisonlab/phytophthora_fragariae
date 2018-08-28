@@ -1805,7 +1805,11 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/codingquary
     $ProgDir/gff_rename_genes.py --inp_gff $GffFiltered --conversion_log $LogFile > $GffRenamed
     rm $GffFiltered
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    if [ -f repeat_masked/$Organism/$Strain/manual_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/manual_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
         echo $Assembly
