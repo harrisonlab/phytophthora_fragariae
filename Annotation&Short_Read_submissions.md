@@ -22,7 +22,8 @@ do
         echo $File
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_Illumina_SRA.tar.gz $OutDir
+    Read_dir=genome_submission/$Organism/$Isolate/Reads
+    tar -czf $Read_dir/PF_"$Isolate"_Illumina_SRA.tar.gz $OutDir
     rm -r $OutDir
 done
 
@@ -39,7 +40,8 @@ do
         echo $File
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_PacBio_SRA.tar.gz $OutDir
+    Read_dir=genome_submission/$Organism/$Isolate/Reads
+    tar -czf $Read_dir/PF_"$Isolate"_PacBio_SRA.tar.gz $OutDir
     rm -r $OutDir
 done
 
@@ -57,7 +59,8 @@ do
         echo $File
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/Reads/PF_"$Isolate"_ONT_SRA.tar.gz $OutDir
+    Read_dir=genome_submission/$Organism/$Isolate/Reads
+    tar -czf $Read_dir/PF_"$Isolate"_ONT_SRA.tar.gz $OutDir
     rm -r $OutDir
 done
 
@@ -73,7 +76,8 @@ do
         echo $File
         cp $File $OutDir/.
     done
-    tar -czf genome_submission/$Organism/$Isolate/Reads/PR_"$Isolate"_Illumina_SRA.tar.gz $OutDir
+    Read_dir=genome_submission/$Organism/$Isolate/Reads
+    tar -czf $Read_dir/PR_"$Isolate"_Illumina_SRA.tar.gz $OutDir
     rm -r $OutDir
 done
 
@@ -92,7 +96,8 @@ do
             echo $File
             cp $File $OutDir/.
         done
-        tar -czf genome_submission/$Organism/$Isolate/Reads/PF_BC-16_"$Time"_RNA_SRA.tar.gz $OutDir
+        Read_dir=genome_submission/$Organism/$Isolate/Reads
+        tar -czf $Read_dir/PF_BC-16_"$Time"_RNA_SRA.tar.gz $OutDir
         rm -r $OutDir
     done
 done
@@ -112,7 +117,8 @@ do
             echo $File
             cp $File $OutDir/.
         done
-        tar -czf genome_submission/$Organism/$Isolate/Reads/PF_BC-1_"$Time"_RNA_SRA.tar.gz $OutDir
+        Read_dir=genome_submission/$Organism/$Isolate/Reads
+        tar -czf $Read_dir/PF_BC-1_"$Time"_RNA_SRA.tar.gz $OutDir
         rm -r $OutDir
     done
 done
@@ -132,12 +138,11 @@ do
             echo $File
             cp $File $OutDir/.
         done
-        tar -czf genome_submission/$Organism/$Isolate/Reads/PF_NOV-9_"$Time"_RNA_SRA.tar.gz $OutDir
+        Read_dir=genome_submission/$Organism/$Isolate/Reads
+        tar -czf $Read_dir/PF_NOV-9_"$Time"_RNA_SRA.tar.gz $OutDir
         rm -r $OutDir
     done
 done
-
-# This appears only to be stored on scratch, check this with Rob as if so this is very worrying.
 ```
 
 ### Submit reads to NCBI
@@ -276,7 +281,8 @@ do
     ORF_ApoP=analysis/ApoplastP/$Species/$Isolate/*_ApoplastP_ORF_merged_headers.txt
     Unclear_Genes=gene_pred/annotation/$Species/$Isolate/Unclear_duplicates.txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    python $ProgDir/Parse_ApoP_duplicates.py --gff_in $Gff --gff_out $Gff_out --Aug_ApoP $Aug_ApoP --ORF_ApoP $ORF_ApoP --Unclear_Genes $Unclear_Genes
+    python $ProgDir/Parse_ApoP_duplicates.py --gff_in $Gff --gff_out $Gff_out \
+    --Aug_ApoP $Aug_ApoP --ORF_ApoP $ORF_ApoP --Unclear_Genes $Unclear_Genes
 done
 
 # P.rubi
@@ -290,7 +296,8 @@ do
     ORF_ApoP=../phytophthora_rubi/analysis/ApoplastP/$Species/$Isolate/*_ApoplastP_ORF_merged_headers.txt
     Unclear_Genes=../phytophthora_rubi/gene_pred/annotation/$Species/$Isolate/Unclear_duplicates.txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    python $ProgDir/Parse_ApoP_duplicates.py --gff_in $Gff --gff_out $Gff_out --Aug_ApoP $Aug_ApoP --ORF_ApoP $ORF_ApoP --Unclear_Genes $Unclear_Genes
+    python $ProgDir/Parse_ApoP_duplicates.py --gff_in $Gff --gff_out $Gff_out \
+    --Aug_ApoP $Aug_ApoP --ORF_ApoP $ORF_ApoP --Unclear_Genes $Unclear_Genes
 done
 ```
 
@@ -310,15 +317,28 @@ do
     CRN_Plus_ApoP=$OutDir/ORF_CRN_Plus_ApoP_parsed.gff3
     ApoP_No_RxLR_CRN=$OutDir/ORF_ApoP_No_RxLR_CRN_parsed.gff3
     # RxLR_No_ApoP
-    bedtools intersect -wo -a $Gff -b $RxLR_No_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "RxLR_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $RxLR_No_ApoP | grep -e "AUGUSTUS.gene" \
+    -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep \
+    "RxLR_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt
     # RxLR_Plus_ApoP
-    bedtools intersect -wo -a $Gff -b $RxLR_Plus_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "RxLR_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $RxLR_Plus_ApoP | grep -e "AUGUSTUS.gene" \
+    -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep \
+    "RxLR_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr \
+    -d ';' > $OutDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
     # CRN_No_ApoP
-    bedtools intersect -wo -a $Gff -b $CRN_No_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "CRN_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $CRN_No_ApoP | grep -e "AUGUSTUS.gene" \
+    -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep \
+    "CRN_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt
     # CRN_Plus_ApoP
-    bedtools intersect -wo -a $Gff -b $CRN_Plus_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "CRN_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $CRN_Plus_ApoP | grep -e "AUGUSTUS.gene" \
+    -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep \
+    "CRN_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr \
+    -d ';' > $OutDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
     # ApoP_No_RxLR_CRN
-    bedtools intersect -wo -a $Gff -b $ApoP_No_RxLR_CRN | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $ApoP_No_RxLR_CRN | grep \
+    -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" \
+    -e "PGNCodingQuarry_v2.0" | grep "ApoplastP_ORF.gene" | cut \
+    -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt
 done
 
 # P.rubi
@@ -334,15 +354,28 @@ do
     CRN_Plus_ApoP=$OutDir/ORF_CRN_Plus_ApoP_parsed.gff3
     ApoP_No_RxLR_CRN=$OutDir/ORF_ApoP_No_RxLR_CRN_parsed.gff3
     # RxLR_No_ApoP
-    bedtools intersect -wo -a $Gff -b $RxLR_No_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "RxLR_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $RxLR_No_ApoP | grep -e "AUGUSTUS.gene" \
+    -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep \
+    "RxLR_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt
     # RxLR_Plus_ApoP
-    bedtools intersect -wo -a $Gff -b $RxLR_Plus_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "RxLR_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $RxLR_Plus_ApoP | grep -e "AUGUSTUS.gene" \
+    -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep \
+    "RxLR_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr \
+    -d ';' > $OutDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
     # CRN_No_ApoP
-    bedtools intersect -wo -a $Gff -b $CRN_No_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "CRN_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $CRN_No_ApoP | grep -e "AUGUSTUS.gene" \
+    -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep \
+    "CRN_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt
     # CRN_Plus_ApoP
-    bedtools intersect -wo -a $Gff -b $CRN_Plus_ApoP | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "CRN_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $CRN_Plus_ApoP | grep -e "AUGUSTUS.gene" \
+    -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep \
+    "CRN_ORF_+_ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr \
+    -d ';' > $OutDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt
     # ApoP_No_RxLR_CRN
-    bedtools intersect -wo -a $Gff -b $ApoP_No_RxLR_CRN | grep -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" -e "PGNCodingQuarry_v2.0" | grep "ApoplastP_ORF.gene" | cut -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt
+    bedtools intersect -wo -a $Gff -b $ApoP_No_RxLR_CRN | grep \
+    -e "AUGUSTUS.gene" -e "CodingQuarry_v2.0.gene" \
+    -e "PGNCodingQuarry_v2.0" | grep "ApoplastP_ORF.gene" | cut \
+    -f1,9,18 | sed 's/ID=//g' | tr -d ';' > $OutDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt
 done
 ```
 
@@ -357,7 +390,12 @@ do
     echo "$Species - $Isolate"
     OutDir=$(dirname $Gff)
     MergeDir=$(ls -d gene_pred/annotation/$Species/$Isolate)
-    cat $MergeDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt | cut -f3 > $MergeDir/exclude_list.txt
+    cat $MergeDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt \
+    $MergeDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt \
+    $MergeDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt \
+    $MergeDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt \
+    $MergeDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt | cut \
+    -f3 > $MergeDir/exclude_list.txt
     PreFilter=$(cat $Gff | grep -w 'gene' | wc -l)
     FilterList=$(cat $OutDir/exclude_list.txt | wc -l)
     UniqueFilterList=$(cat $OutDir/exclude_list.txt | sort | uniq | wc -l)
@@ -365,9 +403,11 @@ do
     Exclude_List=$OutDir/exclude_list.txt
     Gff_out=$OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3
     Removed_Genes=$OutDir/Removed_Genes.txt
-    python $ProgDir/Remove_Overlapping_Features.py --inp_gff $Gff --exclude_list $Exclude_List --output_gff $Gff_out --removed_genes $Removed_Genes
+    python $ProgDir/Remove_Overlapping_Features.py --inp_gff $Gff \
+    --exclude_list $Exclude_List --output_gff $Gff_out --removed_genes $Removed_Genes
     GenesRemoved=$(cat $Removed_Genes | wc -l)
-    FinalGenes=$(cat $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3 | grep -w 'gene' | wc -l)
+    FinalGenes=$(cat $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3 | \
+    grep -w 'gene' | wc -l)
     printf "$Species\t$Isolate\t$PreFilter\t$FilterList\t$UniqueFilterList\t$GenesRemoved\t$FinalGenes\n"
 done
 
@@ -379,7 +419,12 @@ do
     echo "$Species - $Isolate"
     OutDir=$(dirname $Gff)
     MergeDir=$(ls -d ../phytophthora_rubi/gene_pred/annotation/$Species/$Isolate)
-    cat $MergeDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt $MergeDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt | cut -f3 > $MergeDir/exclude_list.txt
+    cat $MergeDir/RxLR_No_ApoP_ORFs_intersecting_non-effector_genes.txt \
+    $MergeDir/RxLR_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt \
+    $MergeDir/CRN_No_ApoP_ORFs_intersecting_non-effector_genes.txt \
+    $MergeDir/CRN_Plus_ApoP_ORFs_intersecting_non-effector_genes.txt \
+    $MergeDir/ApoP_No_RxLR_CRN_ORFs_intersecting_non-effector_genes.txt | cut \
+    -f3 > $MergeDir/exclude_list.txt
     PreFilter=$(cat $Gff | grep -w 'gene' | wc -l)
     FilterList=$(cat $OutDir/exclude_list.txt | wc -l)
     UniqueFilterList=$(cat $OutDir/exclude_list.txt | sort | uniq | wc -l)
@@ -387,9 +432,11 @@ do
     Exclude_List=$OutDir/exclude_list.txt
     Gff_out=$OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3
     Removed_Genes=$OutDir/Removed_Genes.txt
-    python $ProgDir/Remove_Overlapping_Features.py --inp_gff $Gff --exclude_list $Exclude_List --output_gff $Gff_out --removed_genes $Removed_Genes
+    python $ProgDir/Remove_Overlapping_Features.py --inp_gff $Gff \
+    --exclude_list $Exclude_List --output_gff $Gff_out --removed_genes $Removed_Genes
     GenesRemoved=$(cat $Removed_Genes | wc -l)
-    FinalGenes=$(cat $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3 | grep -w 'gene' | wc -l)
+    FinalGenes=$(cat $OutDir/"$Isolate"_genes_incl_ORFeffectors_filtered.gff3 | \
+    grep -w 'gene' | wc -l)
     printf "$Species\t$Isolate\t$PreFilter\t$FilterList\t$UniqueFilterList\t$GenesRemoved\t$FinalGenes\n"
 done
 ```
@@ -427,13 +474,15 @@ do
     $ProgDir/remove_dup_features.py --inp_gff $Gff --out_gff $Gff_Filtered
     Gff_Renamed=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
     Log_File=$OutDir/Renaming_log.log
-    $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered --conversion_log $Log_File > $Gff_Renamed
+    $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered
+    --conversion_log $Log_File > $Gff_Renamed
     rm $Gff_Filtered
     if [ -f repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
-    elif [ -f repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
+    elif [ -f \
+    repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Species/$Isolate/deconseq_Paen_repmask/*_softmasked.fa)
         echo $Assembly
