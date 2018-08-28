@@ -1282,7 +1282,7 @@ done
 ```bash
 for Strain in Bc16 Bc1 Nov9
 do
-    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam | grep -v "0hr")
+    for BamFile in $(ls alignment/star/P.fragariae/$Strain/*/*/star_aligmentAligned.sortedByCoord.out.bam)
     do
         Gff=gene_pred/annotation/P.fragariae/$Strain/*_genes_incl_ORFeffectors_renamed.gff3
         OutDir=analysis/DeSeq
