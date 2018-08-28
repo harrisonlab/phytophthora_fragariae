@@ -3114,6 +3114,9 @@ biopython
 
 Proteins that were predicted to contain signal peptides were identified using the following commands:
 
+
+sigP modified script only edits the name of the temporary directory to prevent a crash
+
 ```bash
 for Proteome in $(ls gene_pred/ORF_finder/*/*/*.aa_cat.fa)
 do
