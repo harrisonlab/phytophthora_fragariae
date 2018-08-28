@@ -1,4 +1,4 @@
-#Runs a SNP calling script from Maria in order to be able to draw up a phylogeny
+# Runs a SNP calling script from Maria in order to be able to draw up a phylogeny
 To change in each analysis:
 
 ```bash
@@ -9,14 +9,14 @@ filename=$(basename "$reference")
 output="${filename%.*}.dict"
 ```
 
-##Prepare genome reference indexes required by GATK
+## Prepare genome reference indexes required by GATK
 
 ```bash
 java -jar /home/sobczm/bin/picard-tools-2.5.0/picard.jar CreateSequenceDictionary R=$reference O=$input/$output
 samtools faidx $reference
 ```
 
-###Copy index file to same folder as BAM alignments
+### Copy index file to same folder as BAM alignments
 
 ```bash
 for Strain in A4 Bc1 Bc16 Bc23 Nov5 Nov27 Nov71 Nov77 Nov9 ONT3 SCRP245_v2 SCRP249 SCRP324 SCRP333

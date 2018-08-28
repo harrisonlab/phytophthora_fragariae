@@ -269,7 +269,7 @@ do
 done
 ```
 
-##Align mycelial reads
+## Align mycelial reads
 
 ```bash
 for Strain in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2

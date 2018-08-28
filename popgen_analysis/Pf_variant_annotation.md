@@ -1,6 +1,6 @@
-#Begins the analysis of the summary stats section from Maria's github
+# Begins the analysis of the summary stats section from Maria's github
 
-##Copy input for the analysis into a new directory
+## Copy input for the analysis into a new directory
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats
@@ -8,7 +8,7 @@ snpeff=/home/adamst/prog/snpEff
 scripts=/home/adamst/git_repos/scripts/popgen
 ```
 
-##All individuals
+## All individuals
 
 ```bash
 mkdir -p $input
@@ -19,7 +19,7 @@ cp gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gf
 cd $input
 ```
 
-##Create additional subsets of VCF files with reduced number of individuals
+## Create additional subsets of VCF files with reduced number of individuals
 
 ```bash
 vcftools=/home/sobczm/bin/vcftools/bin
