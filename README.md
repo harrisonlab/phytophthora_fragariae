@@ -1735,7 +1735,11 @@ do
     Strain=$(echo $BrakerGff| rev | cut -d '/' -f3 | rev | sed 's/_braker//g')
     Organism=$(echo $BrakerGff | rev | cut -d '/' -f4 | rev)
     echo "$Organism - $Strain"
-    if [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    if [ -f repeat_masked/$Organism/$Strain/manual_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Strain/manual_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Strain/ncbi_edits_repmask/*_softmasked_repeatmasker_TPSI_appended.fa)
         echo $Assembly
