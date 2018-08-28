@@ -1,4 +1,3 @@
-
 # Aligns P. rubi reads to the BC-16 PacBio genome for phylogenetic analysis
 
 ```bash
