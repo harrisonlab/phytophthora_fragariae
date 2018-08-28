@@ -1277,7 +1277,7 @@ do
 done
 ```
 
-## Quantification of gene models
+## Quantification of gene models for BC-1 & NOV-9
 
 ```bash
 for Strain in Bc16 Bc1 Nov9
