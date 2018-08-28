@@ -1,13 +1,13 @@
-#Runs commands from Maria to analyse output from SNP calling
+# Runs commands from Maria to analyse output from SNP calling
 
-#Create a cut-down vcf that only includes *P. fragariae* strains
+## Create a cut-down vcf that only includes *P. fragariae* strains
 
 ```bash
 vcftools=/home/sobczm/bin/vcftools/bin
 vcflib=/home/sobczm/bin/vcflib/bin
 ```
 
-##Just *P. fragariae* strains
+### Just *P. fragariae* strains
 First argument: unfiltered input VCF file with all SNPs
 Subsequent arguments: Sample names of individuals to be removed
 
@@ -16,7 +16,7 @@ cd SNP_calling
 $vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP249 SCRP324 SCRP333 > Pfrag_only_polished_contigs_unmasked.vcf
 ```
 
-#Filter vcf outputs, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
+## Filter vcf outputs, only retain biallelic high-quality SNPS with no missing data for genetic analyses.
 
 ```bash
 for vcf in $(ls *_contigs_unmasked.vcf)
