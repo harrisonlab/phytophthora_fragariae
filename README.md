@@ -6316,5 +6316,51 @@ do
 done
 ```
 
+#### Summarise final numbers of each class of gene
+
+```bash
+for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
+do
+    Organism=P.fragariae
+    echo "$Organism - $Isolate"
+    echo "The number of predicted RxLRs is:"
+    RxLR_IDs=analysis/RxLR_effectors/combined_evidence/$Species/$Isolate/"$Isolate"_Total_RxLR_motif_hmm_renamed.txt
+    cat $RxLR_IDs | wc -l
+    echo "The number of predicted RxLRs with fasta sequences is:"
+    RxLR_seqs=analysis/RxLR_effectors/combined_evidence/$Species/$Isolate/"$Isolate"_Total_RxLR_motif_hmm_renamed.fa
+    cat $RxLR_seqs | grep '>' | wc -l
+    echo "The number of high-confidence predicted RxLRs is:"
+    RxLR_EER_IDs=analysis/RxLR_effectors/combined_evidence/$Species/$Isolate/"$Isolate"_Total_RxLR_EER_motif_hmm_renamed.txt
+    cat $RxLR_EER_IDs | wc -l
+    echo "The number of high-confidence predicted RxLRs with fasta sequences is:"
+    RxLR_EER_seqs=analysis/RxLR_effectors/combined_evidence/$Species/$Isolate/"$Isolate"_Total_RxLR_EER_motif_hmm_renamed.fa
+    cat $RxLR_EER_seqs | grep '>' | wc -l
+    echo "The number of predicted CRN effectors is:"
+    CRN_IDs=analysis/CRN_effectors/hmmer_CRN/$Species/$Isolate/"$Isolate"_final_CRN_renamed.txt
+    cat $CRN_IDs | wc -l
+    echo "The number of predicted CRN effectors with fasta sequences is:"
+    CRN_seqs=analysis/CRN_effectors/hmmer_CRN/$Species/$Isolate/"$Isolate"_final_CRN_renamed.fa
+    cat $CRN_seqs | grep '>' | wc -l
+    echo "The number of predicted Apoplastic effectors is:"
+    ApoP_IDs=analysis/ApoplastP/$Species/$Isolate/"$Isolate"_Total_ApoplastP_renamed.txt
+    cat $ApoP_IDs | wc -l
+    echo "The number of predicted Apoplastic effectors with fasta sequences is:"
+    ApoP_seqs=analysis/ApoplastP/$Species/$Isolate/"$Isolate"_Total_ApoplastP_renamed.fa
+    cat $ApoP_seqs | grep '>' | wc -l
+    echo "The number of predicted secreted proteins is:"
+    Aug_Secreted=gene_pred/combined_sigP_CQ/$Species/$Isolate/"$Isolate"_secreted_renamed.txt
+    ORF_Secreted=gene_pred/combined_sigP_ORF/$Species/$Isolate/"$Isolate"_all_secreted_merged_renamed.txt
+    All_Secreted=gene_pred/combined_sigP_CQ/$Species/$Isolate/"$Isolate"_all_secreted_Aug_ORF.txt
+    cat $Aug_Secreted $ORF_Secreted > $All_Secreted
+    cat $All_Secreted | wc -l
+    echo "The number of predicted secreted proteins with fasta sequences is:"
+    Proteome=gene_pred/annotation/$Species/$Isolate/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
+    All_Secreted_seqs=gene_pred/combined_sigP_CQ/$Species/$Isolate/"$Isolate"_all_secreted_Aug_ORF.fa
+    $ProgDir/extract_from_fasta.py --fasta $Proteome --headers $All_Secreted > $All_Secreted_seqs
+    cat $All_Secreted_seqs | grep '>' | wc -l
+done
+```
+
 Further downstream analysis done in OrthoFinder.md, RNA-Seq_analysis.md and
 popgen_analysis directory
