@@ -5683,21 +5683,9 @@ A4 - greedy_noApoP
 The number of proteins scoring positive for a transmembrane helix is:
 4,477
 
-Bc16 - conservative
+P.fragariae - Bc16
 The number of proteins scoring positive for a transmembrane helix is:
-5,726
-
-Bc16 - conservative_noApoP
-The number of proteins scoring positive for a transmembrane helix is:
-4,259
-
-Bc16 - greedy
-The number of proteins scoring positive for a transmembrane helix is:
-6,078
-
-Bc16 - greedy_noApoP
-The number of proteins scoring positive for a transmembrane helix is:
-4,611
+4,816
 
 Bc1 - conservative
 The number of proteins scoring positive for a transmembrane helix is:
