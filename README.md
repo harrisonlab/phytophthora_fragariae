@@ -5842,7 +5842,7 @@ do
 done
 ```
 
-### D)Identify genes with GPI anchors
+### D) Identify genes with GPI anchors
 
 Proteins were identified by submitting the combined protein file to webserver:
 
@@ -5930,13 +5930,9 @@ A4 - greedy
 The number of proteins scoring positive for being GPI anchored is:
 2,529
 
-Bc16 - conservative
-The number of proteins scoring positive for being GPI anchored is:
-1,997
-
 Bc16 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-1,683
+1,181
 
 Bc1 - conservative
 The number of proteins scoring positive for being GPI anchored is:
