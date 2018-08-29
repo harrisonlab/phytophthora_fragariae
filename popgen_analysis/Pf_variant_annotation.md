@@ -38,7 +38,14 @@ $vcflib/vcfremovesamples polished_contigs_unmasked.vcf Nov77 SCRP249 SCRP324 SCR
 ##Filter the SNPs
 
 ```bash
-for vcf in $(ls *_contigs_unmasked_*.vcf | grep -e 'UK123\.' -e 'Pf\.')
+for vcf in $(ls *_contigs_unmasked_*.vcf | grep -e 'UK123\.')
+do
+    echo $vcf
+    script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
+    qsub $script $vcf
+done
+
+for vcf in $(ls *_contigs_unmasked_*.vcf | grep -e 'Pf\.')
 do
     echo $vcf
     script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
