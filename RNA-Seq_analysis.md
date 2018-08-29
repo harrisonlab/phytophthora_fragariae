@@ -697,85 +697,85 @@ done
 ```
 Bc16_24hr_vs_Bc16_mycelium_down
 Total number of genes in dataset:
-3,422
+3,370
 Total number of RxLRs in dataset:
-109
+63
 Total number of CRNs in dataset:
-9
+6
 Total number of Apoplastic effectors in dataset:
-348
+237
 Bc16_24hr_vs_Bc16_mycelium
 Total number of genes in dataset:
-7,809
+7,845
 Total number of RxLRs in dataset:
-247
-Total number of CRNs in dataset:
-20
-Total number of Apoplastic effectors in dataset:
-714
-Bc16_24hr_vs_Bc16_mycelium_up
-Total number of genes in dataset:
-2,124
-Total number of RxLRs in dataset:
-107
-Total number of CRNs in dataset:
-3
-Total number of Apoplastic effectors in dataset:
-309
-Bc16_48hr_vs_Bc16_mycelium_down
-Total number of genes in dataset:
-3,471
-Total number of RxLRs in dataset:
-126
+190
 Total number of CRNs in dataset:
 17
 Total number of Apoplastic effectors in dataset:
-415
+550
+Bc16_24hr_vs_Bc16_mycelium_up
+Total number of genes in dataset:
+2,117
+Total number of RxLRs in dataset:
+98
+Total number of CRNs in dataset:
+3
+Total number of Apoplastic effectors in dataset:
+265
+Bc16_48hr_vs_Bc16_mycelium_down
+Total number of genes in dataset:
+3,277
+Total number of RxLRs in dataset:
+65
+Total number of CRNs in dataset:
+11
+Total number of Apoplastic effectors in dataset:
+254
 Bc16_48hr_vs_Bc16_mycelium
 Total number of genes in dataset:
-9,849
+9,782
 Total number of RxLRs in dataset:
-316
+223
 Total number of CRNs in dataset:
-36
+32
 Total number of Apoplastic effectors in dataset:
-976
+737
 Bc16_48hr_vs_Bc16_mycelium_up
 Total number of genes in dataset:
-2,618
+2,568
 Total number of RxLRs in dataset:
-128
+112
 Total number of CRNs in dataset:
-2
+3
 Total number of Apoplastic effectors in dataset:
-445
+385
 Bc16_96hr_vs_Bc16_mycelium_down
 Total number of genes in dataset:
-2,531
+2,337
 Total number of RxLRs in dataset:
-106
-Total number of CRNs in dataset:
-8
-Total number of Apoplastic effectors in dataset:
-364
-Bc16_96hr_vs_Bc16_mycelium
-Total number of genes in dataset:
-10,217
-Total number of RxLRs in dataset:
-337
-Total number of CRNs in dataset:
-26
-Total number of Apoplastic effectors in dataset:
-1,080
-Bc16_96hr_vs_Bc16_mycelium_up
-Total number of genes in dataset:
-3,301
-Total number of RxLRs in dataset:
-141
+53
 Total number of CRNs in dataset:
 5
 Total number of Apoplastic effectors in dataset:
-553
+207
+Bc16_96hr_vs_Bc16_mycelium
+Total number of genes in dataset:
+9,971
+Total number of RxLRs in dataset:
+236
+Total number of CRNs in dataset:
+24
+Total number of Apoplastic effectors in dataset:
+810
+Bc16_96hr_vs_Bc16_mycelium_up
+Total number of genes in dataset:
+3,219
+Total number of RxLRs in dataset:
+122
+Total number of CRNs in dataset:
+6
+Total number of Apoplastic effectors in dataset:
+475
 ```
 
 ## Draw venn diagrams of differentially expressed genes
