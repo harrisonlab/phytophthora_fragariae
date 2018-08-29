@@ -3531,11 +3531,11 @@ P.fragariae Nov9
 Initial search space (Z):             82,839  [actual number of targets]
 Domain search space  (domZ):             390  [number of targets reported over threshold]
 P.fragariae ONT3
-Initial search space (Z):             89,185  [actual number of targets]
-Domain search space  (domZ):             396  [number of targets reported over threshold]
+Initial search space (Z):             53,275  [actual number of targets]
+Domain search space  (domZ):             263  [number of targets reported over threshold]
 P.fragariae SCRP245_v2
-Initial search space (Z):             85,884  [actual number of targets]
-Domain search space  (domZ):             378  [number of targets reported over threshold]
+Initial search space (Z):             52,512  [actual number of targets]
+Domain search space  (domZ):             251  [number of targets reported over threshold]
 ```
 
 ####H.2) From ORF gene models - Hmm evidence of RxLR effectors
