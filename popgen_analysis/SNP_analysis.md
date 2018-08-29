@@ -133,6 +133,8 @@ done
 
 #Carry out PCA and plot the results
 
+Has to be run via qlogin as is crashing on the head node
+
 ```bash
 for vcf in $(ls SNP_calling/*filtered.vcf)
 do
