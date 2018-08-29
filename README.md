@@ -6212,9 +6212,9 @@ do
     SigP4_Headers=gene_pred/final_signalp-4.1/$Species/$Isolate/"$Isolate"_aug_sp_Headers.txt
     SigP4_ORF_AA=gene_pred/ORF_signalp-4.1/$Species/$Isolate/"$Isolate"_aug_sp.aa
     SigP4_ORF_Headers=gene_pred/ORF_signalp-4.1/$Species/$Isolate/"$Isolate"_aug_sp_Headers.txt
-    Phobius_AA=analysis/phobius_CQ/$Species/$Isolate/"$Isolate"_phobius.aa
+    Phobius_AA=analysis/phobius_CQ/$Species/$Isolate/"$Isolate"_phobius.fa
     Phobius_Headers=analysis/phobius_CQ/$Species/$Isolate/"$Isolate"_phobius_Headers.txt
-    Phobius_ORF_AA=analysis/phobius_ORF/$Species/$Isolate/"$Isolate"_phobius.aa
+    Phobius_ORF_AA=analysis/phobius_ORF/$Species/$Isolate/"$Isolate"_phobius.fa
     Phobius_ORF_Headers=analysis/phobius_ORF/$Species/$Isolate/"$Isolate"_phobius_Headers.txt
     Aug_Secreted=gene_pred/combined_sigP_CQ/$Species/$Isolate/"$Isolate"_secreted.txt
     ORF_Secreted=gene_pred/combined_sigP_ORF/$Species/$Isolate/"$Isolate"_all_secreted_merged.txt
