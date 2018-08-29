@@ -6362,5 +6362,29 @@ do
 done
 ```
 
+```
+P.fragariae - Bc16
+The number of predicted RxLRs is:
+1,058
+The number of predicted RxLRs with fasta sequences is:
+1,058
+The number of high-confidence predicted RxLRs is:
+297
+The number of high-confidence predicted RxLRs with fasta sequences is:
+297
+The number of predicted CRN effectors is:
+88
+The number of predicted CRN effectors with fasta sequences is:
+88
+The number of predicted Apoplastic effectors is:
+4,864
+The number of predicted Apoplastic effectors with fasta sequences is:
+4,864
+The number of predicted secreted proteins is:
+8,024
+The number of predicted secreted proteins with fasta sequences is:
+8,024
+```
+
 Further downstream analysis done in OrthoFinder.md, RNA-Seq_analysis.md and
 popgen_analysis directory
