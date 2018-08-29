@@ -74,16 +74,16 @@ UK3:
 None found
 ``` -->
 
-#Maria has a (probably better) script to look at this.
+## Maria has a (probably better) script to look at this.
 
-##Set inital variables
+### Set inital variables
 
 ```bash
 scripts=/home/sobczm/bin/popgen/summary_stats
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/Polarising
 ```
 
-##Create a cut-down vcf and filter it
+### Create a cut-down vcf and filter it
 
 ```bash
 mkdir $input
@@ -98,9 +98,9 @@ vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf polished_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out polished_contigs_unmasked_bw_filtered
 ```
 
-## This requires editing every time, the python script is designed by Maria to find differences
+### This requires editing every time, the python script is designed by Maria to find differences
 
-### For UK2, set UK2 isolates and P. rubi isolates
+#### For UK2, set UK2 isolates and P. rubi isolates
 
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_filtered.recode.vcf --out polished_contigs_unmasked_bw_filtered_fixed.vcf --ply 2 --pop1 Bc16,,A4,,SCRP249,,SCRP324,,SCRP333 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
@@ -111,7 +111,7 @@ Only one variant found, a G to A SNP on contig 14 at position 964,434. No gene p
 g10156 nearest - no annotations found
 ```
 
-###UK1 based analysis
+#### UK1 based analysis
 
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_filtered.recode.vcf --out polished_contigs_unmasked_bw_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
@@ -121,7 +121,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_fi
 Nothing found.
 ```
 
-###UK3 based analysis
+#### UK3 based analysis
 
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_filtered.recode.vcf --out polished_contigs_unmasked_bw_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71,,SCRP249,,SCRP324,,SCRP333 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
@@ -131,16 +131,16 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_fi
 Nothing found.
 ```
 
-#Private variants without rubi, just looking for private differences within UK123 strains
+## Private variants without rubi, just looking for private differences within UK123 strains
 
-##Set inital variables
+### Set inital variables
 
 ```bash
 scripts=/home/sobczm/bin/popgen/summary_stats
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/Polarising
 ```
 
-##Create a cut-down vcf and filter it
+### Create a cut-down vcf and filter it
 
 ```bash
 cd $input
@@ -152,8 +152,9 @@ vcftools=/home/sobczm/bin/vcftools/bin
 $vcftools/vcftools --vcf polished_contigs_unmasked_bw.vcf  --max-missing 0.95 --recode --out polished_contigs_unmasked_pol_filtered
 ```
 
-## This requires editing every time, the python script is designed by Maria to find differences
-### For UK2, set UK2 isolates and P. rubi isolates
+### This requires editing every time, the python script is designed by Maria to find differences
+
+#### For UK2, set UK2 isolates and P. rubi isolates
 
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_filtered.recode.vcf --out polished_contigs_unmasked_pol_filtered_fixed.vcf --ply 2 --pop1 Bc16,,A4 --pop2 Nov5,,Bc1,,Nov9,,Nov27,,Nov71 --thr 0.95
@@ -174,7 +175,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 11. contig_76 248,619 T/C - ~1kb upstream of g30189 (no annotation), ~4.5kb upstream of g30188
 ```
 
-### UK1 based analysis
+#### UK1 based analysis
 
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_filtered.recode.vcf --out polished_contigs_unmasked_pol_filtered_fixed_UK1.vcf --ply 2 --pop1 Bc1,,Nov5 --pop2 A4,,Bc16,,Nov9,,Nov27,,Nov71 --thr 0.95
@@ -184,7 +185,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_f
 None found.
 ```
 
-### UK3 based analysis
+#### UK3 based analysis
 
 ```bash
 python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_pol_filtered.recode.vcf --out polished_contigs_unmasked_pol_filtered_fixed_UK3.vcf --ply 2 --pop1 Nov9,,Nov27,,Nov71 --pop2 A4,,Bc16,,Nov5,,Bc1 --thr 0.95
