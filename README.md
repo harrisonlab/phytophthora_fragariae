@@ -6281,7 +6281,7 @@ do
     Aug_Secreted_renamed=gene_pred/combined_sigP_CQ/$Species/$Isolate/"$Isolate"_secreted_renamed.txt
     ORF_Secreted_renamed=gene_pred/combined_sigP_ORF/$Species/$Isolate/"$Isolate"_all_secreted_merged_renamed.txt
 
-    Proteome=gene_prediction/annotation/$Species/$Isolate/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
+    Proteome=gene_pred/annotation/$Species/$Isolate/"$Isolate"_genes_incl_ORFeffectors_renamed.pep.fasta
 
     RxLR_renamed_seqs=analysis/RxLR_effectors/combined_evidence/$Species/$Isolate/"$Isolate"_Total_RxLR_motif_hmm_renamed.fa
     RxLR_EER_renamed_seqs=analysis/RxLR_effectors/combined_evidence/$Species/$Isolate/"$Isolate"_Total_RxLR_EER_motif_hmm_renamed.fa
