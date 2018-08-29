@@ -56,10 +56,15 @@ print "Conversion file loaded and parsed"
 New_IDs = []
 
 for Old_Gene in Old_Set:
-    New_Gene = conversion_dict[Old_Gene]
-    New_IDs.append(New_Gene)
+    split_gene = Old_Gene.split(".")
+    ID_search_for = split_gene[0]
+    Transcript_Number = split_gene[1]
+    New_Gene = conversion_dict[ID_search_for]
+    New_Transcript = ".".join([New_Gene, Transcript_Number])
+    New_IDs.append(New_Transcript)
 
 New_Set = set(New_IDs)
+New_Set.discard(".t1")
 
 print "New gene IDs generated"
 
