@@ -6037,141 +6037,37 @@ done
 ```
 
 ```
-Greedy RxLRs plus ApoP
 P.fragariae A4:
 244
-Greedy RxLRs plus ApoP
-P.fragariae Bc16:
-272
-Greedy RxLRs plus ApoP
-P.fragariae Bc1:
-247
-Greedy RxLRs plus ApoP
-P.fragariae Bc23:
-244
-Greedy RxLRs plus ApoP
-P.fragariae Nov27:
-245
-Greedy RxLRs plus ApoP
-P.fragariae Nov5:
-250
-Greedy RxLRs plus ApoP
-P.fragariae Nov71:
-239
-Greedy RxLRs plus ApoP
-P.fragariae Nov77:
-236
-Greedy RxLRs plus ApoP
-P.fragariae Nov9:
-242
-Greedy RxLRs plus ApoP
-P.fragariae ONT3:
-244
-Greedy RxLRs plus ApoP
-P.fragariae SCRP245_v2:
-252
 
-Conservative RxLRs plus ApoP
-P.fragariae A4:
-244
-Conservative RxLRs plus ApoP
-P.fragariae Bc16:
-272
-Conservative RxLRs plus ApoP
-P.fragariae Bc1:
-247
-Conservative RxLRs plus ApoP
-P.fragariae Bc23:
-244
-Conservative RxLRs plus ApoP
-P.fragariae Nov27:
-245
-Conservative RxLRs plus ApoP
-P.fragariae Nov5:
-250
-Conservative RxLRs plus ApoP
-P.fragariae Nov71:
-239
-Conservative RxLRs plus ApoP
-P.fragariae Nov77:
-236
-Conservative RxLRs plus ApoP
-P.fragariae Nov9:
-242
-Conservative RxLRs plus ApoP
-P.fragariae ONT3:
-244
-Conservative RxLRs plus ApoP
-P.fragariae SCRP245_v2:
-252
-
-Greedy RxLRs, no ApoP
-P.fragariae A4:
-242
-Greedy RxLRs, no ApoP
 P.fragariae Bc16:
 269
-Greedy RxLRs, no ApoP
-P.fragariae Bc1:
-245
-Greedy RxLRs, no ApoP
-P.fragariae Bc23:
-242
-Greedy RxLRs, no ApoP
-P.fragariae Nov27:
-243
-Greedy RxLRs, no ApoP
-P.fragariae Nov5:
-248
-Greedy RxLRs, no ApoP
-P.fragariae Nov71:
-237
-Greedy RxLRs, no ApoP
-P.fragariae Nov77:
-235
-Greedy RxLRs, no ApoP
-P.fragariae Nov9:
-240
-Greedy RxLRs, no ApoP
-P.fragariae ONT3:
-242
-Greedy RxLRs, no ApoP
-P.fragariae SCRP245_v2:
-251
 
-Conservative RxLRs, no ApoP
-P.fragariae A4:
-242
-Conservative RxLRs, no ApoP
-P.fragariae Bc16:
-269
-Conservative RxLRs, no ApoP
 P.fragariae Bc1:
-245
-Conservative RxLRs, no ApoP
+247
+
 P.fragariae Bc23:
-242
-Conservative RxLRs, no ApoP
+244
 P.fragariae Nov27:
-243
-Conservative RxLRs, no ApoP
+245
+
 P.fragariae Nov5:
-248
-Conservative RxLRs, no ApoP
+250
+
 P.fragariae Nov71:
-237
-Conservative RxLRs, no ApoP
+239
+
 P.fragariae Nov77:
-235
-Conservative RxLRs, no ApoP
+236
+
 P.fragariae Nov9:
-240
-Conservative RxLRs, no ApoP
-P.fragariae ONT3:
 242
-Conservative RxLRs, no ApoP
+
+P.fragariae ONT3:
+244
+
 P.fragariae SCRP245_v2:
-251
+252
 ```
 
 ## Rename predicted effectors to allow further analysis with gene models on NCBI
