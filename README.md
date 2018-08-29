@@ -3615,13 +3615,13 @@ Initial search space (Z):             82,839  [actual number of targets]
 Domain search space  (domZ):             657  [number of targets reported over threshold]
 Merged RxLR-EER Hmm proteins:   200
 P.fragariae ONT3
-Initial search space (Z):             89,185  [actual number of targets]
-Domain search space  (domZ):             677  [number of targets reported over threshold]
-Merged RxLR-EER Hmm proteins:   206
+Initial search space (Z):             53,275  [actual number of targets]
+Domain search space  (domZ):             452  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   205
 P.fragariae SCRP245_v2
-Initial search space (Z):             85,884  [actual number of targets]
-Domain search space  (domZ):             666  [number of targets reported over threshold]
-Merged RxLR-EER Hmm proteins:   203
+Initial search space (Z):             52,512  [actual number of targets]
+Domain search space  (domZ):             444  [number of targets reported over threshold]
+Merged RxLR-EER Hmm proteins:   202
 ```
 
 ####Combining RxLRs from Regex and hmm searches
