@@ -1659,6 +1659,7 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
 
 ggsave("analysis/DeSeq/Method_1/Bc16/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
+# Throws an X11 error but still draws the plot
 
 #Analysis of gene expression
 
