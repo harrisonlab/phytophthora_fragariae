@@ -3776,23 +3776,23 @@ Number of genes in the extracted gff file:
 
 P.fragariae - ONT3
 Number of RxLRs identified by Regex:
-274
+269
 Number of RxLRs identified by Hmm:
-206
+205
 Number of RxLRs in combined dataset:
-304
+298
 Number of genes in the extracted gff file:
-304
+298
 
 P.fragariae - SCRP245_v2
 Number of RxLRs identified by Regex:
-273
+270
 Number of RxLRs identified by Hmm:
-203
+202
 Number of RxLRs in combined dataset:
-300
+296
 Number of genes in the extracted gff file:
-300
+296
 
 Without EER:
 P.fragariae - A4
@@ -3887,23 +3887,23 @@ Number of genes in the extracted gff file:
 
 P.fragariae - ONT3
 Number of RxLRs identified by Regex:
-2,268
+2,048
 Number of RxLRs identified by Hmm:
-206
+205
 Number of RxLRs in combined dataset:
-2,279
+2,058
 Number of genes in the extracted gff file:
-2,279
+2,058
 
 P.fragariae - SCRP245_v2
 Number of RxLRs identified by Regex:
-2,167
+2,024
 Number of RxLRs identified by Hmm:
-203
+202
 Number of RxLRs in combined dataset:
-2,178
+2,034
 Number of genes in the extracted gff file:
-2,178
+2,034
 ```
 
 ####Analysis of RxLR effectors - merger of Augustus / published genes with ORFs
