@@ -140,7 +140,7 @@ do
     scripts=/home/adamst/git_repos/scripts/popgen/snp
     out=$(basename $vcf contigs_unmasked_filtered.vcf)
     echo $out
-    Rscript --vanilla $scripts/pca.R $vcf $out
+    /home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/pca.R $vcf $out
 done
 ```
 
