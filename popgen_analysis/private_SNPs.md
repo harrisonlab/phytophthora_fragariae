@@ -108,7 +108,7 @@ python $scripts/vcf_find_difference_pop.py --vcf polished_contigs_unmasked_bw_fi
 
 ```
 Only one variant found, a G to A SNP on contig 14 at position 964,434. No gene present, but a possible promoter region, 1kb from gene models
-g10156 nearest - no annotations found
+g11265 nearest - no annotations found, no expression evidence in any of UK123
 ```
 
 #### UK1 based analysis
