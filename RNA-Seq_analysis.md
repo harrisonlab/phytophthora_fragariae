@@ -2426,6 +2426,8 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
 
 ggsave("analysis/DeSeq/Method_2/Bc16/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
+# Throws an X11 warning but still draws the plot
+
 #Analysis of gene expression
 
 #BC-16_24hrs vs BC-16_mycelium
