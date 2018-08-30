@@ -1919,19 +1919,19 @@ Total:
 
 ONT3
 Braker:
-24,223
+21,417
 CodingQuarry:
-9,931
+9,571
 Total:
-34,153
+30,987
 
 SCRP245_v2
 Braker:
-24,610
+20,838
 CodingQuarry:
-10,078
+10,160
 Total:
-34,687
+30,996
 ```
 
 ##Predicted gene set assessed using BUSCO to assess completeness
