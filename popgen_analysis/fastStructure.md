@@ -162,7 +162,7 @@ Throws an error for being unable to load a Fontconfig file (non-critical)
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/UK123
-scripts=scripts=/home/adamst/git_repos/scripts/popgen/snp
+scripts=/home/adamst/git_repos/scripts/popgen/snp
 ```
 
 ### Converts VCF files to Plink's PED format
