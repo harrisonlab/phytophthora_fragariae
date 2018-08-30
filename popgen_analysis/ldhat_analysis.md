@@ -4,7 +4,7 @@ Caveat - the model for recombination hotspots is based on human data
 
 ## Installation and profile modifications
 
-Not required for other users
+Install not required for other users
 
 ```bash
 cd  /home/adamst/prog
