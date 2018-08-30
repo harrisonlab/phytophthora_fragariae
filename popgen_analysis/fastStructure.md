@@ -240,7 +240,7 @@ This should help detect any weak signals of population structure
 
 ```bash
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/fastStructure/UK123_logistic
-scripts=scripts=/home/adamst/git_repos/scripts/popgen/snp
+scripts=/home/adamst/git_repos/scripts/popgen/snp
 ```
 
 ### Converts VCF files to Plink's PED format
