@@ -41,7 +41,6 @@ based on fastStructure results
 ### Carry out phasing of diploid genomes
 
 ```bash
-cd summary_stats
 inputvcf=polished_contigs_unmasked_Pf_filtered.recode_annotated.vcf
 qsub $scripts/snp/sub_beagle.sh $inputvcf
 ```
@@ -70,7 +69,6 @@ based on fastStructure results - they group separately
 ### Carry out phasing of diploid genomes
 
 ```bash
-cd summary_stats
 fullvcf=../SNP_calling/polished_contigs_unmasked_filtered.recode.vcf
 inputvcf=polished_contigs_unmasked_Bc23ONT3_filtered.recode_annotated.vcf
 vcflib=/home/sobczm/bin/vcflib/bin
