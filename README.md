@@ -1934,159 +1934,6 @@ Total:
 30,996
 ```
 
-##Predicted gene set assessed using BUSCO to assess completeness
-
-```bash
-for Transcriptome in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gene.fasta)
-do
-    Strain=$(echo $Transcriptome| rev | cut -d '/' -f3 | rev)
-    Organism=$(echo $Transcriptome | rev | cut -d '/' -f4 | rev)
-    echo "$Organism - $Strain"
-    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
-    BuscoDB=Eukaryotic
-    OutDir=gene_pred/busco/$Organism/$Strain/
-    qsub $ProgDir/sub_busco3.sh $Transcriptome $BuscoDB $OutDir
-done
-```
-
-```
-A4
-Complete and single copy genes: 272
-Complete and duplicated genes: 7
-Fragmented genes: 9
-Missing genes: 15
-
-Bc16
-Complete and single copy genes: 263
-Complete and duplicated genes: 9
-Fragmented genes: 10
-Missing genes: 21
-
-Bc1
-Complete and single copy genes: 272
-Complete and duplicated genes: 7
-Fragmented genes: 9
-Missing genes: 15
-
-Bc23
-Complete and single copy genes: 274
-Complete and duplicated genes: 6
-Fragmented genes: 8
-Missing genes: 15
-
-Nov27
-Complete and single copy genes: 273
-Complete and duplicated genes: 7
-Fragmented genes: 8
-Missing genes: 15
-
-Nov5
-Complete and single copy genes: 273
-Complete and duplicated genes: 7
-Fragmented genes: 8
-Missing genes: 15
-
-Nov71
-Complete and single copy genes: 272
-Complete and duplicated genes: 7
-Fragmented genes: 9
-Missing genes: 15
-
-Nov77
-Complete and single copy genes: 271
-Complete and duplicated genes: 7
-Fragmented genes: 9
-Missing genes: 16
-
-Nov9
-Complete and single copy genes: 273
-Complete and duplicated genes: 7
-Fragmented genes: 8
-Missing genes: 15
-
-ONT3
-Complete and single copy genes: 276
-Complete and duplicated genes: 8
-Fragmented genes: 6
-Missing genes: 13
-
-SCRP245_v2
-Complete and single copy genes: 273
-Complete and duplicated genes: 8
-Fragmented genes: 8
-Missing genes: 14
-```
-
-Changes with respect to genome sequence
-
-```
-A4
-Complete and single copy genes: -2
-Complete and duplicated genes: +1
-Fragmented genes: +3
-Missing genes: -2
-
-Bc16
-Complete and single copy genes: -3
-Complete and duplicated genes: 0
-Fragmented genes: +5
-Missing genes: -2
-
-Bc1
-Complete and single copy genes: -2
-Complete and duplicated genes: +1
-Fragmented genes: +3
-Missing genes: -2
-
-Bc23
-Complete and single copy genes: -1
-Complete and duplicated genes: +1
-Fragmented genes: +1
-Missing genes: -1
-
-Nov27
-Complete and single copy genes: 0
-Complete and duplicated genes: +1
-Fragmented genes: +1
-Missing genes: -2
-
-Nov5
-Complete and single copy genes: 0
-Complete and duplicated genes: 0
-Fragmented genes: +2
-Missing genes: -2
-
-Nov71
-Complete and single copy genes: -2
-Complete and duplicated genes: +1
-Fragmented genes: +3
-Missing genes: -2
-
-Nov77
-Complete and single copy genes: -1
-Complete and duplicated genes: -1
-Fragmented genes: +3
-Missing genes: -1
-
-Nov9
-Complete and single copy genes: 0
-Complete and duplicated genes: +1
-Fragmented genes: +1
-Missing genes: -2
-
-ONT3
-Complete and single copy genes: -1
-Complete and duplicated genes: +1
-Fragmented genes: +2
-Missing genes: -2
-
-SCRP245_v2
-Complete and single copy genes: 0
-Complete and duplicated genes: +1
-Fragmented genes: +1
-Missing genes: -2
-```
-
 #Gene prediction 2 - atg.pl prediction of ORFs
 
 Open reading frame predictions were made using the atg.pl script as part of the path_pipe.sh pipeline. This pipeline also identifies open reading frames containing Signal peptide sequences and RxLRs. This pipeline was run with the following commands:
@@ -5628,6 +5475,161 @@ do
     done
     qsub $ProgDir/sub_swissprot.sh $Proteome $OutDir $SwissDbDir $SwissDbName
 done
+```
+
+After further edits and corrections and submission to NCBI BUSCO genes assessed
+
+##Predicted gene set assessed using BUSCO to assess completeness
+
+```bash
+for Transcriptome in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gene.fasta)
+do
+    Strain=$(echo $Transcriptome| rev | cut -d '/' -f3 | rev)
+    Organism=$(echo $Transcriptome | rev | cut -d '/' -f4 | rev)
+    echo "$Organism - $Strain"
+    ProgDir=/home/adamst/git_repos/tools/gene_prediction/busco
+    BuscoDB=Eukaryotic
+    OutDir=gene_pred/busco/$Organism/$Strain/
+    qsub $ProgDir/sub_busco3.sh $Transcriptome $BuscoDB $OutDir
+done
+```
+
+```
+A4
+Complete and single copy genes: 272
+Complete and duplicated genes: 7
+Fragmented genes: 9
+Missing genes: 15
+
+Bc16
+Complete and single copy genes: 263
+Complete and duplicated genes: 9
+Fragmented genes: 10
+Missing genes: 21
+
+Bc1
+Complete and single copy genes: 272
+Complete and duplicated genes: 7
+Fragmented genes: 9
+Missing genes: 15
+
+Bc23
+Complete and single copy genes: 274
+Complete and duplicated genes: 6
+Fragmented genes: 8
+Missing genes: 15
+
+Nov27
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
+Missing genes: 15
+
+Nov5
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
+Missing genes: 15
+
+Nov71
+Complete and single copy genes: 272
+Complete and duplicated genes: 7
+Fragmented genes: 9
+Missing genes: 15
+
+Nov77
+Complete and single copy genes: 271
+Complete and duplicated genes: 7
+Fragmented genes: 9
+Missing genes: 16
+
+Nov9
+Complete and single copy genes: 273
+Complete and duplicated genes: 7
+Fragmented genes: 8
+Missing genes: 15
+
+ONT3
+Complete and single copy genes: 276
+Complete and duplicated genes: 8
+Fragmented genes: 6
+Missing genes: 13
+
+SCRP245_v2
+Complete and single copy genes: 273
+Complete and duplicated genes: 8
+Fragmented genes: 8
+Missing genes: 14
+```
+
+Changes with respect to genome sequence
+
+```
+A4
+Complete and single copy genes: -2
+Complete and duplicated genes: +1
+Fragmented genes: +3
+Missing genes: -2
+
+Bc16
+Complete and single copy genes: -3
+Complete and duplicated genes: 0
+Fragmented genes: +5
+Missing genes: -2
+
+Bc1
+Complete and single copy genes: -2
+Complete and duplicated genes: +1
+Fragmented genes: +3
+Missing genes: -2
+
+Bc23
+Complete and single copy genes: -1
+Complete and duplicated genes: +1
+Fragmented genes: +1
+Missing genes: -1
+
+Nov27
+Complete and single copy genes: 0
+Complete and duplicated genes: +1
+Fragmented genes: +1
+Missing genes: -2
+
+Nov5
+Complete and single copy genes: 0
+Complete and duplicated genes: 0
+Fragmented genes: +2
+Missing genes: -2
+
+Nov71
+Complete and single copy genes: -2
+Complete and duplicated genes: +1
+Fragmented genes: +3
+Missing genes: -2
+
+Nov77
+Complete and single copy genes: -1
+Complete and duplicated genes: -1
+Fragmented genes: +3
+Missing genes: -1
+
+Nov9
+Complete and single copy genes: 0
+Complete and duplicated genes: +1
+Fragmented genes: +1
+Missing genes: -2
+
+ONT3
+Complete and single copy genes: -1
+Complete and duplicated genes: +1
+Fragmented genes: +2
+Missing genes: -2
+
+SCRP245_v2
+Complete and single copy genes: 0
+Complete and duplicated genes: +1
+Fragmented genes: +1
+Missing genes: -2
 ```
 
 ### C) Identify genes with transmembrane domains
