@@ -2843,7 +2843,7 @@ do
     echo "The number of genes predicted as Apoplastic effectors is:"
     cat $Headers | wc -l
     echo "Creating GFF3 file"
-    OutName=$(echo $File | sed 's/.fa/.gff/g')
+    OutName=$(echo $File | sed 's/_raw.fa/.gff/g')
     Test=analysis/ApoplastP/$Organism/$Strain/tmp.txt
     cat $Headers | sed 's/\..*$//g' > $Test
     cat $Gff | grep -w -f $Test > $OutName
@@ -2934,19 +2934,19 @@ Number of genes extracted to Fasta file is:
 
 P.fragariae - ONT3
 The number of genes predicted as Apoplastic effectors is:
-1,080
+982
 Number of genes  extracted into GFF3 file is:
-1,080
+976
 Number of genes extracted to Fasta file is:
-1,080
+982
 
 P.fragariae - SCRP245_v2
 The number of genes predicted as Apoplastic effectors is:
-1,017
+984
 Number of genes  extracted into GFF3 file is:
-1,017
+972
 Number of genes extracted to Fasta file is:
-1,017
+984
 ```
 
 ####F) From ORF gene models - Signal peptide
