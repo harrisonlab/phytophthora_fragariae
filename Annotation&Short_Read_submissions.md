@@ -474,8 +474,7 @@ do
     $ProgDir/remove_dup_features.py --inp_gff $Gff --out_gff $Gff_Filtered
     Gff_Renamed=$OutDir/"$Isolate"_genes_incl_ORFeffectors_renamed.gff3
     Log_File=$OutDir/Renaming_log.log
-    $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered
-    --conversion_log $Log_File > $Gff_Renamed
+    $ProgDir/gff_rename_genes.py --inp_gff $Gff_Filtered --conversion_log $Log_File > $Gff_Renamed
     rm $Gff_Filtered
     if [ -f repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
