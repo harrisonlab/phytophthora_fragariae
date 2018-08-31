@@ -5142,39 +5142,39 @@ The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
 
 P.fragariae - ONT3
 The number of RxLRs not hit by ApoplastP is:
-1,392
+1,228
 The number of RxLRs that also hit ApoplastP is:
-571
+521
 The number of CRNs not hit by ApoplastP is:
-42
+39
 The number of CRNs that also hit ApoplastP is:
 6
 The number of ApoplastP hits that are not RxLRs or CRNs is:
-9,204
-The number of RxLRs, with an EER domain, not hit by ApoplastP is:
-96
-The number of RxLRs, with an EER domain, also hit by ApoplastP is:
-16
-The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
-9,755
-
-P.fragariae - SCRP245_v2
-The number of RxLRs not hit by ApoplastP is:
-1,294
-The number of RxLRs that also hit ApoplastP is:
-556
-The number of CRNs not hit by ApoplastP is:
-52
-The number of CRNs that also hit ApoplastP is:
-5
-The number of ApoplastP hits that are not RxLRs or CRNs is:
-8,999
+8,257
 The number of RxLRs, with an EER domain, not hit by ApoplastP is:
 86
 The number of RxLRs, with an EER domain, also hit by ApoplastP is:
+16
+The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
+8,759
+
+P.fragariae - SCRP245_v2
+The number of RxLRs not hit by ApoplastP is:
+1,198
+The number of RxLRs that also hit ApoplastP is:
+521
+The number of CRNs not hit by ApoplastP is:
+41
+The number of CRNs that also hit ApoplastP is:
+5
+The number of ApoplastP hits that are not RxLRs or CRNs is:
+8,183
+The number of RxLRs, with an EER domain, not hit by ApoplastP is:
+81
+The number of RxLRs, with an EER domain, also hit by ApoplastP is:
 15
 The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
-9,535
+8,686
 ```
 
 ## Making a combined file of Braker and CodingQuarry genes with additional ORF effector candidates
