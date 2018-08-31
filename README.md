@@ -5182,7 +5182,7 @@ The number of ApoplastP hits that are not RxLRs, with an EER domain, or CRNs is:
 ```bash
 for num in 1
 do
-    Without EER discrimination and with ApoplastP
+    # Without EER discrimination and with ApoplastP
     for GeneGff in $(ls gene_pred/final/*/*/final/final_genes_appended_renamed.gff3)
     do
         Strain=$(echo $GeneGff | rev | cut -d '/' -f3 | rev)
