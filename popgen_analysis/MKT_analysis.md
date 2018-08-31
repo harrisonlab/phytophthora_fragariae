@@ -71,7 +71,7 @@ cp $Pf ./
 cp $Pra ./
 cp $Prb ./
 cp $Prc ./
-qsub $scripts/run_progressive_mauve.sh $input/progressiveMauve \
+qsub $scripts/run_progressive_mauve.sh $input/summary_stats/progressiveMauve \
 "polished_contigs_hardmasked.fa SCRP249_contigs_hardmasked.fa \
 SCRP324_contigs_hardmasked.fa SCRP333_contigs_hardmasked.fa"
 
