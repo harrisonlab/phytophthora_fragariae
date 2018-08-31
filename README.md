@@ -2849,7 +2849,7 @@ do
     cat $Gff | grep -w -f $Test > $OutName
     rm $Test
     echo "Number of genes extracted into GFF3 file is:"
-    cat $OutName | grep -w 'gene' | wc -l
+    cat $OutName | grep -w 'mRNA' | wc -l
     echo "Creating parsed fasta file"
     Parsed_Fasta=$(echo $File | sed 's/_ApoplastP_raw.fa/_ApoplastP.fa/g')
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
