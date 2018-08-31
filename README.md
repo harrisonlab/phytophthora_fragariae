@@ -2766,19 +2766,19 @@ Domain search space  (domZ):              96  [number of targets reported over t
 Total number of CRNs from both models
 50
 P.fragariae - ONT3
-Initial search space (Z):             34,153  [actual number of targets]
-Domain search space  (domZ):              84  [number of targets reported over threshold]
-Initial search space (Z):             34,153  [actual number of targets]
+Initial search space (Z):             30,987  [actual number of targets]
+Domain search space  (domZ):              90  [number of targets reported over threshold]
+Initial search space (Z):             30,987  [actual number of targets]
 Domain search space  (domZ):              90  [number of targets reported over threshold]
 Total number of CRNs from both models
-56
+61
 P.fragariae - SCRP245_v2
-Initial search space (Z):             34,687  [actual number of targets]
-Domain search space  (domZ):              78  [number of targets reported over threshold]
-Initial search space (Z):             34,687  [actual number of targets]
-Domain search space  (domZ):              92  [number of targets reported over threshold]
+Initial search space (Z):             30,996  [actual number of targets]
+Domain search space  (domZ):              90  [number of targets reported over threshold]
+Initial search space (Z):             30,996  [actual number of targets]
+Domain search space  (domZ):              87  [number of targets reported over threshold]
 Total number of CRNs from both models
-48
+60
 ```
 
 Extract gff annotations for Crinklers:
