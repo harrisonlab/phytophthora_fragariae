@@ -2849,7 +2849,7 @@ do
     cat $Gff | grep -w -f $Test > $OutName
     rm $Test
     echo "Number of genes extracted into GFF3 file is:"
-    cat $OutName | grep -w 'mRNA' | wc -l
+    cat $OutName | grep -w 'gene' | wc -l
     echo "Creating parsed fasta file"
     Parsed_Fasta=$(echo $File | sed 's/_ApoplastP_raw.fa/_ApoplastP.fa/g')
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
@@ -4876,17 +4876,17 @@ The number of sequences extracted is
 
 P.fragariae - ONT3
 The number of ORF apoplastic effectors overlapping Augustus effectors:
-991
+888
 The number of Augustus apoplastic effectors overlapping ORF apoplastic effectors:
-0
+824
 The number of apoplastic effectors unique to ORF models:
-9,778
+8,782
 The number of apoplastic effectors unique to Augustus models:
-148
+155
 The total number of putative apoplastic effectors are:
-10,858
+9,781
 The number of sequences extracted is
-10,858
+9,781
 
 P.fragariae - SCRP245_v2
 The number of ORF apoplastic effectors overlapping Augustus effectors:
