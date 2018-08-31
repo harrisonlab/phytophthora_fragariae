@@ -2,7 +2,7 @@
 
 R scripts sourced from Maria's analyses
 The R scripts called for this analysis have to be changed for every population.
-Currently set for UK123
+Currently set for Pf
 
 ## UK123 analysis
 
