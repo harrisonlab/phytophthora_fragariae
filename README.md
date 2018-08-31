@@ -2947,6 +2947,9 @@ Number of genes  extracted into GFF3 file is:
 972
 Number of genes extracted to Fasta file is:
 984
+
+The discrepancies beteween fatsa & gff are due to multiple transcripts of the
+same gene being identified as Apoplastic effectors
 ```
 
 ####F) From ORF gene models - Signal peptide
