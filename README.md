@@ -4890,17 +4890,17 @@ The number of sequences extracted is
 
 P.fragariae - SCRP245_v2
 The number of ORF apoplastic effectors overlapping Augustus effectors:
-922
+895
 The number of Augustus apoplastic effectors overlapping ORF apoplastic effectors:
-0
+827
 The number of apoplastic effectors unique to ORF models:
-9,556
+8,707
 The number of apoplastic effectors unique to Augustus models:
-161
+153
 The total number of putative apoplastic effectors are:
-10,573
+9,706
 The number of sequences extracted is
-10,573
+9,706
 ```
 
 ## Before making a combined GFF, several other intersects are needed
