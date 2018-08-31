@@ -2389,11 +2389,11 @@ P.fragariae Nov9
 Initial search space (Z):             30,828  [actual number of targets]
 Domain search space  (domZ):             186  [number of targets reported over threshold]
 P.fragariae ONT3
-Initial search space (Z):             34,153  [actual number of targets]
-Domain search space  (domZ):             185  [number of targets reported over threshold]
+Initial search space (Z):             30,987  [actual number of targets]
+Domain search space  (domZ):             191  [number of targets reported over threshold]
 P.fragariae SCRP245_v2
-Initial search space (Z):             34,687  [actual number of targets]
-Domain search space  (domZ):             194  [number of targets reported over threshold]
+Initial search space (Z):             30,996  [actual number of targets]
+Domain search space  (domZ):             196  [number of targets reported over threshold]
 ```
 
 ####Combining RxLRs from Regex and hmm searches
