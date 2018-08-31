@@ -2205,14 +2205,14 @@ This represented the following number of unique genes:
 3,637
 P.fragariae - ONT3
 The following number of sequences were predicted as secreted:
-12,128
+10,779
 This represented the following number of unique genes:
-4,147
+3,658
 P.fragariae - SCRP245_v2
 The following number of sequences were predicted as secreted:
-11,712
+10,642
 This represented the following number of unique genes:
-4,012
+3,581
 ```
 
 ####B) The regular expression R.LR.{,40}[ED][ED][KR] has previously been used to identify RxLR effectors. The addition of an EER motif is significant as it has been shown as required for host uptake of the protein.
