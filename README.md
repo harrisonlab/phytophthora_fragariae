@@ -4482,26 +4482,26 @@ The number of sequences extracted is
 107
 P.fragariae - ONT3
 The number of ORF CRNs overlapping Augustus CRNs:
-55
+58
 The number of Augustus CRNs overlapping ORF CRNs:
-55
+59
 The number of CRNs unique to ORF models:
-48
+45
 The number of CRNs unique to Augustus models:
-1
+2
 The number of sequences extracted is
-104
+106
 P.fragariae - SCRP245_v2
 The number of ORF CRNs overlapping Augustus CRNs:
-48
+59
 The number of Augustus CRNs overlapping ORF CRNs:
-48
+60
 The number of CRNs unique to ORF models:
-57
+46
 The number of CRNs unique to Augustus models:
 0
 The number of sequences extracted is
-105
+106
 ```
 
 ####J) From ORF fragments - ApoplastP prediction of apoplastic effectors
