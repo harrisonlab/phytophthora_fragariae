@@ -6248,6 +6248,50 @@ done
 ```
 
 ```
+P.fragariae - A4
+The number of predicted RxLRs is:
+950
+The number of predicted RxLRs with fasta sequences is:
+950
+The number of high-confidence predicted RxLRs is:
+268
+The number of high-confidence predicted RxLRs with fasta sequences is:
+268
+The number of predicted CRN effectors is:
+68
+The number of predicted CRN effectors with fasta sequences is:
+68
+The number of predicted Apoplastic effectors is:
+3,993
+The number of predicted Apoplastic effectors with fasta sequences is:
+3,993
+The number of predicted secreted proteins is:
+6,887
+The number of predicted secreted proteins with fasta sequences is:
+6,887
+
+P.fragariae - Bc1
+The number of predicted RxLRs is:
+935
+The number of predicted RxLRs with fasta sequences is:
+935
+The number of high-confidence predicted RxLRs is:
+270
+The number of high-confidence predicted RxLRs with fasta sequences is:
+270
+The number of predicted CRN effectors is:
+59
+The number of predicted CRN effectors with fasta sequences is:
+59
+The number of predicted Apoplastic effectors is:
+3,890
+The number of predicted Apoplastic effectors with fasta sequences is:
+3,890
+The number of predicted secreted proteins is:
+6,724
+The number of predicted secreted proteins with fasta sequences is:
+6,724
+
 P.fragariae - Bc16
 The number of predicted RxLRs is:
 1,058
@@ -6269,6 +6313,182 @@ The number of predicted secreted proteins is:
 8,024
 The number of predicted secreted proteins with fasta sequences is:
 8,024
+
+P.fragariae - Bc23
+The number of predicted RxLRs is:
+945
+The number of predicted RxLRs with fasta sequences is:
+945
+The number of high-confidence predicted RxLRs is:
+266
+The number of high-confidence predicted RxLRs with fasta sequences is:
+266
+The number of predicted CRN effectors is:
+62
+The number of predicted CRN effectors with fasta sequences is:
+62
+The number of predicted Apoplastic effectors is:
+3,730
+The number of predicted Apoplastic effectors with fasta sequences is:
+3,730
+The number of predicted secreted proteins is:
+6,602
+The number of predicted secreted proteins with fasta sequences is:
+6,602
+
+P.fragariae - Nov27
+The number of predicted RxLRs is:
+908
+The number of predicted RxLRs with fasta sequences is:
+908
+The number of high-confidence predicted RxLRs is:
+259
+The number of high-confidence predicted RxLRs with fasta sequences is:
+259
+The number of predicted CRN effectors is:
+63
+The number of predicted CRN effectors with fasta sequences is:
+63
+The number of predicted Apoplastic effectors is:
+3,793
+The number of predicted Apoplastic effectors with fasta sequences is:
+3,793
+The number of predicted secreted proteins is:
+6,696
+The number of predicted secreted proteins with fasta sequences is:
+6,696
+
+P.fragariae - Nov5
+The number of predicted RxLRs is:
+932
+The number of predicted RxLRs with fasta sequences is:
+932
+The number of high-confidence predicted RxLRs is:
+266
+The number of high-confidence predicted RxLRs with fasta sequences is:
+266
+The number of predicted CRN effectors is:
+67
+The number of predicted CRN effectors with fasta sequences is:
+67
+The number of predicted Apoplastic effectors is:
+4,003
+The number of predicted Apoplastic effectors with fasta sequences is:
+4,003
+The number of predicted secreted proteins is:
+6,884
+The number of predicted secreted proteins with fasta sequences is:
+6,884
+
+P.fragariae - Nov71
+The number of predicted RxLRs is:
+939
+The number of predicted RxLRs with fasta sequences is:
+939
+The number of high-confidence predicted RxLRs is:
+263
+The number of high-confidence predicted RxLRs with fasta sequences is:
+263
+The number of predicted CRN effectors is:
+71
+The number of predicted CRN effectors with fasta sequences is:
+71
+The number of predicted Apoplastic effectors is:
+4,001
+The number of predicted Apoplastic effectors with fasta sequences is:
+4,001
+The number of predicted secreted proteins is:
+6,880
+The number of predicted secreted proteins with fasta sequences is:
+6,880
+
+P.fragariae - Nov77
+The number of predicted RxLRs is:
+945
+The number of predicted RxLRs with fasta sequences is:
+945
+The number of high-confidence predicted RxLRs is:
+252
+The number of high-confidence predicted RxLRs with fasta sequences is:
+252
+The number of predicted CRN effectors is:
+75
+The number of predicted CRN effectors with fasta sequences is:
+75
+The number of predicted Apoplastic effectors is:
+4,022
+The number of predicted Apoplastic effectors with fasta sequences is:
+4,022
+The number of predicted secreted proteins is:
+6,901
+The number of predicted secreted proteins with fasta sequences is:
+6,901
+
+P.fragariae - Nov9
+The number of predicted RxLRs is:
+961
+The number of predicted RxLRs with fasta sequences is:
+961
+The number of high-confidence predicted RxLRs is:
+262
+The number of high-confidence predicted RxLRs with fasta sequences is:
+262
+The number of predicted CRN effectors is:
+61
+The number of predicted CRN effectors with fasta sequences is:
+61
+The number of predicted Apoplastic effectors is:
+4,090
+The number of predicted Apoplastic effectors with fasta sequences is:
+4,090
+The number of predicted secreted proteins is:
+6,968
+The number of predicted secreted proteins with fasta sequences is:
+6,968
+
+P.fragariae - ONT3
+The number of predicted RxLRs is:
+913
+The number of predicted RxLRs with fasta sequences is:
+913
+The number of high-confidence predicted RxLRs is:
+267
+The number of high-confidence predicted RxLRs with fasta sequences is:
+267
+The number of predicted CRN effectors is:
+74
+The number of predicted CRN effectors with fasta sequences is:
+74
+The number of predicted Apoplastic effectors is:
+3,816
+The number of predicted Apoplastic effectors with fasta sequences is:
+3,816
+The number of predicted secreted proteins is:
+6,734
+The number of predicted secreted proteins with fasta sequences is:
+6,734
+
+P.fragariae - SCRP245_v2
+The number of predicted RxLRs is:
+895
+The number of predicted RxLRs with fasta sequences is:
+895
+The number of high-confidence predicted RxLRs is:
+271
+The number of high-confidence predicted RxLRs with fasta sequences is:
+271
+The number of predicted CRN effectors is:
+68
+The number of predicted CRN effectors with fasta sequences is:
+68
+The number of predicted Apoplastic effectors is:
+3,622
+The number of predicted Apoplastic effectors with fasta sequences is:
+3,622
+The number of predicted secreted proteins is:
+6,460
+The number of predicted secreted proteins with fasta sequences is:
+6,460
 ```
 
 Further downstream analysis done in OrthoFinder.md, RNA-Seq_analysis.md and
