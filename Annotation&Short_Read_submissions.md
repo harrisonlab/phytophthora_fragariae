@@ -704,7 +704,11 @@ do
     Organism=P.fragariae
     echo "$Organism - $Isolate"
     OutDir=genome_submission/$Organism/$Isolate
-    if [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+    if [ -f repeat_masked/$Organism/$Isolate/manual_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Isolate/manual_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
