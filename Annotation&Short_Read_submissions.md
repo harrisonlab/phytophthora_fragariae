@@ -647,7 +647,11 @@ for Isolate in A4 Bc1 Bc16 Bc23 Nov27 Nov5 Nov71 Nov77 Nov9 ONT3 SCRP245_v2
 do
     Organism=P.fragariae
     echo "$Organism - $Isolate"
-    if [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+    if [ -f repeat_masked/$Organism/$Isolate/manual_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls repeat_masked/$Organism/$Isolate/manual_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
