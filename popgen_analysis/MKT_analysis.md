@@ -282,9 +282,9 @@ $input/summary_stats/polished_contigs_UK123_plus_ancestral_unmasked_filtered_gen
 
 ```
 In total, 240,692 variants were annotated with consensus ancestral allele,
-out of 540,513 variants in the file. 283 annotations were found to differ
+out of 358,599 variants in the file. 283 annotations were found to differ
 between the two input annotation sources, and were rejected, while 117,624
-and 101,328 ancestral allele annotations were present only in the input
+and 0 ancestral allele annotations were present only in the input
 annotation source 1 or 2, respectively, and were included.
 ```
 
