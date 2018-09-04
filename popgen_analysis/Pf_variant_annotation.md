@@ -32,7 +32,7 @@ Subsequent arguments: Sample names of individuals to be removed
 
 ```bash
 $vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP245_v2 Bc23 ONT3 Nov77 SCRP249 SCRP324 SCRP333 > polished_contigs_unmasked_UK123.vcf
-$vcflib/vcfremovesamples polished_contigs_unmasked.vcf Nov77 SCRP249 SCRP324 SCRP333 > polished_contigs_unmasked_Pf.vcf
+$vcflib/vcfremovesamples polished_contigs_unmasked.vcf Nov77 SCRP245_v2 SCRP249 SCRP324 SCRP333 > polished_contigs_unmasked_Pf.vcf
 ```
 
 ##Filter the SNPs
