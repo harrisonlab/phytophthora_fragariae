@@ -333,7 +333,7 @@ mkdir -p $input/silent_Pf
 cd $input/silent_Pf
 mkdir contigs
 vcflib=/home/sobczm/bin/vcflib/bin
-$vcflib/vcfremovesamples ../polished_contigs_unmasked_Pf_filtered_4fd.vcf SCRP245_v2 > polished_contigs_unmasked_Pf_filtered_4fd_no245.recode.vcf
+$vcflib/vcfremovesamples ../polished_contigs_unmasked_Pf_filtered.recode_syn_4fd.vcf SCRP245_v2 > polished_contigs_unmasked_Pf_filtered_4fd_no245.recode.vcf
 scripts3=/home/adamst/git_repos/scripts/popgen
 ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/polished_contigs_unmasked.fa
 python $scripts3/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_Pf_filtered_4fd_no245.recode.vcf $ref_genome 2
