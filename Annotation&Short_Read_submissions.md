@@ -679,7 +679,11 @@ for Isolate in SCRP249 SCRP324 SCRP333
 do
     Organism=P.rubi
     echo "$Organism - $Isolate"
-    if [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
+    if [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/manual_edits_repmask/*_softmasked.fa ]
+    then
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/manual_edits_repmask/*_softmasked.fa)
+        echo $Assembly
+    elif [ -f ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa ]
     then
         Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Organism/$Isolate/ncbi_edits_repmask/*_softmasked.fa)
         echo $Assembly
