@@ -880,7 +880,11 @@ do
     echo "$Species - $Isolate"
     OutDir=genome_submission/$Species/$Isolate
     Final_Name="$Species"_"$Isolate"_Adams_2018
-    if [ -f ../phytophthora_rubi/repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_unmasked.fa ]
+    if [ -f ../phytophthora_rubi/repeat_masked/$Species/$Isolate/manual_edits_repmask/*_unmasked.fa ]
+    then
+        Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Species/$Isolate/manual_edits_repmask/*_unmasked.fa)
+        echo $Assembly
+    elif [ -f ../phytophthora_rubi/repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_unmasked.fa ]
     then
         Assembly=$(ls ../phytophthora_rubi/repeat_masked/$Species/$Isolate/ncbi_edits_repmask/*_unmasked.fa)
         echo $Assembly
