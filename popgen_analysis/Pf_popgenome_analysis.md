@@ -255,10 +255,15 @@ cd $input/all_Pf
 
 ### This folder contains only contig FASTA files for Pf
 
-So create a new "contigs" directory to hold those files
+Create a cut-down vcf for Pf
 
 ```bash
 mkdir contigs
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples ../polished_contigs_unmasked_Pf_filtered.recode.vcf SCRP245_v2 > polished_contigs_unmasked_Pf_filtered_no245.recode.vcf
+scripts3=/home/adamst/git_repos/scripts/popgen
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/polished_contigs_unmasked.fa
+python $scripts/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_Pf_filtered_no245.recode.vcf $ref_genome 2
 mv *.fasta ./contigs
 ```
 
@@ -324,8 +329,14 @@ qsub $scripts2/sub_calculate_4_gamete_test.sh
 #### four_fold_degenerate (analogous to above, for all sites) for Pf
 
 ```bash
+mkdir -p $input/silent_Pf
 cd $input/silent_Pf
 mkdir contigs
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples ../polished_contigs_unmasked_Pf_filtered_4fd.recode.vcf SCRP245_v2 > polished_contigs_unmasked_Pf_filtered_4fd_no245.recode.vcf
+scripts3=/home/adamst/git_repos/scripts/popgen
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/polished_contigs_unmasked.fa
+python $scripts/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_Pf_filtered_4fd_no245.recode.vcf $ref_genome 2
 mv *.fasta ./contigs
 cp -r \
 /home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
@@ -365,9 +376,11 @@ qsub $scripts2/sub_calculate_4_gamete_test.sh
 ```bash
 cd $input
 ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples ../polished_contigs_unmasked_Pf_filtered_syn.recode.vcf SCRP245_v2 > polished_contigs_unmasked_Pf_filtered_syn_no245.recode.vcf
 ProgDir=/home/adamst/git_repos/scripts/popgen/summary_stats
 python $ProgDir/vcf_to_fasta.py \
-polished_contigs_unmasked_Pf_filtered.recode_syn.vcf $ref_genome 2
+polished_contigs_unmasked_Pf_filtered.recode_syn_no245.recode.vcf $ref_genome 2
 mkdir syn_Pf
 mv *.fasta ./syn_Pf
 ```
@@ -377,9 +390,11 @@ mv *.fasta ./syn_Pf
 ```bash
 cd $input
 ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+vcflib=/home/sobczm/bin/vcflib/bin
+$vcflib/vcfremovesamples ../polished_contigs_unmasked_Pf_filtered_nonsyn.recode.vcf SCRP245_v2 > polished_contigs_unmasked_Pf_filtered_nonsyn_no245.recode.vcf
 ProgDir=/home/adamst/git_repos/scripts/popgen/summary_stats
 python $ProgDir/vcf_to_fasta.py \
-polished_contigs_unmasked_Pf_filtered.recode_nonsyn.vcf $ref_genome 2
+polished_contigs_unmasked_Pf_filtered.recode_nonsyn_no245.vcf $ref_genome 2
 mkdir nonsyn_Pf
 mv *.fasta ./nonsyn_Pf
 ```
