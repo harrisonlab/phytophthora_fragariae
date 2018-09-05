@@ -55,6 +55,7 @@ Analysis on corrected models submitted to NCBI
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
 scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 WorkDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Aug18
+mkdir -p $WorkDir
 ```
 
 ## 4.1 Format fasta files
