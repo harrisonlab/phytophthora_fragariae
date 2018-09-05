@@ -5553,16 +5553,16 @@ Fragmented genes: 8
 Missing genes: 15
 
 ONT3
-Complete and single copy genes: 276
-Complete and duplicated genes: 8
-Fragmented genes: 6
-Missing genes: 13
+Complete and single copy genes: 274
+Complete and duplicated genes: 7
+Fragmented genes: 7
+Missing genes: 15
 
 SCRP245_v2
-Complete and single copy genes: 273
+Complete and single copy genes: 272
 Complete and duplicated genes: 8
-Fragmented genes: 8
-Missing genes: 14
+Fragmented genes: 7
+Missing genes: 16
 ```
 
 Changes with respect to genome sequence
