@@ -6021,37 +6021,37 @@ done
 
 ```
 P.fragariae A4:
-244
+243
 
 P.fragariae Bc16:
 269
 
 P.fragariae Bc1:
-247
+246
 
 P.fragariae Bc23:
-244
+243
 
 P.fragariae Nov27:
-245
+244
 
 P.fragariae Nov5:
-250
+249
 
 P.fragariae Nov71:
-239
+238
 
 P.fragariae Nov77:
 236
 
 P.fragariae Nov9:
-242
+241
 
 P.fragariae ONT3:
-244
+240
 
 P.fragariae SCRP245_v2:
-252
+249
 ```
 
 ## Rename predicted effectors to allow further analysis with gene models on NCBI
