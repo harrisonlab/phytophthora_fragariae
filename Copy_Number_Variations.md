@@ -128,15 +128,15 @@ done
 
 ```
 The total number of genes identified as showing CNV is:
-123
+105
 The number of RxLRs showing CNV is:
-6
+3
 The number of CRNs showing CNV is:
 0
 The number of apoplastic effectors showing CNV is:
-44
+35
 The number of secreted proteins showing CNV is:
-40
+28
 The number of transcript factors and transcriptional regulators showing CNV is:
 0
 ```
