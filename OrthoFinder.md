@@ -217,7 +217,7 @@ orthomclFilterFasta $Input_dir $Min_length $Max_percent_stops $Good_proteins_fil
 ```bash
 screen -a
 qlogin -pe smp 16
-input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
+input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/Results_Aug18
 scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 cd $input
 IsolateAbrv=All_Strains_plus_rubi_no_removal
