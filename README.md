@@ -5623,16 +5623,16 @@ Fragmented genes: +1
 Missing genes: -2
 
 ONT3
-Complete and single copy genes: -1
-Complete and duplicated genes: +1
-Fragmented genes: +2
-Missing genes: -2
+Complete and single copy genes: -3
+Complete and duplicated genes: 0
+Fragmented genes: +3
+Missing genes: 0
 
 SCRP245_v2
-Complete and single copy genes: 0
+Complete and single copy genes: -1
 Complete and duplicated genes: +1
-Fragmented genes: +1
-Missing genes: -2
+Fragmented genes: 0
+Missing genes: 0
 ```
 
 ### C) Identify genes with transmembrane domains
