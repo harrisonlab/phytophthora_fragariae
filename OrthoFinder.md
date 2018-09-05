@@ -55,7 +55,6 @@ Analysis on corrected models submitted to NCBI
 input=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder
 scripts=/home/adamst/git_repos/scripts/popgen/clock/motif_discovery
 WorkDir=/home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Aug18
-mkdir -p $WorkDir
 ```
 
 ## 4.1 Format fasta files
@@ -68,6 +67,7 @@ Taxon_code=A4
 Fasta_file=gene_pred/annotation/P.fragariae/A4/A4_genes_incl_ORFeffectors_renamed.pep.fasta
 Id_field=1
 orthomclAdjustFasta $Taxon_code $Fasta_file $Id_field
+mkdir -p $WorkDir/formatted
 mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 ```
 
