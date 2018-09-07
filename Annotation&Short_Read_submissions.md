@@ -908,6 +908,8 @@ longer the contig, perhaps due to cufflinks transcript assembly.
 These genes were corrected manually to end at the end of the contig in the gff
 file and sqn generated again.
 
+#### Generate discrepancy files for each genome
+
 #### Upload commands
 
 ```bash
