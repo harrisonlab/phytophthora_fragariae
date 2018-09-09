@@ -919,7 +919,7 @@ PATH=${PATH}:/home/adamst/prog/ncbi_asndisc
 ```bash
 for sqn_dir in $(ls -d genome_submission/P.*/*/tbl2asn/final)
 do
-    asndisc -p $sqn_dir -x Adams_2018 -o discrep.val -X ALL -P t
+    asndisc -p $sqn_dir -x Adams_2018.sqn -o $sqn_dir/discrep.val -X ALL -P t
 done
 ```
 
