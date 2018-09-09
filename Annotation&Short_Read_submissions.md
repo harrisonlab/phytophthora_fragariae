@@ -910,6 +910,12 @@ file and sqn generated again.
 
 #### Generate discrepancy files for each genome
 
+Add this line to profile to use asndisc
+
+```
+PATH=${PATH}:/home/adamst/prog/ncbi_asndisc
+```
+
 ```bash
 for sqn_dir in $(ls -d genome_submission/P.*/*/tbl2asn/final)
 do
