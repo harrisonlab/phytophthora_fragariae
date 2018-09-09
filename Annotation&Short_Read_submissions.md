@@ -910,6 +910,13 @@ file and sqn generated again.
 
 #### Generate discrepancy files for each genome
 
+```bash
+for sqn_dir in $(ls -d genome_submission/P.*/*/tbl2asn/final)
+do
+    asndisc -p $sqn_dir -x Adams_2018 -o discrep.val -X ALL -P t
+done
+```
+
 #### Upload commands
 
 ```bash
