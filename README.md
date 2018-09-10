@@ -3225,7 +3225,7 @@ do
     cat $RxLR_Merged_Gff_no_strand | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-    $ProgDir/gene_list_to_ggff.pl $RxLR_Merged_txt $SigP_Gff RxLR_regex_finder.py Name Augustus > $RxLR_Merged_Gff
+    $ProgDir/gene_list_to_gff.pl $RxLR_Merged_txt $SigP_Gff RxLR_regex_finder.py Name Augustus > $RxLR_Merged_Gff
     printf "Merged RxLR regex proteins:\t"
     cat $RxLR_Merged_AA | grep '>' | wc -l
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
