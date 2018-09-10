@@ -3237,7 +3237,7 @@ do
     RxLR_Merged_Gff_no_strand=$OutDir/"$Strain"_ORF_RxLR_EER_regex_merged_no_strand.gff
     # Remove features on the same strand
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
-    $ProgDir/make_gff_database.py --inp $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.gff --db sigP_ORF_RxLR.db
+    $ProgDir/make_gff_database.py --inp $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.gff --db sigP_ORF_RxLR_EER.db
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR_EER.db --id sigP_ORF_RxLR_EER --out sigP_ORF_RxLR_EER_merged.db --gff > $RxLR_Merged_Gff_1_strand
     # Modify Gff to remove allstrand specification
