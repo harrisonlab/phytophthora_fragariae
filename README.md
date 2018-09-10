@@ -3931,17 +3931,17 @@ The number of sequences extracted is
 366
 P.fragariae - Bc23
 The number of ORF RxLRs overlapping Augustus RxLRs:
-195
+197
 The number of Augustus RxLRs overlapping ORF RxLRs:
 195
 The number of RxLRs unique to ORF models:
-107
+108
 The number of RxLRs unique to Augustus models:
 33
 The total number of putative RxLRs are:
-336
+337
 The number of sequences extracted is
-336
+337
 P.fragariae - Nov27
 The number of ORF RxLRs overlapping Augustus RxLRs:
 187
@@ -4076,17 +4076,17 @@ The number of sequences extracted is
 2,563
 P.fragariae - Bc23
 The number of ORF RxLRs overlapping Augustus RxLRs:
-311
+310
 The number of Augustus RxLRs overlapping ORF RxLRs:
 308
 The number of RxLRs unique to ORF models:
-1,893
+1,878
 The number of RxLRs unique to Augustus models:
 99
 The total number of putative RxLRs are:
-2,309
+2,294
 The number of sequences extracted is
-2,309
+2,294
 P.fragariae - Nov27
 The number of ORF RxLRs overlapping Augustus RxLRs:
 314
@@ -4154,17 +4154,17 @@ The number of sequences extracted is
 2,312
 P.fragariae - ONT3
 The number of ORF RxLRs overlapping Augustus RxLRs:
-309
+306
 The number of Augustus RxLRs overlapping ORF RxLRs:
 306
 The number of RxLRs unique to ORF models:
-1,749
+1,735
 The number of RxLRs unique to Augustus models:
 101
 The total number of putative RxLRs are:
-2,165
+2,151
 The number of sequences extracted is
-2,165
+2,151
 P.fragariae - SCRP245_v2
 The number of ORF RxLRs overlapping Augustus RxLRs:
 315
