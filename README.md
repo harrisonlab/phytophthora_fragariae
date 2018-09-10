@@ -3287,7 +3287,7 @@ strain: Bc23    species: P.fragariae
 the number of SigP gene is:     81,405
 the number of SigP-RxLR genes are:      2,695
 the number of SigP-RxLR-EER genes are:  304
-Merged RxLR regex proteins: 2,191
+Merged RxLR regex proteins: 2,172
 Merged RxLR-EER regex proteins: 273
 
 
@@ -3335,7 +3335,7 @@ strain: ONT3    species: P.fragariae
 the number of SigP gene is:     53,275
 the number of SigP-RxLR genes are:      2,500
 the number of SigP-RxLR-EER genes are:  298
-Merged RxLR regex proteins: 2,048
+Merged RxLR regex proteins: 2,031
 Merged RxLR-EER regex proteins: 269
 
 
