@@ -576,7 +576,7 @@ P.fragariae	Bc23	33,146	33,971
 P.fragariae	Nov27	33,797	34,624
 P.fragariae	Nov5	33,699	34,515
 P.fragariae	Nov71	33,143	33,967
-P.fragariae	Nov77	33,581	34,409
+P.fragariae	Nov77	33,580	34,408
 P.fragariae	Nov9	33,527	34,361
 P.fragariae	ONT3	33,417	34,216
 P.fragariae	SCRP245_v2	33,223	34,010
