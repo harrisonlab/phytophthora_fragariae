@@ -4850,15 +4850,15 @@ P.fragariae - Nov77
 The number of ORF apoplastic effectors overlapping Augustus effectors:
 922
 The number of Augustus apoplastic effectors overlapping ORF apoplastic effectors:
-0
+840
 The number of apoplastic effectors unique to ORF models:
 9,438
 The number of apoplastic effectors unique to Augustus models:
-159
+163
 The total number of putative apoplastic effectors are:
-10,448
+10,465
 The number of sequences extracted is
-10,448
+10,465
 
 P.fragariae - Nov9
 The number of ORF apoplastic effectors overlapping Augustus effectors:
