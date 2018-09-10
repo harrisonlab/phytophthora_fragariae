@@ -446,13 +446,13 @@ Species Isolate PreFilter   FilterList  UniqueFilterList    GenesRemoved    Fina
 P.fragariae     A4      40,970   7,658    7,347    7,347       33,623
 P.fragariae     Bc16    49,772   9,026    8,669    8,669       41,103
 P.fragariae     Bc1     41,242   7,807    7,551    7,551       33,691
-P.fragariae     Bc23    40,603   7,715    7,458    7,457       33,146
+P.fragariae     Bc23    40,588   7,703    7,446    7,445       33,143
 P.fragariae     Nov27   41,364   7,812    7,567    7,567       33,797
 P.fragariae     Nov5    41,030   7,587    7,332    7,331       33,699
 P.fragariae     Nov71   40,470   7,574    7,328    7,327       33,143
 P.fragariae     Nov77   40,915   7,579    7,335    7,335       33,580
 P.fragariae     Nov9    40,960   7,677    7,434    7,433       33,527
-P.fragariae     ONT3    40,231   7,048    6,814    6,814       33,417
+P.fragariae     ONT3    40,218   7,037    6,803    6,803       33,415
 P.fragariae     SCRP245_v2      40,148   7,170    6,927    6,925       33,223
 P.rubi  SCRP249 42,134   8,220    7,995    7,994       34,140
 P.rubi  SCRP324 40,891   7,854    7,630    7,627       33,264
