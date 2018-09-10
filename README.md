@@ -3530,7 +3530,7 @@ do
 done
 
 #With EER
-for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_ORF_RxLR_EER_regex_merged.txt)
+for RegexRxLR in $(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/*/*/*_ORF_RxLR_EER_regex_merged.txt | grep -e "Bc23" -e "ONT3")
 do
     Organism=$(echo $RegexRxLR | rev |  cut -d '/' -f3 | rev)
     Strain=$(echo $RegexRxLR | rev | cut -d '/' -f2 | rev)
@@ -3594,9 +3594,9 @@ Number of RxLRs identified by Regex:
 Number of RxLRs identified by Hmm:
 204
 Number of RxLRs in combined dataset:
-302
+305
 Number of genes in the extracted gff file:
-302
+305
 
 P.fragariae - Nov27
 Number of RxLRs identified by Regex:
@@ -3701,13 +3701,13 @@ Number of genes in the extracted gff file:
 
 P.fragariae - Bc23
 Number of RxLRs identified by Regex:
-2,191
+2,172
 Number of RxLRs identified by Hmm:
 204
 Number of RxLRs in combined dataset:
-2,204
+2,188
 Number of genes in the extracted gff file:
-2,204
+2,188
 
 P.fragariae - Nov27
 Number of RxLRs identified by Regex:
@@ -3761,13 +3761,13 @@ Number of genes in the extracted gff file:
 
 P.fragariae - ONT3
 Number of RxLRs identified by Regex:
-2,048
+2,031
 Number of RxLRs identified by Hmm:
 205
 Number of RxLRs in combined dataset:
-2,058
+2,041
 Number of genes in the extracted gff file:
-2,058
+2,041
 
 P.fragariae - SCRP245_v2
 Number of RxLRs identified by Regex:
