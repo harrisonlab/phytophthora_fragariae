@@ -2830,7 +2830,7 @@ done
 The number of proteins predicted as being apoplastic effectors were summarised using the following commands
 
 ```bash
-for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_raw.fa)
+for File in $(ls analysis/ApoplastP/*/*/*_ApoplastP_raw.fa | grep -e "Nov77")
 do
     Strain=$(echo $File | rev | cut -f2 -d '/' | rev)
     Organism=$(echo $File | rev | cut -f3 -d '/' | rev)
@@ -2920,7 +2920,7 @@ P.fragariae - Nov77
 The number of genes predicted as Apoplastic effectors is:
 1,010
 Number of genes  extracted into GFF3 file is:
-1,010
+996
 Number of genes extracted to Fasta file is:
 1,010
 
