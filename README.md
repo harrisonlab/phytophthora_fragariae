@@ -3213,19 +3213,15 @@ do
     # Remove features on the same strand
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
     $ProgDir/make_gff_database.py --inp $OutDir/"$Strain"_ORF_RxLR_regex_unmerged.gff --db sigP_ORF_RxLR.db
-    echo "First database made"
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR.db --id sigP_ORF_RxLR --out sigP_ORF_RxLR_merged.db --gff > $RxLR_Merged_Gff_1_strand
-    echo "Overlapping features on the same strand removed"
     # Modify Gff to remove allstrand specification
     Gff_no_strands=$OutDir/"$Strain"_ORF_RxLR_regex_no_strands.gff3
     cat $RxLR_Merged_Gff_1_strand | sed 's/+/./g' | sed 's/-/./g' > $Gff_no_strands
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
     $ProgDir/make_gff_database.py --inp $Gff_no_strands --db sigP_ORF_RxLR_mod.db
-    echo "Second database made"
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR_mod.db --id sigP_ORF_RxLR --out sigP_ORF_RxLR_merged_mod.db --gff > $RxLR_Merged_Gff_no_strand
-    echo "Overlapping features on opposite strands removed"    
     cat $RxLR_Merged_Gff_no_strand | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
@@ -3242,19 +3238,15 @@ do
     # Remove features on the same strand
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
     $ProgDir/make_gff_database.py --inp $OutDir/"$Strain"_ORF_RxLR_EER_regex_unmerged.gff --db sigP_ORF_RxLR.db
-    echo "First database made"
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR_EER.db --id sigP_ORF_RxLR_EER --out sigP_ORF_RxLR_EER_merged.db --gff > $RxLR_Merged_Gff_1_strand
-    echo "Overlapping features on the same strand removed"
     # Modify Gff to remove allstrand specification
     Gff_no_strands=$OutDir/"$Strain"_ORF_RxLR_EER_regex_no_strands.gff3
     cat $RxLR_Merged_Gff_1_strand | sed 's/+/./g' | sed 's/-/./g' > $Gff_no_strands
     ProgDir=/home/adamst/git_repos/scripts/phytophthora/pathogen/merge_gff
     $ProgDir/make_gff_database.py --inp $Gff_no_strands --db sigP_ORF_RxLR_EER_mod.db
-    echo "Second database made"
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     $ProgDir/merge_sigP_ORFs.py --inp sigP_ORF_RxLR_EER_mod.db --id sigP_ORF_RxLR_EER --out sigP_ORF_RxLR_EER_merged_mod.db --gff > $RxLR_Merged_Gff_no_strand
-    echo "Overlapping features on opposite strands removed"    
     cat $RxLR_Merged_Gff_no_strand | grep 'transcript' | rev | cut -f1 -d '=' | rev > $RxLR_Merged_txt
     $ProgDir/extract_from_fasta.py --fasta $ORF_fasta --headers $RxLR_Merged_txt > $RxLR_Merged_AA
     ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
