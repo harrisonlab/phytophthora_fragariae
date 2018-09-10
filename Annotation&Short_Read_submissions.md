@@ -454,7 +454,7 @@ P.fragariae     Nov77   40,915   7,579    7,335    7,335       33,580
 P.fragariae     Nov9    40,960   7,677    7,434    7,433       33,527
 P.fragariae     ONT3    40,218   7,037    6,803    6,803       33,415
 P.fragariae     SCRP245_v2      40,148   7,170    6,927    6,925       33,223
-P.rubi  SCRP249 42,134   8,220    7,995    7,994       34,140
+P.rubi  SCRP249 42,133   8,220    7,995    7,994       34,139
 P.rubi  SCRP324 40,891   7,854    7,630    7,627       33,264
 P.rubi  SCRP333 43,245   8,284    8,024    8,022       35,223
 ```
@@ -580,7 +580,7 @@ P.fragariae	Nov77	33,580	34,408
 P.fragariae	Nov9	33,527	34,361
 P.fragariae	ONT3	33,415	34,214
 P.fragariae	SCRP245_v2	33,223	34,010
-P.rubi  SCRP249 34,140   34,485
+P.rubi  SCRP249 34,139   34,484
 P.rubi  SCRP324 33,264   33,733
 P.rubi  SCRP333 35,223   35,539
 ```
