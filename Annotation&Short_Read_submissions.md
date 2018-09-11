@@ -818,7 +818,7 @@ do
     > $OutDir/gag/edited/annotation_methods.strcmt.txt
 done
 
-# P.frag
+# P.rubi
 for Isolate in SCRP249 SCRP324 SCRP333
 do
     Species=P.rubi
