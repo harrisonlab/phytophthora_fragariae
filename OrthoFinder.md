@@ -2672,7 +2672,7 @@ done
 ## Extract FASTA files of expanded orthogroups
 
 ```bash
-cd  ../../../../../
+cd  ../../../../
 for Race in UK1 UK2 UK3
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
