@@ -1580,11 +1580,11 @@ done
 
 ```
 The number of UK1 unique apoplastic effectors are:
-18,587
+0
 The number of BC-1 genes extracted is:
-9,336
+0
 The number of Nov5 genes extracted is:
-9,251
+0
 ```
 
 ## Extracting fasta files for orthogroups containing Race 1 putative apoplastic effectors
