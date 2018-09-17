@@ -2532,19 +2532,19 @@ done
 
 ```
 The number of TFs searched for is:
-726
+723
 Of these, the following number were found in orthogroups:
-720
+723
 These were distributed through the following number of Orthogroups:
-234
+235
 The following secreted proteins were found in Race 3 unique orthogroups:
 0
 These orthogroups contain the following number of TFs:
 0
 The following TFs were found in P.fragariae unique orthogroups:
-234
+235
 These orthogroups contain the following number of TFs:
-720
+723
 ```
 
 ## The Race 3 TF/TRs that were not found in orthogroups were identified
