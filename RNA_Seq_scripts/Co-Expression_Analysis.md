@@ -53,7 +53,7 @@ Merging threshold value may need tweaking
 ```bash
 OutDir=analysis/coexpression
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-SFT=15
+SFT=22
 Min_Mod_Size=30
 Merge_Threshold=0.25
 qsub $ProgDir/sub_create_network.sh $OutDir $SFT $Min_Mod_Size $Merge_Threshold
