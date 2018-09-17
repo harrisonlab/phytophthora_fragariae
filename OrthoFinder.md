@@ -1633,8 +1633,8 @@ do
     mkdir -p $Sec_Dir
     cat $Sec_Names_Bc1 | sed -r 's/^/Bc1|/g' > $Sec_ID
     cat $Sec_Names_Nov5 | sed -r 's/^/Nov5|/g' >> $Sec_ID
-    cat $Sec_Names_Bc1_ORFs | sed -r 's/^/Bc1|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
-    cat $Sec_Names_Nov5_ORFs | sed -r 's/^/Nov5|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
+    cat $Sec_Names_Bc1_ORFs | sed -r 's/^/Bc1|/g' >> $Sec_ID
+    cat $Sec_Names_Nov5_ORFs | sed -r 's/^/Nov5|/g' >> $Sec_ID
 done
 ```
 
