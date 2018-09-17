@@ -1370,7 +1370,7 @@ for num in 1
 do
     CRN_Names_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN_renamed.txt
     CRN_Names_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     CRN_Dir=$WorkDir/UK1_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
     CRN_ID_UK1=$CRN_Dir/UK1_CRN_hmmer_IDs.txt
