@@ -2638,8 +2638,8 @@ done
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-OrthoFinder_output=analysis/orthology/OrthoFinder/formatted/Results_Sep13/Orthogroups.txt
-OutName=analysis/orthology/OrthoFinder/formatted/Results_Sep13/count_table.tsv
+OrthoFinder_output=analysis/orthology/OrthoFinder/Results_Sep13/Orthogroups.txt
+OutName=analysis/orthology/OrthoFinder/Results_Sep13/count_table.tsv
 $ProgDir/parse_orthogroups.py --orthogroups $OrthoFinder_output --out_dir $OutName
 ```
 
