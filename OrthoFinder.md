@@ -1239,7 +1239,7 @@ for num in 1
 do
     RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_motif_hmm_renamed.txt
     RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_motif_hmm_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     RxLR_Dir=$WorkDir/UK1_RxLR
     Orthogroups=$WorkDir/Orthogroups.txt
     RxLR_ID=$RxLR_Dir/UK1_aug_RxLR_IDs.txt
