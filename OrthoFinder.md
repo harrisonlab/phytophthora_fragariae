@@ -943,7 +943,7 @@ do
     Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted_renamed.txt
     Sec_Names_Bc16_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged_renamed.txt
     Sec_Names_A4_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/A4/A4_all_secreted_merged_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     Sec_Dir=$WorkDir/UK2_Secreted
     Orthogroups=$WorkDir/Orthogroups.txt
     Sec_ID=$Sec_Dir/UK2_aug_Sec_IDs.txt
