@@ -28,31 +28,31 @@ ap.add_argument('--SigP2', required=True, type=str,
                 signal peptide using SigP2.0')
 ap.add_argument('--SigP2_ORF', required=True, type=str,
                 help='fasta file of ORF fragments testing positive for signal \
-peptide using SigP2.0')
+                peptide using SigP2.0')
 ap.add_argument('--SigP3', required=True, type=str,
                 help='fasta file of genes testing positive for signal peptide \
-using SigP3.0')
+                using SigP3.0')
 ap.add_argument('--SigP3_ORF', required=True, type=str,
                 help='fasta file of ORF fragments testing positive for signal \
-peptide using SigP3.0')
+                peptide using SigP3.0')
 ap.add_argument('--SigP4', required=True, type=str,
                 help='fasta file of genes testing positive for signal peptide \
-using SigP4.1')
+                using SigP4.1')
 ap.add_argument('--SigP4_ORF', required=True, type=str,
                 help='fasta file of ORF fragments testing positive for signal \
-peptide using SigP4.1')
+                peptide using SigP4.1')
 ap.add_argument('--phobius', required=True, type=str,
                 help='fasta file of gene testing positive for signal peptide \
-using phobius')
+                using phobius')
 ap.add_argument('--phobius_ORF', required=True, type=str,
                 help='fasta file of ORF fragments testing positive for signal \
-peptide using phobius')
+                peptide using phobius')
 ap.add_argument('--trans_mem', required=True, type=str,
                 help='txt file of headers from gene testing positive for \
-transmembrane proteins by TMHMM')
+                transmembrane proteins by TMHMM')
 ap.add_argument('--GPI_anchor', required=True, type=str,
                 help='txt file of headers from gene testing positive for GPI \
-anchors as identified by GPI-SOM')
+                anchors as identified by GPI-SOM')
 # ap.add_argument('--RxLR_motif',required=True,type=str,help='fasta file of \
 #                 genes testing positive for RxLR-EER motifs')
 # ap.add_argument('--RxLR_Hmm', required=True, type=str,
@@ -64,15 +64,9 @@ anchors as identified by GPI-SOM')
 ap.add_argument('--RxLR_total', required=True, type=str,
                 help='fasta file of all transcripts considered low confidence \
                 RxLRs')
-ap.add_argument('--RxLR_total_ORF', required=True, type=str,
-                help='fasta file of all transcripts considered low \
-                confidence RxLRs from ORFs')
 ap.add_argument('--RxLR_EER_total', required=True, type=str,
                 help='fasta file of all transcripts considered high \
                 confidence RxLRs')
-ap.add_argument('--RxLR_EER_total_ORF', required=True, type=str,
-                help='fasta file of all transcripts considered high \
-                confidence RxLRs from ORFs')
 # ap.add_argument('--CRN_LFLAK', required=True, type=str,
 #                 help='fasta file of genes testing positive for LFLAK \
 #                 domains using an hmm model')
