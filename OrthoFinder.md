@@ -949,8 +949,8 @@ do
     mkdir -p $Sec_Dir
     cat $Sec_Names_Bc16 | sed -r 's/^/Bc16|/g' > $Sec_ID
     cat $Sec_Names_A4 | sed -r 's/^/A4|/g' >> $Sec_ID
-    cat $Sec_Names_Bc16_ORFs | sed -r 's/^/Bc16|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
-    cat $Sec_Names_A4_ORFs | sed -r 's/^/A4|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
+    cat $Sec_Names_Bc16_ORFs | sed -r 's/^/Bc16|/g' >> $Sec_ID
+    cat $Sec_Names_A4_ORFs | sed -r 's/^/A4|/g' >> $Sec_ID
 done
 ```
 
