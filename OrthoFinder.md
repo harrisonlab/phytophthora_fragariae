@@ -896,11 +896,11 @@ done
 
 ```
 The number of UK2 unique apoplastic effectors are:
-20,263
+0
 The number of BC-16 genes extracted is:
-10,989
+0
 The number of A4 genes extracted is:
-9,274
+0
 ```
 
 ## Extract fasta files for orthogroups with Race 2 putative apoplastic effectors
