@@ -687,7 +687,7 @@ for num in 1
 do
     CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
     CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     CRN_Dir=$WorkDir/UK2_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
     CRN_ID_UK2=$CRN_Dir/UK2_CRN_hmmer_IDs.txt
