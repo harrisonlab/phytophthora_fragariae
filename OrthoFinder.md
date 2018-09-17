@@ -2489,7 +2489,7 @@ do
     TF_Names_Nov27=analysis/transcription_factors/P.fragariae/Nov27/greedy/Nov27_TF_TR_Headers.txt
     TF_Names_Nov71=analysis/transcription_factors/P.fragariae/Nov71/greedy/Nov71_TF_TR_Headers.txt
     TF_Names_Nov9=analysis/transcription_factors/P.fragariae/Nov9/greedy/Nov9_TF_TR_Headers.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     TF_Dir=$WorkDir/UK3_TFs
     Orthogroups=$WorkDir/Orthogroups.txt
     TF_ID=$TF_Dir/UK3_TF_IDs.txt
