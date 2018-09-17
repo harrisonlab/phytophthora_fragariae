@@ -207,8 +207,8 @@ mv "$Taxon_code".fasta $WorkDir/formatted/"$Taxon_code".fasta
 Input_dir=$WorkDir/formatted
 Min_length=10
 Max_percent_stops=20
-Good_proteins_file=$WorkDir/goodProteins/goodProteins.fasta
-Poor_proteins_file=$WorkDir/badProteins/poorProteins.fasta
+Good_proteins_file=$WorkDir/goodProteins.fasta
+Poor_proteins_file=$WorkDir/poorProteins.fasta
 orthomclFilterFasta $Input_dir $Min_length $Max_percent_stops $Good_proteins_file $Poor_proteins_file
 ```
 
