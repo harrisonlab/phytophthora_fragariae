@@ -814,7 +814,7 @@ for num in 1
 do
     ApoP_Names_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
     ApoP_Names_A4=analysis/ApoplastP/P.fragariae/A4/A4_Total_ApoplastP_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     ApoP_Dir=$WorkDir/UK2_ApoP
     Orthogroups=$WorkDir/Orthogroups.txt
     ApoP_ID_UK2=$ApoP_Dir/UK2_ApoP_IDs.txt
