@@ -1925,7 +1925,7 @@ do
     RxLR_Names_Nov27=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov27/Nov27_Total_RxLR_motif_hmm_renamed.txt
     RxLR_Names_Nov71=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov71/Nov71_Total_RxLR_motif_hmm_renamed.txt
     RxLR_Names_Nov9=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov9/Nov9_Total_RxLR_motif_hmm_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     RxLR_Dir=$WorkDir/UK3_RxLR
     Orthogroups=$WorkDir/Orthogroups.txt
     RxLR_ID=$RxLR_Dir/UK3_aug_RxLR_EER_IDs.txt
