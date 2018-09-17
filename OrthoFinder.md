@@ -1158,11 +1158,11 @@ done
 
 ```
 The number of UK2 unique TF/TRs are:
-5
+0
 The number of BC-16 genes extracted is:
-3
+0
 The number of A4 genes extracted is:
-2
+0
 ```
 
 ## Extracting fastas for orthogroups containing Race 2 putative TF/TRs
