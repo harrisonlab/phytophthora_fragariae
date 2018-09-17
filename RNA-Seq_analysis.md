@@ -3001,7 +3001,7 @@ do
             echo $Assembly
         fi
         InterPro=$(ls gene_pred/interproscan/$Organism/$Strain/*_interproscan.tsv)
-        SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/greedy/swissprot_vMar018_tophit_parsed.tbl)
+        SwissProt=$(ls gene_pred/swissprot/$Organism/$Strain/greedy/swissprot_vMar2018_tophit_parsed.tbl)
         OutDir=gene_pred/annotation/$Organism/$Strain
         mkdir -p $OutDir
         # GeneFasta=$(ls gene_pred/annotation/P.cactorum/414_v2/414_v2_genes_incl_ORFeffectors.pep.fasta)
