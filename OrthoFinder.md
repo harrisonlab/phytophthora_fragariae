@@ -1713,11 +1713,11 @@ done
 
 ```
 The number of UK1 unique secreted proteins are:
-55,858
+6,392
 The number of BC-1 genes extracted is:
-8,645
+0
 The number of Nov5 genes extracted is:
-8,576
+0
 ```
 
 ## Extracting fastas for orthogroups containing Race 1 putative secreted proteins
