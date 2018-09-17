@@ -1884,10 +1884,10 @@ done
 ## First variables were set for UK3
 
 ```bash
-WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
 UK3UniqDir=$WorkDir/UK3_unique
 Orthogroups=$WorkDir/Orthogroups.txt
-GoodProts=$WorkDir/goodProteins/goodProteins.fasta
+GoodProts=$WorkDir/goodProteins.fasta
 Final_genes_Nov27=gene_pred/annotation/P.fragariae/Nov27/Nov27_genes_incl_ORFeffectors_renamed.pep.fasta
 Final_genes_Nov71=gene_pred/annotation/P.fragariae/Nov71/Nov71_genes_incl_ORFeffectors_renamed.pep.fasta
 Final_genes_Nov9=gene_pred/annotation/P.fragariae/Nov9/Nov9_genes_incl_ORFeffectors_renamed.pep.fasta
