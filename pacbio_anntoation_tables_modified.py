@@ -684,8 +684,6 @@ for line in transcript_lines:
     # RxLR_hmm = ''
     # WY_hmm = ''
     RxLR_total = ''
-    RxLR_ORF_total = ''
-    RxLR_EER_ORF_total = ''
     RxLR_EER_total = ''
     # CRN_LFLAK = ''
     # CRN_DWL = ''
