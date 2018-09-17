@@ -2204,7 +2204,7 @@ do
     ApoP_Names_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_Total_ApoplastP_renamed.txt
     ApoP_Names_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_Total_ApoplastP_renamed.txt
     ApoP_Names_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_Total_ApoplastP_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     ApoP_Dir=$WorkDir/UK3_ApoP
     Orthogroups=$WorkDir/Orthogroups.txt
     ApoP_ID_UK3=$ApoP_Dir/UK3_ApoP_IDs.txt
