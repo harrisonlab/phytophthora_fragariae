@@ -2646,7 +2646,7 @@ $ProgDir/parse_orthogroups.py --orthogroups $OrthoFinder_output --out_dir $OutNa
 ## Analyse this count table for expanded groups and write to text file
 
 ```bash
-cd analysis/orthology/OrthoFinder/formatted/Results_Sep13
+cd analysis/orthology/OrthoFinder/Results_Sep13
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
 ```
 
