@@ -44,7 +44,7 @@ qsub $ProgDir/sub_choose_softthreshold.sh $OutDir $max_SFT
 ```
 scale-free topology fit index values seem to peak and then decline.
 WGCNA tutorial recommends getting as close to 0.9 as possible,
-but 15 has a value of 0.8340 and is the highest reached before declining.
+but 22 has a value of 0.8750 and is the highest reached before declining.
 ```
 
 Build the coexpression network
