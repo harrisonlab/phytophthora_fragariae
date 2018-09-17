@@ -2354,9 +2354,9 @@ do
     cat $Sec_Names_Nov27 | sed -r 's/^/Nov27|/g' > $Sec_ID
     cat $Sec_Names_Nov71 | sed -r 's/^/Nov71|/g' >> $Sec_ID
     cat $Sec_Names_Nov9 | sed -r 's/^/Nov9|/g' >> $Sec_ID
-    cat $Sec_Names_Nov27_ORFs | sed -r 's/^/Nov27|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
-    cat $Sec_Names_Nov71_ORFs | sed -r 's/^/Nov71|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
-    cat $Sec_Names_Nov9_ORFs | sed -r 's/^/Nov9|/g' | sed -r 's/$/.t1/g' >> $Sec_ID
+    cat $Sec_Names_Nov27_ORFs | sed -r 's/^/Nov27|/g' >> $Sec_ID
+    cat $Sec_Names_Nov71_ORFs | sed -r 's/^/Nov71|/g' >> $Sec_ID
+    cat $Sec_Names_Nov9_ORFs | sed -r 's/^/Nov9|/g' >> $Sec_ID
 done
 ```
 
