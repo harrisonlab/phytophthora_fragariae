@@ -1626,7 +1626,7 @@ do
     Sec_Names_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_secreted_renamed.txt
     Sec_Names_Bc1_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc1/Bc1_all_secreted_merged_renamed.txt
     Sec_Names_Nov5_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov5/Nov5_all_secreted_merged_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     Sec_Dir=$WorkDir/UK1_Secreted
     Orthogroups=$WorkDir/Orthogroups.txt
     Sec_ID=$Sec_Dir/UK1_aug_Sec_IDs.txt
