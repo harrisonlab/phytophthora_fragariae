@@ -1115,19 +1115,19 @@ done
 
 ```
 The number of TF/TRs searched for is:
-516
+512
 Of these, the following number were found in orthogroups:
-511
+512
 These were distributed through the following number of Orthogroups:
-234
+236
 The following TF/TRs were found in Race 2 unique orthogroups:
 0
 These orthogroups contain the following number of TF/TRs:
 0
 The following TF/TRs were found in P.fragariae unique orthogroups:
-234
+236
 These orthogroups contain the following number of TF/TRs:
-511
+512
 ```
 
 ## The Race 2 TF/TRs that were not found in orthogroups were identified
