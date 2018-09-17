@@ -654,11 +654,10 @@ The number of A4 genes extracted is:
 ```bash
 for num in 1
 do
-    /home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Sep13
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_RxLR/UK2_RxLR_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_RxLR/orthogroups_fasta_UK2_RxLR
+    OrthogroupTxt=analysis/orthology/OrthoFinder/Results_Sep13/UK2_RxLR/UK2_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/Results_Sep13/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/Results_Sep13/UK2_RxLR/orthogroups_fasta_UK2_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
