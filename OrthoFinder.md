@@ -517,7 +517,7 @@ These values will contain singletons
 ### First variables were set
 
 ```bash
-WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
 UK2UniqDir=$WorkDir/UK2_unique
 Orthogroups=$WorkDir/Orthogroups.txt
 Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
