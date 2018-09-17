@@ -541,9 +541,9 @@ done
 
 ```
 The number of orthogroups unique to Race 2 are:
-104
+115
 The following number genes are contained in these orthogroups:
-503
+545
 ```
 
 ## Race 2 unique RxLR families
