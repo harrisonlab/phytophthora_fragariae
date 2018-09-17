@@ -517,7 +517,7 @@ These values will contain singletons
 ### First variables were set
 
 ```bash
-WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
 UK2UniqDir=$WorkDir/UK2_unique
 Orthogroups=$WorkDir/Orthogroups.txt
 Final_genes_Bc16=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.pep.fasta
@@ -555,7 +555,7 @@ for num in 1
 do
     RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
     RxLR_Names_A4=analysis/RxLR_effectors/combined_evidence/P.fragariae/A4/A4_Total_RxLR_motif_hmm_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     RxLR_Dir=$WorkDir/UK2_RxLR
     Orthogroups=$WorkDir/Orthogroups.txt
     RxLR_ID=$RxLR_Dir/UK2_aug_RxLR_EER_IDs.txt
@@ -654,11 +654,11 @@ The number of A4 genes extracted is:
 ```bash
 for num in 1
 do
-    /home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    /home/groups/harrisonlab/project_files/phytophthora_fragariae/analysis/orthology/OrthoFinder/formatted/Results_Sep13
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_RxLR/UK2_RxLR_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_RxLR/orthogroups_fasta_UK2_RxLR
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_RxLR/UK2_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_RxLR/orthogroups_fasta_UK2_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -670,9 +670,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_RxLR/Pf_RxLR_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_RxLR/orthogroups_fasta_Pf_RxLR
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_RxLR/Pf_RxLR_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_RxLR/orthogroups_fasta_Pf_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -687,7 +687,7 @@ for num in 1
 do
     CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
     CRN_Names_A4=analysis/CRN_effectors/hmmer_CRN/P.fragariae/A4/A4_final_CRN_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     CRN_Dir=$WorkDir/UK2_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
     CRN_ID_UK2=$CRN_Dir/UK2_CRN_hmmer_IDs.txt
@@ -783,9 +783,9 @@ The number of A4 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_CRN/UK2_CRN_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_CRN/orthogroups_fasta_UK2_CRN
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_CRN/UK2_CRN_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_CRN/orthogroups_fasta_UK2_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -797,9 +797,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_CRN/Pf_CRN_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_CRN/orthogroups_fasta_Pf_CRN
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_CRN/Pf_CRN_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_CRN/orthogroups_fasta_Pf_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -814,7 +814,7 @@ for num in 1
 do
     ApoP_Names_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
     ApoP_Names_A4=analysis/ApoplastP/P.fragariae/A4/A4_Total_ApoplastP_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     ApoP_Dir=$WorkDir/UK2_ApoP
     Orthogroups=$WorkDir/Orthogroups.txt
     ApoP_ID_UK2=$ApoP_Dir/UK2_ApoP_IDs.txt
@@ -910,9 +910,9 @@ The number of A4 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_ApoP/UK2_ApoP_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_ApoP/orthogroups_fasta_UK2_ApoP
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_ApoP/UK2_ApoP_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_ApoP/orthogroups_fasta_UK2_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -924,9 +924,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_ApoP/Pf_ApoP_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_ApoP/orthogroups_fasta_Pf_ApoP
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_ApoP/Pf_ApoP_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_ApoP/orthogroups_fasta_Pf_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -943,7 +943,7 @@ do
     Sec_Names_A4=gene_pred/combined_sigP_CQ/P.fragariae/A4/A4_secreted_renamed.txt
     Sec_Names_Bc16_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged_renamed.txt
     Sec_Names_A4_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/A4/A4_all_secreted_merged_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     Sec_Dir=$WorkDir/UK2_Secreted
     Orthogroups=$WorkDir/Orthogroups.txt
     Sec_ID=$Sec_Dir/UK2_aug_Sec_IDs.txt
@@ -1043,9 +1043,9 @@ The number of A4 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_Secreted/UK2_Sec_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_Secreted/orthogroups_fasta_UK2_Sec
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_Secreted/UK2_Sec_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_Secreted/orthogroups_fasta_UK2_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1057,9 +1057,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_Secreted/Pf_Sec_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_Secreted/orthogroups_fasta_Pf_Sec
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_Secreted/Pf_Sec_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_Secreted/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1074,7 +1074,7 @@ for num in 1
 do
     TF_Names_Bc16=analysis/transcription_factors/P.fragariae/Bc16/greedy/Bc16_TF_TR_Headers.txt
     TF_Names_A4=analysis/transcription_factors/P.fragariae/A4/greedy/A4_TF_TR_Headers.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     TF_Dir=$WorkDir/UK2_TFs
     Orthogroups=$WorkDir/Orthogroups.txt
     TF_ID=$TF_Dir/UK2_TF_IDs.txt
@@ -1172,9 +1172,9 @@ The number of A4 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_TFs/UK2_TF_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_TFs/orthogroups_fasta_UK2_TF
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_TFs/UK2_TF_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_TFs/orthogroups_fasta_UK2_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1186,9 +1186,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_TFs/Pf_TF_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK2_TFs/orthogroups_fasta_Pf_TF
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_TFs/Pf_TF_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK2_TFs/orthogroups_fasta_Pf_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1201,10 +1201,10 @@ done
 ## First variables were set
 
 ```bash
-WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/
+WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/
 UK1UniqDir=$WorkDir/UK1_unique
 Orthogroups=$WorkDir/Orthogroups.txt
-GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
+GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
 Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors_renamed.pep.fasta
 Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors_renamed.pep.fasta
 Uniq_UK1_groups=$UK1UniqDir/UK1_uniq_orthogroups.txt
@@ -1240,7 +1240,7 @@ for num in 1
 do
     RxLR_Names_Bc1=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc1/Bc1_Total_RxLR_motif_hmm_renamed.txt
     RxLR_Names_Nov5=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov5/Nov5_Total_RxLR_motif_hmm_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     RxLR_Dir=$WorkDir/UK1_RxLR
     Orthogroups=$WorkDir/Orthogroups.txt
     RxLR_ID=$RxLR_Dir/UK1_aug_RxLR_IDs.txt
@@ -1340,9 +1340,9 @@ The number of NOV-5 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_RxLR/UK1_RxLR_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_RxLR/orthogroups_fasta_UK1_RxLR
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_RxLR/UK1_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_RxLR/orthogroups_fasta_UK1_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1354,9 +1354,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_RxLR/Pf_RxLR_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_RxLR/orthogroups_fasta_Pf_RxLR
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_RxLR/Pf_RxLR_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_RxLR/orthogroups_fasta_Pf_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1371,7 +1371,7 @@ for num in 1
 do
     CRN_Names_Bc1=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc1/Bc1_final_CRN_renamed.txt
     CRN_Names_Nov5=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov5/Nov5_final_CRN_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     CRN_Dir=$WorkDir/UK1_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
     CRN_ID_UK1=$CRN_Dir/UK1_CRN_hmmer_IDs.txt
@@ -1467,9 +1467,9 @@ The number of NOV-5 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_CRN/UK1_CRN_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_CRN/orthogroups_fasta_UK1_CRN
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_CRN/UK1_CRN_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_CRN/orthogroups_fasta_UK1_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1481,9 +1481,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_CRN/Pf_CRN_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_CRN/orthogroups_fasta_Pf_CRN
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_CRN/Pf_CRN_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_CRN/orthogroups_fasta_Pf_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1498,7 +1498,7 @@ for num in 1
 do
     ApoP_Names_Bc1=analysis/ApoplastP/P.fragariae/Bc1/Bc1_Total_ApoplastP_renamed.txt
     ApoP_Names_Nov5=analysis/ApoplastP/P.fragariae/Nov5/Nov5_Total_ApoplastP_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     ApoP_Dir=$WorkDir/UK1_ApoP
     Orthogroups=$WorkDir/Orthogroups.txt
     ApoP_ID_UK1=$ApoP_Dir/UK1_ApoP_IDs.txt
@@ -1594,9 +1594,9 @@ The number of Nov5 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_ApoP/UK1_ApoP_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_ApoP/orthogroups_fasta_UK1_ApoP
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_ApoP/UK1_ApoP_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_ApoP/orthogroups_fasta_UK1_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1608,9 +1608,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_ApoP/Pf_ApoP_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_ApoP/orthogroups_fasta_Pf_ApoP
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_ApoP/Pf_ApoP_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_ApoP/orthogroups_fasta_Pf_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1627,7 +1627,7 @@ do
     Sec_Names_Nov5=gene_pred/combined_sigP_CQ/P.fragariae/Nov5/Nov5_secreted_renamed.txt
     Sec_Names_Bc1_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Bc1/Bc1_all_secreted_merged_renamed.txt
     Sec_Names_Nov5_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov5/Nov5_all_secreted_merged_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     Sec_Dir=$WorkDir/UK1_Secreted
     Orthogroups=$WorkDir/Orthogroups.txt
     Sec_ID=$Sec_Dir/UK1_aug_Sec_IDs.txt
@@ -1727,9 +1727,9 @@ The number of Nov5 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_Secreted/UK1_Sec_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_Secreted/orthogroups_fasta_UK1_Sec
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_Secreted/UK1_Sec_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_Secreted/orthogroups_fasta_UK1_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1741,9 +1741,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_Secreted/Pf_Sec_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_Secreted/orthogroups_fasta_Pf_Sec
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_Secreted/Pf_Sec_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_Secreted/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1758,7 +1758,7 @@ for num in 1
 do
     TF_Names_Bc1=analysis/transcription_factors/P.fragariae/Bc1/greedy/Bc1_TF_TR_Headers.txt
     TF_Names_Nov5=analysis/transcription_factors/P.fragariae/Nov5/greedy/Nov5_TF_TR_Headers.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     TF_Dir=$WorkDir/UK1_TFs
     Orthogroups=$WorkDir/Orthogroups.txt
     TF_ID=$TF_Dir/UK1_TF_IDs.txt
@@ -1856,9 +1856,9 @@ The number of NOV-5 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_TFs/UK1_TF_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_TFs/orthogroups_fasta_UK1_TF
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_TFs/UK1_TF_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_TFs/orthogroups_fasta_UK1_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1870,9 +1870,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_TFs/Pf_TF_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK1_TFs/orthogroups_fasta_Pf_TF
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_TFs/Pf_TF_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK1_TFs/orthogroups_fasta_Pf_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -1885,7 +1885,7 @@ done
 ## First variables were set for UK3
 
 ```bash
-WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
 UK3UniqDir=$WorkDir/UK3_unique
 Orthogroups=$WorkDir/Orthogroups.txt
 GoodProts=$WorkDir/goodProteins/goodProteins.fasta
@@ -1926,7 +1926,7 @@ do
     RxLR_Names_Nov27=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov27/Nov27_Total_RxLR_motif_hmm_renamed.txt
     RxLR_Names_Nov71=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov71/Nov71_Total_RxLR_motif_hmm_renamed.txt
     RxLR_Names_Nov9=analysis/RxLR_effectors/combined_evidence/P.fragariae/Nov9/Nov9_Total_RxLR_motif_hmm_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     RxLR_Dir=$WorkDir/UK3_RxLR
     Orthogroups=$WorkDir/Orthogroups.txt
     RxLR_ID=$RxLR_Dir/UK3_aug_RxLR_EER_IDs.txt
@@ -2037,9 +2037,9 @@ The number of NOV-9 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_RxLR/UK3_RxLR_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_RxLR/orthogroups_fasta_UK3_RxLR
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_RxLR/UK3_RxLR_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_RxLR/orthogroups_fasta_UK3_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2051,9 +2051,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_RxLR/Pf_RxLR_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_RxLR/orthogroups_fasta_Pf_RxLR
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_RxLR/Pf_RxLR_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_RxLR/orthogroups_fasta_Pf_RxLR
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2069,7 +2069,7 @@ do
     CRN_Names_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN_renamed.txt
     CRN_Names_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN_renamed.txt
     CRN_Names_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     CRN_Dir=$WorkDir/UK3_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
     CRN_ID_UK3=$CRN_Dir/UK3_CRN_hmmer_IDs.txt
@@ -2173,9 +2173,9 @@ The number of NOV-9 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_CRN/UK3_CRN_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_CRN/orthogroups_fasta_UK3_CRN
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_CRN/UK3_CRN_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_CRN/orthogroups_fasta_UK3_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2187,9 +2187,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_CRN/Pf_CRN_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_CRN/orthogroups_fasta_Pf_CRN
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_CRN/Pf_CRN_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_CRN/orthogroups_fasta_Pf_CRN
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2205,7 +2205,7 @@ do
     ApoP_Names_Nov27=analysis/ApoplastP/P.fragariae/Nov27/Nov27_Total_ApoplastP_renamed.txt
     ApoP_Names_Nov71=analysis/ApoplastP/P.fragariae/Nov71/Nov71_Total_ApoplastP_renamed.txt
     ApoP_Names_Nov9=analysis/ApoplastP/P.fragariae/Nov9/Nov9_Total_ApoplastP_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     ApoP_Dir=$WorkDir/UK3_ApoP
     Orthogroups=$WorkDir/Orthogroups.txt
     ApoP_ID_UK3=$ApoP_Dir/UK3_ApoP_IDs.txt
@@ -2312,9 +2312,9 @@ The number of NOV-9 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_ApoP/UK3_ApoP_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_ApoP/orthogroups_fasta_UK3_ApoP
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_ApoP/UK3_ApoP_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_ApoP/orthogroups_fasta_UK3_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2326,9 +2326,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_ApoP/Pf_ApoP_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_ApoP/orthogroups_fasta_Pf_ApoP
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_ApoP/Pf_ApoP_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_ApoP/orthogroups_fasta_Pf_ApoP
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2347,7 +2347,7 @@ do
     Sec_Names_Nov27_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov27/Nov27_all_secreted_merged_renamed.txt
     Sec_Names_Nov71_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov71/Nov71_all_secreted_merged_renamed.txt
     Sec_Names_Nov9_ORFs=gene_pred/combined_sigP_ORF/P.fragariae/Nov9/Nov9_all_secreted_merged_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     Sec_Dir=$WorkDir/UK3_Secreted
     Orthogroups=$WorkDir/Orthogroups.txt
     Sec_ID=$Sec_Dir/UK3_aug_Sec_IDs.txt
@@ -2458,9 +2458,9 @@ The number of NOV-9 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_Secreted/UK3_Sec_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_Secreted/orthogroups_fasta_UK3_Sec
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_Secreted/UK3_Sec_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_Secreted/orthogroups_fasta_UK3_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2472,9 +2472,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_Secreted/Pf_Sec_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_Secreted/orthogroups_fasta_Pf_Sec
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_Secreted/Pf_Sec_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_Secreted/orthogroups_fasta_Pf_Sec
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2490,7 +2490,7 @@ do
     TF_Names_Nov27=analysis/transcription_factors/P.fragariae/Nov27/greedy/Nov27_TF_TR_Headers.txt
     TF_Names_Nov71=analysis/transcription_factors/P.fragariae/Nov71/greedy/Nov71_TF_TR_Headers.txt
     TF_Names_Nov9=analysis/transcription_factors/P.fragariae/Nov9/greedy/Nov9_TF_TR_Headers.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18
+    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
     TF_Dir=$WorkDir/UK3_TFs
     Orthogroups=$WorkDir/Orthogroups.txt
     TF_ID=$TF_Dir/UK3_TF_IDs.txt
@@ -2598,9 +2598,9 @@ The number of NOV-9 genes extracted is:
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_TFs/UK3_TF_Orthogroups.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_TFs/orthogroups_fasta_UK3_TF
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_TFs/UK3_TF_Orthogroups.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_TFs/orthogroups_fasta_UK3_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2612,9 +2612,9 @@ done
 for num in 1
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_TFs/Pf_TF_Orthogroups_hits.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK3_TFs/orthogroups_fasta_Pf_TF
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_TFs/Pf_TF_Orthogroups_hits.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK3_TFs/orthogroups_fasta_Pf_TF
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
@@ -2623,11 +2623,11 @@ done
 ## Extract fasta files for all unique orthogroups, including non-effector groups
 
 ```bash
-for OrthogroupTxt in $(ls analysis/orthology/OrthoFinder/formatted/Results_Aug18/UK*_unique/*)
+for OrthogroupTxt in $(ls analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK*_unique/*)
 do
     Race=$(echo $OrthogroupTxt | rev | cut -f2 -d '/' | rev)
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/group_fastas/$Race
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/group_fastas/$Race
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     echo $Race
@@ -2639,15 +2639,15 @@ done
 
 ```bash
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-OrthoFinder_output=analysis/orthology/OrthoFinder/formatted/Results_Aug18/Orthogroups.txt
-OutName=analysis/orthology/OrthoFinder/formatted/Results_Aug18/count_table.tsv
+OrthoFinder_output=analysis/orthology/OrthoFinder/formatted/Results_Sep13/Orthogroups.txt
+OutName=analysis/orthology/OrthoFinder/formatted/Results_Sep13/count_table.tsv
 $ProgDir/parse_orthogroups.py --orthogroups $OrthoFinder_output --out_dir $OutName
 ```
 
 ## Analyse this count table for expanded groups and write to text file
 
 ```bash
-cd analysis/orthology/OrthoFinder/formatted/Results_Aug18
+cd analysis/orthology/OrthoFinder/formatted/Results_Sep13
 python /home/adamst/git_repos/scripts/phytophthora_fragariae/orthology_counts.py
 ```
 
@@ -2677,9 +2677,9 @@ cd  ../../../../../
 for Race in UK1 UK2 UK3
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/"$Race"_expanded_modified.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Aug18/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Aug18/"$Race"_expanded
+    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/"$Race"_expanded_modified.txt
+    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/"$Race"_expanded
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
