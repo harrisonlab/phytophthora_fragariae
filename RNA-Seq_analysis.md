@@ -3505,7 +3505,7 @@ do
     Strain=Bc16
     Uniq_Exp_files=$(ls analysis/DeSeq/Method_1/expression_results/all_genes/*_"$Strain"_*expressed_unique.txt)
     Uniq_DEG_files=$(ls analysis/DeSeq/Method_1/DEG_results/all_genes/*_"$Strain"_*unique_DEGs.txt)
-    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Aug18/Orthogroups.txt
+    Orthogroups=analysis/orthology/OrthoFinder/Results_Sep13/Orthogroups.txt
     Org2=Bc1
     Org3=Nov9
     Race_isolates="Bc16 A4"
