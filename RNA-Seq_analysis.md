@@ -3069,7 +3069,7 @@ cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 for Strain in Bc1 Bc16 Nov9
 do
     FPKM=analysis/DeSeq/Method_1/$Strain/fpkm_counts.txt
-    Orthogroups=analysis/orthology/OrthoFinder/formatted/Results_Aug18/Orthogroups.txt
+    Orthogroups=analysis/orthology/OrthoFinder/Results_Sep13/Orthogroups.txt
     Org1=Bc16
     Org2=Bc1
     Org3=Nov9
