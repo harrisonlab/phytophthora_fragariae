@@ -64,15 +64,9 @@ anchors as identified by GPI-SOM')
 ap.add_argument('--RxLR_total', required=True, type=str,
                 help='fasta file of all transcripts considered low confidence \
                 RxLRs')
-ap.add_argument('--RxLR_total_ORF', required=True, type=str,
-                help='fasta file of all transcripts considered low \
-                confidence RxLRs from ORFs')
 ap.add_argument('--RxLR_EER_total', required=True, type=str,
                 help='fasta file of all transcripts considered high \
                 confidence RxLRs')
-ap.add_argument('--RxLR_EER_total_ORF', required=True, type=str,
-                help='fasta file of all transcripts considered high \
-                confidence RxLRs from ORFs')
 # ap.add_argument('--CRN_LFLAK', required=True, type=str,
 #                 help='fasta file of genes testing positive for LFLAK \
 #                 domains using an hmm model')
@@ -157,14 +151,8 @@ with open(conf.GPI_anchor) as f:
 with open(conf.RxLR_total) as f:
     RxLR_total_lines = f.readlines()
 
-with open(conf.RxLR_total_ORF) as f:
-    RxLR_orf_total_lines = f.readlines()
-
 with open(conf.RxLR_EER_total) as f:
     RxLR_EER_total_lines = f.readlines()
-
-with open(conf.RxLR_EER_total_ORF) as f:
-    RxLR_EER_orf_total_lines = f.readlines()
 
 # with open(conf.CRN_LFLAK) as f:
 #     CRN_LFLAK_lines = f.readlines()
@@ -394,22 +382,6 @@ for line in RxLR_total_lines:
     #     RxLR_total_set.add(header)
 
 # -----------------------------------------------------
-# Load RxLR total +ve ORF proteins into a set
-# -----------------------------------------------------
-
-RxLR_ORF_total_set = Set()
-for line in RxLR_orf_total_lines:
-    header = line.rstrip()
-    if 'contig' in header:
-        header = header + '.t1'
-    RxLR_ORF_total_set.add(header)
-    # line = line.rstrip()
-    # if line.startswith('>'):
-    #     split_line = line.split()
-    #     header = split_line[0].replace('>', '')
-    #     RxLR_total_set.add(header)
-
-# -----------------------------------------------------
 # Load RxLR_EER total +ve proteins into a set
 # -----------------------------------------------------
 
@@ -417,22 +389,6 @@ RxLR_EER_total_set = Set()
 for line in RxLR_EER_total_lines:
     header = line.rstrip()
     RxLR_EER_total_set.add(header)
-    # line = line.rstrip()
-    # if line.startswith('>'):
-    #     split_line = line.split()
-    #     header = split_line[0].replace('>', '')
-    #     RxLR_EER_total_set.add(header)
-
-# -----------------------------------------------------
-# Load RxLR_EER total +ve ORFs into a set
-# -----------------------------------------------------
-
-RxLR_EER_ORF_total_set = Set()
-for line in RxLR_EER_orf_total_lines:
-    header = line.rstrip()
-    if 'contig' in header:
-        header = header + '.t1'
-    RxLR_EER_ORF_total_set.add(header)
     # line = line.rstrip()
     # if line.startswith('>'):
     #     split_line = line.split()
@@ -710,8 +666,6 @@ for line in transcript_lines:
     # RxLR_hmm = ''
     # WY_hmm = ''
     RxLR_total = ''
-    RxLR_ORF_total = ''
-    RxLR_EER_ORF_total = ''
     RxLR_EER_total = ''
     # CRN_LFLAK = ''
     # CRN_DWL = ''
@@ -764,11 +718,7 @@ for line in transcript_lines:
     # gene_id = transcript_id.split('.')[0]
     if transcript_id in RxLR_total_set:
         RxLR_total = 'Yes'
-    if transcript_id in RxLR_ORF_total_set:
-        RxLR_total = 'Yes'
     if transcript_id in RxLR_EER_total_set:
-        RxLR_EER_total = 'Yes'
-    if transcript_id in RxLR_EER_ORF_total_set:
         RxLR_EER_total = 'Yes'
     # if transcript_id in CRN_LFLAK_set:
     #     CRN_LFLAK = 'Yes'
