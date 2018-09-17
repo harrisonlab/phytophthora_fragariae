@@ -2068,7 +2068,7 @@ do
     CRN_Names_Nov27=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov27/Nov27_final_CRN_renamed.txt
     CRN_Names_Nov71=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov71/Nov71_final_CRN_renamed.txt
     CRN_Names_Nov9=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Nov9/Nov9_final_CRN_renamed.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     CRN_Dir=$WorkDir/UK3_CRN
     Orthogroups=$WorkDir/Orthogroups.txt
     CRN_ID_UK3=$CRN_Dir/UK3_CRN_hmmer_IDs.txt
