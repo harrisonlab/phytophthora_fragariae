@@ -60,16 +60,8 @@ qsub $ProgDir/sub_create_network.sh $OutDir $SFT $Min_Mod_Size $Merge_Threshold
 ```
 
 ```
-Reducing the minimum module size to 5, with a merging threshold of 0.1:
-Gives 195 before merging, 136 afterwards
-Reducing the merging threshold to 0.05:
-Gives 189 modules.
-
 With a minimum size of 30:
 103 modules were created before merging
-101 modules were created after merging with a threshold of 0.05
-74 modules were created after merging with a threshold of 0.10
-54 modules were created after merging with a threshold of 0.15
 30 modules were created after merging with a threshold of 0.25
 ```
 
