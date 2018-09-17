@@ -1799,19 +1799,19 @@ done
 
 ```
 The number of TFs searched for is:
-497
+495
 Of these, the following number were found in orthogroups:
-493
+495
 These were distributed through the following number of Orthogroups:
-233
+234
 The following TFs were found in Race 1 unique orthogroups:
 0
 These orthogroups contain the following number of TFs:
 0
 The following TFs were found in P.fragariae unique orthogroups:
-233
+234
 These orthogroups contain the following number of TFs:
-493
+495
 ```
 
 ## The Race 1 TF/TRs that were not found in orthogroups were identified
