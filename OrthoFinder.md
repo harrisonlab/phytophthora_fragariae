@@ -1757,7 +1757,7 @@ for num in 1
 do
     TF_Names_Bc1=analysis/transcription_factors/P.fragariae/Bc1/greedy/Bc1_TF_TR_Headers.txt
     TF_Names_Nov5=analysis/transcription_factors/P.fragariae/Nov5/greedy/Nov5_TF_TR_Headers.txt
-    WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13
+    WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
     TF_Dir=$WorkDir/UK1_TFs
     Orthogroups=$WorkDir/Orthogroups.txt
     TF_ID=$TF_Dir/UK1_TF_IDs.txt
