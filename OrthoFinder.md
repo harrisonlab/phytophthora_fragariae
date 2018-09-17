@@ -2582,13 +2582,13 @@ done
 
 ```
 The number of UK3 unique TFs are:
-6
+0
 The number of NOV-27 genes extracted is:
-2
+0
 The number of NOV-71 genes extracted is:
-2
+0
 The number of NOV-9 genes extracted is:
-2
+0
 ```
 
 ## Extracting fasta files for orthogroups containing Race 3 putative TF/TRs
