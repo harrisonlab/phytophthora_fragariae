@@ -1200,10 +1200,10 @@ done
 ## First variables were set
 
 ```bash
-WorkDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/
+WorkDir=analysis/orthology/OrthoFinder/Results_Sep13
 UK1UniqDir=$WorkDir/UK1_unique
 Orthogroups=$WorkDir/Orthogroups.txt
-GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
+GoodProt=analysis/orthology/OrthoFinder/Results_Sep13/goodProteins.fasta
 Final_genes_Bc1=gene_pred/annotation/P.fragariae/Bc1/Bc1_genes_incl_ORFeffectors_renamed.pep.fasta
 Final_genes_Nov5=gene_pred/annotation/P.fragariae/Nov5/Nov5_genes_incl_ORFeffectors_renamed.pep.fasta
 Uniq_UK1_groups=$UK1UniqDir/UK1_uniq_orthogroups.txt
