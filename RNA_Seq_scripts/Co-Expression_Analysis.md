@@ -26,7 +26,7 @@ qsub $ProgDir/sub_WGCNA_input_clean.sh $gene_table $OutDir $FPKM_start $FPKM_end
 ```
 
 ```
-40,675 genes were removed due to too many missing samples or zero variance.
+22,370 genes were removed due to too many missing samples or zero variance.
 Listed in analysis/coexpression/removed_genes.txt
 The candidate Avr is not in this list, so it is not too strict about genes
 with low expression in some samples
