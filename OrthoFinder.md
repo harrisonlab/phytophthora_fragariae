@@ -2676,9 +2676,9 @@ cd  ../../../../../
 for Race in UK1 UK2 UK3
 do
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
-    OrthogroupTxt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/"$Race"_expanded_modified.txt
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/"$Race"_expanded
+    OrthogroupTxt=analysis/orthology/OrthoFinder/Results_Sep13/"$Race"_expanded_modified.txt
+    GoodProt=analysis/orthology/OrthoFinder/Results_Sep13/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/Results_Sep13/"$Race"_expanded
     mkdir -p $OutDir
     $ProgDir/orthoMCLgroups2fasta.py --orthogroups $OrthogroupTxt --fasta $GoodProt --out_dir $OutDir
 done
