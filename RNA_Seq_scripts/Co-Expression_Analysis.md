@@ -371,17 +371,17 @@ do
     rm $Gene_Set_unsorted
     echo "Gene set file created for $Module_ID"
     # Create RxLR list
-    RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+    RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
     RxLRs_In_Module=$Module_Dir/RxLR_IDs.txt
     cat $RxLR_Headers | grep -wf $Gene_Set | sort | uniq > $RxLRs_In_Module
     echo "RxLR file created for $Module_ID"
     # Create CRN list
-    CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+    CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
     CRNs_In_Module=$Module_Dir/CRN_IDs.txt
     cat $CRN_Headers | grep -wf $Gene_Set | sort | uniq > $CRNs_In_Module
     echo "CRN file created for $Module_ID"
     # Create list of ApoplastP hits
-    ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+    ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
     ApoP_In_Module=$Module_Dir/ApoP_IDs.txt
     cat $ApoP_Headers | grep -wf $Gene_Set | sort | uniq > $ApoP_In_Module
     echo "ApoplastP hits file created for $Module_ID"
@@ -391,11 +391,8 @@ do
     echo "Effector list created for $Module_ID"
     # Create combined secreted proteins list
     Secreted_In_Module=$Module_Dir/Secreted_IDs.txt
-    Augustus_Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
-    ORF_Secreted=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
-    cat $ORF_Secreted | sed 's/$/.t1/' > tmp_ORF.txt
-    cat $Augustus_Secreted tmp_ORF.txt | grep -wf $Gene_Set | sort | uniq > $Secreted_In_Module
-    rm tmp_ORF.txt
+    Secreted_preds=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted_Aug_ORF.txt
+    cat $Secreted_preds | grep -wf $Gene_Set | sort | uniq > $Secreted_In_Module
     echo "Secreted list created for $Module_ID"
 done
 ```
