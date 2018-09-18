@@ -289,7 +289,7 @@ done
 Combine results from multiple repeats
 
 ```bash
-for Set in all highconfidence highexpressed totalmodule
+for Set in allconf highconf highexp saddlebrown
 do
     OutDir=promotor_id/$Set
     DremeDir=/data/scratch/adamst/$Set
