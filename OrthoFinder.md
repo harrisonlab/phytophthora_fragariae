@@ -2622,11 +2622,11 @@ done
 ## Extract fasta files for all unique orthogroups, including non-effector groups
 
 ```bash
-for OrthogroupTxt in $(ls analysis/orthology/OrthoFinder/formatted/Results_Sep13/UK*_unique/*)
+for OrthogroupTxt in $(ls analysis/orthology/OrthoFinder/Results_Sep13/UK*_unique/*)
 do
     Race=$(echo $OrthogroupTxt | rev | cut -f2 -d '/' | rev)
-    GoodProt=analysis/orthology/OrthoFinder/formatted/Results_Sep13/goodProteins/goodProteins.fasta
-    OutDir=analysis/orthology/OrthoFinder/formatted/Results_Sep13/group_fastas/$Race
+    GoodProt=analysis/orthology/OrthoFinder/Results_Sep13/goodProteins.fasta
+    OutDir=analysis/orthology/OrthoFinder/Results_Sep13/group_fastas/$Race
     mkdir -p $OutDir
     ProgDir=/home/adamst/git_repos/tools/pathogen/orthology/orthoMCL
     echo $Race
