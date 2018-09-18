@@ -400,17 +400,16 @@ done
 ### Create contigency tables for fishers exact test
 
 ```bash
-RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
 Genome_RxLRs=$(cat $RxLR_Headers | sort | uniq | wc -l)
-CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
 Genome_CRNs=$(cat $CRN_Headers | sort | uniq | wc -l)
-ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
 Genome_ApoP=$(cat $ApoP_Headers | sort | uniq | wc -l)
 Genome_Effectors=$(cat $RxLR_Headers $CRN_Headers $ApoP_Headers | sort | uniq | wc -l)
-Augustus_Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
-ORF_Secreted=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
-Genome_Secreted=$(cat $Augustus_Secreted $ORF_Secreted | sort | uniq | wc -l)
-Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.gene.fasta
+Secreted_preds=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted_Aug_ORF.txt
+Genome_Secreted=$(cat $Secreted_preds | sort | uniq | wc -l)
+Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gene.fasta
 Genome_Genes=$(cat $Genes | sort | uniq | wc -l)
 for Module_Dir in $(ls -d analysis/coexpression/enrichment/*)
 do
