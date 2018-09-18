@@ -4154,7 +4154,7 @@ Investigate whether this gene appears to be part of a family or not
 
 ### Extract FASTA file of the candidate gene and target genes
 
-Header file created using nano for target - gene ID is g24882.t1
+Header file created using nano for target - gene ID is g27513.t1
 
 ```bash
 # Candidate gene
