@@ -988,17 +988,17 @@ done
 The number of secreted proteins searched for is:
 14,911
 Of these, the following number were found in orthogroups:
-7,843
+14,911
 These were distributed through the following number of Orthogroups:
-4,187
+7,325
 The following secreted proteins were found in Race 2 unique orthogroups:
-6
+21
 These orthogroups contain the following number of secreted proteins:
-10
+40
 The following secreted proteins were found in P.fragariae unique orthogroups:
-4,187
+7,325
 These orthogroups contain the following number of Secreted proteins:
-7,843
+14,911
 ```
 
 ## Race 2 secreted protein genes that not in orthogroups were identified
