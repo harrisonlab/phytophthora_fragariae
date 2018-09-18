@@ -4071,23 +4071,21 @@ do
         mkdir -p $OutDir
         # GeneFasta=$(ls gene_pred/annotation/P.cactorum/414_v2/414_v2_genes_incl_ORFeffectors.pep.fasta)
         GeneFasta=$(ls gene_pred/annotation/P.fragariae/$Strain/"$Strain"_genes_incl_ORFeffectors_renamed.cds.fasta)
-        SigP2=$(ls gene_pred/final_sigP/$Organism/$Strain/*_aug_sp_renamed.aa)
-        SigP2_ORF=$(ls gene_pred/ORF_sigP/$Organism/$Strain/*_aug_sp_renamed.aa)
-        SigP3=$(ls gene_pred/final_signalp-3.0/$Organism/$Strain/*_aug_sp_renamed.aa)
-        SigP3_ORF=$(ls gene_pred/ORF_signalp-3.0/$Organism/$Strain/*_aug_sp_renamed.aa)
-        SigP4=$(ls gene_pred/final_signalp-4.1/$Organism/$Strain/*_aug_sp_renamed.aa)
-        SigP4_ORF=$(ls gene_pred/ORF_signalp-4.1/$Organism/$Strain/*_aug_sp_renamed.aa)
-        TMHMM_headers=$(ls gene_pred/trans_mem/$Organism/$Strain/greedy/*_TM_genes_pos_headers.txt)
+        SigP2=$(ls gene_pred/final_sigP/$Organism/$Strain/*_aug_sp_Headers_renamed.fa)
+        SigP2_ORF=$(ls gene_pred/ORF_sigP/$Organism/$Strain/*_aug_sp_Headers_renamed.fa)
+        SigP3=$(ls gene_pred/final_signalp-3.0/$Organism/$Strain/*_aug_sp_Headers_renamed.fa)
+        SigP3_ORF=$(ls gene_pred/ORF_signalp-3.0/$Organism/$Strain/*_aug_sp_Headers_renamed.fa)
+        SigP4=$(ls gene_pred/final_signalp-4.1/$Organism/$Strain/*_aug_sp_Headers_renamed.fa)
+        SigP4_ORF=$(ls gene_pred/ORF_signalp-4.1/$Organism/$Strain/*_aug_sp_Headers_renamed.fa)
+        TMHMM_headers=$(ls gene_pred/trans_mem/$Organism/$Strain/*_TM_genes_pos_headers.txt)
         GPI_headers=$(ls gene_pred/GPIsom/$Organism/$Strain/greedy/GPI_pos.txt)
-        PhobiusFa=$(ls analysis/phobius_CQ/$Organism/$Strain/*_phobius_renamed.fa)
-        PhobiusFa_ORF=$(ls analysis/phobius_ORF/$Organism/$Strain/*_phobius_renamed.fa)
+        PhobiusFa=$(ls analysis/phobius_CQ/$Organism/$Strain/*_phobius_Headers_renamed.fa)
+        PhobiusFa_ORF=$(ls analysis/phobius_ORF/$Organism/$Strain/*_phobius_ORF_Headers_renamed.fa)
         #RxLR_Motif=$(ls analysis/RxLR_effectors/RxLR_EER_regex_finder/$Organism/$Strain/*_RxLR_EER_regex.fa | grep -v 'ORF')
         #RxLR_Hmm=$(ls analysis/RxLR_effectors/hmmer_RxLR/$Organism/$Strain/*_RxLR_hmmer.fa | grep -v 'ORF')
         #RxLR_WY=$(ls analysis/RxLR_effectors/hmmer_WY/$Organism/$Strain/*_WY_hmmer_headers.txt | grep -v 'ORF')
         RxLR_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_Total_RxLR_motif_hmm_renamed.txt)
-        RxLR_ORF_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_total_ORF_RxLR_headers_renamed.txt)
         RxLR_EER_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_Total_RxLR_EER_motif_hmm_renamed.txt)
-        RxLR_EER_ORF_total=$(ls analysis/RxLR_effectors/combined_evidence/$Organism/$Strain/*_total_ORF_RxLR_EER_headers_renamed.txt)
         #CRN_LFLAK=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_pub_CRN_LFLAK_hmm.fa | grep -v 'ORF')
         #CRN_DWL=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_pub_CRN_DWL_hmm.fa | grep -v 'ORF')
         CRN_total=$(ls analysis/CRN_effectors/hmmer_CRN/$Organism/$Strain/*_final_CRN_renamed.txt)
@@ -4101,9 +4099,9 @@ do
         RawCount=$(ls analysis/DeSeq/Method_2/$Strain/raw_counts.txt)
         FPKM=$(ls analysis/DeSeq/Method_2/$Strain/fpkm_counts.txt)
         OrthoName=$Strain
-        OrthoFile=analysis/orthology/OrthoFinder/formatted/Results_Jan16/Orthogroups.txt
+        OrthoFile=analysis/orthology/OrthoFinder/Results_Sep13/Orthogroups.txt
         Transcription_factors=analysis/transcription_factors/$Organism/$Strain/greedy/*TF_TR_Headers.txt
-        $ProgDir/pacbio_anntoation_tables_modified_no_coexp.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP2_ORF $SigP2_ORF --SigP3 $SigP3 --SigP3_ORF $SigP3_ORF --SigP4 $SigP4 --SigP4_ORF $SigP4_ORF --phobius $PhobiusFa --phobius_ORF $PhobiusFa_ORF --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --RxLR_total_ORF $RxLR_ORF_total --RxLR_EER_total $RxLR_EER_total --RxLR_EER_total_ORF $RxLR_EER_ORF_total --CRN_total $CRN_total --ApoP_total $ApoP_total --ortho_name $OrthoName --ortho_file $OrthoFile --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM --Swissprot $SwissProt --InterPro $InterPro --Transcription_factors $Transcription_factors > $OutDir/"$Strain"_gene_table_incl_exp.tsv
+        $ProgDir/pacbio_anntoation_tables_modified_no_coexp.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP2_ORF $SigP2_ORF --SigP3 $SigP3 --SigP3_ORF $SigP3_ORF --SigP4 $SigP4 --SigP4_ORF $SigP4_ORF --phobius $PhobiusFa --phobius_ORF $PhobiusFa_ORF --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --RxLR_EER_total $RxLR_EER_total --CRN_total $CRN_total --ApoP_total $ApoP_total --ortho_name $OrthoName --ortho_file $OrthoFile --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM --Swissprot $SwissProt --InterPro $InterPro --Transcription_factors $Transcription_factors > $OutDir/"$Strain"_gene_table_incl_exp.tsv
         (head -n 1 $OutDir/"$Strain"_gene_table_incl_exp.tsv && tail -n +2 $OutDir/"$Strain"_gene_table_incl_exp.tsv | sort | uniq) > $OutDir/"$Strain"_gene_table_incl_exp_nodup.tsv
     done
 done
