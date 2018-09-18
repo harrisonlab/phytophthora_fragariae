@@ -4197,3 +4197,9 @@ makeblastdb -in $Genes -input_type fasta -dbtype nucl -out BC-16_RxLRs.db
 
 blastn -db BC-16_RxLRs.db -query target.fa -out candidate_BLAST.tbl -evalue 0.0000000001 -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen sstrand"
 ```
+
+```
+Hit two genes:
+g27504: no secretion evidence, no expression evidence
+g29093: no secretion evidence, evidence of a TM, no expression evidence
+```
