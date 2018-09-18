@@ -338,7 +338,7 @@ cat $CRN_Headers | grep -wf $Gene_Set | sort | uniq > $CRN_Set
 # ApoP
 
 ApoP_Set=analysis/coexpression/ApoP_analysed.txt
-ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP.txt
+ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
 cat $ApoP_Headers | grep -wf $Gene_Set | sort | uniq > $ApoP_Set
 
 # Effectors
