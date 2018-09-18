@@ -1713,7 +1713,7 @@ done
 
 ```
 The number of UK1 unique secreted proteins are:
-6,392
+0
 The number of BC-1 genes extracted is:
 0
 The number of Nov5 genes extracted is:
