@@ -70,24 +70,16 @@ qsub $ProgDir/sub_Export_Gene_Lists.sh $OutDir Y
 ```
 
 ```
-Reducing the minimum module size to 5, with a merging threshold of 0.1:
-Target in lightcoral, with 205 genes
-Target in palevioletred3 before merging, with 115 genes
-Reducing the merging threshold to 0.05:
-Keeps it in palevioletred3 with 115 genes
+Number of merged modules: 31
+Number of unmerged modules: 112
+```
 
-With a minimum size of 30:
-Before merging, g24882.t1 is in the steelblue network, with 212 other genes
-After merging with a threshold of 0.05:
-g24882.t1 is in the steelblue network, with 212 other genes
-After merging with a threshold of 0.10:
-g24882.t1 is in the steelblue network, with 212 other genes
-After merging with a threshold of 0.15:
-g24882.t1 is in the steelblue network, with 212 other genes
-After merging with a threshold of 0.25:
-g24882.t1 is in the darkolivegreen network, with 953 other genes
+```
+In merged modules:
+Candidate Avr (g27513) is in red with 1,021 genes
 
-Decided on a minimum module size of 5, with a merging threshold of 0.05
+In unmerged modules:
+Candidate Avr (27513) is in saddlebrown with 197 genes
 ```
 
 Export network for external visualisation with Cytoscape
