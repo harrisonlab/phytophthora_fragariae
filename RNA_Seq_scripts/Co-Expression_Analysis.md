@@ -88,7 +88,7 @@ Export network for external visualisation with Cytoscape
 ```bash
 OutDir=analysis/coexpression
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-Module=palevioletred3
+Module=red
 qsub $ProgDir/sub_export_network_cytoscape.sh $OutDir $Module
 ```
 
