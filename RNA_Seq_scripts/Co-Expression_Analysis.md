@@ -265,9 +265,9 @@ fifth command line argument is e-value, default and recommended is 0.05
 Increasing will provide more motifs, but they may not be significantly enriched
 
 ```bash
-for Rep in {1..100}
+for Set in allconf highconf highexp saddlebrown
 do
-    for Set in all highconfidence highexpressed totalmodule
+    for Rep in {1..100}
     do
         WorkDir=promotor_id/$Set
         NegDir=/data/scratch/adamst/$Set
