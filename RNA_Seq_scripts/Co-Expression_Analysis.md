@@ -498,7 +498,7 @@ Significantly lacking: 0
 Non-Significantly lacking: 2
 ```
 
-## Following commands performed on incorrect gene models
+<!-- ## Following commands performed on incorrect gene models
 
 Repeat this analysis for a minimum module size of 30 to see if this is more appropriate
 
@@ -866,4 +866,4 @@ Significantly enriched: 98
 Non-Significantly enriched: 2
 Significantly lacking: 0
 Non-Significantly lacking: 1
-```
+``` -->
