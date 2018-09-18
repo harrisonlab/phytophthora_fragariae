@@ -145,7 +145,7 @@ done
 Organise directories and create files for a comparison set to sample from
 
 ```bash
-for Set in all highconfidence highexpressed totalmodule
+for Set in allconf highconf highexp saddlebrown
 do
     mkdir -p promotor_id/$Set
     mv promotor_id/"$Set"_genes.txt promotor_id/$Set/.
