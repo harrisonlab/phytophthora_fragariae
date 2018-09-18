@@ -236,7 +236,7 @@ done
 ### Create negative samples for each set
 
 ```bash
-for Set in all highconfidence highexpressed totalmodule
+for Set in allconf highconf highexp saddlebrown
 do
     for Rep in {1..100}
     do
