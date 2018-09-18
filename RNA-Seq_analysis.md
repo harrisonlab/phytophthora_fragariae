@@ -4117,7 +4117,7 @@ do
     OutFile=analysis/DeSeq/Method_1/candidates/"$Strain"_candidate_avrs_details.tsv
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
     python $ProgDir/Extract_Candidate_Details.py --candidates $candidates --annotation_table $annotation_table --out_file $OutFile
-    echo $Strain
+    echo "$Strain done"
 done
 ```
 
