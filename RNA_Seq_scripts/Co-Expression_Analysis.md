@@ -318,8 +318,8 @@ Removed_Genes=analysis/coexpression/removed_genes.txt
 # All genes
 
 Gene_Set=analysis/coexpression/Genes_for_WGCNA.txt
-Genome_Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors.cdna.fasta
-Genome_Headers=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_Headers.txt
+Genome_Fasta=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.cdna.fasta
+Genome_Headers=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed_Headers.txt
 cat $Genome_Fasta | grep '>' | sort | uniq > $Genome_Headers
 cat $Genome_Headers | grep -wvf $Removed_Genes | sort | uniq > $Gene_Set
 
