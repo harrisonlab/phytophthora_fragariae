@@ -59,12 +59,6 @@ Merge_Threshold=0.25
 qsub $ProgDir/sub_create_network.sh $OutDir $SFT $Min_Mod_Size $Merge_Threshold
 ```
 
-```
-With a minimum size of 30:
-103 modules were created before merging
-30 modules were created after merging with a threshold of 0.25
-```
-
 Export gene lists
 
 Y or N denotes whether unmerged modules will be exported too
