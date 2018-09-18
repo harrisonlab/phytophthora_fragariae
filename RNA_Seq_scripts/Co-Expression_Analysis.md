@@ -498,6 +498,8 @@ Significantly lacking: 0
 Non-Significantly lacking: 2
 ```
 
+## Following commands performed on incorrect gene models
+
 Repeat this analysis for a minimum module size of 30 to see if this is more appropriate
 
 Genes from the steelblue module were visually inspected for promotor hunting
