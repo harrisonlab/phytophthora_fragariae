@@ -107,6 +107,7 @@ do
     ProgDir=/home/adamst/git_repos/tools/gene_prediction/ORF_finder
     OutDir=promotor_id
     File_ID=$(echo $Headers | cut -f2 -d '/' | cut -f1 -d '_')
+    sed -i 's/\.t1/_upstream3000/g' $Headers
     $ProgDir/extract_from_fasta.py --fasta $Sequences --headers $Headers > $OutDir/"$File_ID"_upstream3000.fasta
 done
 ```
@@ -149,7 +150,6 @@ cat gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.u
 for Set in allconf highconf highexp saddlebrown
 do
     mkdir -p promotor_id/$Set
-    sed -i 's/\.t1/_upstream3000/g' promotor_id/"$Set"_genes.txt
     mv promotor_id/"$Set"_genes.txt promotor_id/$Set/.
     mv promotor_id/"$Set"_upstream3000.fasta promotor_id/$Set/.
     cat promotor_id/Total_Gene_Set.txt | grep -vf promotor_id/$Set/"$Set"_genes.txt > promotor_id/$Set/"$Set"_nontarget.txt
