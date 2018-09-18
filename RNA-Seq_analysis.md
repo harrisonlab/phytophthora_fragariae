@@ -4038,7 +4038,7 @@ do
     RawCount=$(ls analysis/DeSeq/Method_2/$Strain/raw_counts.txt)
     FPKM=$(ls analysis/DeSeq/Method_2/$Strain/fpkm_counts.txt)
     OrthoName=$Strain
-    OrthoFile=analysis/orthology/OrthoFinder/formatted/Results_Aug18/Orthogroups.txt
+    OrthoFile=analysis/orthology/OrthoFinder/Results_Sep13/Orthogroups.txt
     Modules=analysis/coexpression/merged_modules/Genes_in_*.txt
     Transcription_factors=analysis/transcription_factors/$Organism/$Strain/greedy/*TF_TR_Headers.txt
     $ProgDir/pacbio_anntoation_tables_modified.py --gff_format gff3 --gene_gff $GeneGff --gene_fasta $GeneFasta --SigP2 $SigP2 --SigP2_ORF $SigP2_ORF --SigP3 $SigP3 --SigP3_ORF $SigP3_ORF --SigP4 $SigP4 --SigP4_ORF $SigP4_ORF --phobius $PhobiusFa --phobius_ORF $PhobiusFa_ORF --trans_mem $TMHMM_headers --GPI_anchor $GPI_headers --RxLR_total $RxLR_total --RxLR_EER_total $RxLR_EER_total --CRN_total $CRN_total --ApoP_total $ApoP_total --ortho_name $OrthoName --ortho_file $OrthoFile --DEG_files $DEG_Files --raw_counts $RawCount --fpkm $FPKM --Swissprot $SwissProt --InterPro $InterPro --modules $Modules --Transcription_factors $Transcription_factors > $OutDir/"$Strain"_gene_table_incl_exp.tsv
