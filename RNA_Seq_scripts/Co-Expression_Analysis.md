@@ -349,11 +349,8 @@ cat $RxLR_Set $CRN_Set $ApoP_Set | sort | uniq > $Effector_Set
 # Secreted proteins
 
 Secreted_Set=analysis/coexpression/Secreted_analysed.txt
-Augustus_Secreted=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_secreted.txt
-ORF_Secreted=gene_pred/combined_sigP_ORF/P.fragariae/Bc16/Bc16_all_secreted_merged.txt
-cat $ORF_Secreted | sed 's/$/.t1/' > tmp_ORF.txt
-cat $Augustus_Secreted tmp_ORF.txt | grep -wf $Gene_Set | sort | uniq > $Secreted_Set
-rm tmp_ORF.txt
+Secreted_preds=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted_Aug_ORF.txt
+cat $Secreted_preds | grep -wf $Gene_Set | sort | uniq > $Secreted_Set
 ```
 
 Create files for Module sets of Genes and features
