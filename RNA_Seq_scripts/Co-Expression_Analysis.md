@@ -326,7 +326,7 @@ cat $Genome_Headers | grep -wvf $Removed_Genes | sort | uniq > $Gene_Set
 # RxLRs
 
 RxLR_Set=analysis/coexpression/RxLRs_analysed.txt
-RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm.txt
+RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
 cat $RxLR_Headers | grep -wf $Gene_Set | sort | uniq > $RxLR_Set
 
 # CRNs
