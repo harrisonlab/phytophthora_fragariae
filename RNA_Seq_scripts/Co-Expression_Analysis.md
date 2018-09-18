@@ -468,34 +468,34 @@ Summary of results
 
 ```
 RxLRs:
-Significantly enriched: 32
-Non-Significantly enriched: 61
+Significantly enriched: 23
+Non-Significantly enriched: 3
 Significantly lacking: 0
-Non-Significantly lacking: 96
+Non-Significantly lacking: 5
 
 CRNs:
-Significantly enriched: 5
-Non-Significantly enriched: 6
+Significantly enriched: 14
+Non-Significantly enriched: 2
 Significantly lacking: 0
-Non-Significantly lacking: 158
+Non-Significantly lacking: 15
 
 ApoP:
-Significantly enriched: 31
-Non-Significantly enriched: 98
+Significantly enriched: 29
+Non-Significantly enriched: 2
 Significantly lacking: 0
-Non-Significantly lacking: 60
+Non-Significantly lacking: 0
 
 Effectors:
-Significantly enriched: 52
-Non-Significantly enriched: 90
+Significantly enriched: 31
+Non-Significantly enriched: 0
 Significantly lacking: 0
-Non-Significantly lacking: 47
+Non-Significantly lacking: 0
 
 Secreted
-Significantly enriched: 159
-Non-Significantly enriched: 28
+Significantly enriched: 31
+Non-Significantly enriched: 0
 Significantly lacking: 0
-Non-Significantly lacking: 2
+Non-Significantly lacking: 0
 ```
 
 <!-- ## Following commands performed on incorrect gene models
