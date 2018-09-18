@@ -332,7 +332,7 @@ cat $RxLR_Headers | grep -wf $Gene_Set | sort | uniq > $RxLR_Set
 # CRNs
 
 CRN_Set=analysis/coexpression/CRNs_analysed.txt
-CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.txt
+CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
 cat $CRN_Headers | grep -wf $Gene_Set | sort | uniq > $CRN_Set
 
 # ApoP
