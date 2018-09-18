@@ -145,9 +145,11 @@ done
 Organise directories and create files for a comparison set to sample from
 
 ```bash
+cat gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.upstream3000.fasta | grep '>' | sed 's/>//g' > promotor_id/Total_Gene_Set.txt
 for Set in allconf highconf highexp saddlebrown
 do
     mkdir -p promotor_id/$Set
+    sed -i 's/\.t1/_upstream3000/g' promotor_id/"$Set"_genes.txt
     mv promotor_id/"$Set"_genes.txt promotor_id/$Set/.
     mv promotor_id/"$Set"_upstream3000.fasta promotor_id/$Set/.
     cat promotor_id/Total_Gene_Set.txt | grep -vf promotor_id/$Set/"$Set"_genes.txt > promotor_id/$Set/"$Set"_nontarget.txt
