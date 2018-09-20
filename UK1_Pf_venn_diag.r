@@ -42,8 +42,8 @@ df1[, "Nov9"] != 0 & df1[, "Bc1"] == 0)
 # Set up labels
 label1 <- paste("NOV-5 (UK1)", sep = "" )
 label2 <- paste("BC-1 (UK1)", sep = "" )
-label3 <- paste("A4 (UK2), NOV-27 (UK3), NOV-71 (UK3), NOV-9 (UK3) & BC-16
-(UK2)", sep = "" )
+label3 <- paste("A4 (UK2), NOV-27 (UK3), NOV-71 (UK3), NOV-9 (UK3) & BC-16",
+"(UK2)", sep = "" )
 
 n123 <- nrow(subset(df1, df1[, "A4"] != 0 & df1[, "Nov5"] == 1 &
 df1[, "Nov27"] != 0 & df1[, "Nov71"] != 0 & df1[, "Bc16"] != 0 &
