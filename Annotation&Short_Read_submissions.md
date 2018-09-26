@@ -570,7 +570,7 @@ done
 ```
 Species Isolate Genes   Proteins
 P.fragariae	A4	33,623	34,434
-P.fragariae	Bc16	41,168	41,465
+P.fragariae	Bc16	41,103	41,400
 P.fragariae	Bc1	33,691	34,500
 P.fragariae	Bc23	33,143	33,968
 P.fragariae	Nov27	33,797	34,624
