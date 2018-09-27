@@ -12,7 +12,6 @@
 
  #get config options
 library("optparse")
-library("colorspace")
 library("VennDiagram")
 opt_list <- list(
     make_option("--inp", type = "character",
@@ -87,7 +86,7 @@ draw.triple.venn(area1, area2, area3,
     lwd = rep(2, 3),
     lty = rep("solid", 3),
     col = rep("black", 3),
-    fill = c(rainbow_hcl(3)),
+    fill = c("forestgreen", "royalblue2", "khaki1"),
     alpha = rep(0.5, 3),
     label.col = rep("black", 7),
     cex = rep(1.15, 7),
