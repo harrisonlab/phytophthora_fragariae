@@ -32,8 +32,8 @@ summary(df1)
 label1 <- paste("NOV-27 (UK3)", sep = "" )
 label2 <- paste("NOV-71 (UK3)", sep = "" )
 label3 <- paste("NOV-9 (UK3)", sep = "" )
-label4 <- paste("A4 (UK2), NOV-5 (UK1)",
-"BC-16 (UK2) & BC-1 (UK1)", sep = "" )
+label4 <- paste("A4 (UK2), NOV-5 (UK1)
+BC-16 (UK2) & BC-1 (UK1)", sep = "" )
 
 NOV27 <- subset(df1, df1[, "A4"] == 0 & df1[, "Nov5"] == 0 &
 df1[, "Nov27"] == 1 & df1[, "Nov71"] == 0 & df1[, "Bc16"] == 0 &
