@@ -7,13 +7,11 @@
  # building of the matrix using:
  # ~/git_repos/emr_repos/tools/pathogen/orthology/orthoMCL/orthoMCLgroups2tab.py
 
-# This script requires the optparse R package. This can be downloaded by opening
-# R and running the following command:
-# When given the option, install this package to a local library.
+ # The script also requires the colorspace package. This can be downloaded by
+ # opening R and running the following command:
 
 #get config options
 library("optparse")
-library("colorspace")
 library("VennDiagram")
 opt_list <- list(
     make_option("--inp", type = "character",
@@ -118,7 +116,8 @@ draw.quad.venn(area1, area2, area3, area4,
     category = c(label1, label2, label3, label4),
 #    rep("", 4),
     lwd = rep(2, 4), lty = rep("solid", 4),
-    col = rep("black", 4), fill = c(rainbow_hcl(4)), alpha = rep(0.5, 4),
+    col = rep("black", 4), fill = c("forestgreen", "royalblue2", "khaki1",
+    "goldenrod2"), alpha = rep(0.5, 4),
     label.col = rep("black", 15), cex = rep(1.2, 15),
     fontface = rep("plain", 15),
     fontfamily = rep("sans", 15), cat.pos = c(-15, 15, 0, 0),
