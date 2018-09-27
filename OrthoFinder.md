@@ -332,9 +332,9 @@ The number of orthogroups with only seven highly conserved target isolates is:
 This represents the following number of genes:
 378
 The number of orthogroups containing all seven highly conserved target isolates is:
-23,426
+23,070
 This represents the following number of genes:
-377,108
+372,149
 ```
 
 Identification of orthogroups of closely related isolates for further analysis
