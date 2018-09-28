@@ -597,11 +597,7 @@ data$group <- as.factor(data$group)
 data$Group <- as.factor(data$Group)
 data$name <- as.factor(data$name)
 percentVar <- round(100 * attr(data, "percentVar"))
-<<<<<<< HEAD
 colnames(rld) <- c("TA-07", "TA-08", "TA-09", "TA-12", "TA-13", "TA-14",
-=======
-colname(rld) <- c("TA-07", "TA-08", "TA-09", "TA-12", "TA-13", "TA-14",
->>>>>>> 9d9e4828cf1cd1e2971e11a2bdc95e4d9cb86ac3
 "TA-18", "TA-19", "TA-20", "TA-32", "TA-34", "TA-35")
 
 pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
@@ -612,11 +608,7 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
 
 ggsave("alignment/star/P.fragariae/Bc16/DeSeq/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
-<<<<<<< HEAD
 colnames(rld) <- c("TA.07", "TA.08", "TA.09", "TA.12", "TA.13", "TA.14",
-=======
-colname(rld) <- c("TA.07", "TA.08", "TA.09", "TA.12", "TA.13", "TA.14",
->>>>>>> 9d9e4828cf1cd1e2971e11a2bdc95e4d9cb86ac3
 "TA.18", "TA.19", "TA.20", "TA.32", "TA.34", "TA.35")
 
 #Analysis of gene expression
