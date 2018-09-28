@@ -572,6 +572,8 @@ dev.off()
 #Plot using rlog transformation, showing sample names:
 
 data <- plotPCA(rld, intgroup="Group", returnData=TRUE)
+rownames(data) <- c("TA-07", "TA-08", "TA-09", "TA-12", "TA-13", "TA-14",
+"TA-18", "TA-19", "TA-20", "TA-32", "TA-34", "TA-35")
 percentVar <- round(100 * attr(data, "percentVar"))
 
 pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
