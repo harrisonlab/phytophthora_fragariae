@@ -574,6 +574,9 @@ dev.off()
 data <- plotPCA(rld, intgroup="Group", returnData=TRUE)
 rownames(data) <- c("TA-07", "TA-08", "TA-09", "TA-12", "TA-13", "TA-14",
 "TA-18", "TA-19", "TA-20", "TA-32", "TA-34", "TA-35")
+data$group <- as.character(data$group)
+data$Group <- as.character(data$Group)
+data$name <- as.character(data$name)
 data[data=="Bc16_24hr"] <- "BC-16 24 hpi"
 data[data=="Bc16_48hr"] <- "BC-16 48 hpi"
 data[data=="Bc16_96hr"] <- "BC-16 96 hpi"
@@ -590,6 +593,9 @@ data[data=="TA.20"] <- "TA-20"
 data[data=="TA.32"] <- "TA-32"
 data[data=="TA.34"] <- "TA-34"
 data[data=="TA.35"] <- "TA-35"
+data$group <- as.factor(data$group)
+data$Group <- as.factor(data$Group)
+data$name <- as.factor(data$name)
 percentVar <- round(100 * attr(data, "percentVar"))
 
 pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
