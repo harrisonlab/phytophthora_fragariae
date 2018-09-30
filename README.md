@@ -5839,7 +5839,7 @@ The number of proteins scoring positive for being GPI anchored is:
 
 Bc1 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-295
+1,039
 
 Bc23 - greedy
 The number of proteins scoring positive for being GPI anchored is:
@@ -5847,11 +5847,11 @@ The number of proteins scoring positive for being GPI anchored is:
 
 Nov27 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-702
+1,036
 
 Nov5 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-603
+1,076
 
 Nov71 - greedy
 The number of proteins scoring positive for being GPI anchored is:
@@ -5863,7 +5863,7 @@ The number of proteins scoring positive for being GPI anchored is:
 
 Nov9 - greedy
 The number of proteins scoring positive for being GPI anchored is:
-658
+1,086
 
 ONT3 - greedy
 The number of proteins scoring positive for being GPI anchored is:
