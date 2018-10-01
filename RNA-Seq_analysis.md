@@ -175,7 +175,7 @@ do
         Sample_Name=$(echo $FileF | rev | cut -d '/' -f1 | rev | sed 's/_1_trim.fq.gz//g')
         OutDir=alignment/star/$Organism/$Strain/$Timepoint/$Sample_Name
         ProgDir=/home/adamst/git_repos/tools/seq_tools/RNAseq
-        qsub $ProgDir/sub_star.sh $Assembly $FileF $FileR $OutDir
+        qsub $ProgDir/sub_star_TA.sh $Assembly $FileF $FileR $OutDir
     done
 done
 ```
