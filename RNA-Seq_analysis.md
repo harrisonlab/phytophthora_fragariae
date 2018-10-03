@@ -739,6 +739,8 @@ Total number of CRNs in dataset:
 6
 Total number of Apoplastic effectors in dataset:
 237
+Total number of Secreted proteins in dataset:
+608
 Bc16_24hr_vs_Bc16_mycelium
 Total number of genes in dataset:
 7,845
@@ -748,6 +750,8 @@ Total number of CRNs in dataset:
 17
 Total number of Apoplastic effectors in dataset:
 550
+Total number of Secreted proteins in dataset:
+1,601
 Bc16_24hr_vs_Bc16_mycelium_up
 Total number of genes in dataset:
 2,117
@@ -757,6 +761,8 @@ Total number of CRNs in dataset:
 3
 Total number of Apoplastic effectors in dataset:
 265
+Total number of Secreted proteins in dataset:
+637
 Bc16_48hr_vs_Bc16_mycelium_down
 Total number of genes in dataset:
 3,277
@@ -766,6 +772,8 @@ Total number of CRNs in dataset:
 11
 Total number of Apoplastic effectors in dataset:
 254
+Total number of Secreted proteins in dataset:
+580
 Bc16_48hr_vs_Bc16_mycelium
 Total number of genes in dataset:
 9,782
@@ -775,6 +783,8 @@ Total number of CRNs in dataset:
 32
 Total number of Apoplastic effectors in dataset:
 737
+Total number of Secreted proteins in dataset:
+1,989
 Bc16_48hr_vs_Bc16_mycelium_up
 Total number of genes in dataset:
 2,568
@@ -784,6 +794,8 @@ Total number of CRNs in dataset:
 3
 Total number of Apoplastic effectors in dataset:
 385
+Total number of Secreted proteins in dataset:
+795
 Bc16_96hr_vs_Bc16_mycelium_down
 Total number of genes in dataset:
 2,337
@@ -793,6 +805,8 @@ Total number of CRNs in dataset:
 5
 Total number of Apoplastic effectors in dataset:
 207
+Total number of Secreted proteins in dataset:
+439
 Bc16_96hr_vs_Bc16_mycelium
 Total number of genes in dataset:
 9,971
@@ -802,6 +816,8 @@ Total number of CRNs in dataset:
 24
 Total number of Apoplastic effectors in dataset:
 810
+Total number of Secreted proteins in dataset:
+2,061
 Bc16_96hr_vs_Bc16_mycelium_up
 Total number of genes in dataset:
 3,219
@@ -811,6 +827,8 @@ Total number of CRNs in dataset:
 6
 Total number of Apoplastic effectors in dataset:
 475
+Total number of Secreted proteins in dataset:
+956
 ```
 
 ## Draw venn diagrams of differentially expressed genes
