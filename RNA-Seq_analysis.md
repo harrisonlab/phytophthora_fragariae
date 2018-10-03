@@ -1013,6 +1013,51 @@ $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_ApoP_DEGs.tsv --out $
 $ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_ApoP_DEGs.tsv --out $WorkDir/Bc16_down_ApoP_DEGs.pdf
 ```
 
+## Secreted Proteins
+
+### All DEGs
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_Sec.txt
+inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_Sec.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_Sec.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_all_Sec_DEGs.tsv
+$ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
+
+### Upregulated DEGs
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_up_Sec.txt
+inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_up_Sec.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_up_Sec.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_up_Sec_DEGs.tsv
+$ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
+
+### Downregulated DEGs
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+inp1=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_24hr_vs_Bc16_mycelium_down_Sec.txt
+inp2=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_48hr_vs_Bc16_mycelium_down_Sec.txt
+inp3=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_96hr_vs_Bc16_mycelium_down_Sec.txt
+OutDir=alignment/star/P.fragariae/Bc16/DeSeq/Bc16_down_Sec_DEGs.tsv
+$ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+```
+
+### Venn diagrams
+
+```bash
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+WorkDir=alignment/star/P.fragariae/Bc16/DeSeq
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_all_Sec_DEGs.tsv --out $WorkDir/Bc16_all_Sec_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_up_Sec_DEGs.tsv --out $WorkDir/Bc16_up_Sec_DEGs.pdf
+$ProgDir/BC-16_All_DEGs_venn_diag.r --inp $WorkDir/Bc16_down_Sec_DEGs.tsv --out $WorkDir/Bc16_down_Sec_DEGs.pdf
+```
+
 ## Extract fasta file of all DEGs for BLAST analysis
 
 ```bash
