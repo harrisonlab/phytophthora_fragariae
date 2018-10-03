@@ -699,6 +699,7 @@ write.table(fpkm_counts,"alignment/star/P.fragariae/Bc16/DeSeq/fpkm_counts.txt",
 RxLR_Names_Bc16=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
 CRN_Names_Bc16=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
 ApoP_Names_Bc16=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
+Sec_Prot_Names_Bc16=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted_Aug_ORF.txt
 for File in $(ls alignment/star/P.fragariae/Bc16/DeSeq/Bc16*.txt)
 do
     Assessment=$(basename $File | sed "s/.txt//g")
@@ -720,6 +721,11 @@ do
     cat $File | head -n 1 > $ApoP_File
     cat $File | grep -w -f $ApoP_Names_Bc16 >> $ApoP_File
     cat $ApoP_File | tail -n +2 | wc -l
+    echo "Total number of Secreted proteins in dataset:"
+    Sec_File=$(echo $File | sed "s/.txt/_Sec.txt/g")
+    cat $File | head -n 1 > $Sec_File
+    cat $File | grep -w -f $Sec_Prot_Names_Bc16 >> $Sec_File
+    cat $Sec_File | tail -n +2 | wc -l
 done
 ```
 
