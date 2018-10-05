@@ -101,7 +101,7 @@ Convert P.frag MiSeq reads aligning in 100kb windows into coverage stats and con
 ```bash
 for Strain in Bc1 Nov9
 do
-    for ReadsBam in $(ls analysis/genome_alignment/bowtie/*/$Strain/vs_Bc16_FALCON/polished_contigs_unmasked.fa_aligned_sorted.bam)
+    for ReadsBam in $(ls analysis/genome_alignment/bowtie/*/$Strain/vs_Bc16_FALCON/polished_contigs_unmasked.fa_aligned_sorted)
     do
         Organism=$(echo $ReadsBam | rev | cut -f4 -d '/' | rev)
         AlignDir=$(dirname $ReadsBam)
@@ -109,7 +109,7 @@ do
         bedtools coverage -abam $ReadsBam -b $OutDir/Bc16_100kb_windows.gff > $AlignDir/"$Strain"_coverage_vs_Bc16.bed
         $ProgDir/coverage_bed2circos.py --bed $AlignDir/"$Strain"_coverage_vs_Bc16.bed > $OutDir/"$Strain"_coverage_vs_Bc16_scatterplot.txt
     done
-    done
+done
 ```
 
 Plot location of BC-16 RxLRs and CRNs as a scatterplot
