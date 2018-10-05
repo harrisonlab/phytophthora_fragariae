@@ -40,7 +40,7 @@ do
         Gff_bed=$OutDir/Bc16_100kb_windows.bed
         samtools bedcov $Gff_bed $ReadsBam > $AlignDir/"$Strain"_coverage_vs_Bc16.txt
         ProgDir=/home/adams/git_repos/scripts/phytophthora_fragariae/circos
-        $ProgDir/coverage_bed2circos_TA.py --bed $AlignDir/"$Strain"_coverage_vs_Bc16.txt > $OutDir/"$Strain"_coverage_vs_Bc16_scatterplot.txt
+        $ProgDir/bedcov_to_circos.py --bed $AlignDir/"$Strain"_coverage_vs_Bc16.txt > $OutDir/"$Strain"_coverage_vs_Bc16_scatterplot.txt
     done
 done
 ```
