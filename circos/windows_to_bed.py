@@ -9,8 +9,6 @@ import argparse
 ap = argparse.ArgumentParser()
 ap.add_argument('--gff_in', required=True, type=str,
                 help='Gff file to be converted to a bed file')
-ap.add_argument('--out_dir', required=True, type=str,
-                help='Output directory to write bed file to')
 conf = ap.parse_args()
 
 with open(conf.gff_in) as f:
