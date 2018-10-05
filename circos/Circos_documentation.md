@@ -21,6 +21,14 @@ $ProgDir/fasta2gff_windows.py --genome $Bc16_genome > $OutDir/Bc16_100kb_windows
 
 Convert P.frag MiSeq reads aligning in 100kb windows into coverage stats and convert bed files to circos format
 
+Convert 100kb window gff to bed
+
+```bash
+Genome_Gff=$OutDir/Bc16_100kb_windows.gff
+ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
+python $ProgDir/gff2bed.py --gff_in $gene_gff --out_dir $OutDir
+```
+
 ```bash
 for Strain in Bc1 Nov9
 do
@@ -29,8 +37,10 @@ do
         Organism=$(echo $ReadsBam | rev | cut -f4 -d '/' | rev)
         AlignDir=$(dirname $ReadsBam)
         echo "$Organism - $Strain"
-        bedtools coverage -abam $ReadsBam -b $OutDir/Bc16_100kb_windows.gff > $AlignDir/"$Strain"_coverage_vs_Bc16.bed
-        $ProgDir/coverage_bed2circos.py --bed $AlignDir/"$Strain"_coverage_vs_Bc16.bed > $OutDir/"$Strain"_coverage_vs_Bc16_scatterplot.txt
+        Gff_bed=$OutDir/Bc16_100kb_windows.bed
+        samtools bedcov $Gff_bed $ReadsBam > $AlignDir/"$Strain"_coverage_vs_Bc16.txt
+        ProgDir=/home/adams/git_repos/scripts/phytophthora_fragariae/circos
+        $ProgDir/coverage_bed2circos_TA.py --bed $AlignDir/"$Strain"_coverage_vs_Bc16.txt > $OutDir/"$Strain"_coverage_vs_Bc16_scatterplot.txt
     done
 done
 ```
