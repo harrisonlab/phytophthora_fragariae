@@ -130,12 +130,10 @@ cat $Gene_Gff | grep -w -f $ApoP_Headers > $ApoP_Gff
 Plot location of BC-16 RxLRs and CRNs as a scatterplot
 
 ```bash
-GffRxLR=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_total_RxLR.gff
 ProgDir=/home/adamst/git_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
-$ProgDir/gff2circos_scatterplot.py --gff $GffRxLR --feature gene --value 1 > $OutDir/Bc16_RxLR_plot.txt
-GffCRN=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN.gff
-ProgDir=/home/adamst/git_repos/scripts/fusarium/pathogen/identify_LS_chromosomes/circos
-$ProgDir/gff2circos_scatterplot.py --gff $GffCRN --feature CDS --value 1 > $OutDir/Bc16_CRN_plot.txt
+$ProgDir/gff2circos_scatterplot.py --gff $RxLR_Gff --feature gene --value 1 > $OutDir/Bc16_RxLR_plot.txt
+$ProgDir/gff2circos_scatterplot.py --gff $CRN_Gff --feature CDS --value 1 > $OutDir/Bc16_CRN_plot.txt
+$ProgDir/gff2circos_scatterplot.py --gff $ApoP_Gff --feature CDS --value 1 > $OutDir/Bc16_ApoP_plot.txt
 ```
 
 ```bash
