@@ -99,15 +99,17 @@ $ProgDir/fasta2gff_windows.py --genome $Bc16_genome > $OutDir/Bc16_100kb_windows
 Convert P.frag MiSeq reads aligning in 100kb windows into coverage stats and convert bed files to circos format
 
 ```bash
-for ReadsBam in $(ls analysis/genome_alignment/bowtie/*/*/vs_Bc16_FALCON/polished_contigs_unmasked.fa_aligned_sorted.bam)
+for Strain in Bc1 Nov9
 do
-    Organism=$(echo $ReadsBam | rev | cut -f4 -d '/' | rev)
-    Strain=$(echo $ReadsBam | rev | cut -f3 -d '/' | rev)
-    AlignDir=$(dirname $ReadsBam)
-    echo "$Organism - $Strain"
-    bedtools coverage -abam $ReadsBam -b $OutDir/Bc16_100kb_windows.gff > $AlignDir/"$Strain"_coverage_vs_Bc16.bed
-    $ProgDir/coverage_bed2circos.py --bed $AlignDir/"$Strain"_coverage_vs_Bc16.bed > $OutDir/"$Strain"_coverage_vs_Bc16_scatterplot.txt
-done
+    for ReadsBam in $(ls analysis/genome_alignment/bowtie/*/$Strain/vs_Bc16_FALCON/polished_contigs_unmasked.fa_aligned_sorted.bam)
+    do
+        Organism=$(echo $ReadsBam | rev | cut -f4 -d '/' | rev)
+        AlignDir=$(dirname $ReadsBam)
+        echo "$Organism - $Strain"
+        bedtools coverage -abam $ReadsBam -b $OutDir/Bc16_100kb_windows.gff > $AlignDir/"$Strain"_coverage_vs_Bc16.bed
+        $ProgDir/coverage_bed2circos.py --bed $AlignDir/"$Strain"_coverage_vs_Bc16.bed > $OutDir/"$Strain"_coverage_vs_Bc16_scatterplot.txt
+    done
+    done
 ```
 
 Plot location of BC-16 RxLRs and CRNs as a scatterplot
