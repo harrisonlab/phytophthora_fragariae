@@ -21,3 +21,9 @@ multiplier = conf.per_X_bp
 
 with open(conf.cov_in) as f:
     cov_lines = f.readlines()
+
+#-----------------------------------------------------
+# Step 2
+# Extract feature start and stop positions, and coverage
+# per Kb and print before parsing into circos format.
+#-----------------------------------------------------
