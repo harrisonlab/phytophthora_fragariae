@@ -34,7 +34,7 @@ for line in cov_lines:
     contig = split_line[0]
     start = split_line[1]
     stop = split_line[2]
-    reads = float(split_line[6])
+    reads = float(split_line[3])
     lgth = float(stop) - float(start)
     # print (str(reads) + "\t" + str(lgth))
     reads_per_bp = np.divide(reads, lgth)
