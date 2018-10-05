@@ -43,7 +43,7 @@ RxLR_Gff=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_renamed
 CRN_Gff=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_renamed_CRNs.gff
 ApoP_Gff=analysis/ApoplastP/P.fragariae/Bc16/Bc16_renamed_ApoPs.gff
 RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
-CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.tx
+CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
 ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
 cat $Gene_Gff | grep -w -f $RxLR_Headers > $RxLR_Gff
 cat $Gene_Gff | grep -w -f $CRN_Headers > $CRN_Gff
