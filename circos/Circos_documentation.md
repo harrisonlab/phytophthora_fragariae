@@ -24,7 +24,7 @@ Convert P.frag MiSeq reads aligning in 100kb windows into coverage stats and con
 ```bash
 for Strain in Bc1 Nov9
 do
-    for ReadsBam in $(analysis/genome_alignment/bowtie/P.fragariae/$Strain/vs_Bc16_FALCON/"$Strain"_polished_contigs_unmasked.fa_aligned_sorted.bam)
+    for ReadsBam in $(ls analysis/genome_alignment/bowtie/P.fragariae/$Strain/vs_Bc16_FALCON/"$Strain"_polished_contigs_unmasked.fa_aligned_sorted.bam)
     do
         Organism=$(echo $ReadsBam | rev | cut -f4 -d '/' | rev)
         AlignDir=$(dirname $ReadsBam)
