@@ -25,8 +25,8 @@ Convert 100kb window gff to bed
 
 ```bash
 Genome_Gff=$OutDir/Bc16_100kb_windows.gff
-ProgDir=/home/adamst/git_repos/tools/seq_tools/feature_annotation
-python $ProgDir/gff2bed.py --gff_in $Genome_Gff --out_dir $OutDir
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/circos
+python $ProgDir/windows_to_bed.py --gff_in $Genome_Gff > $OutDir/Bc16_100kb_windows.bed
 ```
 
 ```bash
