@@ -133,3 +133,17 @@ do
     printf "\n"
 done
 ```
+
+```
+Sample size of 560:
+Half decay distance of LD r^2: 26500 bp 
+Distance where r^2 = 0.2: 33500 bp 
+
+Sample size of 616:
+Half decay distance of LD r^2: 26500 bp 
+Distance where r^2 = 0.2: 33500 bp 
+
+Sample size of 672:
+Half decay distance of LD r^2: 26500 bp 
+Distance where r^2 = 0.2: 33500 bp
+```
