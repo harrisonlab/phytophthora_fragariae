@@ -42,7 +42,8 @@ Rho_plot <- ggplot(data = Recomb_df_corrected,
     max(Recomb_df_corrected$Mean_rho), by = 5), 1)) +
     theme(panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(), panel.background = element_blank(),
-    panel.border = element_rect(colour = "black", fill = NA, size = 1))
+    panel.border = element_rect(colour = "black", fill = NA, size = 1),
+    axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 
 # Save graph to file
 
