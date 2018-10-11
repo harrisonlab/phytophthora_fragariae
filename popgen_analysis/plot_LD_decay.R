@@ -114,7 +114,10 @@ geom_line(colour = "blue") + geom_vline(xintercept = half_decay_dist, colour =
             rsqd_pt2, colour = "red", linetype = "dotted") +
             geom_hline(yintercept = 0.2, colour = "red", linetype = "dotted") +
             labs(x = "Physical Distance (bp)", y =
-            "Fitted linkage disequilibrium") + theme(panel.grid.major =
+            "Fitted linkage disequilibrium") +
+            scale_x_continuous(breaks = seq(0, 100000, 5000)) +
+            scale_y_continuous(breaks = seq(0, 0.5, 0.05)) +
+            theme(panel.grid.major =
                 element_blank(), panel.grid.minor = element_blank(),
                 panel.background = element_blank(), panel.border =
                 element_rect(colour = "black", fill = NA, size = 1))
