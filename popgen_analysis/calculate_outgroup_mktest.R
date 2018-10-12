@@ -67,7 +67,11 @@ for (dir in contig_folders[contig_folders != ""]){
     mkt_plot <- ggplot(MKT_d, aes(x = MKT_d[, 7])) +
     geom_histogram(colour = "black", fill = "yellow") + ggtitle(dir) +
     xlab("MKT's neutrality index") + ylab("Number of genes") +
-    scale_x_continuous(breaks = pretty(MKT_d[, 7], n = 10))
+    scale_x_continuous(breaks = pretty(MKT_d[, 7], n = 10)) +
+    theme(panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), panel.background = element_blank(),
+    panel.border = element_rect(colour = "black", fill = NA, size = 1),
+    axis.text = element_text(size = 14), axis.title = element_text(size = 18))
     ggsave(file_hist, mkt_plot)
 }
   current_gff <- paste(gff, "/", dir, ".gff", sep = "")
@@ -94,7 +98,11 @@ for (dir in contig_folders[contig_folders != ""]){
   mkt_plot <- ggplot(x, aes(x = x[, 8])) +
   geom_histogram(colour = "black", fill = "yellow4") +
   xlab("MKT's neutrality index") + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(x[, 8], n = 10))
+  scale_x_continuous(breaks = pretty(x[, 8], n = 10)) +
+  theme(panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(), panel.background = element_blank(),
+  panel.border = element_rect(colour = "black", fill = NA, size = 1),
+  axis.text = element_text(size = 14), axis.title = element_text(size = 18))
   ggsave(file_hist, mkt_plot)
 
 ###Adjust the McDonald Kreitman Fisher's exact test results for multiple testing with Benjamini Hochberg correction
