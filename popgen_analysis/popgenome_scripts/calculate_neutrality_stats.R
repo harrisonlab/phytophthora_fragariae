@@ -4,14 +4,14 @@ library("ggplot2")
 ######################## BEFORE RUNNING ################################
 #Assign individuals to appropriate populations (or just 1!)
 #This script calculates: number of segregating sites, Watterson's Theta, Tajima's D, Fu & Li's F*, Fu & Li'd D*
-UK123 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1",
-"A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
-Others <- c("Bc23_1", "Bc23_2", "ONT3_1", "ONT3_2")
+UK1 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2")
+UK2 <- c("Bc16_1", "Bc16_2", "A4_1", "A4_2")
+UK3 <- c("Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
 #Need to set argument diploid=TRUE if using diploid genomes in the below command:
-populations <- list(UK123, Others)
+populations <- list(UK1, UK2, UK3)
 #Number of populations assigned above.
 population_no <- length(populations)
-population_names <- c("UK123", "Others")
+population_names <- c("UK1", "UK2", "UK3")
 #Given in the same order, as above.
 #Interval and jump size used in the sliding window analysis
 interval <-  1000
