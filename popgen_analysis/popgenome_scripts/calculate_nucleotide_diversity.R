@@ -49,7 +49,7 @@ Pi_d <- as.data.frame(Pi)
 for (i in seq_along(population_names)){
 file_hist <- paste(dir, "_", population_names[i], "_Pi_per_gene.pdf", sep = "")
 pi_plot <- ggplot(Pi_d, aes(x = Pi_d[, i])) +
-geom_histogram(colour = "black", fill = "blue") + ggtitle(dir) +
+geom_histogram(colour = "black", fill = "blue") +
 xlab(expression(paste("Average ", pi, " per site"))) +
 ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(Pi_d[, i], n = 10)) +
@@ -89,14 +89,15 @@ for (i in seq_along(population_names)){
 file_slide <- paste(dir, "_", population_names[i], "_Pi_sliding_window.pdf",
 sep = "")
 slide_plot <- ggplot(Pi_persite_d, aes(x = xaxis, y = Pi_persite_d[, i])) +
-geom_smooth(colour = "black", fill = "red") + ggtitle(dir) +
+geom_smooth(colour = "black", fill = "red") +
 xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average ", pi, " per site"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
-axis.text = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(file_slide, slide_plot)
 #write table with raw data
 slide_table <- paste(dir, "_", population_names[i],
@@ -115,14 +116,15 @@ population_names[2], sep = " ")
 comp_slide_file <- paste(dir, "_Pi_sliding_window_comparison.pdf", sep = "")
 slide_comparison <- ggplot(Pi_persite_d, aes(x = xaxis)) +
 geom_smooth(aes(y = Pi_persite_d[, 1]), colour = "red") +
-geom_smooth(aes(y = Pi_persite_d[, 2]), colour = "blue") + ggtitle(title) +
+geom_smooth(aes(y = Pi_persite_d[, 2]), colour = "blue") +
 xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average ", pi, " per site"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
-axis.text = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(comp_slide_file, slide_comparison)
 
 ############################################################
@@ -146,7 +148,7 @@ dxy_table <- cbind(GENOME.class.split@region.names, gene_ids,
 labelling <- gsub("/", "_vs_", row.names(dxy)[i])
 file_hist <- paste(dir, "_", labelling, "_dxy_per_gene.pdf", sep = "")
 dxy_plot <- ggplot(dxy_d, aes(x = dxy_d[, 1])) +
-geom_histogram(colour = "black", fill = "green") + ggtitle(dir) +
+geom_histogram(colour = "black", fill = "green") +
 xlab("Average Dxy per gene") + ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(dxy_d[, 1], n = 10)) +
 theme(panel.grid.major = element_blank(),
@@ -177,14 +179,15 @@ labelling <- gsub("/", "_vs_", row.names(dxy)[i])
 file_slide <- paste(dir, "_", labelling, "_dxy_per_sliding_window.pdf",
 sep = "")
 dxy_plot <- slide_plot <- ggplot(dxy_d, aes(x = xaxis, y = dxy_d[, 1])) +
-geom_smooth(colour = "black", fill = "green") + ggtitle(dir) +
+geom_smooth(colour = "black", fill = "green") +
 xlab("Contig coordinate (kbp)") +
 ylab(paste("Average Dxy per ", interval, " bp")) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
-axis.text = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(file_slide, dxy_plot)
 file_table <- paste(dir, "_", labelling, "_dxy_per_sliding_window.txt",
 sep = "")
@@ -222,7 +225,7 @@ for (i in seq_along(population_names)){
   file_hist <- paste(dir, "_", population_names[i], "_Pi_n_s_per_gene.pdf",
   sep = "")
   pi_plot <- ggplot(Pi_ns_d, aes(x = Pi_ns_d[, i])) +
-  geom_histogram(colour = "black", fill = "coral") + ggtitle(dir) +
+  geom_histogram(colour = "black", fill = "coral") +
   xlab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(Pi_ns_d[, i], n = 10)) +
@@ -264,10 +267,16 @@ for (i in seq_along(population_names)){
   if (Pi_ns_len > Pi_ns_len_na){
   slide_plot <- ggplot(Pi_ns_persite_d,
       aes(x = xaxis, y = Pi_ns_persite_d[, i])) +
-      geom_smooth(colour = "black", fill = "darkviolet") + ggtitle(dir) +
+      geom_smooth(colour = "black", fill = "darkviolet") +
       xlab("Contig coordinate (kbp)") +
       ylab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
-      scale_x_continuous(breaks = pretty(xaxis, n = 10))
+      scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
+      theme(panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(), panel.background = element_blank(),
+      panel.border = element_rect(colour = "black", fill = NA, size = 1),
+      axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+      axis.text.y = element_text(size = 14),
+      axis.title = element_text(size = 18))
   ggsave(file_slide, slide_plot)
 }
   #write table with raw data
@@ -290,13 +299,14 @@ if (Pi_ns_len > Pi_ns_len_na){
 slide_comparison <- ggplot(Pi_ns_persite_d, aes(x = xaxis)) +
 geom_smooth(aes(y = Pi_ns_persite_d[, 1]), colour = "deeppink") +
 geom_smooth(aes(y = Pi_ns_persite_d[, 2]), colour = "lightskyblue") +
-ggtitle(title) + xlab("Contig coordinate (kbp)") +
+xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
-axis.text = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(comp_slide_file, slide_comparison)
 }
 
@@ -317,7 +327,8 @@ ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
-axis.text = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(file_hist, pi_plot)
 
 #Pi nonsyn/syn
@@ -333,7 +344,8 @@ ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
-axis.text = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(file_hist, pi_plot)
 }
 
