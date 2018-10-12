@@ -83,7 +83,8 @@ for (i in seq_along(population_names)){
   "_FayWuH_per_gene_all.pdf", sep = "")
   fay_wu_h_plot <- ggplot(x, aes(x = x[, 3])) +
   geom_histogram(colour = "black", fill = "thistle1") + xlab("Fay & Wu's H") +
-  ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+  ylab("Number of genes") +
+  scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
