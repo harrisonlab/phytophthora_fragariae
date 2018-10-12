@@ -48,7 +48,7 @@ for (dir in contig_folders[contig_folders != ""]){
     fay_wu_h_na <- sum(sapply(fay_wu_h[, i], is.na))
     if (fay_wu_h_len > fay_wu_h_na){
       fay_wu_h_plot <- ggplot(fay_wu_h_d, aes(x = fay_wu_h_d[, i])) +
-      geom_histogram(colour = "black", fill = "thistle4") + ggtitle(dir) +
+      geom_histogram(colour = "black", fill = "thistle4") +
       xlab("Fay & Wu's H") + ylab("Number of genes") +
       scale_x_continuous(breaks = pretty(fay_wu_h_d[, i], n = 10)) +
       theme(panel.grid.major = element_blank(),
