@@ -65,7 +65,7 @@ for (dir in contig_folders[contig_folders != ""]){
   MKT_na <- sum(sapply(MKT_d[, 7], is.na))
   if (MKT_len > MKT_na){
     mkt_plot <- ggplot(MKT_d, aes(x = MKT_d[, 7])) +
-    geom_histogram(colour = "black", fill = "yellow") + ggtitle(dir) +
+    geom_histogram(colour = "black", fill = "yellow") +
     xlab("MKT's neutrality index") + ylab("Number of genes") +
     scale_x_continuous(breaks = pretty(MKT_d[, 7], n = 10)) +
     theme(panel.grid.major = element_blank(),
