@@ -174,7 +174,7 @@ for (i in seq(pairs)){
       axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
       axis.text.y = element_text(size = 14),
       axis.title = element_text(size = 18))
-  ggsave(file_slide, slide_plot)
+  ggsave(file_hist, slide_plot)
   #write table with raw data
   slide_table <- paste(dir, "_pairwise_FST_per_sliding_window_", labelling,
   ".txt", sep = "")
