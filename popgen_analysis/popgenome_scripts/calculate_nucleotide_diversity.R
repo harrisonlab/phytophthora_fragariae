@@ -7,7 +7,8 @@ library("ggplot2")
 #A, B  but not C, D.
 #When all coding sites input, use E to calculate Pi(nonsyn)/Pi(syn) sites.
 #Output files either per contig or the entire genome (prefix genome_)
-UK123 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1", "A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
+UK123 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1",
+"A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
 Others <- c("Bc23_1", "Bc23_2", "ONT3_1", "ONT3_2")
 #In the output for pairwise FST, pop1, pop2 etc. refer to the order in which the populations have been listed here:
 populations <- list(UK123, Others)
