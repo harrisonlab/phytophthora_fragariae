@@ -2,7 +2,8 @@ library("PopGenome")
 library("ggplot2")
 
 # Set populations
-UK123 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1", "A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
+UK123 <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1",
+"A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2")
 Others <- c("Bc23_1", "Bc23_2", "ONT3_1", "ONT3_2")
 populations <- list(UK123, Others)
 population_names <- c("UK123", "Others")
