@@ -50,7 +50,11 @@ for (i in seq_along(population_names)){
   fst_plot <- ggplot(FST_all_d, aes(x = FST_all_d[, i])) +
   geom_histogram(colour = "black", fill = "darkseagreen") + ggtitle(dir) +
   xlab(expression(paste("Total FST per gene"))) + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(FST_all_d[, i], n = 10))
+  scale_x_continuous(breaks = pretty(FST_all_d[, i], n = 10)) +
+  theme(panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(), panel.background = element_blank(),
+  panel.border = element_rect(colour = "black", fill = NA, size = 1),
+  axis.text = element_text(size = 14), axis.title = element_text(size = 18))
   ggsave(file_hist, fst_plot)
   file_table <- paste(dir, "_", population_names[i], "_total_FST_per_gene.txt",
   sep = "")
@@ -74,7 +78,11 @@ for (i in seq(pairs)){
   fst_plot <- ggplot(FST_pairwise_d, aes(x = FST_pairwise_d[, 1])) +
   geom_histogram(colour = "black", fill = "cadetblue") + ggtitle(dir) +
   xlab(expression(paste("Pairwise FST per gene"))) + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(FST_pairwise_d[, 1], n = 10))
+  scale_x_continuous(breaks = pretty(FST_pairwise_d[, 1], n = 10)) +
+  theme(panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(), panel.background = element_blank(),
+  panel.border = element_rect(colour = "black", fill = NA, size = 1),
+  axis.text = element_text(size = 14), axis.title = element_text(size = 18))
   ggsave(file_hist, fst_plot)
   file_table <- paste(dir, "_pairwise_FST_per_gene_", labelling, ".txt",
   sep = "")
@@ -96,7 +104,11 @@ file_hist <- paste(dir, "_Hudson_KST_per_gene", ".pdf", sep = "")
 fst_plot <- ggplot(Hudson_KST_d, aes(x = Hudson_KST_d[, 1])) +
 geom_histogram(colour = "black", fill = "springgreen") + ggtitle(dir) +
 xlab(expression(paste("Hudson KST per gene"))) + ylab("Number of genes") +
-scale_x_continuous(breaks = pretty(Hudson_KST_d[, 1], n = 10))
+scale_x_continuous(breaks = pretty(Hudson_KST_d[, 1], n = 10)) +
+theme(panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), panel.background = element_blank(),
+panel.border = element_rect(colour = "black", fill = NA, size = 1),
+axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(file_hist, fst_plot)
 file_table <- paste(dir, "_Hudson_KST_per_gene", ".txt", sep = "")
 file_table2 <- paste("genome_Hudson_KST_per_gene_all", ".txt", sep = "")
@@ -128,7 +140,11 @@ for (i in seq_along(population_names)){
       y = FST_all_slide_d[, i])) +
       geom_smooth(colour = "black", fill = "plum") + ggtitle(dir) +
       xlab("Contig coordinate (kbp)") + ylab("Total FST per interval") +
-      scale_x_continuous(breaks = pretty(xaxis, n = 10))
+      scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
+      theme(panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(), panel.background = element_blank(),
+      panel.border = element_rect(colour = "black", fill = NA, size = 1),
+      axis.text = element_text(size = 14), axis.title = element_text(size = 18))
   ggsave(file_slide, slide_plot)
   #write table with raw data
   slide_table <- paste(dir, "_", population_names[i],
@@ -148,7 +164,11 @@ for (i in seq(pairs)){
       geom_smooth(colour = "black", fill = "slateblue") +
       ggtitle(dir) + xlab("Contig coordinate (kbp)") +
       ylab("Pairwise FST per interval") +
-      scale_x_continuous(breaks = pretty(xaxis, n = 10))
+      scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
+      theme(panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(), panel.background = element_blank(),
+      panel.border = element_rect(colour = "black", fill = NA, size = 1),
+      axis.text = element_text(size = 14), axis.title = element_text(size = 18))
   ggsave(file_slide, slide_plot)
   #write table with raw data
   slide_table <- paste(dir, "_pairwise_FST_per_sliding_window_", labelling,
@@ -171,7 +191,11 @@ file_hist <- paste("genome_", population_names[i],
 fst_plot <- ggplot(x, aes(x = x[, 3])) +
 geom_histogram(colour = "black", fill = "darkseagreen") +
 xlab(expression(paste("Total FST per gene"))) + ylab("Number of genes") +
-scale_x_continuous(breaks = pretty(x[, 3], n = 10))
+scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+theme(panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), panel.background = element_blank(),
+panel.border = element_rect(colour = "black", fill = NA, size = 1),
+axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(file_hist, fst_plot)
 }
 
@@ -182,7 +206,11 @@ file_hist <- paste("genome_Hudson_KST_per_gene_all", ".pdf", sep = "")
 fst_plot <- ggplot(x, aes(x = x[, 2])) +
 geom_histogram(colour = "black", fill = "springgreen") +
 xlab(expression(paste("Hudson KST per gene"))) + ylab("Number of genes") +
-scale_x_continuous(breaks = pretty(x[, 2], n = 10))
+scale_x_continuous(breaks = pretty(x[, 2], n = 10)) +
+theme(panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), panel.background = element_blank(),
+panel.border = element_rect(colour = "black", fill = NA, size = 1),
+axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 ggsave(file_hist, fst_plot)
 
 
@@ -197,6 +225,10 @@ for (i in seq(pairs)){
   fst_plot <- ggplot(x, aes(x = x[, 2])) +
   geom_histogram(colour = "black", fill = "cadetblue") +
   xlab(expression(paste("Pairwise FST per gene"))) + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(x[, 2], n = 10))
+  scale_x_continuous(breaks = pretty(x[, 2], n = 10)) +
+  theme(panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(), panel.background = element_blank(),
+  panel.border = element_rect(colour = "black", fill = NA, size = 1),
+  axis.text = element_text(size = 14), axis.title = element_text(size = 18))
   ggsave(file_hist, fst_plot)
 }
