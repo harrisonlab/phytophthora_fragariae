@@ -2,7 +2,7 @@
 
 R scripts sourced from Maria's analyses
 The R scripts called for this analysis have to be changed for every population.
-Currently set for Pf
+Currently set for the UK1,2,3 population
 
 ## UK123 analysis
 
@@ -226,7 +226,7 @@ qsub $scripts2/sub_calculate_fst.sh
 qsub $scripts2/sub_calculate_4_gamete_test.sh
 ```
 
-## Pf analysis
+<!-- ## Pf analysis
 
 ### Set initial variables for Pf
 
@@ -450,4 +450,4 @@ qsub $scripts2/sub_calculate_nucleotide_diversity.sh
 qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
 qsub $scripts2/sub_calculate_4_gamete_test.sh
-```
+``` -->
