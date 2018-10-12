@@ -49,7 +49,7 @@ for (i in seq_along(population_names)){
   file_hist <- paste(dir, "_", population_names[i], "_total_FST_per_gene.pdf",
   sep = "")
   fst_plot <- ggplot(FST_all_d, aes(x = FST_all_d[, i])) +
-  geom_histogram(colour = "black", fill = "darkseagreen") + ggtitle(dir) +
+  geom_histogram(colour = "black", fill = "darkseagreen") +
   xlab(expression(paste("Total FST per gene"))) + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(FST_all_d[, i], n = 10)) +
   theme(panel.grid.major = element_blank(),
@@ -77,7 +77,7 @@ for (i in seq(pairs)){
   file_hist <- paste(dir, "_pairwise_FST_per_gene_", labelling, ".pdf",
   sep = "")
   fst_plot <- ggplot(FST_pairwise_d, aes(x = FST_pairwise_d[, 1])) +
-  geom_histogram(colour = "black", fill = "cadetblue") + ggtitle(dir) +
+  geom_histogram(colour = "black", fill = "cadetblue") +
   xlab(expression(paste("Pairwise FST per gene"))) + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(FST_pairwise_d[, 1], n = 10)) +
   theme(panel.grid.major = element_blank(),
@@ -103,7 +103,7 @@ for (i in seq(pairs)){
 Hudson_KST_d <- as.data.frame(as.vector(Hudson_KST[1, ]))
 file_hist <- paste(dir, "_Hudson_KST_per_gene", ".pdf", sep = "")
 fst_plot <- ggplot(Hudson_KST_d, aes(x = Hudson_KST_d[, 1])) +
-geom_histogram(colour = "black", fill = "springgreen") + ggtitle(dir) +
+geom_histogram(colour = "black", fill = "springgreen") +
 xlab(expression(paste("Hudson KST per gene"))) + ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(Hudson_KST_d[, 1], n = 10)) +
 theme(panel.grid.major = element_blank(),
@@ -139,13 +139,15 @@ for (i in seq_along(population_names)){
   "_total_FST_per_sliding_window.pdf", sep = "")
   slide_plot <- ggplot(FST_all_slide_d, aes(x = xaxis,
       y = FST_all_slide_d[, i])) +
-      geom_smooth(colour = "black", fill = "plum") + ggtitle(dir) +
+      geom_smooth(colour = "black", fill = "plum") +
       xlab("Contig coordinate (kbp)") + ylab("Total FST per interval") +
       scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
       theme(panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(), panel.background = element_blank(),
       panel.border = element_rect(colour = "black", fill = NA, size = 1),
-      axis.text = element_text(size = 14), axis.title = element_text(size = 18))
+      axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+      axis.text.y = element_text(size = 14),
+      axis.title = element_text(size = 18))
   ggsave(file_slide, slide_plot)
   #write table with raw data
   slide_table <- paste(dir, "_", population_names[i],
@@ -163,13 +165,15 @@ for (i in seq(pairs)){
   slide_plot <- ggplot(FST_pairwise_slide_d, aes(x = xaxis,
       y = FST_pairwise_slide_d[, 1])) +
       geom_smooth(colour = "black", fill = "slateblue") +
-      ggtitle(dir) + xlab("Contig coordinate (kbp)") +
+      xlab("Contig coordinate (kbp)") +
       ylab("Pairwise FST per interval") +
       scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
       theme(panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(), panel.background = element_blank(),
       panel.border = element_rect(colour = "black", fill = NA, size = 1),
-      axis.text = element_text(size = 14), axis.title = element_text(size = 18))
+      axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
+      axis.text.y = element_text(size = 14),
+      axis.title = element_text(size = 18))
   ggsave(file_slide, slide_plot)
   #write table with raw data
   slide_table <- paste(dir, "_pairwise_FST_per_sliding_window_", labelling,
