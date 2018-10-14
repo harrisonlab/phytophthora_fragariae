@@ -116,9 +116,10 @@ title <- paste(dir, "Comparison of", population_names[1], "vs",
 population_names[2], sep = " ")
 comp_slide_file <- paste(dir, "_Pi_sliding_window_comparison.pdf", sep = "")
 slide_comparison <- ggplot(Pi_persite_d, aes(x = xaxis)) +
-geom_smooth(aes(y = Pi_persite_d[, 1]), colour = "red") +
-geom_smooth(aes(y = Pi_persite_d[, 2]), colour = "blue") +
-xlab("Contig coordinate (kbp)") +
+geom_smooth(aes(y = Pi_persite_d[, 1]), colour = "red", se = FALSE,
+show.legend = TRUE) +
+geom_smooth(aes(y = Pi_persite_d[, 2]), colour = "blue", se = FALSE,
+show.legend = TRUE) + xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average ", pi, " per site"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 theme(panel.grid.major = element_blank(),
@@ -300,9 +301,10 @@ population_names[2], sep = " ")
 comp_slide_file <- paste(dir, "_Pi_n_s_sliding_window_comparison.pdf", sep = "")
 if (Pi_ns_len > Pi_ns_len_na){
 slide_comparison <- ggplot(Pi_ns_persite_d, aes(x = xaxis)) +
-geom_smooth(aes(y = Pi_ns_persite_d[, 1]), colour = "deeppink") +
-geom_smooth(aes(y = Pi_ns_persite_d[, 2]), colour = "lightskyblue") +
-xlab("Contig coordinate (kbp)") +
+geom_smooth(aes(y = Pi_ns_persite_d[, 1]), colour = "deeppink", se = FALSE,
+show.legend = TRUE) +
+geom_smooth(aes(y = Pi_ns_persite_d[, 2]), colour = "lightskyblue", se = FALSE,
+show.legend = TRUE) + xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 theme(panel.grid.major = element_blank(),
