@@ -263,7 +263,7 @@ show.legend = TRUE) +
 xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average Watterson's ", theta, " per site"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
-scale_color_discrete(name = "Population", labels = c("Others", "UK123")) +
+scale_color_manual(name = "Population", labels = c("Others", "UK123")) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -320,7 +320,7 @@ show.legend = TRUE) +
 xlab("Contig coordinate (kbp)") +
 ylab("Average frequency of segregating sites") +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
-scale_color_discrete(name = "Population", labels = c("Others", "UK123")) +
+scale_color_manual(name = "Population", labels = c("Others", "UK123")) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
