@@ -127,7 +127,8 @@ theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
 axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
-axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18),
+legend.key = element_blank())
 ggsave(comp_slide_file, slide_comparison)
 
 ############################################################
@@ -313,7 +314,8 @@ theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
 axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
-axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18),
+legend.key = element_blank())
 ggsave(comp_slide_file, slide_comparison)
 }
 
