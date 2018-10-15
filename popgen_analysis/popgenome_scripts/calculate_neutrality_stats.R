@@ -258,12 +258,13 @@ show.legend = TRUE) +
 xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average Watterson's ", theta, " per site"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
-scale_color_manual(name = "Population", labels = c("Others", "UK123")) +
+scale_colour_manual(name = "Population", labels = c("Others", "UK123")) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
 axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
-axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18),
+legend.key = element_blank())
 ggsave(comp_slide_file, slide_comparison)
 }
 
@@ -315,12 +316,13 @@ show.legend = TRUE) +
 xlab("Contig coordinate (kbp)") +
 ylab("Average frequency of segregating sites") +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
-scale_color_manual(name = "Population", labels = c("Others", "UK123")) +
+scale_colour_manual(name = "Population", labels = c("Others", "UK123")) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
 axis.text.x = element_text(size = 14, angle = 45, vjust = 1, hjust = 1),
-axis.text.y = element_text(size = 14), axis.title = element_text(size = 18))
+axis.text.y = element_text(size = 14), axis.title = element_text(size = 18),
+legend.key = element_blank())
 ggsave(comp_slide_file, slide_comparison)
 }
 
