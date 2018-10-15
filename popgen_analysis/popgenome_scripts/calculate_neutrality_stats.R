@@ -311,7 +311,7 @@ geom_smooth(aes(y = no_seg_d[, 1], colour = "Population 1:\nUK1,2,3")) +
 geom_smooth(aes(y = no_seg_d[, 2], colour = "Population 2:\nBC-23 & ONT-3")) +
 xlab("Contig coordinate (kbp)") +
 ylab("Average frequency of segregating sites") + labs(colour = "Population") +
-scale_colour_manual(values = c("turquoise1", "olivedrab2"))
+scale_colour_manual(values = c("turquoise1", "olivedrab2")) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
