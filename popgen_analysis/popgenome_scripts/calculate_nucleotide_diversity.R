@@ -53,6 +53,7 @@ geom_histogram(colour = "black", fill = "blue") +
 xlab(expression(paste("Average ", pi, " per site"))) +
 ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(Pi_d[, i], n = 10)) +
+scale_y_continuous(limits = c(0, NA)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -154,6 +155,7 @@ dxy_plot <- ggplot(dxy_d, aes(x = dxy_d[, 1])) +
 geom_histogram(colour = "black", fill = "green") +
 xlab("Average Dxy per gene") + ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(dxy_d[, 1], n = 10)) +
+scale_y_continuous(limits = c(0, NA)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -233,6 +235,7 @@ for (i in seq_along(population_names)){
   xlab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(Pi_ns_d[, i], n = 10)) +
+  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -331,6 +334,7 @@ pi_plot <- ggplot(x, aes(x = x[, 3])) +
 geom_histogram(colour = "black", fill = "blue") +
 xlab(expression(paste("Average ", pi, " per site"))) +
 ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+scale_y_continuous(limits = c(0, NA)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -348,6 +352,7 @@ pi_plot <- ggplot(x, aes(x = x[, 3])) +
 geom_histogram(colour = "black", fill = "coral") +
 xlab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
 ylab("Number of genes") + scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+scale_y_continuous(limits = c(0, NA)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -366,6 +371,7 @@ for (i in seq(pairs)){
   geom_histogram(colour = "black", fill = "green") +
   xlab("Average Dxy per gene") + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
