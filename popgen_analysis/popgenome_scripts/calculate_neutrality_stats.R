@@ -48,7 +48,6 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "pink") +
   xlab("Tajima's D") + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(TajimaD_d[, i], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -82,7 +81,6 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "maroon") +
   xlab("Fu & Li's F") + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(FuLiF_d[, i], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -116,7 +114,6 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "orchid") +
   xlab("Fu & Li's D") + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(FuLiD_d[, i], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -152,7 +149,6 @@ for (i in seq_along(population_names)){
   xlab(expression(paste("Average Watterson's ", theta, " per site"))) +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(ThetaW_d[, i], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -188,7 +184,6 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "gold") +
   xlab("Average frequency of segregating sites") + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(no_seg_d[, i], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -343,7 +338,6 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "pink") + xlab("Tajima's D") +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -360,7 +354,6 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "maroon") + xlab("Fu & Li's F") +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -377,7 +370,6 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "orchid") + xlab("Fu & Li's D") +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -395,7 +387,6 @@ for (i in seq_along(population_names)){
   xlab(expression(paste("Average Watterson's ", theta, " per site"))) +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -414,7 +405,6 @@ for (i in seq_along(population_names)){
   xlab("Average frequency of segregating sites") +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
-  scale_y_continuous(limits = c(0, NA)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
