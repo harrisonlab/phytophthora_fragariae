@@ -52,7 +52,6 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "darkseagreen") +
   xlab(expression(paste("Total FST per gene"))) + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(FST_all_d[, i], n = 10)) +
-  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -81,7 +80,6 @@ for (i in seq(pairs)){
   geom_histogram(colour = "black", fill = "cadetblue") +
   xlab(expression(paste("Pairwise FST per gene"))) + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(FST_pairwise_d[, 1], n = 10)) +
-  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -108,7 +106,6 @@ fst_plot <- ggplot(Hudson_KST_d, aes(x = Hudson_KST_d[, 1])) +
 geom_histogram(colour = "black", fill = "springgreen") +
 xlab(expression(paste("Hudson KST per gene"))) + ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(Hudson_KST_d[, 1], n = 10)) +
-scale_y_continuous(expand = c(0, 0)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -200,7 +197,6 @@ fst_plot <- ggplot(x, aes(x = x[, 3])) +
 geom_histogram(colour = "black", fill = "darkseagreen") +
 xlab(expression(paste("Total FST per gene"))) + ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
-scale_y_continuous(expand = c(0, 0)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -216,7 +212,6 @@ fst_plot <- ggplot(x, aes(x = x[, 2])) +
 geom_histogram(colour = "black", fill = "springgreen") +
 xlab(expression(paste("Hudson KST per gene"))) + ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(x[, 2], n = 10)) +
-scale_y_continuous(expand = c(0, 0)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -236,7 +231,6 @@ for (i in seq(pairs)){
   geom_histogram(colour = "black", fill = "cadetblue") +
   xlab(expression(paste("Pairwise FST per gene"))) + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 2], n = 10)) +
-  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
