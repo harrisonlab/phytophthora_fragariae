@@ -85,6 +85,7 @@ for (i in seq_along(population_names)){
     fgt_plot <- ggplot(x, aes(x = x[, 2])) + geom_histogram(colour = "black",
     fill = "cornsilk") + xlab("Four gamete test") + ylab("Number of genes") +
     scale_x_continuous(breaks = pretty(x[, 2], n = 10)) +
+    scale_y_continuous(expand = c(0, 0)) +
     theme(panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(), panel.background = element_blank(),
     panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -99,7 +100,7 @@ for (i in seq_along(population_names)){
     fgt_plot <- ggplot(x, aes(x = x[, 2])) + geom_histogram(colour = "black",
     fill = "cornsilk") + xlab("Four gamete test") +
     ylab("Number of intervals") + scale_x_continuous(breaks = pretty(x[, 2],
-        n = 10)) +
+        n = 10)) + scale_y_continuous(expand = c(0, 0)) +
         theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), panel.background = element_blank(),
         panel.border = element_rect(colour = "black", fill = NA, size = 1),

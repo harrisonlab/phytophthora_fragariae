@@ -47,8 +47,9 @@ for (i in seq_along(population_names)){
   tajima_plot <- ggplot(TajimaD_d, aes(x = TajimaD_d[, i])) +
   geom_histogram(colour = "black", fill = "pink") +
   xlab("Tajima's D") + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(TajimaD_d[, i], n = 10),
-  expand = c(0, 0)) + theme(panel.grid.major = element_blank(),
+  scale_x_continuous(breaks = pretty(TajimaD_d[, i], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
   axis.text = element_text(size = 14), axis.title = element_text(size = 18))
@@ -80,7 +81,8 @@ for (i in seq_along(population_names)){
   FuLiF_plot <- ggplot(FuLiF_d, aes(x = FuLiF_d[, i])) +
   geom_histogram(colour = "black", fill = "maroon") +
   xlab("Fu & Li's F") + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(FuLiF_d[, i], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(FuLiF_d[, i], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -113,7 +115,8 @@ for (i in seq_along(population_names)){
   FuLiD_plot <- ggplot(FuLiD_d, aes(x = FuLiD_d[, i])) +
   geom_histogram(colour = "black", fill = "orchid") +
   xlab("Fu & Li's D") + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(FuLiD_d[, i], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(FuLiD_d[, i], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -148,7 +151,8 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "orange") +
   xlab(expression(paste("Average Watterson's ", theta, " per site"))) +
   ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(ThetaW_d[, i], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(ThetaW_d[, i], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -183,7 +187,8 @@ for (i in seq_along(population_names)){
   no_seg_plot <- ggplot(no_seg_d, aes(x = no_seg_d[, i])) +
   geom_histogram(colour = "black", fill = "gold") +
   xlab("Average frequency of segregating sites") + ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(no_seg_d[, i], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(no_seg_d[, i], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -339,7 +344,8 @@ for (i in seq_along(population_names)){
   tajima_plot <- ggplot(x, aes(x = x[, 3])) +
   geom_histogram(colour = "black", fill = "pink") + xlab("Tajima's D") +
   ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(x[, 3], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -355,7 +361,8 @@ for (i in seq_along(population_names)){
   FuLiF_plot <- ggplot(x, aes(x = x[, 3])) +
   geom_histogram(colour = "black", fill = "maroon") + xlab("Fu & Li's F") +
   ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(x[, 3], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -371,7 +378,8 @@ for (i in seq_along(population_names)){
   FuLiD_plot <- ggplot(x, aes(x = x[, 3])) +
   geom_histogram(colour = "black", fill = "orchid") + xlab("Fu & Li's D") +
   ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(x[, 3], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -388,7 +396,8 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "orange") +
   xlab(expression(paste("Average Watterson's ", theta, " per site"))) +
   ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(x[, 3], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -406,7 +415,8 @@ for (i in seq_along(population_names)){
   geom_histogram(colour = "black", fill = "gold") +
   xlab("Average frequency of segregating sites") +
   ylab("Number of genes") +
-  scale_x_continuous(breaks = pretty(x[, 3], n = 10), expand = c(0, 0)) +
+  scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
+  scale_y_continuous(expand = c(0, 0)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
   panel.border = element_rect(colour = "black", fill = NA, size = 1),
