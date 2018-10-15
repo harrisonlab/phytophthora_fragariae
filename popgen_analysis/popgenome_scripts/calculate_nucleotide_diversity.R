@@ -117,13 +117,13 @@ title <- paste(dir, "Comparison of", population_names[1], "vs",
 population_names[2], sep = " ")
 comp_slide_file <- paste(dir, "_Pi_sliding_window_comparison.pdf", sep = "")
 slide_comparison <- ggplot(Pi_persite_d, aes(x = xaxis)) +
-geom_smooth(aes(y = Pi_persite_d[, 1]), colour = "red", SE = TRUE,
-show.legend = TRUE) +
-geom_smooth(aes(y = Pi_persite_d[, 2]), colour = "blue", SE = TRUE,
-show.legend = TRUE) + xlab("Contig coordinate (kbp)") +
+geom_smooth(aes(y = Pi_persite_d[, 1], colour = "Population 1:\nUK1,2,3")) +
+geom_smooth(aes(y = Pi_persite_d[, 2],
+    colour = "Population 2:\nB-23 & ONT-3")) + xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average ", pi, " per site"))) +
+labs(colour = "Population") +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
-scale_colour_manual(name = "Population", labels = c("Others", "UK123")) +
+scale_colour_manual(values = c("red", "blue")) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -305,13 +305,14 @@ population_names[2], sep = " ")
 comp_slide_file <- paste(dir, "_Pi_n_s_sliding_window_comparison.pdf", sep = "")
 if (Pi_ns_len > Pi_ns_len_na){
 slide_comparison <- ggplot(Pi_ns_persite_d, aes(x = xaxis)) +
-geom_smooth(aes(y = Pi_ns_persite_d[, 1]), colour = "deeppink", SE = TRUE,
-show.legend = TRUE) +
-geom_smooth(aes(y = Pi_ns_persite_d[, 2]), colour = "lightskyblue", SE = TRUE,
-show.legend = TRUE) + xlab("Contig coordinate (kbp)") +
+geom_smooth(aes(y = Pi_ns_persite_d[, 1], colour = "Population 1:\nUK1,2,3")) +
+geom_smooth(aes(y = Pi_ns_persite_d[, 2],
+    colour = "Population 2:\nBC-23 & ONT-3")) +
+    xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
+labs(colour = "Population") +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
-scale_colour_manual(name = "Population", labels = c("Others", "UK123")) +
+scale_colour_manual(values = c("deeppink", "lightskyblue")) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
