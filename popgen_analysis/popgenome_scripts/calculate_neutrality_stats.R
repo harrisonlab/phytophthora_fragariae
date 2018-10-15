@@ -251,13 +251,14 @@ title <- paste(dir, "Comparison of", population_names[1], "ver.",
 population_names[2], sep = " ")
 comp_slide_file <- paste(dir, "_ThetaW_sliding_window_comparison.pdf", sep = "")
 slide_comparison <- ggplot(ThetaW_d, aes(x = xaxis)) +
-geom_smooth(aes(y = ThetaW_d[, 1]), colour = "red4", se = FALSE,
+geom_smooth(aes(y = ThetaW_d[, 1]), colour = "red4", SE = TRUE,
 show.legend = TRUE) +
-geom_smooth(aes(y = ThetaW_d[, 2]), colour = "darkseagreen2", se = FALSE,
+geom_smooth(aes(y = ThetaW_d[, 2]), colour = "darkseagreen2", SE = TRUE,
 show.legend = TRUE) +
 xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average Watterson's ", theta, " per site"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
+scale_color_discrete(name = "Population", labels = c("Others", "UK123")) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -307,13 +308,14 @@ title <- paste(dir, "Comparison of", population_names[1], "ver.",
 population_names[2], sep = " ")
 comp_slide_file <- paste(dir, "_no_seg_sites_window_comparison.pdf", sep = "")
 slide_comparison <- ggplot(no_seg_d, aes(x = xaxis)) +
-geom_smooth(aes(y = no_seg_d[, 1]), colour = "turquoise1", se = FALSE,
+geom_smooth(aes(y = no_seg_d[, 1]), colour = "turquoise1", SE = TRUE,
 show.legend = TRUE) +
-geom_smooth(aes(y = no_seg_d[, 2]), colour = "olivedrab2", se = FALSE,
+geom_smooth(aes(y = no_seg_d[, 2]), colour = "olivedrab2", SE = TRUE,
 show.legend = TRUE) +
 xlab("Contig coordinate (kbp)") +
 ylab("Average frequency of segregating sites") +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
+scale_color_discrete(name = "Population", labels = c("Others", "UK123")) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
 panel.border = element_rect(colour = "black", fill = NA, size = 1),
