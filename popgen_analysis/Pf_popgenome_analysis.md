@@ -25,7 +25,7 @@ with exact contig name, as output from vcf_to_fasta.py
 ### Create this directory structure
 
 ```bash
-cd $input/all
+cd $input/all_Pf
 ```
 
 ### This folder contains only contig FASTA files
@@ -59,7 +59,7 @@ done
 ### Navigate to the input folder to proceed with Popgenome run
 
 ```bash
-cd $input/all
+cd $input/all_Pf
 ```
 
 ### Lastly, test if all contigs have a matching gff and remove any which do not
