@@ -71,7 +71,7 @@ do
 done
 ```
 
-##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in Pf_popgenome_analysis.md. From now onwards, analysing only UK123.
+##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in Pf_popgenome_analysis.md. From now onwards, analysing only two pops vcf
 
 ```bash
 cd $input
