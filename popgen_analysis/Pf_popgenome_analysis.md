@@ -409,3 +409,8 @@ done
 
 qsub $scripts2/sub_calculate_4_gamete_test_Pf_Pr.sh
 ```
+
+## Analysis of population separation
+
+Fst, Kst & Dxy measure the separation of the two populations, extract genes
+showing high separation and investigate their function
