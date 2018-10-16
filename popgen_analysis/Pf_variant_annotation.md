@@ -94,7 +94,7 @@ mv *.fasta ./all
 ##coding
 
 ```bash
-python $scripts/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_UK123_filtered.recode_coding.vcf $ref_genome 2
+python $scripts/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_filtered.recode_coding.vcf $ref_genome 2
 mkdir coding
 mv *.fasta ./coding
 ```
