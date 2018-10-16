@@ -1,8 +1,6 @@
 # Second stage of summary_stats analysis
 
 R scripts sourced from Maria's analyses
-The R scripts called for this analysis have to be changed for every population.
-Currently set for the UK1,2,3 population
 
 ## UK123 analysis
 
