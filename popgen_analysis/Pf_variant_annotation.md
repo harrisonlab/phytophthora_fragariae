@@ -147,7 +147,7 @@ mv *.fasta ./coding_Pf
 ##silent(four-fold degenerate)
 
 ```bash
-python $scripts/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_Pf_filtered.recode_syn_4fd.vcf $ref_genome 2
+python $scripts/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_two_pops_filtered.recode_syn_4fd.vcf $ref_genome 2
 mkdir silent_Pf
 mv *.fasta ./silent_Pf
 ```
