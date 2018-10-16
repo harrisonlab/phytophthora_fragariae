@@ -26,7 +26,8 @@ vcftools=/home/sobczm/bin/vcftools/bin
 vcflib=/home/sobczm/bin/vcflib/bin
 ```
 
-##Cutting down vcf to just closely related strains of UK1, 2 and 3 and one for all *P. fragariae* strains, excluding NOV-77
+## Cutting down vcf to just closely related strains of UK1,2,3 population
+
 First argument: unfiltered input VCF file with all SNPs
 Subsequent arguments: Sample names of individuals to be removed
 
