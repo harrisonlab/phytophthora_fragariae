@@ -98,7 +98,7 @@ synonymous, non-synonymous and four-fold degenerate (silent)
 ### four_fold_degenerate (analogous to above, for all sites), called silent
 
 ```bash
-cd $input/silent
+cd $input/silent_Pf
 mkdir contigs
 mv *.fasta ./contigs
 cp -r \
@@ -110,7 +110,7 @@ do
     mkdir $folder
     mv $f $folder
 done
-cd $input/silent
+cd $input/silent_Pf
 
 # Check all contigs have a matching gff and remove any that do not
 
