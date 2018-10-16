@@ -223,3 +223,5 @@ qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
 qsub $scripts2/sub_calculate_4_gamete_test.sh
 ```
+
+## 4 Gametes test for Pf vs Pr
