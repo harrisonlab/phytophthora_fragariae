@@ -71,7 +71,7 @@ do
 done
 ```
 
-##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in Pf_popgenome_analysis.md. From now onwards, analysing only two pops vcf
+##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in Pf_popgenome_analysis.md. From now onwards, analysing only all isolates vcf
 
 ```bash
 cd $input
@@ -81,7 +81,7 @@ ref_genome=$input/polished_contigs_unmasked.fa
 ###all
 
 ```bash
-python $scripts/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_UK123_filtered.recode_annotated.vcf $ref_genome 2
+python $scripts/summary_stats/vcf_to_fasta.py polished_contigs_unmasked_filtered.recode_annotated.vcf $ref_genome 2
 ```
 
 ###Moving each subset of FASTA files into a separate dir.
