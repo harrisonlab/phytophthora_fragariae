@@ -116,7 +116,7 @@ $scripts/summary_stats/split_gff_contig.sh Bc16_genes_incl_ORFeffectors_renamed.
 mv *.gff ./gff
 ```
 
-##Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in Pf_popgenome_analysis.md From now onwards, analysing only Pf.
+## Create FASTA alignment files containing only select subsets of SNPs. Required for analyses in Pf_popgenome_analysis.md From now onwards, analysing only Pf less NOV-77 & SCRP245.
 
 ```bash
 cd $input
