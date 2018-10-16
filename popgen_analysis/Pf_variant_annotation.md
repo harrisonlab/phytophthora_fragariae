@@ -65,7 +65,7 @@ $scripts/summary_stats/build_genome_database.sh polished_contigs_unmasked.fa Bc1
 
 ```bash
 cd $input
-for a in *recode.vcf
+for a in polished_contigs_unmasked_filtered.recode.vcf polished_contigs_unmasked_two_pops_filtered.recode.vcf
 do
     $scripts/summary_stats/annotate_snps_genome.sh $a Bc16
 done
