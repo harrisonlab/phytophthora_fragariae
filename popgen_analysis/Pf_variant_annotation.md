@@ -38,13 +38,6 @@ $vcflib/vcfremovesamples polished_contigs_unmasked.vcf SCRP245_v2 Nov77 SCRP249 
 ##Filter the SNPs
 
 ```bash
-for vcf in $(ls polished_contigs_unmasked_filtered.vcf)
-do
-    echo $vcf
-    script=/home/adamst/git_repos/scripts/popgen/snp/sub_vcf_parser.sh
-    qsub $script $vcf
-done
-
 for vcf in $(ls polished_contigs_unmasked_two_pops.vcf)
 do
     echo $vcf
@@ -58,8 +51,8 @@ vcf parser can only be run one at a time
 ##Remove monomorphic sites (minor allele count minimum 1). Argument --vcf is the filtered VCF file, and --out is the suffix to be used for the output file.
 
 ```bash
-$vcftools/vcftools --vcf polished_contigs_unmasked_UK123_filtered.vcf --mac 1 --recode --out polished_contigs_unmasked_UK123_filtered
-$vcftools/vcftools --vcf polished_contigs_unmasked_Pf_filtered.vcf --mac 1 --recode --out polished_contigs_unmasked_Pf_filtered
+$vcftools/vcftools --vcf polished_contigs_unmasked_filtered.vcf --mac 1 --recode --out polished_contigs_unmasked_filtered
+$vcftools/vcftools --vcf polished_contigs_unmasked_two_pops_filtered.vcf --mac 1 --recode --out polished_contigs_unmasked_two_pops_filtered
 ```
 
 ##Create custom SnpEff genome database
