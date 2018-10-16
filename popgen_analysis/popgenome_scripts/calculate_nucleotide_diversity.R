@@ -118,7 +118,8 @@ comp_slide_file <- paste(dir, "_Pi_sliding_window_comparison.pdf", sep = "")
 slide_comparison <- ggplot(Pi_persite_d, aes(x = xaxis)) +
 geom_smooth(aes(y = Pi_persite_d[, 1], colour = "Population 1:\nUK1,2,3")) +
 geom_smooth(aes(y = Pi_persite_d[, 2],
-    colour = "Population 2:\nB-23 & ONT-3")) + xlab("Contig coordinate (kbp)") +
+    colour = "Population 2:\nBC-23 & ONT-3")) +
+    xlab("Contig coordinate (kbp)") +
 ylab(expression(paste("Average ", pi, " per site"))) +
 labs(colour = "Population") +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
