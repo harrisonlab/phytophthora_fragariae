@@ -7,4 +7,4 @@
 
 scripts=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/popgenome_scripts
 
-/home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/calculate_4_gamete_test.R
+/home/adamst/prog/R/R-3.2.5/bin/Rscript --vanilla $scripts/calculate_4_gamete_test_Pf_Pr.R
