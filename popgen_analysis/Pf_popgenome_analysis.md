@@ -159,7 +159,7 @@ mv *.fasta ./nonsyn_Pf
 ## Create directory structure and carry out Popgenome analysis
 
 ```bash
-cd $input/syn
+cd $input/syn_Pf
 mkdir contigs
 mv *.fasta ./contigs
 cp -r \
@@ -172,7 +172,7 @@ do
     mv $f $folder
 done
 
-cd $input/syn
+cd $input/syn_Pf
 
 # Check all contigs have a matching gff and remove any that do not
 
@@ -191,7 +191,7 @@ qsub $scripts2/sub_calculate_neutrality_stats.sh
 qsub $scripts2/sub_calculate_fst.sh
 qsub $scripts2/sub_calculate_4_gamete_test.sh
 
-cd $input/nonsyn
+cd $input/nonsyn_Pf
 mkdir contigs
 mv *.fasta ./contigs
 cp -r \
@@ -206,7 +206,7 @@ done
 
 # Check all contigs have a matching gff and remove any that do not
 
-cd $input/nonsyn
+cd $input/nonsyn_Pf
 
 for a in $PWD/contigs/*/*.fasta
 do
