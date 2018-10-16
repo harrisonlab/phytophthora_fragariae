@@ -225,3 +225,187 @@ qsub $scripts2/sub_calculate_4_gamete_test.sh
 ```
 
 ## 4 Gametes test for Pf vs Pr
+
+### Create this directory structure
+
+```bash
+cd $input/all
+```
+
+### This folder contains only contig FASTA files
+
+So create a new "contigs" directory to hold those files:
+
+```bash
+mkdir contigs
+mv *.fasta ./contigs
+```
+
+### Copy the "gff" folder containing gff files
+
+```bash
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
+```
+
+### Create subfolders, each to hold one contig FASTA file
+
+```bash
+cd contigs
+for f in *.fasta
+do
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
+done
+```
+
+### Navigate to the input folder to proceed with Popgenome run
+
+```bash
+cd $input/all
+```
+
+### Lastly, test if all contigs have a matching gff and remove any which do not
+
+```bash
+for a in $PWD/contigs/*/*.fasta
+do
+    filename=$(basename "$a")
+    expected_gff="$PWD/gff/${filename%.fa*}.gff"
+    if [ ! -f "$expected_gff" ]
+    then
+       rm -rf $(dirname $a)
+    fi
+done
+```
+
+Run R script
+
+```bash
+scripts2=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis/popgenome_scripts
+qsub $scripts2/sub_calculate_4_gamete_test_Pf_Pr.sh
+```
+
+This calculation was done over all sites. Now going to proceed for site subsets:
+synonymous, non-synonymous and four-fold degenerate (silent)
+
+### four_fold_degenerate (analogous to above, for all sites), called silent
+
+```bash
+cd $input/silent
+mkdir contigs
+mv *.fasta ./contigs
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
+cd contigs
+for f in *.fasta
+do
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
+done
+cd $input/silent
+
+# Check all contigs have a matching gff and remove any that do not
+
+for a in $PWD/contigs/*/*.fasta
+do
+    filename=$(basename "$a")
+    expected_gff="$PWD/gff/${filename%.fa*}.gff"
+    if [ ! -f "$expected_gff" ]
+    then
+       rm -rf $(dirname $a)
+    fi
+done
+
+qsub $scripts2/sub_calculate_4_gamete_test_Pf_Pr.sh
+```
+
+## For synonymous and non-synonymous have to create FASTA input first
+
+### Synonymous sites
+
+```bash
+cd $input
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+ProgDir=/home/adamst/git_repos/scripts/popgen/summary_stats
+python $ProgDir/vcf_to_fasta.py \
+polished_contigs_unmasked_filtered.recode_syn.vcf $ref_genome 2
+mkdir syn
+mv *.fasta ./syn
+```
+
+### Non-synonymous sites
+
+```bash
+cd $input
+ref_genome=/home/groups/harrisonlab/project_files/phytophthora_fragariae/repeat_masked/quiver_results/polished/filtered_contigs_repmask/polished_contigs_unmasked.fa
+ProgDir=/home/adamst/git_repos/scripts/popgen/summary_stats
+python $ProgDir/vcf_to_fasta.py \
+polished_contigs_unmasked_filtered.recode_nonsyn.vcf $ref_genome 2
+mkdir nonsyn
+mv *.fasta ./nonsyn
+```
+
+## Create directory structure and carry out Popgenome analysis
+
+```bash
+cd $input/syn
+mkdir contigs
+mv *.fasta ./contigs
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
+cd contigs
+for f in *.fasta
+do
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
+done
+
+cd $input/syn
+
+# Check all contigs have a matching gff and remove any that do not
+
+for a in $PWD/contigs/*/*.fasta
+do
+    filename=$(basename "$a")
+    expected_gff="$PWD/gff/${filename%.fa*}.gff"
+    if [ ! -f "$expected_gff" ]
+    then
+       rm -rf $(dirname $a)
+    fi
+done
+
+qsub $scripts2/sub_calculate_4_gamete_test_Pf_Pr.sh
+
+cd $input/nonsyn
+mkdir contigs
+mv *.fasta ./contigs
+cp -r \
+/home/groups/harrisonlab/project_files/phytophthora_fragariae/summary_stats/gff ./
+cd contigs
+for f in *.fasta
+do
+    folder=${f%.fasta}
+    mkdir $folder
+    mv $f $folder
+done
+
+# Check all contigs have a matching gff and remove any that do not
+
+cd $input/nonsyn
+
+for a in $PWD/contigs/*/*.fasta
+do
+    filename=$(basename "$a")
+    expected_gff="$PWD/gff/${filename%.fa*}.gff"
+    if [ ! -f "$expected_gff" ]
+    then
+       rm -rf $(dirname $a)
+    fi
+done
+
+qsub $scripts2/sub_calculate_4_gamete_test_Pf_Pr.sh
+```
