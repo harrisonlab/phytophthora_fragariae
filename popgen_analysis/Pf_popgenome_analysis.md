@@ -512,7 +512,7 @@ do
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
     $ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir/tables
     ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/analysis/gene_enrichment
-    $ProgDir/fisherstest.r --in_dir $OutDir/tables  --out_file $OutDir/results.tsv
+    $ProgDir/fisherstest.r --in_dir $Out_Dir/tables  --out_file $Out_Dir/results.tsv
     SigIPR=$(cat $OutDir/significant_terms.txt | cut -f1)
     for IPR in $(ls $OutDir/tables/*_fischertable.txt | rev | cut -f1 -d '/' | rev | sed 's/_fischertable.txt//g')
     do
