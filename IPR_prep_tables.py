@@ -10,3 +10,15 @@ import argparse
 import numpy
 for collections import defaultdict
 from operator import itemgetter
+
+ap = argparse.ArgumentParser()
+ap.add_argument('--Interpro', required=True, type=str, help='Interproscan \
+annotations in a parsed .tsv format')
+ap.add_argument('--Set1_Genes', required=True, type=str, help='List of genes \
+in set 1, one gene per line')
+ap.add_argument('--Set2_Genes', required=True, type=str, help='List of genes \
+in set 2, one gene per line')
+ap.add_argument('--Out_Dir', required=True, type=str, help='Output directory \
+to write files to')
+
+conf = ap.parse_args()
