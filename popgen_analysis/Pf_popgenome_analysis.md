@@ -496,7 +496,7 @@ do
     Set1Genes=$OutDir/Bc16_Separated.txt
     Set2Genes=$OutDir/Bc16_all_genes2.txt
     cat $Target_Genes | sed -e 's/$/\t0.001/g' > $Set1Genes
-    cat $AnnotTable | tail -n+2 | cut -f1 | grep -w -v $Set1Genes | sed -e 's/$/\t1.00/g' > $Set2Genes
+    cat $AnnotTable | tail -n+2 | cut -f1 | grep -w -v -f $Target_Genes | sed -e 's/$/\t1.00/g' > $Set2Genes
     cat $Set1Genes $Set2Genes > $AllGenes
 
     $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $GODir/Bc16_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
