@@ -414,3 +414,17 @@ qsub $scripts2/sub_calculate_4_gamete_test_Pf_Pr.sh
 
 Fst, Kst & Dxy measure the separation of the two populations, extract genes
 showing high separation and investigate their function
+
+```bash
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+Out_Dir=summary_stats/all_Pf
+FST_File=$Out_Dir/genome_pairwise_FST_per_gene_pop1_vs_pop2.txt
+KST_File=$Out_Dir/genome_Hudson_KST_per_gene_all.txt
+Dxy_File=$Out_Dir/genome_pop1_vs_pop2_dxy_per_gene.txt
+Fst_Threshold=0.5
+Kst_Threshold=0.5
+Dxy_Threshold=0.005
+Out_Prefix=Population_Separated_Genes
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/ID_population_separated_genes.py --Fst_File $Fst_File --Kst_File $Kst_File --Dxy_File $Dxy_File --Fst_Threshold $Fst_Threshold --Kst_Threshold $Kst_Threshold --Dxy_Threshold $Dxy_Threshold --Out_Dir $Out_Dir --Out_Prefix $Out_Prefix
+```
