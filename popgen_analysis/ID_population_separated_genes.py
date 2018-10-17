@@ -108,3 +108,9 @@ for Gene in Gene_Set:
 # Step 3
 # Writes out files
 # -----------------------------------------------------
+
+Low_Out_name = "_".join([OutPre, "Low_Conf.txt"])
+Low_Out = "/".join([cwd, OutDir, Low_Out_name])
+
+High_Out_name = "_".join([OutPre, "High_Conf.txt"])
+High_Out = "/".join([cwd, OutDir, High_Out_name])
