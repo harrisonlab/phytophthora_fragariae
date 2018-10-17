@@ -24,10 +24,10 @@ to write files to')
 
 conf = ap.parse_args()
 
-#-----------------------------------------------------
+# -----------------------------------------------------
 # Step 1
 # Create dictionaries of the number of genes for each IPR annotation
-#-----------------------------------------------------
+# -----------------------------------------------------
 
 Genes_set1 = conf.Set1_Genes
 Genes_set2 = conf.Set2_Genes
@@ -79,3 +79,8 @@ with open(IPRs) as f:
 
 print set1_count
 print set2_count
+
+# -----------------------------------------------------
+# Step 2
+# Write out files
+# -----------------------------------------------------
