@@ -34,12 +34,12 @@ IPRs = conf.Interpro
 Genes_1 = []
 Genes_2 = []
 
-with open(Set1_Genes) as f:
+with open(Genes_set1) as f:
     lines = f.readlines()
     for line in lines:
         Genes_1.append(line)
 
-with open(Set2_Genes) as f:
+with open(Genes_set2) as f:
     lines = f.readlines()
     for line in lines:
         Genes_2.append(line)
