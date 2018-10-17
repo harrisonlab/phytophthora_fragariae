@@ -490,7 +490,7 @@ do
     AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
     Target_Genes=$WorkDir/Population_Separated_Genes_"$Set".txt
     All_Genes=$WorkDir/Bc16_all_genes.txt
-    cat $AnnotTable | tail -n+2 | cut -f1 > $AllGenes
+    cat $AnnotTable | tail -n+2 | cut -f1 > $All_Genes
     Set1_Genes=$WorkDir/Bc16_Separated_"$Set".txt
     Set2_Genes=$WorkDir/Bc16_not_Separated_"$Set".txt
     cat $All_Genes | grep -w -f $Target_Genes > $Set1_Genes
