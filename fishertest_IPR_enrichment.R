@@ -20,8 +20,8 @@ print(o)
 files <- list.files(path = f, pattern = "*_fishertable.txt", full.names = T,
 recursive = FALSE)
 lapply(files, function(x) {
-  IPR <- gsub('_fishertable.txt', '', x, ignore.case = FALSE, fixed = FALSE)
-  IPR <- gsub( '.*/', '', IPR, ignore.case = FALSE, fixed = FALSE)
+  IPR <- gsub("_fishertable.txt", "", x, ignore.case = FALSE, fixed = FALSE)
+  IPR <- gsub( ".*/", "", IPR, ignore.case = FALSE, fixed = FALSE)
 
   fishertable <- data.frame()
   fishertable <- read.delim(x, header = FALSE, sep = "\t")
