@@ -103,3 +103,8 @@ for Gene in Gene_Set:
             if Fst_Value >= Fst_threshold or Fst_Value >= Fst_threshold or \
                     Dxy_Value >= Dxy_threshold:
                     Low_Confidence.append(Gene)
+
+# -----------------------------------------------------
+# Step 3
+# Writes out files
+# -----------------------------------------------------
