@@ -27,3 +27,23 @@ conf = ap.parse_args()
 # Step 1
 # Create dictionaries of the number of genes for each IPR annotation
 #-----------------------------------------------------
+
+Genes_set1 = conf.Set1_Genes
+Genes_set2 = conf.Set2_Genes
+IPRs = conf.Interpro
+
+Genes_1 = []
+Genes_2 = []
+
+with open(Set1_Genes) as f:
+    lines = f.readlines()
+    for line in lines:
+        Genes_1.append(line)
+
+with open(Set2_Genes) as f:
+    lines = f.readlines()
+    for line in lines:
+        Genes_2.append(line)
+
+Genes_1s = set(Genes_1)
+Genes_2s = set(Genes_2)
