@@ -478,3 +478,5 @@ The number of Apoplastic Effectors showing population separation is:
 The number of Secreted Proteins showing population separation is:
 906
 ```
+
+### Functional enrichment analysis - using interpro terms
