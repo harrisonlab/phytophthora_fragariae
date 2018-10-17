@@ -15,9 +15,9 @@ print("shebang works")
 print(f)
 print(o)
 
-files <- list.files(path=f, pattern="*_fischertable.txt", full.names=T, recursive=FALSE)
+files <- list.files(path=f, pattern="*_fishertable.txt", full.names=T, recursive=FALSE)
 lapply(files, function(x) {
-  IPR <- gsub('_fischertable.txt', '', x, ignore.case=FALSE, fixed=FALSE)
+  IPR <- gsub('_fishertable.txt', '', x, ignore.case=FALSE, fixed=FALSE)
   IPR <- gsub( '.*/', '', IPR, ignore.case=FALSE, fixed=FALSE)
 
   fishertable <-data.frame()
@@ -29,7 +29,7 @@ lapply(files, function(x) {
   matrix(c(fishertable$V2[1], fishertable$V2[2], fishertable$V3[1], fishertable$V3[2]),
          nrow = 2,
          dimnames = list(Annotation = c("IPR", "Non-IPR"),
-                          Contig_Set = c("LS", "Core")))
+                          Gene_Set = c("Separated", "Not-Separated")))
 
   results_2_way <- fisher.test(fishermatrix, y = NULL, workspace = 200000, hybrid = FALSE,
               control = list(), or = 1, alternative = "two.sided",
