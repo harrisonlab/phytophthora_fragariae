@@ -80,3 +80,8 @@ with open(Dxy_in) as f:
         Gene_ID = ID_split[1]
         Dxy_Value = split_line[4]
         Dxy_dict[Gene_ID] = Dxy_Value
+
+# -----------------------------------------------------
+# Step 2
+# Creates lists of genes exceeding threshold values
+# -----------------------------------------------------
