@@ -495,7 +495,7 @@ do
     cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
     Set1Genes=$OutDir/Bc16_Separated.txt
     Set2Genes=$OutDir/Bc16_all_genes2.txt
-    cat $Target_Genes | sed -e 's/$/\t0.001/g' > $Set1Genes
+    cat $Target_Genes | grep -w -f $AllGenes | sed -e 's/$/\t0.001/g' > $Set1Genes
     cat $AnnotTable | tail -n+2 | cut -f1 | grep -w -v -f $Target_Genes | sed -e 's/$/\t1.00/g' > $Set2Genes
     cat $Set1Genes $Set2Genes > $AllGenes
 
