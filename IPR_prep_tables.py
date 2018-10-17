@@ -10,6 +10,7 @@ import argparse
 import numpy
 for collections import defaultdict
 from operator import itemgetter
+import re
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--Interpro', required=True, type=str, help='Interproscan \
@@ -47,3 +48,34 @@ with open(Set2_Genes) as f:
 
 Genes_1s = set(Genes_1)
 Genes_2s = set(Genes_2)
+
+set1_dict = defaultdict(int)
+set2_dict = defaultdict(int)
+set1_count = 0
+set2_count = 0
+seen_IPR_set = set()
+
+with open(IPRs) as f:
+    lines = f.readlines()
+    for line in lines:
+        line = line.rstrip()
+        split_line = line.split("\t")
+        Gene_ID = split_line[0]
+        m = re.findall("IPR......", line)
+        if m:
+            IPR_set = set(m)
+        else:
+            IPR_set = set(["no_annotation"])
+        if Gene_ID in Genes_1s:
+            for IPR in IPR_set:
+                set1_dict[IPR] += 1
+            set1_count += 1
+            [seen_IPR_set.add(x) for x in IPR_set]
+        elif Gene_ID in Genes_2s:
+            for IPR in IPR_set:
+                set2_dict[IPR] += 1
+            set2_count += 1
+            [seen_IPR_set.add(x) for x in IPR_set]
+
+print set1_count
+print set2_count
