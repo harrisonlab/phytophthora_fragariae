@@ -510,7 +510,7 @@ do
     Set1_Genes=$WorkDir/Bc16_Separated_"$Set".txt
     Set2_Genes=$WorkDir/Bc16_not_Separated_"$Set".txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    $ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir
+    $ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir/tables
     ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/analysis/gene_enrichment
     $ProgDir/fisherstest.r --in_dir $OutDir/tables  --out_file $OutDir/results.tsv
     SigIPR=$(cat $OutDir/significant_terms.txt | cut -f1)
