@@ -71,7 +71,7 @@ with open(Kst_in) as f:
         Kst_Value = split_line[1]
         Kst_dict[Gene_ID] = Kst_Value
 
-with open(Dyx_in) as f:
+with open(Dxy_in) as f:
     lines = f.readlines()
     for line in lines:
         split_line = line.split()
