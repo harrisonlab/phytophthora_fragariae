@@ -61,3 +61,13 @@ with open(Kst_in) as f:
         Gene_ID = ID_split[1]
         Kst_Value = split_line[1]
         Kst_dict[Gene_ID] = Kst_Value
+
+with open(Dyx_in) as f:
+    lines = f.readlines()
+    for line in lines:
+        split_line = line.split()
+        ID_field = split_line[3]
+        ID_split = ID_field.split('=')
+        Gene_ID = ID_split[1]
+        Dxy_Value = split_line[4]
+        Dxy_dict[Gene_ID] = Dxy_Value
