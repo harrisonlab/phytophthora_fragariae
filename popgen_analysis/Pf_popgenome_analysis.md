@@ -478,27 +478,3 @@ The number of Apoplastic Effectors showing population separation is:
 The number of Secreted Proteins showing population separation is:
 906
 ```
-
-### Investigation of functional annotation compared to background
-
-```bash
-WorkDir=summary_stats/all_Pf
-GODir=analysis/enrichment/P.fragariae/Bc16/Whole_Genome
-for Set in High_Conf Low_Conf
-do
-    OutDir=analysis/enrichment/P.fragariae/Bc16/$Set
-    mkdir -p $OutDir
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
-    Target_Genes=$WorkDir/Population_Separated_Genes_"$Set".txt
-    AllGenes=$OutDir/Bc16_all_genes.txt
-    cat $AnnotTable | tail -n+2  | cut -f1 > $AllGenes
-    Set1Genes=$OutDir/Bc16_Separated.txt
-    Set2Genes=$OutDir/Bc16_all_genes2.txt
-    cat $AllGenes | grep -w -f $Target_Genes | sed -e 's/$/\t0.001/g' > $Set1Genes
-    cat $AnnotTable | tail -n+2 | cut -f1 | grep -w -v -f $Target_Genes | sed -e 's/$/\t1.00/g' > $Set2Genes
-    cat $Set1Genes $Set2Genes > $AllGenes
-
-    $ProgDir/GO_enrichment.r --all_genes $AllGenes --GO_annotations $GODir/Bc16_gene_GO_annots.tsv --out_dir $OutDir > $OutDir/output.txt
-done
-```
