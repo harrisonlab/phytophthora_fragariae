@@ -37,12 +37,14 @@ Genes_2 = []
 with open(Genes_set1) as f:
     lines = f.readlines()
     for line in lines:
-        Genes_1.append(line)
+        Gene = line.rstrip()
+        Genes_1.append(Gene)
 
 with open(Genes_set2) as f:
     lines = f.readlines()
     for line in lines:
-        Genes_2.append(line)
+        Gene = line.rstrip()
+        Genes_2.append(Gene)
 
 Genes_1s = set(Genes_1)
 Genes_2s = set(Genes_2)
