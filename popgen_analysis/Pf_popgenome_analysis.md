@@ -453,3 +453,28 @@ do
     cat $Secs | grep -w -f $file | wc -l
 done
 ```
+
+```
+summary_stats/all_Pf/Population_Separated_Genes_High_Conf.txt
+The number of population separated genes is:
+49
+The number of RxLRs showing population separation is:
+1
+The number of CRNs showing population separation is:
+0
+The number of Apoplastic Effectors showing population separation is:
+11
+The number of Secreted Proteins showing population separation is:
+12
+summary_stats/all_Pf/Population_Separated_Genes_Low_Conf.txt
+The number of population separated genes is:
+4,554
+The number of RxLRs showing population separation is:
+80
+The number of CRNs showing population separation is:
+11
+The number of Apoplastic Effectors showing population separation is:
+575
+The number of Secreted Proteins showing population separation is:
+906
+```
