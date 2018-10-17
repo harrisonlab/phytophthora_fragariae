@@ -50,6 +50,7 @@ print("Arguments parsed")
 Fst_dict = defaultdict(float)
 Kst_dict = defaultdict(float)
 Dxy_dict = defaultdict(float)
+Gene_List = []
 
 with open(Fst_in) as f:
     lines = f.readlines()
@@ -60,6 +61,7 @@ with open(Fst_in) as f:
         Gene_ID = ID_split[1]
         Fst_Value = split_line[1]
         Fst_dict[Gene_ID] = Fst_Value
+        Gene_List.append(Gene_ID)
 
 with open(Kst_in) as f:
     lines = f.readlines()
@@ -80,6 +82,8 @@ with open(Dxy_in) as f:
         Gene_ID = ID_split[1]
         Dxy_Value = split_line[4]
         Dxy_dict[Gene_ID] = Dxy_Value
+
+Gene_set = set(Gene_List)
 
 # -----------------------------------------------------
 # Step 2
