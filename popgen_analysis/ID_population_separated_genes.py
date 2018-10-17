@@ -114,3 +114,13 @@ Low_Out = "/".join([cwd, OutDir, Low_Out_name])
 
 High_Out_name = "_".join([OutPre, "High_Conf.txt"])
 High_Out = "/".join([cwd, OutDir, High_Out_name])
+
+with open(Low_Out, "w") as o:
+    for item in Low_Confidence:
+        o.write(item)
+        o.write("\n")
+
+with open(High_Out, "w") as o:
+    for item in High_Confidence:
+        o.write(item)
+        o.write("\n")
