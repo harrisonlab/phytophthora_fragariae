@@ -84,3 +84,16 @@ print set2_count
 # Step 2
 # Write out files
 # -----------------------------------------------------
+
+for IPR in seen_IPR_set:
+    set1_IPR = set1_dict[IPR]
+    set2_IPR = set2_dict[IPR]
+    set1_others = set1_count - set1_IPR
+    set2_others = set2_count - set2_IPR
+    outline1 = "\t".join([str(IPR), str(set1_IPR), str(set2_IPR)]) + "\n"
+    outline2 = "\t".join(["Other genes", str(set1_others),
+                         str(set2_others)]) + "\n"
+    outfile = "".join([conf.Out_Dir, "/", IPR, "_fishertable.txt"])
+    with open(outfile, 'w') as o:
+        o.write("".join([outline1, outline2]))
+        o.close()
