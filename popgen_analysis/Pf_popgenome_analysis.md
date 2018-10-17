@@ -480,3 +480,20 @@ The number of Secreted Proteins showing population separation is:
 ```
 
 ### Functional enrichment analysis - using interpro terms
+
+Create lists of gene IDs including all possible transcripts
+
+```bash
+WorkDir=summary_stats/all_Pf
+for Set in High_Conf Low_Conf
+do
+    AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
+    Target_Genes=$WorkDir/Population_Separated_Genes_"$Set".txt
+    All_Genes=$WorkDir/Bc16_all_genes.txt
+    cat $AnnotTable | tail -n+2 | cut -f1 > $AllGenes
+    Set1_Genes=$WorkDir/Bc16_Separated_"$Set".txt
+    Set2_Genes=$WorkDir/Bc16_not=Separated_"$Set".txt
+    cat $All_Genes | grep -w -f $Target_Genes > $Set1_Genes
+    cat $All_Genes | grep -w -v -f $Target_Genes > $Set2_Genes
+done
+```
