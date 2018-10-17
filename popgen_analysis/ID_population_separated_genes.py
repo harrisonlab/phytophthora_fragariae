@@ -101,10 +101,10 @@ for Gene in Gene_Set:
     Dxy_Value = Dxy_dict[Gene]
     if Fst_Value >= Fst_threshold and Kst_Value >= Kst_threshold and \
             Dxy_Value >= Dxy_threshold:
-            High_Confidence.append(Gene)
-            if Fst_Value >= Fst_threshold or Fst_Value >= Fst_threshold or \
-                    Dxy_Value >= Dxy_threshold:
-                    Low_Confidence.append(Gene)
+                High_Confidence.append(Gene)
+    if Fst_Value >= Fst_threshold or Fst_Value >= Fst_threshold or \
+            Dxy_Value >= Dxy_threshold:
+                Low_Confidence.append(Gene)
 
 print("List of genes exceeding thresholds produced")
 
