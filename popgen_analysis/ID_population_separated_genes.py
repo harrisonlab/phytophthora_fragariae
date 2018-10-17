@@ -13,10 +13,16 @@ import os
 ap = argparse.ArgumentParser()
 ap.add_argument('--Fst_File', required=True, type=str, help='Tab separated text \
 file of Fst values per gene')
+ap.add_argument('--Fst_Threshold', required=True, type=float, help='Threshold \
+value of Fst for carrying a gene forward')
 ap.add_argument('--Kst_File', required=True, type=str, help='Tab separated text \
 file of Kst values per gene')
+ap.add_argument('--Kst_Threshold', required=True, type=float, help='Threshold \
+value of Kst for carrying a gene forward')
 ap.add_argument('--Dxy_File', required=True, type=str, help='Tab separated text \
 file of Dxy values per gene')
+ap.add_argument('--Dxy_Threshold', required=True, type=float, help='Threshold \
+value of Dxy for carrying a gene forward')
 ap.add_argument('--Out_Dir', required=True, type=str, help='Output directory')
 ap.add_argument('--Out_Prefix', required=True, type=str, help='Prefix for output \
 file')
@@ -28,8 +34,11 @@ conf = ap.parse_args()
 # -----------------------------------------------------
 
 Fst_in = conf.Fst_File
+Fst_threshold = conf.Fst_Threshold
 Kst_in = conf.Kst_File
+Kst_threshold = conf.Kst_Threshold
 Dxy_in = conf.Dxy_File
+Dxy_threshold = conf.Dxy_Threshold
 OutDir = conf.Out_Dir
 OutPre = conf.Out_Prefix
 cwd = os.getcwd()
