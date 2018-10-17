@@ -21,3 +21,8 @@ ap.add_argument('--Out_Dir', required=True, type=str, help='Output directory')
 ap.add_argument('--Out_Prefix', required=True, type=str, help='Prefix for output \
 file')
 conf = ap.parse_args()
+
+# -----------------------------------------------------
+# Step 1
+# Load input files and build data structures
+# -----------------------------------------------------
