@@ -35,3 +35,19 @@ OutPre = conf.Out_Prefix
 cwd = os.getcwd()
 
 print("Arguments parsed")
+
+# Create data structures
+
+Fst_dict = defaultdict(float)
+Kst_dict = defaultdict(float)
+Dxy_dict = defaultdict(float)
+
+with open(Fst_in) as f:
+    lines = f.readlines()
+    for line in lines:
+        split_line = line.split()
+        ID_field = split_line[0]
+        ID_split = ID_field.split('=')
+        Gene_ID = ID_split[1]
+        Fst_Value = split_line[1]
+        Fst_dict[Gene_ID] = Fst_Value
