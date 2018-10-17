@@ -418,8 +418,8 @@ showing high separation and investigate their function
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 Out_Dir=summary_stats/all_Pf
-FST_File=$Out_Dir/genome_pairwise_FST_per_gene_pop1_vs_pop2.txt
-KST_File=$Out_Dir/genome_Hudson_KST_per_gene_all.txt
+Fst_File=$Out_Dir/genome_pairwise_FST_per_gene_pop1_vs_pop2.txt
+Kst_File=$Out_Dir/genome_Hudson_KST_per_gene_all.txt
 Dxy_File=$Out_Dir/genome_pop1_vs_pop2_dxy_per_gene.txt
 Fst_Threshold=0.5
 Kst_Threshold=0.5
