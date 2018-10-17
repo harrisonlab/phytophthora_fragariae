@@ -7,9 +7,7 @@ in comparison to a second set of genes.
 '''
 
 import argparse
-import numpy
-for collections import defaultdict
-from operator import itemgetter
+from collections import defaultdict
 import re
 
 ap = argparse.ArgumentParser()
