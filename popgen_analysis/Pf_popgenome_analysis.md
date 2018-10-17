@@ -492,8 +492,31 @@ do
     All_Genes=$WorkDir/Bc16_all_genes.txt
     cat $AnnotTable | tail -n+2 | cut -f1 > $AllGenes
     Set1_Genes=$WorkDir/Bc16_Separated_"$Set".txt
-    Set2_Genes=$WorkDir/Bc16_not=Separated_"$Set".txt
+    Set2_Genes=$WorkDir/Bc16_not_Separated_"$Set".txt
     cat $All_Genes | grep -w -f $Target_Genes > $Set1_Genes
     cat $All_Genes | grep -w -v -f $Target_Genes > $Set2_Genes
+done
+```
+
+Conduct enrichment analyses
+
+```bash
+WorkDir=summary_stats/all_Pf
+Interpro=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
+for Set in High_Conf Low_Conf
+do
+    Out_Dir=analysis/enrichment/P.fragariae/Bc16/$Set
+    mkdir -p $Out_Dir/tables
+    Set1_Genes=$WorkDir/Bc16_Separated_"$Set".txt
+    Set2_Genes=$WorkDir/Bc16_not_Separated_"$Set".txt
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    $ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir
+    ProgDir=/home/armita/git_repos/emr_repos/scripts/fusarium/analysis/gene_enrichment
+    $ProgDir/fisherstest.r --in_dir $OutDir/tables  --out_file $OutDir/results.tsv
+    SigIPR=$(cat $OutDir/significant_terms.txt | cut -f1)
+    for IPR in $(ls $OutDir/tables/*_fischertable.txt | rev | cut -f1 -d '/' | rev | sed 's/_fischertable.txt//g')
+    do
+      cat $OutDir/tables/"$IPR"_fischertable.txt | grep "$IPR"
+    done
 done
 ```
