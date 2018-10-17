@@ -85,6 +85,8 @@ with open(Dxy_in) as f:
 
 Gene_Set = set(Gene_List)
 
+print("Data structures produced")
+
 # -----------------------------------------------------
 # Step 2
 # Creates lists of genes exceeding threshold values
@@ -103,6 +105,8 @@ for Gene in Gene_Set:
             if Fst_Value >= Fst_threshold or Fst_Value >= Fst_threshold or \
                     Dxy_Value >= Dxy_threshold:
                     Low_Confidence.append(Gene)
+
+print("List of genes exceeding thresholds produced")
 
 # -----------------------------------------------------
 # Step 3
@@ -124,3 +128,5 @@ with open(High_Out, "w") as o:
     for item in High_Confidence:
         o.write(item)
         o.write("\n")
+
+print("Output files written")
