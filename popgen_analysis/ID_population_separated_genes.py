@@ -83,9 +83,23 @@ with open(Dxy_in) as f:
         Dxy_Value = split_line[4]
         Dxy_dict[Gene_ID] = Dxy_Value
 
-Gene_set = set(Gene_List)
+Gene_Set = set(Gene_List)
 
 # -----------------------------------------------------
 # Step 2
 # Creates lists of genes exceeding threshold values
 # -----------------------------------------------------
+
+Low_Confidence = []
+High_Confidence = []
+
+for Gene in Gene_Set:
+    Fst_Value = Fst_dict[Gene]
+    Kst_Value = Kst_dict[Gene]
+    Dxy_Value = Dxy_dict[Gene]
+    if Fst_Value >= Fst_threshold and Kst_Value >= Kst_threshold and \
+            Dxy_Value >= Dxy_threshold:
+            High_Confidence.append(Gene)
+            if Fst_Value >= Fst_threshold or Fst_Value >= Fst_threshold or \
+                    Dxy_Value >= Dxy_threshold:
+                    Low_Confidence.append(Gene)
