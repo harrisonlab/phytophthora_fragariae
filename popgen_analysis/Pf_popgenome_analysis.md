@@ -430,3 +430,26 @@ $ProgDir/ID_population_separated_genes.py --Fst_File $Fst_File --Kst_File $Kst_F
 ```
 
 Summarise these results
+
+```bash
+RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
+CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
+ApoPs=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
+Secs=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted_Aug_ORF.txt
+WorkDir=summary_stats/all_Pf
+
+for file in $(ls $WorkDir/Population_Separated_Genes*)
+do
+    echo $file
+    echo "The number of population separated genes is:"
+    cat $file | wc -l
+    echo "The number of RxLRs showing population separation is:"
+    cat $file | grep -w -f $RxLRs | wc -l
+    echo "The number of CRNs showing population separation is:"
+    cat $file | grep -w -f $CRNs | wc -l
+    echo "The number of Apoplastic Effectors showing population separation is:"
+    cat $file | grep -w -f $ApoPs | wc -l
+    echo "The number of Secreted Proteins showing population separation is:"
+    cat $file | grep -w -f $Secs | wc -l
+done
+```
