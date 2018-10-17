@@ -22,3 +22,8 @@ ap.add_argument('--Out_Dir', required=True, type=str, help='Output directory \
 to write files to')
 
 conf = ap.parse_args()
+
+#-----------------------------------------------------
+# Step 1
+# Create dictionaries of the number of genes for each IPR annotation
+#-----------------------------------------------------
