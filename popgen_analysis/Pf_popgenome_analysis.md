@@ -444,12 +444,12 @@ do
     echo "The number of population separated genes is:"
     cat $file | wc -l
     echo "The number of RxLRs showing population separation is:"
-    cat $file | grep -w -f $RxLRs | wc -l
+    cat $RxLRs | grep -w -f $file | wc -l
     echo "The number of CRNs showing population separation is:"
-    cat $file | grep -w -f $CRNs | wc -l
+    cat $CRNs | grep -w -f $file | wc -l
     echo "The number of Apoplastic Effectors showing population separation is:"
-    cat $file | grep -w -f $ApoPs | wc -l
+    cat $ApoPs | grep -w -f $file | wc -l
     echo "The number of Secreted Proteins showing population separation is:"
-    cat $file | grep -w -f $Secs | wc -l
+    cat $Secs | grep -w -f $file | wc -l
 done
 ```
