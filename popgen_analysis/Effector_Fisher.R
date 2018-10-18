@@ -40,17 +40,17 @@ Out_enriched_equal <- paste(Output_Directory, "enriched_equal.txt", sep = "/")
 results_greater <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
 hybrid = FALSE, control = list(), or = 1, alternative = "greater",
 conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
-outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+outline <- paste(Confidence_ID, Gene_Type, results$p.value, sep = "\t")
 write(outline, file = Out_enriched_up, append = T)
 
 results_less <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
 hybrid = FALSE, control = list(), or = 1, alternative = "less",
 conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
-outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+outline <- paste(Confidence_ID, Gene_Type, results$p.value, sep = "\t")
 write(outline, file = Out_enriched_down, append = T)
 
 results_2_way <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
 hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
 conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
-outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+outline <- paste(Confidence_ID, Gene_Type, results$p.value, sep = "\t")
 write(outline, file = Out_enriched_equal, append = T)
