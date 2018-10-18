@@ -2,14 +2,13 @@ library("PopGenome")
 library("ggplot2")
 
 # Set populations
-Pf <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1",
+PfPr <- c("Bc1_1", "Bc1_2", "Nov5_1", "Nov5_2", "Bc16_1", "Bc16_2", "A4_1",
 "A4_2", "Nov27_1", "Nov27_2", "Nov9_1", "Nov9_2", "Nov71_1", "Nov71_2",
 "Bc23_1", "Bc23_2", "ONT3_1", "ONT3_2", "Nov77_1", "Nov77_2", "SCRP245_v2_1",
-"SCRP245_v2_2")
-Pr <- c("SCRP249_1", "SCRP249_2", "SCRP324_1", "SCRP324_2", "SCRP333_1",
+"SCRP245_v2_2", "SCRP249_1", "SCRP249_2", "SCRP324_1", "SCRP324_2", "SCRP333_1",
 "SCRP333_2")
-populations <- list(Pf, Pr)
-population_names <- c("Pf", "Pr")
+populations <- list(PfPr)
+population_names <- c("PfPr")
 population_no <- length(populations)
 pairs <- choose(population_no, 2)
 
