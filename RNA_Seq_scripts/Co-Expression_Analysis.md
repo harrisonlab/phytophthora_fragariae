@@ -410,7 +410,7 @@ Genome_Effectors=$(cat $RxLR_Headers $CRN_Headers $ApoP_Headers | sort | uniq | 
 Secreted_preds=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted_Aug_ORF.txt
 Genome_Secreted=$(cat $Secreted_preds | sort | uniq | wc -l)
 Genes=gene_pred/annotation/P.fragariae/Bc16/Bc16_genes_incl_ORFeffectors_renamed.gene.fasta
-Genome_Genes=$(cat $Genes | sort | uniq | wc -l)
+Genome_Genes=$(cat $Genes | grep '>' | sort | uniq | wc -l)
 for Module_Dir in $(ls -d analysis/coexpression/enrichment/*)
 do
     Module_Name=$(echo $Module_Dir | rev | cut -f1 -d "/" | rev)
