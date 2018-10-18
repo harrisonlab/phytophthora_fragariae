@@ -481,6 +481,8 @@ The number of Secreted Proteins showing population separation is:
 
 #### Conduct Fishers test
 
+Contingency tables were manually created due to being only a small number
+
 ```bash
 WorkDir=summary_stats/all_Pf
 mkdir -p $WorkDir/tables
@@ -494,8 +496,6 @@ do
     $ProgDir/Effector_Fisher.R --Input_Table $Table --Output_Directory $Out_Dir --Confidence_ID $Confidence_ID --Gene_Type $Gene_Type
 done
 ```
-
-Contingency tables were manually created due to being only a small number
 
 ### Functional enrichment analysis - using interpro terms
 
