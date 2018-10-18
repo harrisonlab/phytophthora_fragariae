@@ -53,4 +53,4 @@ results_2_way <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
 hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
 conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
 outline <- paste(Confidence_ID, Gene_Type, results_2_way$p.value, sep = "\t")
-write(outline, file = Out_enriched_equal, append = T)
+write(outline, file = Out_enriched_2_way, append = T)
