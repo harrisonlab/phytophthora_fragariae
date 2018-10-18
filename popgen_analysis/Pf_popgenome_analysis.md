@@ -481,6 +481,8 @@ The number of Secreted Proteins showing population separation is:
 
 #### Conduct Fishers test
 
+Contingency tables were manually created due to being only a small number
+
 ### Functional enrichment analysis - using interpro terms
 
 Create lists of gene IDs including all possible transcripts
