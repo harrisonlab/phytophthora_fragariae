@@ -35,7 +35,7 @@ Fisher_Table$V3[1], Fisher_Table$V3[2]), nrow = 2, dimnames = list(
 
 Out_enriched_up <- paste(Output_Directory, "enriched_up.txt", sep = "/")
 Out_enriched_down <- paste(Output_Directory, "enriched_down.txt", sep = "/")
-Out_enriched_equal <- paste(Output_Directory, "enriched_equal.txt", sep = "/")
+Out_enriched_2_way <- paste(Output_Directory, "enriched_2_way.txt", sep = "/")
 
 results_greater <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
 hybrid = FALSE, control = list(), or = 1, alternative = "greater",
