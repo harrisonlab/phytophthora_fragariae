@@ -487,6 +487,7 @@ mkdir -p $WorkDir/tables
 for Table in $(ls $WorkDir/tables/*Conf*.txt)
 do
     Out_Dir=$WorkDir/fisher_results
+    mkdir -p $Out_Dir
     Confidence_ID=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f1 -d '_')
     Gene_Type=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f3 -d '_' | cut -f1 -d '.')
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
