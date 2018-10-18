@@ -481,6 +481,19 @@ The number of Secreted Proteins showing population separation is:
 
 #### Conduct Fishers test
 
+```bash
+WorkDir=summary_stats/all_Pf
+mkdir -p $WorkDir/tables
+for Table in $(ls $WorkDir/tables/*Conf*.txt)
+do
+    Out_Dir=$WorkDir/fisher_results
+    Confidence_ID=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f1 -d '_')
+    Gene_Type=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f3 -d '_' | cut -f1 -d '.')
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    $ProgDir/Effector_Fisher.R --Input_Table $Table --Output_Directory $Out_Dir --Confidence_ID $Confidence_ID --Gene_Type $Gene_Type
+done
+```
+
 Contingency tables were manually created due to being only a small number
 
 ### Functional enrichment analysis - using interpro terms
