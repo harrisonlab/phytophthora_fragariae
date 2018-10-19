@@ -531,7 +531,7 @@ do
 done
 ```
 
-Conduct enrichment analyses
+Create fisher tables
 
 ```bash
 WorkDir=summary_stats/all_Pf
@@ -544,12 +544,5 @@ do
     Set2_Genes=$WorkDir/Bc16_not_Separated_"$Set".txt
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
     $ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir/tables
-    $ProgDir/fishertest_IPR_enrichment.R --in_dir $Out_Dir/tables --out_file $Out_Dir/results.tsv
-    cat $Out_Dir/results.tsv | cut -f1,3 | grep -e "e-" -e "0\.00" -e "0\.01" -e "0\.02" -e "0\.03" -e "0\.04"  > $Out_Dir/significant_terms.txt
-    SigIPR=$(cat $Out_Dir/significant_terms.txt | cut -f1)
-    for IPR in $(ls $Out_Dir/tables/*_fishertable.txt | rev | cut -f1 -d '/' | rev | sed 's/_fishertable.txt//g')
-    do
-      cat $Out_Dir/tables/"$IPR"_fishertable.txt | grep "$IPR"
-    done
 done
 ```
