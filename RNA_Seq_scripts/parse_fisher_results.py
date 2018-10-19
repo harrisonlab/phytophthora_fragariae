@@ -69,9 +69,9 @@ Bonferroni_Pval_array = stats.multipletests(P_vals, alpha=FDR,
 i = 0
 for key in keys:
     P_value_BH = Benjamini_Pval_array[1][i]
-    BH_dict[key] = P_value
+    BH_dict[key] = P_value_BH
     P_value_BO = Bonferroni_Pval_array[1][i]
-    BO_dict[key] = P_value
+    BO_dict[key] = P_value_BO
     i = i + 1
 
 # -----------------------------------------------------
