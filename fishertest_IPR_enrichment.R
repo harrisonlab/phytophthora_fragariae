@@ -1,59 +1,72 @@
-#!/usr/bin/Rscript
-print("shebang works")
+#!/home/adamst/prog/R/R-3.2.5/bin/Rscript
 
-#get config options
-library(optparse)
+# Load libraries
+
+library("optparse")
+
+# Load command line options
+
 opt_list <- list(
-  make_option("--in_dir", type = "character",
-  help = "directory containing fisher tables"),
-  make_option("--out_file", type = "character",
-  help = "output results tab separated file")
-  )
+    make_option("--Input_Table", type = "character", help = "Fisher contigency
+    table to analyse"),
+    make_option("--Output_Directory", type = "character", help = "Directory
+    where ouput files are written to"),
+    make_option("--Module_ID", type = "character", help = "Name of module being
+    analysed"),
+    make_option("--Gene_Type", type = "character", help = "Type of gene being
+    analysed")
+)
 
-  opt <- parse_args(OptionParser(option_list = opt_list))
-  f <- opt$in_dir
-  o <- opt$out_file
-print("shebang works")
-print(f)
-print(o)
+opt <- parse_args(OptionParser(option_list = opt_list))
+Input_Table <- opt$Input_Table
+Output_Directory <- opt$Output_Directory
+Module_ID <- opt$Module_ID
+Gene_Type <- opt$Gene_Type
 
-files <- list.files(path = f, pattern = "*_fishertable.txt", full.names = T,
-recursive = FALSE)
-lapply(files, function(x) {
-  IPR <- gsub("_fishertable.txt", "", x, ignore.case = FALSE, fixed = FALSE)
-  IPR <- gsub( ".*/", "", IPR, ignore.case = FALSE, fixed = FALSE)
+# Create data structures pre-analysis
 
-  fishertable <- data.frame()
-  fishertable <- read.delim(x, header = FALSE, sep = "\t")
+Fisher_Table <- data.frame()
+Fisher_Table <- read.table(Input_Table, header = FALSE, sep = "\t")
 
-  fishermatrix <-
-  matrix(c(fishertable$V2[1], fishertable$V2[2], fishertable$V3[1],
-      fishertable$V3[2]),
-         nrow = 2,
-         dimnames = list(Annotation = c("IPR", "Non-IPR"),
-                          Gene_Set = c("Separated", "Not-Separated")))
+Fisher_Matrix <- matrix(c(Fisher_Table$V2[1], Fisher_Table$V2[2],
+Fisher_Table$V3[1], Fisher_Table$V3[2]), nrow = 2, dimnames = list(
+    Annotation = c(Gene_Type, "Other Genes"), Gene_Set = c(Module_ID, "Genome")
+))
 
-  results_2_way <- fisher.test(fishermatrix, y = NULL, workspace = 200000,
-      hybrid = FALSE,
-              control = list(), or = 1, alternative = "two.sided",
-              conf.int = TRUE, conf.level = 0.95,
-              simulate.p.value = FALSE, B = 2000)
+# Run Fishers exact test: one way, which way depending on relative proportions
 
-  results_greater <- fisher.test(fishermatrix, y = NULL, workspace = 200000,
-      hybrid = FALSE,
-              control = list(), or = 1, alternative = "greater",
-              conf.int = TRUE, conf.level = 0.95,
-              simulate.p.value = FALSE, B = 2000)
+Module_Features <- Fisher_Table$V2[1]
+Module_Genes <- Fisher_Table$V2[2]
+Genome_Features <- Fisher_Table$V3[1]
+Genome_Genes <- Fisher_Table$V3[2]
 
-  results_less <- fisher.test(fishermatrix, y = NULL, workspace = 200000,
-      hybrid = FALSE,
-              control = list(), or = 1, alternative = "less",
-              conf.int = TRUE, conf.level = 0.95,
-              simulate.p.value = FALSE, B = 2000)
+Module_Ratio <- Module_Features / (Module_Genes + Module_Features)
+Genome_Ratio <- Genome_Features / (Genome_Genes + Genome_Features)
 
+Out_enriched_up <- paste(Output_Directory, "enriched_up.txt", sep = "/")
+Out_enriched_down <- paste(Output_Directory, "enriched_down.txt", sep = "/")
+Out_enriched_equal <- paste(Output_Directory, "enriched_equal.txt", sep = "/")
 
-  outline <- paste(IPR, results_2_way$p.value, results_greater$p.value,
-      results_less$p.value, sep = "\t")
-  print(IPR)
-write(outline, file = o, append = T)
-})
+if (Module_Ratio > Genome_Ratio){
+    results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
+    hybrid = FALSE, control = list(), or = 1, alternative = "greater",
+    conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
+    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    write(outline, file = Out_enriched_up, append = T)
+}
+
+if (Module_Ratio < Genome_Ratio){
+    results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
+    hybrid = FALSE, control = list(), or = 1, alternative = "less",
+    conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
+    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    write(outline, file = Out_enriched_down, append = T)
+}
+
+if (Module_Ratio == Genome_Ratio){
+    results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
+    hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
+    conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
+    outline <- paste(Module_ID, Gene_Type, results$p.value, sep = "\t")
+    write(outline, file = Out_enriched_equal, append = T)
+}
