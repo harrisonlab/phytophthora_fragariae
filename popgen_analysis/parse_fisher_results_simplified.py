@@ -75,71 +75,24 @@ for key in keys:
 
 # -----------------------------------------------------
 # Step 3
-# Make a list of tests which pass p-value thresholds for writing out
-# -----------------------------------------------------
-
-Significant = []
-Non_Significant = []
-
-Threshold = conf.Threshold
-
-for key in keys:
-    P_value = uncorrected_dict[key]
-    if P_value < Threshold:
-        Significant.append(key)
-    else:
-        Non_Significant.append(key)
-
-# -----------------------------------------------------
-# Step 4
 # Split dictionary into separate dictionaries by gene type & significance
 # Also write out file
 # -----------------------------------------------------
 
-Types = conf.Types
 OutDir = conf.outdir
 Header = "\t".join(["Gene_type", "P-value", "Benjamini P-value",
                     "Bonferroni P-value"])
 
-for Type in Types:
-    Type_Sig_uncorrected_dict = defaultdict(float)
-    Type_Sig_BH_dict = defaultdict(float)
-    Type_Sig_BO_dict = defaultdict(float)
-    Type_NonSig_uncorrected_dict = defaultdict(float)
-    Type_NonSig_BH_dict = defaultdict(float)
-    Type_NonSig_BO_dict = defaultdict(float)
-    Type_Sig = []
-    Type_NonSig = []
-    for key in keys:
-        if Type in key and key in Significant:
-            Type_Sig.append(key)
-        elif Type in key and key in Non_Significant:
-            Type_NonSig.append(key)
-    Out_Sig_File = "_".join([Type, "Significant_enrichment.tsv"])
-    Out_NonSig_File = "_".join([Type, "NonSignificant_enrichment.tsv"])
-    Sig_Output = "/".join([cwd, OutDir, Out_Sig_File])
-    NonSig_Ouput = "/".join([cwd, OutDir, Out_NonSig_File])
-    with open(Sig_Output, 'w') as o:
+for key in keys:
+    Out_File = "Enrichment.tsv"
+    Output = "/".join([cwd, OutDir, Out_File])
+    with open(Output, 'w') as o:
         o.write(Header)
         o.write("\n")
-        for item in Type_Sig:
-            P_value = uncorrected_dict[item]
-            P_value_BH = BH_dict[item]
-            P_value_BO = BO_dict[item]
-            to_write = "\t".join([item, str(P_value), str(P_value_BH),
-                                  str(P_value_BO)])
-            o.write(to_write)
-            o.write("\n")
-        o.close()
-    with open(NonSig_Ouput, 'w') as o:
-        o.write(Header)
+        P_value = uncorrected_dict[key]
+        P_value_BH = BH_dict[key]
+        P_value_BO = BO_dict[key]
+        to_write = "\t".join([key, str(P_value), str(P_value_BH),
+                              str(P_value_BO)])
+        o.write(to_write)
         o.write("\n")
-        for item in Type_NonSig:
-            P_value = uncorrected_dict[item]
-            P_value_BH = BH_dict[item]
-            P_value_BO = BO_dict[item]
-            to_write = "\t".join([item, str(P_value), str(P_value_BH),
-                                  str(P_value_BO)])
-            o.write(to_write)
-            o.write("\n")
-        o.close()
