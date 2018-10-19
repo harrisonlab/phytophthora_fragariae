@@ -81,12 +81,13 @@ OutDir = conf.outdir
 Header = "\t".join(["Gene_type", "P-value", "Benjamini P-value",
                     "Bonferroni P-value"])
 
-for key in keys:
-    Out_File = "Enrichment.tsv"
-    Output = "/".join([cwd, OutDir, Out_File])
-    with open(Output, 'w') as o:
-        o.write(Header)
-        o.write("\n")
+Out_File = "Enrichment.tsv"
+Output = "/".join([cwd, OutDir, Out_File])
+
+with open(Output, 'w') as o:
+    o.write(Header)
+    o.write("\n")
+    for key in keys:
         P_value = uncorrected_dict[key]
         P_value_BH = BH_dict[key]
         P_value_BO = BO_dict[key]
