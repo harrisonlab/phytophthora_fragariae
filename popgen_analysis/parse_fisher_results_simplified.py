@@ -49,10 +49,9 @@ for File in Files:
         Lines = f.readlines()
         for line in Lines:
             split_line = line.split()
-            Module_ID = str(split_line[0])
-            Gene_type = str(split_line[1])
-            P_value = float(split_line[2])
-            key = "_".join([Module_ID, Gene_type])
+            Gene_type = str(split_line[0])
+            P_value = float(split_line[1])
+            key = "_".join([Gene_type])
             keys.append(key)
             P_vals.append(P_value)
             uncorrected_dict[key] = P_value
@@ -99,7 +98,7 @@ for key in keys:
 
 Types = conf.Types
 OutDir = conf.outdir
-Header = "\t".join(["Module_Gene_type", "P-value", "Benjamini P-value",
+Header = "\t".join(["Gene_type", "P-value", "Benjamini P-value",
                     "Bonferroni P-value"])
 
 for Type in Types:
