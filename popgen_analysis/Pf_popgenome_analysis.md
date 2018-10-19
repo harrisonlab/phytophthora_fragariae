@@ -486,15 +486,23 @@ Contingency tables were manually created due to being only a small number
 ```bash
 WorkDir=summary_stats/all_Pf
 mkdir -p $WorkDir/tables
-for Table in $(ls $WorkDir/tables/*Conf*.txt)
+for Set in High_Conf Low_Conf
 do
-    Out_Dir=$WorkDir/fisher_results
-    mkdir -p $Out_Dir
-    Confidence_ID=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f1 -d '_')
-    Gene_Type=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f3 -d '_' | cut -f1 -d '.')
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
-    $ProgDir/Effector_Fisher.R --Input_Table $Table --Output_Directory $Out_Dir --Confidence_ID $Confidence_ID --Gene_Type $Gene_Type
+    for Table in $(ls $WorkDir/tables/"$Set"*.txt)
+    do
+        Out_Dir=$WorkDir/fisher_results/$Set
+        mkdir -p $Out_Dir
+        Effector_Type=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f3 -d '_' | cut -f1 -d '.')
+        ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+        $ProgDir/Effector_Fisher.R --Input_Table $Table --Output_Directory $Out_Dir --Effector_type $Effector_Type
+    done
 done
+```
+
+#### Parse results to single files and multi-test correct
+
+```bash
+
 ```
 
 ### Functional enrichment analysis - using interpro terms
