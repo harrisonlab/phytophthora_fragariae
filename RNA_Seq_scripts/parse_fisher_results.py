@@ -36,7 +36,9 @@ cwd = os.getcwd()
 # Creates dictionary of each gene type in each option and corrects p-values
 # -----------------------------------------------------
 
-enrichment_dict = defaultdict(float)
+BH_dict = defaultdict(float)
+BO_dict = defaultdict(float)
+uncorrected_dict = defaultdict(float)
 
 keys = []
 P_vals = []
@@ -53,15 +55,23 @@ for File in Files:
             key = "_".join([Module_ID, Gene_type])
             keys.append(key)
             P_vals.append(P_value)
+            uncorrected_dict[key] = P_value
 
 FDR = conf.FDR
-Corrected_Pval_array = stats.multipletests(P_vals, alpha=FDR, method='fdr_bh',
+Benjamini_Pval_array = stats.multipletests(P_vals, alpha=FDR, method='fdr_bh',
                                            is_sorted=False, returnsorted=False)
+
+Bonferroni_Pval_array = stats.multipletests(P_vals, alpha=FDR,
+                                            method='bonferroni',
+                                            is_sorted=False,
+                                            returnsorted=False)
 
 i = 0
 for key in keys:
-    P_value = Corrected_Pval_array[1][i]
-    enrichment_dict[key] = P_value
+    P_value_BH = Benjamini_Pval_array[1][i]
+    BH_dict[key] = P_value
+    P_value_BO = Bonferroni_Pval_array[1][i]
+    BO_dict[key] = P_value
     i = i + 1
 
 # -----------------------------------------------------
@@ -75,7 +85,7 @@ Non_Significant = []
 Threshold = conf.Threshold
 
 for key in keys:
-    P_value = enrichment_dict[key]
+    P_value = uncorrected_dict[key]
     if P_value < Threshold:
         Significant.append(key)
     else:
@@ -89,20 +99,22 @@ for key in keys:
 
 Types = conf.Types
 OutDir = conf.outdir
-Header = "\t".join(["Module_Gene type", "P-value"])
+Header = "\t".join(["Module_Gene_type", "P-value", "Benjamini P-value",
+                    "Bonferroni P-value"])
 
 for Type in Types:
-    Type_Sig_dict = defaultdict(float)
-    Type_NonSig_dict = defaultdict(float)
+    Type_Sig_uncorrected_dict = defaultdict(float)
+    Type_Sig_BH_dict = defaultdict(float)
+    Type_Sig_BO_dict = defaultdict(float)
+    Type_NonSig_uncorrected_dict = defaultdict(float)
+    Type_NonSig_BH_dict = defaultdict(float)
+    Type_NonSig_BO_dict = defaultdict(float)
     Type_Sig = []
     Type_NonSig = []
     for key in keys:
-        P_value_Corrected = enrichment_dict[key]
         if Type in key and key in Significant:
-            Type_Sig_dict[key] = P_value_Corrected
             Type_Sig.append(key)
         elif Type in key and key in Non_Significant:
-            Type_NonSig_dict[key] = P_value_Corrected
             Type_NonSig.append(key)
     Out_Sig_File = "_".join([Type, "Significant_enrichment.tsv"])
     Out_NonSig_File = "_".join([Type, "NonSignificant_enrichment.tsv"])
@@ -112,8 +124,11 @@ for Type in Types:
         o.write(Header)
         o.write("\n")
         for item in Type_Sig:
-            P_value_Corrected = enrichment_dict[item]
-            to_write = "\t".join([item, str(P_value_Corrected)])
+            P_value = uncorrected_dict[item]
+            P_value_BH = BH_dict[item]
+            P_value_BO = BO_dict[item]
+            to_write = "\t".join([item, str(P_value), str(P_value_BH),
+                                  str(P_value_BO)])
             o.write(to_write)
             o.write("\n")
         o.close()
@@ -121,8 +136,11 @@ for Type in Types:
         o.write(Header)
         o.write("\n")
         for item in Type_NonSig:
-            P_value_Corrected = enrichment_dict[item]
-            to_write = "\t".join([item, str(P_value_Corrected)])
+            P_value = uncorrected_dict[item]
+            P_value_BH = BH_dict[item]
+            P_value_BO = BO_dict[item]
+            to_write = "\t".join([item, str(P_value), str(P_value_BH),
+                                  str(P_value_BO)])
             o.write(to_write)
             o.write("\n")
         o.close()
