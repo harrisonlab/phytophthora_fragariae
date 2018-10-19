@@ -502,7 +502,14 @@ done
 #### Parse results to single files and multi-test correct
 
 ```bash
-
+for Set in High_Conf Low_Conf
+do
+    Files=$(ls summary_stats/all_Pf/fisher_results/$Set/enriched_*.txt)
+    OutDir=summary_stats/all_Pf/fisher_results/$Set/Parsed_Fisher_Results
+    mkdir -p $OutDir
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $OutDir --FDR 0.05 --Types RxLR CRN ApoP Effector Secreted --Threshold 0.05
+done
 ```
 
 ### Functional enrichment analysis - using interpro terms
