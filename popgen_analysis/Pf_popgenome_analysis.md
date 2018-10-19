@@ -546,3 +546,20 @@ do
     $ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir/tables
 done
 ```
+
+Conduct fisher analysis
+
+```bash
+WorkDir=analysis/enrichment/P.fragariae/Bc16/
+for Set in High_Conf Low_Conf
+do
+    for Table in $(ls $WorkDir/$Set/tables/*fishertable.txt)
+    do
+        Out_Dir=$WorkDir/$Set/results
+        mkdir -p $Out_Dir
+        IPR_term=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f1 -d '_')
+        ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+        $ProgDir/fishertest_IPR_enrichment.R --Input_Table $Table --Output_Directory $Out_Dir --IPR_term $IPR_term
+    done
+done
+```
