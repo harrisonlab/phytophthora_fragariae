@@ -429,13 +429,13 @@ done
 
 ### Run Fishers Exact test to test for enrichment
 
-Does not run on head node, throws an error of incorrect version of GLOB
-I recommend running in screen due to large numbers of items in loop
+WARNING: if running in a screen session, rerun the following command after opening screen
 
 ```bash
-qlogin
-cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+. ~/.profile
+```
 
+```bash
 for Table in $(ls analysis/coexpression/enrichment/*/*Fishertable.txt)
 do
     Module_ID=$(echo $Table | rev | cut -f2 -d "/" | rev)
