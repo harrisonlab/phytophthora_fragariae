@@ -505,10 +505,10 @@ done
 for Set in High_Conf Low_Conf
 do
     Files=$(ls summary_stats/all_Pf/fisher_results/$Set/enriched_*.txt)
-    OutDir=summary_stats/all_Pf/fisher_results/$Set/Parsed_Fisher_Results
-    mkdir -p $OutDir
+    Out_Dir=summary_stats/all_Pf/fisher_results/$Set/Parsed_Fisher_Results
+    mkdir -p $Out_Dir
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
-    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $OutDir --FDR 0.05 --Types RxLR CRN ApoP Sec --Threshold 0.05
+    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Types RxLR CRN ApoP Sec --Threshold 0.05
 done
 ```
 
@@ -561,5 +561,20 @@ do
         ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
         $ProgDir/fishertest_IPR_enrichment.R --Input_Table $Table --Output_Directory $Out_Dir --IPR_term $IPR_term
     done
+done
+```
+
+Parse Fisher results
+
+```bash
+WorkDir=analysis/enrichment/P.fragariae/Bc16
+for Set in High_Conf Low_Conf
+do
+    Files=$(ls $WorkDir/$Set/results/enriched_*.txt)
+    Out_Dir=analysis/enrichment/P.fragariae/Bc16/$Set/results/Parsed_Fisher_Results
+    mkdir -p $Out_Dir
+    Types=$(ls $WorkDir/$Set/tables/*fishertable.txt | rev | cut -f1 -d '/' | rev | cut -f1 -d '_')
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Types $Types --Threshold 0.05
 done
 ```
