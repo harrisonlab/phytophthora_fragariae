@@ -483,6 +483,12 @@ The number of Secreted Proteins showing population separation is:
 
 Contingency tables were manually created due to being only a small number
 
+WARNING: if running in a screen session, rerun the following command after opening screen
+
+```bash
+. ~/.profile
+```
+
 ```bash
 WorkDir=summary_stats/all_Pf
 mkdir -p $WorkDir/tables
@@ -548,6 +554,12 @@ done
 ```
 
 Conduct fisher analysis
+
+WARNING: if running in a screen session, rerun the following command after opening screen
+
+```bash
+. ~/.profile
+```
 
 ```bash
 WorkDir=analysis/enrichment/P.fragariae/Bc16/
