@@ -2,7 +2,7 @@
 
 '''
 This script will analyse results from a Fishers Exact Test on enrichment
-for specified gene types, with a specified False Discovery Rate
+for a collection of Fisher results, with a specified False Discovery Rate
 and specified P-value threshold
 '''
 
@@ -23,8 +23,6 @@ ap.add_argument('--outdir', required=True, type=str, help='Directory to output \
 results to')
 ap.add_argument('--FDR', required=True, type=float, help='False Discovery rate \
 for Benjamini-Hochberg multi-test correction')
-ap.add_argument('--Types', required=True, type=str, nargs='+', help='List of \
-genes types to parse the enrichment results of')
 ap.add_argument('--Threshold', required=True, type=float, help='P-value at \
 which the null hypothesis of no enrichment is accepted')
 conf = ap.parse_args()
