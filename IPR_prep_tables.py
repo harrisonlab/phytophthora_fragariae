@@ -65,7 +65,7 @@ with open(IPRs) as f:
         if m:
             IPR_set = set(m)
         else:
-            IPR_set = set(["no_annotation"])
+            IPR_set = set(["noannotation"])
         if Gene_ID in Genes_1s:
             for IPR in IPR_set:
                 set1_dict[IPR] += 1
