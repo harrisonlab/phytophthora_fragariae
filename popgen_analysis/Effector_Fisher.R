@@ -51,19 +51,3 @@ if (Separated_Ratio > Genome_Ratio){
     outline <- paste(Effector_type, results$p.value, sep = "\t")
     write(outline, file = Out_enriched_up, append = T)
 }
-
-# if (Separated_Ratio < Genome_Ratio){
-#     results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
-#     hybrid = FALSE, control = list(), or = 1, alternative = "less",
-#     conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
-#     outline <- paste(IPR_term, results$p.value, sep = "\t")
-#     write(outline, file = Out_enriched_down, append = T)
-# }
-#
-# if (Separated_Ratio == Genome_Ratio){
-#     results <- fisher.test(Fisher_Matrix, y = NULL, workspace = 200000,
-#     hybrid = FALSE, control = list(), or = 1, alternative = "two.sided",
-#     conf.int = TRUE, conf.level = 0.95, simulate.p.value = FALSE, B = 2000)
-#     outline <- paste(IPR_term, results$p.value, sep = "\t")
-#     write(outline, file = Out_enriched_equal, append = T)
-# }
