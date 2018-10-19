@@ -514,7 +514,7 @@ do
     Out_Dir=summary_stats/all_Pf/fisher_results/$Set/Parsed_Fisher_Results
     mkdir -p $Out_Dir
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
-    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Types RxLR CRN ApoP Sec --Threshold 0.05
+    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Threshold 0.05
 done
 ```
 
