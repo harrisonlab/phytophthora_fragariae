@@ -231,7 +231,7 @@ for (i in seq_along(population_names)){
   sep = "")
   pi_plot <- ggplot(Pi_ns_d, aes(x = Pi_ns_d[, i])) +
   geom_histogram(colour = "black", fill = "coral") +
-  xlab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
+  xlab(expression(paste("Average ", pi["ns"], "/", pi["s"], " per site"))) +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(Pi_ns_d[, i], n = 10)) +
   theme(panel.grid.major = element_blank(),
@@ -275,7 +275,7 @@ for (i in seq_along(population_names)){
       aes(x = xaxis, y = Pi_ns_persite_d[, i])) +
       geom_smooth(colour = "black", fill = "darkviolet") +
       xlab("Contig coordinate (kbp)") +
-      ylab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
+      ylab(expression(paste("Average ", pi["ns"], "/", pi["s"], " per site"))) +
       scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
       theme(panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(), panel.background = element_blank(),
@@ -307,7 +307,7 @@ geom_smooth(aes(y = Pi_ns_persite_d[, 1], colour = "Population 1:\nUK1,2,3")) +
 geom_smooth(aes(y = Pi_ns_persite_d[, 2],
     colour = "Population 2:\nBC-23 & ONT-3")) +
     xlab("Contig coordinate (kbp)") +
-ylab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
+ylab(expression(paste("Average ", pi["ns"], "/", pi["s"], " per site"))) +
 labs(colour = "Population") +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 scale_colour_manual(values = c("deeppink", "lightskyblue")) +
