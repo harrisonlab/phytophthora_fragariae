@@ -79,7 +79,7 @@ for (i in seq_along(population_names)){
   if (FuLiF_len > FuLiF_na){
   FuLiF_plot <- ggplot(FuLiF_d, aes(x = FuLiF_d[, i])) +
   geom_histogram(colour = "black", fill = "maroon") +
-  xlab("Fu & Li's F^*") + ylab("Number of genes") +
+  xlab("Fu & Li's F*") + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(FuLiF_d[, i], n = 10)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
@@ -112,7 +112,7 @@ for (i in seq_along(population_names)){
   if (FuLiD_len > FuLiD_na){
   FuLiD_plot <- ggplot(FuLiD_d, aes(x = FuLiD_d[, i])) +
   geom_histogram(colour = "black", fill = "orchid") +
-  xlab("Fu & Li's D^*") + ylab("Number of genes") +
+  xlab("Fu & Li's D*") + ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(FuLiD_d[, i], n = 10)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
@@ -348,7 +348,7 @@ for (i in seq_along(population_names)){
   file_hist <- paste("genome_", population_names[i], "_FuLiF_per_gene_all.pdf",
   sep = "")
   FuLiF_plot <- ggplot(x, aes(x = x[, 3])) +
-  geom_histogram(colour = "black", fill = "maroon") + xlab("Fu & Li's F^*") +
+  geom_histogram(colour = "black", fill = "maroon") + xlab("Fu & Li's F*") +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
   theme(panel.grid.major = element_blank(),
@@ -364,7 +364,7 @@ for (i in seq_along(population_names)){
   file_hist <- paste("genome_", population_names[i], "_FuLiD_per_gene_all.pdf",
   sep = "")
   FuLiD_plot <- ggplot(x, aes(x = x[, 3])) +
-  geom_histogram(colour = "black", fill = "orchid") + xlab("Fu & Li's D^*") +
+  geom_histogram(colour = "black", fill = "orchid") + xlab("Fu & Li's D*") +
   ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
   theme(panel.grid.major = element_blank(),
