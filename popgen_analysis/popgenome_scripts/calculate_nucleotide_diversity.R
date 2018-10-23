@@ -349,7 +349,7 @@ file_hist <- paste("genome_", population_names[i], "_Pi_n_s_per_gene_all.pdf",
 sep = "")
 pi_plot <- ggplot(x, aes(x = x[, 3])) +
 geom_histogram(colour = "black", fill = "coral") +
-xlab(expression(paste("Average ", pi, "ns/", pi, "s", " per site"))) +
+xlab(expression(paste("Average ", pi["ns"], "/", pi["s"], " per site"))) +
 ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
 theme(panel.grid.major = element_blank(),
