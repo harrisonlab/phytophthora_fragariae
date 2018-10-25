@@ -604,7 +604,11 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_point(size=3) +
  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
- geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
+ geom_text_repel(aes(label=colnames(rld))) + coord_fixed() +
+ theme(panel.grid.major = element_blank(),
+ panel.grid.minor = element_blank(), panel.background = element_blank(),
+ panel.border = element_rect(colour = "black", fill = NA, size = 1),
+ axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 
 ggsave("alignment/star/P.fragariae/Bc16/DeSeq/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
@@ -1771,7 +1775,11 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_point(size=3) +
  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
- geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
+ geom_text_repel(aes(label=colnames(rld))) + coord_fixed() +
+ theme(panel.grid.major = element_blank(),
+ panel.grid.minor = element_blank(), panel.background = element_blank(),
+ panel.border = element_rect(colour = "black", fill = NA, size = 1),
+ axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 
 ggsave("analysis/DeSeq/Method_1/Bc16/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
@@ -2046,7 +2054,11 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_point(size=3) +
  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
- geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
+ geom_text_repel(aes(label=colnames(rld))) + coord_fixed() +
+ theme(panel.grid.major = element_blank(),
+ panel.grid.minor = element_blank(), panel.background = element_blank(),
+ panel.border = element_rect(colour = "black", fill = NA, size = 1),
+ axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 
 ggsave("analysis/DeSeq/Method_1/Bc1/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
@@ -2322,7 +2334,11 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_point(size=3) +
  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
- geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
+ geom_text_repel(aes(label=colnames(rld))) + coord_fixed() +
+ theme(panel.grid.major = element_blank(),
+ panel.grid.minor = element_blank(), panel.background = element_blank(),
+ panel.border = element_rect(colour = "black", fill = NA, size = 1),
+ axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 
 ggsave("analysis/DeSeq/Method_1/Nov9/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
@@ -2607,7 +2623,11 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_point(size=3) +
  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
- geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
+ geom_text_repel(aes(label=colnames(rld))) + coord_fixed() +
+ theme(panel.grid.major = element_blank(),
+ panel.grid.minor = element_blank(), panel.background = element_blank(),
+ panel.border = element_rect(colour = "black", fill = NA, size = 1),
+ axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 
 ggsave("analysis/DeSeq/Method_2/Bc16/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
@@ -2859,7 +2879,11 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_point(size=3) +
  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
- geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
+ geom_text_repel(aes(label=colnames(rld))) + coord_fixed() +
+ theme(panel.grid.major = element_blank(),
+ panel.grid.minor = element_blank(), panel.background = element_blank(),
+ panel.border = element_rect(colour = "black", fill = NA, size = 1),
+ axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 
 ggsave("analysis/DeSeq/Method_2/Bc1/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
@@ -3109,7 +3133,11 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_point(size=3) +
  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
- geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
+ geom_text_repel(aes(label=colnames(rld))) + coord_fixed() +
+ theme(panel.grid.major = element_blank(),
+ panel.grid.minor = element_blank(), panel.background = element_blank(),
+ panel.border = element_rect(colour = "black", fill = NA, size = 1),
+ axis.text = element_text(size = 14), axis.title = element_text(size = 18))
 
 ggsave("analysis/DeSeq/Method_2/Nov9/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
 
