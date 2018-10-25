@@ -2299,7 +2299,24 @@ dev.off()
 #Plot using rlog transformation, showing sample names:
 
 data <- plotPCA(rld, intgroup="Group", returnData=TRUE)
+rownames(data) <- c("TA-07", "TA-08", "TA-09", "TA-12", "TA-13", "TA-14",
+"TA-18", "TA-19", "TA-20", "TA_BC1_P1", "TA_BC1_P2", "TA_BC1_P3",
+"TA_NOV9_P1", "TA_NOV9_P2", "TA_NOV9_P3")
+data$group <- as.character(data$group)
+data$Group <- as.character(data$Group)
+data$name <- as.character(data$name)
+data[data=="Bc16_24hr"] <- "BC-16 24 hpi"
+data[data=="Bc16_48hr"] <- "BC-16 48 hpi"
+data[data=="Bc16_96hr"] <- "BC-16 96 hpi"
+data[data=="Bc1_48hr"] <- "BC-1 48 hpi"
+data[data=="Nov9_72hr"] <- "NOV-9 72 hpi"
+data$group <- as.factor(data$group)
+data$Group <- as.factor(data$Group)
+data$name <- as.factor(data$name)
 percentVar <- round(100 * attr(data, "percentVar"))
+colnames(rld) <- c("TA-07", "TA-08", "TA-09", "TA-12", "TA-13", "TA-14",
+"TA-18", "TA-19", "TA-20", "TA_BC1_P1", "TA_BC1_P2", "TA_BC1_P3",
+"TA_NOV9_P1", "TA_NOV9_P2", "TA_NOV9_P3")
 
 pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_point(size=3) +
@@ -2308,6 +2325,10 @@ pca_plot<- ggplot(data, aes(PC1, PC2, color=Group)) +
  geom_text_repel(aes(label=colnames(rld))) + coord_fixed()
 
 ggsave("analysis/DeSeq/Method_1/Nov9/PCA_sample_names.pdf", pca_plot, dpi=300, height=10, width=12)
+
+colnames(rld) <- c("TA-07", "TA-08", "TA-09", "TA-12", "TA-13", "TA-14",
+"TA-18", "TA-19", "TA-20", "TA_B_P1", "TA_B_P2", "TA_B_P3", "TA_NO_P1",
+"TA_NO_P2", "TA_NO_P3")
 
 # This throws an X11 error but still creates the plot
 
