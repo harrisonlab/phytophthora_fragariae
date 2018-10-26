@@ -4507,3 +4507,65 @@ do
     done
 done
 ```
+
+## Up Reg only
+
+### BC-16 data (3 timepoints)
+
+```bash
+for Isolate in Bc1 Bc16 Nov9
+do
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    inp1=analysis/DeSeq/Method_2/$Isolate/Bc16_24hr_vs_Bc16_mycelium_up.txt
+    inp2=analysis/DeSeq/Method_2/$Isolate/Bc16_48hr_vs_Bc16_mycelium_up.txt
+    inp3=analysis/DeSeq/Method_2/$Isolate/Bc16_96hr_vs_Bc16_mycelium_up.txt
+    OutDir=analysis/DeSeq/Method_2/$Isolate/Bc16_vs_Bc16_mycelium_up.tsv
+    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+done
+```
+
+### BC-1 and NOV-9 data (1 timepoint)
+
+```bash
+for Reference in Bc1 Bc16 Nov9
+do
+    for Isolate in Bc1 Nov9
+    do
+        ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+        inp1=$(ls analysis/DeSeq/Method_2/$Reference/"$Isolate"_*_vs_"$Isolate"_mycelium_up.txt)
+        OutDir=analysis/DeSeq/Method_2/$Reference/"$Isolate"_vs_"$Isolate"_mycelium_up.tsv
+        $ProgDir/parse_RNA-Seq_1_timepoint.py --input $inp1 --out_dir $OutDir
+    done
+done
+```
+
+## Doown Reg only
+
+### BC-16 data (3 timepoints)
+
+```bash
+for Isolate in Bc1 Bc16 Nov9
+do
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    inp1=analysis/DeSeq/Method_2/$Isolate/Bc16_24hr_vs_Bc16_mycelium_down.txt
+    inp2=analysis/DeSeq/Method_2/$Isolate/Bc16_48hr_vs_Bc16_mycelium_down.txt
+    inp3=analysis/DeSeq/Method_2/$Isolate/Bc16_96hr_vs_Bc16_mycelium_down.txt
+    OutDir=analysis/DeSeq/Method_2/$Isolate/Bc16_vs_Bc16_mycelium_down.tsv
+    $ProgDir/parse_RNA-Seq.py --input_1 $inp1 --input_2 $inp2 --input_3 $inp3 --out_dir $OutDir
+done
+```
+
+### BC-1 and NOV-9 data (1 timepoint)
+
+```bash
+for Reference in Bc1 Bc16 Nov9
+do
+    for Isolate in Bc1 Nov9
+    do
+        ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+        inp1=$(ls analysis/DeSeq/Method_2/$Reference/"$Isolate"_*_vs_"$Isolate"_mycelium_down.txt)
+        OutDir=analysis/DeSeq/Method_2/$Reference/"$Isolate"_vs_"$Isolate"_mycelium_down.tsv
+        $ProgDir/parse_RNA-Seq_1_timepoint.py --input $inp1 --out_dir $OutDir
+    done
+done
+```
