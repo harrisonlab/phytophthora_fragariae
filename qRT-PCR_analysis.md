@@ -80,7 +80,12 @@ library(ggplot2)
 plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
-        scale_color_brewer(palette = "Paired") + theme_minimal()
+        scale_color_brewer(palette = "Paired") +
+        theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), panel.background = element_blank(),
+        panel.border = element_rect(colour = "black", fill = NA, size = 1),
+        axis.text = element_text(size = 14),
+        axis.title = element_text(size = 18))
 ggsave("cAvr.pdf", plot = plot)
 ```
 
@@ -95,7 +100,12 @@ library(ggplot2)
 plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
-        scale_color_brewer(palette = "Paired") + theme_minimal()
+        scale_color_brewer(palette = "Paired") +
+        theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), panel.background = element_blank(),
+        panel.border = element_rect(colour = "black", fill = NA, size = 1),
+        axis.text = element_text(size = 14),
+        axis.title = element_text(size = 18))
 ggsave("Early_RxLR.pdf", plot = plot)
 ```
 
@@ -110,6 +120,11 @@ library(ggplot2)
 plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
-        scale_color_brewer(palette = "Paired") + theme_minimal()
+        scale_color_brewer(palette = "Paired") +
+        theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), panel.background = element_blank(),
+        panel.border = element_rect(colour = "black", fill = NA, size = 1),
+        axis.text = element_text(size = 14),
+        axis.title = element_text(size = 18))
 ggsave("Middle_RxLR.pdf", plot = plot)
 ```
