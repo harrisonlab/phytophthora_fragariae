@@ -592,8 +592,7 @@ done
 
 ## Analysis of diversifying selection
 
-Fst, Kst & Dxy measure the separation of the two populations, extract genes
-showing high separation and investigate their function
+Negative values of Fu & Li's tests
 
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
