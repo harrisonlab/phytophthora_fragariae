@@ -727,17 +727,14 @@ WARNING: if running in a screen session, rerun the following command after openi
 ```
 
 ```bash
-WorkDir=analysis/enrichment/P.fragariae/Bc16/
-for Set in High_Conf Low_Conf
+WorkDir=analysis/enrichment/P.fragariae/Bc16/selected
+for Table in $(ls $WorkDir/tables/*fishertable.txt)
 do
-    for Table in $(ls $WorkDir/$Set/tables/*fishertable.txt)
-    do
-        Out_Dir=$WorkDir/$Set/results
-        mkdir -p $Out_Dir
-        IPR_term=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f1 -d '_')
-        ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-        $ProgDir/fishertest_IPR_enrichment.R --Input_Table $Table --Output_Directory $Out_Dir --IPR_term $IPR_term
-    done
+    Out_Dir=$WorkDir/results
+    mkdir -p $Out_Dir
+    IPR_term=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f1 -d '_')
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    $ProgDir/fishertest_IPR_enrichment.R --Input_Table $Table --Output_Directory $Out_Dir --IPR_term $IPR_term
 done
 ```
 
