@@ -43,10 +43,10 @@ with open(Fu_Li_F_in) as f:
     lines = f.readlines()
     for line in lines:
         split_line = line.split()
-        ID_field = split_line[0]
+        ID_field = split_line[3]
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
-        F_Value = split_line[1]
+        F_Value = split_line[4]
         F_dict[Gene_ID] = F_Value
         Gene_List.append(Gene_ID)
 
