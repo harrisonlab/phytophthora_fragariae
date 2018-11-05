@@ -2,8 +2,8 @@
 
 '''
 This script takes table output from Pf_popgenome_analysis.md for calculating
-Fst, Kst and Dxy to determine population separation. Pull out high confidence
-and low confidence genes for further analysis.
+Fu and Li's F* and D* to determine population separation. Pull out high
+confidence and low confidence genes for further analysis.
 '''
 
 import argparse
