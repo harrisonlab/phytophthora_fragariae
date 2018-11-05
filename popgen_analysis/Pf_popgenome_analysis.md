@@ -589,3 +589,183 @@ do
     $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Threshold 0.05
 done
 ```
+
+## Analysis of population separation
+
+Fst, Kst & Dxy measure the separation of the two populations, extract genes
+showing high separation and investigate their function
+
+```bash
+cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
+Out_Dir=summary_stats/all_Pf
+Fst_File=$Out_Dir/genome_pairwise_FST_per_gene_pop1_vs_pop2.txt
+Kst_File=$Out_Dir/genome_Hudson_KST_per_gene_all.txt
+Dxy_File=$Out_Dir/genome_pop1_vs_pop2_dxy_per_gene.txt
+Fst_Threshold=0.5
+Kst_Threshold=0.5
+Dxy_Threshold=0.005
+Out_Prefix=Population_Separated_Genes
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+$ProgDir/ID_population_separated_genes.py --Fst_File $Fst_File --Kst_File $Kst_File --Dxy_File $Dxy_File --Fst_Threshold $Fst_Threshold --Kst_Threshold $Kst_Threshold --Dxy_Threshold $Dxy_Threshold --Out_Dir $Out_Dir --Out_Prefix $Out_Prefix
+```
+
+### Summarise these results
+
+```bash
+RxLRs=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
+CRNs=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
+ApoPs=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
+Secs=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted_Aug_ORF.txt
+WorkDir=summary_stats/all_Pf
+
+for file in $(ls $WorkDir/Population_Separated_Genes*)
+do
+    echo $file
+    echo "The number of population separated genes is:"
+    cat $file | wc -l
+    echo "The number of RxLRs showing population separation is:"
+    cat $RxLRs | grep -w -f $file | wc -l
+    echo "The number of CRNs showing population separation is:"
+    cat $CRNs | grep -w -f $file | wc -l
+    echo "The number of Apoplastic Effectors showing population separation is:"
+    cat $ApoPs | grep -w -f $file | wc -l
+    echo "The number of Secreted Proteins showing population separation is:"
+    cat $Secs | grep -w -f $file | wc -l
+done
+```
+
+```
+summary_stats/all_Pf/Population_Separated_Genes_High_Conf.txt
+The number of population separated genes is:
+49
+The number of RxLRs showing population separation is:
+1
+The number of CRNs showing population separation is:
+0
+The number of Apoplastic Effectors showing population separation is:
+11
+The number of Secreted Proteins showing population separation is:
+12
+summary_stats/all_Pf/Population_Separated_Genes_Low_Conf.txt
+The number of population separated genes is:
+4,554
+The number of RxLRs showing population separation is:
+80
+The number of CRNs showing population separation is:
+11
+The number of Apoplastic Effectors showing population separation is:
+575
+The number of Secreted Proteins showing population separation is:
+906
+```
+
+#### Conduct Fishers test
+
+Contingency tables were manually created due to being only a small number
+
+WARNING: if running in a screen session, rerun the following command after opening screen
+
+```bash
+. ~/.profile
+```
+
+```bash
+WorkDir=summary_stats/all_Pf
+mkdir -p $WorkDir/tables
+for Set in High_Conf Low_Conf
+do
+    for Table in $(ls $WorkDir/tables/"$Set"*.txt)
+    do
+        Out_Dir=$WorkDir/fisher_results/$Set
+        mkdir -p $Out_Dir
+        Effector_Type=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f3 -d '_' | cut -f1 -d '.')
+        ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+        $ProgDir/Effector_Fisher.R --Input_Table $Table --Output_Directory $Out_Dir --Effector_type $Effector_Type
+    done
+done
+```
+
+#### Parse results to single files and multi-test correct
+
+```bash
+for Set in High_Conf Low_Conf
+do
+    Files=$(ls summary_stats/all_Pf/fisher_results/$Set/enriched_*.txt)
+    Out_Dir=summary_stats/all_Pf/fisher_results/$Set/Parsed_Fisher_Results
+    mkdir -p $Out_Dir
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Threshold 0.05
+done
+```
+
+### Functional enrichment analysis - using interpro terms
+
+Create lists of gene IDs including all possible transcripts
+
+```bash
+WorkDir=summary_stats/all_Pf
+for Set in High_Conf Low_Conf
+do
+    AnnotTable=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
+    Target_Genes=$WorkDir/Population_Separated_Genes_"$Set".txt
+    All_Genes=$WorkDir/Bc16_all_genes.txt
+    cat $AnnotTable | tail -n+2 | cut -f1 > $All_Genes
+    Set1_Genes=$WorkDir/Bc16_Separated_"$Set".txt
+    Set2_Genes=$WorkDir/Bc16_not_Separated_"$Set".txt
+    cat $All_Genes | grep -w -f $Target_Genes > $Set1_Genes
+    cat $All_Genes | grep -w -v -f $Target_Genes > $Set2_Genes
+done
+```
+
+Create fisher tables
+
+```bash
+WorkDir=summary_stats/all_Pf
+Interpro=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
+for Set in High_Conf Low_Conf
+do
+    Out_Dir=analysis/enrichment/P.fragariae/Bc16/$Set
+    mkdir -p $Out_Dir/tables
+    Set1_Genes=$WorkDir/Bc16_Separated_"$Set".txt
+    Set2_Genes=$WorkDir/Bc16_not_Separated_"$Set".txt
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+    $ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir/tables
+done
+```
+
+Conduct fisher analysis
+
+WARNING: if running in a screen session, rerun the following command after opening screen
+
+```bash
+. ~/.profile
+```
+
+```bash
+WorkDir=analysis/enrichment/P.fragariae/Bc16/
+for Set in High_Conf Low_Conf
+do
+    for Table in $(ls $WorkDir/$Set/tables/*fishertable.txt)
+    do
+        Out_Dir=$WorkDir/$Set/results
+        mkdir -p $Out_Dir
+        IPR_term=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f1 -d '_')
+        ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+        $ProgDir/fishertest_IPR_enrichment.R --Input_Table $Table --Output_Directory $Out_Dir --IPR_term $IPR_term
+    done
+done
+```
+
+Parse Fisher results
+
+```bash
+WorkDir=analysis/enrichment/P.fragariae/Bc16
+for Set in High_Conf Low_Conf
+do
+    Files=$(ls $WorkDir/$Set/results/enriched_*.txt)
+    Out_Dir=analysis/enrichment/P.fragariae/Bc16/$Set/results/Parsed_Fisher_Results
+    mkdir -p $Out_Dir
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Threshold 0.05
+done
+```
