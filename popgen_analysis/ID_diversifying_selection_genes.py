@@ -47,7 +47,7 @@ with open(Fu_Li_F_in) as f:
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
         F_Value = split_line[2]
-        if F_Value != "NA":
+        if F_Value != "NA" or F_Value != "NaN":
             F_dict[Gene_ID] = F_Value
         Gene_List.append(Gene_ID)
 
@@ -59,7 +59,7 @@ with open(Fu_Li_D_in) as f:
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
         D_Value = split_line[2]
-        if D_Value != "NA":
+        if D_Value != "NA" or D_Value != "NaN":
             D_dict[Gene_ID] = D_Value
         Gene_List.append(Gene_ID)
 
