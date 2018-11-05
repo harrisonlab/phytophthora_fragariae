@@ -741,13 +741,10 @@ done
 Parse Fisher results
 
 ```bash
-WorkDir=analysis/enrichment/P.fragariae/Bc16
-for Set in High_Conf Low_Conf
-do
-    Files=$(ls $WorkDir/$Set/results/enriched_*.txt)
-    Out_Dir=analysis/enrichment/P.fragariae/Bc16/$Set/results/Parsed_Fisher_Results
-    mkdir -p $Out_Dir
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
-    $ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Threshold 0.05
-done
+WorkDir=analysis/enrichment/P.fragariae/Bc16/selected
+Files=$(ls $WorkDir/results/enriched_*.txt)
+Out_Dir=analysis/enrichment/P.fragariae/Bc16/selected/results/Parsed_Fisher_Results
+mkdir -p $Out_Dir
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+$ProgDir/parse_fisher_results_simplified.py --inputs $Files --outdir $Out_Dir --FDR 0.05 --Threshold 0.05
 ```
