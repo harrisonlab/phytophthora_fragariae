@@ -73,14 +73,11 @@ Low_Confidence = []
 High_Confidence = []
 
 for Gene in Gene_Set:
-    Fst_Value = Fst_dict[Gene]
-    Kst_Value = Kst_dict[Gene]
-    Dxy_Value = Dxy_dict[Gene]
-    if float(Fst_Value) >= float(Fst_threshold) and float(Kst_Value) >= \
-       float(Kst_threshold) and float(Dxy_Value) >= float(Dxy_threshold):
+    F_Value = F_dict[Gene]
+    D_Value = D_dict[Gene]
+    if float(F_Value) < 0 and float(D_Value) < 0:
         High_Confidence.append(Gene)
-    if float(Fst_Value) >= float(Fst_threshold) or float(Fst_Value) >= \
-       float(Fst_threshold) or float(Dxy_Value) >= float(Dxy_threshold):
+    if float(F_Value) < 0 or float(D_Value) < 0:
         Low_Confidence.append(Gene)
 
 print("List of genes exceeding thresholds produced")
