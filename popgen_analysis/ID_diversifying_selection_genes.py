@@ -25,12 +25,8 @@ conf = ap.parse_args()
 # Load input files and build data structures
 # -----------------------------------------------------
 
-Fst_in = conf.Fst_File
-Fst_threshold = conf.Fst_Threshold
-Kst_in = conf.Kst_File
-Kst_threshold = conf.Kst_Threshold
-Dxy_in = conf.Dxy_File
-Dxy_threshold = conf.Dxy_Threshold
+Fu_Li_F_in = conf.Fu_Li_F_File
+Fu_Li_D_in = conf.Fu_Li_D_File
 OutDir = conf.Out_Dir
 OutPre = conf.Out_Prefix
 cwd = os.getcwd()
@@ -39,41 +35,30 @@ print("Arguments parsed")
 
 # Create data structures
 
-Fst_dict = defaultdict(float)
-Kst_dict = defaultdict(float)
-Dxy_dict = defaultdict(float)
+F_dict = defaultdict(float)
+D_dict = defaultdict(float)
 Gene_List = []
 
-with open(Fst_in) as f:
+with open(Fu_Li_F_in) as f:
     lines = f.readlines()
     for line in lines:
         split_line = line.split()
         ID_field = split_line[0]
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
-        Fst_Value = split_line[1]
-        Fst_dict[Gene_ID] = Fst_Value
+        F_Value = split_line[1]
+        F_dict[Gene_ID] = F_Value
         Gene_List.append(Gene_ID)
 
-with open(Kst_in) as f:
-    lines = f.readlines()
-    for line in lines:
-        split_line = line.split()
-        ID_field = split_line[0]
-        ID_split = ID_field.split('=')
-        Gene_ID = ID_split[1]
-        Kst_Value = split_line[1]
-        Kst_dict[Gene_ID] = Kst_Value
-
-with open(Dxy_in) as f:
+with open(Fu_Li_D_in) as f:
     lines = f.readlines()
     for line in lines:
         split_line = line.split()
         ID_field = split_line[3]
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
-        Dxy_Value = split_line[4]
-        Dxy_dict[Gene_ID] = Dxy_Value
+        D_Value = split_line[4]
+        D_dict[Gene_ID] = D_Value
 
 Gene_Set = set(Gene_List)
 
