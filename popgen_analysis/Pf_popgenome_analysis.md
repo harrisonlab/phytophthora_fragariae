@@ -613,7 +613,7 @@ ApoPs=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
 Secs=gene_pred/combined_sigP_CQ/P.fragariae/Bc16/Bc16_all_secreted_Aug_ORF.txt
 WorkDir=summary_stats/all_Pf
 
-for file in $(ls $WorkDir/Population_Separated_Genes*)
+for file in $(ls $WorkDir/Diversifying_Selection_Genes*)
 do
     echo $file
     echo "The number of population separated genes is:"
