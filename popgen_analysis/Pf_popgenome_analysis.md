@@ -590,7 +590,7 @@ do
 done
 ```
 
-## Analysis of population separation
+## Analysis of diversifying selection
 
 Fst, Kst & Dxy measure the separation of the two populations, extract genes
 showing high separation and investigate their function
