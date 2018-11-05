@@ -654,6 +654,8 @@ The number of Secreted Proteins showing population separation is:
 35
 ```
 
+Grepping showed these sets are identical. Only carry forward High conf file
+
 #### Conduct Fishers test
 
 Contingency tables were manually created due to being only a small number
