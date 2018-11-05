@@ -710,15 +710,12 @@ Create fisher tables
 ```bash
 WorkDir=summary_stats/all_Pf
 Interpro=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
-for Set in High_Conf Low_Conf
-do
-    Out_Dir=analysis/enrichment/P.fragariae/Bc16/$Set
-    mkdir -p $Out_Dir/tables
-    Set1_Genes=$WorkDir/Bc16_Separated_"$Set".txt
-    Set2_Genes=$WorkDir/Bc16_not_Separated_"$Set".txt
-    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
-    $ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir/tables
-done
+Out_Dir=analysis/enrichment/P.fragariae/Bc16/selected
+mkdir -p $Out_Dir/tables
+Set1_Genes=$WorkDir/Bc16_Selected.txt
+Set2_Genes=$WorkDir/Bc16_not_Selected.txt
+ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae
+$ProgDir/IPR_prep_tables.py --Interpro $Interpro --Set1_Genes $Set1_Genes --Set2_Genes $Set2_Genes --Out_Dir $Out_Dir/tables
 ```
 
 Conduct fisher analysis
