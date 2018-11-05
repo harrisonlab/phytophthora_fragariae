@@ -597,15 +597,11 @@ Negative values of Fu & Li's tests
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 Out_Dir=summary_stats/all_Pf
-Fst_File=$Out_Dir/genome_pairwise_FST_per_gene_pop1_vs_pop2.txt
-Kst_File=$Out_Dir/genome_Hudson_KST_per_gene_all.txt
-Dxy_File=$Out_Dir/genome_pop1_vs_pop2_dxy_per_gene.txt
-Fst_Threshold=0.5
-Kst_Threshold=0.5
-Dxy_Threshold=0.005
-Out_Prefix=Population_Separated_Genes
+Fu_Li_D_File=$Out_Dir/genome_UK123_FuLiD_per_gene_all.pdf
+Fu_Li_F_File=$Out_Dir/genome_UK123_FuLiF_per_gene_all.pdf
+Out_Prefix=Diversifying_Selection_Genes
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
-$ProgDir/ID_population_separated_genes.py --Fst_File $Fst_File --Kst_File $Kst_File --Dxy_File $Dxy_File --Fst_Threshold $Fst_Threshold --Kst_Threshold $Kst_Threshold --Dxy_Threshold $Dxy_Threshold --Out_Dir $Out_Dir --Out_Prefix $Out_Prefix
+$ProgDir/ID_diversifying_selection_genes.py --Fu_Li_D_File $Fu_Li_D_File --Fu_Li_F_File $Fu_Li_F_File --Out_Dir $Out_Dir --Out_Prefix $Out_Prefix
 ```
 
 ### Summarise these results
