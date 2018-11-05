@@ -630,28 +630,28 @@ done
 ```
 
 ```
-summary_stats/all_Pf/Population_Separated_Genes_High_Conf.txt
+summary_stats/all_Pf/Diversifying_Selection_Genes_High_Conf.txt
 The number of population separated genes is:
-49
+192
 The number of RxLRs showing population separation is:
+3
+The number of CRNs showing population separation is:
 1
-The number of CRNs showing population separation is:
-0
 The number of Apoplastic Effectors showing population separation is:
-11
+24
 The number of Secreted Proteins showing population separation is:
-12
-summary_stats/all_Pf/Population_Separated_Genes_Low_Conf.txt
+35
+summary_stats/all_Pf/Diversifying_Selection_Genes_Low_Conf.txt
 The number of population separated genes is:
-4,554
+192
 The number of RxLRs showing population separation is:
-80
+3
 The number of CRNs showing population separation is:
-11
+1
 The number of Apoplastic Effectors showing population separation is:
-575
+24
 The number of Secreted Proteins showing population separation is:
-906
+35
 ```
 
 #### Conduct Fishers test
