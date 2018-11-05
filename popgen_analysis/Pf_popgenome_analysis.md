@@ -597,8 +597,8 @@ Negative values of Fu & Li's tests
 ```bash
 cd /home/groups/harrisonlab/project_files/phytophthora_fragariae
 Out_Dir=summary_stats/all_Pf
-Fu_Li_D_File=$Out_Dir/genome_UK123_FuLiD_per_gene_all.pdf
-Fu_Li_F_File=$Out_Dir/genome_UK123_FuLiF_per_gene_all.pdf
+Fu_Li_D_File=$Out_Dir/genome_UK123_FuLiD_per_gene_all.txt
+Fu_Li_F_File=$Out_Dir/genome_UK123_FuLiF_per_gene_all.txt
 Out_Prefix=Diversifying_Selection_Genes
 ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
 $ProgDir/ID_diversifying_selection_genes.py --Fu_Li_D_File $Fu_Li_D_File --Fu_Li_F_File $Fu_Li_F_File --Out_Dir $Out_Dir --Out_Prefix $Out_Prefix
