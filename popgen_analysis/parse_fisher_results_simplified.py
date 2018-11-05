@@ -56,11 +56,10 @@ for File in Files:
 
 FDR = conf.FDR
 Benjamini_Pval_array = stats.multipletests(P_vals, alpha=FDR, method='fdr_bh',
-                                           is_sorted=False, returnsorted=False)
+                                           returnsorted=False)
 
 Bonferroni_Pval_array = stats.multipletests(P_vals, alpha=FDR,
                                             method='bonferroni',
-                                            is_sorted=False,
                                             returnsorted=False)
 
 i = 0
