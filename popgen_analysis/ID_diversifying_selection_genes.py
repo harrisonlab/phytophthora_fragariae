@@ -42,24 +42,26 @@ Gene_List = []
 with open(Fu_Li_F_in) as f:
     lines = f.readlines()
     for line in lines:
-        split_line = line.split("\t")
+        stripped_line = line.rstrip()
+        split_line = stripped_line.split("\t")
         ID_field = split_line[1]
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
         F_Value = split_line[2]
-        if F_Value != "NA" or F_Value != "NaN":
+        if F_Value != "NA" and F_Value != "NaN":
             F_dict[Gene_ID] = F_Value
         Gene_List.append(Gene_ID)
 
 with open(Fu_Li_D_in) as f:
     lines = f.readlines()
     for line in lines:
-        split_line = line.split("\t")
+        stripped_line = line.rstrip()
+        split_line = stripped_line.split("\t")
         ID_field = split_line[1]
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
         D_Value = split_line[2]
-        if D_Value != "NA" or D_Value != "NaN":
+        if D_Value != "NA" and D_Value != "NaN":
             D_dict[Gene_ID] = D_Value
         Gene_List.append(Gene_ID)
 
