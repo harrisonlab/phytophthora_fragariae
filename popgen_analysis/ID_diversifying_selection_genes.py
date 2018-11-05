@@ -42,7 +42,7 @@ Gene_List = []
 with open(Fu_Li_F_in) as f:
     lines = f.readlines()
     for line in lines:
-        split_line = line.split()
+        split_line = line.split("\t")
         ID_field = split_line[3]
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
@@ -53,7 +53,7 @@ with open(Fu_Li_F_in) as f:
 with open(Fu_Li_D_in) as f:
     lines = f.readlines()
     for line in lines:
-        split_line = line.split()
+        split_line = line.split("\t")
         ID_field = split_line[3]
         ID_split = ID_field.split('=')
         Gene_ID = ID_split[1]
