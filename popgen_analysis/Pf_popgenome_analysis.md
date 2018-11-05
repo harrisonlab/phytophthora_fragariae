@@ -668,17 +668,14 @@ WARNING: if running in a screen session, rerun the following command after openi
 
 ```bash
 WorkDir=summary_stats/all_Pf
-mkdir -p $WorkDir/tables
-for Set in High_Conf Low_Conf
+mkdir -p $WorkDir/tables_selection
+for Table in $(ls $WorkDir/tables_selection/*.txt)
 do
-    for Table in $(ls $WorkDir/tables/"$Set"*.txt)
-    do
-        Out_Dir=$WorkDir/fisher_results/$Set
-        mkdir -p $Out_Dir
-        Effector_Type=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f3 -d '_' | cut -f1 -d '.')
-        ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
-        $ProgDir/Effector_Fisher.R --Input_Table $Table --Output_Directory $Out_Dir --Effector_type $Effector_Type
-    done
+    Out_Dir=$WorkDir/fisher_results_selection/
+    mkdir -p $Out_Dir
+    Effector_Type=$(echo $Table | rev | cut -f1 -d '/' | rev | cut -f3 -d '_' | cut -f1 -d '.')
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/popgen_analysis
+    $ProgDir/Effector_Fisher.R --Input_Table $Table --Output_Directory $Out_Dir --Effector_type $Effector_Type
 done
 ```
 
