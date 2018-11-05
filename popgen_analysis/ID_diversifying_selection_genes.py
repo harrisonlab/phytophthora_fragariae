@@ -11,18 +11,10 @@ from collections import defaultdict
 import os
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--Fst_File', required=True, type=str, help='Tab separated text \
-file of Fst values per gene')
-ap.add_argument('--Fst_Threshold', required=True, type=float, help='Threshold \
-value of Fst for carrying a gene forward')
-ap.add_argument('--Kst_File', required=True, type=str, help='Tab separated text \
-file of Kst values per gene')
-ap.add_argument('--Kst_Threshold', required=True, type=float, help='Threshold \
-value of Kst for carrying a gene forward')
-ap.add_argument('--Dxy_File', required=True, type=str, help='Tab separated text \
-file of Dxy values per gene')
-ap.add_argument('--Dxy_Threshold', required=True, type=float, help='Threshold \
-value of Dxy for carrying a gene forward')
+ap.add_argument('--Fu_Li_D_File', required=True, type=str, help='Tab separated text \
+file of Fu and Li D* values per gene')
+ap.add_argument('--Fu_Li_F_File', required=True, type=str, help='Tab separated text \
+file of Fu and Li F* values per gene')
 ap.add_argument('--Out_Dir', required=True, type=str, help='Output directory')
 ap.add_argument('--Out_Prefix', required=True, type=str, help='Prefix for output \
 file')
