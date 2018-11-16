@@ -153,7 +153,7 @@ labelling <- gsub("/", "_vs_", row.names(dxy)[i])
 file_hist <- paste(dir, "_", labelling, "_dxy_per_gene.pdf", sep = "")
 dxy_plot <- ggplot(dxy_d, aes(x = dxy_d[, 1])) +
 geom_histogram(colour = "black", fill = "green") +
-xlab("Average Dxy per gene") + ylab("Number of genes") +
+xlab("Average D"[xy], " per gene") + ylab("Number of genes") +
 scale_x_continuous(breaks = pretty(dxy_d[, 1], n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
@@ -186,7 +186,7 @@ sep = "")
 dxy_plot <- slide_plot <- ggplot(dxy_d, aes(x = xaxis, y = dxy_d[, 1])) +
 geom_smooth(colour = "black", fill = "green") +
 xlab("Contig coordinate (kbp)") +
-ylab(paste("Average Dxy per ", interval, " bp")) +
+ylab(expression(paste("Average D"[xy], " per interval bp"))) +
 scale_x_continuous(breaks = pretty(xaxis, n = 10)) +
 theme(panel.grid.major = element_blank(),
 panel.grid.minor = element_blank(), panel.background = element_blank(),
@@ -368,7 +368,8 @@ for (i in seq(pairs)){
   file_hist <- paste("genome_", labelling, "_dxy_per_gene.pdf", sep = "")
   dxy_plot <- ggplot(x, aes(x = x[, 3])) +
   geom_histogram(colour = "black", fill = "green") +
-  xlab("Average Dxy per gene") + ylab("Number of genes") +
+  xlab(expression(paste("Average D"[xy], " per gene"))) +
+  ylab("Number of genes") +
   scale_x_continuous(breaks = pretty(x[, 3], n = 10)) +
   theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank(), panel.background = element_blank(),
