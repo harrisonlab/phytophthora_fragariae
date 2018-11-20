@@ -77,10 +77,12 @@ input <- read.csv("cAvr_plus_SEM.csv")
 
 # Draw graph
 library(ggplot2)
-plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
+input$Timepoint2 <- factor(input$Timepoint, levels = c("Mycelium", "24hpi",
+"48hpi", "72hpi", "96hpi"))
+plot <- ggplot(input, aes(x = Timepoint2, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
-        scale_color_brewer(palette = "Paired") +
+        scale_color_brewer(palette = "Paired") + xlab("Timepoint") +
         theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), panel.background = element_blank(),
         panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -97,10 +99,12 @@ input <- read.csv("Early_RxLR_plus_SEM.csv")
 
 # Draw graph
 library(ggplot2)
-plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
+input$Timepoint2 <- factor(input$Timepoint, levels = c("Mycelium", "24hpi",
+"48hpi", "72hpi", "96hpi"))
+plot <- ggplot(input, aes(x = Timepoint2, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
-        scale_color_brewer(palette = "Paired") +
+        scale_color_brewer(palette = "Paired") + xlab("Timepoint") +
         theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), panel.background = element_blank(),
         panel.border = element_rect(colour = "black", fill = NA, size = 1),
@@ -117,10 +121,12 @@ input <- read.csv("Middle_RxLR_plus_SEM.csv")
 
 # Draw graph
 library(ggplot2)
-plot <- ggplot(input, aes(x = Timepoint, y = Expression, group = Isolate,
+input$Timepoint2 <- factor(input$Timepoint, levels = c("Mycelium", "24hpi",
+"48hpi", "72hpi", "96hpi"))
+plot <- ggplot(input, aes(x = Timepoint2, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
-        scale_color_brewer(palette = "Paired") +
+        scale_color_brewer(palette = "Paired") + xlab("Timepoint") +
         theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), panel.background = element_blank(),
         panel.border = element_rect(colour = "black", fill = NA, size = 1),
