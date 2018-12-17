@@ -4600,3 +4600,14 @@ cat $Exp_File | grep -w -f $ApoP_Headers >> $ApoP_Exp
 ```
 
 ### Produce a sum of squared error (SSE) scree plot
+
+```bash
+for Effector in RxLRs CRN ApoP
+do
+    WorkDir=analysis/DeSeq/clustering
+    in_file=$WorkDir/"$Effector"_fpkm.txt
+    out_file=$WorkDir/"$Effector"_SSE_scree.pdf
+    ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
+    $ProgDir/Plot_SSE_scree.R --in_file $in_file --out_file $out_file
+done
+```
