@@ -13,7 +13,7 @@ opt_list <- list(
     make_option("--in_file", type = "character",
     help = "input file of FPKM values"),
     make_option("--out_file_SSE", type = "character",
-    help = "output file of SSE scree plot"),
+    help = "output file of SSE scree plot")
 )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
