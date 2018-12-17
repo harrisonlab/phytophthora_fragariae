@@ -4587,15 +4587,18 @@ ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.tx
 RxLR_Exp=analysis/DeSeq/clustering/RxLRs_fpkm.txt
 CRN_Exp=analysis/DeSeq/clustering/CRN_fpkm.txt
 ApoP_Exp=analysis/DeSeq/clustering/ApoP_fpkm.txt
+tmp_tbl=tmp_tbl.tsv
 
-cat $Annot_Table | head -n1 | cut -f1,27,28,29,30,31,32,33,34 > $RxLR_Exp
-cat $Annot_Table | grep -w -f $RxLR_Headers | cut -f1,27,28,29,30,31,32,33,34 >> $RxLR_Exp
+cat $Annot_Table | cut -f1,27,28,29,30,31,32,33,34 > $tmp_tbl
 
-cat $Annot_Table | head -n1 | cut -f1,27,28,29,30,31,32,33,34 > $CRN_Exp
-cat $Annot_Table | grep -w -f $CRN_Headers | cut -f1,27,28,29,30,31,32,33,34 >> $CRN_Exp
+cat $tmp_tbl | head -n1 > $RxLR_Exp
+cat $tmp_tbl | grep -w -f $RxLR_Headers >> $RxLR_Exp
 
-cat $Annot_Table | head -n1 | cut -f1,27,28,29,30,31,32,33,34 > $ApoP_Exp
-cat $Annot_Table | grep -w -f $ApoP_Headers | cut -f1,27,28,29,30,31,32,33,34 >> $ApoP_Exp
+cat $tmp_tbl | head -n1 > $CRN_Exp
+cat $tmp_tbl | grep -w -f $CRN_Headers >> $CRN_Exp
+
+cat $tmp_tbl | head -n1 > $ApoP_Exp
+cat $tmp_tbl | grep -w -f $ApoP_Headers >> $ApoP_Exp
 ```
 
 ### Produce a sum of squared error (SSE) scree plot
