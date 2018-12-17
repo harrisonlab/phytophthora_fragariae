@@ -4580,7 +4580,7 @@ https://stackoverflow.com/questions/15376075/cluster-analysis-in-r-determine-the
 
 ```bash
 mkdir -p analysis/DeSeq/clustering
-Annot_Table=analysis/DeSeq/clustering/fpkm_counts.txt
+Annot_Table=gene_pred/annotation/P.fragariae/Bc16/Bc16_gene_table_incl_exp.tsv
 RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
 CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
 ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
