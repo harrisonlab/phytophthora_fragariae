@@ -4611,8 +4611,7 @@ do
     WorkDir=analysis/DeSeq/clustering
     in_file=$WorkDir/"$Effector"_fpkm.txt
     out_file_SSE=$WorkDir/"$Effector"_SSE_scree.pdf
-    out_file_pamk=$WorkDir/"$Effector"_pamk.pdf
     ProgDir=/home/adamst/git_repos/scripts/phytophthora_fragariae/RNA_Seq_scripts
-    $ProgDir/Determine_K.R --in_file $in_file --out_file_SSE $out_file_SSE --out_file_pamk $out_file_pamk
+    $ProgDir/Determine_K.R --in_file $in_file --out_file_SSE $out_file_SSE
 done
 ```
