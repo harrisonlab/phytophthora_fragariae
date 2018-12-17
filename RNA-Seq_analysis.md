@@ -4589,7 +4589,7 @@ CRN_Exp=analysis/DeSeq/clustering/CRN_fpkm.txt
 ApoP_Exp=analysis/DeSeq/clustering/ApoP_fpkm.txt
 tmp_tbl=tmp_tbl.tsv
 
-cat $Annot_Table | cut -f1,27,28,29,30,31,32,33,34 > $tmp_tbl
+cat $Annot_Table | cut -f1,27,28,29,30 > $tmp_tbl
 
 cat $tmp_tbl | head -n1 > $RxLR_Exp
 cat $tmp_tbl | grep -w -f $RxLR_Headers >> $RxLR_Exp
