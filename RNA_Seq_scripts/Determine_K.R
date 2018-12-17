@@ -28,5 +28,3 @@ for (i in 2:15) wss [i] <- sum(kmeans(exp_data, centers = 1)$withinss)
 pdf(out_SSE)
 plot(1:15, wss, type = "b", xlab = "Number of Clusters",
 ylab = "Within groups sum of squares")
-
-# Estimate clusters using partioning around medoids
