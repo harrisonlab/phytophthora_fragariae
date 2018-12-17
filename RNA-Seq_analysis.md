@@ -4575,3 +4575,24 @@ done
 Following method of Jupe _et al_., 2013 & Stam _et al_., 2013 - k-means
 
 ### First, create cut down input files for RxLRs, CRNs & Apoplastic Effectors
+
+```bash
+mkdir -p analysis/DeSeq/clustering
+cp analysis/DeSeq/Method_1/Bc16/fpkm_norm_counts.txt analysis/DeSeq/clustering/.
+Exp_File=analysis/DeSeq/clustering/fpkm_norm_counts.txt
+RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
+CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
+ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
+RxLR_Exp=analysis/DeSeq/clustering/RxLRs_fpkm_norm.txt
+CRN_Exp=analysis/DeSeq/clustering/CRN_fpkm_norm.txt
+ApoP_Exp=analysis/DeSeq/clustering/ApoP_fpkm_norm.txt
+
+cat $Exp_File | head -n1 > $RxLR_Exp
+cat $Exp_File | grep -o -w -f $RxLR_Headers >> $RxLR_Exp
+
+cat $Exp_File | head -n1 > $CRN_Exp
+cat $Exp_File | grep -o -w -f $CRN_Headers >> $CRN_Exp
+
+cat $Exp_File | head -n1 > $ApoP_Exp
+cat $Exp_File | grep -o -w -f $ApoP_Headers >> $ApoP_Exp
+```
