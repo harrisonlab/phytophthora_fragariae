@@ -4603,7 +4603,7 @@ cat $tmp_tbl | grep -w -f $ApoP_Headers >> $ApoP_Exp
 rm $tmp_tbl
 ```
 
-### Produce a sum of squared error (SSE) scree plot
+### Produce a sum of squared error (SSE) scree plot and pamk plot
 
 ```bash
 for Effector in RxLRs CRN ApoP
