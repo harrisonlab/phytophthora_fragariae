@@ -4588,11 +4588,11 @@ CRN_Exp=analysis/DeSeq/clustering/CRN_fpkm_norm.txt
 ApoP_Exp=analysis/DeSeq/clustering/ApoP_fpkm_norm.txt
 
 cat $Exp_File | head -n1 > $RxLR_Exp
-cat $Exp_File | grep -o -w -f $RxLR_Headers >> $RxLR_Exp
+cat $Exp_File | grep -w -f $RxLR_Headers >> $RxLR_Exp
 
 cat $Exp_File | head -n1 > $CRN_Exp
-cat $Exp_File | grep -o -w -f $CRN_Headers >> $CRN_Exp
+cat $Exp_File | grep -w -f $CRN_Headers >> $CRN_Exp
 
 cat $Exp_File | head -n1 > $ApoP_Exp
-cat $Exp_File | grep -o -w -f $ApoP_Headers >> $ApoP_Exp
+cat $Exp_File | grep -w -f $ApoP_Headers >> $ApoP_Exp
 ```
