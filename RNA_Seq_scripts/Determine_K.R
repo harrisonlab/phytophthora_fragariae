@@ -22,7 +22,7 @@ out_SSE <- opt$out_file_SSE
 
 # Load in file and draw SSE plot
 
-exp_data <- read.csv(inp, header = TRUE, sep = "\t")
+exp_data <- read.csv(inp, header = TRUE, row.names = 1, sep = "\t")
 wss <- (nrow(exp_data) - 1) * sum(apply(exp_data, 2, var))
 for (i in 2:15) wss [i] <- sum(kmeans(exp_data, centers = 1)$withinss)
 pdf(out_SSE)
