@@ -4573,6 +4573,8 @@ done
 ## Attempt clustering
 
 Following method of Jupe _et al_., 2013 & Stam _et al_., 2013 - k-means
+Method of performing clustering based on this stack overflow answer:
+https://stackoverflow.com/questions/15376075/cluster-analysis-in-r-determine-the-optimal-number-of-clusters/15376462#15376462
 
 ### First, create cut down input files for RxLRs, CRNs & Apoplastic Effectors
 
@@ -4596,3 +4598,5 @@ cat $Exp_File | grep -w -f $CRN_Headers >> $CRN_Exp
 cat $Exp_File | head -n1 > $ApoP_Exp
 cat $Exp_File | grep -w -f $ApoP_Headers >> $ApoP_Exp
 ```
+
+### Produce a sum of squared error (SSE) scree plot
