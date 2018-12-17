@@ -24,7 +24,7 @@ out <- opt$out_file
 
 exp_data <- read.csv(inp, header = TRUE, sep = "\t")
 wss <- (nrow(exp_data) - 1) * sum(apply(exp_data, 2, var))
-for (i in 2:15) wss [i] <- sum(kmeans(exp_data, centres = 1)$withinss)
+for (i in 2:15) wss [i] <- sum(kmeans(exp_data)$withinss)
 pdf(out)
 plot(1:15, wss, type = "b", xlab = "Number of Clusters",
 ylab = "Within groups sum of squares")
