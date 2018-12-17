@@ -6,7 +6,6 @@
 # Load packages
 
 library("optparse")
-# library("fpc")
 
 # Parse arguments
 
@@ -15,14 +14,11 @@ opt_list <- list(
     help = "input file of FPKM values"),
     make_option("--out_file_SSE", type = "character",
     help = "output file of SSE scree plot"),
-    make_option("--out_file_pamk", type = "character"),
-    help = "output file of pam plot"
 )
 
 opt <- parse_args(OptionParser(option_list = opt_list))
 inp <- opt$in_file
 out_SSE <- opt$out_file_SSE
-out_pamk <- opt$out_file_pamk
 
 # Load in file and draw SSE plot
 
@@ -33,12 +29,3 @@ pdf(out_SSE)
 plot(1:15, wss, type = "b", xlab = "Number of Clusters",
 ylab = "Within groups sum of squares")
 dev.off()
-
-# Estimate K by partitioning around medoids
-
-# pamk.best <- pamk(exp_data)
-# cat("number of clusters estimated by optimum average silhouette width:",
-# pamk.best$nc, "\n")
-# pdf(out_pamk)
-# plot(pam(exp_data, pamk.best$nc))
-# dev.off()
