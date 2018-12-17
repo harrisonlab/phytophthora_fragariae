@@ -4580,8 +4580,7 @@ https://stackoverflow.com/questions/15376075/cluster-analysis-in-r-determine-the
 
 ```bash
 mkdir -p analysis/DeSeq/clustering
-cp analysis/DeSeq/Method_1/Bc16/fpkm_counts.txt analysis/DeSeq/clustering/.
-Exp_File=analysis/DeSeq/clustering/fpkm_counts.txt
+Annot_Table=analysis/DeSeq/clustering/fpkm_counts.txt
 RxLR_Headers=analysis/RxLR_effectors/combined_evidence/P.fragariae/Bc16/Bc16_Total_RxLR_motif_hmm_renamed.txt
 CRN_Headers=analysis/CRN_effectors/hmmer_CRN/P.fragariae/Bc16/Bc16_final_CRN_renamed.txt
 ApoP_Headers=analysis/ApoplastP/P.fragariae/Bc16/Bc16_Total_ApoplastP_renamed.txt
@@ -4589,14 +4588,14 @@ RxLR_Exp=analysis/DeSeq/clustering/RxLRs_fpkm.txt
 CRN_Exp=analysis/DeSeq/clustering/CRN_fpkm.txt
 ApoP_Exp=analysis/DeSeq/clustering/ApoP_fpkm.txt
 
-cat $Exp_File | head -n1 > $RxLR_Exp
-cat $Exp_File | grep -w -f $RxLR_Headers >> $RxLR_Exp
+cat $Annot_Table | head -n1 | cut -f1,27,28,29,30,31,32,33,34 > $RxLR_Exp
+cat $Annot_Table | grep -w -f $RxLR_Headers | cut -f1,27,28,29,30,31,32,33,34 >> $RxLR_Exp
 
-cat $Exp_File | head -n1 > $CRN_Exp
-cat $Exp_File | grep -w -f $CRN_Headers >> $CRN_Exp
+cat $Annot_Table | head -n1 | cut -f1,27,28,29,30,31,32,33,34 > $CRN_Exp
+cat $Annot_Table | grep -w -f $CRN_Headers | cut -f1,27,28,29,30,31,32,33,34 >> $CRN_Exp
 
-cat $Exp_File | head -n1 > $ApoP_Exp
-cat $Exp_File | grep -w -f $ApoP_Headers >> $ApoP_Exp
+cat $Annot_Table | head -n1 | cut -f1,27,28,29,30,31,32,33,34 > $ApoP_Exp
+cat $Annot_Table | grep -w -f $ApoP_Headers | cut -f1,27,28,29,30,31,32,33,34 >> $ApoP_Exp
 ```
 
 ### Produce a sum of squared error (SSE) scree plot
