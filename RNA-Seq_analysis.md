@@ -4569,3 +4569,9 @@ do
     done
 done
 ```
+
+## Attempt clustering
+
+Following method of Jupe _et al_., 2013 & Stam _et al_., 2013 - k-means
+
+### First, create cut down input files for RxLRs, CRNs & Apoplastic Effectors
