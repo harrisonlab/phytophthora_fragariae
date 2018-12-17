@@ -6,7 +6,7 @@
 # Load packages
 
 library("optparse")
-library("fpc")
+# library("fpc")
 
 # Parse arguments
 
@@ -36,9 +36,9 @@ dev.off()
 
 # Estimate K by partitioning around medoids
 
-pamk.best <- pamk(exp_data)
-cat("number of clusters estimated by optimum average silhouette width:",
-pamk.best$nc, "\n")
-pdf(out_pamk)
-plot(pam(exp_data, pamk.best$nc))
-dev.off()
+# pamk.best <- pamk(exp_data)
+# cat("number of clusters estimated by optimum average silhouette width:",
+# pamk.best$nc, "\n")
+# pdf(out_pamk)
+# plot(pam(exp_data, pamk.best$nc))
+# dev.off()
