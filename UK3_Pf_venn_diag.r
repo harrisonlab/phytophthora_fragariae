@@ -29,11 +29,11 @@ orthotabs <- read.table(f)
 df1 <- t(orthotabs)
 summary(df1)
 
-label1 <- paste("NOV-27 (UK3)", sep = "" )
-label2 <- paste("NOV-71 (UK3)", sep = "" )
-label3 <- paste("NOV-9 (UK3)", sep = "" )
-label4 <- paste("A4 (UK2), NOV-5 (UK1)
-BC-16 (UK2) & BC-1 (UK1)", sep = "" )
+label1 <- paste("NOV-27", "(UK3)", sep = "\n" )
+label2 <- paste("NOV-71", "(UK3)", sep = "\n" )
+label3 <- paste("NOV-9", "(UK3)", sep = "\n" )
+label4 <- paste("A4 (UK2), NOV-5 (UK1),", "BC-16 (UK2) & BC-1 (UK1)",
+sep = "\n" )
 
 NOV27 <- subset(df1, df1[, "A4"] == 0 & df1[, "Nov5"] == 0 &
 df1[, "Nov27"] == 1 & df1[, "Nov71"] == 0 & df1[, "Bc16"] == 0 &
@@ -120,11 +120,11 @@ draw.quad.venn(area1, area2, area3, area4,
     "darkorchid"), alpha = rep(0.5, 4),
     label.col = rep("black", 15), cex = rep(2, 15),
     fontface = rep("plain", 15),
-    fontfamily = rep("sans", 15), cat.pos = c(-15, 15, 0, 0),
-    cat.dist = c(0.22, 0.22, 0.11, 0.11), cat.col = rep("black", 4),
+    fontfamily = rep("sans", 15), cat.pos = c(-15, 15, -15, 10),
+    cat.dist = c(0.25, 0.25, 0.18, 0.20), cat.col = rep("black", 4),
     cat.cex = rep(2, 4), cat.fontface = rep("plain", 4),
     cat.fontfamily = rep("sans", 4), cat.just = rep(list(c(0.5, 0.5)), 4),
-    rotation.degree = 0, rotation.centre = c(0.5, 0.5)
+    rotation.degree = 0, rotation.centre = c(0.5, 0.5), margin = 0.03
     )
 dev.off()
 

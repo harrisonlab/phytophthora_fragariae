@@ -39,10 +39,11 @@ df1[, "Nov27"] != 0 & df1[, "Nov71"] != 0 & df1[, "Bc16"] != 0 &
 df1[, "Nov9"] != 0 & df1[, "Bc1"] == 0)
 
 # Set up labels
-label1 <- paste("NOV-5 (UK1)", sep = "" )
-label2 <- paste("BC-1 (UK1)", sep = "" )
-label3 <- paste("A4 (UK2), NOV-27 (UK3), NOV-71 (UK3), NOV-9 (UK3) & BC-16",
-"(UK2)", sep = "" )
+label1 <- paste("NOV-5", "(UK1)", sep = "\n" )
+label2 <- paste("BC-1", "(UK1)", sep = "\n" )
+label3 <-
+paste("A4 (UK2), NOV-27 (UK3), NOV-71 (UK3),", "NOV-9 (UK3) & BC-16 (UK2)",
+sep = "\n" )
 
 n123 <- nrow(subset(df1, df1[, "A4"] != 0 & df1[, "Nov5"] == 1 &
 df1[, "Nov27"] != 0 & df1[, "Nov71"] != 0 & df1[, "Bc16"] != 0 &
@@ -93,7 +94,7 @@ draw.triple.venn(area1, area2, area3,
     fontface = rep("plain", 7),
     fontfamily = rep("sans", 7),
     cat.pos = c(-40, 40, 180),
-    cat.dist = c(0.05, 0.05, 0.025),
+    cat.dist = c(0.15, 0.15, 0.1),
     cat.col = rep("black", 3),
     cat.cex = rep(2, 3),
     cat.fontface = rep("plain", 3),
