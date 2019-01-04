@@ -122,7 +122,7 @@ draw.quad.venn(area1, area2, area3, area4,
     fontface = rep("bold", 15),
     fontfamily = rep("sans", 15), cat.pos = c(-15, 15, 0, 0),
     cat.dist = c(0.22, 0.22, 0.11, 0.11), cat.col = rep("black", 4),
-    cat.cex = rep(1, 4), cat.fontface = rep("plain", 4),
+    cat.cex = rep(1, 4), cat.fontface = rep("bold", 4),
     cat.fontfamily = rep("sans", 4), cat.just = rep(list(c(0.5, 0.5)), 4),
     rotation.degree = 0, rotation.centre = c(0.5, 0.5)
     )
