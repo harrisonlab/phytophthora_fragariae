@@ -83,7 +83,7 @@ plot <- ggplot(input, aes(x = Timepoint2, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
         scale_color_brewer(palette = "Paired") + xlab("Timepoint") +
-        theme(panel.grid.major = element_blank(),
+        ylab("Relative Expression") + theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), panel.background = element_blank(),
         panel.border = element_rect(colour = "black", fill = NA, size = 1),
         axis.text = element_text(size = 14),
