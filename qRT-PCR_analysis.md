@@ -5,7 +5,7 @@ Run on Mac rather than cluster
 Each gene analysed is on a separate csv file
 
 ```bash
-cd /Users/adamst/Documents/qPCR/Statistical_Analysis
+cd /Users/adamst/Documents/qPCR/With\ A4/Statistical_Analysis
 ```
 
 ## Run ANOVAs
