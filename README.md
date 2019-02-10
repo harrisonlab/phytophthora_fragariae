@@ -3,6 +3,8 @@ Commands used in the analysis of P. fragariae genomes
 A4, BC-1, BC-16, BC-23, NOV-27, NOV-5, NOV-71, NOV-77, NOV-9, ONT-3, SCRP245_v2
 ====================
 
+Some scripts used do not feature in this Github repo. Please navigate to the harrisonlab or eastmallingresearch organisations to find these scripts.
+
 Commands used during analysis of Phytophthora fragariae genomes. Note - all this work was performed in the directory: /home/groups/harrisonlab/project_files/phytophthora_fragariae
 
 The following is a summary of the work presented in this Readme:
