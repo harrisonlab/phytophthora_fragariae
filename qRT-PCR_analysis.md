@@ -71,6 +71,16 @@ capture.output(Tukey, file = "Middle_RxLR_Tukey_results.txt")
 
 ### Candidate _Avr_ (g24882.t1)
 
+Used the following code to define the colours
+As differed to other plots due to alphabetical assignment to palette
+
+```R
+my_palette = c(brewer.pal(4, "Paired")[c(4,1,2,3)])
+my_palette
+```
+
+Draw plot
+
 ```R
 # Read in csv file
 input <- read.csv("cAvr_plus_SEM.csv")
@@ -82,8 +92,9 @@ input$Timepoint2 <- factor(input$Timepoint, levels = c("Mycelium", "24hpi",
 plot <- ggplot(input, aes(x = Timepoint2, y = Expression, group = Isolate,
     colour = Isolate)) + geom_errorbar(aes(ymin = Expression - SEM,
         ymax = Expression + SEM), width = 0.1) + geom_line() + geom_point() +
-        scale_color_brewer(palette = "Paired") + xlab("Timepoint") +
-        ylab("Relative Expression") + theme(panel.grid.major = element_blank(),
+        scale_color_manual(values = c("#33A02C", "#A6CEE3", "#1F78B4",
+        "#B2DF8A")) + xlab("Timepoint") + ylab("Relative Expression") +
+        theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), panel.background = element_blank(),
         panel.border = element_rect(colour = "black", fill = NA, size = 1),
         axis.text = element_text(size = 14),
