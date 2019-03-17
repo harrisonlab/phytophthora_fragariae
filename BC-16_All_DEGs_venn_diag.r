@@ -33,9 +33,9 @@ TP3 <- subset(DEGs, DEGs[, "X24hr"] == 0 &
 DEGs[, "X48hr"] == 0 & DEGs[, "X96hr"] == 1)
 
 # Set up labels
-label1 <- paste("24hr", sep = "" )
-label2 <- paste("48hr", sep = "" )
-label3 <- paste("96hr", sep = "" )
+label1 <- paste("24hpi", sep = "" )
+label2 <- paste("48hpi", sep = "" )
+label3 <- paste("96hpi", sep = "" )
 
 n123 <- nrow(subset(DEGs, DEGs[, "X24hr"] == 1 &
 DEGs[, "X48hr"] == 1 & DEGs[, "X96hr"] == 1))
