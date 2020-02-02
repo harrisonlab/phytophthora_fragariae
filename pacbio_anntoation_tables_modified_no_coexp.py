@@ -574,7 +574,8 @@ header_line.extend(['contig', 'start', 'stop', 'strand'])
 #                     'CRN_total', 'orthogroup'])
 header_line.extend(['sigP2', 'sigP3', 'sigP4', 'phobius', 'TMHMM', 'GPI',
                     'secreted', 'RxLR_total', 'RxLR_EER_total', 'CRN_total',
-                    'ApoplastP_total', 'Transcription_Factor', 'orthogroup'])
+                    'ApoplastP_total', 'Transcription_Factor', 'Low_Confidence_Model',
+                    'orthogroup'])
 for treatment in sorted(set(count_treatment_list)):
     treatment = "raw_count_" + treatment
     header_line.append(treatment)
@@ -668,6 +669,7 @@ for line in transcript_lines:
     CRN_total = ''
     ApoP_total = ''
     TF_Total = ''
+    Low_Conf = ''
     orthogroup = ''
     prot_seq = ''
     swissprot_cols = []
@@ -700,6 +702,14 @@ for line in transcript_lines:
         trans_mem = 'Yes'
     if transcript_id in gpi_set:
         gpi = 'Yes'
+    if transcript_id in SigP2_ORF_set:
+        Low_Conf = 'Yes'
+    if transcript_id in SigP3_ORF_set:
+        Low_Conf = 'Yes'
+    if transcript_id in SigP4_ORF_set:
+        Low_Conf = 'Yes'
+    if transcript_id in phobius_ORF_set:
+        Low_Conf = 'Yes'
     if any([sigP2 == 'Yes', sigP3 == 'Yes', sigP4 == 'Yes',
             phobius == 'Yes']) and all([trans_mem == '']):
         secreted = 'Yes'
@@ -782,7 +792,7 @@ for line in transcript_lines:
     outline.extend([sigP2, sigP3, sigP4, phobius])
     outline.extend([trans_mem, gpi, secreted])
     outline.extend([RxLR_total, RxLR_EER_total, CRN_total, ApoP_total,
-                    TF_Total])
+                    TF_Total, Low_Conf])
     outline.append(orthogroup)
     outline.extend(mean_count_cols)
     outline.extend(mean_fpkm_cols)
